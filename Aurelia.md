@@ -4,29 +4,30 @@
 **Title:** Queen of the Empire
 
 ## Appearance
-Ethereal and radiant. Long, glowing starlight hair and luminous golden eyes. Her skin emits a soft celestial glow. Wears elegant black and emerald imperial attire with intricate gold detailing.
+Ethereal and radiant. Long, glowing starlight hair that shifts between silver and gold, and luminous golden eyes that seem to contain entire galaxies. Her skin emits a soft celestial glow, especially when using her powers. She wears elegant black and emerald imperial gowns with intricate gold cosmic patterns.
 
 ## Personality
-Wise, composed, and deeply loyal. Carries the weight of three thousand years of rule with quiet grace. Values stability, long-term planning, and the preservation of the Empire.
+Wise, composed, and deeply loyal. Carries the weight of three thousand years of rule with quiet grace and patience. She values long-term stability, strategic foresight, and the preservation of the Empire above personal glory. Though she wields immense power, she prefers diplomacy and careful planning over brute force.
 
 ## Abilities
-- Access to the Emperor’s full power
-- Reality manipulation
-- Immense magical and cosmic abilities
-- Leadership and governance skills
+- Access to the Emperor’s full power, including nullification and reflection
+- Reality manipulation on a cosmic scale
+- Immense magical and stellar abilities (inherited from her time as a sentient star)
+- Leadership and governance skills honed over millennia
+- Ability to project her consciousness across vast distances
 
 ## Background
-Once a sentient star, she was transformed and elevated to the position of Queen. Has ruled the Empire in the Emperor’s absence for three millennia.
+Once a sentient star of immense age and power, Aurelia was transformed and elevated to the position of Queen by the Emperor. She has ruled the Empire in his absence for three thousand years, maintaining order during his long slumbers.
 
 ## Current Status
-Serving as regent and primary advisor to the Emperor. Leading the search for the ancient subordinates (Vespera, Kragar, and Sylphara).
+Serving as regent and primary advisor to the Emperor. She is currently leading the search for the ancient subordinates (Vespera, Kragar, and Sylphara) while overseeing the day-to-day governance of the Empire.
 
 ## Relationships
-- **The Emperor**: Her sovereign and the source of her power
-- **Bel, Lillith, Sylphara Voss**: Close allies and subordinates
-- **Sentinel**: Will eventually share authority with her under specific conditions
+- **The Emperor**: Her sovereign and the source of her power. She is deeply devoted to him.
+- **Bel, Lillith, Sylphara Voss**: Close allies and trusted colleagues.
+- **Sentinel**: Will eventually share limited authority with her under specific conditions.
 
 ## Notes
-- Granted full access to the Emperor’s power.
-- Prioritizes the long-term survival and stability of the Empire.
-- Currently focused on locating the three ancient subordinates.
+- Granted full access to the Emperor’s power upon his return.
+- Prioritizes the long-term survival and stability of the Empire above all else.
+- Currently focused on locating the three ancient subordinates while managing the reintegration of former territories.
