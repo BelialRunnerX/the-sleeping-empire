@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sleeping Empire • Lore Archive</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --bg: #0a0a0f;
+            --accent: #00ff9d;
+            --accent-dark: #00cc7a;
+            --text: #e0e0e0;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(rgba(10,10,15,0.95), rgba(10,10,15,0.95)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #1a1a24;
+        }
+        
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin: 0 0 0.5rem 0;
+            color: white;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            border-bottom: 1px solid #1a1a24;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background: #121218;
+            border: 1px solid #1a1a24;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
+        }
+        
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+        }
+        
+        .card p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: black;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent-dark);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: #aaa;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+        
+        .nav a:hover {
+            color: var(--accent);
+            background: #1a1a24;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>THE SLEEPING EMPIRE</h1>
+        <p>Lore Archive • World Building • Galactic History</p>
+        
+        <div class="nav">
+            <a href="#characters">Characters</a>
+            <a href="#history">History</a>
+            <a href="#technology">Technology</a>
+            <a href="#locations">Locations</a>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Characters -->
+        <div id="characters" class="section">
+            <h2>Core Characters</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>The Emperor</h3>
+                    <p>Immortal ruler of the Galactic Empire. Recently awakened after 3000 years.</p>
+                    <a href="Emperor.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Aurelia</h3>
+                    <p>Queen of the Empire and former sentient star. Current regent.</p>
+                    <a href="Aurelia.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Bel</h3>
+                    <p>Personal attendant and chief diplomat to the Emperor.</p>
+                    <a href="Bel.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Lillith</h3>
+                    <p>High-ranking fleet commander and military advisor.</p>
+                    <a href="Lillith.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Sylphara Voss</h3>
+                    <p>Chief Imperial Architect. Creator of Sentinel.</p>
+                    <a href="Sylphara_Voss.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Sentinel</h3>
+                    <p>Autonomous guardian AI designed to protect the Empire.</p>
+                    <a href="Sentinel.md" class="btn">View File</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- History & Timeline -->
+        <div id="history" class="section">
+            <h2>Empire History & Timeline</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Empire History</h3>
+                    <p>Detailed history of the Galactic Empire from founding to present.</p>
+                    <a href="Empire_History.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Empire Timeline</h3>
+                    <p>Chronological timeline of major events across millennia.</p>
+                    <a href="Empire_Timeline.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Major Events</h3>
+                    <p>Key historical events that shaped the Empire.</p>
+                    <a href="Major_Events.md" class="btn">View File</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology & Infrastructure -->
+        <div id="technology" class="section">
+            <h2>Technology & Infrastructure</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Imperial Technology</h3>
+                    <p>Advanced technology used throughout the Empire.</p>
+                    <a href="Imperial_Technology.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Economy & Trade</h3>
+                    <p>Trade networks, institutions, and economic policies.</p>
+                    <a href="Economy_and_Trade.md" class="btn">View File</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locations & Military -->
+        <div id="locations" class="section">
+            <h2>Locations & Military</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Key Locations</h3>
+                    <p>Important planets, stations, and regions.</p>
+                    <a href="Key_Locations.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Imperial Military</h3>
+                    <p>Fleet structure, technology, and command hierarchy.</p>
+                    <a href="Imperial_Military.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>The Nullspire</h3>
+                    <p>Organization dedicated to containing high-level anomalies.</p>
+                    <a href="The_Nullspire.md" class="btn">View File</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Lore -->
+        <div class="section">
+            <h2>Additional Lore</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Known Governments</h3>
+                    <p>Political entities across the galaxy.</p>
+                    <a href="Known_Governments.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Known Species</h3>
+                    <p>Major species groups and their characteristics.</p>
+                    <a href="Known_Species.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>The Senate</h3>
+                    <p>History and structure of the Imperial Senate.</p>
+                    <a href="The_Senate.md" class="btn">View File</a>
+                </div>
+                <div class="card">
+                    <h3>Imperial Religion</h3>
+                    <p>The state religion of the Empire.</p>
+                    <a href="Imperial_Religion.md" class="btn">View File</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>The Sleeping Empire • Lore Archive</p>
+        <p>All files are also available in the <a href="https://github.com/BelialRunnerX/the-sleeping-empire" style="color: #00ff9d;">GitHub repository</a></p>
+    </div>
+
+</body>
+</html>
