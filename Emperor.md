@@ -1,4 +1,4 @@
-# The Emperor (Hazael)
+# Elysomnion (Elys)
 
 **Role:** Ruler of the Galactic Empire  
 **Title:** Emperor of the Galactic Empire, Sovereign of Epsilon-7
@@ -31,7 +31,7 @@ Philosophical, strategic, and deeply introspective. Values loyalty, resolve, and
 ## Abilities
 
 ### Nullification
-The Emperor possesses the ability to **nullify** nearly any form of energy, matter, or supernatural power that comes into contact with him. This ability functions as an absolute defensive field:
+Elysomnion possesses the ability to **nullify** nearly any form of energy, matter, or supernatural power that comes into contact with him. This ability functions as an absolute defensive field:
 
 - Any attack, whether physical, energy-based, or conceptual, is rendered inert the moment it reaches him.
 - This includes (but is not limited to) kinetic force, plasma, radiation, psychic attacks, and reality-warping effects.
@@ -39,15 +39,15 @@ The Emperor possesses the ability to **nullify** nearly any form of energy, matt
 - Even weapons of extreme power, such as singularity-based armaments, are neutralized upon contact.
 
 ### Reflection
-In addition to nullification, the Emperor can **reflect** incoming attacks back toward their source. This ability activates selectively:
+In addition to nullification, Elysomnion can **reflect** incoming attacks back toward their source. This ability activates selectively:
 
 - Reflected attacks retain their original power and are often amplified.
-- The Emperor can choose which attacks to reflect and which to simply nullify.
+- Elysomnion can choose which attacks to reflect and which to simply nullify.
 - Reflection can be used both defensively and offensively, turning an enemy’s strength against them.
 - This ability has been demonstrated against both conventional weapons and god-like entities.
 
 ## Background
-An immensely powerful being who has ruled the Empire for millennia. He conquered the galaxy in just three days during the founding era. The Emperor frequently enters long periods of slumber lasting thousands of years, during which the Empire is left under the stewardship of his chosen subordinates.
+An immensely powerful being who has ruled the Empire for millennia. He conquered the galaxy in just three days during the founding era. Elysomnion frequently enters long periods of slumber lasting thousands of years, during which the Empire is left under the stewardship of his chosen subordinates.
 
 ## Current Status
 Actively working to reassert Imperial control over the fractured galaxy through diplomacy, military strategy, and long-term infrastructure projects. He has recently begun searching for three ancient subordinates: Vespera, Kragar, and Sylphara.
