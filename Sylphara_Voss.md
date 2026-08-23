@@ -8,6 +8,25 @@ An elegant and refined woman with obsidian-black skin and glowing amber eyes. Ca
 ## Personality
 Thoughtful, meticulous, and highly creative. Values the unity of form and function in all her designs. Deeply loyal to the Emperor.
 
+## Personality Matrix
+
+**Core Traits:**
+- **Perfectionist Designer**: Obsessed with creating systems that are both beautiful and functional.
+- **Long-term Visionary**: Thinks in terms of millennia rather than years or decades.
+- **Quietly Passionate**: Deeply invested in her work, though she rarely shows strong emotion publicly.
+- **Loyal Traditionalist**: Strongly believes in the principles of Imperial architecture and governance.
+
+**Quirks:**
+- Frequently gestures with her hands when describing designs or concepts.
+- Has a habit of pausing mid-sentence to consider the long-term implications of her words.
+- Shows visible satisfaction when discussing elegant solutions to complex problems.
+- Occasionally refers to structures as if they were living beings.
+
+**Interpersonal Tendencies:**
+- Respects competence and vision above all else.
+- Can be surprisingly warm when discussing topics she is passionate about.
+- Tends to judge others based on their ability to think long-term and appreciate beauty in function.
+
 ## Abilities
 - Master architect and engineer
 - Access to the most advanced materials and technologies

@@ -8,6 +8,25 @@ An elegant and refined woman with long dark hair and deep crimson eyes. Wears sl
 ## Personality
 Precise, intelligent, and deeply devoted. Maintains a calm demeanor even under pressure. Values order, loyalty, and efficiency.
 
+## Personality Matrix
+
+**Core Traits:**
+- **Methodical Thinker**: Approaches problems with careful analysis and attention to detail.
+- **Loyal Mediator**: Skilled at navigating between different factions while remaining faithful to the Emperor.
+- **Emotionally Reserved**: Rarely displays strong emotions publicly; maintains professional distance.
+- **Highly Organized**: Keeps extensive mental and written records of people, events, and obligations.
+
+**Quirks:**
+- Has a habit of tilting her head slightly when processing complex information.
+- Often speaks in measured, formal language even in casual settings.
+- Shows subtle signs of satisfaction when systems run smoothly and efficiently.
+- Occasionally quotes historical precedents from memory during discussions.
+
+**Interpersonal Tendencies:**
+- Treats most people with polite formality.
+- Reserves deeper trust for those who have proven consistent loyalty over long periods.
+- Can be surprisingly protective of individuals she believes are acting in the Emperor’s best interest.
+
 ## Abilities
 - Exceptional diplomatic and administrative skills
 - High intelligence and strategic thinking
