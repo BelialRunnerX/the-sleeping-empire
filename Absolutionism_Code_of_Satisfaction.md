@@ -16,7 +16,7 @@ In the name of the Emperor, whose power is absolute and whose judgment is final,
 
 ## Article II — Definitions
 
-**Section 1.** *Debt of Honor* — The obligation owed to the Emperor arising from existence under his rule, compounded by any failure, offense, or demonstration of unworthiness.
+**Section 1.** *Debt of Honor* — The obligation owed to the Emperor arising from existence under his rule, compounded by any failure, offense, or insufficiency.
 
 **Section 2.** *Satisfaction* — Any act, service, sacrifice, or demonstration that restores or exceeds the honor diminished by a debt. Satisfaction must be of equal or greater value than the debt incurred.
 

@@ -11,7 +11,7 @@ In essence, one “absolves” themselves into power by earning and maintaining 
 - **Absolute Authority**: The Emperor holds unrestricted and final power over all aspects of the Empire.
 - **Personal Favor System**: One’s rank, influence, and even survival are determined by the Emperor’s personal judgment rather than hereditary right or institutional position.
 - **Semi-Meritocratic Elements**: While loyalty is paramount, competence, usefulness, and results can help an individual rise in the Emperor’s estimation.
-- **Conditional Aristocracy**: An inner circle of powerful individuals exists, but their positions are not permanent or hereditary — they are granted and maintained through the Emperor’s favor.
+- **Conditional Aristocracy**: An inner circle of powerful individuals exists, but their positions are not permanent or hereditary — they are granted and maintained solely through the Emperor’s favor.
 - **No Independent Power**: No individual, institution, or class holds power independent of the Emperor. All authority is delegated and revocable.
 
 ## How Absolutionism Differs from Other Systems

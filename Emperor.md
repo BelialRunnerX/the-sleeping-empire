@@ -1,4 +1,4 @@
-# Elysomnion (Elys)
+# The Emperor (Elysomnion / Elys)
 
 **Role:** Ruler of the Galactic Empire  
 **Title:** Emperor of the Galactic Empire, Sovereign of Epsilon-7
@@ -9,29 +9,10 @@ A commanding, god-like figure with a regal and ancient presence. Wears ornate bl
 ## Personality
 Philosophical, strategic, and deeply introspective. Values loyalty, resolve, and long-term stability above all else. Capable of great mercy when it serves his vision, but also ruthlessly pragmatic when necessary. He views power not as an end, but as a tool that must be given purpose.
 
-## Personality Matrix
-
-**Core Traits:**
-- **Strategic Patience**: Prefers long-term planning over immediate action. Often waits centuries if needed to achieve a desired outcome.
-- **Detached Benevolence**: Claims to rule for the benefit of others, but maintains emotional distance from most individuals.
-- **Absolute Certainty**: Rarely doubts his decisions. Believes his perspective is inherently superior due to his power and experience.
-- **Selective Engagement**: Only invests deeply in relationships or projects he deems worthy of his attention.
-
-**Quirks:**
-- Frequently refers to events from thousands of years ago as if they happened recently.
-- Has a habit of testing loyalty through extreme or unexpected challenges.
-- Speaks in measured, deliberate tones, often pausing for long periods before responding.
-- Shows genuine interest in philosophical debates, especially regarding the nature of power and freedom.
-
-**Interpersonal Tendencies:**
-- Highly values competence and loyalty over personal affection.
-- Can be surprisingly merciful to those who show genuine resolve, even if they oppose him.
-- Tends to elevate individuals who demonstrate independent thought, provided it does not threaten his authority.
-
 ## Abilities
 
 ### Nullification
-Elysomnion possesses the ability to **nullify** nearly any form of energy, matter, or supernatural power that comes into contact with him. This ability functions as an absolute defensive field:
+The Emperor possesses the ability to **nullify** nearly any form of energy, matter, or supernatural power that comes into contact with him. This ability functions as an absolute defensive field:
 
 - Any attack, whether physical, energy-based, or conceptual, is rendered inert the moment it reaches him.
 - This includes (but is not limited to) kinetic force, plasma, radiation, psychic attacks, and reality-warping effects.
@@ -39,15 +20,15 @@ Elysomnion possesses the ability to **nullify** nearly any form of energy, matte
 - Even weapons of extreme power, such as singularity-based armaments, are neutralized upon contact.
 
 ### Reflection
-In addition to nullification, Elysomnion can **reflect** incoming attacks back toward their source. This ability activates selectively:
+In addition to nullification, the Emperor can **reflect** incoming attacks back toward their source. This ability activates selectively:
 
 - Reflected attacks retain their original power and are often amplified.
-- Elysomnion can choose which attacks to reflect and which to simply nullify.
+- The Emperor can choose which attacks to reflect and which to simply nullify.
 - Reflection can be used both defensively and offensively, turning an enemy’s strength against them.
 - This ability has been demonstrated against both conventional weapons and god-like entities.
 
 ## Background
-An immensely powerful being who has ruled the Empire for millennia. He conquered the galaxy in just three days during the founding era. Elysomnion frequently enters long periods of slumber lasting thousands of years, during which the Empire is left under the stewardship of his chosen subordinates.
+An immensely powerful being who has ruled the Empire for millennia. He conquered the galaxy in just three days during the founding era. The Emperor frequently enters long periods of slumber lasting thousands of years, during which the Empire is left under the stewardship of his chosen subordinates.
 
 ## Current Status
 Actively working to reassert Imperial control over the fractured galaxy through diplomacy, military strategy, and long-term infrastructure projects. He has recently begun searching for three ancient subordinates: Vespera, Kragar, and Sylphara.

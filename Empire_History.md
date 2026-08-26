@@ -26,7 +26,7 @@ The Galactic Empire is the dominant political and military force in the known ga
 - **Epsilon-7**: The Imperial capital and seat of power.
 - **The Nullspire**: An independent organization dedicated to containing high-level anomalies.
 - **The Imperial Military**: A vast and highly advanced fleet structure.
-- **Sentinel**: An autonomous AI guardian designed to protect the Empire in the absence of leadership.
+- **Sentinel**: An autonomous AI guardian designed to protect the Empire in the absence of its leadership.
 - **The Senate**: Re-established following the Emperor’s return, though its power remains subordinate.
 
 ## Current Challenges
