@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Character Sheet - The Sleeping Empire</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section { background: #1a1a1a; padding: 20px; margin-bottom: 25px; border-radius: 10px; }
+        h2 { color: #4fc3f7; border-bottom: 1px solid #333; padding-bottom: 8px; }
+        input, select { width: 100%; padding: 8px; background: #111; color: #ddd; border: 1px solid #444; margin-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .item-slot { background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444; }
+        button { background: #1a3c6e; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; }
+        button:hover { background: #2a5aa0; }
+        .rune { background: #2e2e2e; padding: 5px; margin: 3px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Advanced Character Sheet - The Sleeping Empire</h1>
+
+    <!-- Basic Info -->
+    <div class="section">
+        <h2>Basic Information</h2>
+        <div class="grid">
+            <div><label>Name</label><input type="text" id="name"></div>
+            <div><label>Species</label><input type="text" id="species"></div>
+            <div><label>Affiliation</label><input type="text" id="affiliation"></div>
+        </div>
+    </div>
+
+    <!-- Core Stats -->
+    <div class="section">
+        <h2>Core Stats</h2>
+        <div class="grid">
+            <div><label>Strength</label><input type="number" id="strength" value="10"></div>
+            <div><label>Reflexes</label><input type="number" id="reflexes" value="10"></div>
+            <div><label>Intelligence</label><input type="number" id="intelligence" value="10"></div>
+            <div><label>Willpower</label><input type="number" id="willpower" value="10"></div>
+            <div><label>Presence</label><input type="number" id="presence" value="10"></div>
+        </div>
+    </div>
+
+    <!-- Armor System -->
+    <div class="section">
+        <h2>Armor System</h2>
+        
+        <div class="grid">
+            <!-- Helmet -->
+            <div class="item-slot">
+                <h3>Helmet</h3>
+                <label>Name</label><input type="text" id="helmet_name" value="Nullweave Helm">
+                <label>Tier</label>
+                <select id="helmet_tier">
+                    <option>Common</option>
+                    <option>Uncommon</option>
+                    <option>Rare</option>
+                    <option>Epic</option>
+                    <option>Legendary</option>
+                </select>
+                <label>Armor</label><input type="number" id="helmet_armor" value="25">
+                <label>Health Bonus</label><input type="number" id="helmet_health" value="50">
+                <label>Movement Speed %</label><input type="number" id="helmet_speed" value="-5">
+                <label>Elemental Affinity</label>
+                <select id="helmet_element">
+                    <option>None</option>
+                    <option>Void</option>
+                    <option>Plasma</option>
+                    <option>Neural</option>
+                    <option>Dimensional</option>
+                </select>
+                
+                <h4>Runes</h4>
+                <div class="rune"><input type="text" placeholder="Rune 1"></div>
+                <div class="rune"><input type="text" placeholder="Rune 2"></div>
+            </div>
+
+            <!-- Chest -->
+            <div class="item-slot">
+                <h3>Chest Armor</h3>
+                <label>Name</label><input type="text" id="chest_name" value="Voidplate Chest">
+                <label>Tier</label>
+                <select id="chest_tier">
+                    <option>Common</option>
+                    <option>Uncommon</option>
+                    <option>Rare</option>
+                    <option>Epic</option>
+                    <option>Legendary</option>
+                </select>
+                <label>Armor</label><input type="number" id="chest_armor" value="65">
+                <label>Health Bonus</label><input type="number" id="chest_health" value="120">
+                <label>Movement Speed %</label><input type="number" id="chest_speed" value="-10">
+                <label>Elemental Affinity</label>
+                <select id="chest_element">
+                    <option>None</option>
+                    <option>Void</option>
+                    <option>Plasma</option>
+                    <option>Neural</option>
+                    <option>Dimensional</option>
+                </select>
+                <h4>Runes</h4>
+                <div class="rune"><input type="text" placeholder="Rune 1"></div>
+                <div class="rune"><input type="text" placeholder="Rune 2"></div>
+                <div class="rune"><input type="text" placeholder="Rune 3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weapons -->
+    <div class="section">
+        <h2>Weapons</h2>
+        <div class="grid">
+            <div class="item-slot">
+                <h3>Primary Weapon</h3>
+                <label>Name</label><input type="text" id="weapon1_name" value="Plasma Lance">
+                <label>Damage (Flat)</label><input type="number" id="weapon1_damage_flat" value="45">
+                <label>Damage (%)</label><input type="number" id="weapon1_damage_percent" value="15">
+                <label>Fire Rate (attacks/turn)</label><input type="number" id="weapon1_fire_rate" value="1">
+                <label>Elemental Type</label>
+                <select id="weapon1_element">
+                    <option>Void</option>
+                    <option>Plasma</option>
+                    <option>Neural</option>
+                    <option>Dimensional</option>
+                    <option>Kinetic</option>
+                </select>
+            </div>
+
+            <div class="item-slot">
+                <h3>Secondary Weapon</h3>
+                <label>Name</label><input type="text" id="weapon2_name" value="Neural Disruptor">
+                <label>Damage (Flat)</label><input type="number" id="weapon2_damage_flat" value="30">
+                <label>Damage (%)</label><input type="number" id="weapon2_damage_percent" value="25">
+                <label>Fire Rate (attacks/turn)</label><input type="number" id="weapon2_fire_rate" value="2">
+                <label>Elemental Type</label>
+                <select id="weapon2_element">
+                    <option>Void</option>
+                    <option>Plasma</option>
+                    <option>Neural</option>
+                    <option>Dimensional</option>
+                    <option>Kinetic</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <button onclick="saveCharacter()">Save Character</button>
+        <button onclick="loadCharacter()">Load Character</button>
+        <button onclick="clearForm()">Clear Form</button>
+    </div>
+</div>
+
+<script>
+function saveCharacter() {
+    const data = {};
+    document.querySelectorAll('input, select').forEach(el => {
+        data[el.id] = el.value;
+    });
+    const json = JSON.stringify(data, null, 2);
+    const blob = new Blob([json], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = (data.name || 'character') + '.json';
+    a.click();
+}
+
+function loadCharacter() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = ev => {
+            const data = JSON.parse(ev.target.result);
+            Object.keys(data).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) el.value = data[key];
+            });
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+function clearForm() {
+    if (confirm('Clear all fields?')) {
+        document.querySelectorAll('input, select').forEach(el => el.value = '');
+    }
+}
+</script>
+</body>
+</html>
