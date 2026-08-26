@@ -17,6 +17,7 @@ This file serves as a central reference for all core characters and major concep
 - [Random Event Generator](random_events.html)
 - [Interactive Character Sheet](character_sheet.html)
 - [Races & Classes](Races_and_Classes.md)
+- [Text Adventure Game](cyoa_adventure.html)
 
 ## Government & Political Systems
 

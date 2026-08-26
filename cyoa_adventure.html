@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sleeping Empire - Text Adventure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #game-area {
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+            padding: 20px;
+            min-height: 300px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .choice {
+            background-color: #1a3c6e;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 8px 0;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        .choice:hover {
+            background-color: #2a5aa0;
+        }
+        h1 {
+            color: #4fc3f7;
+        }
+        #status {
+            background-color: #111;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Sleeping Empire - Text Adventure</h1>
+        
+        <div id="status">
+            <strong>Character:</strong> <span id="char-name">None Loaded</span><br>
+            <strong>Location:</strong> <span id="location">Nexus Trade World</span>
+        </div>
+
+        <div id="game-area">
+            <p>Welcome to the Sleeping Empire. Load a character sheet or begin a new adventure.</p>
+        </div>
+
+        <div id="choices"></div>
+
+        <div style="margin-top: 30px;">
+            <button onclick="loadSavedCharacter()">Load Saved Character</button>
+            <button onclick="startNewGame()">Start New Game</button>
+            <button onclick="showRandomEvent()">Trigger Random Event</button>
+        </div>
+    </div>
+
+    <script>
+        let currentCharacter = null;
+        let currentLocation = "Nexus Trade World";
+
+        function updateStatus() {
+            document.getElementById('char-name').innerText = currentCharacter ? currentCharacter.name : "None Loaded";
+            document.getElementById('location').innerText = currentLocation;
+        }
+
+        function loadSavedCharacter() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        currentCharacter = JSON.parse(e.target.result);
+                        updateStatus();
+                        showMessage("Character loaded successfully. Welcome, " + currentCharacter.name + ".");
+                    } catch (error) {
+                        alert("Error loading character sheet.");
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        function startNewGame() {
+            currentCharacter = {
+                name: "New Operative",
+                species: "Human",
+                affiliation: "Independent"
+            };
+            updateStatus();
+            showMessage("You wake up in a small hab-module on the Nexus Trade World. The hum of the station fills your ears. What do you do?");
+            showChoices([
+                { text: "Head to the main trading hall", action: () => goToLocation("Trading Hall") },
+                { text: "Check the docking bays", action: () => goToLocation("Docking Bays") },
+                { text: "Visit the observation deck", action: () => goToLocation("Observation Deck") }
+            ]);
+        }
+
+        function showMessage(text) {
+            document.getElementById('game-area').innerHTML = `<p>${text}</p>`;
+        }
+
+        function showChoices(choices) {
+            const container = document.getElementById('choices');
+            container.innerHTML = '';
+            
+            choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'choice';
+                btn.innerText = choice.text;
+                btn.onclick = choice.action;
+                container.appendChild(btn);
+            });
+        }
+
+        function goToLocation(location) {
+            currentLocation = location;
+            updateStatus();
+            
+            let message = `You arrive at the ${location}.`;
+            
+            if (location === "Trading Hall") {
+                message += " Merchants from various factions are conducting business.";
+            } else if (location === "Docking Bays") {
+                message += " Several ships are docked, including an unmarked vessel.";
+            } else if (location === "Observation Deck") {
+                message += " You can see the stars... and something that looks like a rift.";
+            }
+            
+            showMessage(message);
+            
+            showChoices([
+                { text: "Look for opportunities", action: () => triggerRandomEvent() },
+                { text: "Return to the hab-module", action: () => goToLocation("Nexus Trade World") }
+            ]);
+        }
+
+        function triggerRandomEvent() {
+            const isGood = Math.random() > 0.5;
+            const events = isGood ? goodEvents : badEvents;
+            const eventText = events[Math.floor(Math.random() * events.length)];
+            
+            showMessage(eventText);
+            
+            showChoices([
+                { text: "Continue exploring", action: () => goToLocation(currentLocation) },
+                { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+            ]);
+        }
+
+        function showRandomEvent() {
+            triggerRandomEvent();
+        }
+
+        // Sample events
+        const goodEvents = [
+            "A merchant offers you a lucrative but risky trade deal.",
+            "You receive an encrypted message from an unknown source offering valuable information.",
+            "A local faction invites you to a private gathering.",
+            "You discover a small cache of ancient technology."
+        ];
+
+        const badEvents = [
+            "Pirates attempt to ambush you in a quiet corridor.",
+            "A powerful noble takes offense at your presence.",
+            "Your neural implant picks up a suspicious signal.",
+            "You overhear a plot against the trading hub."
+        ];
+
+        // Initialize
+        updateStatus();
+    </script>
+</body>
+</html>
