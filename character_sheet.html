@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Sheet - The Sleeping Empire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #4fc3f7;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+        }
+        .section {
+            background-color: #1a1a1a;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #1a3c6e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2a5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Sheet - The Sleeping Empire</h1>
+        
+        <div class="section">
+            <h2>Basic Information</h2>
+            <label>Name:</label>
+            <input type="text" id="name">
+            
+            <label>Title / Rank:</label>
+            <input type="text" id="title">
+            
+            <label>Species / Origin:</label>
+            <input type="text" id="species">
+            
+            <label>Age:</label>
+            <input type="text" id="age">
+            
+            <label>Affiliation:</label>
+            <input type="text" id="affiliation">
+        </div>
+
+        <div class="section">
+            <h2>Attributes</h2>
+            <label>Strength:</label>
+            <input type="number" id="strength">
+            
+            <label>Reflexes:</label>
+            <input type="number" id="reflexes">
+            
+            <label>Intelligence:</label>
+            <input type="number" id="intelligence">
+            
+            <label>Willpower:</label>
+            <input type="number" id="willpower">
+            
+            <label>Presence:</label>
+            <input type="number" id="presence">
+        </div>
+
+        <div class="section">
+            <h2>Skills & Proficiencies</h2>
+            <label>Combat:</label>
+            <input type="text" id="combat">
+            
+            <label>Piloting / Navigation:</label>
+            <input type="text" id="piloting">
+            
+            <label>Technology / Hacking:</label>
+            <input type="text" id="technology">
+            
+            <label>Psionics:</label>
+            <input type="text" id="psionics">
+            
+            <label>Diplomacy / Trade:</label>
+            <input type="text" id="diplomacy">
+        </div>
+
+        <div class="section">
+            <h2>Background</h2>
+            <label>Origin Story:</label>
+            <textarea id="origin" rows="4"></textarea>
+            
+            <label>Notable Deeds:</label>
+            <textarea id="deeds" rows="3"></textarea>
+            
+            <label>Goals / Ambitions:</label>
+            <textarea id="goals" rows="3"></textarea>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button onclick="saveCharacter()">Save Character Sheet</button>
+            <button onclick="loadCharacter()">Load Character Sheet</button>
+            <button onclick="clearForm()">Clear Form</button>
+        </div>
+    </div>
+
+    <script>
+        function saveCharacter() {
+            const character = {
+                name: document.getElementById('name').value,
+                title: document.getElementById('title').value,
+                species: document.getElementById('species').value,
+                age: document.getElementById('age').value,
+                affiliation: document.getElementById('affiliation').value,
+                strength: document.getElementById('strength').value,
+                reflexes: document.getElementById('reflexes').value,
+                intelligence: document.getElementById('intelligence').value,
+                willpower: document.getElementById('willpower').value,
+                presence: document.getElementById('presence').value,
+                combat: document.getElementById('combat').value,
+                piloting: document.getElementById('piloting').value,
+                technology: document.getElementById('technology').value,
+                psionics: document.getElementById('psionics').value,
+                diplomacy: document.getElementById('diplomacy').value,
+                origin: document.getElementById('origin').value,
+                deeds: document.getElementById('deeds').value,
+                goals: document.getElementById('goals').value
+            };
+            
+            const dataStr = JSON.stringify(character, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = (character.name || 'character') + '.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+        
+        function loadCharacter() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        const character = JSON.parse(e.target.result);
+                        
+                        document.getElementById('name').value = character.name || '';
+                        document.getElementById('title').value = character.title || '';
+                        document.getElementById('species').value = character.species || '';
+                        document.getElementById('age').value = character.age || '';
+                        document.getElementById('affiliation').value = character.affiliation || '';
+                        document.getElementById('strength').value = character.strength || '';
+                        document.getElementById('reflexes').value = character.reflexes || '';
+                        document.getElementById('intelligence').value = character.intelligence || '';
+                        document.getElementById('willpower').value = character.willpower || '';
+                        document.getElementById('presence').value = character.presence || '';
+                        document.getElementById('combat').value = character.combat || '';
+                        document.getElementById('piloting').value = character.piloting || '';
+                        document.getElementById('technology').value = character.technology || '';
+                        document.getElementById('psionics').value = character.psionics || '';
+                        document.getElementById('diplomacy').value = character.diplomacy || '';
+                        document.getElementById('origin').value = character.origin || '';
+                        document.getElementById('deeds').value = character.deeds || '';
+                        document.getElementById('goals').value = character.goals || '';
+                        
+                        alert('Character sheet loaded successfully!');
+                    } catch (error) {
+                        alert('Error loading file. Please make sure it is a valid character sheet.');
+                    }
+                };
+                
+                reader.readAsText(file);
+            };
+            
+            input.click();
+        }
+        
+        function clearForm() {
+            if (confirm('Are you sure you want to clear the form?')) {
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => input.value = '');
+            }
+        }
+    </script>
+</body>
+</html>
