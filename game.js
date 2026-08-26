@@ -12,17 +12,36 @@ let inventory = [];
 window.addEventListener('keydown', e => keys[e.key] = true);
 window.addEventListener('keyup', e => keys[e.key] = false);
 
-// Touch
-let touchStartX = 0, touchStartY = 0;
-canvas.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; });
+// Touch / Click to move
+function handleMove(clientX, clientY) {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = Math.floor((clientX - rect.left) / TILE_SIZE);
+    const clickY = Math.floor((clientY - rect.top) / TILE_SIZE);
+
+    if (clickX < 0 || clickX >= MAP_WIDTH || clickY < 0 || clickY >= MAP_HEIGHT) return;
+
+    // Simple step toward target
+    let dx = 0, dy = 0;
+    if (clickX > player.x) dx = 1;
+    else if (clickX < player.x) dx = -1;
+    else if (clickY > player.y) dy = 1;
+    else if (clickY < player.y) dy = -1;
+
+    const newX = player.x + dx;
+    const newY = player.y + dy;
+
+    if (newX >= 0 && newX < MAP_WIDTH && newY >= 0 && newY < MAP_HEIGHT && map[newY][newX] === 0) {
+        player.x = newX;
+        player.y = newY;
+    }
+}
+
+canvas.addEventListener('click', e => handleMove(e.clientX, e.clientY));
 canvas.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    let moveX = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 1 : -1) : 0;
-    let moveY = Math.abs(dy) > Math.abs(dx) ? (dy > 0 ? 1 : -1) : 0;
-    movePlayer(moveX, moveY);
+    handleMove(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
 });
 
+// Map
 let map = [];
 function generateMap() {
     for (let y = 0; y < MAP_HEIGHT; y++) {
@@ -35,6 +54,7 @@ function generateMap() {
 }
 generateMap();
 
+// Loot
 const itemTiers = ['Common','Uncommon','Rare','Epic','Legendary'];
 const elements = ['Void','Plasma','Neural','Dimensional','Kinetic'];
 
@@ -65,71 +85,6 @@ function updateInventoryUI() {
     });
 }
 
-function movePlayer(dx, dy) {
-    const newX = player.x + dx;
-    const newY = player.y + dy;
-    if (newX >= 0 && newX < MAP_WIDTH && newY >= 0 && newY < MAP_HEIGHT && map[newY][newX] === 0) {
-        player.x = newX;
-        player.y = newY;
-
-        // Random loot
-        if (Math.random() < 0.08) {
-            addToInventory(generateLoot());
-        }
-
-        // Random encounter
-        if (Math.random() < 0.12) {
-            triggerEncounter();
-        }
-    }
-}
-
-function triggerEncounter() {
-    const types = ['Hostile', 'Peaceful'];
-    const type = types[Math.floor(Math.random()*types.length)];
-
-    if (type === 'Hostile') {
-        showMessage("A hostile entity appears! What do you do?");
-        showChoices([
-            { text: "Fight", action: () => resolveCombat() },
-            { text: "Try to flee", action: () => showMessage("You escaped.") }
-        ]);
-    } else {
-        showMessage("You meet a wandering trader.");
-        showChoices([
-            { text: "Trade", action: () => { addToInventory(generateLoot()); showMessage("You made a trade."); } },
-            { text: "Ignore", action: () => showMessage("You move on.") }
-        ]);
-    }
-}
-
-function resolveCombat() {
-    const char = window.gameState?.character || { strength: 10 };
-    const damage = (char.strength || 10) * 2 + (inventory.length * 3);
-    if (damage > 40) {
-        showMessage(`You defeated the enemy! (+${Math.floor(damage/4)} damage dealt)`);
-        if (Math.random() < 0.6) addToInventory(generateLoot());
-    } else {
-        showMessage("You barely escaped.");
-    }
-}
-
-function showMessage(text) {
-    document.getElementById('game-area').innerHTML = `<p>${text}</p>`;
-}
-
-function showChoices(choices) {
-    const container = document.getElementById('choices');
-    container.innerHTML = '';
-    choices.forEach(c => {
-        const btn = document.createElement('button');
-        btn.className = 'choice';
-        btn.innerText = c.text;
-        btn.onclick = () => { container.innerHTML = ''; c.action(); };
-        container.appendChild(btn);
-    });
-}
-
 function update() {
     let dx=0, dy=0;
     if (keys['ArrowUp']||keys['w']) dy=-1;
@@ -137,12 +92,23 @@ function update() {
     if (keys['ArrowLeft']||keys['a']) dx=-1;
     if (keys['ArrowRight']||keys['d']) dx=1;
 
-    if (dx||dy) movePlayer(dx, dy);
+    if (dx||dy) {
+        const newX = player.x + dx;
+        const newY = player.y + dy;
+        if (newX>=0 && newX<MAP_WIDTH && newY>=0 && newY<MAP_HEIGHT && map[newY][newX]===0) {
+            player.x = newX;
+            player.y = newY;
+
+            if (Math.random()<0.08) addToInventory(generateLoot());
+            if (Math.random()<0.12) triggerEncounter();
+        }
+    }
 }
 
 function draw() {
     ctx.fillStyle='#0a0c14';
     ctx.fillRect(0,0,canvas.width,canvas.height);
+
     for(let y=0;y<MAP_HEIGHT;y++){
         for(let x=0;x<MAP_WIDTH;x++){
             ctx.fillStyle = map[y][x]===1 ? '#1a2533' : '#11161f';
@@ -151,6 +117,7 @@ function draw() {
             ctx.strokeRect(x*TILE_SIZE,y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
         }
     }
+
     ctx.fillStyle='#00f3ff';
     ctx.fillRect(player.x*TILE_SIZE,player.y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
 }
@@ -162,4 +129,4 @@ function gameLoop(){
 }
 
 gameLoop();
-console.log('%c[Sleeping Empire] Encounters system initialized.', 'color:#00f3ff');
+console.log('%c[Sleeping Empire] Mobile tap-to-move enabled.', 'color:#00f3ff');
