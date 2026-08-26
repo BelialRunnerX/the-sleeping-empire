@@ -112,11 +112,14 @@ function goToLocation(location) {
     showChoices(choices);
 }
 
-// ==================== BRANCHING EVENTS ====================
+// ==================== BRANCHING EVENTS WITH STAT & GEAR INTEGRATION ====================
 function eavesdrop() {
-    if (gameState.character.intelligence >= 14) {
+    const char = gameState.character;
+    if (char.intelligence >= 14) {
         gameState.favor += 1;
         showMessage("You overhear valuable information about a upcoming trade deal. (+1 Favor)");
+    } else if (char.reflexes >= 12) {
+        showMessage("You barely avoid being caught eavesdropping.");
     } else {
         gameState.suspicion += 1;
         showMessage("You get caught eavesdropping. (+1 Suspicion)");
@@ -129,20 +132,14 @@ function eavesdrop() {
 }
 
 function investigateShip() {
-    showMessage("The ship appears to be smuggling restricted technology.");
-    showChoices([
-        { text: "Report it (Gain Favor)", action: () => { gameState.favor += 2; updateUI(); showMessage("You report the ship and gain favor with local authorities."); } },
-        { text: "Ignore it", action: () => showMessage("You decide not to get involved.") },
-        { text: "Try to buy some of the tech (Risky)", action: () => triggerRandomEvent() }
-    ]);
-}
-
-function scanAnomaly() {
-    if (gameState.character.intelligence >= 13) {
-        showMessage("You detect traces of Nullborn energy. This could be valuable information.");
+    const char = gameState.character;
+    if (char.weapon && char.weapon.element === "Plasma") {
+        showMessage("Your Plasma weapon gives you an edge while investigating. You find restricted tech.");
         gameState.favor += 1;
+    } else if (char.intelligence >= 13) {
+        showMessage("You identify the ship as smuggling dangerous technology.");
     } else {
-        showMessage("The readings are confusing. You gain nothing useful.");
+        showMessage("The ship leaves before you can learn much.");
     }
     updateUI();
     showChoices([
@@ -150,15 +147,58 @@ function scanAnomaly() {
     ]);
 }
 
-// ==================== RANDOM EVENT SYSTEM ====================
+function scanAnomaly() {
+    const char = gameState.character;
+    if (char.intelligence >= 14) {
+        showMessage("You detect traces of Nullborn energy. This could be valuable information. (+1 Favor)");
+        gameState.favor += 1;
+    } else if (char.willpower >= 13) {
+        showMessage("You resist the strange energy and gather basic readings.");
+    } else {
+        showMessage("The anomaly affects you negatively. (+1 Suspicion)");
+        gameState.suspicion += 1;
+    }
+    updateUI();
+    showChoices([
+        { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+    ]);
+}
+
+// ==================== RANDOM EVENT SYSTEM WITH GEAR CHECKS ====================
 function triggerRandomEvent() {
-    // Reuse logic from random_events.html or simplified version
-    const isGood = Math.random() > 0.5;
-    const events = isGood ? 
-        ["You gain a useful contact.", "You acquire valuable information."] : 
-        ["You make a minor enemy.", "You lose some standing."];
-    
-    const outcome = events[Math.floor(Math.random() * events.length)];
+    const char = gameState.character;
+    if (!char) {
+        alert("Please generate or load a character first.");
+        return;
+    }
+
+    const roll = Math.random();
+    let outcome = "";
+    let isGood = null;
+
+    // Gear-based branching
+    if (char.weapon && char.weapon.element === "Dimensional" && roll < 0.35) {
+        outcome = "Your Dimensional weapon reacts strangely to the situation, giving you an unexpected advantage.";
+        isGood = true;
+    } 
+    else if (char.armor && char.armor.element === "Void" && roll < 0.35) {
+        outcome = "Your Void-infused armor protects you from an unexpected threat.";
+        isGood = true;
+    } 
+    else {
+        if (roll < 0.33) {
+            outcome = "You gain a useful contact or resource.";
+            isGood = true;
+        } else if (roll < 0.66) {
+            outcome = "You suffer a minor setback.";
+            isGood = false;
+        } else {
+            outcome = "The situation resolves with mixed results.";
+            isGood = null;
+        }
+    }
+
+    const className = isGood === true ? "good" : isGood === false ? "bad" : "neutral";
     showMessage(outcome);
     showChoices([
         { text: "Continue", action: () => goToLocation(gameState.location) }
@@ -175,7 +215,9 @@ function startNewGame() {
         reflexes: 10,
         intelligence: 10,
         willpower: 10,
-        presence: 10
+        presence: 10,
+        weapon: { name: "Plasma Pistol", element: "Plasma" },
+        armor: { name: "Standard Vest", element: "None" }
     };
     gameState.favor = 0;
     gameState.suspicion = 0;
@@ -187,11 +229,15 @@ function startNewGame() {
 }
 
 function loadSavedCharacter() {
-    // Placeholder - in full version this would load from file
-    alert("Load feature coming soon. For now, use 'New Game'.");
+    alert("Load feature coming soon.");
 }
 
-// Initialize
+function saveGame() {
+    if (!gameState.character) return alert("No character to save.");
+    localStorage.setItem('sleepingEmpireSave', JSON.stringify(gameState));
+    alert("Game saved!");
+}
+
 updateUI();
 </script>
 </body>
