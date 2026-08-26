@@ -112,34 +112,33 @@ function goToLocation(location) {
     showChoices(choices);
 }
 
-// ==================== BRANCHING EVENTS WITH STAT & GEAR INTEGRATION ====================
+// ==================== BRANCHING EVENTS WITH GEAR INTEGRATION ====================
 function eavesdrop() {
     const char = gameState.character;
     if (char.intelligence >= 14) {
         gameState.favor += 1;
-        showMessage("You overhear valuable information about a upcoming trade deal. (+1 Favor)");
+        showMessage("You overhear valuable information. (+1 Favor)");
     } else if (char.reflexes >= 12) {
-        showMessage("You barely avoid being caught eavesdropping.");
+        showMessage("You barely avoid being caught.");
     } else {
         gameState.suspicion += 1;
-        showMessage("You get caught eavesdropping. (+1 Suspicion)");
+        showMessage("You get caught. (+1 Suspicion)");
     }
     updateUI();
     showChoices([
-        { text: "Continue exploring", action: () => goToLocation(gameState.location) },
-        { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+        { text: "Continue", action: () => goToLocation(gameState.location) }
     ]);
 }
 
 function investigateShip() {
     const char = gameState.character;
     if (char.weapon && char.weapon.element === "Plasma") {
-        showMessage("Your Plasma weapon gives you an edge while investigating. You find restricted tech.");
+        showMessage("Your Plasma weapon gives you an edge. You find restricted tech.");
         gameState.favor += 1;
-    } else if (char.intelligence >= 13) {
-        showMessage("You identify the ship as smuggling dangerous technology.");
+    } else if (char.armor && char.armor.tier === "Legendary") {
+        showMessage("Your Legendary armor protects you while investigating.");
     } else {
-        showMessage("The ship leaves before you can learn much.");
+        showMessage("The ship leaves before you learn much.");
     }
     updateUI();
     showChoices([
@@ -150,12 +149,12 @@ function investigateShip() {
 function scanAnomaly() {
     const char = gameState.character;
     if (char.intelligence >= 14) {
-        showMessage("You detect traces of Nullborn energy. This could be valuable information. (+1 Favor)");
+        showMessage("You detect Nullborn energy. (+1 Favor)");
         gameState.favor += 1;
     } else if (char.willpower >= 13) {
-        showMessage("You resist the strange energy and gather basic readings.");
+        showMessage("You resist the energy and gather basic readings.");
     } else {
-        showMessage("The anomaly affects you negatively. (+1 Suspicion)");
+        showMessage("The anomaly affects you. (+1 Suspicion)");
         gameState.suspicion += 1;
     }
     updateUI();
@@ -178,11 +177,15 @@ function triggerRandomEvent() {
 
     // Gear-based branching
     if (char.weapon && char.weapon.element === "Dimensional" && roll < 0.35) {
-        outcome = "Your Dimensional weapon reacts strangely to the situation, giving you an unexpected advantage.";
+        outcome = "Your Dimensional weapon reacts to the situation, giving you an advantage.";
+        isGood = true;
+    } 
+    else if (char.armor && char.armor.tier === "Legendary" && roll < 0.35) {
+        outcome = "Your Legendary armor protects you from harm.";
         isGood = true;
     } 
     else if (char.armor && char.armor.element === "Void" && roll < 0.35) {
-        outcome = "Your Void-infused armor protects you from an unexpected threat.";
+        outcome = "Your Void-infused armor shields you from an unexpected threat.";
         isGood = true;
     } 
     else {
@@ -217,7 +220,7 @@ function startNewGame() {
         willpower: 10,
         presence: 10,
         weapon: { name: "Plasma Pistol", element: "Plasma" },
-        armor: { name: "Standard Vest", element: "None" }
+        armor: { name: "Standard Vest", tier: "Common", element: "None" }
     };
     gameState.favor = 0;
     gameState.suspicion = 0;
