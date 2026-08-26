@@ -8,13 +8,14 @@
         body { font-family: Arial, sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
         .container { max-width: 1100px; margin: 0 auto; }
         .section { background: #1a1a1a; padding: 20px; margin-bottom: 25px; border-radius: 10px; }
-        h2 { color: #4fc3f7; border-bottom: 1px solid #333; padding-bottom: 8px; }
+        h2 { color: #4fc3f7; }
         input, select { width: 100%; padding: 8px; background: #111; color: #ddd; border: 1px solid #444; margin-bottom: 10px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .item-slot { background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444; }
         button { background: #1a3c6e; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; }
         button:hover { background: #2a5aa0; }
-        .rune { background: #2e2e2e; padding: 5px; margin: 3px 0; border-radius: 4px; }
+        .rune { background: #2e2e2e; padding: 8px; margin: 5px 0; border-radius: 5px; }
+        .rune select { margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -72,9 +73,23 @@
                     <option>Dimensional</option>
                 </select>
                 
-                <h4>Runes</h4>
-                <div class="rune"><input type="text" placeholder="Rune 1"></div>
-                <div class="rune"><input type="text" placeholder="Rune 2"></div>
+                <h4>Runes (2 Slots)</h4>
+                <div class="rune">
+                    <select id="helmet_rune1">
+                        <option value="">-- Empty --</option>
+                        <option value="voidward">Voidward Rune (+15% Void Resistance)</option>
+                        <option value="stabilizer">Stabilizer Rune (+10 Health Regen)</option>
+                        <option value="reflex">Reflex Rune (+5% Dodge)</option>
+                    </select>
+                </div>
+                <div class="rune">
+                    <select id="helmet_rune2">
+                        <option value="">-- Empty --</option>
+                        <option value="voidward">Voidward Rune (+15% Void Resistance)</option>
+                        <option value="stabilizer">Stabilizer Rune (+10 Health Regen)</option>
+                        <option value="reflex">Reflex Rune (+5% Dodge)</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Chest -->
@@ -100,10 +115,32 @@
                     <option>Neural</option>
                     <option>Dimensional</option>
                 </select>
-                <h4>Runes</h4>
-                <div class="rune"><input type="text" placeholder="Rune 1"></div>
-                <div class="rune"><input type="text" placeholder="Rune 2"></div>
-                <div class="rune"><input type="text" placeholder="Rune 3"></div>
+                
+                <h4>Runes (3 Slots)</h4>
+                <div class="rune">
+                    <select id="chest_rune1">
+                        <option value="">-- Empty --</option>
+                        <option value="voidward">Voidward Rune (+15% Void Resistance)</option>
+                        <option value="stabilizer">Stabilizer Rune (+10 Health Regen)</option>
+                        <option value="reflex">Reflex Rune (+5% Dodge)</option>
+                    </select>
+                </div>
+                <div class="rune">
+                    <select id="chest_rune2">
+                        <option value="">-- Empty --</option>
+                        <option value="voidward">Voidward Rune (+15% Void Resistance)</option>
+                        <option value="stabilizer">Stabilizer Rune (+10 Health Regen)</option>
+                        <option value="reflex">Reflex Rune (+5% Dodge)</option>
+                    </select>
+                </div>
+                <div class="rune">
+                    <select id="chest_rune3">
+                        <option value="">-- Empty --</option>
+                        <option value="voidward">Voidward Rune (+15% Void Resistance)</option>
+                        <option value="stabilizer">Stabilizer Rune (+10 Health Regen)</option>
+                        <option value="reflex">Reflex Rune (+5% Dodge)</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -117,7 +154,7 @@
                 <label>Name</label><input type="text" id="weapon1_name" value="Plasma Lance">
                 <label>Damage (Flat)</label><input type="number" id="weapon1_damage_flat" value="45">
                 <label>Damage (%)</label><input type="number" id="weapon1_damage_percent" value="15">
-                <label>Fire Rate (attacks/turn)</label><input type="number" id="weapon1_fire_rate" value="1">
+                <label>Fire Rate</label><input type="number" id="weapon1_fire_rate" value="1">
                 <label>Elemental Type</label>
                 <select id="weapon1_element">
                     <option>Void</option>
@@ -133,7 +170,7 @@
                 <label>Name</label><input type="text" id="weapon2_name" value="Neural Disruptor">
                 <label>Damage (Flat)</label><input type="number" id="weapon2_damage_flat" value="30">
                 <label>Damage (%)</label><input type="number" id="weapon2_damage_percent" value="25">
-                <label>Fire Rate (attacks/turn)</label><input type="number" id="weapon2_fire_rate" value="2">
+                <label>Fire Rate</label><input type="number" id="weapon2_fire_rate" value="2">
                 <label>Elemental Type</label>
                 <select id="weapon2_element">
                     <option>Void</option>
