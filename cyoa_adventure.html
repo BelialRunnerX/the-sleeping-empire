@@ -5,191 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Sleeping Empire - Text Adventure</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        #game-area {
-            background-color: #1a1a1a;
-            border: 1px solid #444;
-            padding: 20px;
-            min-height: 300px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        .choice {
-            background-color: #1a3c6e;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            margin: 8px 0;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-        }
-        .choice:hover {
-            background-color: #2a5aa0;
-        }
-        h1 {
-            color: #4fc3f7;
-        }
-        #status {
-            background-color: #111;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        #game-area { background: #1a1a1a; padding: 25px; border-radius: 10px; min-height: 280px; margin-bottom: 20px; }
+        .choice { background: #1a3c6e; color: white; border: none; padding: 12px 20px; margin: 8px 0; width: 100%; text-align: left; cursor: pointer; }
+        .choice:hover { background: #2a5aa0; }
+        .status { background: #111; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        button { background: #1a3c6e; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; }
+        button:hover { background: #2a5aa0; }
+        h1 { color: #4fc3f7; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>The Sleeping Empire - Text Adventure</h1>
-        
-        <div id="status">
-            <strong>Character:</strong> <span id="char-name">None Loaded</span><br>
-            <strong>Location:</strong> <span id="location">Nexus Trade World</span>
-        </div>
-
-        <div id="game-area">
-            <p>Welcome to the Sleeping Empire. Load a character sheet or begin a new adventure.</p>
-        </div>
-
-        <div id="choices"></div>
-
-        <div style="margin-top: 30px;">
-            <button onclick="loadSavedCharacter()">Load Saved Character</button>
-            <button onclick="startNewGame()">Start New Game</button>
-            <button onclick="showRandomEvent()">Trigger Random Event</button>
-        </div>
+<div class="container">
+    <h1>The Sleeping Empire - Text Adventure</h1>
+    
+    <div class="status">
+        <strong>Character:</strong> <span id="char-name">None Loaded</span><br>
+        <strong>Location:</strong> <span id="location">Nexus Trade World</span><br>
+        <strong>Favor:</strong> <span id="favor">0</span> | <strong>Suspicion:</strong> <span id="suspicion">0</span>
     </div>
 
-    <script>
-        let currentCharacter = null;
-        let currentLocation = "Nexus Trade World";
+    <div id="game-area">
+        <p>Welcome. Load a character or start a new game.</p>
+    </div>
 
-        function updateStatus() {
-            document.getElementById('char-name').innerText = currentCharacter ? currentCharacter.name : "None Loaded";
-            document.getElementById('location').innerText = currentLocation;
-        }
+    <div id="choices"></div>
 
-        function loadSavedCharacter() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            
-            input.onchange = function(event) {
-                const file = event.target.files[0];
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    try {
-                        currentCharacter = JSON.parse(e.target.result);
-                        updateStatus();
-                        showMessage("Character loaded successfully. Welcome, " + currentCharacter.name + ".");
-                    } catch (error) {
-                        alert("Error loading character sheet.");
-                    }
-                };
-                reader.readAsText(file);
-            };
-            input.click();
-        }
+    <div style="margin-top: 30px;">
+        <button onclick="loadSavedCharacter()">Load Character</button>
+        <button onclick="startNewGame()">New Game</button>
+        <button onclick="triggerRandomEvent()">Random Event</button>
+        <button onclick="saveGame()">Save Game</button>
+    </div>
+</div>
 
-        function startNewGame() {
-            currentCharacter = {
-                name: "New Operative",
-                species: "Human",
-                affiliation: "Independent"
-            };
-            updateStatus();
-            showMessage("You wake up in a small hab-module on the Nexus Trade World. The hum of the station fills your ears. What do you do?");
-            showChoices([
-                { text: "Head to the main trading hall", action: () => goToLocation("Trading Hall") },
-                { text: "Check the docking bays", action: () => goToLocation("Docking Bays") },
-                { text: "Visit the observation deck", action: () => goToLocation("Observation Deck") }
-            ]);
-        }
+<script>
+// ==================== GAME STATE ====================
+let gameState = {
+    character: null,
+    location: "Nexus Trade World",
+    favor: 0,
+    suspicion: 0,
+    storyFlags: {}
+};
 
-        function showMessage(text) {
-            document.getElementById('game-area').innerHTML = `<p>${text}</p>`;
-        }
+function updateUI() {
+    if (!gameState.character) return;
+    document.getElementById('char-name').innerText = gameState.character.name;
+    document.getElementById('location').innerText = gameState.location;
+    document.getElementById('favor').innerText = gameState.favor;
+    document.getElementById('suspicion').innerText = gameState.suspicion;
+}
 
-        function showChoices(choices) {
-            const container = document.getElementById('choices');
-            container.innerHTML = '';
-            
-            choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'choice';
-                btn.innerText = choice.text;
-                btn.onclick = choice.action;
-                container.appendChild(btn);
-            });
-        }
+// ==================== STORY & CHOICES ====================
+function showMessage(text) {
+    document.getElementById('game-area').innerHTML = `<p>${text}</p>`;
+}
 
-        function goToLocation(location) {
-            currentLocation = location;
-            updateStatus();
-            
-            let message = `You arrive at the ${location}.`;
-            
-            if (location === "Trading Hall") {
-                message += " Merchants from various factions are conducting business.";
-            } else if (location === "Docking Bays") {
-                message += " Several ships are docked, including an unmarked vessel.";
-            } else if (location === "Observation Deck") {
-                message += " You can see the stars... and something that looks like a rift.";
-            }
-            
-            showMessage(message);
-            
-            showChoices([
-                { text: "Look for opportunities", action: () => triggerRandomEvent() },
-                { text: "Return to the hab-module", action: () => goToLocation("Nexus Trade World") }
-            ]);
-        }
+function showChoices(choices) {
+    const container = document.getElementById('choices');
+    container.innerHTML = '';
+    
+    choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.innerText = choice.text;
+        btn.onclick = choice.action;
+        container.appendChild(btn);
+    });
+}
 
-        function triggerRandomEvent() {
-            const isGood = Math.random() > 0.5;
-            const events = isGood ? goodEvents : badEvents;
-            const eventText = events[Math.floor(Math.random() * events.length)];
-            
-            showMessage(eventText);
-            
-            showChoices([
-                { text: "Continue exploring", action: () => goToLocation(currentLocation) },
-                { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
-            ]);
-        }
+// ==================== LOCATIONS ====================
+function goToLocation(location) {
+    gameState.location = location;
+    updateUI();
+    
+    let text = `You arrive at the ${location}.`;
+    let choices = [];
 
-        function showRandomEvent() {
-            triggerRandomEvent();
-        }
-
-        // Sample events
-        const goodEvents = [
-            "A merchant offers you a lucrative but risky trade deal.",
-            "You receive an encrypted message from an unknown source offering valuable information.",
-            "A local faction invites you to a private gathering.",
-            "You discover a small cache of ancient technology."
+    if (location === "Trading Hall") {
+        text += " Merchants from various factions are active.";
+        choices = [
+            { text: "Look for trade opportunities", action: () => triggerRandomEvent() },
+            { text: "Eavesdrop on conversations", action: () => eavesdrop() },
+            { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
         ];
-
-        const badEvents = [
-            "Pirates attempt to ambush you in a quiet corridor.",
-            "A powerful noble takes offense at your presence.",
-            "Your neural implant picks up a suspicious signal.",
-            "You overhear a plot against the trading hub."
+    } 
+    else if (location === "Docking Bays") {
+        text += " Several ships are docked, including an unmarked vessel.";
+        choices = [
+            { text: "Investigate the unmarked ship", action: () => investigateShip() },
+            { text: "Speak with a dock worker", action: () => triggerRandomEvent() },
+            { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
         ];
+    } 
+    else if (location === "Observation Deck") {
+        text += " You notice strange energy readings in the distance.";
+        choices = [
+            { text: "Scan the anomaly", action: () => scanAnomaly() },
+            { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+        ];
+    }
 
-        // Initialize
-        updateStatus();
-    </script>
+    showMessage(text);
+    showChoices(choices);
+}
+
+// ==================== BRANCHING EVENTS ====================
+function eavesdrop() {
+    if (gameState.character.intelligence >= 14) {
+        gameState.favor += 1;
+        showMessage("You overhear valuable information about a upcoming trade deal. (+1 Favor)");
+    } else {
+        gameState.suspicion += 1;
+        showMessage("You get caught eavesdropping. (+1 Suspicion)");
+    }
+    updateUI();
+    showChoices([
+        { text: "Continue exploring", action: () => goToLocation(gameState.location) },
+        { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+    ]);
+}
+
+function investigateShip() {
+    showMessage("The ship appears to be smuggling restricted technology.");
+    showChoices([
+        { text: "Report it (Gain Favor)", action: () => { gameState.favor += 2; updateUI(); showMessage("You report the ship and gain favor with local authorities."); } },
+        { text: "Ignore it", action: () => showMessage("You decide not to get involved.") },
+        { text: "Try to buy some of the tech (Risky)", action: () => triggerRandomEvent() }
+    ]);
+}
+
+function scanAnomaly() {
+    if (gameState.character.intelligence >= 13) {
+        showMessage("You detect traces of Nullborn energy. This could be valuable information.");
+        gameState.favor += 1;
+    } else {
+        showMessage("The readings are confusing. You gain nothing useful.");
+    }
+    updateUI();
+    showChoices([
+        { text: "Return to main area", action: () => goToLocation("Nexus Trade World") }
+    ]);
+}
+
+// ==================== RANDOM EVENT SYSTEM ====================
+function triggerRandomEvent() {
+    // Reuse logic from random_events.html or simplified version
+    const isGood = Math.random() > 0.5;
+    const events = isGood ? 
+        ["You gain a useful contact.", "You acquire valuable information."] : 
+        ["You make a minor enemy.", "You lose some standing."];
+    
+    const outcome = events[Math.floor(Math.random() * events.length)];
+    showMessage(outcome);
+    showChoices([
+        { text: "Continue", action: () => goToLocation(gameState.location) }
+    ]);
+}
+
+// ==================== GAME START ====================
+function startNewGame() {
+    gameState.character = {
+        name: "New Operative",
+        species: "Human",
+        affiliation: "Independent",
+        strength: 10,
+        reflexes: 10,
+        intelligence: 10,
+        willpower: 10,
+        presence: 10
+    };
+    gameState.favor = 0;
+    gameState.suspicion = 0;
+    updateUI();
+    showMessage("You wake up in a hab-module on the Nexus Trade World.");
+    showChoices([
+        { text: "Explore the station", action: () => goToLocation("Trading Hall") }
+    ]);
+}
+
+function loadSavedCharacter() {
+    // Placeholder - in full version this would load from file
+    alert("Load feature coming soon. For now, use 'New Game'.");
+}
+
+// Initialize
+updateUI();
+</script>
 </body>
 </html>
