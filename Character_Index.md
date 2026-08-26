@@ -14,7 +14,8 @@ This file serves as a central reference for all core characters and major concep
 ## CYOA Resources
 
 - [Combat Rules](Combat_Rules.md)
-- [Character Sheet Template](Character_Sheet_Template.md)
+- [Random Event Generator](random_events.html)
+- [Interactive Character Sheet](character_sheet.html)
 - [Races & Classes](Races_and_Classes.md)
 
 ## Government & Political Systems
