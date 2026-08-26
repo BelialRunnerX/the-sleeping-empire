@@ -217,6 +217,25 @@
         }
         
         .markdown-body {
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+            color: #00f3ff;
+            margin-top: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-body code {
+            background: #1a1f2e;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .markdown-body pre {
+            background: #11141f;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
             line-height: 1.7;
         }
         
@@ -351,7 +370,7 @@
                 <div class="card">
                     <h3>Races &amp; Classes</h3>
                     <p>Explore in-universe races and character classes themed around the Sleeping Empire.</p>
-                    <a href="Races_and_Classes.md" class="btn">VIEW OPTIONS</a>
+                    <a href="#" onclick="loadMarkdown('Races_and_Classes.md')" class="btn">VIEW OPTIONS</a>
                 </div>
             </div>
         </div>
@@ -363,12 +382,12 @@
                 <div class="card">
                     <h3>Combat Rules</h3>
                     <p>Turn-based combat system designed for the Sleeping Empire universe.</p>
-                    <a href="Combat_Rules.md" class="btn">VIEW RULES</a>
+                    <a href="#" onclick="loadMarkdown('Combat_Rules.md')" class="btn">VIEW RULES</a>
                 </div>
                 <div class="card">
                     <h3>Character Sheet Template</h3>
                     <p>Standard template for creating new characters in the Sleeping Empire.</p>
-                    <a href="Character_Sheet_Template.md" class="btn">VIEW TEMPLATE</a>
+                    <a href="#" onclick="loadMarkdown('Character_Sheet_Template.md')" class="btn">VIEW TEMPLATE</a>
                 </div>
             </div>
         </div>
