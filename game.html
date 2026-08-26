@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleeping Empire • Roguelite</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0c14;
+            color: #e0f7fa;
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        #game-container {
+            display: flex;
+            height: 100vh;
+        }
+        #map-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000011;
+        }
+        canvas {
+            border: 2px solid #00f3ff;
+            image-rendering: pixelated;
+        }
+        #ui {
+            width: 320px;
+            background: #12141f;
+            border-left: 1px solid #00f3ff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .stat {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Map -->
+        <div id="map-container">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+        </div>
+        
+        <!-- UI -->
+        <div id="ui">
+            <h2 style="margin-top:0; color:#00f3ff;">OPERATIVE STATUS</h2>
+            <div id="character-info"></div>
+            
+            <h3 style="margin-top:30px; color:#00f3ff;">INVENTORY</h3>
+            <div id="inventory"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
