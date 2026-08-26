@@ -11,6 +11,12 @@ This file serves as a central reference for all core characters and major concep
 - [Sylphara Voss](Sylphara_Voss.md)
 - [Sentinel](Sentinel.md)
 
+## CYOA Resources
+
+- [Combat Rules](Combat_Rules.md)
+- [Character Sheet Template](Character_Sheet_Template.md)
+- [Races & Classes](Races_and_Classes.md)
+
 ## Government & Political Systems
 
 - [Absolutionism](Absolutionism.md) — The official system of government of the Galactic Empire
