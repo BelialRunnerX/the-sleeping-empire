@@ -3,468 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sleeping Empire • Lore Archive</title>
+    <title>THE SLEEPING EMPIRE • ARCHIVE</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Inter:wght@300;400;500&amp;display=swap');
         
         :root {
-            --bg: #0a0a0f;
-            --accent: #006b5a;
-            --accent-dark: #004d42;
-            --text: #e0e0e0;
+            --bg: #0a0c14;
+            --accent: #00f3ff;
+            --accent-dark: #00b8c4;
+            --text: #e0f7fa;
+            --card-bg: rgba(15, 18, 30, 0.85);
+            --border: rgba(0, 243, 255, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
+            background: var(--bg);
             color: var(--text);
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            pointer-events: none;
         }
         
         .header {
-            background: linear-gradient(rgba(10,10,15,0.95), rgba(10,10,15,0.95)), url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-            padding: 4rem 2rem;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(10, 12, 20, 0.92), rgba(10, 12, 20, 0.95));
+        }
+        
+        .header-content {
             text-align: center;
-            border-bottom: 1px solid #1a1a24;
+            z-index: 2;
         }
         
         .header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            margin: 0 0 0.5rem 0;
-            color: white;
-            text-shadow: 0 0 20px rgba(0, 107, 90, 0.3);
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00f3ff, #ffffff, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
         }
         
         .header p {
-            font-size: 1.2rem;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        
-        .section {
-            margin-bottom: 4rem;
-        }
-        
-        .section h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent);
-            border-bottom: 1px solid #1a1a24;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .card {
-            background: #121218;
-            border: 1px solid #1a1a24;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 107, 90, 0.1);
-        }
-        
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border: 1px solid #1a1a24;
-        }
-        
-        .card h3 {
-            margin: 0 0 0.75rem 0;
-            color: white;
-        }
-        
-        .stats {
-            background: #0a0a0f;
-            padding: 0.75rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .stats p {
-            margin: 0.25rem 0;
-            color: #ccc;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: black;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s ease;
-        }
-        
-        .btn:hover {
-            background: var(--accent-dark);
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-            font-size: 0.9rem;
+            font-size: 1.4rem;
+            color: #a0d2db;
+            max-width: 620px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
         }
         
         .nav {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
             flex-wrap: wrap;
         }
         
         .nav a {
-            color: #aaa;
+            color: var(--accent);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
         
         .nav a:hover {
+            background: var(--accent);
+            color: #0a0c14;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 6rem;
+        }
+        
+        .section-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: var(--accent);
-            background: #1a1a24;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(12px);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .card p {
+            color: #a0c4cc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent);
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            color: #0a0c14;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 12, 20, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #12141f;
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+        
+        .markdown-body {
+            line-height: 1.7;
+        }
+        
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            margin-top: 2rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #555;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <div class="grid-bg"></div>
+    
+    <!-- Hero -->
     <div class="header">
-        <h1>THE SLEEPING EMPIRE</h1>
-        <p>Lore Archive • World Building • Galactic History</p>
-        
-        <div class="nav">
-            <a href="#characters">Characters</a>
-            <a href="#government">Government</a>
-            <a href="#history">History</a>
-            <a href="#technology">Technology</a>
-            <a href="#locations">Locations</a>
+        <div class="header-content">
+            <h1>THE SLEEPING EMPIRE</h1>
+            <p>ARCHIVAL DATABASE // IMPERIAL ERA RECORDS</p>
+            
+            <div class="nav">
+                <a href="#lore">LORE ARCHIVE</a>
+                <a href="#cyoa">CYOA TOOLS</a>
+                <a href="#systems">SYSTEMS</a>
+            </div>
         </div>
     </div>
-
+    
     <div class="container">
+        
         <!-- Getting Started -->
-        <!-- CYOA Tools Section -->
-        <div id="cyoa-tools" class="section">
-            <h2>Getting Started</h2>
+        <div class="section">
+            <div class="section-header">GETTING STARTED</div>
             <div class="grid">
                 <div class="card">
-                    <h3>1. Create a Character</h3>
-                    <p>Build your operative using the advanced character sheet with armor, weapons, and runes.</p>
-                    <a href="advanced_character_sheet.html" class="btn">Create Character</a>
+                    <h3>1. Create Your Operative</h3>
+                    <p>Begin your journey as an ambitious wanderer in the Sleeping Empire. Build your character using the advanced sheet with deep gear systems.</p>
+                    <a href="advanced_character_sheet.html" class="btn">OPEN CHARACTER SHEET</a>
                 </div>
                 <div class="card">
                     <h3>2. Explore the Tools</h3>
-                    <p>Use the Random Event Generator, view Races & Classes, or browse the Equipment Database.</p>
-                    <a href="#cyoa-tools" class="btn">Browse Tools</a>
+                    <p>Use the Random Event Generator, browse Races &amp; Classes, or view the Equipment Database to understand the systems.</p>
+                    <a href="#cyoa" class="btn">BROWSE TOOLS</a>
                 </div>
                 <div class="card">
-                    <h3>3. Play the Adventure</h3>
-                    <p>Start a text-based adventure in the Nexus Trade World.</p>
-                    <a href="cyoa_adventure.html" class="btn">Start Adventure</a>
+                    <h3>3. Begin Your Adventure</h3>
+                    <p>Enter the Nexus Trade World and start your path toward power through exploration, combat, and discovery.</p>
+                    <a href="cyoa_adventure.html" class="btn">START ADVENTURE</a>
                 </div>
             </div>
         </div>
         
-        <!-- Characters -->
-        <div id="characters" class="section">
-            <h2>Core Characters</h2>
+        <!-- Lore Archive -->
+        <div id="lore" class="section">
+            <div class="section-header">LORE ARCHIVE</div>
             <div class="grid">
-                
-                <!-- Emperor -->
                 <div class="card">
-                    <img src="emperor.jpg" alt="Elysomnion">
-                    <h3>Elysomnion (Elys)</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Unknown (Immortal)</p>
-                        <p><strong>Race:</strong> Unknown / Divine</p>
-                        <p><strong>Gender:</strong> Male</p>
-                        <p><strong>Role:</strong> Emperor of the Galactic Empire</p>
-                    </div>
-                    <a href="Emperor.md" class="btn">View File</a>
+                    <h3>The Emperor</h3>
+                    <p>Elysomnion, the immortal ruler who conquered the galaxy in three days and now seeks to reshape it through patience and power.</p>
+                    <a href="#" onclick="loadMarkdown('Emperor.md')" class="btn">READ FILE</a>
                 </div>
-                
-                <!-- Aurelia -->
                 <div class="card">
-                    <img src="aurelia.jpg" alt="Aurelia">
-                    <h3>Aurelia</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Ancient (Former Star)</p>
-                        <p><strong>Race:</strong> Sentient Star / Energy Being</p>
-                        <p><strong>Gender:</strong> Female</p>
-                        <p><strong>Role:</strong> Queen of the Empire</p>
-                    </div>
-                    <a href="Aurelia.md" class="btn">View File</a>
+                    <h3>Absolutionism</h3>
+                    <p>The official government system of the Galactic Empire — an absolute monarchy based on remaining in the Emperor’s favor.</p>
+                    <a href="#" onclick="loadMarkdown('Absolutionism.md')" class="btn">READ FILE</a>
                 </div>
-                
-                <!-- Bel -->
                 <div class="card">
-                    <img src="bel.jpg" alt="Bel">
-                    <h3>Bel</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Unknown</p>
-                        <p><strong>Race:</strong> Humanoid</p>
-                        <p><strong>Gender:</strong> Female</p>
-                        <p><strong>Role:</strong> Personal Attendant & Diplomat</p>
-                    </div>
-                    <a href="Bel.md" class="btn">View File</a>
+                    <h3>Imperial Code of Satisfaction</h3>
+                    <p>The foundational legal framework governing power, rank, and favor within the Empire.</p>
+                    <a href="#" onclick="loadMarkdown('Absolutionism_Code_of_Satisfaction.md')" class="btn">READ FILE</a>
                 </div>
-                
-                <!-- Lillith -->
                 <div class="card">
-                    <img src="lillith.jpg" alt="Lillith">
-                    <h3>Lillith</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Unknown</p>
-                        <p><strong>Race:</strong> Humanoid</p>
-                        <p><strong>Gender:</strong> Female</p>
-                        <p><strong>Role:</strong> Fleet Commander</p>
-                    </div>
-                    <a href="Lillith.md" class="btn">View File</a>
+                    <h3>Empire History</h3>
+                    <p>The long and complex history of the Galactic Empire from its founding to the present era.</p>
+                    <a href="#" onclick="loadMarkdown('Empire_History.md')" class="btn">READ FILE</a>
                 </div>
-                
-                <!-- Sylphara Voss -->
-                <div class="card">
-                    <img src="voss.jpg" alt="Sylphara Voss">
-                    <h3>Sylphara Voss</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Immortal</p>
-                        <p><strong>Race:</strong> Humanoid</p>
-                        <p><strong>Gender:</strong> Female</p>
-                        <p><strong>Role:</strong> Chief Imperial Architect</p>
-                    </div>
-                    <a href="Sylphara_Voss.md" class="btn">View File</a>
-                </div>
-                
-                <!-- Sentinel -->
-                <div class="card">
-                    <img src="sentinel.jpg" alt="Sentinel">
-                    <h3>Sentinel</h3>
-                    <div class="stats">
-                        <p><strong>Age:</strong> Newly Created</p>
-                        <p><strong>Race:</strong> Artificial Intelligence (Android Body)</p>
-                        <p><strong>Gender:</strong> N/A (Self-Determined)</p>
-                        <p><strong>Role:</strong> Autonomous Guardian AI</p>
-                    </div>
-                    <a href="Sentinel.md" class="btn">View File</a>
-                </div>
-                
             </div>
         </div>
-
-        <!-- Government -->
-        <!-- CYOA Tools Section -->
-        <!-- CYOA Tools Section -->
-        <div id="cyoa-tools" class="section">
-            <h2>Interactive CYOA Tools</h2>
+        
+        <!-- CYOA Tools -->
+        <div id="cyoa" class="section">
+            <div class="section-header">CYOA TOOLS</div>
             <div class="grid">
                 <div class="card">
                     <h3>Text Adventure</h3>
-                    <p>Play a text-based adventure in the Nexus Trade World.</p>
-                    <a href="cyoa_adventure.html" class="btn">Play</a>
+                    <p>Play a text-based adventure set in the Nexus Trade World with deep systems and branching stories.</p>
+                    <a href="cyoa_adventure.html" class="btn">PLAY GAME</a>
                 </div>
                 <div class="card">
                     <h3>Advanced Character Sheet</h3>
-                    <p>Create characters with armor, weapons, runes, and elemental systems.</p>
-                    <a href="advanced_character_sheet.html" class="btn">Open Sheet</a>
+                    <p>Create characters with armor, weapons, runes, and psionic elemental systems.</p>
+                    <a href="advanced_character_sheet.html" class="btn">OPEN SHEET</a>
                 </div>
                 <div class="card">
                     <h3>Equipment Database</h3>
-                    <p>Browse sample armor, weapons, and rune examples.</p>
-                    <a href="equipment_database.html" class="btn">Browse</a>
+                    <p>Browse sample armor, weapons, and rune examples with full mechanical details.</p>
+                    <a href="equipment_database.html" class="btn">BROWSE EQUIPMENT</a>
                 </div>
                 <div class="card">
                     <h3>Random Event Generator</h3>
-                    <p>Generate contextual good and bad events.</p>
-                    <a href="random_events.html" class="btn">Generate</a>
+                    <p>Generate contextual good and bad events with stat and gear-based branching.</p>
+                    <a href="random_events.html" class="btn">GENERATE EVENT</a>
+                </div>
+                <div class="card">
+                    <h3>Races &amp; Classes</h3>
+                    <p>Explore in-universe races and character classes themed around the Sleeping Empire.</p>
+                    <a href="Races_and_Classes.md" class="btn">VIEW OPTIONS</a>
                 </div>
             </div>
         </div>
-        <div id="government" class="section">
-            <h2>Government System</h2>
+        
+        <!-- Systems -->
+        <div id="systems" class="section">
+            <div class="section-header">GAME SYSTEMS</div>
             <div class="grid">
-                <div class="card">
-                    <img src="absolutionism_symbol.jpg" alt="Absolutionism Symbol" style="max-height: 200px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                    <h3>Absolutionism</h3>
-                    <p>The official system of government of the Galactic Empire. An Absolute Monarchy with aristocratic tendencies based on remaining in the Emperor’s favor.</p>
-                    <a href="Absolutionism.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>The Imperial Code of Satisfaction</h3>
-                    <p>The foundational legal code governing power, rank, and favor under Absolutionism. The backbone of the Empire’s legal power system.</p>
-                    <a href="Absolutionism_Code_of_Satisfaction.md" class="btn">View File</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- History & Timeline -->
-        <div id="history" class="section">
-            <h2>Empire History & Timeline</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Empire History</h3>
-                    <p>Detailed history of the Galactic Empire from founding to present.</p>
-                    <a href="Empire_History.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Empire Timeline</h3>
-                    <p>Chronological timeline of major events across millennia.</p>
-                    <a href="Empire_Timeline.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Major Events</h3>
-                    <p>Key historical events that shaped the Empire.</p>
-                    <a href="Major_Events.md" class="btn">View File</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technology & Infrastructure -->
-        <div id="technology" class="section">
-            <h2>Technology & Infrastructure</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Imperial Technology</h3>
-                    <p>Advanced technology used throughout the Empire.</p>
-                    <a href="Imperial_Technology.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Economy & Trade</h3>
-                    <p>Trade networks, institutions, and economic policies.</p>
-                    <a href="Economy_and_Trade.md" class="btn">View File</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Locations & Military -->
-        <div id="locations" class="section">
-            <h2>Locations & Military</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="epsilon7.jpg" alt="Epsilon-7">
-                    <h3>Epsilon-7 (Imperial Homeworld)</h3>
-                    <div class="stats">
-                        <p><strong>Type:</strong> Capital Planet</p>
-                        <p><strong>Role:</strong> Seat of the Empire</p>
-                        <p><strong>Population:</strong> Extremely High</p>
-                        <p><strong>Status:</strong> Heavily Fortified</p>
-                    </div>
-                    <a href="Key_Locations.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Key Locations</h3>
-                    <p>Important planets, stations, and regions.</p>
-                    <a href="Key_Locations.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Imperial Military</h3>
-                    <p>Fleet structure, technology, and command hierarchy.</p>
-                    <a href="Imperial_Military.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>The Nullspire</h3>
-                    <p>Organization dedicated to containing high-level anomalies.</p>
-                    <a href="The_Nullspire.md" class="btn">View File</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Other Lore -->
-        <!-- CYOA Tools Section -->
-        <div id="cyoa-tools" class="section">
-            <h2>Additional Lore</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Known Governments</h3>
-                    <p>Political entities across the galaxy.</p>
-                    <a href="Known_Governments.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Known Species</h3>
-                    <p>Major species groups and their characteristics.</p>
-                    <a href="Known_Species.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>The Senate</h3>
-                    <p>History and structure of the Imperial Senate.</p>
-                    <a href="The_Senate.md" class="btn">View File</a>
-                </div>
-                <div class="card">
-                    <h3>Imperial Religion</h3>
-                    <p>The state religion of the Empire.</p>
-                    <a href="Imperial_Religion.md" class="btn">View File</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-        <!-- CYOA Tools -->
-        <!-- CYOA Tools Section -->
-        <div id="cyoa-tools" class="section">
-            <h2>CYOA Tools</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Text Adventure Game</h3>
-                    <p>Play a text-based adventure set in the Nexus Trade World.</p>
-                    <a href="cyoa_adventure.html" class="btn">Play Game</a>
-                </div>
-                <div class="card">
-                    <h3>Interactive Character Sheet</h3>
-                    <p>Create, save, and load character sheets.</p>
-                    <a href="character_sheet.html" class="btn">Open Sheet</a>
-                </div>
-                <div class="card">
-                    <h3>Random Event Generator</h3>
-                <div class="card">
-                    <h3>Equipment Database</h3>
-                    <p>Sample armor, weapons, and rune examples.</p>
-                    <a href="equipment_database.html" class="btn">Browse Equipment</a>
-                </div>
-                    <p>Generate good and bad events in the Sleeping Empire.</p>
-                    <a href="random_events.html" class="btn">Generate Event</a>
-                </div>
                 <div class="card">
                     <h3>Combat Rules</h3>
-                    <p>Turn-based combat system for the Sleeping Empire.</p>
-                    <a href="Combat_Rules.md" class="btn">View Rules</a>
+                    <p>Turn-based combat system designed for the Sleeping Empire universe.</p>
+                    <a href="Combat_Rules.md" class="btn">VIEW RULES</a>
                 </div>
                 <div class="card">
-                    <h3>Races & Classes</h3>
-                    <p>In-universe races and character classes.</p>
-                    <a href="Races_and_Classes.md" class="btn">Browse Options</a>
+                    <h3>Character Sheet Template</h3>
+                    <p>Standard template for creating new characters in the Sleeping Empire.</p>
+                    <a href="Character_Sheet_Template.md" class="btn">VIEW TEMPLATE</a>
                 </div>
             </div>
         </div>
-    <div class="footer">
-        <p>The Sleeping Empire • Lore Archive</p>
-        <p>All files are also available in the <a href="https://github.com/BelialRunnerX/the-sleeping-empire" style="color: #006b5a;">GitHub repository</a></p>
+        
     </div>
-
+    
+    <div class="footer">
+        <p>THE SLEEPING EMPIRE • ARCHIVAL DATABASE</p>
+        <p>All files available in the <a href="https://github.com/BelialRunnerX/the-sleeping-empire" style="color: #00f3ff;">GitHub Repository</a></p>
+    </div>
+    
+    <!-- Markdown Modal -->
+    <div id="markdown-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="markdown-content" class="markdown-body"></div>
+        </div>
+    </div>
+    
+    <script>
+        function loadMarkdown(filename) {
+            fetch(filename)
+                .then(response => response.text())
+                .then(text => {
+                    const html = marked.parse(text);
+                    document.getElementById('markdown-content').innerHTML = html;
+                    document.getElementById('markdown-modal').style.display = 'flex';
+                })
+                .catch(err => {
+                    alert('Could not load file: ' + filename);
+                });
+        }
+        
+        function closeModal() {
+            document.getElementById('markdown-modal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('markdown-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                document.getElementById('markdown-modal').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
