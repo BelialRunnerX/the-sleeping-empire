@@ -12,7 +12,7 @@ let inventory = [];
 window.addEventListener('keydown', e => keys[e.key] = true);
 window.addEventListener('keyup', e => keys[e.key] = false);
 
-// Touch / Click to move
+// Touch / Tap to move
 function handleMove(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
     const clickX = Math.floor((clientX - rect.left) / TILE_SIZE);
@@ -20,7 +20,6 @@ function handleMove(clientX, clientY) {
 
     if (clickX < 0 || clickX >= MAP_WIDTH || clickY < 0 || clickY >= MAP_HEIGHT) return;
 
-    // Simple step toward target
     let dx = 0, dy = 0;
     if (clickX > player.x) dx = 1;
     else if (clickX < player.x) dx = -1;
@@ -54,7 +53,7 @@ function generateMap() {
 }
 generateMap();
 
-// Loot
+// Loot System
 const itemTiers = ['Common','Uncommon','Rare','Epic','Legendary'];
 const elements = ['Void','Plasma','Neural','Dimensional','Kinetic'];
 
@@ -85,6 +84,7 @@ function updateInventoryUI() {
     });
 }
 
+// Update
 function update() {
     let dx=0, dy=0;
     if (keys['ArrowUp']||keys['w']) dy=-1;
@@ -106,20 +106,35 @@ function update() {
 }
 
 function draw() {
-    ctx.fillStyle='#0a0c14';
+    ctx.fillStyle = '#0a0c14';
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     for(let y=0;y<MAP_HEIGHT;y++){
         for(let x=0;x<MAP_WIDTH;x++){
-            ctx.fillStyle = map[y][x]===1 ? '#1a2533' : '#11161f';
-            ctx.fillRect(x*TILE_SIZE,y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
-            ctx.strokeStyle='#1f2a3a';
-            ctx.strokeRect(x*TILE_SIZE,y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
+            if (map[y][x] === 1) {
+                ctx.fillStyle = '#1a2533';
+            } else {
+                ctx.fillStyle = '#11161f';
+            }
+            ctx.fillRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            
+            ctx.strokeStyle = '#1f2a3a';
+            ctx.strokeRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
         }
     }
 
-    ctx.fillStyle='#00f3ff';
-    ctx.fillRect(player.x*TILE_SIZE,player.y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
+    // Player with glow
+    ctx.shadowColor = '#00f3ff';
+    ctx.shadowBlur = 12;
+    ctx.fillStyle = '#00f3ff';
+    ctx.fillRect(player.x*TILE_SIZE, player.y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
+    ctx.shadowBlur = 0;
+
+    // Update UI
+    document.getElementById('character-info').innerHTML = `
+        <div class="stat"><span>Position</span> <span>${player.x}, ${player.y}</span></div>
+        <div class="stat"><span>Items</span> <span>${inventory.length}</span></div>
+    `;
 }
 
 function gameLoop(){
@@ -129,4 +144,4 @@ function gameLoop(){
 }
 
 gameLoop();
-console.log('%c[Sleeping Empire] Mobile tap-to-move enabled.', 'color:#00f3ff');
+console.log('%c[Sleeping Empire] Modern visual update applied.', 'color:#00f3ff');

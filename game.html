@@ -41,8 +41,9 @@
         }
         
         canvas {
-            border: 2px solid #00f3ff;
+            border: 3px solid #00f3ff;
             image-rendering: pixelated;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
             max-width: 100%;
             max-height: 100vh;
         }
@@ -51,30 +52,33 @@
             width: 100%;
             background: #12141f;
             border-top: 1px solid #00f3ff;
-            padding: 16px;
+            padding: 20px;
             overflow-y: auto;
         }
         
         @media (min-width: 768px) {
             #ui {
-                width: 320px;
+                width: 340px;
                 border-top: none;
                 border-left: 1px solid #00f3ff;
-                padding: 24px;
+                padding: 28px;
             }
-        }
-        
-        .stat {
-            margin-bottom: 12px;
-            font-size: 0.95rem;
         }
         
         .section-title {
             font-family: 'Orbitron', sans-serif;
             color: #00f3ff;
             font-size: 1rem;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .stat {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
         }
         
         #inventory {
@@ -86,25 +90,24 @@
         .item {
             background: #1a1f2e;
             border: 1px solid #00f3ff;
-            padding: 6px 10px;
-            border-radius: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
             font-size: 0.85rem;
+            flex: 1 1 45%;
         }
     </style>
 </head>
 <body>
     <div id="game-container">
-        <!-- Map -->
         <div id="map-container">
             <canvas id="game-canvas" width="800" height="600"></canvas>
         </div>
         
-        <!-- UI -->
         <div id="ui">
-            <div class="section-title">OPERATIVE</div>
+            <div class="section-title">Operative</div>
             <div id="character-info"></div>
             
-            <div class="section-title" style="margin-top: 24px;">INVENTORY</div>
+            <div class="section-title" style="margin-top: 28px;">Inventory</div>
             <div id="inventory"></div>
         </div>
     </div>
