@@ -1,4 +1,4 @@
-# The Emperor (Hazael)
+# The Emperor (Elysomnion / Elys)
 
 **Role:** Ruler of the Galactic Empire  
 **Title:** Emperor of the Galactic Empire, Sovereign of Epsilon-7
