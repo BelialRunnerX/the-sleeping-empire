@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Database - The Sleeping Empire</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1, h2 { color: #4fc3f7; }
+        .section { background: #1a1a1a; padding: 20px; margin-bottom: 30px; border-radius: 10px; }
+        .item { background: #222; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #444; }
+        .tier-common { border-left: 5px solid #888; }
+        .tier-uncommon { border-left: 5px solid #1eff00; }
+        .tier-rare { border-left: 5px solid #0070dd; }
+        .tier-epic { border-left: 5px solid #a335ee; }
+        .tier-legendary { border-left: 5px solid #ff8000; }
+        .rune { background: #2e2e2e; padding: 8px; margin: 5px 0; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #444; padding: 8px; text-align: left; }
+        th { background: #111; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Equipment Database - The Sleeping Empire</h1>
+    <p>This database contains sample armor and weapons with tiers, reforging potential, and rune slots.</p>
+
+    <!-- Armor Section -->
+    <div class="section">
+        <h2>Armor Examples</h2>
+
+        <!-- Legendary Example -->
+        <div class="item tier-legendary">
+            <h3>Voidweave Aegis (Legendary)</h3>
+            <p><strong>Tier:</strong> Legendary | <strong>Elemental Affinity:</strong> Void</p>
+            <table>
+                <tr><th>Stat</th><th>Flat</th><th>Percentage</th></tr>
+                <tr><td>Armor</td><td>85</td><td>+12%</td></tr>
+                <tr><td>Health</td><td>180</td><td>+8%</td></tr>
+                <tr><td>Movement Speed</td><td>-8</td><td>-5%</td></tr>
+            </table>
+            <h4>Runes (3 Slots)</h4>
+            <div class="rune">Voidward Rune (+15% Void Resistance)</div>
+            <div class="rune">Stabilizer Rune (+10 Health Regeneration)</div>
+            <div class="rune">Reflex Rune (+5% Dodge Chance)</div>
+            <p><strong>Reforging Potential:</strong> Can be reforged up to 3 times for random stat improvements.</p>
+        </div>
+
+        <!-- Epic Example -->
+        <div class="item tier-epic">
+            <h3>Plasma Carapace (Epic)</h3>
+            <p><strong>Tier:</strong> Epic | <strong>Elemental Affinity:</strong> Plasma</p>
+            <table>
+                <tr><th>Stat</th><th>Flat</th><th>Percentage</th></tr>
+                <tr><td>Armor</td><td>65</td><td>+10%</td></tr>
+                <tr><td>Health</td><td>95</td><td>+6%</td></tr>
+                <tr><td>Movement Speed</td><td>-5</td><td>-3%</td></tr>
+            </table>
+            <h4>Runes (2 Slots)</h4>
+            <div class="rune">Plasma Core (+12% Plasma Damage Reduction)</div>
+            <div class="rune">Barrier Rune (+25 Shield Capacity)</div>
+        </div>
+    </div>
+
+    <!-- Weapons Section -->
+    <div class="section">
+        <h2>Weapon Examples</h2>
+
+        <div class="item tier-legendary">
+            <h3>Singularity Lance (Legendary)</h3>
+            <p><strong>Tier:</strong> Legendary | <strong>Elemental Type:</strong> Dimensional</p>
+            <table>
+                <tr><th>Stat</th><th>Value</th></tr>
+                <tr><td>Damage (Flat)</td><td>72</td></tr>
+                <tr><td>Damage (%)</td><td>+18%</td></tr>
+                <tr><td>Fire Rate</td><td>1 attack/turn</td></tr>
+                <tr><td>Elemental Damage</td><td>+25 Dimensional</td></tr>
+            </table>
+            <p><strong>Special:</strong> +30% damage against Plasma and Neural armor.</p>
+        </div>
+
+        <div class="item tier-epic">
+            <h3>Neural Cascade Rifle (Epic)</h3>
+            <p><strong>Tier:</strong> Epic | <strong>Elemental Type:</strong> Neural</p>
+            <table>
+                <tr><th>Stat</th><th>Value</th></tr>
+                <tr><td>Damage (Flat)</td><td>38</td></tr>
+                <tr><td>Damage (%)</td><td>+12%</td></tr>
+                <tr><td>Fire Rate</td><td>2 attacks/turn</td></tr>
+                <tr><td>Elemental Damage</td><td>+15 Neural</td></tr>
+            </table>
+            <p><strong>Special:</strong> +20% damage against Void armor.</p>
+        </div>
+    </div>
+
+    <p><em>Note: This is a sample database. More items can be added as the CYOA expands.</em></p>
+</div>
+</body>
+</html>
