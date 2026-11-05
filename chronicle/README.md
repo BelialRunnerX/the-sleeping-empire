@@ -33,3 +33,7 @@ Elysomnion (Elys), ancient sovereign of the **Black and Emerald Empire** (earlie
 - Historical **Andromedan Dominion** listed among former powers in [Known Governments](../Known_Governments.md) and the contemporary largely automated **Andromedan private dominion** need not be identical in governance or period; do not assume seamless continuity without further exposition.
 - Original archive presents Elys as strategically capable; academy story explicitly establishes he is **not a strategist by nature** and often improvises, notwithstanding extraordinary intelligence/power and his historical record.
 - Earlier passages refer to **Hazael Somnion**, an affluent sovereign cover; current registered civilian identity is **Hazael Wheatley**. Historical archive on Emperor Elysomnion untouched.
+
+## Newly established Imperial Hand — Veronica
+
+[Veronica](../Veronica.md), the violet-haired immortal **Head of Imperial Intelligence and Interrogation**, has been added to the core archive. Her distinctive fifteen tentacles and touch-mediated compulsion make her a formidable, ethically fraught interrogator. She has a restrained, lightly yandere-like devotion to Elysomnion and a possible source of tension with Clarissa. **Her role and traits are canon; a specific on-page appearance/interrogation has not yet occurred.**
