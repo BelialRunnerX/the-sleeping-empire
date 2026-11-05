@@ -81,3 +81,9 @@
 ## Citation/verification note
 
 This expansion was prepared from the live CYOA conversation and named existing root files. It is **not** a full transcript; several intermediate scenes are summarized rather than quoted. Future archival work should reconcile full turn-by-turn logs when available instead of inventing unseen dialogue or unconfirmed historical milestones.
+
+## Newly added character — Veronica (post-WAC continuity note)
+
+**Veronica** is an immortal Imperial Hand, **Head of Imperial Intelligence and Interrogation**, physically apparent early twenties with purple hair and **fifteen specialized prehensile tentacles**. Her touch can loosen a subject's secrets; this is intrusive/coercive, does not prove the subject is truthful and should not be represented as voluntary consent. She is cool, menacing, mischievously seductive and occasionally humiliating, but retains independent strategic intelligence. Her **lightly yandere** devotion to Elys expresses itself through restrained jealousy, possessiveness and vigilance. She knows his undercover **Hazael Wheatley** identity but must maintain its confidentiality. Elys's romantic reciprocation is **not** established; Clarissa is his fiancée. Full dossier: [Veronica](../Veronica.md).
+
+**No retroactive scene rewrite:** The earlier investigation into Lucien's notification bot was conducted by Aurelia, Sentinel and existing security personnel; Veronica's existence and high office are canon now, but she has not yet appeared in that past interrogation. A future scene can bring her into the ongoing intelligence audit. Do not imply she uncovered more leaks or extracted Lucien's memories before the player directs events.
