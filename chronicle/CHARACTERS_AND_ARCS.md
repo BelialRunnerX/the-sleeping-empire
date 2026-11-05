@@ -91,3 +91,13 @@ Immortal Chief Imperial Architect, designing self-repairing infrastructure; asso
 - **Director Sorell Vane**, Vespera Development Trust representative who opposed treating inhabitants as obstacles and helped redirect planet acquisition.
 - **Duke Aldric von Merrow**, older noble/retired admiral who cannot magically fly; decorated service persists even if noble recognition fails.
 - Original archive figures including **Hardy** (Third Fleet), **Kragar**, **Vespera** (ancient subordinate, *not* Vespera IV planet), **Kael Voss** (Senate) remain distinct.
+
+## Veronica — Head of Imperial Intelligence and Interrogation
+
+**Full dossier:** [Veronica](../Veronica.md). A striking, purple-haired immortal Hand who appears in her early twenties, one of the Emperor's ancient officers like Bel, Aurelia and Lillith. She possesses **fifteen prehensile tentacles** in four distinct sets (three heavy/blunt, three fine-suckered, three grasping, six swift restraining appendages). Her touch can loosen guarded speech, making her a deeply unsettling and coercive interrogator without the need to raise her voice. She heads intelligence and interrogation, distinct from Aurelia's government, Bel's diplomacy, Lillith's fleets and Sentinel's technological oversight.
+
+**Personality:** sharp-eyed, malignantly playful, softly spoken, seductive in presentation, manipulative, competent and potentially cruel. Her methods introduce serious themes of consent, truth, evidentiary reliability, power and humiliation; avoid assuming coercively obtained testimony is automatically true.
+
+**Elys relationship:** lightly **yandere-like** attachment: unusually intense devotion, discreet jealousy and possessiveness, obsessive attentiveness to his safety and time, and unnerving politeness toward rivals. Avoid caricature, automatic violence or asserting that Elys reciprocates. **Clarissa is already his fiancée**, independently powerful and not a passive competitor; friction or mutual respect should develop through scenes.
+
+**Continuity:** she is now canon as an immortal Hand with knowledge of the Hazael Wheatley cover, but her first appearance and response to the earlier Lucien summary-gateway breach have not yet been played on-page. Do not retroactively insert her into already completed interrogations.
