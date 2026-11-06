@@ -179,6 +179,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000106](turns/000106.md) | CXI | Played turn | Bel kisses Lucien on the cheek | [000000](checkpoints/000000.md) |
 
+| [000107](turns/000107.md) | CXII | New chapter | Elys claims foresight over dinner | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
