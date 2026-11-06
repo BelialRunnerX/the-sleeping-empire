@@ -264,6 +264,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000145](turns/000145.md) | CXLIX | Played turn | Rescue Saren and Keth; return safely to Tideglass surface | [000000](checkpoints/000000.md) |
 | [000146](turns/000146.md) | CL | Played turn | Elys introduces Celeste as old childhood friend, concealing divine-realm marriage | [000000](checkpoints/000000.md) |
 
+| [000147](turns/000147.md) | CLI | Played turn | Elys explains Celeste's divine origins and time-ocean nature to Clarissa | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
