@@ -1,5 +1,7 @@
 # Continuity Ledger, Open Threads and Narration Guidance
 
+> **CURRENT-CANON NOTICE:** The former chapter XLVII endpoint and old project-state details below are historical. The live story is at Chapter LIII, **2 Deepfall, 13,427 ICE**. Read **[Current Story State](../saves/CURRENT_STATE.md)** and **[Somnus and the Mnemosyne Era](SOMNUS_MNEMOSYNE_ERA.md)** before using old status notes.
+
 ## Current save point
 
 **SUPERSEDING CURRENT ENDPOINT (Chapter XLVII):** The prior WAC scene described immediately below is a historical snapshot, **not the latest save point**. Elys/Hazael, at the Caldris farmhouse in the evening, has incorporated **Somnus**, appointed corporate overseer AI **Lethe**, ordered qualified personal holdings merged into it (transfers still pending), and praised her work. Her *"Forget what?"* and *"Who are you again?"* are deliberate jokes. WSS with four AIs operates administratively, 22 freight vessels and grain storage/terminals are being constructed; SMITE reserved; Apophatic conceptual. See [Post-WAC Chronology](POST_WAC_STORY_AND_OPERATIONS.md) and [Somnus Portfolio](SOMNUS_CORPORATE_PORTFOLIO.md).
