@@ -3,7 +3,7 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXXVI, Aurelia parries Hazael's filling compliment by proposing a signature pastry named The Wheatley Special
+**Story endpoint:** Chapter XC, Aurelia objects to the third Imperial public proclamation about her body
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
