@@ -21,6 +21,11 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000014](turns/000014.md) | XLVII | Played turn | Proposal for SIR and state intelligence to provide mutual cover; arrangement open | [000000](checkpoints/000000.md) |
 | [000015](turns/000015.md) | XLVII | Played turn | Somnus planned as future handoff to Imperial government | [000000](checkpoints/000000.md) |
 
+| [000016](turns/000016.md) | XLVII | Played turn | Long-horizon Somnus doctrine | [000000](checkpoints/000000.md) |
+| [000017](turns/000017.md) | XLVII | Played turn | Nimbus laboratory, greenhouse, library and port planned | [000000](checkpoints/000000.md) |
+| [000018](turns/000018.md) | XLVII | Played turn | Nimbus private residence, standing guest list | [000000](checkpoints/000000.md) |
+| [000019](turns/000019.md) | XLVII | Played turn | Clarissa proposes independent orbital protection assessment | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
