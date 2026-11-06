@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000054  
+**Save sequence:** 000055  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LIX, the housewarming guests tour Nimbus's grand greenhouse and secluded still-water garden
-**Latest record:** [000054](turns/000054.md)  
+**Story endpoint:** Chapter LX, Elys and Clarissa share a grateful quiet moment in the Nimbus still-water greenhouse garden
+**Latest record:** [000055](turns/000055.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, ~21:47, completed private Nimbus estate, inside the greenhouse during the housewarming. Elys selected a group nighttime tour. Clarissa showed guests the finished conservatory: extensive fruit trees and orchards, permaculture food forests, aquaponic terraces, offworld plants and quiet pathways under glass against violet storms. Lucien became excited about golden pears and imagined pear cream puffs, without any sale or agreement. In a particularly quiet area, Clarissa revealed a still-water reflecting garden of white flowering trees dedicated to Elys's love of sacred silence, inscribed 'Here, nothing is required of you.' Bel appreciates the home as a true refuge; Lucien jokes about gravity reinforcement for his next cake; all laugh. Clarissa and Sentinel are present; guest tour continues. No changes to corporate businesses, thirteen Mnemosyne worlds or Caldris wheat contracts. Elys has not spoken or chosen a new action.
+4 Deepfall 13,427 ICE ~22:03, completed Nimbus estate housewarming. Elys chose to thank fiancée Clarissa for the secluded, sacred quiet garden she created amid the huge greenhouse, beside the still reflecting pool and its inscription 'Here, nothing is required of you.' Clarissa says she wanted somewhere they could be themselves without the responsibilities of their separate sovereign roles. They are sitting together beneath the white flowering trees, observing violet storms through the glass. Bel is keeping Lucien from turning the garden into a produce procurement expedition. Clarissa jokingly proposes 'no corporate acquisitions in the greenhouse' unless very small. Elys has yet to respond. Current private estate is completed and owned 50/50 Elys/Clarissa; thirteen fortified Mnemosyne computing worlds and all prior Somnus activity continue elsewhere, but do not interrupt this private moment without cause.
 
 ## Canonical in-universe date
 
