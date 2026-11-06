@@ -1,19 +1,19 @@
 # Current Story State
 
-**Save sequence:** 000130  
+**Save sequence:** 000131  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXV, Corin gifts Mara a copper bracelet and arrives at Kestrel Junction for the final connection to Morrow's Landing
-**Latest record:** [000130](turns/000130.md)  
+**Story endpoint:** Chapter CXXXVI, Corin Vale and Mara Calder arrive by civilian shuttle at Morrow's Landing to begin their frontier holiday
+**Latest record:** [000131](turns/000131.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE ~12:04 at Kestrel Junction Orbital Port following second flight aboard Canterbury from Harrowgate. Elys, under alias Corin Vale, on indefinite non-abdicating sabbatical and fiancée Clarissa, as Mara Calder, reached Kestrel; Maren Sol, agricultural surveyor, has disembarked, unaware of the couple's secret identities. During the flight Elys joked 'My former boss was a bit of a tyrant,' meaning himself, and simply listened to Maren's agricultural tariff grievances WITHOUT intervening. **PLAYER-ESTABLISHED RETCON:** After earning 28 credits in Tessa's Harrowgate repair shop, Elys secretly purchased the simple engraved COPPER FLOWER BRACELET for 18 credits while Clarissa was distracted. He has GIVEN it to her on the Canterbury; she happily WEARS it. Earlier narration stating it was not purchased is superseded. Corin's remaining earned wages are **10 credits**. Final passenger connection to Morrow's Landing is posted at **Kestrel Dock 12**, but they have not boarded or arrived yet. Elys remains Emperor, Aurelia Regent, Lethe administrator of Throne assets including Somnus, and Sentinel private emergency channel. Aurelia and Lethe have only opened an audit regarding legacy repair debt, no new policy yet. Clarissa independently sovereign of Andromeda and is Elys's FIANCÉE (not wife). Preserve agency, use six plain numbered emoji choices.
+6 Deepfall 13,627 ICE ~15:09, the civilian shuttle **Little Providence**, piloted by Captain **Orren Pike**, has landed at agricultural frontier world **Morrow's Landing**, after boarding at Kestrel Junction Dock 12. Emperor Elys is on indefinite NON-ABDICATING sabbatical traveling incognito as **Corin Vale** (freelance technical consultant) with his fiancée **Clarissa**, alias **Mara Calder**. Their cover is uncompromised. Morrow's Landing has amber grasslands, green seas, wind turbines, farms, white habitations and a disputed provincial freight/tariff office. Captain Pike warned that customs are irritating. The ship just touched down and the pair has NOT chosen an activity nor any intervention. Corin has 10 credits left from first 28-credit ordinary repair paycheck after secretly purchasing Clarissa's 18-credit engraved copper flower bracelet, which she now wears. IMPORTANT AUTHORITATIVE CLARISSA CORRECTION: She is **only a couple centuries old**, attended the academy as Elys's schoolmate ~200 years ago, and Elys gifted her immortality and Andromeda. She serves **as an advisor to the Senate on behalf of Lillith**. DO NOT depict her as millennia old, married to Elys, or ancient companion predating academy. She owns Andromeda and co-owns private Nimbus estate with Elys. Aurelia is Imperial Regent; Lethe administers Throne's assets incl Somnus; Sentinel private communications. Legacy technical repair restrictions are only under audit, no new rule passed; local tariff dispute not yet affected. Use six numbered emoji options and do not make choices or unprompted dialogue for Elys.
 
 ## Canonical in-universe date
 
-**Latest date: 2 Deepfall, 13,427 ICE** (Chapter LIII). The Imperial Concord Era was introduced at 17 Emberwane, 13,427 ICE during Chapter XLVIII. The present scene is roughly ten months beyond that anchor, after the two-month commercial expansion and eight-month build of eleven more computational worlds. No exact Emperor birthday has been established. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
+**Latest date: 6 Deepfall, 13,627 ICE** (Chapter CXXXVI). Earlier date markers refer to old chapters; a two-century jump was established before the current birthday story on 5 Deepfall, 13,627 ICE. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
 
 ## Protagonist and presentation
 
