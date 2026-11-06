@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000031  
+**Save sequence:** 000032  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Sentinel drafts sealed corporate immunity decree; authentication is pending
-**Latest record:** [000031](turns/000031.md)  
+**Story endpoint:** Chapter XLVIII, Aurelia receives Somnus immunity draft unratified and returns it with a red-ink objection
+**Latest record:** [000032](turns/000032.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-At Caldris farmhouse just after Aurelia's call, Elys proposes a sealed decree rendering Somnus and all holdings immune from legal penalties. Sentinel has prepared a broad literal draft for sovereign reserve but has NOT authenticated or registered it; no change to law yet. Clarissa warns of harm to workers, competitors and Somnus's eventual public purpose. Sentinel warns hidden immunity cannot be implemented easily without disclosure. The proposed instrument awaits Elys's explicit seal or revision. Aurelia is unaware of the draft. The long-term Somnus handoff ambition and Nimbus privacy plans remain in place.
+At the Caldris farmhouse, Sentinel has returned an unratified draft decree that Elys ordered left on Regent Aurelia's desk. Draft would broadly immunize Somnus from consequences of violating Imperial law, but carries NO signature, authentication, registration or legal effect. Aurelia has annotated 'REVIEWED. NOT RECOMMENDED' and challenged how a public-benefit institution can be exempt from public accountability, then returned it, joking that she has 3,000 sheets of official stationery ready. Clarissa is amused; Elys may respond. Aurelia already knows Somnus's eventual public-handoff ambition, but extraordinary broad review was withdrawn and ordinary regulatory oversight remains. No company assets or law changed.
 
 ## Protagonist and presentation
 
