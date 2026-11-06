@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000074  
+**Save sequence:** 000093  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XCIII, Hazael exchanges pastry innuendo with Clarissa while Lucien offers The Wheatley Special
-**Latest record:** [000074](turns/000074.md)  
+**Story endpoint:** Chapter XCVIII, Elys tells his advisers Lucien unknowingly became immortal from a gifted pastry
+**Latest record:** [000093](turns/000093.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE ~09:49, Epsilon 7 capital outside Lucien's open cream-puff-shaped bakery. Elys privately returned from a throne broadcast wearing customary IMPERIAL FACE COVERINGS. Lucien saw the masked Emperor praise his pastries but STILL DOES NOT KNOW Hazael is Elys. Elys as Hazael says 'Well isn’t that something, the emperor likes a good crème filling', emphasizing eye contact with Clarissa; Clarissa reciprocates the double entendre, Bel and Aurelia groan, Sentinel comments. Lucien brings an oversized custard-filled, glazed signature pastry called The Wheatley Special and asks Hazael to taste it. Aurelia jokingly bans pastry-related innuendo in her presence and Bel threatens to go home. The earlier three inappropriate decrees were expunged in-world; official broadcast apology remains. Somnus proposed 10% of bakery qualifying net profit, unexecuted pending review, and wheat-supply contract remains unresolved. Bakery is trading; Clarissa, Bel, Aurelia and Sentinel present. 13 Mnemosyne worlds operational. Await player action.
+5 Deepfall 13,427 ICE ~10:13, upstairs private conference suite in Lucien's open Epsilon 7 bakery. Elys/Hazael reveals to Aurelia, Bel, Clarissa, Lethe and Sentinel that the gift-box pastry he gave Lucien secretly made the baker immortal. These advisers NOW KNOW; Lucien DOES NOT. They are concerned that Lucien did not consent or know the details. Aurelia asks what the immortality includes and if it can be reversed; these details are not yet specified by the player. All recommend a private, forthright explanation by Elys, perhaps accompanied by Clarissa. Lucien also still DOES NOT know Hazael is Emperor Elysomnion (he knows Hazael owns Somnus). Lucien is working downstairs, unaware. The bakery is open, Somnus's proposed 10% qualifying net profit remains unexecuted, wheat deal unresolved. Thirteen Mnemosyne planetary systems and Nimbus estate remain unchanged. Await the player's response.
 
 ## Canonical in-universe date
 
