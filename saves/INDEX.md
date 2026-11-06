@@ -203,6 +203,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000118](turns/000118.md) | CXXIII | Played turn | Aurelia restored and Three-Second War recorded | [000000](checkpoints/000000.md) |
 
+| [000119](turns/000119.md) | CXXIV | Played turn | Elys prepares to announce his next undertaking | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
