@@ -222,6 +222,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000128](turns/000128.md) | CXXXIII | Played turn | Corin answers Tessa and travels on Canterbury toward Kestrel Junction | [000000](checkpoints/000000.md) |
 
+| [000129](turns/000129.md) | CXXXIV | Played turn | Corin answers Maren and alerts Aurelia to legacy repair debt | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
