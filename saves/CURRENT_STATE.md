@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000001  
+**Save sequence:** 000002  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, after Lethe withdraws from the visible conversation and Clarissa asks about their evening  
-**Latest record:** [000001](turns/000001.md)  
+**Story endpoint:** Chapter XLVII, Sentinel's WSS construction briefing at the farmhouse; he has asked rapid versus phased expansion  
+**Latest record:** [000002](turns/000002.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II, Wheatley farmhouse, evening. Elys/Hazael and Clarissa are present; Lethe has closed her holographic visit, remaining reachable through a private channel. Clarissa has asked what they shall do with an evening not belonging to a corporation. Elys's reply and action are undecided. Young wheat outside; no WSS freighters commissioned, no ownership/title change or sale occurred.
+Caldris II farmhouse, evening. Elys chose option 4 from turn 000001, calling Sentinel for a WSS construction update. Sentinel and Clarissa delivered an operational briefing, ending on the choice between rapid scale-up versus phased, verified initial commercial service. No player decision on rollout has been made. Clarissa is present, Sentinel on private channel, Lethe reachable.
 
 ## Protagonist and presentation
 
