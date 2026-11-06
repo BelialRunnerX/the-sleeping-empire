@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000067  
+**Save sequence:** 000068  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter LXXII, Bel requests a formal imperial audience one meter away in retaliation for Elys's call
-**Latest record:** [000067](turns/000067.md)  
+**Latest record:** [000068](turns/000068.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
