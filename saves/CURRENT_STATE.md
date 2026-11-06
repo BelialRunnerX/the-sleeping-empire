@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000099  
+**Save sequence:** 000100  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XCIX, Elys says Lucien shares the Hands' immortality and considered waiting until Lucien noticed
-**Latest record:** [000099](turns/000099.md)  
+**Story endpoint:** Chapter CV, Lucien asks Hazael how well he knows the Emperor after learning immortality was the Emperor's will
+**Latest record:** [000100](turns/000100.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE ~10:17, private suite above Lucien's newly opened bakery at Epsilon 7. Elys tells Aurelia, Bel, Clarissa, Lethe and Sentinel that the secret immortality given to Lucien via the little gift-box pastry is the SAME FORM they (including Veronica and Lilith) possess; Elys considered waiting to see how long Lucien took to realize it. They are now aware; Lucien is not. Aurelia, Bel and Clarissa caution that withholding such a life-altering truth indefinitely could betray Lucien's trust, and urge Elys to disclose personally; Clarissa offers support. Aurelia now asks what future Elys had envisioned for Lucien when granting immortality. Player decides response; do not author Elys's speech. Lucien is downstairs happily running his bakery, unaware of immortality and still UNAWARE Hazael is Emperor Elys. Somnus bakery 10% qualifying net profit deal not yet signed; wheat supply contract not yet concluded. Three earlier inappropriate decrees expunged from official in-world records; the masked throne apology remains. Thirteen Mnemosyne worlds operational; Nimbus a private residence.
+5 Deepfall 13,627 ICE ~10:12, Epsilon 7. Two centuries since Lucien's bakery opened, Somnus's privately owned economic infrastructure monopoly is established. In a private call, Lucien learned that the gift-box pastry Elys/Hazael gave him 200 years earlier made him immortal. Asked what could happen to him now, Elys answered 'Up to you'; asked if he might eventually choose death, Elys said 'That could be arranged'; asked why, Elys answered that he wanted to see how long Lucien took to notice, didn't want to lose his friend, and 'the Emperor willed it.' Lucien is relieved mortality can be chosen, touched by the affection, amused and upset at the long joke. He now asks 'Just how well do you know the Emperor?' Lucien knows Hazael owns Somnus, but STILL DOES NOT KNOW Hazael is Emperor Elys, who publicly wears face coverings. His immortality shares the same form as Aurelia, Bel, Clarissa, Veronica and Lilith, with specific injury/regeneration mechanics still unspecified. Await player's response; do not invent Elys's words. Format future options as plain emoji-numbered Markdown, not interactive cards.
 
 ## Canonical in-universe date
 
