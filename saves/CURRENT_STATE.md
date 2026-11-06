@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000033  
+**Save sequence:** 000034  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys jokes Somnus public handoff is a birthday present to himself; Aurelia asks when to schedule it
-**Latest record:** [000033](turns/000033.md)  
+**Story endpoint:** Chapter XLVIII, Elys gives Aurelia a thousand-year planning horizon near 14,427 ICE for future Somnus gift
+**Latest record:** [000034](turns/000034.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-At Caldris II farmhouse, Elys has retorted to Aurelia's red-ink objection to sweeping corporate immunity: 'I did specify a birthday gift for myself.' Aurelia points out Elys is both private donor and sovereign recipient, repeats she will not endorse legal immunity, asks when to reserve the birthday on her calendar, and begins an internal correspondence folder named Birthday Incident — Ongoing. Clarissa and Sentinel are amused. The proposed corporate immunity decree remains UNRATIFIED and WITHOUT LEGAL EFFECT; public transfer of Somnus remains centuries or millennia in the future and no transfer has occurred. The narrower normal-law government oversight remains in place. Await user action.
+17 Emberwane, 13,427 ICE, at the Caldris II farmhouse. Elys sent Aurelia a note saying they will discuss the distant Somnus public handoff near 14,427 ICE, sooner if things go well. This is a provisional planning horizon, not a fixed birthday or firm transfer date. Aurelia created a long-range planning file and replied with exasperated humor, reminding Elys that the draft corporate immunity decree remains UNRATIFIED. Clarissa and Sentinel are present, joking about whether an afternoon without another government incident is possible. Somnus remains a private corporation in early development, Nimbus remains unbuilt. User next action open.
 
 ## Canonical in-universe date
 
