@@ -13,7 +13,7 @@
 
 ## Canonical in-universe date
 
-**17 Emberwane, Year 13,427 of the Imperial Concord (ICE)** at the current Chapter XLVIII scene, as established by the player. The Imperial Concord Era begins with the unified Sleeping Empire. The Emperor's actual birthday remains unspecified. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
+**Latest date: 2 Deepfall, 13,427 ICE** (Chapter LIII). The Imperial Concord Era was introduced at 17 Emberwane, 13,427 ICE during Chapter XLVIII. The present scene is roughly ten months beyond that anchor, after the two-month commercial expansion and eight-month build of eleven more computational worlds. No exact Emperor birthday has been established. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
 
 ## Protagonist and presentation
 
@@ -36,16 +36,16 @@
 
 ## Assets and business — current, not projected
 
-- SOMNUS is incorporated; Hazael Wheatley owns all shares. Lethe oversees audited corporate activity. Eligible commercial consolidation is initiated, with clearances pending; not all assets have transferred.
-- Ordinary budgets/manager appointments are delegated. New ventures, acquisitions, major capital commitments and ownership changes need Hazael's approval. Monthly consolidated reporting is planned.
-- WSS is administratively established: Steward CEO, Meridian freight, Ledger finance/accounts, Granary storage. Its 22 civilian freighters (6 trunk, 12 medium, 4 feeder) and Caldris/Bellweather terminals/storage are under construction, not commissioned. Bellweather target: +60,000 tonnes; Nessa submitted 17 corrections.
-- Bellweather remains independent. Tomas represents about 4,000 households across three worlds by his account. Clarissa/Tomas/Nessa have a provisional nonexclusive service framework; final tariffs, signatures, physical delivery certification and verified profit remain pending.
-- SMITE is reserved only. Apophatic Technologies and Materia/Negativa divisions are unreserved concepts. No enacted asteroid monopoly.
-- Andromeda is solely Clarissa's. Imperial Treasury, throne, public forces and government are outside Somnus. Nimbus remains joint with co-owner review required before any transfer. The Caldris farmhouse/small personally farmed field are private carve-outs.
-- Caldris was purchased; the white two-story farmhouse with dark-green roof, porch, library and attic observatory exists beside a stream. Young wheat has germinated, not been harvested/sold. Nimbus's storm estate is only planned.
-- The 100 armed private Andromedan ships are separate from the 22 civilian freighters and Extraordinary Debtor. Restricted holding arrangements remain under review, without giving Lethe sovereign military command.
-- Extraordinary Debtor belongs to Elys/Hazael; Lucien has defined civilian use and liability. Its narrow non-government-aggressor defense rules do not apply automatically to the other 100 ships.
-- Vespera IV and Eirenhal III were not purchased. The person Vespera is not the planet.
+**The complete current business ledger is [Somnus and the Mnemosyne Era](../chronicle/SOMNUS_MNEMOSYNE_ERA.md).** Historical earlier-startup status is superseded by subsequent played turns.
+
+- Hazael Wheatley owns Somnus, run by Lethe. The goal is eventual long-range public handoff, notionally near 14,427 ICE or sooner; no transfer yet.
+- Somnus had active services in 92,600 systems, 6,840 completed voluntary acquisitions, 418,300 contracts and 24 secured uninhabited industrial worlds at the **Day 60** checkpoint. These are not fresh figures for the current Chapter LIII date. Its exact latest market shares and consolidated profitability require reporting.
+- Original WSS 22 civilian freighters are **completed**. Bellweather relationship has moved to a revised **nonexclusive** cooperative agreement; Bellweather remains independent.
+- SMITE and Apophatic have active surveys, R&D, prototype activities and industrial expansion under executive AIs. SIR (Cipher) operates a civilian commercial information service under a signed **exclusive Imperial government contract**. No classified state intelligence transfer or covert merger with Veronica is established.
+- Elys created Mnemosyne I instantly on 20 Emberwane 13,427 ICE. Mnemosyne II was built over six weeks, and eleven further full planetary compute worlds under Project Triskaideka over eight months. **Thirteen worlds are now complete, operating and heavily defended** by separate independent regional systems with corporate security under Strategos. No fourteenth world has been built.
+- Elys's personal 100 armed Andromedan-pattern ships remain separate in ownership from Somnus; some may support protective patrols by his authorization. Clarissa's sovereign Andromedan navy is separate; her 50% interest in unbuilt Nimbus remains intact. Nimbus is private family home plans, not corporate or defense headquarters.
+- Elys temporarily caused Somnus-related compliance findings to be concealed in Aurelia's upgraded administrative software, but subsequently **corrected it**. The sweeping corporate immunity decree remains **unratified and without force**. Ordinary law and oversight still apply.
+- Caldris II's farmhouse and young wheat field remain private; Aurelia remains Regent. Somnus has no separate sovereign state authority.
 
 ## Carry-forward anchors
 
