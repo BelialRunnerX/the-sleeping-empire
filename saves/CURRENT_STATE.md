@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000073  
+**Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXVIII, Lucien discovers Hazael owns Somnus but still does not know his Imperial identity
-**Latest record:** [000073](turns/000073.md)  
+**Story endpoint:** Chapter LXXIX, Hazael affirms his friendship with Lucien despite revealing ownership of Somnus
+**Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:31, Nimbus greenhouse housewarming. Elys, using civilian name Hazael Wheatley, directed Lucien to inspect the registered ownership of Somnus. Lucien discovered HAZAEL WHEATLEY is sole beneficial owner (100%) of Somnus Enterprises, overseen by AI Lethe. He is astonished by the company's enormous scope and 13 operating Mnemosyne planets; Bel, Clarissa and Sentinel already knew. Lucien remains unaware Hazael is actually Emperor Elysomnion. He insists their friendship and his offer of the first bakery cream puff stand, and that he still wants to buy wheat at a fair price. Lucien now asks why a wealthy Somnus owner spends time with a humble baker who makes so many inappropriate pastry puns. Do NOT choose Elys's answer. Somnus has acquired Epsilon 7 site and started permitted preliminary excavation, but no full bakery built, no finished façade permission, no wheat deal and no signed 10% revenue-sharing contract. Await player answer.
+4 Deepfall 13,427 ICE ~23:36, Nimbus private estate greenhouse housewarming. Lucien, newly aware Hazael owns all Somnus Enterprises, asked why such a wealthy businessman spends time with a humble baker. Elys as Hazael answered, 'Because you're my friend.' Lucien warmly reciprocated, dismissed the huge corporate registry from sight, and affirmed he wants Hazael at his future bakery's front table as a friend. He still does NOT know Hazael is Emperor Elysomnion. He intends to create his own independent bakery and wants time for independent review of the proposed Somnus 10%-of-revenue development contract; NONE has been signed. No wheat sale has happened. On Epsilon 7, Somnus has begun lawful groundwork on the acquired prospective pastry-shaped bakery site, but it is not yet built, and full permits remain pending. Lucien jokingly imagines future commercial competition with Somnus. Clarissa, Bel, Lethe and Sentinel are present. Nimbus is privately co-owned by Clarissa and Elys, and thirteen fortified Mnemosyne worlds continue operating. Await player action.
 
 ## Canonical in-universe date
 
