@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000035  
+**Save sequence:** 000036  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter XLVIII, Elys upgrades Aurelia's administrative software for millennial planning and inserts 'your welcome' greeting
-**Latest record:** [000035](turns/000035.md)  
+**Latest record:** [000036](turns/000036.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
