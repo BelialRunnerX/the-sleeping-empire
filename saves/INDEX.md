@@ -150,6 +150,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000084](turns/000084.md) | LXXXIX | Played turn | Second Imperial bakery decree | [000000](checkpoints/000000.md) |
 
+| [000085](turns/000085.md) | XC | Played turn | Third Imperial pastry proclamation | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
