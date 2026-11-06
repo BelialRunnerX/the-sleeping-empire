@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000113  
+**Save sequence:** 000115  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXVIII, Elys confirms he handed over assets but remains Emperor; the birthday celebration resumes
-**Latest record:** [000113](turns/000113.md)  
+**Story endpoint:** Chapter CXX, Aurelia challenges Elys to complete asset-transfer paperwork instead of fighting
+**Latest record:** [000115](turns/000115.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:21, Nimbus estate, Elys's birthday celebration. After handing over his commercial assets (including Somnus) for administration under the Imperial Throne by Lethe, Elys clarifies to Aurelia: 'I remember promising to hand over my assets not the throne, regardless maybe someday yes but not today'. Elys remains Emperor; NO abdication or succession has occurred. He might consider it in the future, but no current plan or commitment was made. Aurelia remains Regent and Lethe is ASSET ADMINISTRATOR, not sovereign or personal owner. Clarissa is Elys's fiancée, separately sovereign in Andromeda; their private Nimbus home is outside Somnus asset administration. Aurelia, Bel and Clarissa express relief. Lucien jokes about Empire administration as a huge bakery; cake is ready and friends resume the birthday celebration. Bel and Lucien have budding affection but are not yet formal partners. Lucien knows Hazael is Emperor Elys and knows the pastry gift made him immortal 200 years ago. Await player's next action, using plain numbered emoji choices, not interactive cards.
+5 Deepfall 13,627 ICE ~22:31 at Nimbus on Emperor Elys's birthday. After joking that he could abdicate and fight Regent Aurelia for the throne, Elys clarified that it was a joke but he would not back down if she wanted a fight. Aurelia declines to fight the near-omnipotent emperor and instead offers him a playful bureaucratic challenge: personally read and sign the administrative package documenting transfer of his Imperial and Somnus asset stewardship to Lethe. Lethe can prepare/automate documentation; Lucien suggests self-signing papers, Aurelia objects. No duel or abdication occurred. Elys remains Emperor; Lethe is designated administrator of Throne assets including the galaxy's dominant Somnus holdings; Aurelia remains Regent. Birthday party continues with Clarissa, Bel, Lucien, Veronica, Lilith, Lethe and Sentinel, cake awaiting serving. Lucien knows Hazael is Emperor Elys and knows of his gift of immortality 200 years prior. Bel and Lucien are mutually interested but not officially a couple. Aurelia currently awaits Elys's answer about the bureaucratic challenge. Keep six simple numbered emoji choices, no interactive cards.
 
 ## Canonical in-universe date
 
