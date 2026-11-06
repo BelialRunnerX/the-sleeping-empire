@@ -138,6 +138,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000076](turns/000076.md) | LXXXI | Played turn | Aurelia learns Epsilon 7 groundworks have begun | [000000](checkpoints/000000.md) |
 | [000077](turns/000077.md) | LXXXII | Played turn | Aurelia receives a bakery opening invitation | [000000](checkpoints/000000.md) |
 
+| [000078](turns/000078.md) | LXXXIII | Played turn | Hazael offers to impersonate the Emperor at the bakery opening | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
