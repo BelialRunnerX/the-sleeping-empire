@@ -2,6 +2,8 @@
 
 ## Current save point
 
+**SUPERSEDING CURRENT ENDPOINT (Chapter XLVII):** The prior WAC scene described immediately below is a historical snapshot, **not the latest save point**. Elys/Hazael, at the Caldris farmhouse in the evening, has incorporated **Somnus**, appointed corporate overseer AI **Lethe**, ordered qualified personal holdings merged into it (transfers still pending), and praised her work. Her *"Forget what?"* and *"Who are you again?"* are deliberate jokes. WSS with four AIs operates administratively, 22 freight vessels and grain storage/terminals are being constructed; SMITE reserved; Apophatic conceptual. See [Post-WAC Chronology](POST_WAC_STORY_AND_OPERATIONS.md) and [Somnus Portfolio](SOMNUS_CORPORATE_PORTFOLIO.md).
+
 **Chapter XXXVIII**, Day Four, approximately **15:29 local academic time**, Imperial College of Magical Excellence, Examination Hall Three. Hazael Wheatley is a newly appointed independent research fellow and occasional exam proctor. Lucien has completed a disastrous-but-legally-relevant flight attempt; Hazael prevented injury with conjured pillows, then engineered a 100 m² permanently resilient floor. Dean Maelis Vorr and Professor Ilyan Soreth are engaged in a naming/research dispute about **WAC-01**. Lucien and Clarissa laugh at endless puns; Aurelia remotely suffers administrative consequences. Last user action: called the proposed defensive application **“forced wacking”**. No combat deployment actually happened. Continue here unless user changes time/location.
 
 ## Hard continuity rules
@@ -23,6 +25,14 @@
 15. **Tone:** second-person present tense, solemn imperial sci-fi fantasy/anime with procedural technical magic, strong NPC agency, dry wit, ironic innuendo, genuine philosophical debate and consequences. Avoid repeating bureaucratic joke structure every turn or automatically ending every scene with Aurelia's exasperation.
 
 ## Open story threads
+
+### Current business and domestic threads
+- Finalize eligible Somnus asset conveyances, retaining the private farmhouse/field, Clarissa's exclusive Andromeda, her 50% Nimbus ownership and any required consent, and strict Imperial Treasury/military separation.
+- WSS fleet (22 civilian freighters) and storage/terminal facilities are under construction; no premature declarations of delivery, signed freight tariffs or realized harvest revenue.
+- Clarissa is negotiating Bellweather contracts, Tomas and Nessa remain independent, and Bellweather's detailed production/finance data should be audited.
+- SMITE is merely a reserved name; Apophatic Technologies unreserved/proposed. No asteroid transmutation monopoly or operated businesses yet.
+- Lethe has asked about maximum returns versus community-benefit investment objectives; Elys has **not** conclusively answered.
+- Recent direction from player: grounded, interesting social/economic story progression, less repetitive bureaucracy and no overwhelming cosmic mystery.
 
 ### Academic and scientific
 - Vorr's scholarly response to WAC's unprofessional name; Soreth's proposed structural analysis; whether WAC can be duplicated, scaled or certified.
@@ -87,3 +97,8 @@ This expansion was prepared from the live CYOA conversation and named existing r
 **Veronica** is an immortal Imperial Hand, **Head of Imperial Intelligence and Interrogation**, physically apparent early twenties with purple hair and **fifteen specialized prehensile tentacles**. Her touch can loosen a subject's secrets; this is intrusive/coercive, does not prove the subject is truthful and should not be represented as voluntary consent. She is cool, menacing, mischievously seductive and occasionally humiliating, but retains independent strategic intelligence. Her **lightly yandere** devotion to Elys expresses itself through restrained jealousy, possessiveness and vigilance. She knows his undercover **Hazael Wheatley** identity but must maintain its confidentiality. Elys's romantic reciprocation is **not** established; Clarissa is his fiancée. Full dossier: [Veronica](../Veronica.md).
 
 **No retroactive scene rewrite:** The earlier investigation into Lucien's notification bot was conducted by Aurelia, Sentinel and existing security personnel; Veronica's existence and high office are canon now, but she has not yet appeared in that past interrogation. A future scene can bring her into the ongoing intelligence audit. Do not imply she uncovered more leaks or extracted Lucien's memories before the player directs events.
+
+
+### Canon correction: Veronica in later scenes
+
+The archived introductory Veronica note above stated no on-page interrogation *yet* at the time it was written. Later events did include her questioning Lucien about the misconfigured gateway; she was subsequently briefly banished during Elys's theatrics, restored to her intelligence duties, and **no restraining order was enacted**. Do not preserve the original 'never appeared' status as current. The Emperor's facetious messages regarding her and Aurelia did not result in an actual forced private encounter or appointment.
