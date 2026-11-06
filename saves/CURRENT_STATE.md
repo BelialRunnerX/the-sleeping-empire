@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000025  
+**Save sequence:** 000026  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys starts with 'Technically, Aurelia' and Regent asks what secret objective drives Somnus  
-**Latest record:** [000025](turns/000025.md)  
+**Story endpoint:** Chapter XLVIII, Elys explains short-term Somnus business but withholds long-term handoff; Aurelia commissions review and adds page 87  
+**Latest record:** [000026](turns/000026.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
