@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000105  
+**Save sequence:** 000106  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CIX, Lucien and Bel enjoying a private garden walk after dinner at Nimbus
-**Latest record:** [000105](turns/000105.md)  
+**Story endpoint:** Chapter CXI, Bel voluntarily kisses Lucien on the cheek and they continue walking together on Nimbus
+**Latest record:** [000106](turns/000106.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE, after dinner ~20:30 at Elys and Clarissa's personally owned private Nimbus mountain home. Elys arranged a voluntary casual dinner with friend Lucien and female Imperial chief diplomat Bel; Clarissa hosted. Lucien brought exquisite raspberry-and-vanilla pastries and was nervous meeting Bel out of her uniform. Over food they discovered shared interests in old books, history and rare recipes; Bel genuinely enjoyed his company. They are now walking arm-in-arm in the gardens, talking privately, while Elys and Clarissa look on from terrace. This is not an established romantic relationship and neither has been coerced. Lucien NOW KNOWS his friend Hazael is Emperor Elys and learned his magical gift pastry made him immortal two centuries ago. He remains appreciative but hurt that these were concealed. Bel knew of his immortality when it was bestowed and was told to keep it confidential; no discussion of her foreknowledge with Lucien has occurred yet. Lucien still independently owns his bakery despite Somnus holding a galaxy-wide infrastructure monopoly; Somnus is wholly privately owned by Elys, with Lethe CEO; Nimbus home is separate, shared with Clarissa. No official decree, jester job or romantic agreement created at dinner. Await player's action. Use plain numbered emoji choices; interactive cards malfunction for user.
+5 Deepfall 13,627 ICE ~21:19, in the glowing gardens of Elys and Clarissa's private Nimbus home. Elys teasingly suggested Bel owes Lucien a makeup kiss after admitting she kept Lucien's immortality secret for 200 years. Bel refused any romantic command, apologized sincerely for concealing the truth, and voluntarily kissed Lucien on the cheek. Both enjoyed dinner; Bel told him she wanted to see him again. They are now continuing a private garden walk hand in hand, still NOT a formally established couple. Clarissa and Elys are together near the terrace, and Sentinel jokingly proposes a diplomatic medal. Lucien knows Elys's civilian identity is Hazael and that Elys gave him immortality via a pastry. He remains hurt but friendly over the 200-year secret. Somnus remains Elys's galaxy-spanning private infrastructure monopoly; Lucien owns his independent bakery. User prefers six simple numbered emoji choices, no interactive cards. Await player action.
 
 ## Canonical in-universe date
 
