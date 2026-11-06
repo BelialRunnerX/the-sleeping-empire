@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000125  
+**Save sequence:** 000126  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXIX, Corin and Mara seated on Wayfarer Eight awaiting an engine-check-delayed departure
-**Latest record:** [000125](turns/000125.md)  
+**Story endpoint:** Chapter CXXXI, Harrowgate market: Tessa asks incognito Corin whether he can repair a navigation core
+**Latest record:** [000126](turns/000126.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE at approximately 01:24. Elys, on indefinite sabbatical but still Emperor, is traveling incognito as **Corin Vale**, an ordinary freelance technical consultant. He chose the cheapest civilian passage without selecting destination, resulting in one-way economy tickets aboard the battered freight-passenger ship **Wayfarer Eight** from Nimbus to **Morrow's Landing** in the Rimward outer provinces with two connections. His fiancée **Clarissa**, independently sovereign of Andromeda, enthusiastically joins under self-selected alias **Mara Calder**; she has arranged for her ordinary duties to be covered. Both are aboard at Dock 17 in adjacent seats **18C / 18D**. No one aboard recognizes them. Captain **Iona Voss** announces a slight delay before scheduled 01:30 departure due to an engine warning and an apparent burning smell. **SHIP HAS NOT YET DEPARTED.** Aurelia remains Imperial Regent, Lethe controls administrative stewardship of Throne assets including Somnus, Elys retains Crown, and Sentinel retains discreet private emergency contact. Do not make decisions or unprompted dialogue for Elys; user chooses what happens next. Use six plain numbered emoji choices.
+6 Deepfall 13,627 ICE ~07:39, Harrowgate Transfer Station Independent Artisans' Arcade during a ~3 hour first layover en route to Morrow's Landing. Emperor Elys is on indefinite sabbatical incognito as Corin Vale, an ordinary freelance technician, with his fiancée Clarissa disguised as Mara Calder. Both have disembarked Wayfarer Eight to explore Harrowgate's markets. A merchant offered Clarissa a handmade flower-engraved copper bracelet for 18 credits; she admired it, but NO PURCHASE has occurred. An old craftsman, Ollen, runs Ollen's Little Universes and makes handmade miniature mechanical orreries; he prefers independent craft to industrial acquisition. A nearby young mechanic, Tessa, has a malfunctioning older independent navigation core, repair quotes too expensive, and has just asked Corin whether he knows electronics and would help repair it. Neither Elys nor Clarissa has answered the question; await player choice. Next civilian connection around 09:58, destination Morrow's Landing via one further connection. None of the locals recognize the sovereigns. Elys still Emperor, Aurelia Regent, Lethe institutional administrator of Throne assets incl Somnus, Sentinel on discreet private channel. Do not invent Elys's dialogue or next actions. Use six numbered emoji options, not UI cards.
 
 ## Canonical in-universe date
 
