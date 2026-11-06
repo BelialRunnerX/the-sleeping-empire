@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000048  
+**Save sequence:** 000049  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LIV, Elys arrives at the completed Nimbus residence, constructed by Clarissa during the prior months
-**Latest record:** [000048](turns/000048.md)  
+**Story endpoint:** Chapter LV, Nimbus housewarming in progress with Clarissa, Lucien, Bel and other Imperial Hands
+**Latest record:** [000049](turns/000049.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-2 Deepfall, 13,427 ICE, at the completed private residence on Nimbus. Elys selected to spend time with Clarissa following the completion of 13 fortified planetary computing worlds. The player explicitly corrected continuity: Clarissa used the past several months to actually BUILD the Nimbus home, which is now complete and ready. The estate includes the large private residence, plentiful guest/family rooms, study/library, deeply buried laboratory, immense solarpunk permaculture greenhouse and garden, and separate household-only spaceport on the far side of the mountain with an underground link. Nimbus remains 50/50 Elys/Clarissa and is private family property, not Somnus headquarters or freight facility. Standing invite privileges for Lucien and Imperial Hands; others personal invitation only. Clarissa has just taken Elys's hand, explained her desire for a place outside public responsibility, and said 'Welcome home.' Elys has not responded yet. The extensive Somnus and Mnemosyne canon remains intact. No M-14 was authorized; sweeping immunity decree remains unratified.
+4 Deepfall, 13,427 ICE, evening at the completed private Nimbus estate jointly owned by Elys and fiancée Clarissa. Elys chose to host a casual housewarming for Lucien and the Imperial Hands. The guests are present, including female chief diplomat Bel, who gave a guestbook. Lucien commandeered the enormous kitchen and produced a comically oversized six-tier cake with icing spacecraft crashing into an edible model of the residence. Clarissa is enjoying the warm gathering with friends, gardens and purple storms outside. No state or corporate affairs need interrupt. The Nimbus residence was built by Clarissa over prior months and is completed; it is not Somnus property. Elys has not spoken or acted in response to the party's last beat. Somnus has exactly thirteen completed, defended planetary Mnemosyne systems; its older commercial and political continuity persists. The Emperor's sweeping Somnus immunity decree remains unratified.
 
 ## Canonical in-universe date
 
