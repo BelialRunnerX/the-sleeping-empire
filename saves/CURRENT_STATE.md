@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000009  
+**Save sequence:** 000011  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, layered security approved and dedicated AI executives commissioned for all Somnus companies and divisions  
-**Latest record:** [000009](turns/000009.md)  
+**Story endpoint:** Chapter XLVII, quiet dinner; Elys names Nimbus their future home and Caldris the foundation of his economic empire  
+**Latest record:** [000011](turns/000011.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, evening. Elys chose layered security: Strategos as operations-support AI, with a human commander and oversight board still to appoint. Elys also instructed Lethe to commission a distinct AI for every company and division. New proposed AIs: SMITE Tellur/Vein/Forge; Apophatic Axiom/Prima (Materia)/Nihil (Negativa); Nocturne Vesper/Shade/Bastion/Ferrum/Wraith. Existing WSS AIs Steward/Meridian/Ledger/Granary remain in position. These are administrative roles: pending corporate formations remain pending, no extra acquisitions or fleet transfers happened. Clarissa awaits the end of the evening business meeting; Elys's next action remains unchosen.
+Caldris II farmhouse, dinner. Elys and Clarissa have set business aside. Elys says Nimbus is to be their long-term home and Caldris the foundation of a new economic empire. Nimbus is still 50/50 jointly owned; its home is still unbuilt. Clarissa asks whether Somnus is about becoming the largest company, improving life, or achieving through prosperity what conquest once achieved. The player's answer is pending. Story turns 000010 and 000011 are archived.
 
 ## Protagonist and presentation
 
