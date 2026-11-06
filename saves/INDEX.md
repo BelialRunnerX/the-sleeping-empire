@@ -56,6 +56,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000034](turns/000034.md) | XLVIII | Played turn | Elys gives Aurelia provisional 14,427 ICE horizon for future Somnus handoff | [000000](checkpoints/000000.md) |
 
+| [000035](turns/000035.md) | XLVIII | Played turn | Emperor overhauls Regent's administration software, adds 'your welcome' message | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
