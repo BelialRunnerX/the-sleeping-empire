@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000007  
+**Save sequence:** 000008  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Project Nocturne proposed  
-**Latest record:** [000007](turns/000007.md)  
+**Story endpoint:** Chapter XLVII, privately funded advanced industrial security authorized; leadership decision pending  
+**Latest record:** [000008](turns/000008.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, evening. Somnus has delegated management under Lethe, privately financed WSS acceleration, and plans for SMITE and Apophatic. Now the player has proposed a further technology venture, Project Nocturne, with four provisional research teams. It remains in planning, without new transactions. Clarissa and Sentinel are present. The next player choice is open.
+Caldris II farmhouse, evening. Elys authorized a private industrial security initiative equipped with his advanced technologies to defend Somnus operations. Lethe has proposed Somnus Security Command. The existing 100 private armed vessels are not yet assigned or transferred, and sovereign assets stay separate. Lethe asks who will command this force. Clarissa and Sentinel are present; player choice pending.
 
 ## Protagonist and presentation
 
