@@ -237,6 +237,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000136](turns/000136.md) | CXL | Played turn | Corin and Mara travel on The Oriole and arrive at ocean world Tideglass | [000000](checkpoints/000000.md) |
 
+| [000137](turns/000137.md) | CXLI | Played turn | Tideglass magical market, Nerisse and anomalous undersea crystal | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
