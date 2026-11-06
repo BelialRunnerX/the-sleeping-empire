@@ -48,6 +48,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000030](turns/000030.md) | XLVIII | Played turn | Aurelia learns eventual Somnus public handoff; withdraws broad review and preserves normal oversight | [000000](checkpoints/000000.md) |
 
+| [000031](turns/000031.md) | XLVIII | Played turn | Sealed Somnus legal-immunity decree drafted but not authenticated | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
