@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000126  
+**Save sequence:** 000127  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CXXXI, Harrowgate market: Tessa asks incognito Corin whether he can repair a navigation core
-**Latest record:** [000126](turns/000126.md)  
+**Latest record:** [000127](turns/000127.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
