@@ -160,6 +160,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000092](turns/000092.md) | XCVII | Played turn | Elys calls a private meeting | [000000](checkpoints/000000.md) |
 | [000093](turns/000093.md) | XCVIII | Played turn | Elys discloses Lucien's immortality to his advisers | [000000](checkpoints/000000.md) |
 
+| [000094](turns/000094.md) | XCIX | Played turn | Elys describes Lucien's immortality and considers waiting for discovery | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
