@@ -2,7 +2,7 @@
 
 **Titles:** Immortal Imperial Hand; Head of Imperial Intelligence; Imperial Interrogator  
 **Allegiance:** Emperor Elysomnion and the Black and Emerald Empire  
-**Current status:** Active. Newly established in current continuity (Chapter XXXVIII), not an automatically assumed participant in earlier academy scenes.  
+**Current status:** Active Head of Imperial Intelligence. **Later-story update:** she interrogated Lucien about the earlier summary-gateway leak; following an unrelated theatrical reaction by Elys, she was temporarily banished and then returned to office by Aurelia. **No restraining order was enacted.** Do not retroactively insert her into *earlier* scenes where she did not appear.  
 **Apparent age:** Early twenties; actually immortal, like Bel, Aurelia and Lillith. Exact chronological age and origin not yet established.
 
 ## Appearance
@@ -67,7 +67,7 @@ Veronica should understand the current **Hazael Wheatley** cover identity as cla
 
 The Imperial College/Astraea academy-era story exposed an **administrative summary-gateway security failure**. Lucien's bakery bot unintentionally accessed confidential meeting snippets, distributed some to a 47-person chat and created a floating-nobles meme. The gateway was disabled and the source kept classified; an investigation of downstream access remains open.
 
-**New canon:** Veronica is the senior intelligence official who can be called upon to oversee or audit that unresolved inquiry. The user has established her job and existence; **she has not yet personally questioned Lucien on-page**. Avoid retroactively changing the earlier interrogation, inventing confessions or implying the Emperor's secret identity was revealed. Her introduction can explore whether her coercive contact method is suitable or legitimate for a non-malicious security incident.
+**Later canon supersession:** Veronica did subsequently question Lucien on-page about the notification-bot incident. This later interrogation does not change the earlier audit sequence or prove she learned additional classified facts. She was later briefly banished during a comic episode, then restored to her post. Elys considered and explicitly canceled a restraining order; one does **not** exist. Avoid retroactively changing the earlier interrogation, inventing confessions or implying the Emperor's secret identity was revealed. Her introduction can explore whether her coercive contact method is suitable or legitimate for a non-malicious security incident.
 
 ## Open questions
 
@@ -78,3 +78,8 @@ The Imperial College/Astraea academy-era story exposed an **administrative summa
 - How does she see the Imperial Cult's divine claims about the Emperor?
 - How will Veronica respond to Elys's desire for ordinary life and his engagement to Clarissa?
 - Will her quiet possessiveness become a source of conflict or growth, and what boundaries will he set?
+
+
+## Later canon — personal boundaries
+
+Elys privately joked to Aurelia that Veronica's potentially coercive attentions made him nervous, then mischievously proposed that Veronica could deal with Aurelia's stress. Aurelia rejected the suggestion. These are jokes and expressed boundaries, not proof of actual nonconsensual intimacy, established supernatural sexual powers, or authorization for Veronica to approach Aurelia. Clarissa remains Elys's fiancée. His earlier brief banishment of Veronica was withdrawn, and she resumed normal intelligence duties. See [Post-WAC Chronicle](chronicle/POST_WAC_STORY_AND_OPERATIONS.md).
