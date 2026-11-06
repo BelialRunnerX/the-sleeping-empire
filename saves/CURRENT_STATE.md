@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000104  
+**Save sequence:** 000105  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CIX, Lucien and Bel enjoying a private garden walk after dinner at Nimbus
-**Latest record:** [000104](turns/000104.md)  
+**Latest record:** [000105](turns/000105.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
