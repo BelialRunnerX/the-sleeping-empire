@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000015  
+**Save sequence:** 000016  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys clarifies Somnus intended as private consolidation eventually handed to Imperial government  
-**Latest record:** [000015](turns/000015.md)  
+**Story endpoint:** Chapter XLVII, Somnus clarified as profitable private enterprise intended for eventual public ownership over millennia; quiet dinner resumes  
+**Latest record:** [000016](turns/000016.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys clarifies eventual socialization means acquiring/building industrial assets privately through Somnus, then transferring them to the Imperial government. No nationalization, actual transfer, coercive purchase, or monopoly has yet occurred. Clarissa raises co-op independence and separate home ownership; Lethe asks whether the recipient should be Aurelia's existing government or a new public industrial authority. Veronica and Sentinel joke; Aurelia has not been contacted. SIR/state cover arrangement still undecided.
+Caldris II farmhouse, late evening. Elys explains Somnus must be both profitable and beneficial now, while being gradually built for eventual public handoff over a millennia-long horizon, with no rushed deadline. The public recipient and timing are undecided. He corrects Sentinel's joke about Aurelia's future memorandum from 87 to 86 pages, not an actual issued memorandum. Veronica withdraws without a settled SIR-state intelligence cover arrangement; Lethe resumes duties. Clarissa speaks warmly of their future Nimbus home. No new acquisitions or transfers have occurred.
 
 ## Protagonist and presentation
 
