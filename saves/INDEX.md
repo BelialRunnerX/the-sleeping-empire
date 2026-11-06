@@ -66,6 +66,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000039](turns/000039.md) | XLVIII | Played turn | Exclusive SIR information contract and future procurement discussed | [000000](checkpoints/000000.md) |
 
+| [000040](turns/000040.md) | XLVIII | Played turn | Lethe commissioned to revolutionize industries rapidly and plan a planetary server farm | [000000](checkpoints/000000.md) |
+| [000041](turns/000041.md) | XLIX | Played turn | Second Three-Day War completes industrial demonstrations and Project Mnemosyne phase I | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
