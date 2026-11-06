@@ -14,6 +14,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000007](turns/000007.md) | XLVII | Played turn | Project Nocturne proposed | [000000](checkpoints/000000.md) |
 | [000008](turns/000008.md) | XLVII | Played turn | Private industrial security and advanced tech authorized; commander undecided | [000000](checkpoints/000000.md) |
 | [000009](turns/000009.md) | XLVII | Played turn | Layered security and dedicated corporate AI hierarchy commissioned | [000000](checkpoints/000000.md) |
+| [000010](turns/000010.md) | XLVII | Played turn | Quiet dinner with Clarissa | [000000](checkpoints/000000.md) |
+| [000011](turns/000011.md) | XLVII | Played turn | Nimbus named future home, Caldris economic foundation | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
