@@ -3,13 +3,13 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXIX, Hazael affirms his friendship with Lucien despite revealing ownership of Somnus
+**Story endpoint:** Chapter LXXXII, Aurelia accidentally nearly reveals Hazael's imperial identity during a bakery grand-opening invitation
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:36, Nimbus private estate greenhouse housewarming. Lucien, newly aware Hazael owns all Somnus Enterprises, asked why such a wealthy businessman spends time with a humble baker. Elys as Hazael answered, 'Because you're my friend.' Lucien warmly reciprocated, dismissed the huge corporate registry from sight, and affirmed he wants Hazael at his future bakery's front table as a friend. He still does NOT know Hazael is Emperor Elysomnion. He intends to create his own independent bakery and wants time for independent review of the proposed Somnus 10%-of-revenue development contract; NONE has been signed. No wheat sale has happened. On Epsilon 7, Somnus has begun lawful groundwork on the acquired prospective pastry-shaped bakery site, but it is not yet built, and full permits remain pending. Lucien jokingly imagines future commercial competition with Somnus. Clarissa, Bel, Lethe and Sentinel are present. Nimbus is privately co-owned by Clarissa and Elys, and thirteen fortified Mnemosyne worlds continue operating. Await player action.
+4 Deepfall 13,427 ICE ~23:47, Nimbus greenhouse. Elys as Hazael phoned Regent Aurelia to invite her to Lucien's eventual Epsilon 7 bakery grand opening. Aurelia agreed to consider a formal invitation after the building is completed and licensed. She joked that Elys should perform a public ribbon-cutting and official Imperial speech, inadvertently speaking as if Elys is standing in the room. Lucien knows Hazael is the sole owner of Somnus but DOES NOT KNOW HAZAEL IS EMPEROR ELYS; he is now confused and asks why Aurelia talks as though the Emperor is nearby. The player must decide whether to reveal the identity. Bel, Clarissa, Sentinel and Lethe are present. Somnus has legally broken ground on preliminary Epsilon 7 site works, but the bakery is not built, no full operating permits, no wheat sale and no finalized Lucien agreement. Elys revised Somnus's proposal to 10% of qualifying NET PROFIT rather than revenue; this remains unexecuted pending review. Nimbus completed private joint home; 13 Mnemosyne worlds operational.
 
 ## Canonical in-universe date
 
