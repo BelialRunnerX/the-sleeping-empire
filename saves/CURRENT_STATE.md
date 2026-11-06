@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000063  
+**Save sequence:** 000064  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXVIII, Lucien sketches the Supreme Puff for his future bakery
-**Latest record:** [000063](turns/000063.md)  
+**Story endpoint:** Chapter LXIX, Lucien likes Hazael's proposed bakery name Puff Daddy's
+**Latest record:** [000064](turns/000064.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~22:46, private Nimbus greenhouse housewarming. Elys as Hazael encouraged Lucien's fanciful giant rooftop cream puff for future bakery The Filling Station. Lucien names the concept 'The Supreme Puff,' with phases: first develop excellent pastries, then financial stability, and only later build a safe engineered rooftop sculpture. Bel and Clarissa support practical sequencing; Lucien hopes to include Hazael's name inside the sculpture someday. No bakery, sculpture, wheat sale, licensing or investment is finalized. Lucien is unaware of Hazael's true Imperial identity. Nimbus is finished and jointly owned Elys/Clarissa; Somnus has thirteen completed defended Mnemosyne computers. Await Elys's next action.
+4 Deepfall 13,427 ICE ~22:49, Nimbus greenhouse housewarming. Elys as Hazael has explicitly suggested the ENTIRE prospective bakery building be shaped like a giant cream puff (not merely adorned with a rooftop sculpture); this corrects earlier turn-63 notes. Now Hazael proposes the name 'Puff Daddy's' for Lucien's future bakery. Lucien enthusiastically likes the suggestion and proposes the questionable slogan 'Who's Your Puff Daddy?' Bel insists on trademark checks and rejects the slogan; Clarissa laughs and likes the architecture. Nothing built, no formal bakery, no wheat contract, investment or licenses. Lucien does NOT know Hazael is the Emperor. Somnus continues operating thirteen Mnemosyne defended computing worlds. Await Elys's next action.
 
 ## Canonical in-universe date
 
