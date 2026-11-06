@@ -1,6 +1,6 @@
 # The Sleeping Empire — Academy Era Canon Expansion
 
-**Coverage:** current interactive story through Chapter XXXVIII, the Imperial College of Magical Excellence's WAC materials-engineering episode. **Updated:** 2026-11-05.
+**Coverage:** foundational chronicle through Chapter XXXVIII, supplemented by new canon through **Chapter XLVII (Somnus consolidation / Lethe)**. **Updated:** 2026-11-05.
 
 This directory supplements, **does not replace**, the root lore archive. Read together with [Emperor](../Emperor.md), [Empire History](../Empire_History.md), [Empire Timeline](../Empire_Timeline.md), [Aurelia](../Aurelia.md), [Absolutionism](../Absolutionism.md), [Imperial Religion](../Imperial_Religion.md), [Senate](../The_Senate.md), [Sentinel](../Sentinel.md), [Imperial Military](../Imperial_Military.md), [Imperial Technology](../Imperial_Technology.md), and [Known Governments](../Known_Governments.md).
 
@@ -11,6 +11,8 @@ This directory supplements, **does not replace**, the root lore archive. Read to
 3. [Philosophy, religion, politics, and law](PHILOSOPHY_AND_INSTITUTIONS.md)
 4. [Technology, economic holdings, worlds, and projects](TECHNOLOGY_ECONOMY_AND_LOCATIONS.md)
 5. [Continuity ledger, narrative rules, and open threads](CONTINUITY_AND_OPEN_THREADS.md)
+6. **[Post-WAC chronology: academy, farming fair, WSS and Somnus](POST_WAC_STORY_AND_OPERATIONS.md)**
+7. **[Somnus corporate portfolio and ownership ledger](SOMNUS_CORPORATE_PORTFOLIO.md)**
 
 ## Canon-confidence protocol
 
@@ -22,6 +24,8 @@ This directory supplements, **does not replace**, the root lore archive. Read to
 - **Authorial agency:** the player exclusively decides Elys's actions and speech. Narrator controls NPCs and world. Do not invent player dialogue, especially during transitions. Elys is effectively omnipotent but not omniscient and need not be a natural strategist.
 
 ## Current snapshot
+
+**Latest status supersedes the old WAC endpoint below:** By **Chapter XLVII**, Elys/Hazael has a germinating Caldris wheat field, established **Wheatley Storage & Shipping** with AIs **Meridian, Ledger, Granary, Steward** and construction commenced on a 22-ship civilian fleet/storage facilities, reserved **SMITE**, discussed (but not incorporated) **Apophatic Technologies**, incorporated **Somnus**, and appointed **Lethe** as holding-company overseer. He has ordered eligible personal/commercial holdings transferred into Somnus, with filings underway but co-owner, residential and military carve-outs retained. The latest scene ends in Lethe's joke about forgetting. Read [Post-WAC Story](POST_WAC_STORY_AND_OPERATIONS.md) and [Corporate Ledger](SOMNUS_CORPORATE_PORTFOLIO.md) first for the most recent canonical status.
 
 Elysomnion (Elys), ancient sovereign of the **Black and Emerald Empire** (earlier documents often use *Galactic Empire*), has resumed activity after cycles of slumber. He delegates ordinary governance to **Regent Aurelia** while attending higher education undercover as **Hazael Wheatley**, nominally an agricultural student/farmer and now an **independent research fellow** at the Imperial College of Magical Excellence. His fiancée **Clarissa Somnion** owns **Andromeda** outright and shares ownership of **Nimbus** with him. His personal estate owns **Caldris II**, transformed into a vast wheat-production project with a hundred advanced Andromedan vessels and an orbital shipyard. The last scene features his magic-engineered adaptive floor material **WAC-01**, its proposed defensive applications and incessant wordplay (WAC Attack, WAC-1-OFF).
 
@@ -36,4 +40,4 @@ Elysomnion (Elys), ancient sovereign of the **Black and Emerald Empire** (earlie
 
 ## Newly established Imperial Hand — Veronica
 
-[Veronica](../Veronica.md), the violet-haired immortal **Head of Imperial Intelligence and Interrogation**, has been added to the core archive. Her distinctive fifteen tentacles and touch-mediated compulsion make her a formidable, ethically fraught interrogator. She has a restrained, lightly yandere-like devotion to Elysomnion and a possible source of tension with Clarissa. **Her role and traits are canon; a specific on-page appearance/interrogation has not yet occurred.**
+[Veronica](../Veronica.md), the violet-haired immortal **Head of Imperial Intelligence and Interrogation**, has been added to the core archive. Her distinctive fifteen tentacles and touch-mediated compulsion make her a formidable, ethically fraught interrogator. She has a restrained, lightly yandere-like devotion to Elysomnion and a possible source of tension with Clarissa. **Later-story update:** Veronica subsequently interrogated Lucien about the notification leak; she remains in intelligence office after a brief, theatrical banishment was reversed, and no restraining order was enacted. Earlier pre-introduction scenes remain unchanged.
