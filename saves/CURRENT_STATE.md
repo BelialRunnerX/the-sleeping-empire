@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000118  
+**Save sequence:** 000119  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXIII, Aurelia's powers restored, duel archived, and everyone back at Nimbus celebrating with cake
-**Latest record:** [000118](turns/000118.md)  
+**Story endpoint:** Chapter CXXIV, Elys prepares to announce next grand undertaking; friends await its nature
+**Latest record:** [000119](turns/000119.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:54, private Nimbus estate on Elys's birthday. User selected 1/5/6: Elys restored ALL of Regent Aurelia's abilities, defenses and immortality following a three-second ceremonial duel in barren system K-000, ordered Sentinel to archive the victory as 'The Three-Second War' with no casualties or political changes, then teleported himself and Aurelia back to the celebration. Aurelia makes jokes about the Emperor cheating, everyone eats Lucien's elaborate palace-shaped cake, and Clarissa asks Elys to enjoy the remainder of the party without more administrative emergencies. Elys remains Emperor; Aurelia remains Regent with powers fully restored; Lethe administers the Imperial Throne's assets including Somnus, not sovereign or personal owner. Clarissa is Elys's fiancée and independent sovereign of Andromeda; Nimbus their private joint estate. Bel and Lucien share affection but are not formally a couple. Lucien knows Hazael is Elys and knows the gift-box pastry made him immortal 200 years ago. Await player's next action. Use plain six numbered emoji choices, not interactive cards.
+5 Deepfall 13,627 ICE ~23:07 at Elys and Clarissa's jointly owned Nimbus estate, at the Emperor's birthday gathering. Elys has completed galactic economic consolidation via Somnus and placed the Imperial Throne's assets including Somnus under AI Lethe's asset administration; Elys remains Emperor and Aurelia is Regent. After a ceremonial barren-system duel in which Elys suppressed Aurelia's abilities and won, her FULL powers and immortality were RESTORED, the Three-Second War archived, and everyone returned to enjoy Lucien's cake. Player selected 'Announce your next great undertaking,' and rose to speak. Friends including Clarissa, Aurelia, Bel, Lethe, Sentinel, Veronica, Lilith and Lucien tease and wonder what's next. IMPORTANT: No next undertaking has actually been specified yet; Aurelia has just asked Elys, 'What's the next impossible thing?' Await the player's words or selection; do not invent Elys's plans. Lucien owns his bakery, knows Hazael is Emperor Elys and learned of his own immortality, is close to Bel but they are not formally a couple. Use plain numbered emoji options, not interactive cards.
 
 ## Canonical in-universe date
 
