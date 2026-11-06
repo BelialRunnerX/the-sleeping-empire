@@ -34,6 +34,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000023](turns/000023.md) | XLVII | Played turn | Elys notes Laniakea rule and that Andromeda was genuinely gifted to Clarissa | [000000](checkpoints/000000.md) |
 
+| [000024](turns/000024.md) | XLVIII | Played turn | Aurelia discovers commercial filings, delivers an eighty-six-page briefing, demands answers | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
