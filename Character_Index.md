@@ -60,6 +60,8 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Martha Venn](characters/martha-venn.md) | Harvest-fair pie judge |
 | [Tavian Mer](characters/tavian-mer.md) | Materials student |
 
+| [Caelira Vael](characters/caelira-vael.md) | Friendly and powerful cyan-haired woman freed from Tideglass causal containment |
+
 ## Related lore
 
 - [Character bible and arcs](chronicle/CHARACTERS_AND_ARCS.md)
