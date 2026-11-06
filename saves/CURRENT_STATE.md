@@ -3,13 +3,13 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXXIII, Aurelia challenges Hazael to convincingly impersonate the Emperor at Lucien's prospective bakery opening
+**Story endpoint:** Chapter LXXXVI, Aurelia parries Hazael's filling compliment by proposing a signature pastry named The Wheatley Special
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:51, Nimbus greenhouse housewarming. Elys publicly as Hazael tells Lucien that Regent Aurelia simply misses her Monarch and Hazael can be a stand-in at the bakery opening. He claims Somnus's advanced construction technology and integrated permitting can have Lucien's entire cream-puff-shaped Epsilon 7 bakery ready by the next morning (5 Deepfall). Lethe begins accelerated modular fabrication, but emphasizes final structural and food-service approvals remain pending; the morning opening is a TARGET, not confirmed. Aurelia jokingly challenges Hazael to convincingly impersonate the Emperor with solemnity and a speech, unaware Lucien is actually speaking to the Emperor; Aurelia herself knows. Lucien still does NOT know Hazael is Emperor, although he knows Hazael owns Somnus. He has not purchased wheat/flour. No executed contract for the proposed Somnus 10% share of qualifying net profit. Clarissa, Bel, Lethe and Sentinel are present. Private jointly owned Nimbus estate completed; 13 Mnemosyne worlds unchanged. Await player action.
+5 Deepfall 13,427 ICE ~09:21, giant cream-puff-shaped bakery grand opening at Meridian Commons, Epsilon 7 capital. Hazael/Elys teased Regent Aurelia about being satisfied with the filling of Lucien's pastry. Aurelia humorously retaliated by publicly proposing a signature menu pastry The Wheatley Special (extra custard, delicate glaze); Lucien likes the idea but must finalize the recipe and pricing. Clarissa and Bel laughed; Sentinel made dry remarks. Lucien has purchased flour from another supplier for opening day, but still has no longer-term wheat supply agreement with Hazael. He knows Hazael owns all Somnus but still does NOT know he is Emperor Elys. The bakery is newly opened with necessary approvals, whereas the proposed Somnus development share of 10% qualifying NET PROFIT is still pending contract review/signature. Aurelia is present, as are Clarissa, Bel, Sentinel and Lucien. Thirteen Mnemosyne worlds unchanged. Await player's next action.
 
 ## Canonical in-universe date
 
