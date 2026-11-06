@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000060  
+**Save sequence:** 000061  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXV, Lucien vows to make both cream puffs and éclairs after an exchange of pastry puns
-**Latest record:** [000060](turns/000060.md)  
+**Story endpoint:** Chapter LXVI, Lucien learns the pastry double meanings and jokingly requests a wagon of wheat
+**Latest record:** [000061](turns/000061.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~22:31, Nimbus greenhouse housewarming. Elys as Hazael chose another embarrassing pastry pun about éclairs and cream-filling. Lucien sincerely takes it as manufacturing advice and declares his hypothetical Cream-Pie-R bakery will offer cream puffs and éclairs. Bel has left the immediate conversation in comic exasperation, while Clarissa laughs. Lucien wrongly infers Bel dislikes dairy, still has no idea Hazael is Emperor Elys, and promises Hazael the first pastry free if he supplies wheat. NO wheat deal, bakery opening, business contract or guild formation has happened. All thirteen Mnemosyne computing worlds and Somnus holdings remain operational, and Nimbus is completed, private and jointly owned by Elys and Clarissa. Await player's next action.
+4 Deepfall 13,427 ICE ~22:36, Nimbus greenhouse housewarming. Elys as Hazael called Bel back and made another joke about Lucien filling and glazing her éclair, then explicitly explained the cream-puff and Cream-Pie-R double meanings. Lucien understood and became embarrassed; Bel and Clarissa laughed. Lucien now jokingly asks Hazael for one wagon of wheat and help selecting a respectable bakery name in compensation for all the misleading branding ideas, plus a halt to the filling jokes. NO deal was agreed and no wheat has changed hands. Lucien still DOES NOT know Hazael is Emperor Elys; Sentinel's royal remark was dismissed. The private Nimbus estate is completed and co-owned by Elys and Clarissa; Somnus's thirteen fortified Mnemosyne computer worlds remain operational. Await Elys's response to Lucien's proposed terms.
 
 ## Canonical in-universe date
 
