@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000027  
+**Save sequence:** 000029  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys urges Aurelia not to conduct Somnus administrative review; Regent asks whether recommendation or sovereign command  
-**Latest record:** [000027](turns/000027.md)  
+**Story endpoint:** Chapter XLVIII, Lilith assesses the Somnus strategy and Aurelia suspects a future public handoff  
+**Latest record:** [000029](turns/000029.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
