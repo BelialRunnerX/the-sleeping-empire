@@ -1,5 +1,5 @@
-# Illustrated character portraits
+# Detailed illustrated portraits
 
-Forty original, self-contained SVG portraits for the 40 entries in the Living Codex character directory. They use a shared sci-fi / anime-inspired visual vocabulary, distinct palettes and role-specific human or artificial-intelligence motifs. These are **interpretive illustrations**, not definitive canonical appearances. Portrait titles and alt text are provided in each SVG. The character directory and detail drawers load them from `/docs/images/characters/`.
+40 original self-contained SVG illustrations for the Living Codex characters, matched to `docs/data.js` and `Character_Index.md`. Replaces the original sparse 2KB glyph portraits with layered vector scenes, gradients, lighting, human faces and expressive eyes, hair strands, distinctive costume details, accessories, and ornate frames.
 
-Source of truth for names and identities: [Character Index](../../../Character_Index.md) and [character dossiers](../../../characters/).
+These artworks are **interpretive illustrations**, not statements of canonical physical appearance. The text dossiers remain authoritative. No external assets or fonts are required for SVG rendering.
