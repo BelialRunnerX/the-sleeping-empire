@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000014  
+**Save sequence:** 000015  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys proposes SIR and Imperial intelligence as potential mutual covers; Veronica asks which relationship he wants  
-**Latest record:** [000014](turns/000014.md)  
+**Story endpoint:** Chapter XLVII, Elys clarifies Somnus intended as private consolidation eventually handed to Imperial government  
+**Latest record:** [000015](turns/000015.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys suggested Somnus Intelligence and Risk could serve as a state intelligence cover, and vice versa. Veronica is interested; Cipher, Lethe, and Clarissa raise questions about boundaries, institutional integrity, hidden authority, and eventual socialization of Somnus. No cover arrangement, merger, or operation has yet been enacted. Veronica asks whether Elys envisions selective cooperation or a deeper dual-purpose structure. Clarissa and Sentinel are present.
+Caldris II farmhouse, late evening. Elys clarifies eventual socialization means acquiring/building industrial assets privately through Somnus, then transferring them to the Imperial government. No nationalization, actual transfer, coercive purchase, or monopoly has yet occurred. Clarissa raises co-op independence and separate home ownership; Lethe asks whether the recipient should be Aurelia's existing government or a new public industrial authority. Veronica and Sentinel joke; Aurelia has not been contacted. SIR/state cover arrangement still undecided.
 
 ## Protagonist and presentation
 
