@@ -109,6 +109,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000062](turns/000062.md) | LXVII | Played turn | The Filling Station bakery name proposed | [000000](checkpoints/000000.md) |
 
+| [000063](turns/000063.md) | LXVIII | Played turn | Lucien sketches the Supreme Puff rooftop landmark | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
