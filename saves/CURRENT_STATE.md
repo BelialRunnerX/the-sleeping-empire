@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000011  
+**Save sequence:** 000012  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, quiet dinner; Elys names Nimbus their future home and Caldris the foundation of his economic empire  
-**Latest record:** [000011](turns/000011.md)  
+**Story endpoint:** Chapter XLVII, Elys signals future social ownership, commissions Clarissa to develop Nimbus estate, and raises corporate intelligence with Veronica  
+**Latest record:** [000012](turns/000012.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, dinner. Elys and Clarissa have set business aside. Elys says Nimbus is to be their long-term home and Caldris the foundation of a new economic empire. Nimbus is still 50/50 jointly owned; its home is still unbuilt. Clarissa asks whether Somnus is about becoming the largest company, improving life, or achieving through prosperity what conquest once achieved. The player's answer is pending. Story turns 000010 and 000011 are archived.
+Caldris II farmhouse, dinner. Elys privately reveals eventual intention to socialize the means of production; no transfer or policy is enacted. He entrusts Clarissa with preliminary surveys, design, and subsequent construction of their planned jointly owned Nimbus estate, still not built. Sentinel contacts Veronica regarding private corporate intelligence; she expresses interest but requires clear separation from sovereign intelligence resources and awaits defined scope. Clarissa asks Elys what intelligence he actually wants. Aurelia has not yet responded to these private plans.
 
 ## Protagonist and presentation
 
