@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000036  
+**Save sequence:** 000037  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys upgrades Aurelia's administrative software for millennial planning and inserts 'your welcome' greeting
-**Latest record:** [000036](turns/000036.md)  
+**Story endpoint:** Chapter XLVIII, Elys removes Somnus software concealment and Aurelia establishes boundaries for any SIR-Imperial Intelligence cooperation
+**Latest record:** [000037](turns/000037.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-17 Emberwane, Year 13,427 ICE, afternoon at Caldris II farmhouse. Elys has just completed a radical upgrade of Regent Aurelia's administrative software, preserving official records and safeguards while introducing long-horizon calendars, fiscal and logistical models, and advanced cross-ministry planning. Aurelia has successfully tested and praised the improvements, including a 14,427 ICE provisional reminder for eventual Somnus public handoff, but complains that every upgraded device displays the deliberately incorrect 'your welcome' on first activation. She sends a grateful yet exasperated personal message correcting the grammar. Clarissa and Sentinel are present and amused. The immunity decree remains unratified. No other policy or ownership changes have occurred. Next user action open.
+17 Emberwane, 13,427 ICE, Caldris II farmhouse. In the Regent's ongoing holographic call, Elys said Somnus's AI governance should prevent illegality, and promised to fix his concealed compliance exception. He removed the special suppression and restored independently verifiable compliance reporting while retaining lawful Somnus economic planning integration. He jokingly claimed Veronica and SIR's Cipher 'may or may not be in cahoots.' Aurelia called Veronica: she admits to exploratory discussions only; no state resources, personnel, secret information or operational authority have been transferred to SIR. Aurelia orders express approvals and auditable boundaries for any later cooperation. She now asks Elys if he has anything else to disclose before she attempts a normal afternoon. Clarissa, Sentinel and Veronica are all available. The unratified decree remains legally void; the future public handoff remains centuries away.
 
 ## Canonical in-universe date
 
