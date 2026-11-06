@@ -253,6 +253,10 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000144](turns/000144.md) | CXLVIII | Played turn | Caelira accepts Elys's binding and becomes loyal companion; research rescue pending | [000000](checkpoints/000000.md) |
 
+## Status declarations
+
+- [Formal Imperial Hand appointments — Lucien as Jester to the Crown; Caelira as Enigma-01](canon/hands-lucien-caelira-enigma01.md). Authoritative update at Chapter CXLVIII; no in-story turn advancement.
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
