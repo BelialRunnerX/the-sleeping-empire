@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000023  
+**Save sequence:** 000024  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys jokes that gifting sovereign Andromeda and already ruling Laniakea leaves him no reason to subordinate Clarissa  
-**Latest record:** [000023](turns/000023.md)  
+**Story endpoint:** Chapter XLVIII, Regent Aurelia confronts Elys with an 86-page memo on Somnus and asks three questions  
+**Latest record:** [000024](turns/000024.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys tells Clarissa that, as ruler of Laniakea, he had no reason to seek supremacy in Andromeda after gifting it to her. Clarissa laughs, agrees she holds true independent sovereignty, and appreciates his new honorary First Counselor office for its strictly advisory standing. Sentinel jokes about titles and filing systems. No changes to the respective territorial sovereignty or to the limits of his honorary office.
+Three days later at Caldris farmhouse, Elys and Clarissa receive Regent Aurelia's call. She investigated public filings and lawful intelligence on Somnus, WSS, SMITE, Apophatic, Nocturne, private security, SIR, Nimbus and Elys's honorary Andromedan First Counselor position, collecting an 86-page memorandum (she deleted page 87 for repetition). She does not know Elys's private intention to eventually transfer a consolidated productive economy to the Imperial government, nor their unimplemented discussion of covert SIR/state cover. Aurelia demands to know whether Somnus seeks political influence, whether its military/intelligence arms are independent of government, and why no one told her directly. Clarissa is amused; Sentinel made the precise 86-page prediction joke. Await Elys's reply.
 
 ## Protagonist and presentation
 
