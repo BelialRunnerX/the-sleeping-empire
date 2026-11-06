@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000013  
+**Save sequence:** 000014  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys commissions Somnus Intelligence and Risk with Cipher AI; Veronica advisory role still unassigned  
-**Latest record:** [000013](turns/000013.md)  
+**Story endpoint:** Chapter XLVII, Elys proposes SIR and Imperial intelligence as potential mutual covers; Veronica asks which relationship he wants  
+**Latest record:** [000014](turns/000014.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, dinner. Elys ordered a private intelligence subsidiary, Somnus Intelligence and Risk (SIR), and commissioned executive AI Cipher. The organization is in formation, with analysts and operations not yet staffed. Its purposes are lawful corporate intelligence, counterintelligence, economic risk and integrity investigations. Veronica remains Imperial intelligence chief; she is open to a separate advisory arrangement but no appointment or sovereign asset transfer is established. Clarissa and Sentinel joke about the proliferation of companies; dinner continues. The player's next action is open.
+Caldris II farmhouse, late evening. Elys suggested Somnus Intelligence and Risk could serve as a state intelligence cover, and vice versa. Veronica is interested; Cipher, Lethe, and Clarissa raise questions about boundaries, institutional integrity, hidden authority, and eventual socialization of Somnus. No cover arrangement, merger, or operation has yet been enacted. Veronica asks whether Elys envisions selective cooperation or a deeper dual-purpose structure. Clarissa and Sentinel are present.
 
 ## Protagonist and presentation
 
