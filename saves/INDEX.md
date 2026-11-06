@@ -146,6 +146,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000081](turns/000081.md) | LXXXVI | Played turn | Aurelia proposes The Wheatley Special pastry | [000000](checkpoints/000000.md) |
 
+| [000083](turns/000083.md) | LXXXVIII | Played turn | Imperial proclamation at the bakery | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
