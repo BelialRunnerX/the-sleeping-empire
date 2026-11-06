@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000071  
+**Save sequence:** 000072  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXVI, Lethe offers preliminary planning options for Lucien's proposed bakery
-**Latest record:** [000071](turns/000071.md)  
+**Story endpoint:** Chapter LXXVII, Lethe breaks ground on Epsilon 7 bakery project; Lucien asks Hazael who he really is
+**Latest record:** [000072](turns/000072.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:19, Nimbus greenhouse. Elys as Hazael told Lucien his future bakery could be built as fast as permits are approved, then summoned Lethe and asked whether she had been listening. Lethe says she was not monitoring the private home, but now has a relevant discussion summary from Sentinel. She examined a feasible concept for a bakery whose ENTIRE building is cream-puff-shaped and proposed three possible paths: independent design help, commercial Somnus design/build services, or Hazael's private financing. Lucien now knows Hazael has high-level Somnus connections, but DOES NOT know he is Elys or Somnus's sole owner. Lethe awaits Elys's direction before committing resources; no construction, spending, permits or wheat sale are authorized. Clarissa and Bel remain present. Thirteen Mnemosyne planets remain operating; Nimbus is the completed jointly owned private home.
+4 Deepfall 13,427 ICE, ~23:28, Nimbus greenhouse housewarming. On Elys/Hazael's explicit order, Lethe successfully mobilized Somnus to purchase an appropriate commercial site in Epsilon 7's Meridian Commons district and conduct authorized preliminary excavation within 4m48s, breaking ground for a future entire cream-puff-shaped bakery. Construction is NOT complete; revised architecture and food permits remain pending. Elys proposes Somnus receive 10% of the bakery's revenue (not equity or profit) in exchange for development. Lucien wants appropriate written terms and independent review before signing; no binding revenue-share contract yet. Somnus development is underway at its risk. Lucien is overwhelmed and asks Hazael 'Who exactly are you?' without yet learning his identity as Emperor. Clarissa, Bel, Sentinel and Lethe are present. Thirteen fortified Mnemosyne worlds and other Somnus assets unchanged. Await player's response.
 
 ## Canonical in-universe date
 
