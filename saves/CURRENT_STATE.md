@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000003  
+**Save sequence:** 000006  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Hazael ordered rapid deployment of existing WSS infrastructure; Lethe asks how acceleration should be financed  
-**Latest record:** [000003](turns/000003.md)  
+**Story endpoint:** Chapter XLVII, Somnus industrial expansion initiated with Lethe in charge  
+**Latest record:** [000006](turns/000006.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, 21:16. Elys explicitly selected **rapid deployment** for already-approved WSS shipyard, Bellweather, and Caldris export terminal workstreams. Lethe and Sentinel remain on private channel; Clarissa is present. Lethe accepted parallel acceleration subject to existing limits, safety, independent certification, and approval for spending beyond delegated budgets. Fleet and facilities remain unfinished. Lethe has asked whether acceleration should use Hazael's own capital, loans, or minority outside equity; Elys has not chosen financing.
+Caldris II farmhouse, evening. After rapid WSS deployment, Elys selected private financing and a corporate balance of profit and prosperity. He delegated daily Somnus affairs to Lethe and ordered development of SMITE and Apophatic plus nearby mining acquisitions. Initial surveys and formation are underway; no mining systems bought yet. Clarissa is present; the next player action is unchosen.
 
 ## Protagonist and presentation
 
