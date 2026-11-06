@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000068  
+**Save sequence:** 000069  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXII, Bel requests a formal imperial audience one meter away in retaliation for Elys's call
-**Latest record:** [000068](turns/000068.md)  
+**Story endpoint:** Chapter LXXIV, Aurelia processes Lucien's bakery inquiry and privately asks Elys whether construction has begun
+**Latest record:** [000069](turns/000069.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:02, Nimbus greenhouse housewarming. Elys as Hazael called Bel again by communicator while standing two meters away. Bel responded in comic exasperation, demanding why he needs a call when she's in front of him. Lucien mistakes it for telecommunications latency testing and still DOES NOT know Hazael is Emperor Elys. Bel retaliates by sending a formal private-audience request to the Emperor for an immediate appointment one meter from him, concerning proper use of communications technology. Lucien notices an imperial audience request and wonders whether the Emperor could invest in his still-unopened bakery. Clarissa laughs, Sentinel remarks dryly. Player has not yet accepted or declined the appointment. No grain agreement or bakery exists; completed private Nimbus home and thirteen fortified Mnemosyne computer worlds remain intact.
+4 Deepfall 13,427 ICE ~23:11, Nimbus greenhouse housewarming. Elys as Hazael sent Regent Aurelia a polite thank-you note for her swift handling of the same-room communications dispute and encouraged Lucien to send a regular business-development inquiry about his proposed bakery. Lucien's ordinary civilian petition featured an attached concept illustration of the entire bakery building shaped like a cream puff, possibly named Puff Daddy's or The Filling Station. The appropriate office responded normally with licensing and building advice; no permit, funding, registration or preferential assistance has been granted. Lucien is enthusiastic about getting an architect. Aurelia privately asks Elys if the bakery is already under construction. It is NOT. No wheat sale yet; Lucien does NOT know Hazael is Elys. Bel, Clarissa and Sentinel are present; Nimbus is a completed jointly owned private estate and all thirteen Mnemosyne computer planets remain operational. Await player's response.
 
 ## Canonical in-universe date
 
