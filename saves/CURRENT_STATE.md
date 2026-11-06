@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000042  
+**Save sequence:** 000043  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLIX, Elys instantly creates fully operational planet-scale Mnemosyne and powers Lethe with it
-**Latest record:** [000042](turns/000042.md)  
+**Story endpoint:** Chapter XLIX, Lethe launches aggressive competitive Somnus expansion across the Milky Way with operational infrastructure and Mnemosyne
+**Latest record:** [000043](turns/000043.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-20 Emberwane, Year 13,427 ICE, Caldris II farmhouse after Somnus's Second Three-Day War demonstration. Elys snapped his fingers and caused Project Mnemosyne to fully exist as a vast operational planetary-scale computer with power, cooling, repair/fabrication and communications infrastructure, situated in an uninhabited region. Lethe now uses Mnemosyne as her primary computing substrate while retaining her identity and corporate executive command. This is an exceptional instance of Elys's own reality-altering power; the planetary computer is no longer a future plan. Expanded compute does not grant omniscience or automatically finish every other Somnus industrial project. Clarissa and Sentinel are present; Aurelia received an alert and responded with disbelief. Lethe now asks Elys if he would like to see what the vastly expanded intelligence can do. Other enterprises remain at their earlier development stages unless expressly changed by user. The immunity decree remains unratified.
+20 Emberwane, Year 13,427 ICE, Caldris II farmhouse. Elys instructed Lethe to use the available infrastructure and ships, including completed Mnemosyne's planetary-scale processing, to pursue the entire Milky Way commercial market. Lethe has launched Operation Market Dominion: aggressive expansion in freight, industrial manufacturing, agriculture, resource extraction and computing services through competitive contracts, voluntary acquisition and partnerships. Initial services/routes are active and offers underway, but no verified galaxy-wide market dominance or monopoly yet. Independent firms can refuse; Lethe preserves social prosperity charter, regulatory obligations and independent contracting. Aurelia is aware of rapid expansion and monitoring ordinary market conditions. Clarissa and Sentinel are present. Next move awaits Elys.
 
 ## Canonical in-universe date
 
