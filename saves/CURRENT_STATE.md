@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000129  
+**Save sequence:** 000130  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXIV; Corin remains incognito on Canterbury while Aurelia and Lethe initiate an audit of legacy repair restrictions
-**Latest record:** [000129](turns/000129.md)  
+**Story endpoint:** Chapter CXXXV, Corin gifts Mara a copper bracelet and arrives at Kestrel Junction for the final connection to Morrow's Landing
+**Latest record:** [000130](turns/000130.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE ~10:31 aboard Canterbury en route from Harrowgate to Kestrel Junction, penultimate leg to Morrow's Landing. Emperor Elys incognito as Corin Vale, fiancé Clarissa as Mara Calder, both on holiday. User chose humorous line 'Government inspectors? Do we look like government inspectors?' in reply to agricultural surveyor Maren Sol; she believes their cover. At the user's explicit instruction, Elys sent a discreet private report to Regent Aurelia describing technical repair debt of legacy systems, restrictive inherited Somnus subsidiary contracts and licensing making independent repairs needlessly costly, as illustrated by mechanic Tessa's Vesper-4: 1,840-credit authorized quote versus 34 credits in parts. Aurelia and Lethe have OPENED an investigative audit of legacy repairability, diagnostics, repair access, parts and safety certification; NO new repair policy has been passed. Maren further explained Morrow's Landing's nonviolent provincial freight tariff dispute: certain irrigation regulators classified as premium industrial equipment and charged inappropriate-looking rates. Elys has not agreed to intervene. Cover identities undisclosed; Elys remains Emperor on indefinite sabbatical, Aurelia Regent, Lethe administers Throne assets including Somnus. Corin still holds 28 credits earned from Tessa; no purchase of Clarissa's admired 18-credit copper bracelet. Await player action during flight; do not fabricate Elys's speech or decisions. Six plain emoji-numbered options, not interactive cards.
+6 Deepfall 13,627 ICE ~12:04 at Kestrel Junction Orbital Port following second flight aboard Canterbury from Harrowgate. Elys, under alias Corin Vale, on indefinite non-abdicating sabbatical and fiancée Clarissa, as Mara Calder, reached Kestrel; Maren Sol, agricultural surveyor, has disembarked, unaware of the couple's secret identities. During the flight Elys joked 'My former boss was a bit of a tyrant,' meaning himself, and simply listened to Maren's agricultural tariff grievances WITHOUT intervening. **PLAYER-ESTABLISHED RETCON:** After earning 28 credits in Tessa's Harrowgate repair shop, Elys secretly purchased the simple engraved COPPER FLOWER BRACELET for 18 credits while Clarissa was distracted. He has GIVEN it to her on the Canterbury; she happily WEARS it. Earlier narration stating it was not purchased is superseded. Corin's remaining earned wages are **10 credits**. Final passenger connection to Morrow's Landing is posted at **Kestrel Dock 12**, but they have not boarded or arrived yet. Elys remains Emperor, Aurelia Regent, Lethe administrator of Throne assets including Somnus, and Sentinel private emergency channel. Aurelia and Lethe have only opened an audit regarding legacy repair debt, no new policy yet. Clarissa independently sovereign of Andromeda and is Elys's FIANCÉE (not wife). Preserve agency, use six plain numbered emoji choices.
 
 ## Canonical in-universe date
 
