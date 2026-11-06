@@ -101,3 +101,21 @@ Immortal Chief Imperial Architect, designing self-repairing infrastructure; asso
 **Elys relationship:** lightly **yandere-like** attachment: unusually intense devotion, discreet jealousy and possessiveness, obsessive attentiveness to his safety and time, and unnerving politeness toward rivals. Avoid caricature, automatic violence or asserting that Elys reciprocates. **Clarissa is already his fiancée**, independently powerful and not a passive competitor; friction or mutual respect should develop through scenes.
 
 **Continuity:** she is now canon as an immortal Hand with knowledge of the Hazael Wheatley cover, but her first appearance and response to the earlier Lucien summary-gateway breach have not yet been played on-page. Do not retroactively insert her into already completed interrogations.
+
+
+## Chapter XLIII–XLVII additions — farm, logistics and AI executives
+
+- **Tomas Venn** — earnest Bellweather cooperative representative (roughly four thousand farming families across three worlds); seeks fair nonexclusive logistics partnership to avoid destroying independent growers with artificially cheap Caldris imports.
+- **Miriam Holt** — experienced farmer and tractor champion (96 points versus Hazael's third-place 84), forthright mentor on reserves, reliability, and preserving communities.
+- **Elias Harker** — old farmer protective of his family land and battered tractor; second at fair (93 points); resists consolidation offers.
+- **Nessa Calder** — practical Bellweather terminal maintenance engineer; documents old machinery problems and contributes **17 corrections** to WSS retrofit. Maintenance access is a major design requirement.
+- **Martha Venn** — Tomas's aunt, pie judge and strong personality at Morrow's Crossing harvest fair.
+- **Aven Rhel** — Imperial College Senior Lecturer in magical field dynamics; tests field priority versus raw magical strength; does not know Hazael's imperial identity.
+- **Tavian Mer** — critical-thinking materials student; notes that metal grain boundaries cannot be modeled as semiconductor doping without qualification; later participates in the experimental test.
+- **Meridian** — WSS AI freight director: routing, vessels and schedules; precise and efficiency-oriented.
+- **Ledger** — WSS AI finance/accounts director, independent auditing and dry concern about her founder's spending.
+- **Granary** — WSS AI storage director, strict grain preservation and maintenance safety.
+- **Steward** — WSS AI CEO, coördinates freight, storage and finances, handles normal business autonomously.
+- **Lethe** — newly appointed executive AI overseer of **Somnus** holding company: composed, exacting, gently ironic; manages portfolio and corporate consolidation while respecting private/Imperial ownership boundaries. Her jokes about forgetting do **not** indicate actual memory loss. She is the corporate overseer, distinct from Sentinel's sovereign role and Aurelia's regency.
+
+**Clarissa's updated role:** independently owns Andromeda, retains her half of Nimbus, lives with Elys at the Caldris farmhouse, enjoys the Bellweather fair, and **negotiates WSS service pricing for the Bellweather co-op** on Elys's explicit instruction; provisional structure agreed, final prices pending. She is not a subordinate of Lethe. **Veronica later appeared/interrogated Lucien** after the earlier dossier was written; see current note in [Veronica](../Veronica.md). Corporate ownership and status ledger: [Somnus](SOMNUS_CORPORATE_PORTFOLIO.md).
