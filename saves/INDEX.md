@@ -12,6 +12,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000005](turns/000005.md) | XLVII | Played turn | Balanced prosperity charter adopted; management delegation open | [000000](checkpoints/000000.md) |
 | [000006](turns/000006.md) | XLVII | Played turn | Lethe delegated; SMITE and Apophatic development and mining acquisitions initiated | [000000](checkpoints/000000.md) |
 | [000007](turns/000007.md) | XLVII | Played turn | Project Nocturne proposed | [000000](checkpoints/000000.md) |
+| [000008](turns/000008.md) | XLVII | Played turn | Private industrial security and advanced tech authorized; commander undecided | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
