@@ -233,6 +233,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000134](turns/000134.md) | CXXXVIII | Played turn | Vesta sends Lucien a soup photo and books random Tideglass flight | [000000](checkpoints/000000.md) |
 
+| [000135](turns/000135.md) | CXXXIX | Played turn | Corin requests Emperor's New Clothes at Rusted Ladle | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
