@@ -71,6 +71,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000042](turns/000042.md) | XLIX | Played turn | Elys snaps completed Mnemosyne computing planet into existence; Lethe connects | [000000](checkpoints/000000.md) |
 
+| [000043](turns/000043.md) | XLIX | Played turn | Lethe launches Somnus galactic market expansion with Mnemosyne infrastructure | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
