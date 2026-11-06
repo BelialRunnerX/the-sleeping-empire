@@ -10,6 +10,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000003](turns/000003.md) | XLVII | Played turn | Rapid WSS deployment ordered; acceleration financing undecided | [000000](checkpoints/000000.md) |
 | [000004](turns/000004.md) | XLVII | Played turn | Self-financing chosen; corporate mission open | [000000](checkpoints/000000.md) |
 | [000005](turns/000005.md) | XLVII | Played turn | Balanced prosperity charter adopted; management delegation open | [000000](checkpoints/000000.md) |
+| [000006](turns/000006.md) | XLVII | Played turn | Lethe delegated; SMITE and Apophatic development and mining acquisitions initiated | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
