@@ -249,17 +249,17 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000142](turns/000142.md) | CXLVI | Played turn | Causal repair chamber, maintenance construct, apparent future footage | [000000](checkpoints/000000.md) |
 
-| [000143](turns/000143.md) | CXLVII | Played turn | Elys frees Marina Somnion from containment; two scientists located alive | [000000](checkpoints/000000.md) |
+| [000143](turns/000143.md) | CXLVII | Played turn | Elys frees Celeste Somnion from containment; two scientists located alive | [000000](checkpoints/000000.md) |
 
-| [000144](turns/000144.md) | CXLVIII | Played turn | Marina accepts Elys's binding and becomes loyal companion; research rescue pending | [000000](checkpoints/000000.md) |
+| [000144](turns/000144.md) | CXLVIII | Played turn | Celeste accepts Elys's binding and becomes loyal companion; research rescue pending | [000000](checkpoints/000000.md) |
 
 ## Name correction
 
-- **Marina Somnion**, Imperial Hand **Enigma-01**, supersedes the provisional names Caelira Vael and Aquea Somnion. [Canonical character profile](../characters/marina-somnion.md).
+- **Celeste Somnion**, Imperial Hand **Enigma-01**, supersedes Caelira Vael, Aquea Somnion, and Marina Somnion. [Canonical character profile](../characters/celeste-somnion.md).
 
 ## Status declarations
 
-- [Formal Imperial Hand appointments — Lucien as Jester to the Crown; Marina as Enigma-01](canon/hands-lucien-caelira-enigma01.md). Authoritative update at Chapter CXLVIII; no in-story turn advancement.
+- [Formal Imperial Hand appointments — Lucien as Jester to the Crown; Celeste as Enigma-01](canon/hands-lucien-caelira-enigma01.md). Authoritative update at Chapter CXLVIII; no in-story turn advancement.
 
 ## Historical coverage
 
