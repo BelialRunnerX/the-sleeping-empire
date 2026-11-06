@@ -75,6 +75,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000044](turns/000044.md) | L | Played turn | One month of Somnus expansion, industrial gains and first market-share estimates | [000000](checkpoints/000000.md) |
 
+| [000045](turns/000045.md) | LI | Played turn | Second month of Somnus expansion and galactic market-share growth | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
