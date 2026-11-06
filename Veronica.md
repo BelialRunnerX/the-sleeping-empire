@@ -1,5 +1,8 @@
 # Veronica — The Imperial Interrogator
 
+> **Current Chapter XLVII profile:** [Veronica](characters/veronica.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Titles:** Immortal Imperial Hand; Head of Imperial Intelligence; Imperial Interrogator  
 **Allegiance:** Emperor Elysomnion and the Black and Emerald Empire  
 **Current status:** Active Head of Imperial Intelligence. **Later-story update:** she interrogated Lucien about the earlier summary-gateway leak; following an unrelated theatrical reaction by Elys, she was temporarily banished and then returned to office by Aurelia. **No restraining order was enacted.** Do not retroactively insert her into *earlier* scenes where she did not appear.  

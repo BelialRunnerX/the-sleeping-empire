@@ -41,3 +41,8 @@ Elysomnion (Elys), ancient sovereign of the **Black and Emerald Empire** (earlie
 ## Newly established Imperial Hand — Veronica
 
 [Veronica](../Veronica.md), the violet-haired immortal **Head of Imperial Intelligence and Interrogation**, has been added to the core archive. Her distinctive fifteen tentacles and touch-mediated compulsion make her a formidable, ethically fraught interrogator. She has a restrained, lightly yandere-like devotion to Elysomnion and a possible source of tension with Clarissa. **Later-story update:** Veronica subsequently interrogated Lucien about the notification leak; she remains in intelligence office after a brief, theatrical banishment was reversed, and no restraining order was enacted. Earlier pre-introduction scenes remain unchanged.
+
+
+## Individual profiles and audit
+
+[Complete character index](../Character_Index.md) · [Source coverage and remaining transcript gap](SOURCE_COVERAGE.md).

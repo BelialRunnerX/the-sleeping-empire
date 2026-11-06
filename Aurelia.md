@@ -1,5 +1,8 @@
 # Aurelia
 
+> **Current Chapter XLVII profile:** [Aurelia](characters/aurelia.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** Queen of the Galactic Empire, Former Sentient Star  
 **Title:** Queen of the Empire
 

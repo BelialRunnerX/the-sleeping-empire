@@ -1,5 +1,8 @@
 # Sylphara Voss
 
+> **Current Chapter XLVII profile:** [Sylphara Voss](characters/sylphara-voss.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** Chief Imperial Architect
 
 ## Appearance

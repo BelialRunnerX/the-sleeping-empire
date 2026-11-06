@@ -72,7 +72,7 @@ Student with engineering-oriented interests, part of ensemble. Further personal 
 
 ## Bel
 
-Foundational personal attendant and Chief Diplomat, liaison with Senate and Kael Voss. Recent story delegated oversight of **Project Stillwater** to Bel; the underlying facility runs under a designated Stillwater Intelligence. May be referred to as “Bell” in earlier narration—use **Bel** unless character speech requires otherwise.
+A woman (she/her), foundational personal attendant and Chief Diplomat, liaison with Senate and Kael Voss. Recent story delegated oversight of **Project Stillwater** to Bel; the underlying facility runs under a designated Stillwater Intelligence. May be referred to as “Bell” in earlier narration—use **Bel** unless character speech requires otherwise.
 
 ## Lillith
 
@@ -100,7 +100,7 @@ Immortal Chief Imperial Architect, designing self-repairing infrastructure; asso
 
 **Elys relationship:** lightly **yandere-like** attachment: unusually intense devotion, discreet jealousy and possessiveness, obsessive attentiveness to his safety and time, and unnerving politeness toward rivals. Avoid caricature, automatic violence or asserting that Elys reciprocates. **Clarissa is already his fiancée**, independently powerful and not a passive competitor; friction or mutual respect should develop through scenes.
 
-**Continuity:** she is now canon as an immortal Hand with knowledge of the Hazael Wheatley cover, but her first appearance and response to the earlier Lucien summary-gateway breach have not yet been played on-page. Do not retroactively insert her into already completed interrogations.
+**Continuity:** she is now canon as an immortal Hand with knowledge of the Hazael Wheatley cover, and she later questioned Lucien about the summary-gateway breach. A brief theatrical banishment was reversed; no restraining order was enacted. Do not retroactively insert her into already completed interrogations.
 
 
 ## Chapter XLIII–XLVII additions — farm, logistics and AI executives
@@ -119,3 +119,8 @@ Immortal Chief Imperial Architect, designing self-repairing infrastructure; asso
 - **Lethe** — newly appointed executive AI overseer of **Somnus** holding company: composed, exacting, gently ironic; manages portfolio and corporate consolidation while respecting private/Imperial ownership boundaries. Her jokes about forgetting do **not** indicate actual memory loss. She is the corporate overseer, distinct from Sentinel's sovereign role and Aurelia's regency.
 
 **Clarissa's updated role:** independently owns Andromeda, retains her half of Nimbus, lives with Elys at the Caldris farmhouse, enjoys the Bellweather fair, and **negotiates WSS service pricing for the Bellweather co-op** on Elys's explicit instruction; provisional structure agreed, final prices pending. She is not a subordinate of Lethe. **Veronica later appeared/interrogated Lucien** after the earlier dossier was written; see current note in [Veronica](../Veronica.md). Corporate ownership and status ledger: [Somnus](SOMNUS_CORPORATE_PORTFOLIO.md).
+
+
+## Individual dossiers and source coverage
+
+See the [complete character index](../Character_Index.md) for individual profiles, including the academy cohort, civilian partners and five corporate AIs. The [source coverage record](SOURCE_COVERAGE.md) distinguishes accessible chat exchanges from prior repository consolidation.

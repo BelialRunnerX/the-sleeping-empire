@@ -1,5 +1,8 @@
 # The Emperor (Elysomnion / Elys)
 
+> **Current Chapter XLVII profile:** [Elysomnion](characters/elys.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** Ruler of the Galactic Empire  
 **Title:** Emperor of the Galactic Empire, Sovereign of Epsilon-7
 

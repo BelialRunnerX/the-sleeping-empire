@@ -1,5 +1,8 @@
 # Sentinel
 
+> **Current Chapter XLVII profile:** [Sentinel](characters/sentinel.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** Autonomous Guardian AI  
 **Title:** Guardian of Epsilon-7
 

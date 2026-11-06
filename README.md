@@ -10,6 +10,10 @@ Mobile- and desktop-friendly: timelines, character dossiers, the Somnus corporat
 
 > **GitHub Pages one-time setup:** If the site is not live yet, in [Settings → Pages](https://github.com/BelialRunnerX/the-sleeping-empire/settings/pages) select **Deploy from a branch → master → /docs → Save**. The static site files are already in `docs/`; no build tools are necessary.
 
+## Character profiles
+
+[Browse all 40 character profiles](Character_Index.md), including the Imperial court, academy faculty and students, Bellweather community, and Somnus/WSS AIs. The website’s searchable dossiers link to these individual profiles. [Lore source coverage](chronicle/SOURCE_COVERAGE.md).
+
 ## Canon reading order
 
 1. [Chronicle index and source relationships](chronicle/README.md)

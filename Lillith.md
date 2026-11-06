@@ -1,5 +1,8 @@
 # Lillith
 
+> **Current Chapter XLVII profile:** [Lillith](characters/lillith.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** High-Ranking Fleet Commander  
 **Title:** Commander of the First Fleet
 

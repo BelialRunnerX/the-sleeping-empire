@@ -1,5 +1,8 @@
 # Bel
 
+> **Current Chapter XLVII profile:** [Bel](characters/bel.md). The foundational text below retains its earlier scene context; later status is recorded in the linked dossier.
+
+
 **Role:** Personal Attendant and Chief Diplomat to the Emperor
 
 ## Appearance
