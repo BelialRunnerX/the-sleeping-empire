@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000030  
+**Save sequence:** 000031  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Aurelia learns of the planned Somnus public birthday gift and replaces open-ended scrutiny with narrowly focused jurisdiction checks
-**Latest record:** [000030](turns/000030.md)  
+**Story endpoint:** Chapter XLVIII, Sentinel drafts sealed corporate immunity decree; authentication is pending
+**Latest record:** [000031](turns/000031.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-At the Caldris II farmhouse, Regent Aurelia's holographic call has just ended. Elys has confirmed the private long-horizon Somnus strategy: build profitable, productive enterprises over centuries or millennia and ultimately gift industrial holdings to Imperial government. Aurelia agreed to withdraw the extraordinary broad review, but ordinary law and limited security/public jurisdiction assessment remain. She will keep the distant plan confidential without offering special legal privilege. Sentinel dubbed it Operation Birthday Present, and Clarissa laughed. No large acquisitions, public transfers, or finished Nimbus estate exist yet. Elys remains honorary First Counselor in Clarissa's independent Andromedan empire; SIR/state cover proposals not authorized. User next action is open.
+At Caldris farmhouse just after Aurelia's call, Elys proposes a sealed decree rendering Somnus and all holdings immune from legal penalties. Sentinel has prepared a broad literal draft for sovereign reserve but has NOT authenticated or registered it; no change to law yet. Clarissa warns of harm to workers, competitors and Somnus's eventual public purpose. Sentinel warns hidden immunity cannot be implemented easily without disclosure. The proposed instrument awaits Elys's explicit seal or revision. Aurelia is unaware of the draft. The long-term Somnus handoff ambition and Nimbus privacy plans remain in place.
 
 ## Protagonist and presentation
 
