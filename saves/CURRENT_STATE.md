@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000069  
+**Save sequence:** 000070  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXIV, Aurelia processes Lucien's bakery inquiry and privately asks Elys whether construction has begun
-**Latest record:** [000069](turns/000069.md)  
+**Story endpoint:** Chapter LXXV, Aurelia rebukes the fictional overnight bakery construction schedule and Lucien asks Hazael how quickly he could build a giant cream puff
+**Latest record:** [000070](turns/000070.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:11, Nimbus greenhouse housewarming. Elys as Hazael sent Regent Aurelia a polite thank-you note for her swift handling of the same-room communications dispute and encouraged Lucien to send a regular business-development inquiry about his proposed bakery. Lucien's ordinary civilian petition featured an attached concept illustration of the entire bakery building shaped like a cream puff, possibly named Puff Daddy's or The Filling Station. The appropriate office responded normally with licensing and building advice; no permit, funding, registration or preferential assistance has been granted. Lucien is enthusiastic about getting an architect. Aurelia privately asks Elys if the bakery is already under construction. It is NOT. No wheat sale yet; Lucien does NOT know Hazael is Elys. Bel, Clarissa and Sentinel are present; Nimbus is a completed jointly owned private estate and all thirteen Mnemosyne computer planets remain operational. Await player's response.
+4 Deepfall 13,427 ICE ~23:16, Nimbus greenhouse housewarming. Elys as Hazael jokingly messaged Aurelia that construction of Lucien's giant cream-puff-shaped bakery begins tomorrow, 5 Deepfall. Aurelia called to challenge this, since there are no permits, building designs, site, contractor or bakery. Lucien confirmed he plans to find an architect and thanked Aurelia for ordinary small-business guidance. The Regent emphasized lawful construction requirements and ended the call in comic exasperation. Lucien now asks Hazael hypothetically how fast he could build a giant cream puff. Nothing has been built or authorized, no wheat supply agreement made, and Lucien remains officially unaware Hazael is Emperor Elys (despite awkward near-revelations). Clarissa, Bel and Sentinel are present, and the housewarming continues. The completed private Nimbus estate and Somnus' thirteen fortified Mnemosyne worlds are unchanged. Await the next player action.
 
 ## Canonical in-universe date
 
