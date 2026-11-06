@@ -197,6 +197,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000115](turns/000115.md) | CXX | Played turn | Aurelia substitutes a paperwork challenge for a duel | [000000](checkpoints/000000.md) |
 
+| [000116](turns/000116.md) | CXXI | Played turn | Elys automates the paperwork; Lucien cuts birthday cake | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
