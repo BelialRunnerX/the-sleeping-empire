@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000006  
+**Save sequence:** 000007  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Somnus industrial expansion initiated with Lethe in charge  
-**Latest record:** [000006](turns/000006.md)  
+**Story endpoint:** Chapter XLVII, Project Nocturne proposed  
+**Latest record:** [000007](turns/000007.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, evening. After rapid WSS deployment, Elys selected private financing and a corporate balance of profit and prosperity. He delegated daily Somnus affairs to Lethe and ordered development of SMITE and Apophatic plus nearby mining acquisitions. Initial surveys and formation are underway; no mining systems bought yet. Clarissa is present; the next player action is unchosen.
+Caldris II farmhouse, evening. Somnus has delegated management under Lethe, privately financed WSS acceleration, and plans for SMITE and Apophatic. Now the player has proposed a further technology venture, Project Nocturne, with four provisional research teams. It remains in planning, without new transactions. Clarissa and Sentinel are present. The next player choice is open.
 
 ## Protagonist and presentation
 
