@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000062  
+**Save sequence:** 000063  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXVII, Lucien favors The Filling Station as a bakery name
-**Latest record:** [000062](turns/000062.md)  
+**Story endpoint:** Chapter LXVIII, Lucien sketches the Supreme Puff for his future bakery
+**Latest record:** [000063](turns/000063.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, ~22:41, Nimbus greenhouse during housewarming. Elys as Hazael offered a legitimate but slightly questionable bakery name, The Filling Station. Lucien likes it, and asks whether he should put a giant cream puff on the roof. Bel reluctantly agrees the name is suitable; Clarissa and Sentinel are amused. No bakery company or wheat sale has been formalized. Lucien remains unaware Hazael is Emperor Elys. All thirteen Mnemosyne computer worlds and Somnus operations remain unchanged. Await player's next action.
+4 Deepfall 13,427 ICE ~22:46, private Nimbus greenhouse housewarming. Elys as Hazael encouraged Lucien's fanciful giant rooftop cream puff for future bakery The Filling Station. Lucien names the concept 'The Supreme Puff,' with phases: first develop excellent pastries, then financial stability, and only later build a safe engineered rooftop sculpture. Bel and Clarissa support practical sequencing; Lucien hopes to include Hazael's name inside the sculpture someday. No bakery, sculpture, wheat sale, licensing or investment is finalized. Lucien is unaware of Hazael's true Imperial identity. Nimbus is finished and jointly owned Elys/Clarissa; Somnus has thirteen completed defended Mnemosyne computers. Await Elys's next action.
 
 ## Canonical in-universe date
 
