@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000059  
+**Save sequence:** 000060  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXIV, Lucien explains how cream puffs are baked and filled
-**Latest record:** [000059](turns/000059.md)  
+**Story endpoint:** Chapter LXV, Lucien vows to make both cream puffs and éclairs after an exchange of pastry puns
+**Latest record:** [000060](turns/000060.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, ~22:27, completed Nimbus greenhouse during housewarming. Elys as Hazael asked whether it is the cream that puffs the pastry, continuing the pun about Lucien's Cream-Pie-R and training professional creamers. Lucien sincerely explained that steam puffs choux shells before cream is inserted, prompting Clarissa's laughter and Bel's exasperation. Clarissa accidentally said 'Elys' near Lucien; he noticed but mistook it for a joking reference to the Emperor, and DOES NOT know Hazael's secret identity. Lucien asks whether the not-yet-existent bakery should specialize in cream puffs or expand to éclairs. All businesses and agreements remain hypothetical; no wheat sale. Nimbus estate and Somnus' 13 fortified planetary computers are unaffected. Await user response.
+4 Deepfall 13,427 ICE ~22:31, Nimbus greenhouse housewarming. Elys as Hazael chose another embarrassing pastry pun about éclairs and cream-filling. Lucien sincerely takes it as manufacturing advice and declares his hypothetical Cream-Pie-R bakery will offer cream puffs and éclairs. Bel has left the immediate conversation in comic exasperation, while Clarissa laughs. Lucien wrongly infers Bel dislikes dairy, still has no idea Hazael is Emperor Elys, and promises Hazael the first pastry free if he supplies wheat. NO wheat deal, bakery opening, business contract or guild formation has happened. All thirteen Mnemosyne computing worlds and Somnus holdings remain operational, and Nimbus is completed, private and jointly owned by Elys and Clarissa. Await player's next action.
 
 ## Canonical in-universe date
 
