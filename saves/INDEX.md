@@ -170,6 +170,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000101](turns/000101.md) | CVI | Played turn | Lucien discovers Hazael is Emperor Elys | [000000](checkpoints/000000.md) |
 
+| [000102](turns/000102.md) | CVII | Played turn | Friendship and court jester discussion | [000000](checkpoints/000000.md) |
+| [000103](turns/000103.md) | CVIII | Played turn | Lucien considers inviting Bel to dinner | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
