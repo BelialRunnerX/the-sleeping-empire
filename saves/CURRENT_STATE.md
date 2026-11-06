@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000093  
+**Save sequence:** 000094  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XCVIII, Elys tells his advisers Lucien unknowingly became immortal from a gifted pastry
-**Latest record:** [000093](turns/000093.md)  
+**Story endpoint:** Chapter XCIX, Elys says Lucien shares the Hands' immortality and considered waiting until Lucien noticed
+**Latest record:** [000094](turns/000094.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE ~10:13, upstairs private conference suite in Lucien's open Epsilon 7 bakery. Elys/Hazael reveals to Aurelia, Bel, Clarissa, Lethe and Sentinel that the gift-box pastry he gave Lucien secretly made the baker immortal. These advisers NOW KNOW; Lucien DOES NOT. They are concerned that Lucien did not consent or know the details. Aurelia asks what the immortality includes and if it can be reversed; these details are not yet specified by the player. All recommend a private, forthright explanation by Elys, perhaps accompanied by Clarissa. Lucien also still DOES NOT know Hazael is Emperor Elysomnion (he knows Hazael owns Somnus). Lucien is working downstairs, unaware. The bakery is open, Somnus's proposed 10% qualifying net profit remains unexecuted, wheat deal unresolved. Thirteen Mnemosyne planetary systems and Nimbus estate remain unchanged. Await the player's response.
+5 Deepfall 13,427 ICE ~10:17, private suite above Lucien's newly opened bakery at Epsilon 7. Elys tells Aurelia, Bel, Clarissa, Lethe and Sentinel that the secret immortality given to Lucien via the little gift-box pastry is the SAME FORM they (including Veronica and Lilith) possess; Elys considered waiting to see how long Lucien took to realize it. They are now aware; Lucien is not. Aurelia, Bel and Clarissa caution that withholding such a life-altering truth indefinitely could betray Lucien's trust, and urge Elys to disclose personally; Clarissa offers support. Aurelia now asks what future Elys had envisioned for Lucien when granting immortality. Player decides response; do not author Elys's speech. Lucien is downstairs happily running his bakery, unaware of immortality and still UNAWARE Hazael is Emperor Elys. Somnus bakery 10% qualifying net profit deal not yet signed; wheat supply contract not yet concluded. Three earlier inappropriate decrees expunged from official in-world records; the masked throne apology remains. Thirteen Mnemosyne worlds operational; Nimbus a private residence.
 
 ## Canonical in-universe date
 
