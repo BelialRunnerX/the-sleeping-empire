@@ -14,7 +14,8 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Bel](characters/bel.md) | Immortal Hand · Diplomacy |
 | [Lillith](characters/lillith.md) | Immortal Hand · Military command |
 | [Veronica](characters/veronica.md) | Immortal Hand · Intelligence and interrogation |
-| [Sentinel](characters/sentinel.md) | Imperial guardian · private confidant |
+| [Sentinel](characters/sentinel.md) | Imperial guardian · private confidant; emergency-only during sabbatical |
+| [Vesta](characters/vesta.md) | Private household and personal-travel companion AI |
 | [Sylphara Voss](characters/sylphara-voss.md) | Chief Imperial Architect |
 | [Hardy](characters/hardy.md) | Third Fleet figure |
 | [Kragar](characters/kragar.md) | Ancient subordinate |
