@@ -11,6 +11,10 @@
 
 At Caldris II farmhouse, Elys has retorted to Aurelia's red-ink objection to sweeping corporate immunity: 'I did specify a birthday gift for myself.' Aurelia points out Elys is both private donor and sovereign recipient, repeats she will not endorse legal immunity, asks when to reserve the birthday on her calendar, and begins an internal correspondence folder named Birthday Incident — Ongoing. Clarissa and Sentinel are amused. The proposed corporate immunity decree remains UNRATIFIED and WITHOUT LEGAL EFFECT; public transfer of Somnus remains centuries or millennia in the future and no transfer has occurred. The narrower normal-law government oversight remains in place. Await user action.
 
+## Canonical in-universe date
+
+**17 Emberwane, Year 13,427 of the Imperial Concord (ICE)** at the current Chapter XLVIII scene, as established by the player. The Imperial Concord Era begins with the unified Sleeping Empire. The Emperor's actual birthday remains unspecified. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
+
 ## Protagonist and presentation
 
 - Player alone controls Elysomnion/Elys/Hazael's speech, thoughts, feelings, choices and voluntary actions.
