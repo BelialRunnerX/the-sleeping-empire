@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000019  
+**Save sequence:** 000020  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Clarissa agrees in principle to protective Andromedan orbital patrol for planned private Nimbus estate  
-**Latest record:** [000019](turns/000019.md)  
+**Story endpoint:** Chapter XLVII, Clarissa accepts proposal to keep main Andromedan guard force at outer system with one or two ships close to Nimbus  
+**Latest record:** [000020](turns/000020.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys and Clarissa design their future private Nimbus estate: underground research lab, permaculture greenhouse, library, family/guest quarters and private spaceport beyond a mountain. Nimbus is strictly residential; corporate events stay on Caldris. Lucien and Imperial Hands have standing guest-list access; all others by invitation. Elys recommends stationing Andromedan ships to protect Nimbus. Clarissa agrees in principle and commissions an assessment of a discreet orbital detachment under her independent authority; mentions six as a tentative illustrative number. No actual ships have deployed or been reassigned, and Somnus holds no claim to them. House remains unbuilt and the next player action is open.
+Caldris II farmhouse, late evening. Elys requests more Andromedan ships protecting Nimbus, most dispersed in the outer reaches of its system, with only one or two near the planet for immediate intervention. Clarissa agrees in principle and tasks her own admirals with a deployment assessment. Total force size, specific hulls and positions are not yet chosen; no deployment has happened. Andromedan command and property remain Clarissa's, with normal civilian access and residence privacy preserved. Nimbus estate is still in planning. Await Elys's next choice.
 
 ## Protagonist and presentation
 
