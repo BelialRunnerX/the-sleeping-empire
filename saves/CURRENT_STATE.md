@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000002  
+**Save sequence:** 000003  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Sentinel's WSS construction briefing at the farmhouse; he has asked rapid versus phased expansion  
-**Latest record:** [000002](turns/000002.md)  
+**Story endpoint:** Chapter XLVII, Hazael ordered rapid deployment of existing WSS infrastructure; Lethe asks how acceleration should be financed  
+**Latest record:** [000003](turns/000003.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, evening. Elys chose option 4 from turn 000001, calling Sentinel for a WSS construction update. Sentinel and Clarissa delivered an operational briefing, ending on the choice between rapid scale-up versus phased, verified initial commercial service. No player decision on rollout has been made. Clarissa is present, Sentinel on private channel, Lethe reachable.
+Caldris II farmhouse, 21:16. Elys explicitly selected **rapid deployment** for already-approved WSS shipyard, Bellweather, and Caldris export terminal workstreams. Lethe and Sentinel remain on private channel; Clarissa is present. Lethe accepted parallel acceleration subject to existing limits, safety, independent certification, and approval for spending beyond delegated budgets. Fleet and facilities remain unfinished. Lethe has asked whether acceleration should use Hazael's own capital, loans, or minority outside equity; Elys has not chosen financing.
 
 ## Protagonist and presentation
 

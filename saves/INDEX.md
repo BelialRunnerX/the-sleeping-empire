@@ -7,6 +7,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000000](turns/000000.md) | XLVII | Reconstructed baseline | Farmhouse, after Lethe's forgetting joke | [000000](checkpoints/000000.md) |
 | [000001](turns/000001.md) | XLVII | Played turn | Lethe withdraws; Clarissa invites an evening choice | [000000](checkpoints/000000.md) |
 | [000002](turns/000002.md) | XLVII | Played turn | Sentinel briefs WSS construction; phased versus rapid rollout posed | [000000](checkpoints/000000.md) |
+| [000003](turns/000003.md) | XLVII | Played turn | Rapid WSS deployment ordered; acceleration financing undecided | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
