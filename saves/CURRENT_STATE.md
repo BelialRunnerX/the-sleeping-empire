@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000131  
+**Save sequence:** 000132  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXVI, Corin Vale and Mara Calder arrive by civilian shuttle at Morrow's Landing to begin their frontier holiday
-**Latest record:** [000131](turns/000131.md)  
+**Story endpoint:** Chapter CXXXVII, Corin and Mara dine at Rusted Ladle on Morrow's Landing after booking inexpensive lodging
+**Latest record:** [000132](turns/000132.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE ~15:09, the civilian shuttle **Little Providence**, piloted by Captain **Orren Pike**, has landed at agricultural frontier world **Morrow's Landing**, after boarding at Kestrel Junction Dock 12. Emperor Elys is on indefinite NON-ABDICATING sabbatical traveling incognito as **Corin Vale** (freelance technical consultant) with his fiancée **Clarissa**, alias **Mara Calder**. Their cover is uncompromised. Morrow's Landing has amber grasslands, green seas, wind turbines, farms, white habitations and a disputed provincial freight/tariff office. Captain Pike warned that customs are irritating. The ship just touched down and the pair has NOT chosen an activity nor any intervention. Corin has 10 credits left from first 28-credit ordinary repair paycheck after secretly purchasing Clarissa's 18-credit engraved copper flower bracelet, which she now wears. IMPORTANT AUTHORITATIVE CLARISSA CORRECTION: She is **only a couple centuries old**, attended the academy as Elys's schoolmate ~200 years ago, and Elys gifted her immortality and Andromeda. She serves **as an advisor to the Senate on behalf of Lillith**. DO NOT depict her as millennia old, married to Elys, or ancient companion predating academy. She owns Andromeda and co-owns private Nimbus estate with Elys. Aurelia is Imperial Regent; Lethe administers Throne's assets incl Somnus; Sentinel private communications. Legacy technical repair restrictions are only under audit, no new rule passed; local tariff dispute not yet affected. Use six numbered emoji options and do not make choices or unprompted dialogue for Elys.
+6 Deepfall 13,627 ICE about 17:26, **The Rusted Ladle** tavern, Southern Freight Quarter, Morrow's Landing. Incognito travelers **Corin Vale** (Emperor Elys, on indefinite sabbatical without abdication) and **Mara Calder** (his fiancee Clarissa) have arrived on the frontier planet and cleared ordinary customs. At user's choice they booked a modest double **Room Seven at The Thistle & Lantern** run by **Marta Fen** (38 credits/night, or 42 with breakfast) overlooking fields, and visited this tavern to try its notorious, safe but unpalatable **brown soup** (8 credits per bowl). Clarissa finds soup terrible; Sentinel and she joke; tavernkeeper has invited them to stay for live local music tonight. Nearby farmers and freighters complain about the same disputed premium industrial tariff charged for irrigation controllers; Elys has NOT intervened or exposed his identity. Clarissa is **around two centuries old**; she was a fellow academy student ~200 years ago and Elys gifted her immortality and Andromeda. She is a Senate advisor on behalf of Lillith and remains Elys's FIANCÉE, NOT wife. She is wearing handmade copper flower bracelet secretly purchased by Elys for 18 of his 28 credits earned at mechanic Tessa's repair shop, leaving **10 of those earned wages**; other travel expense funding is separate. Aurelia remains Regent, Lethe administers Throne assets incl Somnus. Elys remains Emperor. No next choice made. Use six simple numbered emoji options, no interactive cards; never invent Elys's dialogue.
 
 ## Canonical in-universe date
 
