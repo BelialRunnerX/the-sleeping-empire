@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000045  
+**Save sequence:** 000046  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LI, Somnus has expanded rapidly over a second month and Lethe seeks further strategic direction
-**Latest record:** [000045](turns/000045.md)  
+**Story endpoint:** Chapter LII, Mnemosyne II commissioned after six weeks under Project Janus; Lethe requests scientific priority
+**Latest record:** [000046](turns/000046.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-20 Thawrise, Year 13,427 ICE, after two months of Somnus commercial expansion. On Caldris II, Lethe reports 92,600 active star systems, 6,840 cumulative voluntary acquisitions, 418,300 contracts, 24 uninhabited industrial worlds secured, and significant but incomplete market penetration. Provisional shares of sampled addressable markets: freight 36.8%, industrial computing 41.2%, warehousing 29.5%, manufacturing 12.8%, raw materials 7.4%, agriculture 4.9%. These are not entire-galaxy shares. Some established divisions have operating profits but group-level profitability unverified. Aurelia is monitoring ordinary market concentration complaints and planning continuity for a very distant potential public handoff in 14,427 ICE. Lethe asks Elys whether to continue aggressive expansion, consolidate, or pursue revolutionary technologies. Mnemosyne remains operational as Lethe's planetary computing foundation. Clarissa and Sentinel present.
+2 Suncrest, 13,427 ICE, at Caldris II. Six weeks after Elys instructed Lethe to build a second Mnemosyne for redundancy, resilience and science, Somnus has commissioned Mnemosyne II as a second functioning planetary-scale computer on a separate secured uninhabited industrial world. Independent power, fabrication, comms, checks and safeguards form Project Janus; initial failover tests passed, longer resilience testing remains ongoing. Lethe remains one continuing executive intelligence, now supported by two distinct computing worlds and with expanded independent research capability. Aurelia appreciates the reliability planning; Clarissa jokes about a third. Lethe asks which scientific research domain Elys would like prioritized. Earlier Somnus operational expansion is otherwise intact, and the sweeping corporate immunity draft remains unratified.
 
 ## Canonical in-universe date
 
