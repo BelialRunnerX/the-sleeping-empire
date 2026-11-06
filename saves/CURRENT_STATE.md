@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000022  
+**Save sequence:** 000023  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Clarissa grants Elys First Counselor honorary Andromedan office without executive authority  
-**Latest record:** [000022](turns/000022.md)  
+**Story endpoint:** Chapter XLVII, Elys jokes that gifting sovereign Andromeda and already ruling Laniakea leaves him no reason to subordinate Clarissa  
+**Latest record:** [000023](turns/000023.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys requested an honorary Andromedan office allowing his counsel to be heard but conferring no command, no override of Clarissa, and no mandatory consort responsibilities. Clarissa granted the honorary title First Counselor of the Andromedan Crown. Ministers respectfully hear his views but need not follow them; any executive role is by specific limited Clarissa delegation. His Milky Way sovereignty and Clarissa's Andromedan sovereignty remain independent. Engagement continues, no marriage yet. Administrative publication of appointment remains forthcoming; next player action is open.
+Caldris II farmhouse, late evening. Elys tells Clarissa that, as ruler of Laniakea, he had no reason to seek supremacy in Andromeda after gifting it to her. Clarissa laughs, agrees she holds true independent sovereignty, and appreciates his new honorary First Counselor office for its strictly advisory standing. Sentinel jokes about titles and filing systems. No changes to the respective territorial sovereignty or to the limits of his honorary office.
 
 ## Protagonist and presentation
 
