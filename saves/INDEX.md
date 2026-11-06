@@ -268,6 +268,10 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000148](turns/000148.md) | CLII | Played turn | Celeste jokes about past mischief; three travelers reach young world Bellwynn | [000000](checkpoints/000000.md) |
 
+## Bellwynn foreshadowing
+
+- [User-confirmed hidden ancient history](canon/bellwynn-hidden-history-foreshadowing.md) — Vesta's anti-foreshadowing line is intentional foreshadowing; no new played story turn.
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
