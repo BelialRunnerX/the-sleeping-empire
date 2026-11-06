@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000029  
+**Save sequence:** 000030  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Lilith assesses the Somnus strategy and Aurelia suspects a future public handoff  
-**Latest record:** [000029](turns/000029.md)  
+**Story endpoint:** Chapter XLVIII, Aurelia learns of the planned Somnus public birthday gift and replaces open-ended scrutiny with narrowly focused jurisdiction checks
+**Latest record:** [000030](turns/000030.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Three days later at Caldris farmhouse, Elys and Clarissa receive Regent Aurelia's call. She investigated public filings and lawful intelligence on Somnus, WSS, SMITE, Apophatic, Nocturne, private security, SIR, Nimbus and Elys's honorary Andromedan First Counselor position, collecting an 86-page memorandum (she deleted page 87 for repetition). She does not know Elys's private intention to eventually transfer a consolidated productive economy to the Imperial government, nor their unimplemented discussion of covert SIR/state cover. Aurelia demands to know whether Somnus seeks political influence, whether its military/intelligence arms are independent of government, and why no one told her directly. Clarissa is amused; Sentinel made the precise 86-page prediction joke. Await Elys's reply.
+At the Caldris II farmhouse, Regent Aurelia's holographic call has just ended. Elys has confirmed the private long-horizon Somnus strategy: build profitable, productive enterprises over centuries or millennia and ultimately gift industrial holdings to Imperial government. Aurelia agreed to withdraw the extraordinary broad review, but ordinary law and limited security/public jurisdiction assessment remain. She will keep the distant plan confidential without offering special legal privilege. Sentinel dubbed it Operation Birthday Present, and Clarissa laughed. No large acquisitions, public transfers, or finished Nimbus estate exist yet. Elys remains honorary First Counselor in Clarissa's independent Andromedan empire; SIR/state cover proposals not authorized. User next action is open.
 
 ## Protagonist and presentation
 
