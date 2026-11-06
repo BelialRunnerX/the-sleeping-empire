@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000122  
+**Save sequence:** 000123  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXV, Aurelia agrees to a rematch in principle and awaits Elys's answer to her conditions
-**Latest record:** [000122](turns/000122.md)  
+**Story endpoint:** Chapter CXXVIII, Elys begins incognito sabbatical under new alias Corin Vale at the Nimbus Civilian Orbital Terminal
+**Latest record:** [000123](turns/000123.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~23:07 at Elys and Clarissa's jointly owned Nimbus estate, at the Emperor's birthday gathering. Elys has completed galactic economic consolidation via Somnus and placed the Imperial Throne's assets including Somnus under AI Lethe's asset administration; Elys remains Emperor and Aurelia is Regent. After a ceremonial barren-system duel in which Elys suppressed Aurelia's abilities and won, her FULL powers and immortality were RESTORED, the Three-Second War archived, and everyone returned to enjoy Lucien's cake. Player selected 'Announce your next great undertaking,' and rose to speak. Friends including Clarissa, Aurelia, Bel, Lethe, Sentinel, Veronica, Lilith and Lucien tease and wonder what's next. IMPORTANT: No next undertaking has actually been specified yet; Aurelia has just asked Elys, 'What's the next impossible thing?' Await the player's words or selection; do not invent Elys's plans. Lucien owns his bakery, knows Hazael is Emperor Elys and learned of his own immortality, is close to Bel but they are not formally a couple. Use plain numbered emoji options, not interactive cards.
+6 Deepfall 13,627 ICE at ~00:41, Nimbus Civilian Orbital Terminal. During his indefinite sabbatical, Emperor Elys has adopted the new discreet civilian alias **CORIN VALE**, suggested by Sentinel, a traveling freelance technical consultant. This supersedes the well-known older business alias Hazael Wheatley for this trip. Elys retains his Imperial sovereignty and crown; Aurelia remains Regent, Lethe administers Throne assets including Somnus, and Sentinel has an emergency channel. Elys has registered for standard civilian travel incognito without royal ceremony or escorts. A public travel clerk has just called 'Corin Vale?' and awaits Elys's response. User has not picked a destination or companions yet. Clarissa is his fiancée and independent sovereign of Andromeda, and they share the private Nimbus home. Bel and Lucien have romantic feelings but are not formally together; Lucien independently owns bakery and knows Elys and immortality truth. Aurelia's stellar powers fully restored after two friendly duels. Avoid putting new words in Elys's mouth. Offer six numbered emoji options, no interactive UI cards.
 
 ## Canonical in-universe date
 
