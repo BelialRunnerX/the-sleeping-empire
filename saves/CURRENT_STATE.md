@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000111  
+**Save sequence:** 000112  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXVI, Elys appoints Lethe administrator of the Imperial Throne's assets including Somnus during his birthday celebration
-**Latest record:** [000111](turns/000111.md)  
+**Story endpoint:** Chapter CXVII, Aurelia asks whether Elys's birthday promise to hand everything over includes his throne
+**Latest record:** [000112](turns/000112.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:11, private Nimbus home, Emperor Elys's birthday celebration. Elys answers age inquiry, 'A lady never tells,' then says to Regent Aurelia, 'this is that birthday' and appoints AI Lethe administrator of all Imperial Throne assets, including the entire Somnus Enterprise corporate portfolio, once privately held by Elys/Hazael. Lethe accepts as STEWARD, not personal owner, and begins accounting and governance documentation. Aurelia and Bel see far-reaching implications: Somnus is the galactic economic backbone and its institutional stewardship requires review, regulatory separation, continuity, and public accountability. Clarissa's jointly owned private Nimbus home and her independent Andromedan sovereignty remain outside this designation. Aurelia asks why this specific birthday was chosen and Clarissa asks what it means personally for Elys. The significance of 'that birthday' beyond appointment is not supplied by player yet; do not make up prior promise. Lucien brought an elaborate cake and jokingly compares it to gifting a galaxy. The Inner Circle includes Aurelia, Bel, Clarissa, Lucien, Veronica, Lilith, Sentinel and Lethe. Lucien knows Elys is friend Hazael and that he was made immortal 200 years earlier; he remains independently owned bakery operator. Bel and Lucien have budding mutual affection but are not officially a couple. Await Elys's answer. User wants plain text numbered emoji choices, not interactive cards.
+5 Deepfall 13,627 ICE ~22:16, Elys's birthday gathering at his and Clarissa's private Nimbus estate. Elys has appointed Lethe administrator of all Imperial Throne assets, including all Somnus assets after building a galaxy-spanning dominant economic infrastructure ahead of schedule. In response to Aurelia's query, user Elys said exactly: 'It has Aurelia. This is the birthday I told you that I would hand everything over on. It just so happens that my economic conquest finished sooner than I thought'. Aurelia recognizes an old promise made to her about handing everything over on this birthday, and realizes the galaxy-wide economic expansion was preparing something permanent for the Throne. Lethe is institutional ASSET ADMINISTRATOR, not new owner or sovereign. Bel and Clarissa distinguish the asset handover from abdication. Aurelia directly asks Elys whether his prior promise means ONLY economic stewardship, or whether tonight is the beginning of his departure as Emperor. No abdication has yet been spoken or ordered by player. Await exact player reply without presuming. Guests include Regent Aurelia, Chief Diplomat Bel, Clarissa, Lucien, Veronica, Lilith, Lethe and Sentinel. Clarissa and Elys share Nimbus home, separate from Somnus; Lucien has independent bakery and knows Elys identity and his own immortality. User wants simple emoji-numbered story choices, not interactive cards.
 
 ## Canonical in-universe date
 
