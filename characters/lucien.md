@@ -1,11 +1,13 @@
 # Lucien Vale
 
-**Role:** Student · inventor · pastry entrepreneur  
-**Reference state:** Chapter XLVII · updated 2026-11-05
+**Role:** Imperial Hand · **Jester to the Crown** (formally recognized) · inventor · independent pastry entrepreneur  
+**Reference state:** Chapter CXLVIII · formal appointments confirmed
 
 Inventor and enthusiastic bakery magnate with access to an absurdly dangerous ship.
 
 ## Profile
+
+**Current authoritative appointments:** Lucien is formally a **Hand of the Emperor** and officially **Jester to the Crown**. Both are actual recognized statuses, not jokes or speculative honors. No additional Hand portfolio or aristocratic title is implied. This supersedes outdated descriptions of him solely as a student or baker. See [Imperial appointments](../saves/canon/hands-lucien-caelira-enigma01.md).
 
 Lucien founded the orbital Cream-Pie-R bakery venture, became embroiled in a security-summary leak through a misconfigured bakery bot, and dreams of becoming Baron von Buttercream. The title has NOT been granted. He uses the Extraordinary Debtor on defined civilian terms but does not own it.
 
