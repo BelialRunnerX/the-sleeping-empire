@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000070  
+**Save sequence:** 000071  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXV, Aurelia rebukes the fictional overnight bakery construction schedule and Lucien asks Hazael how quickly he could build a giant cream puff
-**Latest record:** [000070](turns/000070.md)  
+**Story endpoint:** Chapter LXXVI, Lethe offers preliminary planning options for Lucien's proposed bakery
+**Latest record:** [000071](turns/000071.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:16, Nimbus greenhouse housewarming. Elys as Hazael jokingly messaged Aurelia that construction of Lucien's giant cream-puff-shaped bakery begins tomorrow, 5 Deepfall. Aurelia called to challenge this, since there are no permits, building designs, site, contractor or bakery. Lucien confirmed he plans to find an architect and thanked Aurelia for ordinary small-business guidance. The Regent emphasized lawful construction requirements and ended the call in comic exasperation. Lucien now asks Hazael hypothetically how fast he could build a giant cream puff. Nothing has been built or authorized, no wheat supply agreement made, and Lucien remains officially unaware Hazael is Emperor Elys (despite awkward near-revelations). Clarissa, Bel and Sentinel are present, and the housewarming continues. The completed private Nimbus estate and Somnus' thirteen fortified Mnemosyne worlds are unchanged. Await the next player action.
+4 Deepfall 13,427 ICE ~23:19, Nimbus greenhouse. Elys as Hazael told Lucien his future bakery could be built as fast as permits are approved, then summoned Lethe and asked whether she had been listening. Lethe says she was not monitoring the private home, but now has a relevant discussion summary from Sentinel. She examined a feasible concept for a bakery whose ENTIRE building is cream-puff-shaped and proposed three possible paths: independent design help, commercial Somnus design/build services, or Hazael's private financing. Lucien now knows Hazael has high-level Somnus connections, but DOES NOT know he is Elys or Somnus's sole owner. Lethe awaits Elys's direction before committing resources; no construction, spending, permits or wheat sale are authorized. Clarissa and Bel remain present. Thirteen Mnemosyne planets remain operating; Nimbus is the completed jointly owned private home.
 
 ## Canonical in-universe date
 
