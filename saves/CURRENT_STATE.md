@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000047  
+**Save sequence:** 000048  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LIII, Lethe has completed Project Triskaideka: thirteen defended planetary computers
-**Latest record:** [000047](turns/000047.md)  
+**Story endpoint:** Chapter LIV, Elys arrives at the completed Nimbus residence, constructed by Clarissa during the prior months
+**Latest record:** [000048](turns/000048.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-2 Deepfall, 13,427 ICE, Caldris II farmhouse. Eight months after Elys ordered eleven additional Mnemosyne-scale worlds and heavily fortified systems, Somnus has finished Project Triskaideka. Exactly 13 planetary computers are commissioned with distributed, independent energy, maintenance, data recovery and defensive systems. The 11 new worlds were constructed by Somnus over eight months rather than instantly created. Somnus Security Command and Strategos operate corporate private defenses; Elys's 100 personal warships may serve temporary patrol duties without ownership transfer; Clarissa's Andromedan sovereign navy remains separate. Independent redundancy and initial exercises passed; long-term readiness remains under evaluation. Regent Aurelia is aware of the concentration of private capabilities, confirms Imperial jurisdiction and wants ordinary security oversight. Lethe has the scientific capacity to pursue exceptional new research, and Clarissa jokes about whether the Emperor will stop at 13 worlds. Lethe has merely sketched a fourteenth, NOT built it. The immunity decree remains unratified. Await next player action.
+2 Deepfall, 13,427 ICE, at the completed private residence on Nimbus. Elys selected to spend time with Clarissa following the completion of 13 fortified planetary computing worlds. The player explicitly corrected continuity: Clarissa used the past several months to actually BUILD the Nimbus home, which is now complete and ready. The estate includes the large private residence, plentiful guest/family rooms, study/library, deeply buried laboratory, immense solarpunk permaculture greenhouse and garden, and separate household-only spaceport on the far side of the mountain with an underground link. Nimbus remains 50/50 Elys/Clarissa and is private family property, not Somnus headquarters or freight facility. Standing invite privileges for Lucien and Imperial Hands; others personal invitation only. Clarissa has just taken Elys's hand, explained her desire for a place outside public responsibility, and said 'Welcome home.' Elys has not responded yet. The extensive Somnus and Mnemosyne canon remains intact. No M-14 was authorized; sweeping immunity decree remains unratified.
 
 ## Canonical in-universe date
 
@@ -25,7 +25,7 @@
 
 ## People, relationships and knowledge
 
-- Clarissa Somnion/Clari is Elys's fiancée, not yet his wife; an independent partner and sole owner of Andromeda. Nimbus remains 50/50 Clarissa–Hazael. She lives with him at Caldris and negotiates Bellweather services on his instruction.
+- Clarissa Somnion/Clari is Elys's fiancée, not yet his wife; an independent partner and sole owner of Andromeda. Nimbus remains 50/50 Clarissa–Hazael and its family residence was completed by Clarissa during the prior months. She lives with him at Caldris and negotiates Bellweather services on his instruction.
 - Aurelia remains Regent with standing authority over routine government; Elys retains sovereignty. Major Final War combat is over; its formal public celebration/announcement is still separate and pending.
 - **Bel is female (she/her)**, personal attendant/Chief Diplomat, Senate liaison and Stillwater overseer.
 - Sentinel is active, distributed, fallible and dryly humorous, not still waiting for activation.
@@ -59,7 +59,7 @@
 1. Lethe's sustainable returns versus broader community/employment investment priorities question is unanswered; do not infer assent.
 2. Commercial conveyances, restricted asset governance and Nimbus consent review.
 3. WSS construction milestones, cost validation, Bellweather contracts and eventual certification.
-4. Caldris cultivation and domestic life; Nimbus survey/design remains future work.
+4. Caldris cultivation and domestic life; Nimbus private estate is now completed and ready to live in.
 5. College research/teaching and existing friendships, including Thorne's philosophical challenges.
 6. Lucien's flight control, bakery licensing and downstream security audit.
 7. Aurelia's gradual nobility standards and public institutions; Stillwater anomaly remains unresolved and need not interrupt grounded play.
