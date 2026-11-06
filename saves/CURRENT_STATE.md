@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000037  
+**Save sequence:** 000038  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter XLVIII, Elys removes Somnus software concealment and Aurelia establishes boundaries for any SIR-Imperial Intelligence cooperation
-**Latest record:** [000037](turns/000037.md)  
+**Latest record:** [000038](turns/000038.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
