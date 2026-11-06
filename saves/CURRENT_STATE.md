@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000115  
+**Save sequence:** 000116  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CXX, Aurelia challenges Elys to complete asset-transfer paperwork instead of fighting
-**Latest record:** [000115](turns/000115.md)  
+**Latest record:** [000116](turns/000116.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
