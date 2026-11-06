@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000021  
+**Save sequence:** 000022  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys raises his lack of a reciprocal legal office in Andromeda; Clarissa invites discussion  
-**Latest record:** [000021](turns/000021.md)  
+**Story endpoint:** Chapter XLVII, Clarissa grants Elys First Counselor honorary Andromedan office without executive authority  
+**Latest record:** [000022](turns/000022.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys raises that while Clarissa is his Imperial Hand, he has no equivalent formal commission in her Andromedan dominion. Clarissa accepts the point, discussing possible reciprocal office, defined delegated authority, or eventual consort position after marriage, while explicitly preserving her own sovereignty. Nothing has been appointed or transferred yet. She asks what powers or recognition he desires. Sentinel jokes about intergalactic middle management.
+Caldris II farmhouse, late evening. Elys requested an honorary Andromedan office allowing his counsel to be heard but conferring no command, no override of Clarissa, and no mandatory consort responsibilities. Clarissa granted the honorary title First Counselor of the Andromedan Crown. Ministers respectfully hear his views but need not follow them; any executive role is by specific limited Clarissa delegation. His Milky Way sovereignty and Clarissa's Andromedan sovereignty remain independent. Engagement continues, no marriage yet. Administrative publication of appointment remains forthcoming; next player action is open.
 
 ## Protagonist and presentation
 
