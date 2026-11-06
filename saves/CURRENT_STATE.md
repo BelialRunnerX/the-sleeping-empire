@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000107  
+**Save sequence:** 000108  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXII, friends ask whether Elys planned Bel and Lucien's connection
-**Latest record:** [000107](turns/000107.md)  
+**Story endpoint:** Chapter CXIII, Bel thanks Elys for engineering opportunities to connect with Lucien, then resumes their walk
+**Latest record:** [000108](turns/000108.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~21:19, in the glowing gardens of Elys and Clarissa's private Nimbus home. Elys teasingly suggested Bel owes Lucien a makeup kiss after admitting she kept Lucien's immortality secret for 200 years. Bel refused any romantic command, apologized sincerely for concealing the truth, and voluntarily kissed Lucien on the cheek. Both enjoyed dinner; Bel told him she wanted to see him again. They are now continuing a private garden walk hand in hand, still NOT a formally established couple. Clarissa and Elys are together near the terrace, and Sentinel jokingly proposes a diplomatic medal. Lucien knows Elys's civilian identity is Hazael and that Elys gave him immortality via a pastry. He remains hurt but friendly over the 200-year secret. Somnus remains Elys's galaxy-spanning private infrastructure monopoly; Lucien owns his independent bakery. User prefers six simple numbered emoji choices, no interactive cards. Await player action.
+5 Deepfall 13,627 ICE around 21:29 in the garden of the private Nimbus home. Elys said he recognized from the start that Lucien liked Bel, and deliberately used jokes and events involving Bel to help them get to know each other because Lucien's unfiltered openness complements Bel's daily diplomatic self-restraint. Bel accepts the insight but stresses that her personal feelings remain her own. She thanks Elys and resumes a private walk with Lucien hand-in-hand after an earlier voluntary cheek kiss. Romance is budding, NOT formally established. Clarissa remains beside Elys and says he has earned the right to be smug tonight. Elys's true identity as Emperor and Lucien's 200-year-old magical immortality gift were disclosed to Lucien earlier this day. Lucien remains independent owner of his original bakery, Somnus remains the dominant galactic economic infrastructure company, privately owned by Elys. Await player response at Nimbus; do not invent Elys's speech. Simple numbered emoji choices only (interactive option cards malfunction for user).
 
 ## Canonical in-universe date
 
