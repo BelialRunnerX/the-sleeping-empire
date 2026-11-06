@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000032  
+**Save sequence:** 000033  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Aurelia receives Somnus immunity draft unratified and returns it with a red-ink objection
-**Latest record:** [000032](turns/000032.md)  
+**Story endpoint:** Chapter XLVIII, Elys jokes Somnus public handoff is a birthday present to himself; Aurelia asks when to schedule it
+**Latest record:** [000033](turns/000033.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-At the Caldris farmhouse, Sentinel has returned an unratified draft decree that Elys ordered left on Regent Aurelia's desk. Draft would broadly immunize Somnus from consequences of violating Imperial law, but carries NO signature, authentication, registration or legal effect. Aurelia has annotated 'REVIEWED. NOT RECOMMENDED' and challenged how a public-benefit institution can be exempt from public accountability, then returned it, joking that she has 3,000 sheets of official stationery ready. Clarissa is amused; Elys may respond. Aurelia already knows Somnus's eventual public-handoff ambition, but extraordinary broad review was withdrawn and ordinary regulatory oversight remains. No company assets or law changed.
+At Caldris II farmhouse, Elys has retorted to Aurelia's red-ink objection to sweeping corporate immunity: 'I did specify a birthday gift for myself.' Aurelia points out Elys is both private donor and sovereign recipient, repeats she will not endorse legal immunity, asks when to reserve the birthday on her calendar, and begins an internal correspondence folder named Birthday Incident — Ongoing. Clarissa and Sentinel are amused. The proposed corporate immunity decree remains UNRATIFIED and WITHOUT LEGAL EFFECT; public transfer of Somnus remains centuries or millennia in the future and no transfer has occurred. The narrower normal-law government oversight remains in place. Await user action.
 
 ## Protagonist and presentation
 
