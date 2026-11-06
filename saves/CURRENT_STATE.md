@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000008  
+**Save sequence:** 000009  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, privately funded advanced industrial security authorized; leadership decision pending  
-**Latest record:** [000008](turns/000008.md)  
+**Story endpoint:** Chapter XLVII, layered security approved and dedicated AI executives commissioned for all Somnus companies and divisions  
+**Latest record:** [000009](turns/000009.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, evening. Elys authorized a private industrial security initiative equipped with his advanced technologies to defend Somnus operations. Lethe has proposed Somnus Security Command. The existing 100 private armed vessels are not yet assigned or transferred, and sovereign assets stay separate. Lethe asks who will command this force. Clarissa and Sentinel are present; player choice pending.
+Caldris II farmhouse, evening. Elys chose layered security: Strategos as operations-support AI, with a human commander and oversight board still to appoint. Elys also instructed Lethe to commission a distinct AI for every company and division. New proposed AIs: SMITE Tellur/Vein/Forge; Apophatic Axiom/Prima (Materia)/Nihil (Negativa); Nocturne Vesper/Shade/Bastion/Ferrum/Wraith. Existing WSS AIs Steward/Meridian/Ledger/Granary remain in position. These are administrative roles: pending corporate formations remain pending, no extra acquisitions or fleet transfers happened. Clarissa awaits the end of the evening business meeting; Elys's next action remains unchosen.
 
 ## Protagonist and presentation
 
