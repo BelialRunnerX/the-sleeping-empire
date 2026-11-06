@@ -131,6 +131,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000073](turns/000073.md) | LXXVIII | Played turn | Lucien learns Hazael owns Somnus Enterprises | [000000](checkpoints/000000.md) |
 
+| [000074](turns/000074.md) | LXXIX | Played turn | Hazael reassures Lucien that their friendship matters more than Somnus | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
