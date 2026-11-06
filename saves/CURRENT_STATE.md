@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000034  
+**Save sequence:** 000035  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys gives Aurelia a thousand-year planning horizon near 14,427 ICE for future Somnus gift
-**Latest record:** [000034](turns/000034.md)  
+**Story endpoint:** Chapter XLVIII, Elys upgrades Aurelia's administrative software for millennial planning and inserts 'your welcome' greeting
+**Latest record:** [000035](turns/000035.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-17 Emberwane, 13,427 ICE, at the Caldris II farmhouse. Elys sent Aurelia a note saying they will discuss the distant Somnus public handoff near 14,427 ICE, sooner if things go well. This is a provisional planning horizon, not a fixed birthday or firm transfer date. Aurelia created a long-range planning file and replied with exasperated humor, reminding Elys that the draft corporate immunity decree remains UNRATIFIED. Clarissa and Sentinel are present, joking about whether an afternoon without another government incident is possible. Somnus remains a private corporation in early development, Nimbus remains unbuilt. User next action open.
+17 Emberwane, Year 13,427 ICE, afternoon at Caldris II farmhouse. Elys has just completed a radical upgrade of Regent Aurelia's administrative software, preserving official records and safeguards while introducing long-horizon calendars, fiscal and logistical models, and advanced cross-ministry planning. Aurelia has successfully tested and praised the improvements, including a 14,427 ICE provisional reminder for eventual Somnus public handoff, but complains that every upgraded device displays the deliberately incorrect 'your welcome' on first activation. She sends a grateful yet exasperated personal message correcting the grammar. Clarissa and Sentinel are present and amused. The immunity decree remains unratified. No other policy or ownership changes have occurred. Next user action open.
 
 ## Canonical in-universe date
 
