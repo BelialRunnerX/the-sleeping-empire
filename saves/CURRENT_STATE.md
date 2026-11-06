@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000043  
+**Save sequence:** 000044  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLIX, Lethe launches aggressive competitive Somnus expansion across the Milky Way with operational infrastructure and Mnemosyne
-**Latest record:** [000043](turns/000043.md)  
+**Story endpoint:** Chapter L, Lethe presents Somnus's first 30-day expansion report on 20 Frostwane, 13,427 ICE
+**Latest record:** [000044](turns/000044.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-20 Emberwane, Year 13,427 ICE, Caldris II farmhouse. Elys instructed Lethe to use the available infrastructure and ships, including completed Mnemosyne's planetary-scale processing, to pursue the entire Milky Way commercial market. Lethe has launched Operation Market Dominion: aggressive expansion in freight, industrial manufacturing, agriculture, resource extraction and computing services through competitive contracts, voluntary acquisition and partnerships. Initial services/routes are active and offers underway, but no verified galaxy-wide market dominance or monopoly yet. Independent firms can refuse; Lethe preserves social prosperity charter, regulatory obligations and independent contracting. Aurelia is aware of rapid expansion and monitoring ordinary market conditions. Clarissa and Sentinel are present. Next move awaits Elys.
+20 Frostwane, Year 13,427 ICE, farmhouse Caldris II, after a month of accelerated Somnus expansion. Lethe reports 18,420 active systems, 1,286 voluntary acquired enterprises, 73,608 executed agreements, and 7 uninhabited industrial worlds secured. The original 22 civilian WSS freighters have finished construction and entered service alongside extraordinary additional ships and industry enabled by Elys. Bellweather cooperative has signed a revised NONEXCLUSIVE arrangement and remains independent. Provisional survey-market shares are logistics 18.4%, computing 13.7%, warehousing 11.2%, manufacturing 4.6%, raw materials 2.3%, agriculture 1.1%, not confirmed galaxy-wide control. Validated pilot corridors report 64% dispatch delay improvement; pilot manufacturing facilities report selected 31% lower production costs. Somnus has significant new revenue but consolidated profitability has NOT been established after aggressive expansion. Aurelia is impressed but worries about systemic dependence on Mnemosyne. Lethe asks Elys if he wants faster expansion, consolidation, or an even more ambitious scientific/industrial priority. Clarissa and Sentinel present. Existing SIR government data contract is exclusive; broad corporate immunity draft still unratified.
 
 ## Canonical in-universe date
 
