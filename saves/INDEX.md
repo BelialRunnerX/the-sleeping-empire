@@ -154,6 +154,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000088](turns/000088.md) | XCIII | Played turn | Hazael teases Clarissa about Imperial pastry tastes | [000000](checkpoints/000000.md) |
 
+| [000090](turns/000090.md) | XCV | Played turn | Lucien suspects Hazael is an Imperial jester | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
