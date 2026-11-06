@@ -1,4 +1,6 @@
-# Caelira Vael
+# Caelira Vael — Enigma-01
+
+**Formal rank:** **Imperial Hand**; official Hand designation **Enigma-01**. This is an authoritative court appointment, not a mere informal codename. Her specific portfolio has not yet been defined. Her established freely accepted loyalty binding and independent personality remain intact. See [Imperial appointments](../saves/canon/hands-lucien-caelira-enigma01.md).
 
 **Introduced:** Chapter CXLVII / Turn 000143, 7 Deepfall 13,627 ICE, ancient causal chamber under Pelagia, Tideglass.
 
