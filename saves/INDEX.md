@@ -54,6 +54,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000033](turns/000033.md) | XLVIII | Played turn | Elys calls Somnus a birthday gift to himself; Aurelia requests the date | [000000](checkpoints/000000.md) |
 
+| [000034](turns/000034.md) | XLVIII | Played turn | Elys gives Aurelia provisional 14,427 ICE horizon for future Somnus handoff | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
