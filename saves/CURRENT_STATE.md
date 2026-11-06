@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000117  
+**Save sequence:** 000118  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXII, Elys defeats Aurelia in a barren system after suppressing all her powers; she asks for restoration
-**Latest record:** [000117](turns/000117.md)  
+**Story endpoint:** Chapter CXXIII, Aurelia's powers restored, duel archived, and everyone back at Nimbus celebrating with cake
+**Latest record:** [000118](turns/000118.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:51. Elys challenged Regent Aurelia to a friendly duel in barren uninhabited star system K-000; she accepted. In an instant Elys stripped/suppressed ALL her extraordinary capacities: stellar powers, cosmic energy, supernatural defenses and immortality-resilience are dormant, but memories, personality, normal physical skills and office as Regent are intact. Elys effortlessly won in about three seconds without physical harm; no abdication, no political succession or damage to inhabited places. Guests including Clarissa, Bel, Lucien, Lethe, Veronica, Lilith and Sentinel watch remotely from his birthday party on Nimbus. Aurelia, still powerless, now asks Elys whether he will RESTORE HER POWERS. IMPORTANT: Elys has NOT answered or restored anything; user decides. Elys is still Emperor and Lethe administrator of the Throne and Somnus assets. Lucien knows Elys is Hazael, is immortal and owns his bakery independently; Bel and Lucien's romantic feelings are budding, not formal relationship. The birthday celebration and Lucien's cake await their return. Use simple numbered emoji options, no interactive cards.
+5 Deepfall 13,627 ICE ~22:54, private Nimbus estate on Elys's birthday. User selected 1/5/6: Elys restored ALL of Regent Aurelia's abilities, defenses and immortality following a three-second ceremonial duel in barren system K-000, ordered Sentinel to archive the victory as 'The Three-Second War' with no casualties or political changes, then teleported himself and Aurelia back to the celebration. Aurelia makes jokes about the Emperor cheating, everyone eats Lucien's elaborate palace-shaped cake, and Clarissa asks Elys to enjoy the remainder of the party without more administrative emergencies. Elys remains Emperor; Aurelia remains Regent with powers fully restored; Lethe administers the Imperial Throne's assets including Somnus, not sovereign or personal owner. Clarissa is Elys's fiancée and independent sovereign of Andromeda; Nimbus their private joint estate. Bel and Lucien share affection but are not formally a couple. Lucien knows Hazael is Elys and knows the gift-box pastry made him immortal 200 years ago. Await player's next action. Use plain six numbered emoji choices, not interactive cards.
 
 ## Canonical in-universe date
 
