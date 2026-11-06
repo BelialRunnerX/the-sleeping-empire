@@ -103,6 +103,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000059](turns/000059.md) | LXIV | Played turn | A baking lesson | [000000](checkpoints/000000.md) |
 
+| [000060](turns/000060.md) | LXV | Played turn | Hazael's éclair pun and Lucien's product plans | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
