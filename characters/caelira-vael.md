@@ -1,5 +1,5 @@
-# Former provisional name: Caelira Vael
+# Superseded character name
 
-This character was renamed **Aquea Somnion**, official **Imperial Hand Enigma-01**, by direct user continuity correction. The former name and nickname Caeli are superseded; consult the [canonical Aquea Somnion profile](aquea-somnion.md).
+**The character's canonical name is Marina Somnion**, Imperial Hand **Enigma-01**.
 
-No alteration to character personality, oath, powers, status, or events is implied.
+Earlier provisional names, **Caelira Vael** and **Aquea Somnion**, are not current canon. Refer to [Marina Somnion](marina-somnion.md).
