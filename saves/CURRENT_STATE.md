@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000053  
+**Save sequence:** 000054  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LVIII, Elys signs the first page of Bel's guestbook during Nimbus housewarming
-**Latest record:** [000053](turns/000053.md)  
+**Story endpoint:** Chapter LIX, the housewarming guests tour Nimbus's grand greenhouse and secluded still-water garden
+**Latest record:** [000054](turns/000054.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE at ~21:32 during the private housewarming at the completed Nimbus home, Elys has dated and signed the first page of Bel's emerald-leather guestbook, commemorating the evening but with exact text deliberately unspecified. Bel is gratified. Lucien contributed a farcical page about the six-tier cake collapse ending 'THE CAKE FELL. THE DREAM ENDURES.' Clarissa is deeply touched and reflects that this night will be remembered centuries later. Lucien has just broken a plate harmlessly in the adjacent dining room. Clarissa, Bel, Lucien and other Imperial Hands are present. Lucien still does not know Hazael's Imperial identity. No wheat sale has been concluded; Somnus still owns thirteen fortified Mnemosyne worlds and no immunity decree was ratified. Await next choice or free-form action.
+4 Deepfall 13,427 ICE, ~21:47, completed private Nimbus estate, inside the greenhouse during the housewarming. Elys selected a group nighttime tour. Clarissa showed guests the finished conservatory: extensive fruit trees and orchards, permaculture food forests, aquaponic terraces, offworld plants and quiet pathways under glass against violet storms. Lucien became excited about golden pears and imagined pear cream puffs, without any sale or agreement. In a particularly quiet area, Clarissa revealed a still-water reflecting garden of white flowering trees dedicated to Elys's love of sacred silence, inscribed 'Here, nothing is required of you.' Bel appreciates the home as a true refuge; Lucien jokes about gravity reinforcement for his next cake; all laugh. Clarissa and Sentinel are present; guest tour continues. No changes to corporate businesses, thirteen Mnemosyne worlds or Caldris wheat contracts. Elys has not spoken or chosen a new action.
 
 ## Canonical in-universe date
 
