@@ -243,6 +243,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000139](turns/000139.md) | CXLIII | Played turn | Corin buys the Unwelcome Key, Honest Quill, Wayward Compass | [000000](checkpoints/000000.md) |
 
+| [000140](turns/000140.md) | CXLIV | Played turn | Wayward Compass leads to sealed undersea passage and a voice pleading for help | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
