@@ -10,6 +10,12 @@ Mobile- and desktop-friendly: timelines, character dossiers, the Somnus corporat
 
 > **GitHub Pages one-time setup:** If the site is not live yet, in [Settings → Pages](https://github.com/BelialRunnerX/the-sleeping-empire/settings/pages) select **Deploy from a branch → master → /docs → Save**. The static site files are already in `docs/`; no build tools are necessary.
 
+## Continue across chats
+
+[Resume the story](RESUME_STORY.md) · [Current durable save](saves/CURRENT_STATE.md) · [Master prompt](prompts/MASTER_PROMPT.md) · [Save procedure](saves/README.md).
+
+The initial save is a Chapter XLVII baseline. Per-turn external saving requires a narrator using the updated prompt with working write tools; no background chat listener is installed.
+
 ## Character profiles
 
 [Browse all 40 character profiles](Character_Index.md), including the Imperial court, academy faculty and students, Bellweather community, and Somnus/WSS AIs. The website’s searchable dossiers link to these individual profiles. [Lore source coverage](chronicle/SOURCE_COVERAGE.md).
