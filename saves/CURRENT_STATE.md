@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000110  
+**Save sequence:** 000111  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXV, Lethe organizes Elys's birthday celebration at Nimbus with Imperial Hands and friends
-**Latest record:** [000110](turns/000110.md)  
+**Story endpoint:** Chapter CXVI, Elys appoints Lethe administrator of the Imperial Throne's assets including Somnus during his birthday celebration
+**Latest record:** [000111](turns/000111.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:05, Nimbus private home, after Bel and Lucien's first friendly dinner and walk. Elys snaps to summon Aurelia, gathers Imperial Hands (including Veronica and Lilith), friends (Bel, Lucien, Clarissa), Sentinel and Lethe, and announces a birthday party for himself. Lethe arranges a private celestial-themed garden celebration with Clarissa's assent as joint homeowner. Lucien prepares a large palace-shaped cake. Lethe and Aurelia toast Elys, the gathering wishes him happy birthday, and everyone jokes about his age and pastry decrees. Bel and Lucien remain interested in each other but not formally a couple. Lucien now knows Hazael is Emperor Elys, and knows Elys granted him immortality via a pastry 200 years ago. Somnus is privately Elys-owned, the galactic economic infrastructure monopoly. No new official acts or business contracts signed. Await Elys's birthday speech or next move. Use plain emoji-numbered choices not interactive cards.
+5 Deepfall 13,627 ICE ~22:11, private Nimbus home, Emperor Elys's birthday celebration. Elys answers age inquiry, 'A lady never tells,' then says to Regent Aurelia, 'this is that birthday' and appoints AI Lethe administrator of all Imperial Throne assets, including the entire Somnus Enterprise corporate portfolio, once privately held by Elys/Hazael. Lethe accepts as STEWARD, not personal owner, and begins accounting and governance documentation. Aurelia and Bel see far-reaching implications: Somnus is the galactic economic backbone and its institutional stewardship requires review, regulatory separation, continuity, and public accountability. Clarissa's jointly owned private Nimbus home and her independent Andromedan sovereignty remain outside this designation. Aurelia asks why this specific birthday was chosen and Clarissa asks what it means personally for Elys. The significance of 'that birthday' beyond appointment is not supplied by player yet; do not make up prior promise. Lucien brought an elaborate cake and jokingly compares it to gifting a galaxy. The Inner Circle includes Aurelia, Bel, Clarissa, Lucien, Veronica, Lilith, Sentinel and Lethe. Lucien knows Elys is friend Hazael and that he was made immortal 200 years earlier; he remains independently owned bakery operator. Bel and Lucien have budding mutual affection but are not officially a couple. Await Elys's answer. User wants plain text numbered emoji choices, not interactive cards.
 
 ## Canonical in-universe date
 
