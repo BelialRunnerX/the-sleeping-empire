@@ -83,6 +83,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000048](turns/000048.md) | LIV | Played turn | Clarissa reveals the completed Nimbus family estate | [000000](checkpoints/000000.md) |
 
+| [000049](turns/000049.md) | LV | Played turn | Housewarming at completed Nimbus estate with Lucien and Imperial Hands | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
