@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000024  
+**Save sequence:** 000025  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Regent Aurelia confronts Elys with an 86-page memo on Somnus and asks three questions  
-**Latest record:** [000024](turns/000024.md)  
+**Story endpoint:** Chapter XLVIII, Elys starts with 'Technically, Aurelia' and Regent asks what secret objective drives Somnus  
+**Latest record:** [000025](turns/000025.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
