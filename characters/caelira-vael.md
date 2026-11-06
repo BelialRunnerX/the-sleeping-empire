@@ -1,5 +1,5 @@
 # Superseded character name
 
-**The character's canonical name is Marina Somnion**, Imperial Hand **Enigma-01**.
+The definitive canonical name is **Celeste Somnion**, **Imperial Hand — Enigma-01**.
 
-Earlier provisional names, **Caelira Vael** and **Aquea Somnion**, are not current canon. Refer to [Marina Somnion](marina-somnion.md).
+Previous names Caelira Vael (Caeli), Aquea Somnion, and Marina Somnion are superseded. See [Celeste Somnion](celeste-somnion.md). This renaming changes no personality, power, loyalty, or story events.
