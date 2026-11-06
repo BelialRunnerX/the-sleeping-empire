@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090f1d">
+  <meta name="description" content="The Sleeping Empire — an interactive chronicle of Elysomnion, the Black and Emerald Empire, Somnus and the worlds beyond.">
+  <meta property="og:title" content="The Sleeping Empire | Living Codex">
+  <meta property="og:description" content="Explore the empire, its characters, chronology, worlds and Somnus corporate portfolio.">
+  <title>The Sleeping Empire · Living Codex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./data.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-shell">
+  <div id="navScrim" class="nav-scrim" aria-hidden="true"></div>
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <a class="identity" href="#overview" data-route="overview">
+      <span class="brand-sigil" aria-hidden="true"><span>✦</span></span>
+      <span class="brand-words"><strong>THE SLEEPING<br>EMPIRE</strong><small>LIVING CODEX / VOL. I</small></span>
+    </a>
+    <div class="side-section-label">THE ARCHIVE</div>
+    <nav class="side-nav" id="mainNav">
+      <button class="nav-item active" data-route="overview" aria-current="page"><span class="nav-glyph">◈</span><span>Overview</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="chronicle"><span class="nav-glyph">⌛</span><span>Chronicle</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="characters"><span class="nav-glyph">♙</span><span>Characters</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="portfolio"><span class="nav-glyph">▥</span><span>Somnus Portfolio</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="worlds"><span class="nav-glyph">◎</span><span>Worlds & Holdings</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="archive"><span class="nav-glyph">☷</span><span>Source Archive</span><span class="nav-arrow">↗</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><span class="signal-dot"></span><span>CANON SYNCED<br><strong>THROUGH CH. XLVII</strong></span></div>
+      <a class="sidebar-external" href="https://github.com/BelialRunnerX/the-sleeping-empire" target="_blank" rel="noopener noreferrer">View GitHub repository <span>↗</span></a>
+      <small>AN UNFINISHED STORY · YOUR CHOICES SHAPE IT</small>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="topbar-left"><button id="menuToggle" class="icon-button mobile-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><div class="breadcrumb"><span>ARCHIVE</span><span class="crumb-separator">/</span><strong id="currentCrumb">OVERVIEW</strong></div></div>
+      <div class="topbar-right">
+        <div class="search-shell">
+          <label class="sr-only" for="searchInput">Search the codex</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Search the codex..." aria-expanded="false" aria-controls="searchResults">
+          <kbd>/</kbd>
+          <div id="searchResults" class="search-results" hidden role="listbox" aria-label="Search results"></div>
+        </div>
+        <button id="themeToggle" class="icon-button theme-button" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section id="view-overview" class="view" aria-labelledby="heroHeading">
+        <div class="hero">
+          <div class="hero-grain" aria-hidden="true"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span class="short-line"></span>THE BLACK & EMERALD EMPIRE <span class="tiny-star">✦</span> INTERACTIVE ARCHIVE</div>
+            <h1 id="heroHeading">An empire<br><em>dreaming.</em></h1>
+            <p>Thirteen millennia of conquest, philosophy, impossible magic—and an emperor who would rather be growing wheat.</p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-route="chronicle">Explore the chronicle <span>↗</span></button>
+              <button class="secondary-btn" data-route="portfolio">Enter Somnus <span>↗</span></button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-outer"></div><div class="orbit orbit-middle"></div><div class="orbit orbit-inner"></div>
+            <div class="planet-glow"></div><div class="planet"><div class="planet-continent"></div></div>
+            <div class="orbit-particle particle-one"></div><div class="orbit-particle particle-two"></div>
+            <div class="orbit-label label-alpha">EPSILON–7 <span>◆</span></div>
+            <div class="orbit-label label-beta"><span>◉</span> IMPERIAL CAPITAL</div>
+          </div>
+          <div class="hero-index">I / XLVII</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>13,000<span>+</span></strong><span>YEARS OF HISTORY</span></div>
+          <div class="stat"><strong>XLVII</strong><span>LATEST CHAPTER</span></div>
+          <div class="stat"><strong>05</strong><span>IMPERIAL HANDS & GUARDIAN</span></div>
+          <div class="stat"><strong>SOMNUS</strong><span>NEW HOLDING COMPANY</span></div>
+        </div>
+        <div class="section-heading"><div><span class="eyebrow">CURRENT CANON</span><h2>Where the story stands</h2></div><span class="section-aside">LAST RECONCILED · 05 NOV 2026</span></div>
+        <div class="feature-grid">
+          <button class="feature-card feature-wide" data-route="portfolio"><span class="feature-kicker">01 / PRIVATE ENTERPRISE</span><span class="feature-icon">◈</span><strong>The rise of Somnus</strong><span>Lethe oversees the new holding company as commercial assets are consolidated. Mining is only a reservation; the wheat is real.</span><span class="feature-link">Inspect the corporate portfolio ↗</span></button>
+          <button class="feature-card" data-route="chronicle"><span class="feature-kicker">02 / THE LATEST ARC</span><span class="feature-icon">⌛</span><strong>From lecture to harvest</strong><span>Materials science, the Bellweather fair, honest competition, and the economics of feeding worlds.</span><span class="feature-link">Read the timeline ↗</span></button>
+          <button class="feature-card" data-route="characters"><span class="feature-kicker">03 / THE COURT</span><span class="feature-icon">✧</span><strong>People behind the power</strong><span>Meet Clarissa, Aurelia, Sentinel, Lethe and the people whose lives intersect the Emperor's.</span><span class="feature-link">Open character dossiers ↗</span></button>
+        </div>
+        <div class="quote-banner"><span class="quote-mark">“</span><p>The respect of people who judge you by the work of your own hands.</p><span class="quote-credit">BELLWEATHER HARVEST ARC · CHAPTER XLIV</span></div>
+      </section>
+
+      <section id="view-chronicle" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">HISTORICAL RECORD / ONGOING NARRATIVE</span><h1>The Chronicle<span class="period">.</span></h1><p>From the Three-Day Unification to the creation of Somnus. Filter by era, open an entry, or follow the original manuscripts.</p></div>
+        <div class="filterbar" role="group" aria-label="Filter timeline"><button class="filter-chip selected" data-timeline="all" aria-pressed="true">All eras</button><button class="filter-chip" data-timeline="empire" aria-pressed="false">The Empire</button><button class="filter-chip" data-timeline="academy" aria-pressed="false">Academy</button><button class="filter-chip" data-timeline="industry" aria-pressed="false">Industry & farming</button></div>
+        <div id="timelineList" class="timeline-list"></div>
+      </section>
+
+      <section id="view-characters" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">DIPLOMACY / INTELLIGENCE / THE PEOPLE</span><h1>Character Dossiers<span class="period">.</span></h1><p>The ancient Hands, the new managers, the scientists, and the farmers. Select any dossier to explore relationships and continuity.</p></div>
+        <div class="filterbar" role="group" aria-label="Filter people"><button class="filter-chip selected" data-people="all" aria-pressed="true">Everyone</button><button class="filter-chip" data-people="court" aria-pressed="false">Imperial court</button><button class="filter-chip" data-people="business" aria-pressed="false">Somnus & WSS</button><button class="filter-chip" data-people="civilian" aria-pressed="false">Academy & civilians</button></div>
+        <div class="cards-grid" id="peopleGrid"></div>
+      </section>
+
+      <section id="view-portfolio" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">PRIVATE COMMERCE / ASSET GOVERNANCE</span><h1>Somnus<span class="period">.</span></h1><p>A living portfolio with clear boundaries between owned, planned and excluded assets. Select an organization for its ownership, responsibilities and current stage.</p></div>
+        <div class="portfolio-top"><div class="holding-brand"><span class="holding-symbol">◑</span><div><small>PRIVATE HOLDING COMPANY</small><strong>SOMNUS</strong><span>OWNER: HAZAEL WHEATLEY · OVERSEER: LETHE</span></div></div><div class="holding-summary"><span class="status-live">● INCORPORATED</span><p>Operating companies and transfers are not the same thing. See statuses below.</p></div></div>
+        <div class="subheading"><span>PORTFOLIO STRUCTURE</span><span>SELECT TO INSPECT ↓</span></div>
+        <div class="org-grid" id="orgGrid"></div>
+        <div class="portfolio-exclusions"><div class="subheading"><span>OUTSIDE THE COMPANY</span><span>NON-TRANSFERABLE / PROTECTED</span></div><div id="exclusionGrid" class="exclusion-grid"></div></div>
+        <div class="section-heading compact"><div><span class="eyebrow">STATUS MATTERS</span><h2>What has actually happened?</h2></div></div>
+        <div class="milestones" id="milestoneList"></div>
+      </section>
+
+      <section id="view-worlds" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">KNOWN WORLDS / OWNERSHIP & STATUS</span><h1>Atlas of Holdings<span class="period">.</span></h1><p>Worlds, jurisdictions and sites in the Empire. Not every place is owned; not every plan has been built.</p></div>
+        <div id="worldGrid" class="world-grid"></div>
+      </section>
+
+      <section id="view-archive" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">PRIMARY SOURCES / GITHUB</span><h1>Source Archive<span class="period">.</span></h1><p>Every card links to the version-controlled source text. Read foundational canon alongside the newer chronicle supplements.</p></div>
+        <div id="archiveGrid" class="archive-grid"></div>
+        <div class="archive-footer"><strong>Canon confidence protocol</strong><p>Played decisions outrank unacted proposals. A character's beliefs are not objective narration. Historical records remain historical; later chapters may update the current state. The player alone controls Elys's decisions and dialogue.</p></div>
+      </section>
+
+      <footer class="footer"><span>✦ THE SLEEPING EMPIRE · LIVING CODEX</span><span>FICTIONAL UNIVERSE · COMMUNITY CHRONICLE</span><a href="https://github.com/BelialRunnerX/the-sleeping-empire" target="_blank" rel="noopener noreferrer">SOURCE ON GITHUB ↗</a></footer>
+    </main>
+  </div>
+</div>
+<div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+<aside id="detailDrawer" class="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true" tabindex="-1">
+  <div class="drawer-top"><span class="eyebrow">CODEX ENTRY / DETAIL</span><button id="drawerClose" class="icon-button" aria-label="Close detail">✕</button></div>
+  <div id="drawerContent"></div>
+</aside>
+</body>
+</html>
