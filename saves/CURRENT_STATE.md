@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000012  
+**Save sequence:** 000013  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Elys signals future social ownership, commissions Clarissa to develop Nimbus estate, and raises corporate intelligence with Veronica  
-**Latest record:** [000012](turns/000012.md)  
+**Story endpoint:** Chapter XLVII, Elys commissions Somnus Intelligence and Risk with Cipher AI; Veronica advisory role still unassigned  
+**Latest record:** [000013](turns/000013.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, dinner. Elys privately reveals eventual intention to socialize the means of production; no transfer or policy is enacted. He entrusts Clarissa with preliminary surveys, design, and subsequent construction of their planned jointly owned Nimbus estate, still not built. Sentinel contacts Veronica regarding private corporate intelligence; she expresses interest but requires clear separation from sovereign intelligence resources and awaits defined scope. Clarissa asks Elys what intelligence he actually wants. Aurelia has not yet responded to these private plans.
+Caldris II farmhouse, dinner. Elys ordered a private intelligence subsidiary, Somnus Intelligence and Risk (SIR), and commissioned executive AI Cipher. The organization is in formation, with analysts and operations not yet staffed. Its purposes are lawful corporate intelligence, counterintelligence, economic risk and integrity investigations. Veronica remains Imperial intelligence chief; she is open to a separate advisory arrangement but no appointment or sovereign asset transfer is established. Clarissa and Sentinel joke about the proliferation of companies; dinner continues. The player's next action is open.
 
 ## Protagonist and presentation
 
