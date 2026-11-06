@@ -115,6 +115,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000065](turns/000065.md) | LXX | Played turn | Lucien's bakery slogan debate | [000000](checkpoints/000000.md) |
 
+| [000066](turns/000066.md) | LXXI | Played turn | Elys calls Bel in the same room and asks her for bakery ideas | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
