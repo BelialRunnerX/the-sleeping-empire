@@ -168,6 +168,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000100](turns/000100.md) | CV | Played turn | Lucien learns Elys granted immortality and asks about the Emperor | [000000](checkpoints/000000.md) |
 
+| [000101](turns/000101.md) | CVI | Played turn | Lucien discovers Hazael is Emperor Elys | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
