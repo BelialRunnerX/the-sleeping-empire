@@ -17,6 +17,10 @@ Root documents portray a commissioned decentralized guardian AI of Epsilon-7, de
 
 A human-sized and human-shaped android body constructed from the toughest available materials. Equipped with advanced stealth capabilities. Its appearance and personality are self-determined. The body is designed for durability rather than combat, allowing it to accompany the Emperor into hazardous environments.
 
+## Sabbatical division of duties (Chapter CXXXVII)
+
+During Elys and Clarissa's incognito holiday as Corin Vale and Mara Calder, routine private travel communications, household support and expenditure administration pass to **[Vesta](vesta.md)**, their dedicated **Nimbus household AI**. Sentinel remains the distinct Imperial intelligence, guardian and security AI and can be reached for actual official emergencies. Earlier scenes in which Sentinel provided private commentary remain history, but Vesta supplies the regular companion voice going forward. Routine civilian spending comes from a private unlimited personal expenditure account overseen by Vesta, not the public Imperial Treasury or Somnus's institutional ledger.
+
 ## Established details and limits
 
 - Imperial/security remit, distinct from corporate management.
