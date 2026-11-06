@@ -266,6 +266,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000147](turns/000147.md) | CLI | Played turn | Elys explains Celeste's divine origins and time-ocean nature to Clarissa | [000000](checkpoints/000000.md) |
 
+| [000148](turns/000148.md) | CLII | Played turn | Celeste jokes about past mischief; three travelers reach young world Bellwynn | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
