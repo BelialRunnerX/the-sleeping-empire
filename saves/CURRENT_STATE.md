@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000101  
+**Save sequence:** 000103  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CVI, Elys reveals he is the Emperor; Lucien asks if immortality was to secure an eternal jester and pastry chef
-**Latest record:** [000101](turns/000101.md)  
+**Story endpoint:** Chapter CVIII, Lucien asks whether Bel might agree to dinner
+**Latest record:** [000103](turns/000103.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~10:17, Epsilon 7, two centuries since opening of Lucien's independent bakery and after Somnus's rise to the dominant galactic economic infrastructure monopoly. During a private communicator conversation, player Elys/Hazael told Lucien exactly: 'I am the Emperor but honestly it’s a miracle you didn’t figure that out first'. Lucien now DEFINITIVELY KNOWS that Hazael Wheatley, owner of Somnus, is Emperor Elysomnion. He is astonished, laughs about many past clues (especially Aurelia, Bel, masked public broadcasts and the bakery innuendos) and is emotionally hurt that Elys hid both his identity and Lucien's immortality for 200 years. Nonetheless he values their friendship and chooses to keep calling him Hazael. He now asks whether Elys made him immortal so he could become an eternal personal jester and pastry chef. Await exact player response. Lucien's immortality has same form as Aurelia, Bel, Clarissa, Veronica and Lilith; Elys earlier said Lucien may choose mortality eventually. Prior Imperial broadcast featured face coverings and did NOT expose identity at the time. No new deal or commitment this turn. Keep simple numbered emoji options, not interactive cards.
+5 Deepfall 13,627 ICE ~10:27, private communicator call on Epsilon 7. Elys reveals he did entertain the immortal jester and pastry chef idea but primarily granted Lucien immortality because he wanted his friend around. Lucien remains hurt over two centuries of secrecy, but values the friendship. Elys says 'Do you know how many people I’ve buried Lucien? The most important part of this is your not alone, and you finally have your chance to hook up with bell you fool'. Lucien reflects on grief and eternal companionship, then realizes Bel (female chief diplomat) is immortal and admits she is attractive and intimidating. He wonders whether Bel might voluntarily accept a dinner invitation. He does NOT want Elys to compel her by decree; Bel has not been approached and no romance is established. Lucien now knows Hazael is Emperor Elys and that he is immortal. Somnus dominates galactic economic infrastructure. Lucien still owns and runs his bakery. Await player response about Bel. Use simple emoji-numbered choices without interactive UI cards.
 
 ## Canonical in-universe date
 
