@@ -129,6 +129,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000072](turns/000072.md) | LXXVII | Played turn | Lethe breaks ground on Epsilon 7 bakery within five minutes | [000000](checkpoints/000000.md) |
 
+| [000073](turns/000073.md) | LXXVIII | Played turn | Lucien learns Hazael owns Somnus Enterprises | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
