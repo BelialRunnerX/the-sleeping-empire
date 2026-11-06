@@ -1,5 +1,7 @@
 # Somnus — Corporate Portfolio, Governance and Asset Ledger
 
+> **HISTORICAL FOUNDING SNAPSHOT:** This ledger describes the early corporate stage through Chapter XLVII. For latest canonical status through Chapter LIII (including 13 commissioned Mnemosyne worlds and extensive Somnus commerce), read **[Somnus and the Mnemosyne Era](SOMNUS_MNEMOSYNE_ERA.md)**. Earlier references to vessels under construction and SMITE as a reserved name are historical, not current.
+
 **Canon through:** Chapter XLVII, immediately following Lethe's confirmation that she retains the restructuring instructions.  
 **Public civilian owner:** **Hazael Wheatley** (the undercover legal identity of Emperor Elysomnion).  
 **Reading note:** This file is the authoritative **current** business/portfolio supplement to [Technology and Holdings](TECHNOLOGY_ECONOMY_AND_LOCATIONS.md). Historical claims in older files remain valid *for their earlier scene dates*, but may be superseded below.
