@@ -73,6 +73,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000043](turns/000043.md) | XLIX | Played turn | Lethe launches Somnus galactic market expansion with Mnemosyne infrastructure | [000000](checkpoints/000000.md) |
 
+| [000044](turns/000044.md) | L | Played turn | One month of Somnus expansion, industrial gains and first market-share estimates | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
