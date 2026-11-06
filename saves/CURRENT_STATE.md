@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000049  
+**Save sequence:** 000050  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LV, Nimbus housewarming in progress with Clarissa, Lucien, Bel and other Imperial Hands
-**Latest record:** [000049](turns/000049.md)  
+**Story endpoint:** Chapter LV, Hazael offers Lucien wheat for pastry; Lucien asks about price
+**Latest record:** [000050](turns/000050.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall, 13,427 ICE, evening at the completed private Nimbus estate jointly owned by Elys and fiancée Clarissa. Elys chose to host a casual housewarming for Lucien and the Imperial Hands. The guests are present, including female chief diplomat Bel, who gave a guestbook. Lucien commandeered the enormous kitchen and produced a comically oversized six-tier cake with icing spacecraft crashing into an edible model of the residence. Clarissa is enjoying the warm gathering with friends, gardens and purple storms outside. No state or corporate affairs need interrupt. The Nimbus residence was built by Clarissa over prior months and is completed; it is not Somnus property. Elys has not spoken or acted in response to the party's last beat. Somnus has exactly thirteen completed, defended planetary Mnemosyne systems; its older commercial and political continuity persists. The Emperor's sweeping Somnus immunity decree remains unratified.
+4 Deepfall 13,427 ICE, Nimbus completed private estate housewarming. Elys as Hazael offered friend Lucien wheat for cream puffs. Lucien eagerly proposes a proper business discussion and wants wheat quality, milling, quantity and terms, especially whether Hazael will give him a friendly price. No contract or transaction concluded. Clarissa, Bel (she/her) and Sentinel are present, amused. Do not reveal the Emperor's secret identity to Lucien merely because Sentinel privately mentions Somnus. Nimbus finished estate shared by Elys and Clarissa; thirteen Mnemosyne fortified planetary computing worlds remain operational and independent of the housewarming.
 
 ## Canonical in-universe date
 
