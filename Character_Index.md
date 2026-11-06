@@ -51,7 +51,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Selene](characters/selene.md) | Student |
 | [Renn](characters/renn.md) | Student |
 | [Elara](characters/elara.md) | Engineering-oriented student |
-| [Marinath](characters/caelith.md) | Academy associate |
+| [Celesteth](characters/caelith.md) | Academy associate |
 | [Gregory](characters/gregory.md) | Created sentient lattice |
 | [Dr. Seren Vahl](characters/seren-vahl.md) | Medical official |
 | [Arienne Sol](characters/arienne-sol.md) | Civilian magical engineer |
@@ -60,7 +60,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Martha Venn](characters/martha-venn.md) | Harvest-fair pie judge |
 | [Tavian Mer](characters/tavian-mer.md) | Materials student |
 
-| [Marina Somnion — Enigma-01](characters/marina-somnion.md) | Imperial Hand · Enigma-01 · powerful, friendly cyan-haired companion |
+| [Celeste Somnion — Enigma-01](characters/celeste-somnion.md) | Imperial Hand · Enigma-01 · powerful, friendly cyan-haired companion |
 
 ## Related lore
 
