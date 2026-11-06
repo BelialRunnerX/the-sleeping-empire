@@ -1,11 +1,13 @@
 # Clarissa Somnion
 
 **Role:** Fiancée · Empress of Andromeda  
-**Reference state:** Chapter XLVII · updated 2026-11-05
+**Reference state:** Chapter CXXXVI · continuity corrected 2026-11-06
 
 Independent sovereign owner of Andromeda, loving partner, and Bellweather commercial negotiator.
 
 ## Profile
+
+**Authoritative age and origin correction:** Clarissa is only **a couple of centuries old**. She attended the academy **as a fellow student alongside Elys approximately 200 years ago**. Elys subsequently **gifted her immortality and Andromeda**. She is **an advisor to the Senate on behalf of Lillith**. Do not portray her as a many-millennia-old immortal or pre-academy historical witness. This correction supersedes conflicting narration. See [the continuity note](../saves/canon/clarissa-age-role-correction-2026-11-06.md).
 
 Clarissa received the entire Andromeda galaxy as an engagement gift and owns its assets outright, independently of the Imperial Treasury and Somnus. She shares Nimbus 50/50 with Hazael, built the cozy Caldris farmhouse, enjoys ordinary agricultural life, and was explicitly tasked with Bellweather WSS services negotiations.
 
@@ -25,11 +27,13 @@ By Chapter XLVII, she lives with Elys at the Caldris farmhouse, enjoys the Bellw
 - Nimbus: 50% Clarissa, 50% Hazael.
 - Negotiating WSS services with Tomas and Nessa; final rates and signatures pending.
 - Fiancée, not yet married; capable and independently minded.
+- Around 200 years old; Elys's former academy classmate, gifted immortality and Andromeda by Elys.
+- Advisor to the Senate on behalf of Lillith.
 
 ## Sources and continuity
 
 - [chronicle/CHARACTERS_AND_ARCS.md](../chronicle/CHARACTERS_AND_ARCS.md)
 
-Unspecified ages, origins, powers and relationships remain unestablished. Earlier archive snapshots describe earlier periods; current updates do not retroactively change those scenes. See the [source coverage note](../chronicle/SOURCE_COVERAGE.md).
+Her age, academy origin, grant of immortality and Andromeda, and Senate advisory role on Lillith's behalf are established by direct user correction. Other unspecified details remain unestablished. Earlier archive snapshots describe earlier periods; current updates do not retroactively change those scenes. See the [source coverage note](../chronicle/SOURCE_COVERAGE.md).
 
 [All character profiles](../Character_Index.md)
