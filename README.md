@@ -2,6 +2,10 @@
 
 A living science-fantasy space-opera lore archive for the interactive story of Emperor **Elysomnion** (Elys), the Black and Emerald Empire, and the Emperor's undercover life as **Hazael Wheatley**.
 
+## Latest canon — Chapter LIII
+
+**[Somnus and the Mnemosyne Era (current)](chronicle/SOMNUS_MNEMOSYNE_ERA.md)** — up-to-date corporate expansion, chronology, thirteen completed fortified planetary computers, government boundaries and unresolved threads. Older company-status passages in this README and earlier chronicle files are historical snapshots; read the newer supplement for current status. Latest durable play: [turn 000047](saves/turns/000047.md), **2 Deepfall, 13,427 ICE**.
+
 ## Explore the interactive codex
 
 **[Open the GitHub Pages Living Codex](https://belialrunnerx.github.io/the-sleeping-empire/)**
