@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000112  
+**Save sequence:** 000113  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXVII, Aurelia asks whether Elys's birthday promise to hand everything over includes his throne
-**Latest record:** [000112](turns/000112.md)  
+**Story endpoint:** Chapter CXVIII, Elys confirms he handed over assets but remains Emperor; the birthday celebration resumes
+**Latest record:** [000113](turns/000113.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:16, Elys's birthday gathering at his and Clarissa's private Nimbus estate. Elys has appointed Lethe administrator of all Imperial Throne assets, including all Somnus assets after building a galaxy-spanning dominant economic infrastructure ahead of schedule. In response to Aurelia's query, user Elys said exactly: 'It has Aurelia. This is the birthday I told you that I would hand everything over on. It just so happens that my economic conquest finished sooner than I thought'. Aurelia recognizes an old promise made to her about handing everything over on this birthday, and realizes the galaxy-wide economic expansion was preparing something permanent for the Throne. Lethe is institutional ASSET ADMINISTRATOR, not new owner or sovereign. Bel and Clarissa distinguish the asset handover from abdication. Aurelia directly asks Elys whether his prior promise means ONLY economic stewardship, or whether tonight is the beginning of his departure as Emperor. No abdication has yet been spoken or ordered by player. Await exact player reply without presuming. Guests include Regent Aurelia, Chief Diplomat Bel, Clarissa, Lucien, Veronica, Lilith, Lethe and Sentinel. Clarissa and Elys share Nimbus home, separate from Somnus; Lucien has independent bakery and knows Elys identity and his own immortality. User wants simple emoji-numbered story choices, not interactive cards.
+5 Deepfall 13,627 ICE ~22:21, Nimbus estate, Elys's birthday celebration. After handing over his commercial assets (including Somnus) for administration under the Imperial Throne by Lethe, Elys clarifies to Aurelia: 'I remember promising to hand over my assets not the throne, regardless maybe someday yes but not today'. Elys remains Emperor; NO abdication or succession has occurred. He might consider it in the future, but no current plan or commitment was made. Aurelia remains Regent and Lethe is ASSET ADMINISTRATOR, not sovereign or personal owner. Clarissa is Elys's fiancée, separately sovereign in Andromeda; their private Nimbus home is outside Somnus asset administration. Aurelia, Bel and Clarissa express relief. Lucien jokes about Empire administration as a huge bakery; cake is ready and friends resume the birthday celebration. Bel and Lucien have budding affection but are not yet formal partners. Lucien knows Hazael is Emperor Elys and knows the pastry gift made him immortal 200 years ago. Await player's next action, using plain numbered emoji choices, not interactive cards.
 
 ## Canonical in-universe date
 
