@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000064  
+**Save sequence:** 000065  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXIX, Lucien likes Hazael's proposed bakery name Puff Daddy's
-**Latest record:** [000064](turns/000064.md)  
+**Story endpoint:** Chapter LXX, Lucien challenges Hazael to a bakery slogan contest
+**Latest record:** [000065](turns/000065.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~22:49, Nimbus greenhouse housewarming. Elys as Hazael has explicitly suggested the ENTIRE prospective bakery building be shaped like a giant cream puff (not merely adorned with a rooftop sculpture); this corrects earlier turn-63 notes. Now Hazael proposes the name 'Puff Daddy's' for Lucien's future bakery. Lucien enthusiastically likes the suggestion and proposes the questionable slogan 'Who's Your Puff Daddy?' Bel insists on trademark checks and rejects the slogan; Clarissa laughs and likes the architecture. Nothing built, no formal bakery, no wheat contract, investment or licenses. Lucien does NOT know Hazael is the Emperor. Somnus continues operating thirteen Mnemosyne defended computing worlds. Await Elys's next action.
+4 Deepfall 13,427 ICE, 22:53, Nimbus greenhouse housewarming. Elys as Hazael proposed a mischievous slogan for Lucien's planned Puff Daddy's bakery. Bel rejected inappropriate marketing, Clarissa laughed, and Lucien realized that Hazael had been teasing with double meanings. He now challenges Hazael to play with the slogan 'Quality You Can Taste.' Lucien remains unaware that Hazael is Emperor Elys. The cream-puff-shaped bakery has not been built, and no wheat sale concluded. Nimbus is a completed private estate; Somnus's thirteen Mnemosyne computer worlds operate elsewhere. Await user's next action.
 
 ## Canonical in-universe date
 
