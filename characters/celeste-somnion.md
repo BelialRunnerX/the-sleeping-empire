@@ -17,3 +17,7 @@
 **Still unresolved:** Professor Saren and Dr. Keth are alive but not yet rescued. Celeste wants to study the facility and meet Clarissa and Davin outside. She identified **two living missing researchers**: Professor Saren in a repeating maintenance sequence and Dr. Keth in a sealed observation compartment. Dr. Elara Venn is present and alive; her companions are not yet rescued. Clarissa/Mara and diver Davin Rusk remain safe outside the ruins.
 
 [Canonical erratum](../saves/canon/cyan-haired-contained-woman-2026-11-06.md)
+
+## Confidential relationship history (Chapter CL)
+
+**Direct user canon, not publicly known in-story:** Celeste and Elys knew each other in childhood, grew up together in the **divine realm**, and **were married** there. Elys is deliberately concealing that deeper history from his present fiancée Clarissa, introducing Celeste only as an old childhood friend. Celeste recognizes and honors his look forbidding disclosure. The exact present legal/metaphysical implications are unresolved. Do not invent a disclosure or frame her loyalty as threat. [Private canon record](../saves/canon/celeste-divine-realm-history-private.md).
