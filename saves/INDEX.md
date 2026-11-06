@@ -17,6 +17,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | [000010](turns/000010.md) | XLVII | Played turn | Quiet dinner with Clarissa | [000000](checkpoints/000000.md) |
 | [000011](turns/000011.md) | XLVII | Played turn | Nimbus named future home, Caldris economic foundation | [000000](checkpoints/000000.md) |
 | [000012](turns/000012.md) | XLVII | Played turn | Social ownership intention, Nimbus estate planning, Veronica invited to discuss corporate intelligence | [000000](checkpoints/000000.md) |
+| [000013](turns/000013.md) | XLVII | Played turn | SIR intelligence enterprise and Cipher AI commissioned | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
