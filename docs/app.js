@@ -82,7 +82,7 @@
     var items = D.people.filter(function (p) {return currentPeople === "all" || p.group === currentPeople;});
     document.getElementById("peopleGrid").innerHTML = items.map(function (p) {
       return '<button class="person-card" data-open="'+esc(p.id)+'" aria-label="Open dossier for '+esc(p.name)+'">' +
-        '<span class="person-glyph" aria-hidden="true">'+esc(p.glyph)+'</span>' +
+        '<span class="portrait-frame"><img class="person-portrait" loading="lazy" decoding="async" src="./images/characters/'+encodeURIComponent(p.id)+'.svg" alt="Stylized portrait of '+esc(p.name)+'"></span>' +
         '<span class="person-role">'+esc(p.role)+'</span><strong class="person-name">'+esc(p.name)+'</strong>' +
         '<span class="person-blurb">'+esc(p.blurb)+'</span><span class="person-more">VIEW DOSSIER ↗</span></button>';
     }).join("");
@@ -156,7 +156,7 @@
     var factsHtml = facts.length ? '<div class="drawer-box"><h3>Established facts</h3><ul>'+facts.map(function (fact) {return '<li>'+esc(fact)+'</li>';}).join("")+'</ul></div>' : "";
     var statusHtml = v.status ? '<div style="margin:18px 0">'+pill(v.status)+'</div>' : "";
     drawerContent.innerHTML = '<span class="drawer-tagline">'+esc(entry.kind.toUpperCase())+' / '+esc(sub.toUpperCase())+'</span>' +
-      '<h2 class="drawer-title" id="drawerTitle">'+esc(name)+'</h2>'+statusHtml+
+      '<h2 class="drawer-title" id="drawerTitle">'+esc(name)+'</h2>'+(entry.kind === "Character" ? '<img class="drawer-portrait" src="./images/characters/'+encodeURIComponent(v.id)+'.svg" alt="Stylized portrait of '+esc(name)+'">' : '')+statusHtml
       '<p class="drawer-lead">'+esc(lead)+'</p>'+ownership+factsHtml+
       (v.source ? '<a class="drawer-source" href="'+esc(sourceUrl(v.source))+'" target="_blank" rel="noopener noreferrer">READ CANON SOURCE ↗</a>' : "");
     backdrop.hidden = false;
