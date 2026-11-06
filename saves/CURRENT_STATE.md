@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000109  
+**Save sequence:** 000110  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXIII, Bel thanks Elys for engineering opportunities to connect with Lucien, then resumes their walk
-**Latest record:** [000109](turns/000109.md)  
+**Story endpoint:** Chapter CXV, Lethe organizes Elys's birthday celebration at Nimbus with Imperial Hands and friends
+**Latest record:** [000110](turns/000110.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE around 21:29 in the garden of the private Nimbus home. Elys said he recognized from the start that Lucien liked Bel, and deliberately used jokes and events involving Bel to help them get to know each other because Lucien's unfiltered openness complements Bel's daily diplomatic self-restraint. Bel accepts the insight but stresses that her personal feelings remain her own. She thanks Elys and resumes a private walk with Lucien hand-in-hand after an earlier voluntary cheek kiss. Romance is budding, NOT formally established. Clarissa remains beside Elys and says he has earned the right to be smug tonight. Elys's true identity as Emperor and Lucien's 200-year-old magical immortality gift were disclosed to Lucien earlier this day. Lucien remains independent owner of his original bakery, Somnus remains the dominant galactic economic infrastructure company, privately owned by Elys. Await player response at Nimbus; do not invent Elys's speech. Simple numbered emoji choices only (interactive option cards malfunction for user).
+5 Deepfall 13,627 ICE ~22:05, Nimbus private home, after Bel and Lucien's first friendly dinner and walk. Elys snaps to summon Aurelia, gathers Imperial Hands (including Veronica and Lilith), friends (Bel, Lucien, Clarissa), Sentinel and Lethe, and announces a birthday party for himself. Lethe arranges a private celestial-themed garden celebration with Clarissa's assent as joint homeowner. Lucien prepares a large palace-shaped cake. Lethe and Aurelia toast Elys, the gathering wishes him happy birthday, and everyone jokes about his age and pastry decrees. Bel and Lucien remain interested in each other but not formally a couple. Lucien now knows Hazael is Emperor Elys, and knows Elys granted him immortality via a pastry 200 years ago. Somnus is privately Elys-owned, the galactic economic infrastructure monopoly. No new official acts or business contracts signed. Await Elys's birthday speech or next move. Use plain emoji-numbered choices not interactive cards.
 
 ## Canonical in-universe date
 
