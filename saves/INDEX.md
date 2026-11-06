@@ -121,6 +121,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000068](turns/000068.md) | LXXIII | Played turn | Aurelia declines the same-room audience dispute | [000000](checkpoints/000000.md) |
 
+| [000069](turns/000069.md) | LXXIV | Played turn | Aurelia receives Lucien's cream-puff bakery inquiry | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
