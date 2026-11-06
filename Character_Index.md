@@ -1,6 +1,6 @@
 # Character Index
 
-Individual profiles consolidated from the foundational archive, academy chronicle, post-WAC continuation and accessible recent “sleeping empire” exchanges. **Current state: Chapter XLVII. Updated: 2026-11-05.**
+Individual profiles consolidated from the foundational archive, academy chronicle, post-WAC continuation and accessible recent “sleeping empire” exchanges. **Current state: Chapter CXLVIII. Updated for formal Hand appointments.**
 
 Profiles with limited source material deliberately retain those gaps. [Source coverage and limits](chronicle/SOURCE_COVERAGE.md).
 
@@ -40,7 +40,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Nessa Calder](characters/nessa.md) | Bellweather · terminal engineer |
 | [Miriam Holt](characters/miriam.md) | Bellweather · veteran farmer |
 | [Elias Harker](characters/elias.md) | Bellweather · independent farmer |
-| [Lucien Vale](characters/lucien.md) | Student · inventor · pastry entrepreneur |
+| [Lucien Vale](characters/lucien.md) | Imperial Hand · formally recognized Jester to the Crown · pastry entrepreneur |
 | [Maelis Vorr](characters/vorr.md) | Imperial College · dean and professor |
 | [Ilyan Soreth](characters/soreth.md) | Imperial College · applied materials professor |
 | [Aven Rhel](characters/rhel.md) | Imperial College · field dynamics |
@@ -60,7 +60,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Martha Venn](characters/martha-venn.md) | Harvest-fair pie judge |
 | [Tavian Mer](characters/tavian-mer.md) | Materials student |
 
-| [Caelira Vael](characters/caelira-vael.md) | Friendly and powerful cyan-haired woman freed from Tideglass causal containment |
+| [Caelira Vael — Enigma-01](characters/caelira-vael.md) | Imperial Hand · Enigma-01 · powerful, friendly cyan-haired companion |
 
 ## Related lore
 
