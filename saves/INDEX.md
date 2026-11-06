@@ -52,6 +52,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000032](turns/000032.md) | XLVIII | Played turn | Unratified Somnus immunity draft delivered to Aurelia; Regent returns red annotations | [000000](checkpoints/000000.md) |
 
+| [000033](turns/000033.md) | XLVIII | Played turn | Elys calls Somnus a birthday gift to himself; Aurelia requests the date | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
