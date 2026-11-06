@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000041  
+**Save sequence:** 000042  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLIX, final day of Somnus's Second Three-Day War concludes with industry trials and initial planetary compute program
-**Latest record:** [000041](turns/000041.md)  
+**Story endpoint:** Chapter XLIX, Elys instantly creates fully operational planet-scale Mnemosyne and powers Lethe with it
+**Latest record:** [000042](turns/000042.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-20 Emberwane, Year 13,427 ICE, final day of a three-day Somnus industrial campaign dubbed the Second Three-Day War. Elys authorized Lethe to show fast gains and proposed a planet-sized computing installation. Lethe has demonstrated rapid agricultural efficiency prototypes, contracted trial shipping improvements, modular manufacturing tests and a planned planetary-scale computing network, Project Mnemosyne, with initial clusters commissioned and full planet acquisition/buildout pending. The 22 WSS civilian freighters remain unfinished and Bellweather cooperative terms unresolved. No sweeping galaxy-scale deployment or planetary server farm is complete. Aurelia requests independent validation of trials; Lethe asks Elys what should follow the final-day demonstrations. Clarissa and Sentinel present. The earlier unratified decree still has no effect and prior SIR government information contract remains exclusive.
+20 Emberwane, Year 13,427 ICE, Caldris II farmhouse after Somnus's Second Three-Day War demonstration. Elys snapped his fingers and caused Project Mnemosyne to fully exist as a vast operational planetary-scale computer with power, cooling, repair/fabrication and communications infrastructure, situated in an uninhabited region. Lethe now uses Mnemosyne as her primary computing substrate while retaining her identity and corporate executive command. This is an exceptional instance of Elys's own reality-altering power; the planetary computer is no longer a future plan. Expanded compute does not grant omniscience or automatically finish every other Somnus industrial project. Clarissa and Sentinel are present; Aurelia received an alert and responded with disbelief. Lethe now asks Elys if he would like to see what the vastly expanded intelligence can do. Other enterprises remain at their earlier development stages unless expressly changed by user. The immunity decree remains unratified.
 
 ## Canonical in-universe date
 
