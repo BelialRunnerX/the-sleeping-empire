@@ -87,6 +87,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000050](turns/000050.md) | LV | Played turn | Hazael offers Lucien wheat for cream puffs at the housewarming | [000000](checkpoints/000000.md) |
 
+| [000051](turns/000051.md) | LVI | Played turn | Absurd cream-puff industrial pitch inspires Lucien's bakery plans | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
