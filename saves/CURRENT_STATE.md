@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000120  
+**Save sequence:** 000122  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CXXV, Aurelia agrees to a rematch in principle and awaits Elys's answer to her conditions
-**Latest record:** [000120](turns/000120.md)  
+**Latest record:** [000122](turns/000122.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
