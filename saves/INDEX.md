@@ -38,6 +38,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000025](turns/000025.md) | XLVIII | Played turn | Elys opens with 'Technically, Aurelia'; Regent suspects deeper Somnus purpose | [000000](checkpoints/000000.md) |
 
+| [000026](turns/000026.md) | XLVIII | Played turn | Elys briefs Aurelia on immediate Somnus work and evades ultimate goal; memo reaches page 87 | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
