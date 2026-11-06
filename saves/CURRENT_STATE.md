@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000026  
+**Save sequence:** 000027  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys explains short-term Somnus business but withholds long-term handoff; Aurelia commissions review and adds page 87  
-**Latest record:** [000026](turns/000026.md)  
+**Story endpoint:** Chapter XLVIII, Elys urges Aurelia not to conduct Somnus administrative review; Regent asks whether recommendation or sovereign command  
+**Latest record:** [000027](turns/000027.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
