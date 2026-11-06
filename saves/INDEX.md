@@ -187,6 +187,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000110](turns/000110.md) | CXV | Played turn | Birthday celebration on Nimbus organized by Lethe | [000000](checkpoints/000000.md) |
 
+| [000111](turns/000111.md) | CXVI | Played turn | Birthday appointment of Lethe as Throne asset administrator | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
