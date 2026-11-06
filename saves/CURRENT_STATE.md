@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000098  
+**Save sequence:** 000099  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter XCIX, Elys says Lucien shares the Hands' immortality and considered waiting until Lucien noticed
-**Latest record:** [000098](turns/000098.md)  
+**Latest record:** [000099](turns/000099.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
