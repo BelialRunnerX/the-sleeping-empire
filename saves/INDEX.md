@@ -224,6 +224,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000129](turns/000129.md) | CXXXIV | Played turn | Corin answers Maren and alerts Aurelia to legacy repair debt | [000000](checkpoints/000000.md) |
 
+| [000130](turns/000130.md) | CXXXV | Played turn | Corin gifts Mara copper bracelet and reaches Kestrel Junction | [000000](checkpoints/000000.md) |
+| [000131](turns/000131.md) | CXXXVI | Played turn | Correct Clarissa's canon; board and arrive at Morrow's Landing | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
