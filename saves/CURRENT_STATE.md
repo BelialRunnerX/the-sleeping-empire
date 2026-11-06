@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000061  
+**Save sequence:** 000062  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXVI, Lucien learns the pastry double meanings and jokingly requests a wagon of wheat
-**Latest record:** [000061](turns/000061.md)  
+**Story endpoint:** Chapter LXVII, Lucien favors The Filling Station as a bakery name
+**Latest record:** [000062](turns/000062.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~22:36, Nimbus greenhouse housewarming. Elys as Hazael called Bel back and made another joke about Lucien filling and glazing her éclair, then explicitly explained the cream-puff and Cream-Pie-R double meanings. Lucien understood and became embarrassed; Bel and Clarissa laughed. Lucien now jokingly asks Hazael for one wagon of wheat and help selecting a respectable bakery name in compensation for all the misleading branding ideas, plus a halt to the filling jokes. NO deal was agreed and no wheat has changed hands. Lucien still DOES NOT know Hazael is Emperor Elys; Sentinel's royal remark was dismissed. The private Nimbus estate is completed and co-owned by Elys and Clarissa; Somnus's thirteen fortified Mnemosyne computer worlds remain operational. Await Elys's response to Lucien's proposed terms.
+4 Deepfall 13,427 ICE, ~22:41, Nimbus greenhouse during housewarming. Elys as Hazael offered a legitimate but slightly questionable bakery name, The Filling Station. Lucien likes it, and asks whether he should put a giant cream puff on the roof. Bel reluctantly agrees the name is suitable; Clarissa and Sentinel are amused. No bakery company or wheat sale has been formalized. Lucien remains unaware Hazael is Emperor Elys. All thirteen Mnemosyne computer worlds and Somnus operations remain unchanged. Await player's next action.
 
 ## Canonical in-universe date
 
