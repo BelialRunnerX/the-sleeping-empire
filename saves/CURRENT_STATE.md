@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000051  
+**Save sequence:** 000052  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LVI, Hazael gives Lucien a grand cream-puff business pitch at the Nimbus housewarming
-**Latest record:** [000051](turns/000051.md)  
+**Story endpoint:** Chapter LVII, Lucien's cake collapses harmlessly during the Nimbus housewarming and he proposes an engineering solution
+**Latest record:** [000052](turns/000052.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, evening at the completed Nimbus estate housewarming. After offering Lucien wheat, Elys as civilian farmer Hazael selected a ridiculous corporate pitch, conceptualizing an integrated wheat, pastry flour and interstellar cream-puff distribution network ('Operation Choux Dominion'). Lucien proposes fanciful 'Galactic Choux Consortium' but sensibly asks to buy a SMALL TEST BATCH of Hazael's wheat for milling and choux recipe testing. Price, supply, delivery, and flour suitability NOT finalized; no company or purchase yet. Lucien thanks Hazael for believing in his bakery ambitions, and still does NOT know he is Emperor Elys. Bel and Clarissa are amused, and part of his giant cake has shed an icing spaceship. Previous illustrated House Somnion crest art exploration did not constitute an in-story event. The completed Nimbus residence is jointly Elys/Clarissa's private home, and 13 Mnemosyne computer worlds remain operating. Await user's next response.
+4 Deepfall 13,427 ICE, about 21:14, at the completed Nimbus estate housewarming. Elys chose to taste Lucien's towering six-tier cake. Flavor was excellent, praised by Clarissa and Bel; while served, the cake slowly collapsed onto itself, with no injuries and only icing decorations lost. Lucien proposed adding an internal gravity lattice to his next cake. Clarissa is laughing and asks Elys not to give the baker a planetary computer. Sentinel jokes about engineering certification. No wheat sale or bakery partnership concluded; Lucien is still unaware that Hazael is the Emperor. Somnus retains 13 completed fortified Mnemosyne planetary computers; Caldris and Nimbus ownership boundaries unchanged. Await player action.
 
 ## Canonical in-universe date
 
