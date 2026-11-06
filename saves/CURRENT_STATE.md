@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000065  
+**Save sequence:** 000066  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXX, Lucien challenges Hazael to a bakery slogan contest
-**Latest record:** [000065](turns/000065.md)  
+**Story endpoint:** Chapter LXXI, Elys calls Bel from the same room, then invites her to suggest bakery branding
+**Latest record:** [000066](turns/000066.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, 22:53, Nimbus greenhouse housewarming. Elys as Hazael proposed a mischievous slogan for Lucien's planned Puff Daddy's bakery. Bel rejected inappropriate marketing, Clarissa laughed, and Lucien realized that Hazael had been teasing with double meanings. He now challenges Hazael to play with the slogan 'Quality You Can Taste.' Lucien remains unaware that Hazael is Emperor Elys. The cream-puff-shaped bakery has not been built, and no wheat sale concluded. Nimbus is a completed private estate; Somnus's thirteen Mnemosyne computer worlds operate elsewhere. Await user's next action.
+4 Deepfall 13,427 ICE, ~22:57, completed Nimbus greenhouse housewarming. Elys as Hazael called Bel by private communicator despite being in the same room, saying exactly 'I heard you wish to speak with me?' as an ironic answer to her earlier wish to speak with God. Bel privately recognized his Imperial identity and complained about the absurd calls and bakery slogans. Lucien remains unaware of Hazael's real identity. Elys asked Bel to contribute ideas for Lucien's bakery. She suggested using The Filling Station (pending checks) rather than Puff Daddy's and the respectable slogan 'A Little Joy in Every Bite.' Lucien is impressed, but Bel declines being hired as marketing consultant. No bakery founded, no wheat contract signed. Clarissa is amused; Sentinel has been dryly comic. Nimbus remains completed and privately co-owned, and thirteen Mnemosyne planetary computers operate elsewhere. Await Elys's next move.
 
 ## Canonical in-universe date
 
