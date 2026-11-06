@@ -79,6 +79,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000046](turns/000046.md) | LII | Played turn | Second planetary computer commissioned under Project Janus | [000000](checkpoints/000000.md) |
 
+| [000047](turns/000047.md) | LIII | Played turn | Eleven more Mnemosyne worlds commissioned with heavily defended systems | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
