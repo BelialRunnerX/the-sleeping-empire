@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000116  
+**Save sequence:** 000117  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXX, Aurelia challenges Elys to complete asset-transfer paperwork instead of fighting
-**Latest record:** [000116](turns/000116.md)  
+**Story endpoint:** Chapter CXXII, Elys defeats Aurelia in a barren system after suppressing all her powers; she asks for restoration
+**Latest record:** [000117](turns/000117.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,627 ICE ~22:31 at Nimbus on Emperor Elys's birthday. After joking that he could abdicate and fight Regent Aurelia for the throne, Elys clarified that it was a joke but he would not back down if she wanted a fight. Aurelia declines to fight the near-omnipotent emperor and instead offers him a playful bureaucratic challenge: personally read and sign the administrative package documenting transfer of his Imperial and Somnus asset stewardship to Lethe. Lethe can prepare/automate documentation; Lucien suggests self-signing papers, Aurelia objects. No duel or abdication occurred. Elys remains Emperor; Lethe is designated administrator of Throne assets including the galaxy's dominant Somnus holdings; Aurelia remains Regent. Birthday party continues with Clarissa, Bel, Lucien, Veronica, Lilith, Lethe and Sentinel, cake awaiting serving. Lucien knows Hazael is Emperor Elys and knows of his gift of immortality 200 years prior. Bel and Lucien are mutually interested but not officially a couple. Aurelia currently awaits Elys's answer about the bureaucratic challenge. Keep six simple numbered emoji choices, no interactive cards.
+5 Deepfall 13,627 ICE ~22:51. Elys challenged Regent Aurelia to a friendly duel in barren uninhabited star system K-000; she accepted. In an instant Elys stripped/suppressed ALL her extraordinary capacities: stellar powers, cosmic energy, supernatural defenses and immortality-resilience are dormant, but memories, personality, normal physical skills and office as Regent are intact. Elys effortlessly won in about three seconds without physical harm; no abdication, no political succession or damage to inhabited places. Guests including Clarissa, Bel, Lucien, Lethe, Veronica, Lilith and Sentinel watch remotely from his birthday party on Nimbus. Aurelia, still powerless, now asks Elys whether he will RESTORE HER POWERS. IMPORTANT: Elys has NOT answered or restored anything; user decides. Elys is still Emperor and Lethe administrator of the Throne and Somnus assets. Lucien knows Elys is Hazael, is immortal and owns his bakery independently; Bel and Lucien's romantic feelings are budding, not formal relationship. The birthday celebration and Lucien's cake await their return. Use simple numbered emoji options, no interactive cards.
 
 ## Canonical in-universe date
 
