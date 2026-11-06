@@ -207,6 +207,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000120](turns/000120.md) | CXXV | Played turn | Aurelia accepts potential friendly rematch on conditions | [000000](checkpoints/000000.md) |
 
+| [000121](turns/000121.md) | CXXVI | Played turn | Aurelia fights at full power and Elys wins with null and reflection | [000000](checkpoints/000000.md) |
+| [000122](turns/000122.md) | CXXVII | Played turn | Elys announces an indefinite sabbatical without abdication | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
