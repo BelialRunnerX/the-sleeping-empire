@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000044  
+**Save sequence:** 000045  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter L, Lethe presents Somnus's first 30-day expansion report on 20 Frostwane, 13,427 ICE
-**Latest record:** [000044](turns/000044.md)  
+**Story endpoint:** Chapter LI, Somnus has expanded rapidly over a second month and Lethe seeks further strategic direction
+**Latest record:** [000045](turns/000045.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-20 Frostwane, Year 13,427 ICE, farmhouse Caldris II, after a month of accelerated Somnus expansion. Lethe reports 18,420 active systems, 1,286 voluntary acquired enterprises, 73,608 executed agreements, and 7 uninhabited industrial worlds secured. The original 22 civilian WSS freighters have finished construction and entered service alongside extraordinary additional ships and industry enabled by Elys. Bellweather cooperative has signed a revised NONEXCLUSIVE arrangement and remains independent. Provisional survey-market shares are logistics 18.4%, computing 13.7%, warehousing 11.2%, manufacturing 4.6%, raw materials 2.3%, agriculture 1.1%, not confirmed galaxy-wide control. Validated pilot corridors report 64% dispatch delay improvement; pilot manufacturing facilities report selected 31% lower production costs. Somnus has significant new revenue but consolidated profitability has NOT been established after aggressive expansion. Aurelia is impressed but worries about systemic dependence on Mnemosyne. Lethe asks Elys if he wants faster expansion, consolidation, or an even more ambitious scientific/industrial priority. Clarissa and Sentinel present. Existing SIR government data contract is exclusive; broad corporate immunity draft still unratified.
+20 Thawrise, Year 13,427 ICE, after two months of Somnus commercial expansion. On Caldris II, Lethe reports 92,600 active star systems, 6,840 cumulative voluntary acquisitions, 418,300 contracts, 24 uninhabited industrial worlds secured, and significant but incomplete market penetration. Provisional shares of sampled addressable markets: freight 36.8%, industrial computing 41.2%, warehousing 29.5%, manufacturing 12.8%, raw materials 7.4%, agriculture 4.9%. These are not entire-galaxy shares. Some established divisions have operating profits but group-level profitability unverified. Aurelia is monitoring ordinary market concentration complaints and planning continuity for a very distant potential public handoff in 14,427 ICE. Lethe asks Elys whether to continue aggressive expansion, consolidate, or pursue revolutionary technologies. Mnemosyne remains operational as Lethe's planetary computing foundation. Clarissa and Sentinel present.
 
 ## Canonical in-universe date
 
