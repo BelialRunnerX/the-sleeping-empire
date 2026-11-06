@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000128  
+**Save sequence:** 000129  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXIII, Corin and Mara aboard Canterbury toward Kestrel Junction, chatting with agricultural surveyor Maren Sol
-**Latest record:** [000128](turns/000128.md)  
+**Story endpoint:** Chapter CXXXIV; Corin remains incognito on Canterbury while Aurelia and Lethe initiate an audit of legacy repair restrictions
+**Latest record:** [000129](turns/000129.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE ~10:02, aboard ordinary civilian shuttle Canterbury en route from Harrowgate Transfer Station to Kestrel Junction, the SECOND LEG of the journey to Morrow's Landing, a Rimward frontier settlement (one final connection remains). Elys traveling incognito as freelance consultant CORIN VALE during indefinite sabbatical; Clarissa, his fiancée and sovereign of Andromeda, accompanies as MARA CALDER. He answered Tessa's inquiry about navigation skills 'I'm mostly self-taught,' then left for his flight. He has 28 credits earned fixing Tessa's Vesper-4 core. Clarissa admired an 18-credit copper bracelet but no purchase was made. On Canterbury a middle-aged agricultural surveyor named MAREN SOL has disclosed there is a nonviolent provincial dispute at Morrow's Landing involving freight tariffs, taxes and bureaucracy; she asks if the two are inspectors and Clarissa says they're on holiday. Maren awaits follow-up. Elys remains Emperor and has NOT abdicated; Regent Aurelia handles routine government, Lethe administers Throne assets including Somnus, Sentinel discreet emergency comms. Nobody recognizes the aliases. No intervention has been chosen. Do not invent Elys's dialogue; offer six numbered emoji plain Markdown choices, no interactive cards.
+6 Deepfall 13,627 ICE ~10:31 aboard Canterbury en route from Harrowgate to Kestrel Junction, penultimate leg to Morrow's Landing. Emperor Elys incognito as Corin Vale, fiancé Clarissa as Mara Calder, both on holiday. User chose humorous line 'Government inspectors? Do we look like government inspectors?' in reply to agricultural surveyor Maren Sol; she believes their cover. At the user's explicit instruction, Elys sent a discreet private report to Regent Aurelia describing technical repair debt of legacy systems, restrictive inherited Somnus subsidiary contracts and licensing making independent repairs needlessly costly, as illustrated by mechanic Tessa's Vesper-4: 1,840-credit authorized quote versus 34 credits in parts. Aurelia and Lethe have OPENED an investigative audit of legacy repairability, diagnostics, repair access, parts and safety certification; NO new repair policy has been passed. Maren further explained Morrow's Landing's nonviolent provincial freight tariff dispute: certain irrigation regulators classified as premium industrial equipment and charged inappropriate-looking rates. Elys has not agreed to intervene. Cover identities undisclosed; Elys remains Emperor on indefinite sabbatical, Aurelia Regent, Lethe administers Throne assets including Somnus. Corin still holds 28 credits earned from Tessa; no purchase of Clarissa's admired 18-credit copper bracelet. Await player action during flight; do not fabricate Elys's speech or decisions. Six plain emoji-numbered options, not interactive cards.
 
 ## Canonical in-universe date
 
