@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000046  
+**Save sequence:** 000047  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LII, Mnemosyne II commissioned after six weeks under Project Janus; Lethe requests scientific priority
-**Latest record:** [000046](turns/000046.md)  
+**Story endpoint:** Chapter LIII, Lethe has completed Project Triskaideka: thirteen defended planetary computers
+**Latest record:** [000047](turns/000047.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-2 Suncrest, 13,427 ICE, at Caldris II. Six weeks after Elys instructed Lethe to build a second Mnemosyne for redundancy, resilience and science, Somnus has commissioned Mnemosyne II as a second functioning planetary-scale computer on a separate secured uninhabited industrial world. Independent power, fabrication, comms, checks and safeguards form Project Janus; initial failover tests passed, longer resilience testing remains ongoing. Lethe remains one continuing executive intelligence, now supported by two distinct computing worlds and with expanded independent research capability. Aurelia appreciates the reliability planning; Clarissa jokes about a third. Lethe asks which scientific research domain Elys would like prioritized. Earlier Somnus operational expansion is otherwise intact, and the sweeping corporate immunity draft remains unratified.
+2 Deepfall, 13,427 ICE, Caldris II farmhouse. Eight months after Elys ordered eleven additional Mnemosyne-scale worlds and heavily fortified systems, Somnus has finished Project Triskaideka. Exactly 13 planetary computers are commissioned with distributed, independent energy, maintenance, data recovery and defensive systems. The 11 new worlds were constructed by Somnus over eight months rather than instantly created. Somnus Security Command and Strategos operate corporate private defenses; Elys's 100 personal warships may serve temporary patrol duties without ownership transfer; Clarissa's Andromedan sovereign navy remains separate. Independent redundancy and initial exercises passed; long-term readiness remains under evaluation. Regent Aurelia is aware of the concentration of private capabilities, confirms Imperial jurisdiction and wants ordinary security oversight. Lethe has the scientific capacity to pursue exceptional new research, and Clarissa jokes about whether the Emperor will stop at 13 worlds. Lethe has merely sketched a fourteenth, NOT built it. The immunity decree remains unratified. Await next player action.
 
 ## Canonical in-universe date
 
