@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000058  
+**Save sequence:** 000059  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXIII, Lucien plans a hypothetical guild for expert pastry-makers
-**Latest record:** [000058](turns/000058.md)  
+**Story endpoint:** Chapter LXIV, Lucien explains how cream puffs are baked and filled
+**Latest record:** [000059](turns/000059.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~22:24 at Nimbus greenhouse housewarming. Elys as Hazael told Lucien, 'You'll make a whole bunch of professional creamers' as a pun on Lucien's Cream-Pie-R brand idea. Lucien innocently suggests professional training for pastry makers, a theoretical academy and a hypothetical Galactic Guild of Professional Creamers. Bel is appalled at the terminology, Clarissa laughing, Sentinel dryly amused. None of the projects is registered or started; wheat sale and bakery premises are unresolved. Lucien still does not know Elys's identity. The user controls the next response. The Nimbus house is completed and shared with Clarissa, and the 13 Mnemosyne systems remain operational.
+4 Deepfall 13,427 ICE, ~22:27, completed Nimbus greenhouse during housewarming. Elys as Hazael asked whether it is the cream that puffs the pastry, continuing the pun about Lucien's Cream-Pie-R and training professional creamers. Lucien sincerely explained that steam puffs choux shells before cream is inserted, prompting Clarissa's laughter and Bel's exasperation. Clarissa accidentally said 'Elys' near Lucien; he noticed but mistook it for a joking reference to the Emperor, and DOES NOT know Hazael's secret identity. Lucien asks whether the not-yet-existent bakery should specialize in cream puffs or expand to éclairs. All businesses and agreements remain hypothetical; no wheat sale. Nimbus estate and Somnus' 13 fortified planetary computers are unaffected. Await user response.
 
 ## Canonical in-universe date
 
