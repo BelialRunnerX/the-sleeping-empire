@@ -42,6 +42,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000027](turns/000027.md) | XLVIII | Played turn | Elys advises against administrative review; Aurelia seeks clarification of authority | [000000](checkpoints/000000.md) |
 
+| [000028](turns/000028.md) | XLVIII | Played turn | Elys describes Hazael Wheatley's fair-market goals; Aurelia proposes narrower review | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
