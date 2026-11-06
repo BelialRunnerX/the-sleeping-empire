@@ -3,13 +3,13 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXXII, Aurelia accidentally nearly reveals Hazael's imperial identity during a bakery grand-opening invitation
+**Story endpoint:** Chapter LXXXIII, Aurelia challenges Hazael to convincingly impersonate the Emperor at Lucien's prospective bakery opening
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE ~23:47, Nimbus greenhouse. Elys as Hazael phoned Regent Aurelia to invite her to Lucien's eventual Epsilon 7 bakery grand opening. Aurelia agreed to consider a formal invitation after the building is completed and licensed. She joked that Elys should perform a public ribbon-cutting and official Imperial speech, inadvertently speaking as if Elys is standing in the room. Lucien knows Hazael is the sole owner of Somnus but DOES NOT KNOW HAZAEL IS EMPEROR ELYS; he is now confused and asks why Aurelia talks as though the Emperor is nearby. The player must decide whether to reveal the identity. Bel, Clarissa, Sentinel and Lethe are present. Somnus has legally broken ground on preliminary Epsilon 7 site works, but the bakery is not built, no full operating permits, no wheat sale and no finalized Lucien agreement. Elys revised Somnus's proposal to 10% of qualifying NET PROFIT rather than revenue; this remains unexecuted pending review. Nimbus completed private joint home; 13 Mnemosyne worlds operational.
+4 Deepfall 13,427 ICE ~23:51, Nimbus greenhouse housewarming. Elys publicly as Hazael tells Lucien that Regent Aurelia simply misses her Monarch and Hazael can be a stand-in at the bakery opening. He claims Somnus's advanced construction technology and integrated permitting can have Lucien's entire cream-puff-shaped Epsilon 7 bakery ready by the next morning (5 Deepfall). Lethe begins accelerated modular fabrication, but emphasizes final structural and food-service approvals remain pending; the morning opening is a TARGET, not confirmed. Aurelia jokingly challenges Hazael to convincingly impersonate the Emperor with solemnity and a speech, unaware Lucien is actually speaking to the Emperor; Aurelia herself knows. Lucien still does NOT know Hazael is Emperor, although he knows Hazael owns Somnus. He has not purchased wheat/flour. No executed contract for the proposed Somnus 10% share of qualifying net profit. Clarissa, Bel, Lethe and Sentinel are present. Private jointly owned Nimbus estate completed; 13 Mnemosyne worlds unchanged. Await player action.
 
 ## Canonical in-universe date
 
