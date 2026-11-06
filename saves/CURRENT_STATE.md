@@ -1,15 +1,19 @@
 # Current Story State
 
-**Save sequence:** 000132  
+**Save sequence:** 000133  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXVII, Corin and Mara dine at Rusted Ladle on Morrow's Landing after booking inexpensive lodging
-**Latest record:** [000132](turns/000132.md)  
+**Story endpoint:** Chapter CXXXVII at The Rusted Ladle, Morrow's Landing; household AI Vesta now accompanies Corin and Mara; no in-story time advanced
+**Latest record:** [000133](turns/000133.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE about 17:26, **The Rusted Ladle** tavern, Southern Freight Quarter, Morrow's Landing. Incognito travelers **Corin Vale** (Emperor Elys, on indefinite sabbatical without abdication) and **Mara Calder** (his fiancee Clarissa) have arrived on the frontier planet and cleared ordinary customs. At user's choice they booked a modest double **Room Seven at The Thistle & Lantern** run by **Marta Fen** (38 credits/night, or 42 with breakfast) overlooking fields, and visited this tavern to try its notorious, safe but unpalatable **brown soup** (8 credits per bowl). Clarissa finds soup terrible; Sentinel and she joke; tavernkeeper has invited them to stay for live local music tonight. Nearby farmers and freighters complain about the same disputed premium industrial tariff charged for irrigation controllers; Elys has NOT intervened or exposed his identity. Clarissa is **around two centuries old**; she was a fellow academy student ~200 years ago and Elys gifted her immortality and Andromeda. She is a Senate advisor on behalf of Lillith and remains Elys's FIANCÉE, NOT wife. She is wearing handmade copper flower bracelet secretly purchased by Elys for 18 of his 28 credits earned at mechanic Tessa's repair shop, leaving **10 of those earned wages**; other travel expense funding is separate. Aurelia remains Regent, Lethe administers Throne assets incl Somnus. Elys remains Emperor. No next choice made. Use six simple numbered emoji options, no interactive cards; never invent Elys's dialogue.
+6 Deepfall 13,627 ICE ~17:26, **The Rusted Ladle** tavern, Southern Freight Quarter, Morrow's Landing. Elys and his fiancée Clarissa, incognito as **Corin Vale** and **Mara Calder**, are sampling terrible but safe brown soup, after booking **Room Seven at The Thistle & Lantern** from Marta Fen for 38 credits/night (42 with breakfast). Tavernkeeper invites them to local music tonight. Farmers/freighters nearby complain about incorrectly classified irrigation-controller freight tariffs; Elys has **not** intervened. Clarissa wears the tiny flower-engraved **copper bracelet** Elys secretly purchased for **18 out of 28 credits earned** by fixing Tessa's navcore, leaving **10 earned credits**. This earned-money ledger is sentimental only, **NOT a travel budget limit**.
+
+**LATEST AUTHORITATIVE DIRECTIVE (turn 000133):** New companion AI **VESTA** is the Nimbus **household AI**, now Elys and Clarissa's regular PRIVATE travel companion, communicator, booking assistant and expense manager. Distinct from **Sentinel** (still existing Imperial security/guardian AI, reserved for Imperial emergencies) and **Lethe** (Somnus and Throne institutional asset admin). **Vesta replaces Sentinel as routine private commentary voice from now on.** The couple's ordinary fares, accommodation, meals, purchases etc are paid via a **private effectively unlimited personal expenditure account**, discreetly managed by Vesta, **not published as Imperial Treasury transactions and never disclosing royal identities**. Special bracelet expense was intentionally from wages and remains canon. See [Vesta](../characters/vesta.md) and [authoritative finance/AI correction](canon/vesta-private-expenses-2026-11-06.md). **No further story action chosen; still at tavern.**
+
+Clarissa is **around two centuries old**, met Elys as a fellow academy student 200 years ago, gifted immortality and Andromeda by Elys, and advises the Senate **on behalf of Lillith**. Fiancée, not wife. Elys still Emperor on indefinite sabbatical WITHOUT abdication; Aurelia Regent; Lethe administrator of Throne assets including Somnus. Legacy technical repair restrictions only being investigated, no new policy passed. Use six simple numbered emoji options, not clickable cards, and never put unchosen words/actions into Elys's mouth.
 
 ## Canonical in-universe date
 
