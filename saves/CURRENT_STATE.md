@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000108  
+**Save sequence:** 000109  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CXIII, Bel thanks Elys for engineering opportunities to connect with Lucien, then resumes their walk
-**Latest record:** [000108](turns/000108.md)  
+**Latest record:** [000109](turns/000109.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
