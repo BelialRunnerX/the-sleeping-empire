@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000052  
+**Save sequence:** 000053  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LVII, Lucien's cake collapses harmlessly during the Nimbus housewarming and he proposes an engineering solution
-**Latest record:** [000052](turns/000052.md)  
+**Story endpoint:** Chapter LVIII, Elys signs the first page of Bel's guestbook during Nimbus housewarming
+**Latest record:** [000053](turns/000053.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, about 21:14, at the completed Nimbus estate housewarming. Elys chose to taste Lucien's towering six-tier cake. Flavor was excellent, praised by Clarissa and Bel; while served, the cake slowly collapsed onto itself, with no injuries and only icing decorations lost. Lucien proposed adding an internal gravity lattice to his next cake. Clarissa is laughing and asks Elys not to give the baker a planetary computer. Sentinel jokes about engineering certification. No wheat sale or bakery partnership concluded; Lucien is still unaware that Hazael is the Emperor. Somnus retains 13 completed fortified Mnemosyne planetary computers; Caldris and Nimbus ownership boundaries unchanged. Await player action.
+4 Deepfall 13,427 ICE at ~21:32 during the private housewarming at the completed Nimbus home, Elys has dated and signed the first page of Bel's emerald-leather guestbook, commemorating the evening but with exact text deliberately unspecified. Bel is gratified. Lucien contributed a farcical page about the six-tier cake collapse ending 'THE CAKE FELL. THE DREAM ENDURES.' Clarissa is deeply touched and reflects that this night will be remembered centuries later. Lucien has just broken a plate harmlessly in the adjacent dining room. Clarissa, Bel, Lucien and other Imperial Hands are present. Lucien still does not know Hazael's Imperial identity. No wheat sale has been concluded; Somnus still owns thirteen fortified Mnemosyne worlds and no immunity decree was ratified. Await next choice or free-form action.
 
 ## Canonical in-universe date
 
