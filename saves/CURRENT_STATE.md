@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000020  
+**Save sequence:** 000021  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, Clarissa accepts proposal to keep main Andromedan guard force at outer system with one or two ships close to Nimbus  
-**Latest record:** [000020](turns/000020.md)  
+**Story endpoint:** Chapter XLVII, Elys raises his lack of a reciprocal legal office in Andromeda; Clarissa invites discussion  
+**Latest record:** [000021](turns/000021.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II farmhouse, late evening. Elys requests more Andromedan ships protecting Nimbus, most dispersed in the outer reaches of its system, with only one or two near the planet for immediate intervention. Clarissa agrees in principle and tasks her own admirals with a deployment assessment. Total force size, specific hulls and positions are not yet chosen; no deployment has happened. Andromedan command and property remain Clarissa's, with normal civilian access and residence privacy preserved. Nimbus estate is still in planning. Await Elys's next choice.
+Caldris II farmhouse, late evening. Elys raises that while Clarissa is his Imperial Hand, he has no equivalent formal commission in her Andromedan dominion. Clarissa accepts the point, discussing possible reciprocal office, defined delegated authority, or eventual consort position after marriage, while explicitly preserving her own sovereignty. Nothing has been appointed or transferred yet. She asks what powers or recognition he desires. Sentinel jokes about intergalactic middle management.
 
 ## Protagonist and presentation
 
