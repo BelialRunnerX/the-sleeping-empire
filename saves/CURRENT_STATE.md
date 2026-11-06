@@ -3,13 +3,14 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XCII, Elys broadcasts a public apology from the throne and Lucien recognizes that Hazael is the Emperor
+**Story endpoint:** Chapter XCII, Elys broadcasts a public apology from the throne while wearing his Imperial face coverings; Lucien does not recognize him.
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE ~09:46, Epsilon 7 capital at Lucien's newly opened cream-puff-shaped bakery. Elys teleported to his Imperial throne and made a system-wide on-camera address clarifying the three earlier pastry decrees were in good fun, apologizing for confusion, praising Lucien's pastries and the Regent's enjoyment. He ended the broadcast and teleported back. Lucien saw the televised throne address, recognized Elys's face as Hazael Wheatley, and NOW KNOWS HAZAEL IS EMPEROR ELYS. Lucien, shocked but not hostile, asks whether he should bow and worries how friendship changes. Await Elys's reply; don't choose his words. Aurelia, Bel, Clarissa, Sentinel are present. Earlier proclamations remain expunged from official in-world records with a bare archival audit entry. Bakery opened with proper approvals. Somnus's proposed 10% of bakery qualifying net profit share remains unsigned; wheat supply contract unresolved. Nimbus home private, 13 Mnemosyne worlds operational.
+5 Deepfall 13,427 ICE, ~09:46, Epsilon 7 capital, at Lucien's giant cream-puff-shaped bakery. Elys discreetly teleported to his Imperial throne, wearing his **Imperial face coverings** for the entire on-camera system-wide broadcast. He clarified the earlier pastry proclamations were in good fun, apologized for confusion, praised Lucien's pastries and the Regent's enjoyment, ended the broadcast and teleported back. **Lucien saw only the covered Emperor and STILL DOES NOT KNOW that Hazael Wheatley is Emperor Elysomnion**. Any previous account of recognition by his face is superseded as non-canonical. Lucien knows Hazael owns Somnus. Aurelia, Bel and Clarissa appreciate the clarification; Sentinel available. The bakery is open and licensed. Three earlier decrees expunged from official archival copies. Somnus's proposed 10% share of qualifying NET PROFIT remains unsigned; wheat supply unresolved. Thirteen Mnemosyne worlds operational. Await player action.
+
 
 ## Canonical in-universe date
 
