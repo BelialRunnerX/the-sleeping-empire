@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000106  
+**Save sequence:** 000107  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXI, Bel voluntarily kisses Lucien on the cheek and they continue walking together on Nimbus
-**Latest record:** [000106](turns/000106.md)  
+**Story endpoint:** Chapter CXII, friends ask whether Elys planned Bel and Lucien's connection
+**Latest record:** [000107](turns/000107.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
