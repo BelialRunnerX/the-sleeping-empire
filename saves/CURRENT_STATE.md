@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000127  
+**Save sequence:** 000128  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXXI, Harrowgate market: Tessa asks incognito Corin whether he can repair a navigation core
-**Latest record:** [000127](turns/000127.md)  
+**Story endpoint:** Chapter CXXXIII, Corin and Mara aboard Canterbury toward Kestrel Junction, chatting with agricultural surveyor Maren Sol
+**Latest record:** [000128](turns/000128.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE ~07:39, Harrowgate Transfer Station Independent Artisans' Arcade during a ~3 hour first layover en route to Morrow's Landing. Emperor Elys is on indefinite sabbatical incognito as Corin Vale, an ordinary freelance technician, with his fiancée Clarissa disguised as Mara Calder. Both have disembarked Wayfarer Eight to explore Harrowgate's markets. A merchant offered Clarissa a handmade flower-engraved copper bracelet for 18 credits; she admired it, but NO PURCHASE has occurred. An old craftsman, Ollen, runs Ollen's Little Universes and makes handmade miniature mechanical orreries; he prefers independent craft to industrial acquisition. A nearby young mechanic, Tessa, has a malfunctioning older independent navigation core, repair quotes too expensive, and has just asked Corin whether he knows electronics and would help repair it. Neither Elys nor Clarissa has answered the question; await player choice. Next civilian connection around 09:58, destination Morrow's Landing via one further connection. None of the locals recognize the sovereigns. Elys still Emperor, Aurelia Regent, Lethe institutional administrator of Throne assets incl Somnus, Sentinel on discreet private channel. Do not invent Elys's dialogue or next actions. Use six numbered emoji options, not UI cards.
+6 Deepfall 13,627 ICE ~10:02, aboard ordinary civilian shuttle Canterbury en route from Harrowgate Transfer Station to Kestrel Junction, the SECOND LEG of the journey to Morrow's Landing, a Rimward frontier settlement (one final connection remains). Elys traveling incognito as freelance consultant CORIN VALE during indefinite sabbatical; Clarissa, his fiancée and sovereign of Andromeda, accompanies as MARA CALDER. He answered Tessa's inquiry about navigation skills 'I'm mostly self-taught,' then left for his flight. He has 28 credits earned fixing Tessa's Vesper-4 core. Clarissa admired an 18-credit copper bracelet but no purchase was made. On Canterbury a middle-aged agricultural surveyor named MAREN SOL has disclosed there is a nonviolent provincial dispute at Morrow's Landing involving freight tariffs, taxes and bureaucracy; she asks if the two are inspectors and Clarissa says they're on holiday. Maren awaits follow-up. Elys remains Emperor and has NOT abdicated; Regent Aurelia handles routine government, Lethe administers Throne assets including Somnus, Sentinel discreet emergency comms. Nobody recognizes the aliases. No intervention has been chosen. Do not invent Elys's dialogue; offer six numbered emoji plain Markdown choices, no interactive cards.
 
 ## Canonical in-universe date
 
