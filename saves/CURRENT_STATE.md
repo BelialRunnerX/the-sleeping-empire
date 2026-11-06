@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000123  
+**Save sequence:** 000124  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CXXVIII, Elys begins incognito sabbatical under new alias Corin Vale at the Nimbus Civilian Orbital Terminal
-**Latest record:** [000123](turns/000123.md)  
+**Story endpoint:** Chapter CXXIX, Corin and Mara seated on Wayfarer Eight awaiting an engine-check-delayed departure
+**Latest record:** [000124](turns/000124.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-6 Deepfall 13,627 ICE at ~00:41, Nimbus Civilian Orbital Terminal. During his indefinite sabbatical, Emperor Elys has adopted the new discreet civilian alias **CORIN VALE**, suggested by Sentinel, a traveling freelance technical consultant. This supersedes the well-known older business alias Hazael Wheatley for this trip. Elys retains his Imperial sovereignty and crown; Aurelia remains Regent, Lethe administers Throne assets including Somnus, and Sentinel has an emergency channel. Elys has registered for standard civilian travel incognito without royal ceremony or escorts. A public travel clerk has just called 'Corin Vale?' and awaits Elys's response. User has not picked a destination or companions yet. Clarissa is his fiancée and independent sovereign of Andromeda, and they share the private Nimbus home. Bel and Lucien have romantic feelings but are not formally together; Lucien independently owns bakery and knows Elys and immortality truth. Aurelia's stellar powers fully restored after two friendly duels. Avoid putting new words in Elys's mouth. Offer six numbered emoji options, no interactive UI cards.
+6 Deepfall 13,627 ICE at approximately 01:24. Elys, on indefinite sabbatical but still Emperor, is traveling incognito as **Corin Vale**, an ordinary freelance technical consultant. He chose the cheapest civilian passage without selecting destination, resulting in one-way economy tickets aboard the battered freight-passenger ship **Wayfarer Eight** from Nimbus to **Morrow's Landing** in the Rimward outer provinces with two connections. His fiancée **Clarissa**, independently sovereign of Andromeda, enthusiastically joins under self-selected alias **Mara Calder**; she has arranged for her ordinary duties to be covered. Both are aboard at Dock 17 in adjacent seats **18C / 18D**. No one aboard recognizes them. Captain **Iona Voss** announces a slight delay before scheduled 01:30 departure due to an engine warning and an apparent burning smell. **SHIP HAS NOT YET DEPARTED.** Aurelia remains Imperial Regent, Lethe controls administrative stewardship of Throne assets including Somnus, Elys retains Crown, and Sentinel retains discreet private emergency contact. Do not make decisions or unprompted dialogue for Elys; user chooses what happens next. Use six plain numbered emoji choices.
 
 ## Canonical in-universe date
 
