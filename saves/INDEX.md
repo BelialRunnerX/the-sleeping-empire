@@ -140,6 +140,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000078](turns/000078.md) | LXXXIII | Played turn | Hazael offers to impersonate the Emperor at the bakery opening | [000000](checkpoints/000000.md) |
 
+| [000079](turns/000079.md) | LXXXIV | Played turn | Arrival on Epsilon 7 | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
