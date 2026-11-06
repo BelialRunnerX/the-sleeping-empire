@@ -3,13 +3,13 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XC, Aurelia objects to the third Imperial public proclamation about her body
+**Story endpoint:** Chapter XCII, Elys broadcasts a public apology from the throne and Lucien recognizes that Hazael is the Emperor
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE ~09:21, giant cream-puff-shaped bakery grand opening at Meridian Commons, Epsilon 7 capital. Hazael/Elys teased Regent Aurelia about being satisfied with the filling of Lucien's pastry. Aurelia humorously retaliated by publicly proposing a signature menu pastry The Wheatley Special (extra custard, delicate glaze); Lucien likes the idea but must finalize the recipe and pricing. Clarissa and Bel laughed; Sentinel made dry remarks. Lucien has purchased flour from another supplier for opening day, but still has no longer-term wheat supply agreement with Hazael. He knows Hazael owns all Somnus but still does NOT know he is Emperor Elys. The bakery is newly opened with necessary approvals, whereas the proposed Somnus development share of 10% qualifying NET PROFIT is still pending contract review/signature. Aurelia is present, as are Clarissa, Bel, Sentinel and Lucien. Thirteen Mnemosyne worlds unchanged. Await player's next action.
+5 Deepfall 13,427 ICE ~09:46, Epsilon 7 capital at Lucien's newly opened cream-puff-shaped bakery. Elys teleported to his Imperial throne and made a system-wide on-camera address clarifying the three earlier pastry decrees were in good fun, apologizing for confusion, praising Lucien's pastries and the Regent's enjoyment. He ended the broadcast and teleported back. Lucien saw the televised throne address, recognized Elys's face as Hazael Wheatley, and NOW KNOWS HAZAEL IS EMPEROR ELYS. Lucien, shocked but not hostile, asks whether he should bow and worries how friendship changes. Await Elys's reply; don't choose his words. Aurelia, Bel, Clarissa, Sentinel are present. Earlier proclamations remain expunged from official in-world records with a bare archival audit entry. Bakery opened with proper approvals. Somnus's proposed 10% of bakery qualifying net profit share remains unsigned; wheat supply contract unresolved. Nimbus home private, 13 Mnemosyne worlds operational.
 
 ## Canonical in-universe date
 
