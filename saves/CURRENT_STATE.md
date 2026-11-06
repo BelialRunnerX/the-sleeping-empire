@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000039  
+**Save sequence:** 000041  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys establishes that SIR's civilian data contract is exclusive and floats future Somnus government suppliers
-**Latest record:** [000039](turns/000039.md)  
+**Story endpoint:** Chapter XLIX, final day of Somnus's Second Three-Day War concludes with industry trials and initial planetary compute program
+**Latest record:** [000041](turns/000041.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-17 Emberwane, 13,427 ICE, Caldris II farmhouse with Aurelia, Veronica and Cipher on Imperial comms; Clarissa and Sentinel present. Elys reveals SIR's signed civilian commercial information contract is exclusive, and future Somnus government food, industrial materials, logistics and manufacturing contracts are possible but NONE has yet been executed. He jokes there is no blanket law banning the Emperor from conflicts of interest. Aurelia acknowledges this narrow point but demands lawful performance, fair pricing, independent evaluation and continuity safeguards. Her government will honor SIR exclusivity according to its actual contract scope, without automatically extending it to other services. She now asks if Elys has any further revelations. The future publicly gifted economic empire remains centuries away; corporate immunity draft remains unratified; corrected compliance displays are available for independent verification.
+20 Emberwane, Year 13,427 ICE, final day of a three-day Somnus industrial campaign dubbed the Second Three-Day War. Elys authorized Lethe to show fast gains and proposed a planet-sized computing installation. Lethe has demonstrated rapid agricultural efficiency prototypes, contracted trial shipping improvements, modular manufacturing tests and a planned planetary-scale computing network, Project Mnemosyne, with initial clusters commissioned and full planet acquisition/buildout pending. The 22 WSS civilian freighters remain unfinished and Bellweather cooperative terms unresolved. No sweeping galaxy-scale deployment or planetary server farm is complete. Aurelia requests independent validation of trials; Lethe asks Elys what should follow the final-day demonstrations. Clarissa and Sentinel present. The earlier unratified decree still has no effect and prior SIR government information contract remains exclusive.
 
 ## Canonical in-universe date
 
