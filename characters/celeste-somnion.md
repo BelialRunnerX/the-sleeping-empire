@@ -21,3 +21,9 @@
 ## Confidential relationship history (Chapter CL)
 
 **Direct user canon, not publicly known in-story:** Celeste and Elys knew each other in childhood, grew up together in the **divine realm**, and **were married** there. Elys is deliberately concealing that deeper history from his present fiancée Clarissa, introducing Celeste only as an old childhood friend. Celeste recognizes and honors his look forbidding disclosure. The exact present legal/metaphysical implications are unresolved. Do not invent a disclosure or frame her loyalty as threat. [Private canon record](../saves/canon/celeste-divine-realm-history-private.md).
+
+## Divine provenance (Chapter CLI, Turn 000147)
+
+**Player-established canon:** Celeste and Elys **grew up together in the divine realm, or more precisely grew out of that divine realm**. Elys had not expected to find her in present reality and had not known any of the other **Divines** had chosen to visit it. Celeste is **the embodiment of time or of the ocean, depending on perspective**. Both aspects describe her essential divine nature rather than a learned school of magic. Her abilities, precise cosmology, and reasons for arrival are open to exploration.
+
+**In-universe disclosure:** Elys has revealed to Clarissa their shared divine origin and Celeste's association with time and ocean. He has **NOT revealed the user-established deeper secret of their divine-realm marriage**; Celeste continues to honor his discretion. Do not falsely portray Clarissa as already knowing that marital history.
