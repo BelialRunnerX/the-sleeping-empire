@@ -28,6 +28,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000020](turns/000020.md) | XLVII | Played turn | Outer-system Andromedan patrol plan; one or two ships close to Nimbus | [000000](checkpoints/000000.md) |
 
+| [000021](turns/000021.md) | XLVII | Played turn | Clarissa and Elys discuss a reciprocal Andromedan office | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
