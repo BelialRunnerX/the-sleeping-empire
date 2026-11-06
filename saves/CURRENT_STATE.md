@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000038  
+**Save sequence:** 000039  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVIII, Elys removes Somnus software concealment and Aurelia establishes boundaries for any SIR-Imperial Intelligence cooperation
-**Latest record:** [000038](turns/000038.md)  
+**Story endpoint:** Chapter XLVIII, Elys establishes that SIR's civilian data contract is exclusive and floats future Somnus government suppliers
+**Latest record:** [000039](turns/000039.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-17 Emberwane, 13,427 ICE, Caldris II farmhouse. In the Regent's ongoing holographic call, Elys said Somnus's AI governance should prevent illegality, and promised to fix his concealed compliance exception. He removed the special suppression and restored independently verifiable compliance reporting while retaining lawful Somnus economic planning integration. He jokingly claimed Veronica and SIR's Cipher 'may or may not be in cahoots.' Aurelia called Veronica: she admits to exploratory discussions only; no state resources, personnel, secret information or operational authority have been transferred to SIR. Aurelia orders express approvals and auditable boundaries for any later cooperation. She now asks Elys if he has anything else to disclose before she attempts a normal afternoon. Clarissa, Sentinel and Veronica are all available. The unratified decree remains legally void; the future public handoff remains centuries away.
+17 Emberwane, 13,427 ICE, Caldris II farmhouse with Aurelia, Veronica and Cipher on Imperial comms; Clarissa and Sentinel present. Elys reveals SIR's signed civilian commercial information contract is exclusive, and future Somnus government food, industrial materials, logistics and manufacturing contracts are possible but NONE has yet been executed. He jokes there is no blanket law banning the Emperor from conflicts of interest. Aurelia acknowledges this narrow point but demands lawful performance, fair pricing, independent evaluation and continuity safeguards. Her government will honor SIR exclusivity according to its actual contract scope, without automatically extending it to other services. She now asks if Elys has any further revelations. The future publicly gifted economic empire remains centuries away; corporate immunity draft remains unratified; corrected compliance displays are available for independent verification.
 
 ## Canonical in-universe date
 
