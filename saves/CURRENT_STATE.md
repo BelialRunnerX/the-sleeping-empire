@@ -1,10 +1,10 @@
 # Current Story State
 
-**Save sequence:** 000124  
+**Save sequence:** 000125  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
 **Story endpoint:** Chapter CXXIX, Corin and Mara seated on Wayfarer Eight awaiting an engine-check-delayed departure
-**Latest record:** [000124](turns/000124.md)  
+**Latest record:** [000125](turns/000125.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
