@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000066  
+**Save sequence:** 000067  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter LXXI, Elys calls Bel from the same room, then invites her to suggest bakery branding
-**Latest record:** [000066](turns/000066.md)  
+**Story endpoint:** Chapter LXXII, Bel requests a formal imperial audience one meter away in retaliation for Elys's call
+**Latest record:** [000067](turns/000067.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-4 Deepfall 13,427 ICE, ~22:57, completed Nimbus greenhouse housewarming. Elys as Hazael called Bel by private communicator despite being in the same room, saying exactly 'I heard you wish to speak with me?' as an ironic answer to her earlier wish to speak with God. Bel privately recognized his Imperial identity and complained about the absurd calls and bakery slogans. Lucien remains unaware of Hazael's real identity. Elys asked Bel to contribute ideas for Lucien's bakery. She suggested using The Filling Station (pending checks) rather than Puff Daddy's and the respectable slogan 'A Little Joy in Every Bite.' Lucien is impressed, but Bel declines being hired as marketing consultant. No bakery founded, no wheat contract signed. Clarissa is amused; Sentinel has been dryly comic. Nimbus remains completed and privately co-owned, and thirteen Mnemosyne planetary computers operate elsewhere. Await Elys's next move.
+4 Deepfall 13,427 ICE ~23:02, Nimbus greenhouse housewarming. Elys as Hazael called Bel again by communicator while standing two meters away. Bel responded in comic exasperation, demanding why he needs a call when she's in front of him. Lucien mistakes it for telecommunications latency testing and still DOES NOT know Hazael is Emperor Elys. Bel retaliates by sending a formal private-audience request to the Emperor for an immediate appointment one meter from him, concerning proper use of communications technology. Lucien notices an imperial audience request and wonders whether the Emperor could invest in his still-unopened bakery. Clarissa laughs, Sentinel remarks dryly. Player has not yet accepted or declined the appointment. No grain agreement or bakery exists; completed private Nimbus home and thirteen fortified Mnemosyne computer worlds remain intact.
 
 ## Canonical in-universe date
 
