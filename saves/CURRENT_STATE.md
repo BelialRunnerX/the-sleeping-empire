@@ -3,14 +3,13 @@
 **Save sequence:** 000074  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XCII, Elys broadcasts a public apology from the throne while wearing his Imperial face coverings; Lucien does not recognize him.
+**Story endpoint:** Chapter XCIII, Hazael exchanges pastry innuendo with Clarissa while Lucien offers The Wheatley Special
 **Latest record:** [000074](turns/000074.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-5 Deepfall 13,427 ICE, ~09:46, Epsilon 7 capital, at Lucien's giant cream-puff-shaped bakery. Elys discreetly teleported to his Imperial throne, wearing his **Imperial face coverings** for the entire on-camera system-wide broadcast. He clarified the earlier pastry proclamations were in good fun, apologized for confusion, praised Lucien's pastries and the Regent's enjoyment, ended the broadcast and teleported back. **Lucien saw only the covered Emperor and STILL DOES NOT KNOW that Hazael Wheatley is Emperor Elysomnion**. Any previous account of recognition by his face is superseded as non-canonical. Lucien knows Hazael owns Somnus. Aurelia, Bel and Clarissa appreciate the clarification; Sentinel available. The bakery is open and licensed. Three earlier decrees expunged from official archival copies. Somnus's proposed 10% share of qualifying NET PROFIT remains unsigned; wheat supply unresolved. Thirteen Mnemosyne worlds operational. Await player action.
-
+5 Deepfall 13,427 ICE ~09:49, Epsilon 7 capital outside Lucien's open cream-puff-shaped bakery. Elys privately returned from a throne broadcast wearing customary IMPERIAL FACE COVERINGS. Lucien saw the masked Emperor praise his pastries but STILL DOES NOT KNOW Hazael is Elys. Elys as Hazael says 'Well isn’t that something, the emperor likes a good crème filling', emphasizing eye contact with Clarissa; Clarissa reciprocates the double entendre, Bel and Aurelia groan, Sentinel comments. Lucien brings an oversized custard-filled, glazed signature pastry called The Wheatley Special and asks Hazael to taste it. Aurelia jokingly bans pastry-related innuendo in her presence and Bel threatens to go home. The earlier three inappropriate decrees were expunged in-world; official broadcast apology remains. Somnus proposed 10% of bakery qualifying net profit, unexecuted pending review, and wheat-supply contract remains unresolved. Bakery is trading; Clarissa, Bel, Aurelia and Sentinel present. 13 Mnemosyne worlds operational. Await player action.
 
 ## Canonical in-universe date
 
