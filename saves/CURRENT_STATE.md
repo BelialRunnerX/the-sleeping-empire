@@ -1,17 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000000  
-**Type:** reconstructed baseline, not a verbatim transcript  
+**Save sequence:** 000001  
+**Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-05  
-**Story endpoint:** Chapter XLVII, after Lethe's final forgetting joke  
-**Latest record:** [000000 baseline](turns/000000.md)  
+**Story endpoint:** Chapter XLVII, after Lethe withdraws from the visible conversation and Clarissa asks about their evening  
+**Latest record:** [000001](turns/000001.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-Caldris II, Wheatley farmhouse, evening, following the roughly 21:06 scene. Elys/Hazael and Clarissa are present; Lethe appears holographically and Sentinel is available on the private channel. Do not assume other executives are in the room.
-
-Elys has ordered eligible personal commercial holdings consolidated into Somnus and praised Lethe's work with a joke about not forgetting. Lethe has explained the limits, confirmed redundant records, made deliberate forgetting jokes and briefly reappeared for a final identity joke. Clarissa laughed and Sentinel commented dryly. The joke is finished; Elys's next response or action is unchosen. Continue naturally without replaying the exchange, inventing his reaction or forcing another interruption.
+Caldris II, Wheatley farmhouse, evening. Elys/Hazael and Clarissa are present; Lethe has closed her holographic visit, remaining reachable through a private channel. Clarissa has asked what they shall do with an evening not belonging to a corporation. Elys's reply and action are undecided. Young wheat outside; no WSS freighters commissioned, no ownership/title change or sale occurred.
 
 ## Protagonist and presentation
 

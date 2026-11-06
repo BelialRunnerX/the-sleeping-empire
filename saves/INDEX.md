@@ -5,6 +5,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 | Save | Chapter | Kind | Endpoint | Checkpoint |
 |---|---|---|---|---|
 | [000000](turns/000000.md) | XLVII | Reconstructed baseline | Farmhouse, after Lethe's forgetting joke | [000000](checkpoints/000000.md) |
+| [000001](turns/000001.md) | XLVII | Played turn | Lethe withdraws; Clarissa invites an evening choice | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
@@ -12,4 +13,4 @@ Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character 
 
 ## Chapter archives
 
-Create a new file under `saves/chapters/` at each chapter close or every 20 turns. Preserve exact source turn ranges; summarize without replacing the turn records. No newly played interval has been archived yet.
+Create a new file under `saves/chapters/` at each chapter close or every 20 turns. Preserve exact source turn ranges; summarize without replacing the turn records. Turn 000001 begins the newly played interval; no new chapter boundary yet.
