@@ -109,7 +109,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000062](turns/000062.md) | LXVII | Played turn | The Filling Station bakery name proposed | [000000](checkpoints/000000.md) |
 
-| [000063](turns/000063.md) | LXVIII | Played turn | Lucien sketches the Supreme Puff rooftop landmark | [000000](checkpoints/000000.md) |
+| [000063](turns/000063.md) | LXVIII | Played turn | Entire future bakery envisioned as a cream puff-shaped building | [000000](checkpoints/000000.md) |
+
+| [000064](turns/000064.md) | LXIX | Played turn | Hazael suggests Puff Daddy's as Lucien's bakery name | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
