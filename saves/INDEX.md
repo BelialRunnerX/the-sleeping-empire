@@ -241,6 +241,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000138](turns/000138.md) | CXLII | Played turn | Nerisse shows magic items; causal crystal jolts undersea foundations | [000000](checkpoints/000000.md) |
 
+| [000139](turns/000139.md) | CXLIII | Played turn | Corin buys the Unwelcome Key, Honest Quill, Wayward Compass | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
