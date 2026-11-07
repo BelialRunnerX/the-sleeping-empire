@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000254
+**Save sequence:** 000255
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCIII: Elys verifies under an extracosmological frame that none of the others are ‘real’; Clarissa asks whether they matter to him.
-**Latest record:** [000254](turns/000254.md)
+**Story endpoint:** Chapter CXCIV: Elys says the others matter to him though they are characters in a story he engages with; Celeste's slip about ‘used to be married’ draws Clarissa's attention before celebration.
+**Latest record:** [000255](turns/000255.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote with his truth pen **“Technically speaking none of you are real”**, verified **TRUE under his extracosmological intended frame**. Pen did not explain his meaning of real, nor erase in-world lived experiences, people’s autonomy, rights, feelings, or history. Garrick questioned his own existence, Seraphine separated external ontological status from internally meaningful experience, and Celeste joked about existential wages and keeping her gift case. Garrick records *The Somion Paradox, Third Order: An Unreal Examiner Can Still Fail Your Examination.* Clarissa notes her experiences and choices matter to her whatever Elys means, and now asks **“Do we matter to you?”** Elys has not answered. Clarissa still lacks explicit confession of Elys and Celeste's prior divine-domain marriage and of the origin of her superhuman strength. Elys knows the correct answer about marriage but honestly cannot remember the material circumstances, as pen-tested. Both Elys and Celeste SSS certified, Celeste in restored formal uniform, gifted other clothing/collar/leash boxed. Celebration still pending. [Turn 000254](turns/000254.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa asked Elys if she and Celeste matter to him. Elys answered **“Yall matter to me. But yall are just characters in a story I’m engaging with.”** This was **spoken, not pen-tested**. Celeste and Clarissa recognize that he speaks of an inaccessible external perspective, but his statement explicitly assigns them significance and care; Clarissa accepts this perspective without understanding the external realm. Celeste and Seraphine note that fictional status from an external frame does not nullify internal experience, choice or accountability. Garrick contributes literary metaphysics. Celeste inadvertently joked that Elys argued all evening about whether he **used to be married**; Clarissa noticed, Celeste called it hypothetical, and the marriage remains **not explicitly disclosed**. Clarissa suggests going to celebrate Celeste's long-awaited SSS rank. Annex doors open; **Elys has not left yet**. Pen back on desk, Celeste wearing pristine white-black Imperial officer uniform, alternate garments/collar/leash stored with her. Both Elys and Celeste SSS certified; celebration pending. Clarissa also does not know origin of her bestowed extraordinary strength. Elys knows correct answer about divine marriage, but sincerely lacks memory of material circumstances. [Turn 000255](turns/000255.md).
 
 ## Examination ledger
 
