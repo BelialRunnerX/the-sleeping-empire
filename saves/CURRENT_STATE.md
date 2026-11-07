@@ -1,27 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000192  
+**Save sequence:** 000193  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Celeste completes physical 100/100; Clarissa awaiting gentle grip calibration.
-**Latest record:** [000192](turns/000192.md)  
+**Story endpoint:** Chapter CLXVII: Clarissa discovers overwhelming strength, physical 98/100; asks Elys what he knew.
+**Latest record:** [000193](turns/000193.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath physical hall.** User chose to watch **Celeste's physical exam in detail**. She showed deliberate no-magic strength to the certified machine ceiling without strain, quick controlled reactions, graceful coordination (and humorous offended ballerina pose), resilience within safe padded limits, and precision gripping of fragile glass with deceptive display. No violations, no damage. Garrick awards **Celeste physical 100/100 (CERTIFIED RANGE)**, not absolute maximum. She theatrically laments absence of penalty.
-
-**LIVE MOMENT:** Garrick calls **Clarissa Somnion** as final physical candidate. She holds a gentle calibration grip, which has **not yet been squeezed**, and Garrick says to squeeze only until the indicator turns green. Crucially she has no idea of the scale of the **overwhelming physical strength secretly granted by Elys**. The user may let her discover it, warn her gently, or request safer test protocols. Do not decide her first grip reaction or break anything before user choice. [Turn 000192](turns/000192.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath physical aptitude hall.** User selected to watch Clarissa's full physical examination. She obeys Garrick's instruction and squeezes gently; high force registers unexpectedly but she stops safely. Independent sensors agree, so Garrick moves to passive force/load-limited equipment and does NOT damage gear. Her physical strength and resilience exceed the instrument's certified upper range; her acceleration is top-band but first deceleration start required corrective repeat; coordination initially overcorrected, then clean; fragile glass controlled-force test starts overcautious then passes. **Clarissa physical 98/100**. She discovers she is enormously strong but **still does not know the source** (Elys's secret blessing). She recalls his earlier warning to 'mind your strength' and looks at him: **'Elys, you told me to mind my strength. What exactly did you know?'** This is LIVE question; Elys's answer is entirely the player's choice. [Turn 000193](turns/000193.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
 |---|---:|---:|---:|---:|---:|
-| Elys Somion | 99 | 100 | 100 | 100 | **100** |
-| Celeste Somnion | 98 | 100 | 99 | 99 | **100** |
-| Clarissa Somnion | 96 | 98 | 100 | 97 | Not begun |
+| Elys Somion | 99 | 100 | 100 | 100 | 100 |
+| Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | **98** |
 
-All guild candidates remain UNRANKED pending Clarissa's physical and rank calculation. Clarissa is Elys's fiancée, does not know Elys/Celeste are still married since divine realm, nor that her extreme physical strength comes from Elys's blessing. Continue chapter/visual, six emoji-numbered choices, precise safety and player agency.
+All five disciplines for all three completed. **Guild ranks still unassigned/pending Garrick's announcement.** Clarissa knows she has enormous physical strength but not its Elys-given origin. Elys and Celeste still married from divine realm, unknown to Elys's fiancée Clarissa; avoid accidental disclosure. Preserve meaningful control of Elys speech and secrets; six numbered emoji choices.
 
 ## Canonical in-universe date
 
