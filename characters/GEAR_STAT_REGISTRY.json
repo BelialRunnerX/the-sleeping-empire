@@ -175,9 +175,16 @@
           "before": "Unranked observatory alert only",
           "after": "Mira presents public reconstruction of vanished planet and provisional interpretations; no formal Guild contract, cause unknown publicly",
           "source": "Player chose 7 to ask what the Guild knows; no self-disclosure or rewards"
+        },
+        {
+          "turn": "000261",
+          "field": "active_guild_contracts",
+          "before": "No active Guild contract; viewed six listings",
+          "after": "SSS-004 The Sepulcher Between Stars, accepted and pre-deployment; 14M base reward unearned",
+          "source": "User chose The sepulcher one after requesting an SSS big boss fight; no travel or combat"
         }
       ],
-      "last_verified_turn": "000260",
+      "last_verified_turn": "000261",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -278,14 +285,29 @@
           "S-117",
           "SS-022",
           "SS-063",
-          "SSS-004",
           "SSS-011"
         ],
         "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
-        "accepted_contract_id": null,
+        "accepted_contract_id": "SSS-004",
         "anomaly_bulletin_status": "PROVISIONAL_PUBLIC_OBSERVATORY_BRIEFING_ONLY_NOT_CONTRACT",
         "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira"
-      }
+      },
+      "active_guild_contracts": [
+        {
+          "contract_id": "SSS-004",
+          "title": "The Sepulcher Between Stars",
+          "rank": "SSS",
+          "status": "ACCEPTED_PRE_DEPLOYMENT",
+          "base_reward_credits": 14000000,
+          "reward_earned": false,
+          "accepted_turn": "000261",
+          "party_leader": "char-elys",
+          "mission_dossier": "guild/SSS-004_SEPULCHER_BOSS_DOSSIER.md",
+          "boss": "The Pallbearer King / SEPULCHER WARDEN-Ω",
+          "boss_status": "NOT_YET_ENCOUNTERED",
+          "location_status": "STILL_AT_LUMENFALL_GUILD"
+        }
+      ]
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3349,9 +3371,16 @@
           "before": "Recognized anomaly bulletin may concern earlier impact",
           "after": "Privately confirms recognition of observatory disappearance imagery to Elys and jokes about being hired to investigate their own event; public remains unaware",
           "source": "Guild scene; no auto confession"
+        },
+        {
+          "turn": "000261",
+          "field": "guild_mission_association",
+          "before": "No associated mission selected",
+          "after": "Elys accepts SSS-004, Pallbearer King boss; Aletheia accompanies as sentient weapon, not an independently registered guild member",
+          "source": "User select Sepulcher; no weapon use yet"
         }
       ],
-      "last_verified_turn": "000260",
+      "last_verified_turn": "000261",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3469,9 +3498,16 @@
           "before": "Opened S–SSS Guild contract board",
           "after": "Presented public missing-planet observatory briefing; cause unknown, no investigation authorization",
           "source": "Player requested bulletin details"
+        },
+        {
+          "turn": "000261",
+          "field": "guild_duties",
+          "before": "Presented provisional missing planet briefing",
+          "after": "Briefed and registered Elys's accepted SSS-004 Sepulcher mission; Elys not yet deployed",
+          "source": "Explicit player mission selection"
         }
       ],
-      "last_verified_turn": "000260",
+      "last_verified_turn": "000261",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
