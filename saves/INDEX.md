@@ -478,3 +478,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000254](turns/000254.md) | CXCIII | Played turn | Elys verifies extracosmological unreality claim; Clarissa asks if she and Celeste matter to him | [000000](checkpoints/000000.md) |
 | [000255](turns/000255.md) | CXCIV | Played turn | Elys says characters matter despite being fictional from his perspective; Celeste slips about past marriage | [000000](checkpoints/000000.md) |
 | [000256](turns/000256.md) | CXCV | Played turn | Elys verifies meta CYOA AI-generated narrative statement; Clarissa asks if he can put the pen away | [000000](checkpoints/000000.md) |
+| [000257](turns/000257.md) | CXCVI | Played turn | Elys explains offscreen phone pause versus narrative time; fourth-order Somion Paradox | [000000](checkpoints/000000.md) |
