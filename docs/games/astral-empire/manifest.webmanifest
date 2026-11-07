@@ -1,0 +1,18 @@
+{
+  "name": "Astral Empire: Anime Gacha RPG",
+  "short_name": "Astral Empire",
+  "description": "A free anime-style summon and battle RPG, playable on phone and desktop.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e0d21",
+  "theme_color": "#0e0d21",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
