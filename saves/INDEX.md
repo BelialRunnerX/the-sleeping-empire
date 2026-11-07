@@ -274,6 +274,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000149](turns/000149.md) | CLIII | Played turn | Greenhaven tram, Celeste sponsors Sir Turnip III at robot competition | [000000](checkpoints/000000.md) |
 
+| [000150](turns/000150.md) | CLIV | Played turn | Sir Turnip III takes silver at robot contest; Niko invited to apply for apprenticeship | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
