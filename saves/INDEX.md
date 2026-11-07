@@ -471,3 +471,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000247](turns/000247.md) | CLXXXVI | Played turn | Elys asks about Emperor-reserved weapons; no Emperor-exclusive possession is verified and Imperial Regalia remains a proposal | [000000](checkpoints/000000.md) |
 | [000248](turns/000248.md) | CLXXXVII | Played turn | Elys previews uncrafted Thirteenfold Dawn solar spear blueprint; no assets or stats changed | [000000](checkpoints/000000.md) |
 | [000249](turns/000249.md) | CLXXXVIII | Played turn | Elys proposes transmutation staff/spear; Prima Materia SSS dual-form blueprint previewed without crafting or gear change | [000000](checkpoints/000000.md) |
+| [000250](turns/000250.md) | CLXXXIX | Played turn | Lethe identifies Axiom, Prima and Nihil as Apophatic AI directors and offers technical consultation | [000000](checkpoints/000000.md) |
