@@ -485,3 +485,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000261](turns/000261.md) | CC | Played turn | Corrects narrator's skipped intimate scene; Clarissa reacts to confession's timing and questions Elys's intentions | [000000](checkpoints/000000.md) |
 | [000262](turns/000262.md) | CCI | Played turn | Elys proposes future retcon, Celeste confirms voluntary participation, Clarissa still asks his relationship intentions | [000000](checkpoints/000000.md) |
 | [000263](turns/000263.md) | CCII | Played turn | Elys climaxes, ending encounter with Celeste; Clarissa asks what happens next | [000000](checkpoints/000000.md) |
+| [000264](turns/000264.md) | CCIII | Played turn | Elys corrects intimacy continuity: second climax intended only after Celeste's, neither has yet occurred | [000000](checkpoints/000000.md) |
