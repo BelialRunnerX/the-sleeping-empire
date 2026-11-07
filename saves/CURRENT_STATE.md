@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000243
+**Save sequence:** 000244
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXII: Elys verifies ‘Me and Celeste are friends’ with truth ink, but Clarissa presses past technical truths and directly asks if he and Celeste were ever married.
-**Latest record:** [000243](turns/000243.md)
+**Story endpoint:** Chapter CLXXXIII: Elys verifies that he and Celeste never formed an Imperial union, a narrow truth that does not negate their secret divine marriage; Clarissa challenges the evasion.
+**Latest record:** [000244](turns/000244.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked “Relationship was, or is?” and wrote “Me and Celeste are friends” with his magical truth pen; the ink confirmed **TRUE**. Two verified statements are now written: lifelong childhood friendship and current friendship. Garrick, Seraphine and Clarissa observe the truth of these statements does not establish completeness. Celeste laughed but became more serious as Clarissa pressed. **Clarissa has now directly asked Elys, “Were you and Celeste ever married?”** Elys has NOT answered. She still does not know about their previous secret divine marriage or the origin of her immense gifted strength. Celeste wears her pristine Imperial SSS uniform, gifts are boxed, and both she and Elys have earned SSS certification. Elys holds the pen. No retroactive alteration of relationships or memories. [Turn 000243](turns/000243.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa asked whether Elys and Celeste were ever married. Elys instead wrote “me and Celeste have never formed an imperial union” with the truth pen. The ink returned **TRUE**, verifying only that no Imperial-legal/dynastic union occurred, not denying their **secret previous divine-realm marriage**. Garrick and Seraphine note the legal distinction; Celeste is amused but increasingly uneasy with the evasions. Clarissa sees the narrower statement as not responsive to her marriage question, asks Elys for candor, and still does not know about the divine marriage or her gifted strength's origin. Elys holds pen and verified paper. Celeste wears pristine SSS uniform, private gifts boxed. Both certified, celebration pending. [Turn 000244](turns/000244.md).
 
 ## Examination ledger
 
