@@ -431,6 +431,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000222](turns/000222.md) | CLXVIII | Played turn | Celeste's spontaneous wardrobe malfunction; professional focus remains intact | [000000](checkpoints/000000.md) |
 
+| [000223](turns/000223.md) | CLXVIII | Played turn | Celeste's entire outer uniform fails independently; protective underlayer holds | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

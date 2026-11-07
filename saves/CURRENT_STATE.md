@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000222
+**Save sequence:** 000223
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXVIII: Celeste's uniform malfunctions independently of Elys, she remains professionally focused during SSS Module II.
-**Latest record:** [000222](turns/000222.md)
+**Story endpoint:** Chapter CLXVIII: Celeste's outer uniform independently falls apart, opaque underlayer intact; she remains focused during active Module II.
+**Latest record:** [000223](turns/000223.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys stays **utterly silent and does nothing magically or causally** while Celeste's examination-uniform outer decorative fastenings independently fail; panels separate and slip off, revealing fitted inner garment but no explicit nudity. Garrick embarrassed, Clarissa incredulous and accepts Elys had **nothing to do with it**, Seraphine offers pause but Celeste declines, prioritizing safety and displays **unbroken concentration**. Seraphine logs positive resilience/equipment-failure assessment; Celeste jokingly regrets praise. **Celeste SSS Module II ACTIVE, not passed**: 92,000 initially at risk in coastal storm emergency, hospital critical-care group aboard and last patient cohorts moving; eastern transit reinforced; coordination improving but not finalized; Celeste plans medevac-drone reassignment after hospital is cleared. Last confirmed precise clock 31:46 from prior segment, no new precise time. Celeste notices Elys's silence and challenges him to comment; Seraphine begs her not to encourage him. [Turn 000222](turns/000222.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys says **“I'm just silently hoping the rest of your wardrobe fails. Don't mind me, Celeste”** and, independently of any magic or physical action by Elys, Celeste's remaining ceremonial uniform outer fastenings catastrophically fail. A protective, opaque fitted underlayer remains intact, no nudity; Celeste diagnoses faulty tailoring, doesn't lose concentration, and Seraphine allows examination to continue. Clarissa accepts Elys's genuine innocence. Garrick seeks tea. **Celeste SSS Module II still ACTIVE, NOT PASSED**. **Hospital critical-care patients evacuated**, final hospital personnel on transports, full hospital clearance pending; flood defenses and eastern transit stabilized for now, other citywide emergency response/command disputes not completely resolved. Seraphine records strong resilience and judgment. [Turn 000223](turns/000223.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Seraphine's warning against physical interference remains. Elys owes Clarissa private explanation of her Elys-given extraordinary strength; secret prior Elys/Celeste marriage not disclosed. Seven-choice menus with seventh suggestive but non-graphic 🍆💦🫦😈🌶️ option. Preserve player agency.
+No divine causing of garments' failure; Elys never interfered with rescue in this turn. Seraphine's earlier warning against future physical interference still stands. Clarissa unaware Elys granted her immense strength and unaware Elys/Celeste secret divine marriage; private explanation owed. Seven options, seventh suggestive non-graphic 🍆💦🫦😈🌶️, user controls Elys.
 
 ## Canonical in-universe date
 
