@@ -210,9 +210,16 @@
           "before": "Seven active Phase II manifestations",
           "after": "Aletheia homed through all seven on direct command; all bodies destroyed; speaking archive Heart revealed",
           "source": "Player turn 000265"
+        },
+        {
+          "turn": "000266",
+          "field": "SSS-004 preservation progress",
+          "before": "Heart revealed, archive links exposed; Aletheia spear form",
+          "after": "Aletheia Genesis Loom staff, stabilizing archive conduits and storing partial verified record snapshots; Heart discloses existence of last memory but not its contents",
+          "source": "Player chose option 3; no additional Elys words or movement"
         }
       ],
-      "last_verified_turn": "000265",
+      "last_verified_turn": "000266",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -281,7 +288,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Sepulcher Between Stars, exterior threshold overlooking opened Heart chamber, uncharted interstellar boundary",
-      "current_activity": "SSS-004 Phase III Heart revealed; original guardian and seven manifestations defeated; awaiting decision",
+      "current_activity": "SSS-004 Heart phase unresolved; Aletheia remotely shielding and partially archiving records in Genesis Loom staff mode, Heart offers final memory; Elys has not answered",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -335,14 +342,14 @@
           "contract_id": "SSS-004",
           "title": "The Sepulcher Between Stars",
           "rank": "SSS",
-          "status": "IN_PROGRESS_PHASE_III_HEART_REVEALED",
+          "status": "IN_PROGRESS_PHASE_III_ARCHIVES_PROTECTED_PARTIAL_COPY",
           "base_reward_credits": 14000000,
           "reward_earned": false,
           "accepted_turn": "000261",
           "party_leader": "char-elys",
           "mission_dossier": "guild/SSS-004_SEPULCHER_BOSS_DOSSIER.md",
           "boss": "The Pallbearer King / SEPULCHER WARDEN-Ω",
-          "boss_status": "OUTER_VESSEL_DESTROYED_SEVEN_SHADOWS_DESTROYED_HEART_ACTIVE",
+          "boss_status": "HEART_ACTIVE_TEMPORARY_BATTERY_STANDDOWN_LAST_MEMORY_OFFERED",
           "location_status": "SEPULCHER_EXTERIOR_THRESHOLD",
           "progress": [
             {
@@ -369,6 +376,11 @@
               "turn": "000265",
               "milestone": "Heart of Sepulcher black-star archival/spatial core with golden eye revealed and speaks to Elys",
               "status": "ACTIVE_NOT_RESOLVED"
+            },
+            {
+              "turn": "000266",
+              "milestone": "Aletheia changes to Genesis Loom and stabilizes exposed archival connections, starts verifiable partial mnemonic backup while Heart reveals final-memory mystery",
+              "status": "IN_PROGRESS"
             }
           ],
           "combat": {
@@ -384,10 +396,12 @@
               "turn": "000265"
             },
             "phase3": {
-              "status": "REVEALED_ACTIVE",
-              "heart_status": "UNKNOWN_NOT_ATTACKED",
-              "archives": "LINKED_AND_VISIBLE",
-              "first_contact": "Heart asks Elys whether he will break what the seven hands protected"
+              "status": "ACTIVE_UNRESOLVED",
+              "heart_status": "ACTIVE_SPEAKING_TEMPORARILY_NONHOSTILE",
+              "archives": "LOCALIZED_PROTECTED_LINKS_PARTIAL_VERIFIED_BACKUP_IN_ALETHEIA",
+              "first_contact": "Heart asks Elys whether he will break what the seven hands protected",
+              "final_memory": "OFFERED_NOT_VIEWED",
+              "heart_last_question": "STRANGER. WILL YOU HEAR WHAT I REMEMBER?"
             }
           }
         }
@@ -3370,7 +3384,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; intact spear form after successful seven-target homing attack; Heart revealed",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff hovering at Elys's right; archive protection weave and partial mnemonic backup active",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3490,9 +3504,16 @@
           "before": "Seven Unwritten Choir manifestations active",
           "after": "Directed homing attack destroyed seven of seven; returned to Elys's right fully intact",
           "source": "Player"
+        },
+        {
+          "turn": "000266",
+          "field": "current_form, archive preservation",
+          "before": "Philosopher's Edge spear, Phase III Heart revealed",
+          "after": "Genesis Loom staff, remotely protecting exposed archive and securing partial verified mnemonic snapshots; Heart offers last memory",
+          "source": "Elys selected direct order to protect/archive; no complete archive extraction"
         }
       ],
-      "last_verified_turn": "000265",
+      "last_verified_turn": "000266",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3524,7 +3545,20 @@
       },
       "current_location": "Sepulcher Between Stars, hovering at Elys's right at exterior threshold",
       "linked_item_id": "ITM-000001",
-      "awakened_turn": "000256"
+      "awakened_turn": "000256",
+      "current_form": "Genesis Loom staff",
+      "active_tasks": [
+        {
+          "task": "PROTECT_ARCHIVE",
+          "location": "Sepulcher Heart chamber, via remote weave from Elys's exterior position",
+          "status": "ACTIVE"
+        },
+        {
+          "task": "PRESERVE_RECORDS",
+          "location": "Aletheia protected mnemonic memory architecture",
+          "status": "PARTIAL_VERIFIED_SNAPSHOTS_ONLY"
+        }
+      ]
     },
     "char-mira": {
       "character_id": "char-mira",
@@ -3652,13 +3686,13 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "AWAKENED INTACT AFTER SUCCESSFUL SEVEN-TARGET GUIDED COMBAT ATTACK",
+      "condition": "INTACT; GENESIS LOOM ARCHIVE PRESERVATION ACTIVE",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
-      "form": "Philosopher's Edge spear",
+      "form": "Genesis Loom staff",
       "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
@@ -3756,7 +3790,21 @@
           "limits": "Archives/core not attacked or defeated"
         }
       ],
-      "last_modified_turn": "000265"
+      "last_modified_turn": "000266",
+      "active_effects": [
+        {
+          "id": "SSS-004-ARCHIVE-WEAVE",
+          "effect": "Localized shield and stability weaving over exposed Sepulcher archival links",
+          "status": "ACTIVE",
+          "scope": "EXPOSED_LINKS_NOT_ALL_ARCHIVES"
+        },
+        {
+          "id": "SSS-004-MNEMONIC-SNAPSHOTS",
+          "effect": "Verifiable partial independent record snapshots in Aletheia memory",
+          "status": "IN_PROGRESS",
+          "scope": "ACCESSIBLE_RECORDS_ONLY"
+        }
+      ]
     },
     "ITM-000002": {
       "item_id": "ITM-000002",
