@@ -1,5 +1,14 @@
 # Astral Empire · The Sleeping Empire mini-game
 
+## Version 1.1 · Frontier Dispatch Update
+
+- Three timed expeditions (5, 15, and 30 minutes) with persistent mission state
+- Five one-time achievements awarding summon crystals
+- Responsive dispatch UI, updated mobile navigation and visual polish
+- Existing version 1 saves migrate automatically; exports include the new fields
+
+
+
 Playable web gacha RPG embedded as a **subpage of the Living Codex**, rather than replacing the archive.
 
 ## Play
