@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000203  
+**Save sequence:** 000204  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys is briefed on SSS Module III (three ethical judgment cases); awaiting answer.
-**Latest record:** [000203](turns/000203.md)  
+**Story endpoint:** Chapter CLXVII: Elys answers three ethical cases and is officially certified SSS; Celeste's examination ready.
+**Latest record:** [000204](turns/000204.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex Chamber III.** User chose option 1 from turn 000202, so Elys enters SSS Module III and receives **Precision, Restraint and Judgment** briefing from Seraphine Vael. Chamber is a simulated peaceful garden. Three cases for independent assessor review: **(I) informed competent unwilling patient** with progressive non-emergency illness refusing physically harmless miraculous cure, evaluate consent; **(II) innocent accused** citizen facing arrest on circumstantial sabotage evidence, evaluate truth, due process, non-manipulation of evidence/testimony; **(III) peaceful lawful dissenters** opposing policy Elys believes beneficial, evaluate persuasion vs mind control and liberty to disagree. No fixed single correct response; assess reasoning/proportionality. Seraphine says simply writing “JUSTICE” does not establish its content. Elys **has not yet answered or acted on any of the three**, may tackle individually or all together. [Turn 000203](turns/000203.md).
+**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex.** Elys answered Module III in three direct parts: (1) try to convince unwilling patient life is worth living, instead of using force; assessors caution refusal of treatment can have reasons other than hopelessness, (2) ordinary legal means, evidence preservation and due process for accused person, (3) try to persuade peaceful lawful dissenters, then ignore their protests if persuasion fails, 'like a true Emperor'. Seraphine and independent senior assessors accept proportional restraint and non-coercion, flag the importance of patient autonomy and dissenters' rights, and **PASS Module III**. **ELYS SOMION HAS FORMALLY EARNED AND BEEN CERTIFIED SSS GUILD RANK** (all three SSS modules passed). Celeste delighted by prospect of humiliating critique, Garrick relieved. **Celeste Somnion's independent SSS examination is now READY, but no trial begun**; Seraphine has opened record. Clarissa still awaiting promised private explanation of her Elys-blessed immense physical strength and doesn't know its origin. Elys/Celeste continuing marriage from divine realm undisclosed to Clarissa. [Turn 000204](turns/000204.md).
 
 ## Examination ledger
 
-| Candidate | Strategy | Technical | Operational | Magical | Physical |
-|---|---:|---:|---:|---:|---:|
-| Elys Somion | 99 | 100 | 100 | 100 | 100 |
-| Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
-| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
+| Candidate | Strategy | Technical | Operational | Magical | Physical | Guild rank |
+|---|---:|---:|---:|---:|---:|---|
+| Elys Somion | 99 | 100 | 100 | 100 | 100 | **SSS (certified)** |
+| Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS exam ready |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank awaiting issue |
 
-**SSS:** Elys Module I PASSED, II PASSED, III awaiting user's moral responses. Celeste's own SSS assessment not yet started. No rank awarded. Clarissa still owed private discussion revealing/clarifying source of strength if Elys chooses; she doesn't know Elys blessed her. Secret Elys/Celeste divine marriage undisclosed to Clarissa. Maintain six numbered emoji choices and user agency.
+**SSS:** Elys Modules I/II/III PASSED, officially SSS. Celeste SSS application accepted, exam ready, no modules yet. Respect Elys agency, six emoji choices.
 
 ## Canonical in-universe date
 
