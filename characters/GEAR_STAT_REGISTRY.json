@@ -168,9 +168,16 @@
           "before": "Guild high-tier board not yet inspected this visit",
           "after": "Viewed six open S–SSS contracts, plus provisional outer-system anomaly bulletin; no contract accepted",
           "source": "User selected option 1: inspect highest-tier contracts"
+        },
+        {
+          "turn": "000260",
+          "field": "guild_anomaly_bulletin",
+          "before": "Unranked observatory alert only",
+          "after": "Mira presents public reconstruction of vanished planet and provisional interpretations; no formal Guild contract, cause unknown publicly",
+          "source": "Player chose 7 to ask what the Guild knows; no self-disclosure or rewards"
         }
       ],
-      "last_verified_turn": "000259",
+      "last_verified_turn": "000260",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -275,7 +282,9 @@
           "SSS-011"
         ],
         "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
-        "accepted_contract_id": null
+        "accepted_contract_id": null,
+        "anomaly_bulletin_status": "PROVISIONAL_PUBLIC_OBSERVATORY_BRIEFING_ONLY_NOT_CONTRACT",
+        "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira"
       }
     },
     "char-clarissa": {
@@ -3333,9 +3342,16 @@
           "before": "Recent Guild arrival",
           "after": "Viewed S–SSS high-tier board while hovering beside Elys; privately recognized anomaly bulletin may relate to vanished planet",
           "source": "Scene 000259; Aletheia neither independently registered nor ranked"
+        },
+        {
+          "turn": "000260",
+          "field": "private_communication",
+          "before": "Recognized anomaly bulletin may concern earlier impact",
+          "after": "Privately confirms recognition of observatory disappearance imagery to Elys and jokes about being hired to investigate their own event; public remains unaware",
+          "source": "Guild scene; no auto confession"
         }
       ],
-      "last_verified_turn": "000259",
+      "last_verified_turn": "000260",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3446,9 +3462,16 @@
           "before": "Welcomed Elys back at reception",
           "after": "Opened official S–SSS high-tier quest listing for Elys; no contract awarded",
           "source": "Guild board scene 000259"
+        },
+        {
+          "turn": "000260",
+          "field": "guild_duties",
+          "before": "Opened S–SSS Guild contract board",
+          "after": "Presented public missing-planet observatory briefing; cause unknown, no investigation authorization",
+          "source": "Player requested bulletin details"
         }
       ],
-      "last_verified_turn": "000259",
+      "last_verified_turn": "000260",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
