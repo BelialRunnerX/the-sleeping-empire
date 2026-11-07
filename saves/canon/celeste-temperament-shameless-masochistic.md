@@ -9,3 +9,7 @@ Celeste Somnion, **Imperial Hand Enigma-01**, is an adult Divine, embodiment of 
 Her previous divine-realm marriage to Elys remains SECRET from Clarissa, who knows their divine origins but not their old marriage. No public romantic/sexual revelation is authorized by this character note.
 
 **Separate recent erratum:** Celeste has innate, **nonmagical divine eating capacity**. She used it in Greenhaven's pie contest and won with **24 pies**, superseding an earlier three-pie satiety/loss version.
+
+## Specific focus — Elys, and Elys's marriage to Clarissa
+
+The player clarifies that **Celeste especially enjoys playful consensual embarrassment/humiliation from Elys himself**. She finds Elys's relationship with **his wife Clarissa** intensely fascinating, and would happily "pull up a chair and watch" their romance—figuratively or as a consensual spectator to ordinary affection. **Do not presume consent to observation of private intimate activity**. Celeste is shameless and teasing, not inherently jealous or adversarial. [Canonical relationship correction](clarissa-married-celeste-elys-dynamic.md).
