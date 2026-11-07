@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000215  
+**Save sequence:** 000216  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys and Celeste exchange dramatic public kiss during Celeste's live SSS Module II; reprimanded, storm crisis ongoing.
-**Latest record:** [000215](turns/000215.md)  
+**Story endpoint:** Chapter CLXVIII: Elys gives Celeste a playful disciplinary swat; she laughs but returns to test, Seraphine prohibits further physical interference.
+**Latest record:** [000216](turns/000216.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** User explicitly chose option 7 and asks for provocative public affection between Elys and Celeste. Elys extends invitation, Celeste **freely and enthusiastically** crosses to him and pulls him into a dramatic public kiss and close embrace. Seraphine strongly reprimands both and records an avoidable interruption; no automatic test disqualification. Garrick horrified, Clarissa embarrassed. Celeste returns to independently operate disaster simulator. Coastal arcology crisis Module II (92,000 at risk): **33:47 remaining of initial 38-minute countdown**, hospital evacuation underway but incomplete, western flood barrier holding, eastern district surge threatening homes which Celeste diverts with protective blue magic, three authorities: first accepts triage plan, second conditionally, third disputes jurisdiction. **Celeste Module II still ACTIVE, NOT PASSED.** [Turn 000215](turns/000215.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys chose to start spanking Celeste during her live SSS Module II coastal flooding scenario; he delivers **one consensually received playful, non-graphic swat**, to which Celeste laughs and responds playfully but **sets a boundary**: later, after saving the city. No further intimate acts. Seraphine harshly reprimands Elys for physically interfering in a candidate's live assessment, ordering him to remain outside exam boundary; **another physical interruption will terminate Celeste's attempt**. Garrick files second unauthorized interruption report. Elys's own SSS certification stands. Celeste resumes storm crisis and independently routes evacuation traffic into three streams prioritizing medevac, strengthens eastern diversion; **time remaining 32:58** of original 38 minutes; hospital evacuation still underway, western and eastern flood controls holding, emergency authorities still disagree, no final pass. [Turn 000216](turns/000216.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Celeste consents to romance, but exam still enforces autonomy, noninterference and professional judgments; no explicit sexual acts. Clarissa doesn't know that Elys blessed her extraordinary strength or secret divine marriage between Elys and Celeste; private explanation pending. Recurring seventh mischievous spicy-romance option with emoji 🍆💦🫦😈🌶️, but keep non-graphic. User controls Elys; six normal options plus seventh.
+Celeste is capable of autonomous action. Keep physical test boundary and consequences. Clarissa does not know Elys gave her tremendous physical strength or Elys and Celeste's continuing secret marriage; private explanation still owed. Six ordinary options plus recurring seventh 🍆💦🫦😈🌶️ option for provocative non-graphic romance. Elys controls his own choices.
 
 ## Canonical in-universe date
 
