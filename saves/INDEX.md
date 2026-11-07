@@ -469,3 +469,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000245](turns/000245.md) | CLXXXIV | Played turn | Elys invokes marriage beyond existence loophole; Clarissa asks whether they considered themselves spouses | [000000](checkpoints/000000.md) |
 | [000246](turns/000246.md) | CLXXXV | Played turn | Elys verifies a narrow semantic loophole; Clarissa offers comprehensive marriage statement to test | [000000](checkpoints/000000.md) |
 | [000247](turns/000247.md) | CLXXXVI | Played turn | Elys says he doesn't remember; Clarissa defers public marriage questioning and plans private conversation | [000000](checkpoints/000000.md) |
+| [000248](turns/000248.md) | CLXXXVII | Played turn | Truth pen verifies Elys knows the answer but does not remember material circumstances; Clarissa seeks disclosure | [000000](checkpoints/000000.md) |
