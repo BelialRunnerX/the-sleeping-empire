@@ -133,7 +133,7 @@
 function reactionFor(a,b){if(!a||!b||a===b)return null;return ELEMENT_REACTIONS[[a,b].sort().join('|')]||{name:'RESONANCE',bonus:.28,effect:'none',description:'Elemental collision'};}
 function elementalMultiplier(a,b){
   const advantages={Flame:['Gale'],Gale:['Tide'],Tide:['Flame'],Volt:['Tide'],Astral:['Void'],Solar:['Void'],Void:['Solar']};
-  return advantages[a]?.includes(b)?1.2:advantages[b]?.includes(a)?.86:1;
+  return advantages[a]?.includes(b) ? 1.2 : (advantages[b]?.includes(a) ? 0.86 : 1);
 }
 function enemyIntent(turn,boss){
   if(boss&&turn%4===0)return {type:'cataclysm',name:'☄ RIFT CATACLYSM',hint:'Area attack · guard your squad'};
