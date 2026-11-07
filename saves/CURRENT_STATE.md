@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000261
+**Save sequence:** 000262
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CC: Correction of prior narrator skip: Elys's intimacy with Celeste is still ongoing during his confession; Clarissa reacts strongly to the timing and asks if he genuinely pursues her or is testing narrative absurdity.
-**Latest record:** [000261](turns/000261.md)
+**Story endpoint:** Chapter CCI: Elys declares an intention to retcon the current storyline later but has not done so; Celeste voluntarily affirms enjoyment, while Clarissa presses for an actual answer about their relationship.
+**Latest record:** [000262](turns/000262.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Important continuity correction: in turn 000260 the user made clear Elys was **actively engaged in an intimate encounter with adult Celeste while explaining to Clarissa that the pair had a preexisting divine marriage and that Clarissa was his preferred primary genuine romantic partner**. The prior narrator incorrectly treated the action as already completed and time-skipped; on user correction, the scene now **remains during the encounter**, without graphic mechanics described. Celeste voluntarily participates but has grown quieter after Clarissa's response. Garrick threatens resignation, Seraphine is overwhelmed. **Clarissa is upset by the timing of Elys's confession** and directly asks **“Is this your idea of genuinely pursuing me romantically, or are you deliberately testing how ridiculous you can make the situation before I finally lose my patience?”** Elys has not answered. Do not automatically advance past the ongoing scene, stop it, change clothing, or decide Elys's response. Both Elys and Celeste SSS certified, celebration pending. Clarissa NOW knows the prior divine marriage with Celeste but not the origin of her extraordinary strength. Elys knows the truth about the former marriage but pen-verified cannot recall material circumstances. [Turn 000261](turns/000261.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys told Clarissa he **intends to errata/retcon this entire storyline later**, but before then intends to continue intimacy with Celeste and asked her “Won't you, darling?” **No retcon has yet been executed; current scene and events remain canon pending specific user edits.** The narrator avoids explicit sexual mechanics while retaining continuity of the adult intimate encounter from turn 000261. Celeste replies that she is participating voluntarily and enjoys herself but calls out Elys for not addressing Clarissa. Clarissa is exasperated that Elys proposes erasing the narrative after indulging in it, and asks again **what he actually intends for his genuine romantic relationship with Clarissa**. He has not answered. Seraphine points out a proposed later rewrite has no present effect; Garrick hopes a rewrite erases paperwork; Celeste insists her earned SSS certification survive any future edit. Elys and Celeste both remain SSS-certified. Clarissa now knows their secret prior divine marriage but still does not know the source of her extraordinary strength. Truth pen unused this turn. [Turn 000262](turns/000262.md).
 
 ## Examination ledger
 
