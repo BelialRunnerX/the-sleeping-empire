@@ -1,17 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000241
+**Save sequence:** 000242
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXX: Elys restores the Annex and everyone's clothing; Clarissa asks what history he shares with Celeste, and he has not answered.
-**Latest record:** [000241](turns/000241.md)
+**Story endpoint:** Chapter CLXXXI: Elys replies ‘That’s classified’ to Clarissa's inquiry about Celeste; Clarissa mock-formally requests clearance to know his past.
+**Latest record:** [000242](turns/000242.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**## Resume at this exact beat
-
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Assessment Annex.** Elys has just snapped his fingers to restore the examination facility and everyone's clothing. Celeste wears her pristine formal white-and-black Imperial SSS uniform and keeps the alternative gifts (corset, stockings, garters, collar, leash) in a gift case. Garrick's stylus, facility equipment and physical damage are restored, but examination records remain intact. Celeste and Elys are both independently SSS certified; the celebration has not started. **Clarissa asks Elys what his history with Celeste is. Elys has not yet answered.** Clarissa does not know that Elys and Celeste previously shared a secret divine marriage or that Elys bestowed her enormous physical might. **No enchanted truth-testing pen has appeared in this timeline.** No subsequent intimacy, disclosures, meta-story discussions, intended retcon declarations, or later scenes occurred in this active continuity. Elys has not yet accepted or used the gifted leash; it is stored with Celeste's gifts. Continue from the end of [turn 000241](turns/000241.md) and retain existing lore from prior turns.
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Following the user's full retcon and deletion of old saves 000242–000266, active continuity follows directly from turn 000241, when Elys restored the Annex and clothing. **Elys now answers Clarissa's question about his history with Celeste by saying “That's classified.”** No actual classification order has been made. Celeste and Garrick find humor in the assertion; Seraphine questions its legal effect. Clarissa theatrically requests security clearance as Elys's fiancée, offering to submit to a background check and NDA; Garrick notes that clearance doesn't necessarily grant need-to-know. **Clarissa now asks Elys “Is your future wife cleared to know about your past?”** Elys has not answered. **Clarissa does not know the secret prior divine marriage between Elys and Celeste or origin of her extraordinary strength.** No truth pen has appeared in this timeline. Celeste wears pristine white-and-black formal SSS uniform, alternate gifts/collar/leash cased; both Elys and Celeste SSS-certified, celebration pending. [Turn 000242](turns/000242.md).
 
 ## Examination ledger
 
