@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000251
+**Save sequence:** 000252
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXC: Elys verifies both his personal belief that humans are an inferior species and the fact he is technically human, prompting questions about self-reference and what he means by inferior.
-**Latest record:** [000251](turns/000251.md)
+**Story endpoint:** Chapter CXCI: Elys verifies he can make potentially near-infinite misleading yet truthful statements with his pen; Garrick formulates the Somion Paradox and Seraphine asks his purpose.
+**Latest record:** [000252](turns/000252.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote **"I consider humans an inferior species"** with truth pen; **TRUE** as his subjective opinion, without clarifying the meaning of inferior and without issuing any public edict. He followed with **"I am also technically human"**, written with the truth pen (🖋️), which also verified **TRUE** on the basis of his human origin/identity despite extraordinary divine abilities. Clarissa and Celeste highlight that he has included himself in the category he called inferior; this is not a logical contradiction unless the specific meaning creates one. No objective hierarchy, moral devaluation or change in citizenship law has been established. Clarissa asks what dimension of inferiority Elys means. The prior question about Elys and Celeste's secret divine marriage remains unresolved; Clarissa still doesn't know the source of her extraordinary strength. Both Elys and Celeste SSS certified, with Celeste in formal uniform, gifted alternate clothing/collar/leash boxed and celebration pending. [Turn 000251](turns/000251.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys writes **“I’m capable of saying a potentially near infinite number of statements that are questionable or misleading with this pen”** and the truth-verifying ink glows **TRUE**. This verifies his capability to produce countless narrow truthful yet misleading statements, not any arbitrary false claim. Garrick and Seraphine discuss truth versus completeness and contextual implications. Garrick coins **“The Somion Paradox: When Perfectly True Statements Produce Imperfect Understanding.”** Clarissa sees the significance for Elys's evasions; Celeste is amused. **Seraphine has just asked Elys:** “Is the purpose of this demonstration to expose the pen's limitations, or to demonstrate how effectively you can exploit them?” Elys has not answered. Prior findings stand: Elys's subjective opinion that humans are an inferior species and his own human identity both pen-verified true, without clarified moral or taxonomic implications. Clarissa still lacks explicit knowledge of Elys's earlier divine marriage with Celeste and of the source of her gifted strength. Elys knows correct answer but genuinely cannot recall material circumstances of marriage. Celeste wearing formal SSS attire with alternate gifts boxed. Both certified, celebration pending. [Turn 000252](turns/000252.md).
 
 ## Examination ledger
 
