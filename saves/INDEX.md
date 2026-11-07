@@ -332,6 +332,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000172](turns/000172.md) | CLXVII | Played turn | Elys begins Iron Veil fleet strategy simulation facing hostile ultimatum, awaiting his first orders | [000000](checkpoints/000000.md) |
 
+| [000173](turns/000173.md) | CLXVII | Played turn | Elys prepares Corridor Seven asteroid mousetrap with mining drones, tugs, legal demolition traffic warning | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
