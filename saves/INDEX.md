@@ -472,3 +472,5 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000248](turns/000248.md) | CLXXXVII | Played turn | Elys previews uncrafted Thirteenfold Dawn solar spear blueprint; no assets or stats changed | [000000](checkpoints/000000.md) |
 | [000249](turns/000249.md) | CLXXXVIII | Played turn | Elys proposes transmutation staff/spear; Prima Materia SSS dual-form blueprint previewed without crafting or gear change | [000000](checkpoints/000000.md) |
 | [000250](turns/000250.md) | CLXXXIX | Played turn | Lethe identifies Axiom, Prima and Nihil as Apophatic AI directors and offers technical consultation | [000000](checkpoints/000000.md) |
+| [000251](turns/000251.md) | CXC | Played turn | Elys orders Axiom, Prima, Nihil to design maximum-specification million-year god-killer staff/spear, no costs capped; plan only | [000000](checkpoints/000000.md) |
+| [000252](turns/000252.md) | CXCI | Played turn | Elys commissions U-013-Ω exclusively for himself with 24-hour delivery requirement, safety review and tracking | [000000](checkpoints/000000.md) |
