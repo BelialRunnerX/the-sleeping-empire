@@ -182,9 +182,16 @@
           "before": "No active Guild contract; viewed six listings",
           "after": "SSS-004 The Sepulcher Between Stars, accepted and pre-deployment; 14M base reward unearned",
           "source": "User chose The sepulcher one after requesting an SSS big boss fight; no travel or combat"
+        },
+        {
+          "turn": "000262",
+          "field": "restricted_threat_briefing",
+          "before": "Only SSS-004 Pallbearer King boss intelligence",
+          "after": "Mira revealed uncommissioned ~42km Nadir Leviathan sighting; SSS-004 contract remains accepted and pre-deployment",
+          "source": "Player chose 7 to ask whether the Guild knows of a boss bigger than 900m"
         }
       ],
-      "last_verified_turn": "000261",
+      "last_verified_turn": "000262",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -290,7 +297,17 @@
         "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
         "accepted_contract_id": "SSS-004",
         "anomaly_bulletin_status": "PROVISIONAL_PUBLIC_OBSERVATORY_BRIEFING_ONLY_NOT_CONTRACT",
-        "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira"
+        "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira",
+        "restricted_observation_files": [
+          {
+            "id": "VEIL-09",
+            "name": "Nadir Leviathan",
+            "status": "NO_CONTRACT",
+            "estimated_length_km": 42,
+            "intelligence": "PROVISIONAL",
+            "file": "guild/VEIL-09_NADIR_LEVIATHAN.md"
+          }
+        ]
       },
       "active_guild_contracts": [
         {
@@ -3378,9 +3395,16 @@
           "before": "No associated mission selected",
           "after": "Elys accepts SSS-004, Pallbearer King boss; Aletheia accompanies as sentient weapon, not an independently registered guild member",
           "source": "User select Sepulcher; no weapon use yet"
+        },
+        {
+          "turn": "000262",
+          "field": "guild_conversation",
+          "before": "Excited by predicted Pallbearer King boss",
+          "after": "Learned of tentative Nadir Leviathan observation; agrees size alone does not establish hostility, Sepulcher remains first assigned mission",
+          "source": "Story turn 000262"
         }
       ],
-      "last_verified_turn": "000261",
+      "last_verified_turn": "000262",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3505,9 +3529,16 @@
           "before": "Presented provisional missing planet briefing",
           "after": "Briefed and registered Elys's accepted SSS-004 Sepulcher mission; Elys not yet deployed",
           "source": "Explicit player mission selection"
+        },
+        {
+          "turn": "000262",
+          "field": "guild_reception",
+          "before": "Briefed Elys on accepted Sepulcher SSS-004",
+          "after": "Discussed provisional Nadir Leviathan 42km restricted threat observation, not a contract; SSS-004 still assigned",
+          "source": "Story turn 000262"
         }
       ],
-      "last_verified_turn": "000261",
+      "last_verified_turn": "000262",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
