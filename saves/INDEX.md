@@ -487,3 +487,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000263](turns/000263.md) | CCII | Played turn | Elys travels to Sepulcher exterior, surveys space-folding fortress, observes six-horned giant without engaging | [000000](checkpoints/000000.md) |
 | [000264](turns/000264.md) | CCIII | Played turn | Elys throws Aletheia at Pallbearer King's weak spot, defeats giant outer vessel, reveals seven Phase II shadows | [000000](checkpoints/000000.md) |
 | [000265](turns/000265.md) | CCIV | Played turn | Aletheia homing-missile attack pierces 7/7 Unwritten Choir vessels; Heart of Sepulcher archival core revealed and speaking | [000000](checkpoints/000000.md) |
+| [000266](turns/000266.md) | CCV | Played turn | Aletheia takes Genesis Loom staff form, protects/partially archives Sepulcher records, Heart reveals last-memory warning and invites Elys to listen | [000000](checkpoints/000000.md) |
