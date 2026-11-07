@@ -454,3 +454,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000230](turns/000230.md) | CLXIX | Played turn | Elys praises Celeste; final evacuees saved, Module II complete, Module III pending | [000000](checkpoints/000000.md) |
 | [000231](turns/000231.md) | CLXX | Played turn | Private celebration banter; Module III command assessment presented | [000000](checkpoints/000000.md) |
 | [000232](turns/000232.md) | CLXXI | Played turn | Tactical Twerk joke; Celeste starts Module III refugee asylum crisis | [000000](checkpoints/000000.md) |
+| [000233](turns/000233.md) | CLXXII | Played turn | Rearward-maneuver banter, detailed Celeste status, final diplomatic module still active | [000000](checkpoints/000000.md) |
