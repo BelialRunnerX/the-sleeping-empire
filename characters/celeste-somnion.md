@@ -36,3 +36,7 @@ The researchers were rescued in Turn 000145, and Celeste later traveled with Ely
 ## Innate divine eating capacity (authoritative player erratum, Chapter CLXV)
 
 Celeste's **divine eating capacity** is an intrinsic aspect of her nature, **NOT magic or an activated spell**. It can be used in ordinary eating competitions without violating rules against magical assistance. At Greenhaven's 43rd Annual Pie-Eating Championship, Celeste **used this capacity**, comfortably eating **24 violetberry pies and winning first place**. Previous narration saying she became full at three pies or deliberately restricted herself is superseded by the player's correction. See [revised turn](../saves/turns/000161.md).
+
+## Temperament — player characterization (authoritative)
+
+Celeste is **shameless**, intentionally provocative, and enjoys **being embarrassed, teased, and consensually put on the spot**. She has an unabashed, flirtatious, masochistic streak—**a tsundere-like playful protest that often masks her eagerness rather than actual shame**. She can even look back on her bizarre causal confinement with unexpectedly aroused, teasing amusement; her reaction does not mean that her original captors had her consent. This complements her existing warmth, intelligence, humor, loyalty and power without replacing them. [Detailed canon note](../saves/canon/celeste-temperament-shameless-masochistic.md).
