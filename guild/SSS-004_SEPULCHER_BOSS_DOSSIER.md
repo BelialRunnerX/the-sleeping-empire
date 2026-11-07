@@ -61,3 +61,16 @@ On registration, the contract is assigned to Elys but **not completed**. Base pa
 **Current SSS-004 status:** `IN_PROGRESS_PHASE_III_HEART_REVEALED`, no contract completion; the **₡14,000,000 base reward is not earned**. Elys remains **OUTSIDE the Sepulcher** with sight through the breached frontal wall and opened heart chamber; no user order to enter. Full-body Regalia Aegis 100/100, Forge Core 100/100 equipped; Aletheia right-side hovering, not main_hand equipped. No new loot, rank, numerical stats or proven casualties.
 
 [Turn 000265](../saves/turns/000265.md) · [combat log 000265](encounters/SSS-004_COMBAT_000265.md).
+
+## Active defense and partial preservation — turn 000266
+
+**Player choice 3:** Elys instructed sentient Aletheia to take **Genesis Loom staff** configuration and **protect/archive** the records already shown in the Heart chamber. No further player movement or attack on the core occurred.
+
+- Aletheia transforms from spear to Genesis Loom **staff**, remaining **at Elys's RIGHT** at exterior threshold, projects a protective restoration lattice through the breached Sepulcher frontal wall to exposed silver archive filaments.
+- The weave stabilizes compromised connections and **starts independently verifiable partial mnemonic snapshots of accessible records**. It is **not an entire archive backup, ownership transfer, guaranteed eternal preservation, or new physical loot**. Forge Core not involved. Active protection continues so long as viable.
+- Old visual records show extinct cities and persons. Some images appear to respond to present observation. Heart claims "**THEY ARE NOT ALL RECORDS. SOME ARE WHAT REMAINS. THOSE WHO COULD NOT BE SAVED.**" Whether such responsive imprints are actually independent conscious persons is **UNKNOWN**.
+- Remaining fortress batteries **temporarily stand down** while Aletheia preserves the archive; this is NOT permanent surrender. The Heart reveals a pale fissure and says it was **built to remember**, while seven defensive hands prevented "**THE LAST MEMORY FROM ESCAPING**", supposedly "**THE ONE THAT ENDED THEM.**" Actual memory contents/behavior UNKNOWN; it **has not been viewed or released**.
+- The Heart asks Elys "**STRANGER. WILL YOU HEAR WHAT I REMEMBER?**" **Elys has not answered.** Phase III remains active/unresolved; the 14M-credit contract reward is still UNPAID.
+- Elys stays at the exterior, armor Regalia Aegis 100/100, Forge Core 100/100, no damage or new item/stat/currency changes.
+
+See [turn 000266](../saves/turns/000266.md) and [combat/preservation log](encounters/SSS-004_COMBAT_000266.md).
