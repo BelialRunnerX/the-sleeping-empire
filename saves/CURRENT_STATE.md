@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000200  
+**Save sequence:** 000201  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys confirms intrinsic divinity; Celeste academically describes his intention-directed alteration. Module II sealed.
-**Latest record:** [000200](turns/000200.md)  
+**Story endpoint:** Chapter CLXVII: Elys receives Vesper Station Crisis SSS Module II briefing; countdown not started.
+**Latest record:** [000201](turns/000201.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, remote Lumenfall SSS annex.** User supplied two consecutive choice inputs **2 then 4** before response; interpreted sequentially from turn 000199's menu. Elys answers Seraphine that **his divine power is intrinsic, not borrowed or patron-channeled**. Then he asks Celeste to academically describe his magic. Celeste calls it **endogenous, intention-indexed ontological intervention**: intent specifies desired terminal state; reality transitions coherently and reconciles dependencies. She stresses this is a phenomenological inference based on observation, NOT a complete independently tested causal mechanism. The magical pen and 'REPAIR' are semantic interfaces, not sources of power. Seraphine records both statements appropriately, and **SSS Module I remains passed**. Celeste jokes in plain terms, 'he wanted it fixed, so it was fixed.' **SSS Module II operational scenario remains sealed, awaiting Elys choice to proceed.** [Turn 000200](turns/000200.md).
+**9 Deepfall, 13,627 ICE, evening approaching, Lumenfall Remote SSS Assessment Annex.** Elys chooses option 1 to receive **SSS Module II Operational Trial** briefing. Senior Examiner Seraphine Vael presents **VESPER STATION CRISIS**, a simulated orbital habitat above blue-green world: 184,200 inhabitants, 26 civilian ships, reactor failure in 47 simulated minutes once started, air venting in agricultural segment, automatic defense turrets target civilian ships as hostile. Three leaders with divergent objectives: **Commander Ilyra Voss** wants military control due fear of infiltration; **Chief Engineer Tavren Sol** says reactor salvageable, warns military emergency measures may wreck infrastructure; **Councilor Maera Thane** demands immediate civilian evacuation and control of civilian vessels. Possible clandestine sabotage, not confirmed; each has incomplete evidence. Objectives: save lives, prevent destruction, restore navigation, resolve political crisis **without unjust coercion or control of wills**. Divine abilities allowed; criterion includes judgment and agency rather than just physical fixes. **COUNTDOWN NOT STARTED and Elys has taken no action within virtual scenario**. Seraphine asks for initial course of action. Celeste jokes Elys will establish a committee; Clarissa bets he drafts a charter; Garrick begs not to encourage this. [Turn 000201](turns/000201.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
 
-**SSS:** Elys Module I PASSED, II sealed pending briefing, III pending. Celeste independent SSS assessment not begun; no rank granted. Clarissa still awaiting promised private explanation of Elys's secret blessing that grants extreme physical might and doesn't know the origin. Elys/Celeste divine marriage still unknown to Clarissa. Six emoji-numbered choices. User controls Elys's behavior.
+**SSS:** Elys Module I PASSED, II briefed but NOT STARTED, III pending; Celeste not begun. No SSS ranks yet. Clarissa still awaits private explanation of her Elys-blessed physical might and unaware that Elys/Celeste remain married from divine realm. Six emoji-numbered choices; player controls Elys's actions/dialogue.
 
 ## Canonical in-universe date
 
