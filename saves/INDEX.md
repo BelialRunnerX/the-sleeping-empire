@@ -462,3 +462,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000238](turns/000238.md) | CLXXVII | Played turn | Celeste receives lingerie and collar as gifts; Clarissa asks about their history | [000000](checkpoints/000000.md) |
 | [000239](turns/000239.md) | CLXXVIII | Played turn | Celeste willingly wears gifted garments and collar; Clarissa presses for truth about their history | [000000](checkpoints/000000.md) |
 | [000240](turns/000240.md) | CLXXIX | Played turn | Celeste voluntarily clips on leash, clarifies autonomy; Clarissa presses for relationship history | [000000](checkpoints/000000.md) |
+| [000241](turns/000241.md) | CLXXX | Played turn | Elys restores clothing and Annex with a snap; Clarissa's question about hidden history remains | [000000](checkpoints/000000.md) |
