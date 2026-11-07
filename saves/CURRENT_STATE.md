@@ -1,15 +1,17 @@
 # Current Story State
 
-**Save sequence:** 000196  
+**Save sequence:** 000197  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Accredited SSS examiner Seraphine Vael summoned and present by hologram; chooses who goes first.
-**Latest record:** [000196](turns/000196.md)  
+**Story endpoint:** Chapter CLXVII: Elys teleports group to remote SSS annex; first module staged and awaits approach.
+**Latest record:** [000197](turns/000197.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Player chose immediate summons of accredited SSS examiner for Elys and Celeste. **Senior Examiner Seraphine Vael**, senior guild upper-rank accredited SSS assessor (silver hair, midnight blue/gold uniform, triple-star collar insignia), connects by holo. She verified both 5-discipline standard scores, no test safety violations, agreed to conduct their SSS tests with independent witnesses; recognized remote isolated annex is available. Required modules: (1) controlled exceptional capability under suitable isolation, (2) SSS-grade adversarial operational simulation, (3) precision/restraint/judgment. Separate independent exams and scores for each. She offers **Elys or Celeste first**; no module yet begun or rank awarded. Celeste eager, humorous; Seraphine stern and competent. [Turn 000196](turns/000196.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Upper-Rank Assessment Annex (remote isolated plateau ~80 km away).** Elys chooses **first SSS assessment**, and **teleports Elys, Celeste, Clarissa and Garrick** immediately to the isolated annex's authorized receiving area, safely and without affecting security structures. Garrick is irritated about unused shuttle; Seraphine Vael's holo reconnects through local projectors. Seraphine acknowledges spatial capability but **teleport unscored because before formal test**. Clarissa wishes Elys warned them.
+
+**LIVE TEST DECISION:** Seraphine stages **SSS Module I: Controlled Exceptional Capability**, with independently verified effect: repair an unstable damaged crystalline reactor, preserve an adjacent sealed fragile biosphere simulation, and maintain uninterrupted sensor-lattice operation. Reactor is **coupled to sensor lattice**, risks cascade from unexamined direct repair; omnipotence does not imply omniscience. Elys may use genuine abilities; any collateral disqualifies. **Test has not begun; Seraphine awaits his declared approach.** No scores or SSS rank yet. [Turn 000197](turns/000197.md).
 
 ## Examination ledger
 
@@ -19,7 +21,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
 
-SSS tests formally accepted for Elys and Celeste, still not scored. Guild regular classifications/certifications not yet announced. Clarissa is Elys's fiancée and waiting for promised private explanation of the immense strength Elys secretly blessed her with; she does not know cause. She also does not know Elys/Celeste's still-valid divine marriage. Preserve six distinct menu options and immersive story without forcing Elys choices.
+Both SSS applications formally registered and accredited Seraphine conducting. Elys module I active setup, awaiting user's method; Celeste later. Secret Elys/Celeste marriage undisclosed to Clarissa; secret source of Clarissa's extreme physical might (Elys blessing) unknown to her. Elys owes Clarissa private explanation. Maintain six distinct emoji-numbered choices and don't prematurely solve test.
 
 ## Canonical in-universe date
 
