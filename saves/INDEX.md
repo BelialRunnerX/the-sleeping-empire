@@ -464,3 +464,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000240](turns/000240.md) | CLXXIX | Played turn | Celeste voluntarily clips on leash, clarifies autonomy; Clarissa presses for relationship history | [000000](checkpoints/000000.md) |
 | [000241](turns/000241.md) | CLXXX | Played turn | Elys restores clothing and Annex with a snap; Clarissa's question about hidden history remains | [000000](checkpoints/000000.md) |
 | [000242](turns/000242.md) | CLXXXI | Played turn (post-retcon) | Elys claims shared history with Celeste is classified; Clarissa requests clearance | [000000](checkpoints/000000.md) |
+| [000243](turns/000243.md) | CLXXXII | Played turn (post-retcon) | Elys cites high classification and lets Celeste disclose limited history at her discretion | [000000](checkpoints/000000.md) |
