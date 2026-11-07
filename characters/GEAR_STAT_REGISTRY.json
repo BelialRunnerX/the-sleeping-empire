@@ -161,9 +161,16 @@
           "before": "Outer Lumenfall system, in space at the now-empty coordinates of the imploded/vanished barren planet",
           "after": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
           "source": "Player explicitly returns to the previously established Lumenfall Free Adventurers' Guild; no story day skip"
+        },
+        {
+          "turn": "000259",
+          "field": "guild_board_inspection",
+          "before": "Guild high-tier board not yet inspected this visit",
+          "after": "Viewed six open S–SSS contracts, plus provisional outer-system anomaly bulletin; no contract accepted",
+          "source": "User selected option 1: inspect highest-tier contracts"
         }
       ],
-      "last_verified_turn": "000258",
+      "last_verified_turn": "000259",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -255,7 +262,21 @@
           "orbital_aftereffects": "UNKNOWN",
           "incident_record": "armory/tests/FX-000257_TRIPLE_IMPACT.md"
         }
-      ]
+      ],
+      "visible_guild_board": {
+        "as_of": "10 Deepfall, 13,627 ICE, night",
+        "board_path": "guild/HIGH_TIER_CONTRACTS_10_DEEPFALL_13627.md",
+        "open_contract_ids": [
+          "S-041",
+          "S-117",
+          "SS-022",
+          "SS-063",
+          "SSS-004",
+          "SSS-011"
+        ],
+        "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
+        "accepted_contract_id": null
+      }
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3305,9 +3326,16 @@
           "before": "Outer Lumenfall system, to Elys's right at the vanished planet's former coordinates",
           "after": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath, beside Elys at his right",
           "source": "Accompanies Elys under standing right-side default; neither separately registered nor equipped as main-hand"
+        },
+        {
+          "turn": "000259",
+          "field": "guild_board_commentary",
+          "before": "Recent Guild arrival",
+          "after": "Viewed S–SSS high-tier board while hovering beside Elys; privately recognized anomaly bulletin may relate to vanished planet",
+          "source": "Scene 000259; Aletheia neither independently registered nor ranked"
         }
       ],
-      "last_verified_turn": "000258",
+      "last_verified_turn": "000259",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3411,9 +3439,16 @@
           "before": null,
           "after": "Long-established Guild receptionist recorded for persistent character-sheet tracking; unknown stats remain null",
           "source": "Lore origin turn 000164, reappearance turn 000258"
+        },
+        {
+          "turn": "000259",
+          "field": "guild_duties",
+          "before": "Welcomed Elys back at reception",
+          "after": "Opened official S–SSS high-tier quest listing for Elys; no contract awarded",
+          "source": "Guild board scene 000259"
         }
       ],
-      "last_verified_turn": "000258",
+      "last_verified_turn": "000259",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
