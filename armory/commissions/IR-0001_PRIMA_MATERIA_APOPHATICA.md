@@ -38,3 +38,16 @@
 
 **Concept image:** An anime reference image was generated in the current conversation showing staff, spear and humanoid aspect with labels "Materia" and "Prima Materia Apophatica." This is visual concept art only, not a proven repository asset, item or delivery confirmation.
 
+
+
+## Final approved Aletheia visual, vocal and personality specification — turn 000254
+
+**Approval:** Elys selected the previous anime artwork as the **definitive visual reference** and confirmed the persona, voice and humanoid design. See [Aletheia character dossier](../../characters/aletheia.md) and [Turn 000254](../../saves/turns/000254.md).
+
+**Appearance:** Adult feminine-presenting tall, graceful figure, extremely long silver-white/lavender-toned hair, clear emerald luminous eyes, finely detailed gold crown/diadem, floating golden alchemical halos, ornate white-and-black fitted Imperial armor and bodice, gilded geometric lines, emerald gemstones and cascading white fabric elements. All three modes share the gold/white/black/emerald design language. Use the previous anime concept image as the approved reference; do not redesign without player permission.
+
+**Voice:** **Crystalline Contralto**, clear and velvet-smooth feminine lower-middle register, a subtle crystalline resonant overtone, melodic courtly cadence. Warm and playful in casual talk, ceremonious when formal, low and solemn in combat. This is a specification, not a generated voice clip or proof of sentient awakening.
+
+**Personality:** Intelligent, loyal, playful, proud, devoted, observant, philosophical, curious, incisively ironic and independently capable of doubt, thoughtful disagreement and technical caution. Gentle in guardian/utility roles and precise in authorized offensive roles. Her sentience is one continuous identity **Aletheia** across **Materia** humanoid form, Genesis Loom staff, and Philosopher's Edge spear.
+
+**Status:** **PERSONA/VISUAL DESIGN APPROVED; CONSTRUCTION/CONSCIOUSNESS NOT YET VALIDATED; NOT DELIVERED OR EQUIPPED.** No change to requested delivery within 24 in-world hours of original commission (by the corresponding evening of 10 Deepfall 13,627 ICE). No new charge, material withdrawal or claimed gear/stat bonuses; original unlimited-private-budget authorization still covers this commission.
