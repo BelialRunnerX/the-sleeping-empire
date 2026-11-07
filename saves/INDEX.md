@@ -427,6 +427,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000220](turns/000220.md) | CLXVIII | Played turn | Elys shouts drill-instructor teasing; Celeste advances authorized evacuations | [000000](checkpoints/000000.md) |
 
+| [000221](turns/000221.md) | CLXVIII | Played turn | Elys's risqué drill order; Celeste advances hospital evacuation independently | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000220  
+**Save sequence:** 000221  
 **Type:** played turn  
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXVIII: Elys bellows mock drill-instructor command at Celeste; she laughs and continues voluntary rescue operations.
-**Latest record:** [000220](turns/000220.md)  
+**Story endpoint:** Chapter CLXVIII: Elys orders Celeste to shake her assets while rescuing city; she responds with mock salute then independently advances hospital evacuation.
+**Latest record:** [000221](turns/000221.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys shouts drill instructor style, **“CONCENTRATE ON SHAKING THEM CHEEKS, CANDIDATE!”** at Celeste during her active SSS Module II coastal flood emergency. Celeste laughs, salutes, answers "SIR, YES, SIR!" and jokes about reporting to later inspection. Seraphine firmly calls for professionalism; Garrick and Clarissa despair. **Only verbal teasing, no magical or physical interference.** Celeste independently maintains flood protection, medical evacuation, creates additional eastern civilian evacuation route, and **obtains municipal commander's approval using genuine casualty projections** rather than coercing him. City crisis still ACTIVE, **not resolved or passed**. 92,000 simulated residents initially at risk, hospital evacuation ongoing, authority disagreement only partially settled, barriers holding. Last exact clock read 31:46 remaining (from earlier chapter beat), avoid asserting a fresh exact number. [Turn 000220](turns/000220.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys bellows to Celeste, **“PERMISSION GRANTED! AS LONG AS YOU KEEP SHAKING THEM ASSETS FOR ME WHILE YOU DO IT!”** Celeste delightedly salutes "SIR! YES, SIR!" and theatrically turns, Seraphine warns dance/spectator orders aren't part of test, Garrick groans, Clarissa questions Elys's dignity. Celeste **asks Elys for permission to ignore his orders whenever they conflict with protecting 92,000 simulated civilians**; user has not expressly answered. Celeste nevertheless prioritizes duties: hospital evacuation advances, east corridor congested, she independently dispatches engineering maintenance drones and provides structural analysis to municipal command, which authorizes reinforcement. Seraphine praises preserved command autonomy. Celeste teasingly requests a written performance evaluation of her “assets.” **Module II coastal flood trial ACTIVE, NOT PASSED**, no new certified clock reading, hospital rescue ongoing, barriers holding, rival authorities only partly coordinated. [Turn 000221](turns/000221.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Seraphine's warning of termination upon another unauthorized physical interruption remains. Elys owes private explanation of his gift of strength to Clarissa; she does not know source or that Elys/Celeste secretly remain married. Seven choices, seventh 🍆💦🫦😈🌶️ non-graphic suggestive flirtation; Elys action agency.
+Elys didn't intervene technically in simulation. Seraphine warning physical interference ends this attempt still in effect. Clarissa doesn't know Elys gave her super strength, or that he and Celeste secretly married in divine realm; owes private conversation. Six typical options and seventh 🍆💦🫦😈🌶️ for provocative, non-graphic teasing. Elys agency.
 
 ## Canonical in-universe date
 
