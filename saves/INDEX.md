@@ -461,3 +461,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000237](turns/000237.md) | CLXXVI | Played turn | Celeste saves twelve refugee ships without casualties, wins SSS certification | [000000](checkpoints/000000.md) |
 | [000238](turns/000238.md) | CLXXVII | Played turn | Celeste receives lingerie and collar as gifts; Clarissa asks about their history | [000000](checkpoints/000000.md) |
 | [000239](turns/000239.md) | CLXXVIII | Played turn | Celeste willingly wears gifted garments and collar; Clarissa presses for truth about their history | [000000](checkpoints/000000.md) |
+| [000240](turns/000240.md) | CLXXIX | Played turn | Celeste voluntarily clips on leash, clarifies autonomy; Clarissa presses for relationship history | [000000](checkpoints/000000.md) |
