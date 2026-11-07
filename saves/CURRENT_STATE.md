@@ -1,23 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000149  
+**Save sequence:** 000150  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLIII, Greenhaven Harvest & Innovation Festival — Sir Turnip III at the obstacle-course starting line; outcome not yet decided
-**Latest record:** [000149](turns/000149.md)  
+**Story endpoint:** Chapter CLIV, Sir Turnip III takes second in Greenhaven robot obstacle race; Niko offered junior cooperative apprenticeship application
+**Latest record:** [000150](turns/000150.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**Verified latest played turn:** [000149 — The Divine Art of Doing Absolutely Nothing Important](turns/000149.md), Chapter **CLIII**, **8 Deepfall 13,627 ICE ~15:30**, **Greenhaven Festival Grounds, Bellwynn**. This endpoint supersedes the earlier arrival at Greenhaven Terminal on turn 000148.
-
-Elys (**Corin Vale**), Clarissa (**Mara Calder**) and **Celeste Somnion (Enigma-01)** took the local tram from Greenhaven Terminal to the Harvest & Innovation Festival. Celeste chose to help local young mechanic **Niko Bell** prepare his unstable, eccentric agricultural robot **Sir Turnip III** for an obstacle-course heat. Using **ordinary hand tools** rather than temporal/reality powers, she improved the robot's balance. Its improbable audio module declares "VICTORY INEVITABLE" and is making cheeky noises at competitors. A polished corporate robot is among the entrants. **The heat is about to begin; no result or winning robot has been established.** Elys has not selected his next action.
-
-The group is incognito. **Vesta**, not Sentinel, is the household/travel AI. Elys remains Emperor on **indefinite non-abdicating sabbatical**, with Aurelia Regent, Lethe managing Somnus and delegated Throne assets, Lucien appointed Hand and Crown Jester, and Celeste a loyal Hand. Her divine ocean/time provenance is known to Clarissa; further private historical matters remain undisclosed and must not be revealed by narrator fiat.
-
-**Narrator-only foreshadowing, do not reveal as local public knowledge:** Far below the recently built festival grounds, a dormant ancient instrument briefly reacted to a temporal anomaly. The user's correction confirms Bellwynn has hidden history despite only **43 years of documented modern settlement**. Do not interrupt this peaceful holiday with a forced ruins arc; let that mystery emerge organically. See [foreshadowing canon](canon/bellwynn-hidden-history-foreshadowing.md).
-
-Player alone controls Elys's dialogue, actions and decisions. Maintain the established six emoji-numbered narrative options, ending "Or say exactly what you do."
+8 Deepfall 13,627 ICE ~15:46, **Greenhaven Harvest & Innovation Festival grounds, Bellwynn**. User selected **watch Sir Turnip III compete**. With Elys (**Corin Vale**) and his fiancée Clarissa (**Mara Calder**) watching, the teen **Niko Bell** and newly bound loyal divine companion **Celeste Somnion, Imperial Hand Enigma-01**, enter Niko's charmingly awful and comically vocal **SIR TURNIP III** in the agricultural robot obstacle course. The robot accidentally does a backflip over ramp, crosses muddy trench via permitted drainage pipe, sorts cargo successfully, then its oversized wheel falls off. **Official results:** First **Harvester Bee-7 (96 points)**, second **Sir Turnip III (92)**, third expensive **ProHarvest 9000 (87)** (suffers accident with festival ribbon and handling penalty). Niko delighted with his silver medal; cheering children chant TURNIP. **Engineer Talia Renn** of **Bellwynn Technical Cooperative** invites Niko to APPLY for upcoming junior fabrication apprenticeship next month (NOT a job offer or acceptance yet). Celeste praises Niko rather than taking credit for the work, which was done with ordinary tools, not supernatural intervention. Festival is sunny, smells of pastries and fruit; pie-eating championship setups begin soon. Bellwynn only 43 years of modern settlement but user explicitly established **older concealed history as subtle foreshadowing**; underground ancient temporal instrument remains silent and unnoticed, don't force mystery plot immediately. Elys remains Emperor on indefinite non-abdicating sabbatical, Aurelia Regent, Lethe Throne/Somnus administrator. **Celeste** is Elys's friendly loyal brilliant Hand, embodiment time/ocean, original divine-realm companion. Their former DIVINE-REALM MARRIAGE is a secret not revealed to Clarissa; Clarissa knows shared divine origins but not marriage. **Vesta** household travel AI, not Sentinel (Imperial security), discreet unlimited private expense account without public Imperial transactions. User likes fresh sensory detail and new NPC dialogue, NOT repetitive callbacks to bracelets/history. Elys controls own dialogue/actions. Six plain numbered emoji choices, no interactive cards.
 
 ## Canonical in-universe date
 
