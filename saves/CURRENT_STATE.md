@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000228
+**Save sequence:** 000229
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXVIII: Elys asks Celeste for two jumps; she voluntarily uses two jumps to trigger evacuation gates, continuing her independent SSS crisis exam.
-**Latest record:** [000228](turns/000228.md)
+**Story endpoint:** Chapter CLXVIII: The final eastern convoy is stopped by a stalled crawler; Celeste independently assesses three reroutes during her still-active SSS Module II crisis exam.
+**Latest record:** [000229](turns/000229.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asks nude Celeste playfully **“Would you be a doll and jump a couple times for me?”** Celeste voluntarily chooses to perform **two purposeful jumps to tap two overhead holographic command interfaces**, opening two legitimate eastern evacuation transit gates. Garrick exasperated, Clarissa laughs, Seraphine refuses to allow a formal performance paperwork process. Celeste mock-curtsies, asserts autonomy, and says she intends to earn certification before further imperial requests. No magical/physical interference by Elys. Celeste remains fully naked from earlier independent uniform collapse, no privacy field; comedy is non-graphic. **SSS Module II coastal city crisis STILL ACTIVE / NOT PASSED**: hospital evacuation complete, final eastern residential convoys now pass through newly opened gates, reinforced flood barriers holding, service corridor clear. Final crisis/authorities resolution not yet established. No new exact clock reading. [Turn 000228](turns/000228.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** The two gates Celeste opened remain operational. After her joke about jumping through hoops, Celeste sees one last convoy carrying 43 evacuees blocked behind a maintenance crawler as seawall pressure rises. Three possible routes present tradeoffs: flooding an unmanned power station, an exposed passenger route, or precise remote manipulation of the crawler. Celeste independently studies choices. No solution chosen or certification result issued. Spectators Elys, Garrick, Clarissa, Seraphine present; Seraphine prohibits spectator interference. Elys's newest action is only “Continue the story”; do not invent his response. Celeste remains nude following her uniform failure; no privacy field. [Turn 000229](turns/000229.md).
 
 ## Examination ledger
 
