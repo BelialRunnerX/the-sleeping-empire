@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000242
+**Save sequence:** 000243
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXI: Elys replies ‘That’s classified’ to Clarissa's inquiry about Celeste; Clarissa mock-formally requests clearance to know his past.
-**Latest record:** [000242](turns/000242.md)
+**Story endpoint:** Chapter CLXXXII: Elys says his and Celeste's history is above Clarissa's clearance and invites Celeste to share what she chooses; she gives limited history and reserves romantic details for private discussion.
+**Latest record:** [000243](turns/000243.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Following the user's full retcon and deletion of old saves 000242–000266, active continuity follows directly from turn 000241, when Elys restored the Annex and clothing. **Elys now answers Clarissa's question about his history with Celeste by saying “That's classified.”** No actual classification order has been made. Celeste and Garrick find humor in the assertion; Seraphine questions its legal effect. Clarissa theatrically requests security clearance as Elys's fiancée, offering to submit to a background check and NDA; Garrick notes that clearance doesn't necessarily grant need-to-know. **Clarissa now asks Elys “Is your future wife cleared to know about your past?”** Elys has not answered. **Clarissa does not know the secret prior divine marriage between Elys and Celeste or origin of her extraordinary strength.** No truth pen has appeared in this timeline. Celeste wears pristine white-and-black formal SSS uniform, alternate gifts/collar/leash cased; both Elys and Celeste SSS-certified, celebration pending. [Turn 000242](turns/000242.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** After the restored-clothing Annex scene (turn 000241) and Elys's declaration “That's classified” (turn 000242), Elys combined choices **1 and 3**: he told Clarissa the history with Celeste was **above her clearance**, and invited **Celeste to share only what she wished**. This remains an *informal claim*, not a formal classification decree. Celeste voluntarily revealed they have known one another for millennia and were once very close, and called Elys stubborn, sentimental and sometimes insufferable. Asked whether it was romantic, she declined to discuss the details on the examination floor and suggested a future private conversation. **Clarissa still does not know their secret past divine marriage**, though suspects important undisclosed history. She respects privacy but expects transparency about issues material to her relationship eventually. Clarissa also doesn't know Elys secretly bestowed her immense physical strength. Celeste proposed finally celebrating her SSS achievement; Garrick notes catering paperwork is pending. **No celebration begun**. Both Elys and Celeste SSS certified, Celeste in restored formal uniform, alternative gifts (corset, garters, stockings, collar, leash) boxed. **No truth pen** or deleted timeline events in active canon. [Turn 000243](turns/000243.md).
 
 ## Examination ledger
 
