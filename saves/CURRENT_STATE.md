@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000243
+**Save sequence:** 000244
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXII: Elys says his and Celeste's history is above Clarissa's clearance and invites Celeste to share what she chooses; she gives limited history and reserves romantic details for private discussion.
-**Latest record:** [000243](turns/000243.md)
+**Story endpoint:** Chapter CLXXXIII: Elys reveals his time with Celeste was pre-Empire, in another realm, and shorter than his relationship with Clarissa, without disclosing the secret marriage.
+**Latest record:** [000244](turns/000244.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** After the restored-clothing Annex scene (turn 000241) and Elys's declaration “That's classified” (turn 000242), Elys combined choices **1 and 3**: he told Clarissa the history with Celeste was **above her clearance**, and invited **Celeste to share only what she wished**. This remains an *informal claim*, not a formal classification decree. Celeste voluntarily revealed they have known one another for millennia and were once very close, and called Elys stubborn, sentimental and sometimes insufferable. Asked whether it was romantic, she declined to discuss the details on the examination floor and suggested a future private conversation. **Clarissa still does not know their secret past divine marriage**, though suspects important undisclosed history. She respects privacy but expects transparency about issues material to her relationship eventually. Clarissa also doesn't know Elys secretly bestowed her immense physical strength. Celeste proposed finally celebrating her SSS achievement; Garrick notes catering paperwork is pending. **No celebration begun**. Both Elys and Celeste SSS certified, Celeste in restored formal uniform, alternative gifts (corset, garters, stockings, collar, leash) boxed. **No truth pen** or deleted timeline events in active canon. [Turn 000243](turns/000243.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys told Clarissa that his history with Celeste was **pre-Empire**, in **another realm**, and **shorter in duration than Elys's relationship with Clarissa**. Celeste confirmed and joked about being prehistoric, while underscoring that meaningful experiences are not measured by time alone. Clarissa is relieved that her own relationship with Elys lasted longer and appreciates his partial openness. **Clarissa still does not know about Elys and Celeste's secret prior divine marriage**; she also does not know Elys blessed her with immense physical strength. No truth-testing pen exists in this retconned timeline. Elys informally called his history classified but issued no actual order. Celeste now urges everyone to leave and celebrate her independently earned SSS certification. Elys and Celeste both SSS-certified; celebration not yet started. Celeste's formal SSS officer uniform restored and alternative gifts boxed. [Turn 000244](turns/000244.md).
 
 ## Examination ledger
 
