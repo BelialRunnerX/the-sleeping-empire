@@ -292,6 +292,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000158](turns/000158.md) | CLXII | Played turn | Elys jokes about announcing Bel and Lucien engagement; Bel teases back | [000000](checkpoints/000000.md) |
 
+| [000159](turns/000159.md) | CLXIII | Played turn | Elys ends private Bel call and advises Lucien to pursue her sincerely; Lucien asks how | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
