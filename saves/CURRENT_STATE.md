@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000217  
+**Save sequence:** 000218  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys accuses examiner Seraphine of jealousy; she calls it administrative despair, Celeste keeps rescuing city.
-**Latest record:** [000217](turns/000217.md)  
+**Story endpoint:** Chapter CLXVIII: Elys proposes magical-hand exam loophole; Seraphine rules it forbidden interference; no spell cast.
+**Latest record:** [000218](turns/000218.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** After reprimand for distracting Celeste, Elys jokes **“Jealous much Seraphine?”** Seraphine calmly declares she is not jealous but experiencing **“administrative despair”**, listing Elys's building deletion and repeated exam interruptions, Celeste's delight in criticism. Celeste jokes and encourages Elys; Seraphine admonishes both. **Celeste SSS Module II remains ACTIVE**, coastal arcology storm 92,000 people initially at risk, time **31:46/38:00 remaining**, hospital evacuation underway, western/eastern flood diversion holding, new surge at evacuation transit interchange diverted by Celeste and engineering crews dispatched, three authority leaders have partial coordination but still in dispute. No pass or full rescue yet. [Turn 000217](turns/000217.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys pulls out magic fountain pen, asks **“What rules are there against a magical hand spanking the person taking the exam?”** Seraphine explains the existing prohibition against unauthorized **external physical effects on an active candidate** covers magic hands/remote constructs regardless of physical or divine method. She explicitly confirms attempting that physical intervention would terminate Celeste's current SSS Module II under existing final warning, despite Celeste's personal willingness. Celeste delighted and jokes Elys defeated by footnote; Garrick celebrates bureaucracy win; Clarissa exasperated. **No magical hand conjured, no physical contact, no disqualification, no test intervention.** [Turn 000218](turns/000218.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Seraphine's warning of termination upon another physical exam interruption still active. Celeste acts autonomously. Clarissa still unaware of Elys's blessing of huge strength and prior Elys/Celeste divine marriage; overdue private conversation. Six normal options plus seventh 🍆💦🫦😈🌶️ provocative non-graphic romance, Elys controls actions.
+**Simulation:** 92,000 at risk initially in coastal storm-surge, hospital evacuation underway, barriers temporarily stabilized, multi-authority dispute ongoing, last clock reading **31:46** of 38-min trial. Seraphine final warning of termination for further physical interference stands. Elys still owes Clarissa private explanation of Elys-given huge physical might; secret Elys/Celeste marriage not disclosed. Six normal options and a seventh 🍆💦🫦😈🌶️ choice reserved for provocative non-graphic teasing.
 
 ## Canonical in-universe date
 

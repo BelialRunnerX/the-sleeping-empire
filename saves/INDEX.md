@@ -421,6 +421,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000217](turns/000217.md) | CLXVIII | Played turn | Seraphine answers Elys's jealousy tease: “administrative despair” | [000000](checkpoints/000000.md) |
 
+| [000218](turns/000218.md) | CLXVIII | Played turn | Examiner rules magical hand prohibited physical interference | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
