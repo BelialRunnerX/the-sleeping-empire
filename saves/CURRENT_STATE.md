@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000252
+**Save sequence:** 000253
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCI: Elys verifies he can make potentially near-infinite misleading yet truthful statements with his pen; Garrick formulates the Somion Paradox and Seraphine asks his purpose.
-**Latest record:** [000252](turns/000252.md)
+**Story endpoint:** Chapter CXCII: Elys verifies pen-written claims about a wife ‘in real life’ and the characters' inability to comprehend that referent; Clarissa asks if she should be jealous.
+**Latest record:** [000253](turns/000253.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys writes **“I’m capable of saying a potentially near infinite number of statements that are questionable or misleading with this pen”** and the truth-verifying ink glows **TRUE**. This verifies his capability to produce countless narrow truthful yet misleading statements, not any arbitrary false claim. Garrick and Seraphine discuss truth versus completeness and contextual implications. Garrick coins **“The Somion Paradox: When Perfectly True Statements Produce Imperfect Understanding.”** Clarissa sees the significance for Elys's evasions; Celeste is amused. **Seraphine has just asked Elys:** “Is the purpose of this demonstration to expose the pen's limitations, or to demonstrate how effectively you can exploit them?” Elys has not answered. Prior findings stand: Elys's subjective opinion that humans are an inferior species and his own human identity both pen-verified true, without clarified moral or taxonomic implications. Clarissa still lacks explicit knowledge of Elys's earlier divine marriage with Celeste and of the source of her gifted strength. Elys knows correct answer but genuinely cannot recall material circumstances of marriage. Celeste wearing formal SSS attire with alternate gifts boxed. Both certified, celebration pending. [Turn 000252](turns/000252.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys used his magical truth pen to write **“My wife in real life calls this fae talking”**, verified **TRUE**, and **“Don’t ask what in real life means, you literally wouldn’t be able to understand”**, also **TRUE** after a briefly impossible color/shadow effect. His terms point to a referent beyond the characters' in-world ontological understanding; nobody knows the identity of a wife beyond the story's realm, or what ‘real life’ means, and no external user facts have been introduced as in-world canon. Garrick calls this a second-order Somion Paradox; Seraphine notes literal truth without explanatory context. Celeste is delighted by the phrase ‘fae talking’. Clarissa reacts to the mention of another wife and now directly asks Elys **“Is this mysterious wife someone I should be jealous of?”** Unanswered. Elys's prior divine marriage with Celeste has not been explicitly disclosed to Clarissa. She does not know the origin of her bestowed strength. Elys knows answer to the prior marriage inquiry but lacks episodic memory of its material circumstances, as pen-verified. Elys and Celeste both SSS certified; Celeste wears formal uniform, other gifts boxed. Celebration pending. [Turn 000253](turns/000253.md).
 
 ## Examination ledger
 
