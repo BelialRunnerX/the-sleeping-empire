@@ -1,15 +1,17 @@
 # Current Story State
 
-**Save sequence:** 000266
+**Save sequence:** 000241
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CCV: Elys conclusively ends the encounter with Celeste; the examiners and Clarissa react, and Clarissa again requests a clear answer about his romantic commitment.
-**Latest record:** [000266](turns/000266.md)
+**Story endpoint:** Chapter CLXXX: Elys restores the Annex and everyone's clothing; Clarissa asks what history he shares with Celeste, and he has not answered.
+**Latest record:** [000241](turns/000241.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys has now **completed the intimate encounter with Celeste**. The narrator directly acknowledges its conclusion but omits explicit sexual anatomy/mechanics. Celeste is flushed, breathing unevenly, disheveled and steadies herself, smiling and joking about the emphatic conclusion. Garrick freezes, Seraphine faces away, and Clarissa is upset by the public spectacle and the lack of a direct answer from Elys. Celeste agrees the setting was inappropriate. **Clarissa now asks Elys whether he actually intends to treat her as the primary romantic partner he says he wants.** Elys has not answered. **Intimacy is over**; do not presume further sexual action or automatically restore garments. Future retcon not performed. Clarissa knows about Elys and Celeste's past divine marriage but not the source of her extraordinary strength. Elys and Celeste both SSS-certified; celebration pending, examiners still present. [Turn 000266](turns/000266.md).
+**## Resume at this exact beat
+
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Assessment Annex.** Elys has just snapped his fingers to restore the examination facility and everyone's clothing. Celeste wears her pristine formal white-and-black Imperial SSS uniform and keeps the alternative gifts (corset, stockings, garters, collar, leash) in a gift case. Garrick's stylus, facility equipment and physical damage are restored, but examination records remain intact. Celeste and Elys are both independently SSS certified; the celebration has not started. **Clarissa asks Elys what his history with Celeste is. Elys has not yet answered.** Clarissa does not know that Elys and Celeste previously shared a secret divine marriage or that Elys bestowed her enormous physical might. **No enchanted truth-testing pen has appeared in this timeline.** No subsequent intimacy, disclosures, meta-story discussions, intended retcon declarations, or later scenes occurred in this active continuity. Elys has not yet accepted or used the gifted leash; it is stored with Celeste's gifts. Continue from the end of [turn 000241](turns/000241.md) and retain existing lore from prior turns.
 
 ## Examination ledger
 
