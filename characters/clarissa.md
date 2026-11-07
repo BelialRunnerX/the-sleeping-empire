@@ -1,11 +1,11 @@
 # Clarissa Somnion
 
-**Role:** **Wife of Elys** · Empress of Andromeda  
+**Role:** **Fiancée of Elys** · Empress of Andromeda  
 **Reference state:** Chapter CXXXVI · continuity corrected 2026-11-06
 
 Independent sovereign owner of Andromeda, loving partner, and Bellweather commercial negotiator.
 
-**LATEST PLAYER CANON CORRECTION:** Elys and Clarissa are **married**. Any older references to fiancée are superseded; the ceremony's date/details have not been supplied. [Canon record](../saves/canon/clarissa-married-celeste-elys-dynamic.md).
+**LATEST PLAYER CANON CORRECTION:** Clarissa is **Elys's fiancée, NOT his wife**. The player's brief reference to marriage was mistaken and subsequently corrected explicitly. Their wedding has NOT occurred. [Corrected canon](../saves/canon/clarissa-married-celeste-elys-dynamic.md).
 
 ## Profile
 
