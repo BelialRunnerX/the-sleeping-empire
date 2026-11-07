@@ -76,6 +76,36 @@ try {
   );
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(artifacts, "world.png") });
+  // Exercise the new disciplines through the player UI, including actual impact.
+  await page.keyboard.press("h");
+  await page.getByRole("button", { name: "RECRUIT SORA · FREE" }).click();
+  await page.locator('[data-hero="sora"]').click();
+  await page.keyboard.press("Escape");
+  await page
+    .locator('[data-skill="strike"][title*="Moonstring volley"]')
+    .waitFor();
+  await page.locator('[data-skill="strike"]').click();
+  await page
+    .locator("#world-labels .floating")
+    .first()
+    .waitFor({ state: "attached" });
+  await page.screenshot({ path: resolve(artifacts, "bow-training.png") });
+  await page.keyboard.press("h");
+  await page.locator('[data-hero="mira"]').click();
+  await page.keyboard.press("Escape");
+  await page.locator('[data-skill="strike"][title*="Aether bolt"]').waitFor();
+  await page.waitForTimeout(650);
+  await page.locator('[data-skill="strike"]').click();
+  await page.keyboard.press("k");
+  await page.locator("#damage-inspector").waitFor();
+  assert.match(
+    await page.locator("#damage-inspector").innerText(),
+    /Physical hits meet armor/,
+  );
+  await page.screenshot({ path: resolve(artifacts, "combat-builds.png") });
+  await page.getByRole("button", { name: "Heroes", exact: true }).click();
+  await page.locator('[data-hero="kael"]').click();
+  await page.keyboard.press("Escape");
   await page.keyboard.down("d");
   await page.waitForFunction(
     () =>
@@ -109,6 +139,9 @@ try {
   await page
     .locator('[data-link-skill="lance"][data-link-index="0"]')
     .selectOption("swift");
+  await page
+    .locator('[data-link-skill="lance"][data-link-index="1"]')
+    .selectOption("chain");
   await page.keyboard.press("Escape");
   await page.keyboard.press("p");
   await page.locator('[data-passive="blade1"]').click();
@@ -146,6 +179,8 @@ try {
     JSON.parse(localStorage.getItem("astral_empire_profile_browser-test_v3")),
   );
   assert.equal(saved.links.lance[0], "swift");
+  assert.equal(saved.links.lance[1], "chain");
+  assert.ok(saved.heroes.includes("sora"));
   assert.ok(saved.passives.includes("blade1"));
   assert.ok(saved.position.z < 6);
   await page.reload();

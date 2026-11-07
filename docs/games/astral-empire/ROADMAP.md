@@ -2,16 +2,16 @@
 
 ## Current milestone
 
-Playable solo action-RPG region with an actual third-person WebGL view and a compiled C++ numeric module. Combat, character builds, equipment, lifeskills, crafting, heroes, and local persistence are connected. This release establishes architecture and a testable play loop; it is not a completed MMO or a Path of Exile-sized game.
+Playable solo action-RPG region with an actual third-person WebGL view and a compiled C++ numeric module. Version 3.1 adds blade/bow/staff disciplines, travelling projectiles, delayed echoes, piercing/chaining, typed damage/resistance, mechanical reactions, four enemy archetypes and a two-phase Warden. Combat, character builds, equipment, lifeskills, crafting, heroes, and local persistence are connected. This remains a foundation rather than a completed MMO or a Path of Exile-sized content library.
 
 ## 1. Combat identity and build depth
 
-- Give blade, bow, and staff heroes distinct attack movesets, hitboxes, animation timings, and resource mechanics. Current visual weapons share the basic melee combo.
-- Split attack/spell/physical/elemental scaling, critical damage, resistance, penetration, ailment buildup, armor, guard, evasion, stagger, and crowd-control immunity into explicit stat layers.
-- Replace current reaction bonus with element-specific effects and damage-over-time interactions. Add real chained, forked, piercing, repeated, triggered, and channeled skill behaviors.
+- Extend the implemented blade/bow/staff mechanics with rigged animation timing, charge attacks, hero-specific active abilities, parries, and animation cancellation rules.
+- Extend the implemented typed damage, resistance, penetration and ailment layers with guard, evasion, buildup thresholds, crowd-control immunity and inspectable defensive sources.
+- Add forked, triggered and channeled skills to the implemented travelling, piercing, chained and delayed-repeat behaviors. Expand reactions beyond their current timed effects.
 - Add more socket colors, support drop/crafting progression, skill levels, alternate skill forms, weapon requirements, and inspectable damage breakdowns.
 - Expand the 30-node constellation with branching crosslinks, class starts, ascendancies, mastery choices, keystone constraints, and build import/export. Keep every new node mechanically tested.
-- Add enemy archetypes, resistance profiles, elite affixes, bosses with distinct phases, readable telegraphs, interrupt rules, and dungeon encounters.
+- Add elite affixes, additional resistance profiles, richer boss phases, interrupt rules, scenery/projectile occlusion, and dungeon encounters to the existing stalker/sentinel/archer/oracle roster.
 
 ## 2. Lifeskills as an equipment economy
 

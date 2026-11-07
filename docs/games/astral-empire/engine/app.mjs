@@ -23,6 +23,8 @@ import {
   claimQuest,
   summon,
   Simulation,
+  hitBreakdown,
+  recruitScout,
   clamp,
 } from "./simulation.mjs";
 import { loadNative, numeric } from "./native.mjs";
@@ -116,6 +118,7 @@ function buildView() {
   if (view) view.dispose();
   sim = new Simulation(state);
   view = new WorldView($("world"), state, sim);
+  if (playing) renderBar();
 }
 function landing() {
   playing = false;
@@ -133,7 +136,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3 · Aetherbound</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.1 · Weapon Disciplines</span></footer>`;
 }
 function enter(create) {
   try {
@@ -158,10 +161,12 @@ function enter(create) {
 }
 function renderBar() {
   $("skillbar").innerHTML =
-    SKILLS.map(
-      (s) =>
-        `<button class="skill" data-skill="${s.id}" title="${escape(s.name)} · ${s.cost} mana"><span>${s.icon}</span><small>${s.key}</small><i class="cooldown" id="cd-${s.id}"></i><b class="cooldown-text" id="ct-${s.id}"></b></button>`,
-    ).join("") +
+    SKILLS.map((base) => skillStats(state, base.id))
+      .map(
+        (s) =>
+          `<button class="skill" data-skill="${s.id}" title="${escape(s.name)} · ${s.cost} mana"><span>${s.icon}</span><small>${s.key}</small><i class="cooldown" id="cd-${s.id}"></i><b class="cooldown-text" id="ct-${s.id}"></b></button>`,
+      )
+      .join("") +
     `<button class="skill potion" data-action="potion" title="Restorative draught [F]"><span>♧</span><small id="potion-count">F · ${state.resources.potions}</small><i class="cooldown" id="cd-potion"></i><b class="cooldown-text" id="ct-potion"></b></button>`;
 }
 function updateHUD() {
@@ -170,7 +175,8 @@ function updateHUD() {
     hero = HEROES.find((h) => h.id === state.hero);
   $("hero-name").textContent = hero.name;
   $("hero-glyph").textContent = hero.name[0];
-  $("class-name").textContent = hero.role.toUpperCase();
+  $("class-name").textContent =
+    hero.role.toUpperCase() + " · " + hero.weapon.toUpperCase();
   $("level").textContent = "LV. " + state.level;
   $("life-fill").style.width = clamp((p.hp / st.life) * 100, 0, 100) + "%";
   $("life-text").textContent = fmt(p.hp) + " / " + fmt(st.life);
@@ -197,19 +203,36 @@ function updateHUD() {
   const target = sim.locked?.hp > 0 ? sim.locked : sim.nearest(16);
   $("target-hud").hidden = !target;
   if (target) {
-    $("target-name").textContent = target.boss
-      ? "THE SLEEPING WARDEN"
-      : "Hollowborn · Lv. " + target.level;
+    $("target-name").textContent =
+      target.name +
+      (target.enraged ? " · AWAKENED" : "") +
+      " · Lv. " +
+      target.level;
     $("target-life").style.width =
       clamp((target.hp / target.max) * 100, 0, 100) + "%";
+    const intent = {
+      arrow: "PINNING SHOT · SIDESTEP",
+      eruption: "ERUPTION · LEAVE THE CIRCLE",
+      storm: "STAR STORM · EVADE THE BOLTS",
+      claw: "SHADOW CLAW · EVADE",
+      cleave: "CHARGED CLEAVE · EVADE",
+    };
+    const ailments = [
+      target.burnTime > 0 ? "BURNING" : "",
+      target.chill > 0 ? "CHILLED" : "",
+      target.shock > 0 ? "SHOCKED" : "",
+      target.expose > 0 ? "EXPOSED" : "",
+      target.weaken > 0 ? "WEAKENED" : "",
+    ].filter(Boolean);
     $("target-intent").textContent =
-      target.phase === "windup"
-        ? "CHARGED STRIKE · EVADE"
+      (target.phase === "windup"
+        ? intent[target.move]
         : target.phase === "recover"
-          ? "EXPOSED · STRIKE NOW"
+          ? "RECOVERING · STRIKE NOW"
           : sim.locked === target
             ? "TARGET LOCKED"
-            : "Q · LOCK TARGET";
+            : "Q · LOCK TARGET") +
+      (ailments.length ? " / " + ailments.join(" · ") : "");
   }
   const objective = QUESTS.find((q) => !state.claimed.includes(q.id));
   if (objective) {
@@ -310,6 +333,10 @@ function statBoxes() {
     ["MANA", fmt(s.mana)],
     ["HIT POWER", fmt(s.power * (1 + s.damage))],
     ["ARMOR", fmt(s.armor)],
+    ["ATTACK INCREASE", Math.round((s.damage + s.attackDamage) * 100) + "%"],
+    ["SPELL INCREASE", Math.round((s.damage + s.spellDamage) * 100) + "%"],
+    ["ELEMENTAL INCREASE", Math.round(s.elementalDamage * 100) + "%"],
+    ["ELEMENTAL RESISTANCE", Math.round(s.resistance * 100) + "%"],
     ["CRITICAL CHANCE", Math.round(s.crit * 100) + "%"],
     ["CRITICAL MULTIPLIER", Math.round(s.critMultiplier * 100) + "%"],
     ["PENETRATION", Math.round(s.penetration * 100) + "%"],
@@ -331,37 +358,46 @@ function inventory() {
       .join("")}</div><div class="grid-3">${state.items
       .map((i) => {
         const equipped = state.equipped[i.slot] === i.id;
-        return `<article class="card ${equipped ? "selected" : ""}"><div class="row spread"><span class="tag ${i.rarity}">${i.rarity.toUpperCase()} ${i.slot.toUpperCase()}</span><span class="small muted">ILVL ${i.level}</span></div><h3 class="${i.rarity}" style="margin-top:12px">${escape(i.name)} ${i.quality ? "+" + i.quality : ""}</h3><p>${Math.round(i.base * (1 + i.quality * 0.04))} base ${i.slot === "weapon" ? "hit power" : i.slot === "armor" ? "armor" : "mana"}</p>${i.affixes.map((a) => `<div class="affix">+${a.value < 1 ? Math.round(a.value * 100) + "%" : Math.round(a.value)} ${escape(a.stat)}</div>`).join("")}<div class="item-actions"><button data-item="${i.id}" data-item-action="equip" ${equipped ? "disabled" : ""}>${equipped ? "EQUIPPED" : "EQUIP"}</button><button data-item="${i.id}" data-item-action="temper" ${state.resources.cobalt < 2 || state.gold < 50 || i.quality >= 20 ? "disabled" : ""}>TEMPER · 2 cobalt + 50g</button><button data-item="${i.id}" data-item-action="reroll" ${!state.resources.essence ? "disabled" : ""}>RESHAPE · 1 essence</button><button data-item="${i.id}" data-item-action="salvage" ${equipped ? "disabled" : ""}>SALVAGE</button></div></article>`;
+        return `<article class="card ${equipped ? "selected" : ""}"><div class="row spread"><span class="tag ${i.rarity}">${i.rarity.toUpperCase()} ${i.slot.toUpperCase()}</span><span class="small muted">ILVL ${i.level}</span></div><h3 class="${i.rarity}" style="margin-top:12px">${escape(i.name)} ${i.quality ? "+" + i.quality : ""}</h3><p>${Math.round(i.base * (1 + i.quality * 0.04))} base ${i.slot === "weapon" ? "hit power" : i.slot === "armor" ? "armor" : "mana"}</p>${i.affixes.map((a) => `<div class="affix">+${a.value < 1 ? Math.round(a.value * 100) + "%" : Math.round(a.value)} ${escape(a.stat.replace(/([A-Z])/g, " $1").toLowerCase())}</div>`).join("")}<div class="item-actions"><button data-item="${i.id}" data-item-action="equip" ${equipped ? "disabled" : ""}>${equipped ? "EQUIPPED" : "EQUIP"}</button><button data-item="${i.id}" data-item-action="temper" ${state.resources.cobalt < 2 || state.gold < 50 || i.quality >= 20 ? "disabled" : ""}>TEMPER · 2 cobalt + 50g</button><button data-item="${i.id}" data-item-action="reroll" ${!state.resources.essence ? "disabled" : ""}>RESHAPE · 1 essence</button><button data-item="${i.id}" data-item-action="salvage" ${equipped ? "disabled" : ""}>SALVAGE</button></div></article>`;
       })
       .join("")}</div>`
   );
 }
 function skills() {
-  return `<p class="small muted">Link up to two different supports to each skill. Matching tags determine compatibility. Mana, cooldowns, area, and damage update immediately.</p><div class="grid-2">${SKILLS.map(
-    (skill) => {
-      const modified = skillStats(state, skill.id);
-      return `<article class="card"><div class="row spread"><h3>${skill.icon} ${skill.name}</h3><span class="tag">${skill.key}</span></div><p>${skill.description}</p><div class="row">${skill.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div><p>${Math.round(modified.cost)} mana · ${modified.cooldown.toFixed(2)}s cooldown · ${Math.round(modified.power * modified.damage * 100)}% power · ${modified.radius.toFixed(1)}m radius</p>${
-        skill.id !== "strike"
-          ? `<div class="support-row">${[0, 1]
-              .map(
-                (i) =>
-                  `<label>SUPPORT SOCKET ${i + 1}<select data-link-skill="${skill.id}" data-link-index="${i}">${SUPPORTS.filter(
+  const st = stats(state),
+    hero = HEROES.find((h) => h.id === state.hero);
+  const last = sim.lastHit;
+  return `<p class="small muted">Weapon discipline: ${hero.weapon.toUpperCase()}. Blade attacks cleave, bows fire arrows, and staves cast bolts. Link two different compatible supports to active skills.</p>
+  <div class="card small" id="damage-inspector"><b>Combat breakdown</b><p>Physical hits meet armor. Elemental hits meet resistance, capped at 75%. An enemy resists its own element by an extra 20%. Skill previews below use a target with 30 armor and 20% resistance; critical hits, ailments, echoes and reactions are shown separately.</p>${last ? `<p>Last ${escape(last.source)}${last.echo ? " echo" : " hit"} on ${escape(last.target)}: ${fmt(last.physical)} physical + ${fmt(last.elemental)} ${escape(last.element)} before reaction · ${fmt(last.total)} final damage${last.critical ? " · CRITICAL" : ""}${last.reaction ? " · " + escape(last.reaction) : ""}</p>` : "<p>Strike a foe to inspect your last actual hit.</p>"}</div>
+  <div class="grid-2" style="margin-top:12px">${SKILLS.map((base) => {
+    const skill = skillStats(state, base.id),
+      element = skill.element || hero.element,
+      preview = hitBreakdown(
+        skill,
+        st,
+        { armor: 30, resistance: 0.2 },
+        element,
+      );
+    return `<article class="card"><div class="row spread"><h3>${skill.icon} ${skill.name}</h3><span class="tag">${skill.key}</span></div><p>${skill.description}</p><div class="row">${skill.tags.map((t) => `<span class="tag">${t}</span>`).join("")}<span class="tag">${element}</span></div><p>${Math.round(skill.cost)} mana · ${skill.cooldown.toFixed(2)}s cooldown · ${skill.range || skill.radius}m reach</p><p class="affix">${fmt(preview.physical)} physical + ${fmt(preview.elemental)} elemental · ~${fmt(preview.total)} combined first-hit preview</p>${
+      skill.id !== "strike"
+        ? `<div class="support-row">${[0, 1]
+            .map(
+              (i) =>
+                `<label>SUPPORT SOCKET ${i + 1}<select data-link-skill="${skill.id}" data-link-index="${i}">${SUPPORTS.filter(
+                  (s) => !s.tags || s.tags.some((t) => skill.tags.includes(t)),
+                )
+                  .map(
                     (s) =>
-                      !s.tags || s.tags.some((t) => skill.tags.includes(t)),
+                      `<option value="${s.id}" ${(state.links[skill.id]?.[i] || "none") === s.id ? "selected" : ""}>${s.name}</option>`,
                   )
-                    .map(
-                      (s) =>
-                        `<option value="${s.id}" ${(state.links[skill.id]?.[i] || "none") === s.id ? "selected" : ""}>${s.name}</option>`,
-                    )
-                    .join("")}</select></label>`,
-              )
-              .join(
-                "",
-              )}</div><div class="support-notes">${modified.supports.map((name) => SUPPORTS.find((s) => s.name === name)?.desc).join("<br>") || "No support linked."}</div>`
-          : '<p class="support-notes">Weapon combo cannot be linked. Its third hit staggers enemies and deals 55% more damage.</p>'
-      }</article>`;
-    },
-  ).join("")}</div>`;
+                  .join("")}</select></label>`,
+            )
+            .join(
+              "",
+            )}</div><div class="support-notes">${skill.supports.map((name) => SUPPORTS.find((s) => s.name === name)?.desc).join("<br>") || "No support linked."}</div>`
+        : '<p class="support-notes">The weapon combo is innate. Change heroes to change its mechanics.</p>'
+    }</article>`;
+  }).join("")}</div>`;
 }
 function constellation() {
   return `<div class="row spread"><p class="small muted">Follow connected paths from the center. Click a node to allocate; click an allocated leaf to refund it freely.</p><span class="tag">${state.level + 3 - state.passives.length} POINTS AVAILABLE</span></div><div class="talent-view"><svg viewBox="-360 -350 720 700" role="img" aria-label="Passive constellation">${PASSIVES.filter(
@@ -406,13 +442,14 @@ function workshop() {
   )}</div><div class="card" style="margin-top:12px"><h3>Field provisions</h3><p>Food grants +60 maximum life and +35% recovery for 15 minutes. Draughts recover 45% maximum life with a 12-second cooldown.</p><button data-action="eat" ${state.resources.meal < 1 ? "disabled" : ""}>EAT MOONFIN FEAST (${state.resources.meal})</button></div>`;
 }
 function heroes() {
-  return `<div class="row spread"><p class="small muted">${state.heroes.length}/12 heroes · ${state.crystals} crystals · ${state.tickets} summon tickets · 5★ pity ${state.pity}/40</p><button class="gold-button" data-action="summon" ${state.tickets < 1 && state.crystals < 160 ? "disabled" : ""}>SUMMON · ${state.tickets ? "1 TICKET" : "160 CRYSTALS"}</button></div><p class="small muted">Switch heroes in the sanctuary or out of combat. Their signature trait changes your build. Duplicate summons grant two transmutation essences.</p><div class="grid-3">${HEROES.map(
-    (h) => {
-      const owned = state.heroes.includes(h.id),
-        active = state.hero === h.id;
-      return `<article class="card ${active ? "selected" : ""}"><div class="row spread"><span class="icon" style="color:${h.color}">✧</span><span class="tag">${h.element.toUpperCase()}</span></div><h3>${h.name}</h3><p>${h.title} · ${h.role}</p><p>${h.perk}</p><button data-hero="${h.id}" ${!owned || active ? "disabled" : ""}>${active ? "ACTIVE HERO" : owned ? "TAKE THE FIELD" : "NOT RECRUITED"}</button></article>`;
-    },
-  ).join("")}</div>`;
+  return `<div class="row spread"><p class="small muted">${state.heroes.length}/12 heroes · ${state.crystals} crystals · ${state.tickets} summon tickets · 5★ pity ${state.pity}/40</p><button class="gold-button" data-action="summon" ${state.tickets < 1 && state.crystals < 160 ? "disabled" : ""}>SUMMON · ${state.tickets ? "1 TICKET" : "160 CRYSTALS"}</button></div>
+ ${!state.heroes.includes("sora") ? '<div class="card"><h3>Field training: a bow for the frontier</h3><p>Recruit Sora at no cost in the sanctuary to try the bow discipline. This one-time grant is available to existing profiles too.</p><button data-action="training">RECRUIT SORA · FREE</button></div>' : ""}
+ <p class="small muted">Switch heroes out of combat. Try every discipline on the training effigy west of the waygate. It gives no kill rewards. Hero traits, elemental identity and weapon movesets change your build.</p>
+ <div class="grid-3">${HEROES.map((h) => {
+   const owned = state.heroes.includes(h.id),
+     active = state.hero === h.id;
+   return `<article class="card ${active ? "selected" : ""}"><div class="row spread"><span class="icon" style="color:${h.color}">✧</span><span class="tag">${h.element.toUpperCase()} · ${h.weapon.toUpperCase()}</span></div><h3>${h.name}</h3><p>${h.title} · ${h.role}</p><p>${h.perk}</p><button data-hero="${h.id}" ${!owned || active ? "disabled" : ""}>${active ? "ACTIVE HERO" : owned ? "TAKE THE FIELD" : "NOT RECRUITED"}</button></article>`;
+ }).join("")}</div>`;
 }
 function journal() {
   return `<div class="grid-2">${QUESTS.map((q) => {
@@ -453,6 +490,7 @@ function combatSafe() {
   return !sim.enemies.some(
     (e) =>
       e.hp > 0 &&
+      !e.training &&
       e.phase !== "idle" &&
       Math.hypot(e.x - sim.player.x, e.z - sim.player.z) < 18,
   );
@@ -573,6 +611,7 @@ document.addEventListener("click", (e) => {
     if (state.heroes.includes(n.dataset.hero)) {
       state.hero = n.dataset.hero;
       view.setHero();
+      renderBar();
       save();
       openPanel("heroes");
     }
@@ -616,6 +655,18 @@ document.addEventListener("click", (e) => {
         openPanel("crafting");
       }
       break;
+    case "training": {
+      if (Math.hypot(sim.player.x, sim.player.z) >= 14) {
+        notify("Visit the sanctuary to recruit your training scout.");
+        break;
+      }
+      if (recruitScout(state)) {
+        save();
+        openPanel("heroes");
+        notify("Sora joins your roster. Select her to try travelling arrows.");
+      }
+      break;
+    }
     case "summon": {
       const h = summon(state);
       if (h) {
@@ -824,7 +875,7 @@ function handleEvents() {
       setTimeout(() => flash.remove(), 450);
       sound(100);
     }
-    if (event.type === "loot") notify(event.text);
+    if (event.type === "loot" || event.type === "enrage") notify(event.text);
     if (event.type === "kill") {
       if (event.levels)
         notify(

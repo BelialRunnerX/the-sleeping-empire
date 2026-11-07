@@ -23,5 +23,25 @@ __attribute__((export_name("resolve_damage"))) double resolve_damage(double base
     // Armor is weaker against large hits, creating a meaningful mitigation tradeoff.
     return hit * (1.0 - effective / (effective + 8.0 * hit + 1.0));
 }
-__attribute__((export_name("abi_version"))) int abi_version() { return 1; }
+__attribute__((export_name("element_damage"))) double element_damage(double amount, double resistance, double penetration) {
+    double effective = resistance - penetration;
+    if (effective < -0.5) effective = -0.5;
+    if (effective > 0.75) effective = 0.75;
+    return amount * (1.0 - effective);
+}
+// Earliest collision fraction along a swept projectile segment, or -1 on miss.
+// Sweeping prevents a fast projectile tunnelling through a target at low FPS.
+__attribute__((export_name("segment_hit"))) double segment_hit(double ax, double az, double bx, double bz, double cx, double cz, double radius) {
+    double dx = bx - ax, dz = bz - az, fx = ax - cx, fz = az - cz;
+    double c = fx * fx + fz * fz - radius * radius;
+    if (c <= 0.0) return 0.0;
+    double a = dx * dx + dz * dz;
+    if (a <= 0.0) return -1.0;
+    double b = 2.0 * (fx * dx + fz * dz);
+    double discriminant = b * b - 4.0 * a * c;
+    if (discriminant < 0.0) return -1.0;
+    double t = (-b - __builtin_sqrt(discriminant)) / (2.0 * a);
+    return t >= 0.0 && t <= 1.0 ? t : -1.0;
+}
+__attribute__((export_name("abi_version"))) int abi_version() { return 2; }
 }

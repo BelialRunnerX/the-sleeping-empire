@@ -25,7 +25,7 @@ Parity tests instantiate the compiled C++ WebAssembly module and check the refer
 
 The procedural 3D terrain, stylized character/environment meshes, animation, camera, combat state machine, enemy AI, damage/armor formula, skills/supports, constellation graph, affixed equipment, mastery progression, gathering channels, crafting recipes, minimap, UI, local profiles, versioned saves, and migration are Aetherbound implementations. Elysium inspired their sandbox role; they are not source ports.
 
-The C++ world hash and damage exports are also new code. Entity simulation and persistence still run in JavaScript. The native module currently covers four numeric operations rather than a complete game engine.
+The C++ world hash, damage, elemental mitigation and swept-collision exports are new code. Entity simulation and persistence still run in JavaScript. Native ABI 2 covers six numeric operations. The 3.1 weapon disciplines, projectile chains/echoes, timed reactions and enemy archetypes are browser-native additions, not Elysium source ports.
 
 ## Not ported
 

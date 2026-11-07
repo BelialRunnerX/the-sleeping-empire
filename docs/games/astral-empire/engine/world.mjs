@@ -77,6 +77,7 @@ export class WorldView {
     this.distance = 9;
     this.nodes = [];
     this.foes = new Map();
+    this.projectileMeshes = new Map();
     this.effects = [];
     this.moving = false;
     this.scene.add(new T.HemisphereLight(0xf1efff, 0x344d46, 2.6));
@@ -478,13 +479,34 @@ export class WorldView {
       [34, -28],
     ];
     points.forEach(([x, z], i) =>
-      this.sim.spawn(this.state.realm + "-hollow-" + i, x, z),
+      this.sim.spawn(
+        this.state.realm + "-hollow-" + i,
+        x,
+        z,
+        false,
+        ["stalker", "sentinel", "archer", "oracle"][i % 4],
+      ),
     );
     this.sim.spawn(this.state.realm + "-warden", 0, -48, true);
+    this.sim.spawn(this.state.realm + "-training", -4, -3, false, "training");
     for (const e of this.sim.enemies) {
       const g = new T.Group();
-      const dark = e.boss ? 0x454866 : 0x666379,
-        glow = e.boss ? 0xe5b76b : 0xc6a3ed;
+      const dark = e.training
+          ? 0x92775b
+          : e.boss
+            ? 0x454866
+            : e.archetype === "sentinel"
+              ? 0x506b7b
+              : e.archetype === "archer"
+                ? 0x527868
+                : e.archetype === "oracle"
+                  ? 0x875167
+                  : 0x666379,
+        glow = e.boss
+          ? 0xe5b76b
+          : e.archetype === "oracle"
+            ? 0xffb080
+            : 0xc6a3ed;
       mesh(g, "cone", dark, 0, 1.05, 0, 0.55, 1.8, 6);
       mesh(g, "sphere", dark, 0, 2, 0, 0.4);
       for (const x of [-0.16, 0.16]) {
@@ -496,6 +518,21 @@ export class WorldView {
       const crown = mesh(g, "cone", glow, 0, 2.65, 0, 0.27, 0.6, 4);
       crown.material = mat(glow, 0.3);
       if (e.boss) g.scale.setScalar(1.7);
+      if (e.archetype === "sentinel")
+        mesh(g, "box", 0x8ca7b2, -0.65, 1.2, 0.3, 0.75, 1.3, 0.18);
+      if (e.archetype === "archer") {
+        const bow = new T.Mesh(
+          new T.TorusGeometry(0.65, 0.05, 6, 24, Math.PI),
+          mat(0xc6b685),
+        );
+        bow.position.set(0.6, 1.4, 0.2);
+        bow.rotation.z = Math.PI / 2;
+        g.add(bow);
+      }
+      if (e.archetype === "oracle") {
+        const orb = mesh(g, "sphere", 0xfbb28b, 0.7, 1.7, 0.3, 0.23);
+        orb.material = mat(0xfbb28b, 0.7);
+      }
       const telegraph = new T.Mesh(
         new T.RingGeometry(0.1, e.boss ? 6 : 3.3, 48),
         new T.MeshBasicMaterial({
@@ -507,9 +544,19 @@ export class WorldView {
         }),
       );
       telegraph.rotation.x = -Math.PI / 2;
+      const aim = new T.Mesh(
+        new T.BoxGeometry(0.35, 0.025, 1),
+        new T.MeshBasicMaterial({
+          color: 0xffbd8c,
+          transparent: true,
+          opacity: 0.5,
+          depthWrite: false,
+        }),
+      );
+      this.scene.add(aim);
       this.scene.add(telegraph);
       this.scene.add(g);
-      this.foes.set(e.id, { mesh: g, telegraph });
+      this.foes.set(e.id, { mesh: g, telegraph, aim });
     }
   }
   setHero() {
@@ -542,13 +589,19 @@ export class WorldView {
     };
   }
   skillFX(event) {
+    this.character.userData.attack = 0.35;
+    if (event.projectile) return;
     const g = new T.Group();
     g.position.set(
       event.x,
       ground(event.x, event.z, this.state.realm) + 0.3,
       event.z,
     );
-    const c = event.id === "strike" ? 0xffdcad : 0xc7b1ff;
+    const c = event.echo
+      ? 0x96dfea
+      : event.id === "strike"
+        ? 0xffdcad
+        : 0xc7b1ff;
     const ring = new T.Mesh(
       new T.TorusGeometry(
         event.id === "strike" ? 2 : event.radius,
@@ -566,19 +619,6 @@ export class WorldView {
     );
     ring.rotation.x = -Math.PI / 2;
     g.add(ring);
-    if (event.id === "lance") {
-      const beam = new T.Mesh(
-        new T.ConeGeometry(0.3, 12, 6),
-        new T.MeshBasicMaterial({
-          color: 0xc4dbff,
-          transparent: true,
-          opacity: 0.7,
-        }),
-      );
-      beam.rotation.x = Math.PI / 2;
-      beam.position.z = 6;
-      g.add(beam);
-    }
     g.rotation.y = event.facing;
     this.scene.add(g);
     this.effects.push({ mesh: g, life: 0.5, max: 0.5 });
@@ -602,6 +642,13 @@ export class WorldView {
       c.userData.attack > 0
         ? -1.4 + Math.sin(c.userData.attack * 14) * 1.6
         : stride * 0.6;
+    const weapon = HEROES.find((h) => h.id === this.state.hero).weapon;
+    if (c.userData.attack > 0 && weapon === "bow") {
+      c.arms[0].rotation.x = -1.3;
+      c.arms[1].rotation.x = -1.1;
+    }
+    if (c.userData.attack > 0 && weapon === "staff")
+      c.arms[1].rotation.x = -1.4;
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
     const target = new T.Vector3(p.x, terrainY + 1.4, p.z);
     const offset = new T.Vector3(
@@ -631,14 +678,64 @@ export class WorldView {
         e.z,
       );
       v.mesh.rotation.y = Math.atan2(p.x - e.x, p.z - e.z);
-      v.telegraph.position.set(
-        e.x,
-        ground(e.x, e.z, this.state.realm) + 0.08,
-        e.z,
-      );
-      v.telegraph.visible = e.phase === "windup" && e.hp > 0;
-      v.telegraph.material.opacity = 0.15 + (0.8 - e.timer) * 0.3;
+      const aimed = e.move === "eruption",
+        tx = aimed ? e.aimX : e.x,
+        tz = aimed ? e.aimZ : e.z;
+      v.telegraph.position.set(tx, ground(tx, tz, this.state.realm) + 0.08, tz);
+      v.telegraph.visible =
+        e.phase === "windup" && e.hp > 0 && e.move !== "arrow";
+      v.telegraph.scale.setScalar(aimed ? 3.5 / 3.3 : 1);
+      v.telegraph.material.opacity =
+        0.15 + (1 - e.timer / (e.windupDuration || 1)) * 0.45;
+      v.aim.visible = e.phase === "windup" && e.move === "arrow" && e.hp > 0;
+      if (v.aim.visible) {
+        const d = Math.hypot(e.aimX - e.x, e.aimZ - e.z);
+        v.aim.position.set(
+          (e.x + e.aimX) / 2,
+          ground(e.x, e.z, this.state.realm) + 0.1,
+          (e.z + e.aimZ) / 2,
+        );
+        v.aim.scale.z = d;
+        v.aim.rotation.y = Math.atan2(e.aimX - e.x, e.aimZ - e.z);
+      }
+      if (e.boss) v.mesh.scale.setScalar(e.enraged ? 1.85 : 1.7);
     }
+    const activeShots = new Set();
+    for (const shot of this.sim.projectiles) {
+      activeShots.add(shot.id);
+      let g = this.projectileMeshes.get(shot.id);
+      if (!g) {
+        g = new T.Group();
+        const enemy = shot.faction === "enemy",
+          arrow = enemy
+            ? shot.element === "Physical"
+            : shot.cast.skill.weapon === "bow",
+          tint = enemy ? 0xff9c7f : arrow ? 0xffe0ad : 0xc0b4ff;
+        if (arrow) {
+          mesh(g, "box", tint, 0, 0, 0, 0.06, 0.06, 0.9);
+          const tip = mesh(g, "cone", tint, 0, 0, 0.55, 0.15, 0.4, 4);
+          tip.rotation.x = Math.PI / 2;
+        } else {
+          const orb = mesh(g, "sphere", tint, 0, 0, 0, 0.18);
+          orb.material = mat(tint, 0.8);
+          mesh(g, "cone", tint, 0, 0, -0.35, 0.12, 0.7, 6).rotation.x =
+            Math.PI / 2;
+        }
+        this.projectileMeshes.set(shot.id, g);
+        this.scene.add(g);
+      }
+      g.position.set(
+        shot.x,
+        ground(shot.x, shot.z, this.state.realm) + 1.35,
+        shot.z,
+      );
+      g.rotation.y = Math.atan2(shot.dx, shot.dz);
+    }
+    for (const [id, g] of this.projectileMeshes)
+      if (!activeShots.has(id)) {
+        this.scene.remove(g);
+        this.projectileMeshes.delete(id);
+      }
     this.effects = this.effects.filter((e) => {
       e.life -= dt;
       e.mesh.scale.multiplyScalar(1 + dt * 0.6);
