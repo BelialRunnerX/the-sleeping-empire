@@ -146,3 +146,7 @@ Every player-confirmed gear/stat/currency change must update the item registry, 
 
 **Crafting/ownership arithmetic:** The three delivered items have unique persistent IDs. Private commission expenses were authorized without ceiling, but actual cost and raw-material consumption values are UNKNOWN until invoiced; no unearned production materials, currency, or other resource balance is created. No extra examination certification or character attributes are conferred merely from delivery; Elys's armor-slot base stats remain unchanged until he chooses to equip.
 
+
+## Regalia Aegis environmental repair clarification — player errata to turn 000257
+
+**Demonstrated and canonical:** `ITM-000002 Regalia Aegis` possesses **automatic environmental-matter harvesting, transmutation, fabrication and full self-repair**. In the asteroid impact test, durability fell **100 -> 74**, whereupon the suit collected available broken asteroid material, converted it to the required structural alloys and returned **to 100/100, pristine**, without being helped by the Forge Core or spending Elys's inventory resources. Environmental matter was consumed; exact mass/energy not quantified. Full restoration depends on sufficient suitable nearby material and power, not creation ex nihilo or unconditional damage immunity. [Canonical errata](../saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md) and [test](../armory/tests/FX-000257_TRIPLE_IMPACT.md).
