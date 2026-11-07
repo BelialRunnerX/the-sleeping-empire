@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000248
+**Save sequence:** 000249
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVII: Elys inspects the uncrafted Thirteenfold Dawn SSS solar spear blueprint and its proposed features, without crafting, spending or changing ownership.
-**Latest record:** [000248](turns/000248.md)
+**Story endpoint:** Chapter CLXXXVIII: Elys asks about a transmutation staff/spear; the new Prima Materia dual-form SSS concept is previewed and cataloged without forging or gear changes.
+**Latest record:** [000249](turns/000249.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys chose option **3** to **inspect the concept-only `U-007 Thirteenfold Dawn` SSS Sovereign-grade Solar two-handed spear blueprint** using Garrick's read-only Imperial Armory terminal. The rendered white-gold spear bears thirteen solar halo motifs and a heliocore; it is **not actually forged, owned, equipped, Emperor-exclusive or in the room**. Its proposed unique signature **Thirteenfold Meridian** involves up to thirteen solar marks and a bounded single-target burst/ward; precise numbers and related draft traits are **unapproved concepts, not adopted item rules**. SSS allows six ordinary affixes, four gem sockets, +0..+20 reinforcement, R1..R5 refinement and optional quest awakening. Proposed SSS reference costs: 200,000 credits, 240 Forge Alloy, 200 Aether Dust, 30 Resonance Crystals, 3 Sovereign Embers plus blueprint, quest, provenance and Imperial Nullforge. **No player authorized a craft, transfer, equipment change, spending or binding; no registry change**. Celeste admires the design, jokes about its elaborate solar halos and would be interested in testing a real spear someday. Clarissa expresses caution about sovereign weapons. Garrick awaits Elys's next decision. Both Elys and Celeste SSS certified, Clarissa final rank pending, celebration pending. Clarissa knows pre-Empire extrarealm ties with Celeste, **not secret divine marriage** or source of her own enormous strength. Celeste dressed in restored SSS uniform, gifts boxed. No truth pen or formal Imperial Regalia decree. [Turn 000248](turns/000248.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked **“what about a transmutation staff/spear?”**, prompting Garrick to project new read-only **U-013 Prima Materia** SSS Sovereign-grade **dual-form staff/spear concept** from an Armory design catalog. It is white/black/silver with emerald levitating crystal and geometric rings. **Staff / Genesis Loom** proposes controlled matter weaving, material refinement, structural memory and local transmutation crafting. **Spear / Philosopher's Edge** proposes phase lance, compatible surface elemental conversion, disassembly of unprotected nonliving matter, and stored-pattern reversal. **The First Principle** is a draft bounded transmutation signature; all stats, range, costs, rates, cooldowns, defensive limitations and forging rules must be ratified before gameplay. Weapon does not grant Elys's innate powers to ordinary bearers and does not create free energy or bypass defenses/consent. **This is a concept only: not physically forged, acquired, owned, Emperor-exclusive, equipped, or given resources.** New design is cataloged in Armory codex, and all character/inventory sheets remain unchanged. Elys and Celeste independently SSS certified, Clarissa rank pending, celebration delayed. Clarissa knows the pre-Empire extrarealm past facts but not Elys/Celeste secret prior divine marriage or source of her powerful strength. Celeste in restored SSS uniform; boxed gift outfit. No truth pen. [Turn 000249](turns/000249.md).
 
 ## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
 
