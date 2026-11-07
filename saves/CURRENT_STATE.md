@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000188  
+**Save sequence:** 000189  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys magical aptitude concludes 100/100 after endurance; Celeste called next.
-**Latest record:** [000188](turns/000188.md)  
+**Story endpoint:** Chapter CLXVII: Celeste scores 99/100 on magical exam; Clarissa called next.
+**Latest record:** [000189](turns/000189.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical lab.** Elys spoke: **"I've been known for my endurance right ladies?"** Celeste responded with delighted suggestiveness; Clarissa replied with playful praise of Elys's stubborn paperwork persistence. Garrick insisted on professionalism. Elys then chose to run the full **twelve-minute regulated endurance phase**. He maintained prescribed fields and precision through increased targets, reversed energy gradients, misleading status display, and timed adjustments; no instrument-detected degradation or safety issue. **Magical aptitude Elys Somion: 100/100 final discipline score**. Garrick emphasizes this certifies finite test performance, not his unlimited true ceiling. Celeste jokes about legendary endurance. **Celeste now called next for magical testing**, not begun. [Turn 000188](turns/000188.md).
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical laboratory.** User selected **2/1**, meaning Elys said his endurance is now independently certified; Garrick specifies **magical** endurance, Celeste urges a framed certificate and Clarissa asks for proper qualification. Elys watches Celeste's magical examination. She demonstrates safe low-power flowing current then pressure gradient for calibration, droplet through 30 rotating apertures, dynamic control of 36 spheres, five breadth disciplines and 12-minute endurance. A residual floating water bead terminates **0.08 s late** on final stop; examiner logs one-point deduction: **Celeste magical 99/100**. Celeste enjoys being humbled by one droplet. **Clarissa now called as third magical candidate**, not started. Her magical scale is much lower than Elys/Celeste's but she is competent. [Turn 000189](turns/000189.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
 |---|---:|---:|---:|---:|---|
 | Elys Somion | 99 | 100 | 100 | **100** | Not begun |
-| Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
+| Celeste Somnion | 98 | 100 | 99 | **99** | Not begun |
 | Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-All candidates UNRANKED. Celeste and Elys are still married from divine realm, unbeknownst to Elys's fiancée Clarissa; Clarissa's enormous physical blessing from Elys also undisclosed. User controls Elys's dialogue and actions unless explicitly delegating. Continue with six emoji-numbered options and chapter visuals.
+All remain UNRANKED. **Clarissa's overwhelming physical might is secretly blessed by Elys, still unknown to Clarissa**; magical capacity is lower than divine Elys and Celeste. **Clarissa is Elys's fiancée and does not know Elys and Celeste remain married** since divine realm. Avoid inadvertent revelation. Full physical exams follow Clarissa's magical exam. User controls Elys unless expressly delegating. Chapter banner, visual scene, six emoji-numbered choices mandatory.
 
 ## Canonical in-universe date
 
