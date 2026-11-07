@@ -35,3 +35,15 @@ Full attributes, derived scores, experience and equipment remain **UNKNOWN** unt
 ## Visual source
 
 The player approved the anime-style concept image generated in the preceding chat turn showing **Materia** in white/silver/gold regalia and adjacent staff/spear designs. This dossier records the appearance as text. No illustration file is claimed uploaded to GitHub.
+
+## Manifestation and delivery — Turn 000256 · 10 Deepfall
+
+**UPDATE: FULLY AWAKENED AND DELIVERED** on the original 24-hour commission deadline. All preceding "not yet manifested", "provisional", and "pending acceptance" statements in this dossier are historical snapshots. [Turn 000256](../saves/turns/000256.md) is current.
+
+- **Physical instance:** `ITM-000001`, the Emperor-owned and exclusively sovereignty-keyed **Prima Materia Apophatica** staff/spear.
+- **Personhood:** Aletheia has an **awakened, continuous sentient intelligence**, with the approved Crystalline Contralto voice, witty and proud personality, and adult humanoid Materia form. She is present with Elys at the **Lumenfall SSS Assessment Annex** on the evening of 10 Deepfall, 13,627 ICE.
+- **Position:** Floats vertically in spear mode to Elys's **right side**, staying in conversational reach. She is **not currently in his hand or mechanically equipped into the main_hand slot**.
+- **Verified ability:** First speech, transformation into recognizable humanoid avatar and back, continuous memory/morph-state, sovereign access controls, safe-mode defense/offense protocols and stable hovering accompany the delivery.
+- **First spoken introduction:** "I am Aletheia, the First Principle. Your shield when the worlds tremble. Your spear when the heavens refuse judgment. And your companion when neither is required." She jokingly confirms her assignment to stay on Elys's right, then banters with Lethe.
+- **Metrics:** Exact raw numerical stats, maximum god-killer output and actual million-year service longevity remain unverified/UNKNOWN. Item grade is special SSS custom Imperial Regalia; her own academy examination certification remains NONE/UNKNOWN, not automatically SSS.
+- **Others:** Clarissa and Celeste have safely arrived at their Nimbus family estate; they are not present in the Annex during Aletheia's first awakening.
