@@ -334,6 +334,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000173](turns/000173.md) | CLXVII | Played turn | Elys prepares Corridor Seven asteroid mousetrap with mining drones, tugs, legal demolition traffic warning | [000000](checkpoints/000000.md) |
 
+| [000174](turns/000174.md) | CLXVII | Played turn | Elys wins strategy 99/100 with absurd insurance bureaucracy, zero shots; Celeste next | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
