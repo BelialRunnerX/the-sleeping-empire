@@ -441,6 +441,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000227](turns/000227.md) | CLXVIII | Played turn | Celeste distinguishes personal consent from no-interference exam rules | [000000](checkpoints/000000.md) |
 
+| [000228](turns/000228.md) | CLXVIII | Played turn | Celeste jumps twice to operate two evacuation gates | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
