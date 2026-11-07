@@ -466,3 +466,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000242](turns/000242.md) | CLXXXI | Played turn (post-retcon) | Elys claims shared history with Celeste is classified; Clarissa requests clearance | [000000](checkpoints/000000.md) |
 | [000243](turns/000243.md) | CLXXXII | Played turn (post-retcon) | Elys cites high classification and lets Celeste disclose limited history at her discretion | [000000](checkpoints/000000.md) |
 | [000244](turns/000244.md) | CLXXXIII | Played turn (post-retcon) | Elys discloses pre-Empire, other-realm history with Celeste was shorter than his relationship with Clarissa | [000000](checkpoints/000000.md) |
+| [000245](turns/000245.md) | CLXXXIV | Played turn (post-retcon) | Elys asks what ranks above SSS; no official higher tier exists in standard certification | [000000](checkpoints/000000.md) |
