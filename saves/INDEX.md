@@ -450,3 +450,4 @@ Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character 
 ## Chapter archives
 
 Create a new file under `saves/chapters/` at each chapter close or every 20 turns. Preserve exact source turn ranges; summarize without replacing the turn records. Turn 000001 begins the newly played interval; no new chapter boundary yet.
+| [000229](turns/000229.md) | CLXVIII | Played turn | Final eastern evacuation convoy halted by crawler; Celeste evaluates routes | [000000](checkpoints/000000.md) |
