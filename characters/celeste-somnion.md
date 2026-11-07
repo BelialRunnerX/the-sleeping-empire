@@ -20,7 +20,7 @@
 
 ## Confidential relationship history (Chapter CL)
 
-**Direct user canon, not publicly known in-story:** Celeste and Elys knew each other in childhood, grew up together in the **divine realm**, and **were married** there. Elys is deliberately concealing that deeper history from his present fiancée Clarissa, introducing Celeste only as an old childhood friend. Celeste recognizes and honors his look forbidding disclosure. The exact present legal/metaphysical implications are unresolved. Do not invent a disclosure or frame her loyalty as threat. [Private canon record](../saves/canon/celeste-divine-realm-history-private.md).
+**Direct user canon, not publicly known in-story:** Celeste and Elys knew each other in childhood, grew up together in the **divine realm**, and **were married** there. Elys is deliberately concealing that deeper history from his present fiancée Clarissa, introducing Celeste only as an old childhood friend. Celeste recognizes and honors his look forbidding disclosure. **Their divine-realm marriage is STILL IN EFFECT; they remain married.** The Empire has no monogamy laws. Do not invent a disclosure or frame her loyalty as threat. [Private canon record](../saves/canon/celeste-divine-realm-history-private.md).
 
 ## Divine provenance (Chapter CLI, Turn 000147)
 
@@ -43,4 +43,8 @@ Celeste is **shameless**, intentionally provocative, and enjoys **being embarras
 
 ## Elys-specific romantic temperament and Clarissa's engagement
 
-**Player clarification:** Celeste's shameless, provocative, masochistic enjoyment of embarrassment and teasing is **especially pronounced when Elys himself does it**. She delights in observing the relationship between **Elys and his fiancée Clarissa**; she might figuratively pull up a chair to watch their romance unfold, admiring and teasing without shame or hostility. She is not automatically welcome to observe private intimacy without Clarissa's and Elys's consent. Clarissa is Elys's **wife** (correcting mistaken wife summaries). The past divine-realm marriage between Elys and Celeste remains confidential from Clarissa, and its present legal/metaphysical status is undefined. [Authoritative update](../saves/canon/clarissa-married-celeste-elys-dynamic.md).
+**Player clarification:** Celeste's shameless, provocative, masochistic enjoyment of embarrassment and teasing is **especially pronounced when Elys himself does it**. She delights in observing the relationship between **Elys and his fiancée Clarissa**; she might figuratively pull up a chair to watch their romance unfold, admiring and teasing without shame or hostility. She is not automatically welcome to observe private intimacy without Clarissa's and Elys's consent. Clarissa is Elys's **wife** (correcting mistaken wife summaries). **Elys and Celeste remain married**; this is confidential from Clarissa, and Imperial law has no monogamy requirement. [Authoritative update](../saves/canon/clarissa-married-celeste-elys-dynamic.md).
+
+## Continuing marriage (latest canon)
+
+**Elys and Celeste Somnion are still married.** Their divine-realm marriage remains valid; no Imperial law requires monogamy. Elys and Clarissa are only **engaged**, not married, and **Clarissa does not yet know** about Elys's continuing marriage with Celeste. [Authoritative canon](../saves/canon/elys-celeste-current-marriage-no-imperial-monogamy.md).
