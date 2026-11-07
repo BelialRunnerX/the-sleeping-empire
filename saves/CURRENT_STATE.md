@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000180  
-**Type:** played turn with user-authorized character-action delegation  
+**Save sequence:** 000181  
+**Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys finishes operational trial perfectly; Celeste called for second exam.
-**Latest record:** [000180](turns/000180.md)  
+**Story endpoint:** Chapter CLXVII: Celeste's operational aptitude complete with 99/100; Clarissa called next.
+**Latest record:** [000181](turns/000181.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** User explicitly authorized narrator to assume what Elys says/does if in character, for latest operational test. Elys completed Scenario Seventeen Kestrel Corridor Extraction in detail: parallel drone/engineering review, detects stale but validly signed ‘OPEN’ bridge status, avoids collapsed North Causeway, uses surveyed Quarry Bypass with verified weight limits, spaced escorts, contingency planning and audit trail. 240 evacuees and 18 crew all arrive safely at simulation minute 101, nine minutes before toxic front; no injuries/losses/magic. Garrick awards **Elys operational 100/100**; this overrides voided prior summary operational score 98 in turn 000178. Celeste praises paperwork; Clarissa praises contingency plan. **Celeste is called next**; her new scenario is not yet disclosed. Clarissa will follow. The previously summarized Celeste 96 and Clarissa 100 operational scores from turn 000178 remain **superseded, not canonical**. Elys/Celeste relationship secret and Clarissa's physical blessing remain undisclosed. See [turn 000180](turns/000180.md).
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Celeste completed detailed operational Scenario 31, research ship *Peregrine*, 36 crew, damaged coolant telemetry concentrator replaying signed stale data, automated repair acting against orders, pump hatch jam. She isolated cooling, corrected autonomous systems, saved all 36 crew, reactor contained, mission successful at minute 40. Garrick awards **Celeste operational 99/100**, deducting only 1 point for personally guiding hatch repair instead of delegating to a qualified deputy while retaining reactor command. Celeste delighted by the humbling lesson; Clarissa amused. Garrick now calls **Clarissa Somnion to third operational assessment**, not yet begun. Continue with detailed Clarissa exam if user chooses. Earlier 000178 summary operational results remain superseded by player's request to replay individually. Elys operational from 000180 is 100.
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational |
 |---|---:|---:|---|
 | Elys Somion | 99 | 100 | **100** |
-| Celeste Somnion | 98 | 100 | Not begun |
+| Celeste Somnion | 98 | 100 | **99** |
 | Clarissa Somnion | 96 | 98 | Not begun |
 
-All still UNRANKED; magical and physical exams later. Player's latest instruction delegated control of Elys's actions; do not interpret it as requiring permanent loss of agency. Continue with detailed Celeste exam unless player redirects. Keep exactly six emoji-numbered options and visual scene.
+All UNRANKED. Magical and physical exams follow. **Clarissa's overwhelming physical might blessed secretly by Elys is unknown to her**, and Clarissa remains Elys's fiancée unaware that Elys and Celeste are still married from divine realm. Neither secret disclosed. [Turn 000181](turns/000181.md). Continue cinematic narration with exactly six distinct emoji-numbered choices. User's earlier authorization to choose in-character Elys actions was local to Elys's exam and is not an ongoing requirement.
 
 ## Canonical in-universe date
 
