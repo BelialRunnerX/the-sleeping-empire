@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000245
+**Save sequence:** 000246
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXIV: Elys asks what rank is above SSS; examiners explain SSS is the highest current standard certification, with no officially established superior rank.
-**Latest record:** [000245](turns/000245.md)
+**Story endpoint:** Chapter CLXXXV: Garrick opens a read-only Imperial Armory catalog preview in the Annex; Celeste asks Elys whether to choose weapons, statistics or cake.
+**Latest record:** [000246](turns/000246.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked the examiners **“Anyways so what's the rank above SSS?”** Garrick and Seraphine explain that **no official rank currently exists beyond SSS**, which is the highest standard assessment certification for surpassing established benchmarks, not a declaration of infinite ability. Celeste and Clarissa suspect Elys may invent a tier; Garrick says that would require validated new criteria, testing technology and oversight. **Elys has NOT established any new rank**. Celeste awaits his next move; SSS celebration still pending. Elys and Celeste are both independently SSS-certified. Clarissa knows about Elys and Celeste's ancient pre-Empire connection in another realm and that it was shorter than her own relationship, but **not their secret divine marriage**, nor that Elys granted her enormous strength. No truth pen has appeared, no official classification order. The facility and their clothing were restored in turn 000241; Celeste holds her boxed alternate outfit and gifts. [Turn 000245](turns/000245.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Following the explanation that **SSS is the highest current standard examination rank**, Garrick opens a **read-only Imperial Armory equipment catalog** at the Annex. This is a holographic inspection console, not actual crafting or resource transfer. Seraphine clarifies that **SSS exam certification is separate from SSS Sovereign item grade**. No items, stats, materials, currencies, loot, or rank have changed, and no forge action or random draw has occurred. Celeste jokes about no confirmed gear ownership despite SSS status, and admires a concept-only silver spear. Clarissa joins the banter. **Celeste asks Elys “So which shall it be? Weapons, statistics, or cake?”** Elys has not answered. Read-only user-facing character/forge/gem menus are available in the reply. Both Elys and Celeste SSS certified, Clarissa rank pending, celebration delayed. Clarissa knows pre-Empire other-realm ties with Celeste but **not the hidden prior divine marriage**, nor the fact Elys granted her vast strength. No truth pen. Celeste dressed in restored white-black formal uniform; alternate gifts and collar/leash boxed. [Turn 000246](turns/000246.md).
 
 ## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
 
