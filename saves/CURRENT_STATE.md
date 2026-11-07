@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000181  
+**Save sequence:** 000182  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Celeste's operational aptitude complete with 99/100; Clarissa called next.
-**Latest record:** [000181](turns/000181.md)  
+**Story endpoint:** Chapter CLXVII: Clarissa earns 100/100 in operational examination; all three operational assessments complete.
+**Latest record:** [000182](turns/000182.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Celeste completed detailed operational Scenario 31, research ship *Peregrine*, 36 crew, damaged coolant telemetry concentrator replaying signed stale data, automated repair acting against orders, pump hatch jam. She isolated cooling, corrected autonomous systems, saved all 36 crew, reactor contained, mission successful at minute 40. Garrick awards **Celeste operational 99/100**, deducting only 1 point for personally guiding hatch repair instead of delegating to a qualified deputy while retaining reactor command. Celeste delighted by the humbling lesson; Clarissa amused. Garrick now calls **Clarissa Somnion to third operational assessment**, not yet begun. Continue with detailed Clarissa exam if user chooses. Earlier 000178 summary operational results remain superseded by player's request to replay individually. Elys operational from 000180 is 100.
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** User chose "3/1": Elys first teased Celeste that her worst defeat was being asked to delegate, then watched Clarissa's detailed test. Celeste responded with affectionate self-deprecation; Garrick called Clarissa. She completed Scenario Forty-Four **Ashfall Refuge** (312 civilians, 24 responders including 41 assisted patients, four buses, two crawlers, delayed shuttle, ash in 65 minutes, limited bridge and broken repeater) through competent triage, delegation, redundancy, load-checks, safe sheltered staging and rescue; all 336 safe at minute 62, no losses. **Clarissa operational 100/100**. All operational candidates have now been assessed. **Magical aptitude next**, physical afterward, unless player directs otherwise. Magical measuring columns illuminated, no test begun. [Turn 000182](turns/000182.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational |
-|---|---:|---:|---|
+|---|---:|---:|---:|
 | Elys Somion | 99 | 100 | **100** |
 | Celeste Somnion | 98 | 100 | **99** |
-| Clarissa Somnion | 96 | 98 | Not begun |
+| Clarissa Somnion | 96 | 98 | **100** |
 
-All UNRANKED. Magical and physical exams follow. **Clarissa's overwhelming physical might blessed secretly by Elys is unknown to her**, and Clarissa remains Elys's fiancée unaware that Elys and Celeste are still married from divine realm. Neither secret disclosed. [Turn 000181](turns/000181.md). Continue cinematic narration with exactly six distinct emoji-numbered choices. User's earlier authorization to choose in-character Elys actions was local to Elys's exam and is not an ongoing requirement.
+All still UNRANKED until magical and physical tests. Clarissa is Elys's fiancée, does not know Elys and Celeste remain married since divine realm, and does not know of Elys's secret blessing of her overwhelming physical might. Those secrets remain undisclosed. Use mandatory chapter/scene/location, descriptive presentation and six emoji-numbered options.
 
 ## Canonical in-universe date
 

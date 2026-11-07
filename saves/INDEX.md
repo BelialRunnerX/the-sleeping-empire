@@ -350,6 +350,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000181](turns/000181.md) | CLXVII | Played turn | Celeste recovers Peregrine and all 36 crew; operational 99/100; Clarissa next | [000000](checkpoints/000000.md) |
 
+| [000182](turns/000182.md) | CLXVII | Played turn | Elys teases Celeste; Clarissa rescues 336 in Ashfall Refuge, operational 100; magic next | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
