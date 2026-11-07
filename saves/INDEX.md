@@ -330,6 +330,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000171](turns/000171.md) | CLXVII | Played turn | Clarissa finishes Kestrel Evacuation strategic exam, scores 96/100; Elys or Celeste next | [000000](checkpoints/000000.md) |
 
+| [000172](turns/000172.md) | CLXVII | Played turn | Elys begins Iron Veil fleet strategy simulation facing hostile ultimatum, awaiting his first orders | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
