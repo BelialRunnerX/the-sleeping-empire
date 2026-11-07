@@ -1,27 +1,27 @@
 # Current Story State
 
-**Save sequence:** 000185  
+**Save sequence:** 000186  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys earns perfect precision-phase result by matter alignment; dynamic-control task pending.
-**Latest record:** [000185](turns/000185.md)  
+**Story endpoint:** Chapter CLXVII: Elys perfect 36-sphere dynamic-control test; breadth testing next.
+**Latest record:** [000186](turns/000186.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude lab.** The player selected use of matter-alignment for three-ring precision. Elys defined target material configurations and aligned rings into position, without detected force on central crystal. Rings remained in position after supporting field was switched off; technicians could not detect sustaining effect or ordinary force gradient. Garrick awards **perfect marks on precision subtask only**, not full magic exam; possibility of research report mentioned, not launched. Celeste calls it elegant, Clarissa queries persistence.
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude laboratory.** Player chose continuous matter-alignment for **36 independently tracked spheres** against random changing target assignments over 120 seconds. Elys successfully followed every instruction, including instantaneous halt, partial reversal and target swaps. No detectable deviations/collateral disturbance at apparatus resolution; Garrick awards **dynamic-control subtest 100/100**. This is not unlimited precision proof, not overall magical exam result.
 
-**Live decision:** Next is dynamic control: 36 tracked spheres, unpredictable changing target positions, 120 seconds, zero collateral above detection. Garrick asks Elys whether to use matter-alignment or demonstrate another mechanism. This phase has **not begun**. Celeste jokes about requiring formal movement permits for spheres, Clarissa adds notarization. [Turn 000185](turns/000185.md).
+Next is **breadth**: five isolated small-effect lanes—thermal regulation, electromagnetic shaping, spatial positioning, protective warding and restorative restructuring. Garrick says distinct outcome in each lane matters, and candidate may select magical mechanism. **No breadth lane attempted**. Await Elys's choice. [Turn 000186](turns/000186.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
 |---|---:|---:|---:|---|---|
-| Elys Somion | 99 | 100 | 100 | Calibration passed; precision perfect; dynamic pending | Not begun |
+| Elys Somion | 99 | 100 | 100 | Calibration passed; precision 100; dynamic 100; breadth pending | Not begun |
 | Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
 | Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-All guild candidates remain UNRANKED. Elys and Celeste married since divine realm, Clarissa as Elys's fiancée does not know; Clarissa's overwhelming physical blessing from Elys is unknown to her. Maintain player agency, six distinct emoji-numbered options and visual presentation.
+All three still UNRANKED. Elys/Celeste continuing marriage remains unknown to fiancée Clarissa; Clarissa's overwhelming physical might, secretly blessed by Elys, unknown to her. Do not reveal by accident. Next magic testing should be deliberate and detailed, no forced full-power discharge.
 
 ## Canonical in-universe date
 
