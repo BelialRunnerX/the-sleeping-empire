@@ -46,3 +46,18 @@
 On registration, the contract is assigned to Elys but **not completed**. Base payout 14M credits only after accepted evidence and verification. No loot, salvage rights, bonus rewards, consumables, resources or enhancements are automatically granted. Site's historical artifacts and hazardous technologies require documented custody; Guild claims no automatic entitlement to Elys's armor/weapon. Any optional negotiated clauses await player authorization.
 
 **First in-world briefing:** [Turn 000261](../saves/turns/000261.md).
+
+
+## Active combat confirmation — turns 000263–000265
+
+**Turn 000263:** Elys arrived at the Sepulcher's **EXTERIOR PERIMETER**, Aletheia at his right. Space folded into inconsistent metrics; giant six-horned silhouette observed behind translucent wall. No fight yet.
+
+**Turn 000264 / Phase I:** Elys hurled Aletheia straight into a visible pulsing weak spot in the approximately 900-metre **Pallbearer King's thoracic armor**. The throw breached the Sepulcher's outer shield and wall and **DESTROYED the King's gigantic outer vessel**, including its chest shell. A coordinating intelligence survived, announced the **SECOND LITANY**, and unfolded **seven apparent throne halls with seven shadow king manifestations**. The active intelligence was not yet found; no reward paid. See [combat log 000264](encounters/SSS-004_COMBAT_000264.md).
+
+**Turn 000265 / Phase II:** Elys explicitly ordered Aletheia to **act like a homing missile through all seven manifestations**. She guided herself through the folded chambers and multiple defensive patterns, **STRIKING AND DESTROYING ALL SEVEN BODIES (7/7)** with no arbitrary immunity or missed target. She returned sentient and intact to Elys's RIGHT, not main_hand equipped. **PHASE II DEFEATED**. The seven halls folded into one, opening a deeper chamber under the throne.
+
+**Turn 000265 / Phase III now revealed:** The true **HEART OF THE SEPULCHER** appears as a black-star-like object with a **single luminous golden eye**, held in ancient crystalline machinery, and connected by silver filaments to millions of ancient archival inscriptions and records. It speaks: "**SECOND LITANY: ENDED. THIRD LITANY: THE HEART REMEMBERS.**" Then asks Elys: "**STRANGER. YOU HAVE BROKEN MY SEVEN HANDS. WILL YOU ALSO BREAK WHAT THEY WERE MADE TO PROTECT?**" Its sentience, true motivation and vulnerability remain UNKNOWN, and it has not been attacked, defeated or given an automatic invulnerability exemption. The archival network remains apparently functioning/physically linked. Its connection to the core raises a real preservation choice but does not force any player action.
+
+**Current SSS-004 status:** `IN_PROGRESS_PHASE_III_HEART_REVEALED`, no contract completion; the **₡14,000,000 base reward is not earned**. Elys remains **OUTSIDE the Sepulcher** with sight through the breached frontal wall and opened heart chamber; no user order to enter. Full-body Regalia Aegis 100/100, Forge Core 100/100 equipped; Aletheia right-side hovering, not main_hand equipped. No new loot, rank, numerical stats or proven casualties.
+
+[Turn 000265](../saves/turns/000265.md) · [combat log 000265](encounters/SSS-004_COMBAT_000265.md).
