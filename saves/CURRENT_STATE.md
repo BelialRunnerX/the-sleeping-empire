@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000205  
+**Save sequence:** 000206  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys questions SSS for lacking mountain punching; Seraphine defends SSS competence vs unmeasured maximum destructive force.
-**Latest record:** [000205](turns/000205.md)  
+**Story endpoint:** Chapter CLXVII: Elys snaps remote SSS annex out of existence and perfectly restores it; witnesses shocked, Seraphine logs event.
+**Latest record:** [000206](turns/000206.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex.** After becoming **SSS CERTIFIED** for passing all three assessment modules, Elys quips, **"I don't think this really qualifies me for SSS rank, I mean after all I didn't punch a mountain out of existence for you."** Seraphine Vael carefully explains recognized guild rank is about demonstrated adventurer competence, control, judgment, and proportional use of exceptional capabilities, not ability to cause biggest destruction. She readily acknowledges Elys's **absolute physical/divine power and destructive capacity remain unmeasured**; offers an **additional simulated, separately instrumented destructive-force evaluation** without invalidating his already certified SSS ranking. Celeste gleefully wants to see him punch a simulated mountain, Clarissa uneasy, Garrick begs no physical mountain harm. **No simulated punch has yet been attempted.** [Turn 000205](turns/000205.md).
+**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex.** Elys says **“It's fine, this facility no longer exists”** and snaps fingers, causing the ACTUAL occupied guild annex to cease existing—not an explosion, not a simulation. Elys, Celeste, Clarissa, Garrick safe, suspended/protected in place in open air; terrain untouched. He then says **“And oops, now it does again”**, snaps again and annex reappears exactly (machines, desk, beverage, minor scratch, holo projectors). Seraphine's holo reconnects; external monitors show **present–absent–present**, no debris, explosive energy, injuries, or damage. Seraphine logs additional unquantifiable **reversible large-scale existence alteration** on Elys's record, confirms SSS certified, but formally reproves him for removing an occupied building without prior consent or safety approval, requests no more unauthorized deletion of facilities or staff. Celeste hysterically laughs that it didn't require a punch, Clarissa uneasy with lack of warning, Garrick alarmed. **Celeste SSS test still READY/not begun**; Seraphine proposes proceeding. [Turn 000206](turns/000206.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS READY, not started |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank issue pending |
 
-**SSS Elys fully completed**, separate specialist measurement optional; Celeste assessment still READY. Clarissa still awaiting private truth of Elys's overwhelming-strength blessing, and still ignorant of secret Elys/Celeste divine marriage. Preserve six distinct emoji numbered options, player controls Elys.
+The disappearance was genuine but safely and precisely reversible, and Seraphine's reprimand is about authorization/judgment, NOT loss of SSS rank. Clarissa still awaiting private explanation: Elys secretly granted her overwhelming physical strength, unbeknownst to her. Clarissa still unaware Elys/Celeste are married from divine realm. Next six numbered emoji options; player controls Elys actions.
 
 ## Canonical in-universe date
 
