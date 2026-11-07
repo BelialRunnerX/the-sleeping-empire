@@ -11,6 +11,10 @@
 
 **9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked the examiners **“Anyways so what's the rank above SSS?”** Garrick and Seraphine explain that **no official rank currently exists beyond SSS**, which is the highest standard assessment certification for surpassing established benchmarks, not a declaration of infinite ability. Celeste and Clarissa suspect Elys may invent a tier; Garrick says that would require validated new criteria, testing technology and oversight. **Elys has NOT established any new rank**. Celeste awaits his next move; SSS celebration still pending. Elys and Celeste are both independently SSS-certified. Clarissa knows about Elys and Celeste's ancient pre-Empire connection in another realm and that it was shorter than her own relationship, but **not their secret divine marriage**, nor that Elys granted her enormous strength. No truth pen has appeared, no official classification order. The facility and their clothing were restored in turn 000241; Celeste holds her boxed alternate outfit and gifts. [Turn 000245](turns/000245.md).
 
+## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
+
+The [standing rules](../rules/STANDING_RULES.md), [gear forging codex](../rules/GEAR_FORGING_SYSTEM.md), [message template](../prompts/MESSAGE_TEMPLATE.md), [character sheet schema](../rules/CHARACTER_SHEET_SCHEMA.json), and [45-character gear/stat registry](../characters/GEAR_STAT_REGISTRY.json) are active. These are **out-of-story project rules**, not a narrated player action. They confer no new equipment, stats, resources, loot, rank above SSS, or time advancement. Future named NPCs receive tracked records; existing unknown gear and stat values remain unknown, not zero. Store item, stat and currency changes transactionally with their story turns. Story replies use the standardized layout and **seven** choices; artifact requests do not advance the scene.
+
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical | Rank |
