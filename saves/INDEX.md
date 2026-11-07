@@ -316,6 +316,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000164](turns/000164.md) | CLXVII | Played turn | Elys brings Clarissa and Celeste to Lumenfall's sci-fi adventurers' guild; Mira offers registration | [000000](checkpoints/000000.md) |
 
+| [000165](turns/000165.md) | CLXVII | Played turn | Elys requests advanced placement for Clarissa and Celeste; Garrick asks party vs individual evaluations | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
