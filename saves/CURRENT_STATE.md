@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000260
+**Save sequence:** 000261
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCIX: After an intimate fade-out with Celeste, Elys plainly confesses their former divine marriage and his intention for Clarissa to be primary romantic partner; Clarissa asks if that is still his wish.
-**Latest record:** [000260](turns/000260.md)
+**Story endpoint:** Chapter CC: Correction of prior narrator skip: Elys's intimacy with Celeste is still ongoing during his confession; Clarissa reacts strongly to the timing and asks if he genuinely pursues her or is testing narrative absurdity.
+**Latest record:** [000261](turns/000261.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** User described Elys engaging in an intimate act with adult Celeste; narrator fades out rather than describing explicit sexual mechanics. Elys then finally **discloses** to Clarissa that he and Celeste have a **preexisting divine marriage**, established by his external player/author choices, but that in this story he wanted **Clarissa as his primary and genuine romantic partner** and concealed the divine marriage until the AI narrative accidentally let it slip. He does not know why he originally invented the divine marriage backstory. Celeste confirms the past marriage, acknowledges playing along with concealment, and grows more serious. Clarissa now explicitly **knows the divine marriage exists**; she is glad Elys wanted her but concerned about what ongoing arrangements mean for both herself and Celeste. **Clarissa asks Elys “Is that still what you want?”** meaning Clarissa being his primary genuine romantic partner. Elys has NOT answered. No truth pen used this turn. Celeste's exact post-encounter clothing is unspecified, so do not presume formal uniform is back on. Elys and Celeste both SSS certified; celebration still pending; examiners Garrick and Seraphine present; Annex doors open. Clarissa still doesn't know Elys bestowed her exceptional strength. Elys's former lack of episodic memory of marriage's material circumstances remains pen-confirmed. [Turn 000260](turns/000260.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Important continuity correction: in turn 000260 the user made clear Elys was **actively engaged in an intimate encounter with adult Celeste while explaining to Clarissa that the pair had a preexisting divine marriage and that Clarissa was his preferred primary genuine romantic partner**. The prior narrator incorrectly treated the action as already completed and time-skipped; on user correction, the scene now **remains during the encounter**, without graphic mechanics described. Celeste voluntarily participates but has grown quieter after Clarissa's response. Garrick threatens resignation, Seraphine is overwhelmed. **Clarissa is upset by the timing of Elys's confession** and directly asks **“Is this your idea of genuinely pursuing me romantically, or are you deliberately testing how ridiculous you can make the situation before I finally lose my patience?”** Elys has not answered. Do not automatically advance past the ongoing scene, stop it, change clothing, or decide Elys's response. Both Elys and Celeste SSS certified, celebration pending. Clarissa NOW knows the prior divine marriage with Celeste but not the origin of her extraordinary strength. Elys knows the truth about the former marriage but pen-verified cannot recall material circumstances. [Turn 000261](turns/000261.md).
 
 ## Examination ledger
 
