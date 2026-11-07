@@ -338,6 +338,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000175](turns/000175.md) | CLXVII | Played turn | Celeste uses deliberately enjoyed humiliation to win strategy 98/100; all strategy exams done | [000000](checkpoints/000000.md) |
 
+| [000176](turns/000176.md) | CLXVII | Played turn | Technical wing opens, Garrick outlines categories and safeguards; no test begun | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
