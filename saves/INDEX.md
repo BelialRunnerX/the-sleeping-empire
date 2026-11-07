@@ -481,3 +481,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000257](turns/000257.md) | CXCVI | Played turn | Elys explains offscreen phone pause versus narrative time; fourth-order Somion Paradox | [000000](checkpoints/000000.md) |
 | [000258](turns/000258.md) | CXCVII | Played turn | Elys discusses fictional consent versus real-world ethics and narrative characterization | [000000](checkpoints/000000.md) |
 | [000259](turns/000259.md) | CXCVIII | Played turn | Celeste voluntarily appears nude and leashed in narrative demonstration; Elys distinguishes fictional divinity from real-world perspective | [000000](checkpoints/000000.md) |
+| [000260](turns/000260.md) | CXCIX | Played turn | Elys admits prior divine marriage to Celeste and preference for Clarissa as primary romantic partner; Clarissa seeks confirmation | [000000](checkpoints/000000.md) |
