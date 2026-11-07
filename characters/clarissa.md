@@ -41,3 +41,7 @@ By Chapter XLVII, she lives with Elys at the Caldris farmhouse, enjoys the Bellw
 Her age, academy origin, grant of immortality and Andromeda, and Senate advisory role on Lillith's behalf are established by direct user correction. Other unspecified details remain unestablished. Earlier archive snapshots describe earlier periods; current updates do not retroactively change those scenes. See the [source coverage note](../chronicle/SOURCE_COVERAGE.md).
 
 [All character profiles](../Character_Index.md)
+
+## Overwhelming physical might — undiscovered blessing (turn 000166)
+
+**Authoritative player revelation:** Elys has previously blessed Clarissa with **overwhelming physical might**. **Clarissa does not yet know that she possesses this blessing or understand its magnitude**. During individual guild advanced-placement registration on Veyrath, Elys says only **"Mind your strength"**, giving her a hint. This does not constitute full disclosure. The limits and exact measurable manifestation are not yet tested; do not invent a ceiling, failure or uncontrolled destruction. This information is established for narrator continuity; preserve character knowledge distinction. [Played turn](../saves/turns/000166.md).
