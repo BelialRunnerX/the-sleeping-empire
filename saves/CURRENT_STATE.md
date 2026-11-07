@@ -1,17 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000177  
+**Save sequence:** 000178  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: completed all three technical aptitude evaluations; operational next.
-**Latest record:** [000177](turns/000177.md)  
+**Story endpoint:** Chapter CLXVII: all three operational assessments complete; magical testing next.
+**Latest record:** [000178](turns/000178.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, early afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** At the player's request, technical examinations concluded without intermediate play. Technical results **Elys Somion 100/100; Celeste Somnion 100/100; Clarissa Somnion 98/100** (small fabrication inefficiency). Celeste is an exceptionally talented technical prodigy and exposed a genuine calibration flaw confirmed by exam technicians. Elys fulfilled all test criteria and safety conditions. Earlier strategic results **Elys 99/100, Celeste 98/100, Clarissa 96/100** remain unchanged. All three real-name registrants remain **UNRANKED**, ₡450 registration previously paid; no overall rank yet.
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Player chose to proceed directly to all three operational assessments; they were completed as compact narrated simulations. Results: **Elys Somion 98/100** convoy extraction, minor efficiency deduction; **Celeste Somnion 96/100** damaged research vessel, delegation/workload deduction; **Clarissa Somnion 100/100** evacuation camp, flawless logistical leadership. Garrick commends Clarissa. Celeste asks if Clarissa won the section; Garrick agrees by rubric. **Next is magical aptitude**, with **physical aptitude** afterward. Crystal measuring columns illuminate beyond the chamber; non-destructive protocol remains required. No magical exam started.
 
-**Immediate beat:** Garrick announces **operational aptitude next**, with magical and physical testing after. He insists on strictly non-destructive latter tests. No operational task has started, and he awaits instructions/questions. Preserve character distinctions; Clarissa's secretly granted vast physical might remains unknown to her; Elys and Celeste's continuing divine-realm marriage remains unknown to fiancée Clarissa. Neither relationship secret disclosed. [Turn 000177](turns/000177.md). Six distinct emoji-numbered options mandatory.
+## Individual guild examination ledger
+
+| Candidate | Strategy | Technical | Operational |
+|---|---:|---:|---:|
+| Elys Somion | 99 | 100 | **98** |
+| Celeste Somnion | 98 | 100 | **96** |
+| Clarissa Somnion | 96 | 98 | **100** |
+
+All three registered with real names Elys Somion, Clarissa Somnion, Celeste Somnion; ₡450 paid, **UNRANKED** until completion of magical and physical testing. Secret: Elys granted Clarissa overwhelming physical might unbeknownst to her; reveal only when it manifests or player tells her. Secret: Elys and Celeste remain married from divine realm; fiancée Clarissa unaware. Preserve their independent agency. [Turn 000178](turns/000178.md). Chapter banner, cinematic setting, exactly six emoji-numbered menu options.
 
 ## Canonical in-universe date
 

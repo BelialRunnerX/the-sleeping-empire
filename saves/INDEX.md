@@ -342,6 +342,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000177](turns/000177.md) | CLXVII | Played turn | Elys and Celeste score perfect 100 technical, Clarissa 98; operational testing next | [000000](checkpoints/000000.md) |
 
+| [000178](turns/000178.md) | CLXVII | Played turn | Operational exams finish: Elys 98, Celeste 96, Clarissa 100; magic next | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
