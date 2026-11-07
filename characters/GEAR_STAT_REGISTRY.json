@@ -75,9 +75,31 @@
       "reforge_pity": null,
       "banner_pity": null,
       "appearance": null,
-      "change_log": [],
-      "last_verified_turn": "000245",
-      "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown."
+      "change_log": [
+        {
+          "turn": "000252",
+          "field": "pending_commissions",
+          "before": "No confirmed commission IR-0001",
+          "after": "Commission IR-0001 authorized, not yet delivered or owned",
+          "source": "Player explicitly commissioned U-013-Ω exclusively for self, delivery <=24 hours; no spend amounts verified"
+        }
+      ],
+      "last_verified_turn": "000252",
+      "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
+      "pending_commissions": [
+        {
+          "id": "IR-0001",
+          "design_id": "U-013-Ω",
+          "name": "Prima Materia Apophatica",
+          "status": "COMMISSIONED_NOT_DELIVERED",
+          "authorization": "000252",
+          "exclusive_wielder": "char-elys",
+          "assigned_item_id": null,
+          "due_in_world": "within 24 hours of 9 Deepfall 13,627 ICE evening",
+          "target_delivery": "10 Deepfall 13,627 ICE evening",
+          "record_path": "armory/commissions/IR-0001_PRIMA_MATERIA_APOPHATICA.md"
+        }
+      ]
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
