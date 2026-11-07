@@ -378,6 +378,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000195](turns/000195.md) | CLXVII | Played turn | Garrick confirms official SSS examination route and registers both SSS requests | [000000](checkpoints/000000.md) |
 
+| [000196](turns/000196.md) | CLXVII | Played turn | SSS Senior Examiner Seraphine Vael summoned; first-candidate decision pending | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

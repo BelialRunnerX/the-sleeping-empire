@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000195  
+**Save sequence:** 000196  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Garrick confirms existing recognized SSS pathway and registers both candidates for an accredited test.
-**Latest record:** [000195](turns/000195.md)  
+**Story endpoint:** Chapter CLXVII: Accredited SSS examiner Seraphine Vael summoned and present by hologram; chooses who goes first.
+**Latest record:** [000196](turns/000196.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Elys asks, **'Well it's a recognized guild rank so surely someone can test us?'** Garrick concedes rightly that **SSS is an existing official guild rank and formal SSS examination procedures and assessors already exist**. His earlier hesitation concerned inadequacy of standard machines only. He shows existing **Upper-Rank Assessment Desk** pathway and **registers both Elys Somion and Celeste Somnion SSS examination requests**: system status **ASSESSOR ASSIGNMENT REQUIRED**. Recognized test modules include bounded controlled output at isolated facility, independent SSS-grade mission simulation, and precision/restraint, evaluated against official published criteria by an accredited examiner with witnesses. Garrick offers **summon accredited SSS assessor now** or review exact rules, and issue existing certificates without delay. **No assessor has been assigned yet and SSS ranks not awarded**. [Turn 000195](turns/000195.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Player chose immediate summons of accredited SSS examiner for Elys and Celeste. **Senior Examiner Seraphine Vael**, senior guild upper-rank accredited SSS assessor (silver hair, midnight blue/gold uniform, triple-star collar insignia), connects by holo. She verified both 5-discipline standard scores, no test safety violations, agreed to conduct their SSS tests with independent witnesses; recognized remote isolated annex is available. Required modules: (1) controlled exceptional capability under suitable isolation, (2) SSS-grade adversarial operational simulation, (3) precision/restraint/judgment. Separate independent exams and scores for each. She offers **Elys or Celeste first**; no module yet begun or rank awarded. Celeste eager, humorous; Seraphine stern and competent. [Turn 000196](turns/000196.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
 
-All ordinary examinations complete, overall rank determination/certification pending. SSS is recognized, not invented, and has authorized accredited assessment route; do not stonewall. Clarissa still awaits Elys's promised **private explanation**, not yet told source of her immense Elys-blessed strength. She is his fiancée and unaware he and Celeste remain married from divine realm. Preserve six choice menu and Elys agency.
+SSS tests formally accepted for Elys and Celeste, still not scored. Guild regular classifications/certifications not yet announced. Clarissa is Elys's fiancée and waiting for promised private explanation of the immense strength Elys secretly blessed her with; she does not know cause. She also does not know Elys/Celeste's still-valid divine marriage. Preserve six distinct menu options and immersive story without forcing Elys choices.
 
 ## Canonical in-universe date
 
