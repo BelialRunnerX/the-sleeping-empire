@@ -320,6 +320,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000166](turns/000166.md) | CLXVII | Played turn | Individual guild placement; Elys warns Clarissa about her undiscovered overwhelming strength blessing | [000000](checkpoints/000000.md) |
 
+| [000167](turns/000167.md) | CLXVII | Played turn | Elys says all three exceed 50-ton machine; Garrick switches to exceptional capability protocol | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
