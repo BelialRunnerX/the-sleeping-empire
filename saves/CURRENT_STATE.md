@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000248
+**Save sequence:** 000249
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVII: Elys verifies by truth pen that he knows the correct answer to Clarissa's marriage question but genuinely does not remember the material circumstances; Clarissa asks him to state the known answer.
-**Latest record:** [000248](turns/000248.md)
+**Story endpoint:** Chapter CLXXXVIII: Elys verifies ‘I have answered you’ with truth ink; Clarissa ends the semantic interrogation and asks Celeste to share her memories privately later.
+**Latest record:** [000249](turns/000249.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote with his truth pen: “While I’m aware of what the correct answer to your line of questioning is, I in fact do not actually remember the material circumstances of such occasion as the previous history we are discussing.” The pen confirmed **TRUE without semantic qualification**. Elys knows the correct answer regarding his and Celeste's past divine marriage, but **genuinely lacks episodic recollection of its material circumstances**. Cause and source of knowledge have not been established. Celeste says she remembers some of that history quite clearly, and suggests talking privately; Clarissa agrees. Garrick and Seraphine distinguish factual knowledge from episodic recollection; Garrick's notes closed. **Clarissa now asks Elys: “If you know what the correct answer is, will you tell me what it is?”** Elys has not answered. Clarissa still has not received explicit disclosure of Elys and Celeste's past divine marriage nor learned the origin of her own superhuman strength. Celeste wears pristine white-black SSS uniform; alternate gifted clothes/collar/leash in her case. Both Elys and Celeste SSS certified; celebration pending. [Turn 000248](turns/000248.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote **“I have answered you”** with his truth pen, which confirmed **TRUE** (he has responded in the conversation). It does **not** establish that his responses disclosed the answer to Clarissa's actual marriage question. Garrick celebrated the technicality; Seraphine distinguished truthful propositions from adequate answers; Celeste laughed. Clarissa agrees he has responded truthfully but remains uninformed and stops pushing the matter publicly. She asks Celeste if she would someday privately tell her own recollections; Celeste **agrees** without disclosing the former divine marriage yet. **Truth-pen memory fact still binding:** Elys knows the correct answer but does not personally remember the material circumstances of that event. Garrick records “100% Factual Accuracy, Negligible Information Transfer.” Clarissa also does not know origin of her tremendous strength. Elys and Celeste both SSS certified; Celeste in formal restored SSS uniform, alternative clothes/collar/leash in her gift case; celebration still pending. [Turn 000249](turns/000249.md).
 
 ## Examination ledger
 
