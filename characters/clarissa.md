@@ -45,3 +45,7 @@ Her age, academy origin, grant of immortality and Andromeda, and Senate advisory
 ## Overwhelming physical might — undiscovered blessing (turn 000166)
 
 **Authoritative player revelation:** Elys has previously blessed Clarissa with **overwhelming physical might**. **Clarissa does not yet know that she possesses this blessing or understand its magnitude**. During individual guild advanced-placement registration on Veyrath, Elys says only **"Mind your strength"**, giving her a hint. This does not constitute full disclosure. The limits and exact measurable manifestation are not yet tested; do not invent a ceiling, failure or uncontrolled destruction. This information is established for narrator continuity; preserve character knowledge distinction. [Played turn](../saves/turns/000166.md).
+
+## Guild examination disclosure, Veyrath (turn 000167)
+
+Elys has told Guild Examiner Garrick Voss that **Clarissa can exceed a force station rated 50 metric tons-force** (as can Elys and Celeste), although the guild has **NOT verified this** and Clarissa **does not know** about the overwhelming physical might Elys bestowed upon her. Elys also states **Clarissa is a great strategist**, with magical aptitude **less immense than his and Celeste's**. She is not magically powerless, and her strategy competence is established by direct player clarification. [Played turn](../saves/turns/000167.md).
