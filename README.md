@@ -26,6 +26,8 @@ The ongoing sabbatical **does not constitute abdication**: Aurelia remains Regen
 
 **[Open the GitHub Pages codex](https://belialrunnerx.github.io/the-sleeping-empire/)** — a responsive sci-fi archive with personnel dossiers, a searchable record ledger, worlds, commercial holdings and source references.
 
+**[Play Astral Empire](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/)** — a mobile/desktop gacha RPG subpage with summons, turn-based battles and equipment forging. This playable spin-off is separate from the canonical lore archive.
+
 ## Canon reading order
 
 1. [Latest current state](saves/CURRENT_STATE.md) — the live narrative endpoint.
