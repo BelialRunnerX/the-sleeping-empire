@@ -474,3 +474,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000250](turns/000250.md) | CLXXXIX | Played turn | Pen verifies Elys personally considers humans inferior; meaning unresolved | [000000](checkpoints/000000.md) |
 | [000251](turns/000251.md) | CXC | Played turn | Elys confirms technically human with pen, creating a self-referential puzzle | [000000](checkpoints/000000.md) |
 | [000252](turns/000252.md) | CXCI | Played turn | Truth pen verifies possibility of countless misleading truths; Garrick coins Somion Paradox | [000000](checkpoints/000000.md) |
+| [000253](turns/000253.md) | CXCII | Played turn | Elys pen-verifies extracosmological wife/‘real life’ statements; Clarissa asks whether she should be jealous | [000000](checkpoints/000000.md) |
