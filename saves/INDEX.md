@@ -324,6 +324,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000168](turns/000168.md) | CLXVII | Played turn | Garrick authorizes comprehensive non-destructive tests for all three; asks first discipline | [000000](checkpoints/000000.md) |
 
+| [000169](turns/000169.md) | CLXVII | Played turn | Three candidates registered and paid; Garrick schedules exams, Clarissa first in paused strategy simulator | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
