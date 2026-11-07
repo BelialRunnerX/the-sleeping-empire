@@ -306,6 +306,10 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 - [Clarissa remains Elys's fiancée (not wife); Celeste especially enjoys Elys's teasing and watching their romance](canon/clarissa-married-celeste-elys-dynamic.md) — authoritative character correction; no new played turn.
 
+## Continuing marriage and Imperial law
+
+- [Elys and Celeste are still married; Imperial law does not require monogamy; Clarissa remains fiancée and uninformed](canon/elys-celeste-current-marriage-no-imperial-monogamy.md) — authoritative correction, not a played turn.
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
