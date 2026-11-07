@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000238
+**Save sequence:** 000239
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXVII: Elys offers Celeste corset, garters, stockings and collar; she accepts them as a gift on her own terms and heads to change. Clarissa directly questions Elys about his closeness with Celeste.
-**Latest record:** [000238](turns/000238.md)
+**Story endpoint:** Chapter CLXXVIII: Celeste willingly wears the gifted corset, garter belt, stockings and collar; Clarissa persists in asking about the secret history between Elys and Celeste.
+**Latest record:** [000239](turns/000239.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys offered Celeste a black silver-embroidered corset, garter belt, stockings and collar as clothing, with leash nearby. Celeste accepted the garments and collar **as a congratulatory gift**, explicitly reserved her choice when/where to wear them and her right to add proper clothes; she has taken them to the private changing suite. She has **not yet worn the collar or agreed to use the leash**; leash remains with Elys. Her destroyed prior uniform does not regenerate; no automatic privacy field, non-graphic presentation. **Celeste is fully SSS certified**, having independently saved all twelve refugee ships without casualties or unlawful war. In the gallery, **Clarissa directly asks Elys how well he and Celeste know each other**; she still does not know their secret prior divine marriage or the origin of her own gifted strength. Garrick and Seraphine present. No answer by Elys yet. [Turn 000238](turns/000238.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Celeste has voluntarily put on the black silver-embroidered corset, garter belt, stockings and collar given by Elys, emerging from the private changing suite pleased and teasing. Her preferences, expressly declared by the player, include consensual submission, humiliation play and some masochism, while preserving autonomy and the right to refuse. No leash attached; leash remains with Elys. Garrick and Seraphine object to the nonstandard attire; Clarissa laughs but again presses Elys to explain how he and Celeste know one another so intimately. Elys has not responded. Clarissa still does not know their secret prior divine marriage or her own tremendous strength's origin. **Celeste and Elys are SSS certified**, exams over, celebration pending. No sexual activity; scene non-graphic. [Turn 000239](turns/000239.md).
 
 ## Examination ledger
 
