@@ -286,6 +286,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000155](turns/000155.md) | CLIX | Played turn | Elys teases Lucien about proposing to Celeste; Bel calls during awkward exchange | [000000](checkpoints/000000.md) |
 
+| [000156](turns/000156.md) | CLX | Played turn | Bel questions Lucien; Sir Turnip III negotiates an informal bedtime accord | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
