@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000264
+**Save sequence:** 000265
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CCIII: Elys clarifies intimacy with Celeste is still ongoing after his first climax, with a second intended after hers; no further climax or cessation has occurred. Clarissa remains concerned.
-**Latest record:** [000264](turns/000264.md)
+**Story endpoint:** Chapter CCIV: Elys asks Celeste how she feels; she confirms affection and desire to be there, notes Clarissa's exclusion, and Clarissa requests the same candor from Elys.
+**Latest record:** [000265](turns/000265.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys corrected narrator's mistaken assumption that the intimate encounter with adult Celeste was finished. He has had a first climax and intends a **second one, but not until after Celeste climaxes**. **Neither Celeste's climax nor Elys's second climax has happened yet.** Celeste's non-graphic responses include catching her breath, flushing, closing eyes briefly and squeezing his hand, and she smiles with anticipation. Their intimacy continues in non-graphic narration; do not auto-skip/terminate or assume clothing restored. Garrick shuts down note-taking, Seraphine approves. Clarissa is hurt/frustrated that Elys continues instead of addressing what their relationship means, and Celeste agrees Clarissa's concerns matter. Elys announced a future retcon but **none performed**. Clarissa knows former divine marriage with Celeste, but not Elys's gift of her extraordinary strength. Elys and Celeste SSS certified, celebration pending. [Turn 000264](turns/000264.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** The user chose **3: ask Celeste how she feels**, and asked to include her physical responses. Elys asked “Celeste, darling, how are you feeling?” Celeste showed non-graphic cues (uneven breath, flushed cheeks, steadying herself, affectionate smile, hand squeeze) and said she is overwhelmed, delighted, embarrassed, wants to be here and enjoys closeness with Elys. She also expressed concern that Clarissa is being treated like a spectator in a relationship she thought she understood. Clarissa appreciates her honesty and **asks Elys for the same kind of straightforward answer**. The adult intimate encounter **remains ongoing** as previously declared; after Elys's first climax, **Celeste has not climaxed, nor has Elys had the planned second climax**. Do not automatically terminate encounter or depict extra voluntary Elys actions. No clothing restoration; no retcon enacted. Clarissa now knows Elys/Celeste prior divine marriage but not the source of her tremendous strength. Elys and Celeste both SSS certified, celebration pending. Garrick and Seraphine still present. [Turn 000265](turns/000265.md).
 
 ## Examination ledger
 
