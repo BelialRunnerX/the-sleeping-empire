@@ -89,9 +89,16 @@
           "before": "Exclusive commissioned weapon U-013-Ω without sentient persona specification",
           "after": "Commission extended: sentient Aletheia; humanoid avatar Materia; floats to Elys's right side upon delivery",
           "source": "User instruction; no delivery, gear ownership or material change"
+        },
+        {
+          "turn": "000254",
+          "field": "pending_commissions[IR-0001].persona",
+          "before": "provisional visual/persona settings",
+          "after": "Elys approved Aletheia/Materia appearance, voice, temperament based on existing anime image",
+          "source": "Player explicitly selected choice 1 Based off image; no delivery or equipment granted"
         }
       ],
-      "last_verified_turn": "000253",
+      "last_verified_turn": "000254",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -113,7 +120,11 @@
             "Aletheia / Materia humanoid"
           ],
           "sentient_identity": "char-aletheia",
-          "delivery_status": "COMMISSIONED_NOT_DELIVERED"
+          "delivery_status": "COMMISSIONED_NOT_DELIVERED",
+          "humanoid_design_approved": true,
+          "humanoid_design_reference": "Turn 000254 and the previously generated image",
+          "voice_design": "Crystalline Contralto",
+          "personality_design": "Intelligent, fiercely loyal, playful, proud, devoted; independent judgment and technical caution"
         }
       ]
     },
@@ -3101,7 +3112,7 @@
       "upgrade_resources": null,
       "reforge_pity": null,
       "banner_pity": null,
-      "appearance": "Proposed feminine-presenting adult humanoid: long silver-white hair, emerald eyes, ornate white-black-gold imperial regalia with emerald-and-gold geometric rings; manifested from same weapon",
+      "appearance": "FINALIZED DESIGN based on prior generated anime image: adult feminine tall/regal humanoid, extremely long silver-white hair with slight lavender highlights, luminous emerald eyes, delicate gold diadem, golden rune rings/halos, ornate fitted white-and-black Imperial armor bodice with gold filigree, emerald gems and cascading white panels. Same imagery in staff and spear modes; humanoid form title Materia.",
       "change_log": [
         {
           "turn": "000253",
@@ -3110,12 +3121,46 @@
           "after": "Aletheia / Materia humanoid form for commissioned U-013-Ω",
           "authorization": "Emperor Elys expressly adds sentience, right-side following and humanoid manifestation to IR-0001",
           "status": "planned only, not physical character or item"
+        },
+        {
+          "turn": "000254",
+          "field": "appearance, voice and personality design",
+          "before": "provisional requirements",
+          "after": "Finalized from existing anime reference; Crystalline Contralto and intelligent/loyal/playful/proud/devoted persona",
+          "authorization": "Elys selected menu option 1 based on existing image",
+          "status": "design finalized, not physically manifested"
         }
       ],
-      "last_verified_turn": "000253",
+      "last_verified_turn": "000254",
       "provisional": true,
       "linked_commission": "IR-0001",
-      "not_yet_manifest": true
+      "not_yet_manifest": true,
+      "voice_design": "Crystalline Contralto: clear smooth velvety feminine lower-middle register, slight crystalline harmonic overtone; warmly playful in private, courtly formal in public, quiet solemn in combat.",
+      "personality_design": {
+        "status": "APPROVED_DESIGN_NOT_AWAKENED",
+        "traits": [
+          "intelligent",
+          "fiercely loyal",
+          "playful",
+          "proud",
+          "devoted",
+          "curious",
+          "observant",
+          "philosophical",
+          "independent judgment",
+          "dry irony"
+        ],
+        "agency": "May express personal preferences, recognize uncertainty, disagree and raise safety objections; no independent lethal god-class targeting.",
+        "reference": "Turn 000254, anime illustration from previous ChatGPT image generation"
+      },
+      "design_approval": {
+        "turn": "000254",
+        "approved_by": "Emperor Elys",
+        "source": "previous anime concept image",
+        "status": "FINALIZED_APPEARANCE_AND_PERSONA_ONLY",
+        "awakening": "PENDING",
+        "delivery": "PENDING"
+      }
     }
   },
   "items": {},
