@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000182  
+**Save sequence:** 000183  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Clarissa earns 100/100 in operational examination; all three operational assessments complete.
-**Latest record:** [000182](turns/000182.md)  
+**Story endpoint:** Chapter CLXVII: Elys inspected magical assessment apparatus, no magical exam begun.
+**Latest record:** [000183](turns/000183.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** User chose "3/1": Elys first teased Celeste that her worst defeat was being asked to delegate, then watched Clarissa's detailed test. Celeste responded with affectionate self-deprecation; Garrick called Clarissa. She completed Scenario Forty-Four **Ashfall Refuge** (312 civilians, 24 responders including 41 assisted patients, four buses, two crawlers, delayed shuttle, ash in 65 minutes, limited bridge and broken repeater) through competent triage, delegation, redundancy, load-checks, safe sheltered staging and rescue; all 336 safe at minute 62, no losses. **Clarissa operational 100/100**. All operational candidates have now been assessed. **Magical aptitude next**, physical afterward, unless player directs otherwise. Magical measuring columns illuminated, no test begun. [Turn 000182](turns/000182.md).
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude laboratory.** User selected option 5 to **inspect magical measurement devices and safeguards**. The guild has six crystal columns and test lanes for output, precision, control, breadth, endurance; voluntary effects with absorber lattices and independent aborts. Instruments have finite ceiling; above it, display reads **ABOVE INSTRUMENT RANGE**. Shutdown controls test lattice, not a person's unlimited magic. Elys and Celeste cannot be force-suppressed by devices; Garrick says top score is measured through executing a safe assignment rather than overpowering equipment. Celeste and Clarissa comment approvingly on honest instrument range and practical scoring. **Garrick offers low-energy calibration or alternate measurement protocol. No magical test started or scored.** [Turn 000183](turns/000183.md).
 
 ## Examination ledger
 
-| Candidate | Strategy | Technical | Operational |
-|---|---:|---:|---:|
-| Elys Somion | 99 | 100 | **100** |
-| Celeste Somnion | 98 | 100 | **99** |
-| Clarissa Somnion | 96 | 98 | **100** |
+| Candidate | Strategy | Technical | Operational | Magical | Physical |
+|---|---:|---:|---:|---|---|
+| Elys Somion | 99 | 100 | 100 | Not begun | Not begun |
+| Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
+| Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-All still UNRANKED until magical and physical tests. Clarissa is Elys's fiancée, does not know Elys and Celeste remain married since divine realm, and does not know of Elys's secret blessing of her overwhelming physical might. Those secrets remain undisclosed. Use mandatory chapter/scene/location, descriptive presentation and six emoji-numbered options.
+All UNRANKED. Clarissa's overwhelming physical blessing secretly from Elys is unknown to her; her fiancé Elys and Celeste's ongoing divine-realm marriage still undisclosed. Keep exact six menu options and visual staging. Elys remains player controlled, except when explicitly delegated.
 
 ## Canonical in-universe date
 

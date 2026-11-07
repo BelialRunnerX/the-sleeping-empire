@@ -352,6 +352,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000182](turns/000182.md) | CLXVII | Played turn | Elys teases Celeste; Clarissa rescues 336 in Ashfall Refuge, operational 100; magic next | [000000](checkpoints/000000.md) |
 
+| [000183](turns/000183.md) | CLXVII | Played turn | Elys inspects finite-range magical testing apparatus; safe calibration pending | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
