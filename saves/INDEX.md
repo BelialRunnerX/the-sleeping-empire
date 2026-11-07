@@ -356,6 +356,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000184](turns/000184.md) | CLXVII | Played turn | Elys begins magical exam; calibration passed; ring precision challenge waiting | [000000](checkpoints/000000.md) |
 
+| [000185](turns/000185.md) | CLXVII | Played turn | Elys aligns three rings flawlessly; dynamic-control phase pending | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
