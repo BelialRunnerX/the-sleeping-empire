@@ -463,28 +463,3 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000239](turns/000239.md) | CLXXVIII | Played turn | Celeste willingly wears gifted garments and collar; Clarissa presses for truth about their history | [000000](checkpoints/000000.md) |
 | [000240](turns/000240.md) | CLXXIX | Played turn | Celeste voluntarily clips on leash, clarifies autonomy; Clarissa presses for relationship history | [000000](checkpoints/000000.md) |
 | [000241](turns/000241.md) | CLXXX | Played turn | Elys restores clothing and Annex with a snap; Clarissa's question about hidden history remains | [000000](checkpoints/000000.md) |
-| [000242](turns/000242.md) | CLXXXI | Played turn | Elys verifies childhood friendship with truth pen; Clarissa presses for the rest of the history | [000000](checkpoints/000000.md) |
-| [000243](turns/000243.md) | CLXXXII | Played turn | Elys verifies current friendship; Clarissa asks directly whether he and Celeste were ever married | [000000](checkpoints/000000.md) |
-| [000244](turns/000244.md) | CLXXXIII | Played turn | Elys verifies no Imperial union; Clarissa observes it does not exclude past divine marriage | [000000](checkpoints/000000.md) |
-| [000245](turns/000245.md) | CLXXXIV | Played turn | Elys invokes marriage beyond existence loophole; Clarissa asks whether they considered themselves spouses | [000000](checkpoints/000000.md) |
-| [000246](turns/000246.md) | CLXXXV | Played turn | Elys verifies a narrow semantic loophole; Clarissa offers comprehensive marriage statement to test | [000000](checkpoints/000000.md) |
-| [000247](turns/000247.md) | CLXXXVI | Played turn | Elys says he doesn't remember; Clarissa defers public marriage questioning and plans private conversation | [000000](checkpoints/000000.md) |
-| [000248](turns/000248.md) | CLXXXVII | Played turn | Truth pen verifies Elys knows the answer but does not remember material circumstances; Clarissa seeks disclosure | [000000](checkpoints/000000.md) |
-| [000249](turns/000249.md) | CLXXXVIII | Played turn | Elys truth-tests ‘I have answered you’; Clarissa stops semantic debate, Celeste agrees to tell her side later | [000000](checkpoints/000000.md) |
-| [000250](turns/000250.md) | CLXXXIX | Played turn | Pen verifies Elys personally considers humans inferior; meaning unresolved | [000000](checkpoints/000000.md) |
-| [000251](turns/000251.md) | CXC | Played turn | Elys confirms technically human with pen, creating a self-referential puzzle | [000000](checkpoints/000000.md) |
-| [000252](turns/000252.md) | CXCI | Played turn | Truth pen verifies possibility of countless misleading truths; Garrick coins Somion Paradox | [000000](checkpoints/000000.md) |
-| [000253](turns/000253.md) | CXCII | Played turn | Elys pen-verifies extracosmological wife/‘real life’ statements; Clarissa asks whether she should be jealous | [000000](checkpoints/000000.md) |
-| [000254](turns/000254.md) | CXCIII | Played turn | Elys verifies extracosmological unreality claim; Clarissa asks if she and Celeste matter to him | [000000](checkpoints/000000.md) |
-| [000255](turns/000255.md) | CXCIV | Played turn | Elys says characters matter despite being fictional from his perspective; Celeste slips about past marriage | [000000](checkpoints/000000.md) |
-| [000256](turns/000256.md) | CXCV | Played turn | Elys verifies meta CYOA AI-generated narrative statement; Clarissa asks if he can put the pen away | [000000](checkpoints/000000.md) |
-| [000257](turns/000257.md) | CXCVI | Played turn | Elys explains offscreen phone pause versus narrative time; fourth-order Somion Paradox | [000000](checkpoints/000000.md) |
-| [000258](turns/000258.md) | CXCVII | Played turn | Elys discusses fictional consent versus real-world ethics and narrative characterization | [000000](checkpoints/000000.md) |
-| [000259](turns/000259.md) | CXCVIII | Played turn | Celeste voluntarily appears nude and leashed in narrative demonstration; Elys distinguishes fictional divinity from real-world perspective | [000000](checkpoints/000000.md) |
-| [000260](turns/000260.md) | CXCIX | Played turn | Elys admits prior divine marriage to Celeste and preference for Clarissa as primary romantic partner; Clarissa seeks confirmation | [000000](checkpoints/000000.md) |
-| [000261](turns/000261.md) | CC | Played turn | Corrects narrator's skipped intimate scene; Clarissa reacts to confession's timing and questions Elys's intentions | [000000](checkpoints/000000.md) |
-| [000262](turns/000262.md) | CCI | Played turn | Elys proposes future retcon, Celeste confirms voluntary participation, Clarissa still asks his relationship intentions | [000000](checkpoints/000000.md) |
-| [000263](turns/000263.md) | CCII | Played turn | Elys climaxes, ending encounter with Celeste; Clarissa asks what happens next | [000000](checkpoints/000000.md) |
-| [000264](turns/000264.md) | CCIII | Played turn | Elys corrects intimacy continuity: second climax intended only after Celeste's, neither has yet occurred | [000000](checkpoints/000000.md) |
-| [000265](turns/000265.md) | CCIV | Played turn | Elys asks Celeste how she feels; she affirms feelings and concerns for Clarissa; Clarissa requests candor | [000000](checkpoints/000000.md) |
-| [000266](turns/000266.md) | CCV | Played turn | Elys completes intimate encounter; Clarissa presses for honest relationship commitment | [000000](checkpoints/000000.md) |
