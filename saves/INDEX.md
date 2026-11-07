@@ -304,7 +304,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 ## Relationship canon update
 
-- [Clarissa is Elys's wife; Celeste especially enjoys Elys's teasing and watching their romance](canon/clarissa-married-celeste-elys-dynamic.md) — authoritative character correction; no new played turn.
+- [Clarissa remains Elys's fiancée (not wife); Celeste especially enjoys Elys's teasing and watching their romance](canon/clarissa-married-celeste-elys-dynamic.md) — authoritative character correction; no new played turn.
 
 ## Historical coverage
 
