@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000249
+**Save sequence:** 000250
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVIII: Elys asks about a transmutation staff/spear; the new Prima Materia dual-form SSS concept is previewed and cataloged without forging or gear changes.
-**Latest record:** [000249](turns/000249.md)
+**Story endpoint:** Chapter CLXXXIX: Lethe identifies Axiom, Prima and Nihil as Apophatic's three principal AIs and offers a consultation, with no orders issued.
+**Latest record:** [000250](turns/000250.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked **“what about a transmutation staff/spear?”**, prompting Garrick to project new read-only **U-013 Prima Materia** SSS Sovereign-grade **dual-form staff/spear concept** from an Armory design catalog. It is white/black/silver with emerald levitating crystal and geometric rings. **Staff / Genesis Loom** proposes controlled matter weaving, material refinement, structural memory and local transmutation crafting. **Spear / Philosopher's Edge** proposes phase lance, compatible surface elemental conversion, disassembly of unprotected nonliving matter, and stored-pattern reversal. **The First Principle** is a draft bounded transmutation signature; all stats, range, costs, rates, cooldowns, defensive limitations and forging rules must be ratified before gameplay. Weapon does not grant Elys's innate powers to ordinary bearers and does not create free energy or bypass defenses/consent. **This is a concept only: not physically forged, acquired, owned, Emperor-exclusive, equipped, or given resources.** New design is cataloged in Armory codex, and all character/inventory sheets remain unchanged. Elys and Celeste independently SSS certified, Clarissa rank pending, celebration delayed. Clarissa knows the pre-Empire extrarealm past facts but not Elys/Celeste secret prior divine marriage or source of her powerful strength. Celeste in restored SSS uniform; boxed gift outfit. No truth pen. [Turn 000249](turns/000249.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** After previewing the proposed SSS dual-mode **Prima Materia** transmutation staff/spear (U-013), Elys contacted Lethe via an executive hologram and asked **“lethe what are the names of the ai that run the apophatic tech company?”** Lethe replied with existing canonical identities: **Axiom**, executive AI overseeing Apophatic Technologies day-to-day; **Prima**, AI directing **Materia** research into alchemy, physical transmutation and refinement; **Nihil**, AI directing **Negativa** magical negation, suppression and containment. Lethe is Somnus holding-company overseer, not Apophatic's daily director. She suggests Prima for evaluating the new transmutation staff/spear and Nihil for protective countermeasure design. **She asks Elys if he wants her to arrange a consultation or summon them personally. Elys has not answered or directed any expenditures or production.** The Prima Materia blueprint is a **concept only**, uncrafted/unowned/unbound/unawakened. Elys and Celeste SSS certified; Clarissa final rank pending; celebration pending. Clarissa knows pre-Empire extrarealm past, not Elys/Celeste secret divine marriage nor the source of her immense strength. No truth pen. Celeste dressed in restored formal uniform, alternative gifts boxed. [Turn 000250](turns/000250.md).
 
 ## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
 
