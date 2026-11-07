@@ -458,3 +458,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000234](turns/000234.md) | CLXXIII | Played turn | Thorough-inspection banter; Celeste requests arbitration in Module III, admiral's answer pending | [000000](checkpoints/000000.md) |
 | [000235](turns/000235.md) | CLXXIV | Played turn | Thorough-debrief banter; Celeste logs asylum claims and screens refugee vessels during ultimatum | [000000](checkpoints/000000.md) |
 | [000236](turns/000236.md) | CLXXV | Played turn | Collar-and-leash offer, Celeste asserts consent and independence; refugee ultimatum at eight seconds | [000000](checkpoints/000000.md) |
+| [000237](turns/000237.md) | CLXXVI | Played turn | Celeste saves twelve refugee ships without casualties, wins SSS certification | [000000](checkpoints/000000.md) |
