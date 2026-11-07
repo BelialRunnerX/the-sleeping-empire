@@ -302,6 +302,10 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 - [Celeste's shameless, provocative and masochistic temperament](canon/celeste-temperament-shameless-masochistic.md) — player canon update; no scene advanced.
 
+## Relationship canon update
+
+- [Clarissa is Elys's wife; Celeste especially enjoys Elys's teasing and watching their romance](canon/clarissa-married-celeste-elys-dynamic.md) — authoritative character correction; no new played turn.
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
