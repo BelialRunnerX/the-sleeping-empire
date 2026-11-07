@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000237
+**Save sequence:** 000238
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXVI: Celeste independently saves all twelve refugee vessels without casualties or unlawful war and earns full SSS certification; she asks Elys whether he will finally provide new clothes.
-**Latest record:** [000237](turns/000237.md)
+**Story endpoint:** Chapter CLXXVII: Elys offers Celeste corset, garters, stockings and collar; she accepts them as a gift on her own terms and heads to change. Clarissa directly questions Elys about his closeness with Celeste.
+**Latest record:** [000238](turns/000238.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys declared “She wins.” Celeste independently used defensive shields and navigation exclusion to preserve all twelve refugee ships after a foreign admiral fired first. Enemy admiral stood down; no civilian casualties, no enemy vessels destroyed, no unauthorized war. **Celeste SSS CERTIFIED, ALL THREE MODULES PASSED.** Elys did not interfere. Clarissa applauded and Seraphine confirmed the certificate. Celeste's uniform remains destroyed; no automatic privacy field; she is nude in a non-graphic comedic scene. Elys still holds the collar/leash she previously returned, with no agreement to wear them. Celeste asks Elys whether he will now buy her clothes or whether the lack of clothes is part of his inspection. Celebration has not commenced. Clarissa still unaware of the secret prior divine marriage and her strength's origin. [Turn 000237](turns/000237.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys offered Celeste a black silver-embroidered corset, garter belt, stockings and collar as clothing, with leash nearby. Celeste accepted the garments and collar **as a congratulatory gift**, explicitly reserved her choice when/where to wear them and her right to add proper clothes; she has taken them to the private changing suite. She has **not yet worn the collar or agreed to use the leash**; leash remains with Elys. Her destroyed prior uniform does not regenerate; no automatic privacy field, non-graphic presentation. **Celeste is fully SSS certified**, having independently saved all twelve refugee ships without casualties or unlawful war. In the gallery, **Clarissa directly asks Elys how well he and Celeste know each other**; she still does not know their secret prior divine marriage or the origin of her own gifted strength. Garrick and Seraphine present. No answer by Elys yet. [Turn 000238](turns/000238.md).
 
 ## Examination ledger
 
