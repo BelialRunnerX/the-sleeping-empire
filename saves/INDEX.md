@@ -298,6 +298,10 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000161](turns/000161.md) | CLXV | Played turn | Celeste wins pie contest through innate divine eating capacity (not magic); Lucien offered dessert showcase | [000000](checkpoints/000000.md) |
 
+## Additional Celeste characterization
+
+- [Celeste's shameless, provocative and masochistic temperament](canon/celeste-temperament-shameless-masochistic.md) — player canon update; no scene advanced.
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
