@@ -376,6 +376,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000194](turns/000194.md) | CLXVII | Played turn | Elys promises Clarissa private explanation; requests SSS reviews for himself and Celeste | [000000](checkpoints/000000.md) |
 
+| [000195](turns/000195.md) | CLXVII | Played turn | Garrick confirms official SSS examination route and registers both SSS requests | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

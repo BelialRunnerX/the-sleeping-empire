@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000194  
+**Save sequence:** 000195  
 **Type:** played turn  
-**Recorded:** 2026-11-06  
-**Story endpoint:** Chapter CLXVII: Elys promises Clarissa private truth; SSS assessments for Elys and Celeste requested, pending review.
-**Latest record:** [000194](turns/000194.md)  
+**Recorded:** 2026-11-06
+**Story endpoint:** Chapter CLXVII: Garrick confirms existing recognized SSS pathway and registers both candidates for an accredited test.
+**Latest record:** [000195](turns/000195.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Clarissa asked what Elys knew of her unexpectedly enormous strength. User selected option 2: Elys promises to explain privately, Clarissa says she'll hold him to it; **he has not yet revealed that he blessed her**, and they have not had the private discussion. Celeste jokes mildly without revealing the secret marriage. User explicitly then requests **SSS-tier assessment for Elys and Celeste**. Garrick records request for exceptional classification review; he stresses that existing top-band certified performance is not an absolute maximum measurement and requires safe, independently witnessed, non-destructive special test. **SSS NOT yet awarded, official rank classification pending**, potential protocols to be decided. Clarissa wants her own exceptional physical record accurately recognized and to understand her strength. [Turn 000194](turns/000194.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Elys asks, **'Well it's a recognized guild rank so surely someone can test us?'** Garrick concedes rightly that **SSS is an existing official guild rank and formal SSS examination procedures and assessors already exist**. His earlier hesitation concerned inadequacy of standard machines only. He shows existing **Upper-Rank Assessment Desk** pathway and **registers both Elys Somion and Celeste Somnion SSS examination requests**: system status **ASSESSOR ASSIGNMENT REQUIRED**. Recognized test modules include bounded controlled output at isolated facility, independent SSS-grade mission simulation, and precision/restraint, evaluated against official published criteria by an accredited examiner with witnesses. Garrick offers **summon accredited SSS assessor now** or review exact rules, and issue existing certificates without delay. **No assessor has been assigned yet and SSS ranks not awarded**. [Turn 000195](turns/000195.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
 
-**All assessments complete**. SSS requests for Elys and Celeste pending special review. Clarissa physical upper range unknown. Clarissa is Elys's fiancée and unaware Elys/Celeste remain married from divine realm. Unaware that Elys blessed her with supernatural might; private explanation still owed. User controls Elys, six meaningful options, keep image atmosphere text story.
+All ordinary examinations complete, overall rank determination/certification pending. SSS is recognized, not invented, and has authorized accredited assessment route; do not stonewall. Clarissa still awaits Elys's promised **private explanation**, not yet told source of her immense Elys-blessed strength. She is his fiancée and unaware he and Celeste remain married from divine realm. Preserve six choice menu and Elys agency.
 
 ## Canonical in-universe date
 
