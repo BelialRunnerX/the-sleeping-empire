@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000235
+**Save sequence:** 000236
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXIV: Elys promises Celeste a thorough post-certification debrief; Celeste independently documents refugee asylum requests and forms a defensive screen under the foreign admiral's ultimatum.
-**Latest record:** [000235](turns/000235.md)
+**Story endpoint:** Chapter CLXXV: Elys offers Celeste a dog collar and leash; she politely returns them and asserts autonomy, while the refugee-crisis ultimatum reaches eight seconds.
+**Latest record:** [000236](turns/000236.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys promises Celeste a thoroughly flirtatious post-certification debrief; Celeste reciprocates the teasing but defers everything until she earns rank. Garrick and Seraphine frustrated, Clarissa amused and curious. Celeste remains nude after catastrophic exam uniform failure, no automatic privacy field; non-graphic comedy. **SSS Module III ACTIVE, UNPASSED:** foreign admiral rejected neutral arbitration and declared an ultimatum with 20 seconds remaining on the latest simulation display. Celeste independently transmitted the 12 refugee ships' asylum requests to the diplomatic envoy and the foreign fleet, and moved her simulated units into a defensive screening formation with weapons cold. Foreign admiral hesitates; no ceasefire, battle, certification or final decision yet. Elys has not intervened. [Turn 000235](turns/000235.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys offered Celeste a dog collar and leash. She briefly examined and returned the collar, explicitly insisting that any future private consensual roleplay is subject to her independent choice, not sovereign command. She did not put it on; Elys retains both objects. Garrick's incident report and Seraphine's objections continue, Clarissa laughs. Celeste is still nude after independent uniform collapse, no automatic privacy field, with non-graphic presentation. **SSS Module III ACTIVE, NOT PASSED:** The foreign fleet's ultimatum counts down to eight seconds on the current simulation display; weapons charged against twelve refugee ships carrying thousands fleeing forced labor. Celeste is configuring a new defensive response while challenging the foreign admiral's asserted ownership of people. The defensive configuration and confrontation outcome remain unresolved; no shooting or exam result yet. Elys has not interfered. Clarissa does not know Elys and Celeste's secret divine marriage or her own strength's origin. [Turn 000236](turns/000236.md).
 
 ## Examination ledger
 
