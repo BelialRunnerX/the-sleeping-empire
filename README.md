@@ -1,47 +1,43 @@
 # The Sleeping Empire
 
-A living science-fantasy space-opera lore archive for the interactive story of Emperor **Elysomnion** (Elys), the Black and Emerald Empire, and the Emperor's undercover life as **Hazael Wheatley**.
+A living science-fantasy space-opera lore archive for the interactive story of Emperor **Elysomnion** and the Black and Emerald Empire.
 
-## Latest canon — Chapter LIII
+## Latest verified canon — Chapter CLIII · Turn 000149
 
-**[Somnus and the Mnemosyne Era (current)](chronicle/SOMNUS_MNEMOSYNE_ERA.md)** — up-to-date corporate expansion, chronology, thirteen completed fortified planetary computers, government boundaries and unresolved threads. Older company-status passages in this README and earlier chronicle files are historical snapshots; read the newer supplement for current status. Latest durable play: [turn 000047](saves/turns/000047.md), **2 Deepfall, 13,427 ICE**.
+**Scene:** 8 Deepfall 13,627 ICE, approximately 15:30 at the **Greenhaven Harvest & Innovation Festival**, on Bellwynn. Elys (traveling incognito as **Corin Vale**), Clarissa (**Mara Calder**) and **Celeste Somnion** are watching **Niko Bell's** eccentric amateur robot **Sir Turnip III** prepare for an obstacle-course heat. **The contest result is not yet established.**
 
-## Explore the interactive codex
+- [Latest played turn 000149](saves/turns/000149.md)
+- [Current durable story state](saves/CURRENT_STATE.md)
+- [Full story save index](saves/INDEX.md)
+- [Character index](Character_Index.md)
+- [Somnus and Mnemosyne-era company canon](chronicle/SOMNUS_MNEMOSYNE_ERA.md)
 
-**[Open the GitHub Pages Living Codex](https://belialrunnerx.github.io/the-sleeping-empire/)**
+The ongoing sabbatical **does not constitute abdication**: Aurelia remains Regent, while Lethe oversees Somnus and the delegated management of Throne assets. Celeste is Imperial Hand **Enigma-01**, and Lucien is a formal Imperial Hand and Jester to the Crown.
 
-Mobile- and desktop-friendly: timelines, character dossiers, the Somnus corporate portfolio, a worlds directory and searchable lore.
+## Interactive Living Codex
 
-> **GitHub Pages one-time setup:** If the site is not live yet, in [Settings → Pages](https://github.com/BelialRunnerX/the-sleeping-empire/settings/pages) select **Deploy from a branch → master → /docs → Save**. The static site files are already in `docs/`; no build tools are necessary.
-
-## Continue across chats
-
-[Resume the story](RESUME_STORY.md) · [Current durable save](saves/CURRENT_STATE.md) · [Master prompt](prompts/MASTER_PROMPT.md) · [Save procedure](saves/README.md).
-
-The initial save is a Chapter XLVII baseline. Per-turn external saving requires a narrator using the updated prompt with working write tools; no background chat listener is installed.
-
-## Character profiles
-
-[Browse all 40 character profiles](Character_Index.md), including the Imperial court, academy faculty and students, Bellweather community, and Somnus/WSS AIs. The website’s searchable dossiers link to these individual profiles. [Lore source coverage](chronicle/SOURCE_COVERAGE.md).
+**[Open the GitHub Pages codex](https://belialrunnerx.github.io/the-sleeping-empire/)** — a responsive sci-fi archive with personnel dossiers, a searchable record ledger, worlds, commercial holdings and source references.
 
 ## Canon reading order
 
-1. [Chronicle index and source relationships](chronicle/README.md)
-2. **[Current continuation — Chapters XLI–XLVII](chronicle/POST_WAC_STORY_AND_OPERATIONS.md)**
-3. **[Somnus — corporate holdings and governance](chronicle/SOMNUS_CORPORATE_PORTFOLIO.md)**
-4. [Historical and academy-era timeline](chronicle/ACADEMY_ERA_TIMELINE.md)
-5. [Characters and arcs](chronicle/CHARACTERS_AND_ARCS.md)
-6. [Technology, places and earlier holdings](chronicle/TECHNOLOGY_ECONOMY_AND_LOCATIONS.md)
-7. [Continuity rules and open threads](chronicle/CONTINUITY_AND_OPEN_THREADS.md)
+1. [Latest current state](saves/CURRENT_STATE.md) — the live narrative endpoint.
+2. [Turn-by-turn index](saves/INDEX.md) — durable played turns and chapter markers.
+3. [Character index](Character_Index.md) — individual character dossiers.
+4. [Somnus/Mnemosyne era](chronicle/SOMNUS_MNEMOSYNE_ERA.md) — current operating status; earlier startup documents are historical snapshots.
+5. [Chronicle index](chronicle/README.md) — academy, institutions, history and continuity.
 
-The root archive contains foundational dossiers for the Emperor, Regent Aurelia, the Empire's history and institutions, military and technology. Newer chronicle additions **supplement** earlier snapshots rather than erasing historical canon.
+### Commercial status in context
 
-### Current operational status
+Somnus is operational under Lethe. The original **22 WSS freighters have been completed and commissioned**; Bellweather remains an **independent cooperative** working through a **nonexclusive** arrangement. SMITE is active in industrial/mining work, and Apophatic conducts advanced industrial R&D. **Thirteen Mnemosyne compute worlds** were completed in prior played canon. The figures for 92,600 serviced systems and 6,840 acquisitions were **Day 60 company reports**, not live audited figures as of the latest chapter.
 
-Somnus is **incorporated** and supervised by executive AI **Lethe**. Elys/Hazael's qualifying commercial holdings are **being consolidated**; transfers are not all final. **Wheatley Storage & Shipping** is administratively established with AI leadership **Steward, Meridian, Ledger, Granary**, while civilian freighters and grain handling infrastructure are **under construction**. **SMITE** is merely a reserved mining-company name, and **Apophatic Technologies** remains a proposal. Clarissa's Andromeda belongs solely to her; the Imperial Treasury and other sovereign institutions are not Somnus assets.
+Clarissa's Andromeda, the completed jointly owned **Nimbus** family estate, the Imperial Treasury and public military remain legally distinct from Somnus.
 
-**Story continuity:** The player exclusively directs the Emperor's speech, actions and decisions. Events, proposals, science experiments and company plans must not be treated as enacted/finished unless established in play.
+## Resume the story
 
-### Website source
+[Resume instructions](RESUME_STORY.md) · [Master narrator prompt](prompts/MASTER_PROMPT.md) · [Save protocol](saves/README.md).
 
-See [docs/README.md](docs/README.md) for GitHub Pages setup and website maintenance.
+Elys's dialogue, thoughts and decisions belong solely to the player. In-universe secrets and narrator-only foreshadowing must not be described as public knowledge. Fictional company status and intelligence reports must not be presented as real-world telemetry.
+
+## GitHub Pages administration
+
+The static site is served from `master/docs` when GitHub Pages is enabled under **Settings → Pages → Deploy from branch → master → /docs**. See [site maintenance notes](docs/README.md).

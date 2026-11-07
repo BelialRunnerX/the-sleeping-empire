@@ -18,3 +18,8 @@ Vesta discreetly manages the couple's private **effectively unlimited personal e
 Vesta accompanies the couple on Morrow's Landing, where they are presently dining at The Rusted Ladle after taking Room Seven at The Thistle & Lantern. Her regular companion duties begin immediately from this canon correction onward.
 
 [Character Index](../Character_Index.md)
+
+
+## Latest status — Chapter CLIII
+
+Vesta accompanies Elys (Corin Vale), Clarissa (Mara Calder) and Celeste as the discreet private travel AI on **Bellwynn**. She helped arrange civilian economy travel from Tideglass and remains separate from Sentinel and the public treasury. The party is currently at the **Greenhaven Harvest & Innovation Festival**. [Latest played record](../saves/turns/000149.md).

@@ -2,36 +2,44 @@
 
 **Save sequence:** 000149  
 **Type:** played turn; prior baseline reconstructed  
-**Recorded:** 2026-11-05  
-**Story endpoint:** Chapter CLIII, Celeste and Niko enter Sir Turnip III in Bellwynn festival robot obstacle course; heat about to begin
+**Recorded:** 2026-11-06
+**Story endpoint:** Chapter CLIII, Greenhaven Harvest & Innovation Festival — Sir Turnip III at the obstacle-course starting line; outcome not yet decided
 **Latest record:** [000149](turns/000149.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-8 Deepfall 13,627 ICE ~15:27–15:30 at **Greenhaven Harvest & Innovation Festival agricultural robot obstacle course, Bellwynn**. Elys undercover as **Corin Vale** with fiancée Clarissa (**Mara Calder**) and divine companion **Celeste Somnion (Imperial Hand Enigma-01)**, after arriving from Tideglass earlier today, took **ordinary local tram** from terminal to Greenhaven Central. Celeste was given the choice of an ordinary activity, chose to **sponsor and help the most hopeless robot in the local obstacle competition**. Friendly local teenager **Niko Bell** has comical, unstable **SIR TURNIP III**, improvised robot with oversized wheel and two tiny legs. Prior Sir Turnip I caught fire, II drove into pond. Celeste enthusiastically assisted using ONLY ordinary hand tools and tuning its center of mass, respecting contest rules, no divine powers. Clarissa and Vesta provide witty commentary. Sir Turnip III now stands upright, boasts **'VICTORY INEVITABLE'**, emits raspberry at rival corporate robot and objects **'I AM NOT A DOG'**; Niko says its new remarks weren't in original code. Excited kids chanting 'TURNIP!' Crowd expects heat to start in minutes; **competition NOT YET RUN, outcome undecided**. Bellwynn is a 43-year-old modern farming/light industry colony with peaceful Harvest & Innovation Festival, light rail and sunny green hills. Out-of-character user specifically confirmed Vesta's anti-foreshadowing remark was INDEED foreshadowing of older hidden Bellwynn history. As the present scene closes, deep underground an **ancient dormant instrument briefly registers temporal disturbance and blinks once**, UNNOTICED by ALL, incl Celeste. Do not force ancient ruin plot immediately; enjoy festival. Elys remains Emperor on indefinite NON-abdicating sabbatical, Aurelia Regent, Lethe Somnus/Throne admin. **Celeste is a brilliant friendly loyal woman, divinity of time/ocean, Imperial Hand Enigma-01**, bound by freely accepted loyalty. Elys and Celeste grew out of divine realm and were MARRIED there, an in-universe SECRET not revealed to present fiancée Clarissa; she knows their origins but not marriage. **Vesta** household companion AI, not Sentinel (Imperial security); personal unlimited private expenditure account without publicly listed Imperial transactions. Lucien Hand and Crown Jester. User prefers vivid fresh sensory writing and genuine new dialogue, NOT repeated established lore/gifts. Elys alone decides speech and actions. Use six plain numbered emoji choices, no interactive cards.
+**Verified latest played turn:** [000149 — The Divine Art of Doing Absolutely Nothing Important](turns/000149.md), Chapter **CLIII**, **8 Deepfall 13,627 ICE ~15:30**, **Greenhaven Festival Grounds, Bellwynn**. This endpoint supersedes the earlier arrival at Greenhaven Terminal on turn 000148.
+
+Elys (**Corin Vale**), Clarissa (**Mara Calder**) and **Celeste Somnion (Enigma-01)** took the local tram from Greenhaven Terminal to the Harvest & Innovation Festival. Celeste chose to help local young mechanic **Niko Bell** prepare his unstable, eccentric agricultural robot **Sir Turnip III** for an obstacle-course heat. Using **ordinary hand tools** rather than temporal/reality powers, she improved the robot's balance. Its improbable audio module declares "VICTORY INEVITABLE" and is making cheeky noises at competitors. A polished corporate robot is among the entrants. **The heat is about to begin; no result or winning robot has been established.** Elys has not selected his next action.
+
+The group is incognito. **Vesta**, not Sentinel, is the household/travel AI. Elys remains Emperor on **indefinite non-abdicating sabbatical**, with Aurelia Regent, Lethe managing Somnus and delegated Throne assets, Lucien appointed Hand and Crown Jester, and Celeste a loyal Hand. Her divine ocean/time provenance is known to Clarissa; further private historical matters remain undisclosed and must not be revealed by narrator fiat.
+
+**Narrator-only foreshadowing, do not reveal as local public knowledge:** Far below the recently built festival grounds, a dormant ancient instrument briefly reacted to a temporal anomaly. The user's correction confirms Bellwynn has hidden history despite only **43 years of documented modern settlement**. Do not interrupt this peaceful holiday with a forced ruins arc; let that mystery emerge organically. See [foreshadowing canon](canon/bellwynn-hidden-history-foreshadowing.md).
+
+Player alone controls Elys's dialogue, actions and decisions. Maintain the established six emoji-numbered narrative options, ending "Or say exactly what you do."
 
 ## Canonical in-universe date
 
-**Latest date: 6 Deepfall, 13,627 ICE** (Chapter CXXXVI). Earlier date markers refer to old chapters; a two-century jump was established before the current birthday story on 5 Deepfall, 13,627 ICE. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
+**Latest date: 8 Deepfall, 13,627 ICE** (Chapter CLIII). Earlier date markers refer to old chapters; a two-century jump was established before the current birthday story on 5 Deepfall, 13,627 ICE. See [Imperial Standard Calendar](../lore/Imperial_Standard_Calendar.md).
 
 ## Protagonist and presentation
 
 - Player alone controls Elysomnion/Elys/Hazael's speech, thoughts, feelings, choices and voluntary actions.
-- Current public identity: Hazael Wheatley, farmer and Imperial College independent research fellow. Earlier cover variants are historical; the Emperor's public biography was never rewritten.
+- Current travel cover: **Corin Vale**; Clarissa travels as **Mara Calder**. Earlier academy/commercial cover **Hazael Wheatley** remains important but is not the name used in the present Bellwynn scene. The Emperor's public biography was never rewritten.
 - Effectively omnipotent, not omniscient or naturally strategic. Automatic nullification/selective reflection follow established canon. Ordinary mistakes and mundane losses remain possible.
 - Every narrative turn requires chapter banner, scene title, location/time strip, cinematic anime visual detail, readable dialogue and exactly six distinct emoji-numbered choices ending “Or say exactly what you do.”
 - Save status belongs before the choices. A real verified write is required before claiming success.
 
 ## People, relationships and knowledge
 
-- Clarissa Somnion/Clari is Elys's fiancée, not yet his wife; an independent partner and sole owner of Andromeda. Nimbus remains 50/50 Clarissa–Hazael and its family residence was completed by Clarissa during the prior months. She lives with him at Caldris and negotiates Bellweather services on his instruction.
+- Clarissa Somnion/Clari is Elys's fiancée and independently owns Andromeda. Nimbus remains jointly held 50/50 by Clarissa and Elys, and Clarissa **completed its private family residence**. They currently travel together incognito on Bellwynn.
 - Aurelia remains Regent with standing authority over routine government; Elys retains sovereignty. Major Final War combat is over; its formal public celebration/announcement is still separate and pending.
 - **Bel is female (she/her)**, personal attendant/Chief Diplomat, Senate liaison and Stillwater overseer.
 - Sentinel is active, distributed, fallible and dryly humorous, not still waiting for activation.
 - Lethe is Somnus's executive overseer, distinct from Regent Aurelia, guardian Sentinel and WSS CEO Steward. Charcoal suit, silver-black hair, pale violet eyes, composed soft voice. Forgetting jokes are intentional; no memory failure.
 - Veronica remains active intelligence chief after her later questioning of Lucien and reversed brief banishment. No restraining order exists. Romantic reciprocation by Elys is unestablished.
-- Appropriate confidants know the cover link; ordinary faculty and student friends including Lucien do not. Extraordinary power/wealth is not automatic proof of Imperial identity.
+- Appropriate confidants know the earlier Hazael cover link; not everyone in the current civilian environment knows that **Corin Vale** is the Emperor. Do not automatically disclose his identity. Extraordinary power/wealth is not automatic proof of Imperial identity.
 - The bakery bot's summary gateway was disabled. Some snippets reached a 47-person group; downstream auditing remains open. No continuously leaking feed or established revelation of Elys's identity to Lucien.
 
 ## Assets and business — current, not projected
@@ -43,7 +51,7 @@
 - Original WSS 22 civilian freighters are **completed**. Bellweather relationship has moved to a revised **nonexclusive** cooperative agreement; Bellweather remains independent.
 - SMITE and Apophatic have active surveys, R&D, prototype activities and industrial expansion under executive AIs. SIR (Cipher) operates a civilian commercial information service under a signed **exclusive Imperial government contract**. No classified state intelligence transfer or covert merger with Veronica is established.
 - Elys created Mnemosyne I instantly on 20 Emberwane 13,427 ICE. Mnemosyne II was built over six weeks, and eleven further full planetary compute worlds under Project Triskaideka over eight months. **Thirteen worlds are now complete, operating and heavily defended** by separate independent regional systems with corporate security under Strategos. No fourteenth world has been built.
-- Elys's personal 100 armed Andromedan-pattern ships remain separate in ownership from Somnus; some may support protective patrols by his authorization. Clarissa's sovereign Andromedan navy is separate; her 50% interest in unbuilt Nimbus remains intact. Nimbus is private family home plans, not corporate or defense headquarters.
+- Elys's personal 100 armed Andromedan-pattern ships remain separate in ownership from Somnus; Clarissa's sovereign Andromedan navy is separate. Clarissa's 50% Nimbus interest remains intact. **Nimbus estate is completed** and is a private family home, not corporate or defense headquarters.
 - Elys temporarily caused Somnus-related compliance findings to be concealed in Aurelia's upgraded administrative software, but subsequently **corrected it**. The sweeping corporate immunity decree remains **unratified and without force**. Ordinary law and oversight still apply.
 - Caldris II's farmhouse and young wheat field remain private; Aurelia remains Regent. Somnus has no separate sovereign state authority.
 

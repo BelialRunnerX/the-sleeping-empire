@@ -1,6 +1,6 @@
 # Character Index
 
-Individual profiles consolidated from the foundational archive, academy chronicle, post-WAC continuation and accessible recent “sleeping empire” exchanges. **Current state: Chapter CXLVIII. Updated for formal Hand appointments.**
+Individual profiles consolidated from the foundational archive, academy chronicle, post-WAC continuation and accessible recent “sleeping empire” exchanges. **Current state: Chapter CLIII, Turn 000149. Updated for sabbatical travel, Enigma-01 and Bellwynn festival.**
 
 Profiles with limited source material deliberately retain those gaps. [Source coverage and limits](chronicle/SOURCE_COVERAGE.md).
 
@@ -37,6 +37,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | Character | Role |
 |---|---|
 | [Tomas Venn](characters/tomas.md) | Cooperative representative |
+| [Niko Bell](characters/niko-bell.md) | Bellwynn teenager · inventor of Sir Turnip III |
 | [Nessa Calder](characters/nessa.md) | Bellweather · terminal engineer |
 | [Miriam Holt](characters/miriam.md) | Bellweather · veteran farmer |
 | [Elias Harker](characters/elias.md) | Bellweather · independent farmer |
@@ -51,7 +52,7 @@ Profiles with limited source material deliberately retain those gaps. [Source co
 | [Selene](characters/selene.md) | Student |
 | [Renn](characters/renn.md) | Student |
 | [Elara](characters/elara.md) | Engineering-oriented student |
-| [Celesteth](characters/caelith.md) | Academy associate |
+| [Caelith](characters/caelith.md) | Academy associate |
 | [Gregory](characters/gregory.md) | Created sentient lattice |
 | [Dr. Seren Vahl](characters/seren-vahl.md) | Medical official |
 | [Arienne Sol](characters/arienne-sol.md) | Civilian magical engineer |

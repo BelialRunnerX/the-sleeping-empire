@@ -27,3 +27,8 @@
 **Player-established canon:** Celeste and Elys **grew up together in the divine realm, or more precisely grew out of that divine realm**. Elys had not expected to find her in present reality and had not known any of the other **Divines** had chosen to visit it. Celeste is **the embodiment of time or of the ocean, depending on perspective**. Both aspects describe her essential divine nature rather than a learned school of magic. Her abilities, precise cosmology, and reasons for arrival are open to exploration.
 
 **In-universe disclosure:** Elys has revealed to Clarissa their shared divine origin and Celeste's association with time and ocean. He has **NOT revealed the user-established deeper secret of their divine-realm marriage**; Celeste continues to honor his discretion. Do not falsely portray Clarissa as already knowing that marital history.
+
+
+## Latest status — Chapter CLIII / Turn 000149
+
+The researchers were rescued in Turn 000145, and Celeste later traveled with Elys and Clarissa from Tideglass to Bellwynn. She remains friendly, loyal and independent. Clarissa knows her shared divine provenance with Elys and her association with time/ocean, but not all private background details. At the Greenhaven Harvest & Innovation Festival, Celeste voluntarily helps local inventor Niko Bell stabilize **Sir Turnip III** using ordinary tools and contest-compliant methods. The obstacle-course race is not yet decided. [Latest turn](../saves/turns/000149.md).
