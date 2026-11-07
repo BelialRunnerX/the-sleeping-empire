@@ -476,3 +476,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000252](turns/000252.md) | CXCI | Played turn | Truth pen verifies possibility of countless misleading truths; Garrick coins Somion Paradox | [000000](checkpoints/000000.md) |
 | [000253](turns/000253.md) | CXCII | Played turn | Elys pen-verifies extracosmological wife/‘real life’ statements; Clarissa asks whether she should be jealous | [000000](checkpoints/000000.md) |
 | [000254](turns/000254.md) | CXCIII | Played turn | Elys verifies extracosmological unreality claim; Clarissa asks if she and Celeste matter to him | [000000](checkpoints/000000.md) |
+| [000255](turns/000255.md) | CXCIV | Played turn | Elys says characters matter despite being fictional from his perspective; Celeste slips about past marriage | [000000](checkpoints/000000.md) |
