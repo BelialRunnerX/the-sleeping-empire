@@ -475,3 +475,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000251](turns/000251.md) | CXC | Played turn | Elys orders Axiom, Prima, Nihil to design maximum-specification million-year god-killer staff/spear, no costs capped; plan only | [000000](checkpoints/000000.md) |
 | [000252](turns/000252.md) | CXCI | Played turn | Elys commissions U-013-Ω exclusively for himself with 24-hour delivery requirement, safety review and tracking | [000000](checkpoints/000000.md) |
 | [000253](turns/000253.md) | CXCII | Played turn | Elys jokes about god-killer versus cake paperwork, then mandates sentient right-side companion Aletheia with humanoid Materia form in IR-0001 | [000000](checkpoints/000000.md) |
+| [000254](turns/000254.md) | CXCIII | Played turn | Elys approves Aletheia's appearance, Crystalline Contralto voice and personality based on anime art; weapon remains commissioned and undelivered | [000000](checkpoints/000000.md) |
