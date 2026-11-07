@@ -400,6 +400,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000206](turns/000206.md) | CLXVII | Played turn | Elys snaps SSS annex out of existence and restores it perfectly | [000000](checkpoints/000000.md) |
 
+| [000207](turns/000207.md) | CLXVII | Played turn | Elys argues simulated mountain unnecessarily complicated; Celeste ready | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
