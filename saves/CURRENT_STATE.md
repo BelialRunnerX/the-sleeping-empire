@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000253
+**Save sequence:** 000254
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCII: Elys verifies pen-written claims about a wife ‘in real life’ and the characters' inability to comprehend that referent; Clarissa asks if she should be jealous.
-**Latest record:** [000253](turns/000253.md)
+**Story endpoint:** Chapter CXCIII: Elys verifies under an extracosmological frame that none of the others are ‘real’; Clarissa asks whether they matter to him.
+**Latest record:** [000254](turns/000254.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys used his magical truth pen to write **“My wife in real life calls this fae talking”**, verified **TRUE**, and **“Don’t ask what in real life means, you literally wouldn’t be able to understand”**, also **TRUE** after a briefly impossible color/shadow effect. His terms point to a referent beyond the characters' in-world ontological understanding; nobody knows the identity of a wife beyond the story's realm, or what ‘real life’ means, and no external user facts have been introduced as in-world canon. Garrick calls this a second-order Somion Paradox; Seraphine notes literal truth without explanatory context. Celeste is delighted by the phrase ‘fae talking’. Clarissa reacts to the mention of another wife and now directly asks Elys **“Is this mysterious wife someone I should be jealous of?”** Unanswered. Elys's prior divine marriage with Celeste has not been explicitly disclosed to Clarissa. She does not know the origin of her bestowed strength. Elys knows answer to the prior marriage inquiry but lacks episodic memory of its material circumstances, as pen-verified. Elys and Celeste both SSS certified; Celeste wears formal uniform, other gifts boxed. Celebration pending. [Turn 000253](turns/000253.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote with his truth pen **“Technically speaking none of you are real”**, verified **TRUE under his extracosmological intended frame**. Pen did not explain his meaning of real, nor erase in-world lived experiences, people’s autonomy, rights, feelings, or history. Garrick questioned his own existence, Seraphine separated external ontological status from internally meaningful experience, and Celeste joked about existential wages and keeping her gift case. Garrick records *The Somion Paradox, Third Order: An Unreal Examiner Can Still Fail Your Examination.* Clarissa notes her experiences and choices matter to her whatever Elys means, and now asks **“Do we matter to you?”** Elys has not answered. Clarissa still lacks explicit confession of Elys and Celeste's prior divine-domain marriage and of the origin of her superhuman strength. Elys knows the correct answer about marriage but honestly cannot remember the material circumstances, as pen-tested. Both Elys and Celeste SSS certified, Celeste in restored formal uniform, gifted other clothing/collar/leash boxed. Celebration still pending. [Turn 000254](turns/000254.md).
 
 ## Examination ledger
 
