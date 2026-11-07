@@ -346,6 +346,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000179](turns/000179.md) | CLXVII | Played turn / correction | Operational results 000178 superseded; detailed Elys-first Kestrel scenario begins | [000000](checkpoints/000000.md) |
 
+| [000180](turns/000180.md) | CLXVII | Played turn | Elys succeeds with boring logistics, operational 100/100; Celeste called next | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

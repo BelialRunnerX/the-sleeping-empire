@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000179  
-**Type:** played turn with explicit player continuity correction  
+**Save sequence:** 000180  
+**Type:** played turn with user-authorized character-action delegation  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys Somion first operational tester, scenario 17 awaiting first route decision.
-**Latest record:** [000179](turns/000179.md)  
+**Story endpoint:** Chapter CLXVII: Elys finishes operational trial perfectly; Celeste called for second exam.
+**Latest record:** [000180](turns/000180.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, early afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** The user explicitly directed a **more detailed rewind to the first operational tester**. Preserve earlier archive turn 000178 as historical narration, but **supersede and void its operational scores (Elys 98, Celeste 96, Clarissa 100)**. Operational exams are NOT completed; **Elys Somion goes first**, with Celeste and Clarissa in gallery. Detailed **Scenario Seventeen: The Kestrel Corridor Extraction** begins. Elys is incident commander in a simulation with 240 evacuees and 18 crew, six transports and two escort crawlers; 7 hours fuel at normal use; 12 critical-care packs; deadline toxic weather arrival 110 simulated minutes. Three routes: North Causeway 42 km fastest, bridge telemetry contradictory (OPEN vs STRUCTURAL FAILURE, both authenticated); Quarry Bypass 71 km rough but survey-confirmed; East Service Tunnel 33 km network-closed, uninspected. Intermittent dispatch; one survey drone and one engineering team available. Non-magical ordinary resources only within examination scenario. Dispatcher awaits Elys's **first route/inspection instruction**. Nothing has moved; clock just started. Do not decide Elys's choices or pre-score him.
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** User explicitly authorized narrator to assume what Elys says/does if in character, for latest operational test. Elys completed Scenario Seventeen Kestrel Corridor Extraction in detail: parallel drone/engineering review, detects stale but validly signed ‘OPEN’ bridge status, avoids collapsed North Causeway, uses surveyed Quarry Bypass with verified weight limits, spaced escorts, contingency planning and audit trail. 240 evacuees and 18 crew all arrive safely at simulation minute 101, nine minutes before toxic front; no injuries/losses/magic. Garrick awards **Elys operational 100/100**; this overrides voided prior summary operational score 98 in turn 000178. Celeste praises paperwork; Clarissa praises contingency plan. **Celeste is called next**; her new scenario is not yet disclosed. Clarissa will follow. The previously summarized Celeste 96 and Clarissa 100 operational scores from turn 000178 remain **superseded, not canonical**. Elys/Celeste relationship secret and Clarissa's physical blessing remain undisclosed. See [turn 000180](turns/000180.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational |
 |---|---:|---:|---|
-| Elys Somion | 99 | 100 | In progress, no score |
+| Elys Somion | 99 | 100 | **100** |
 | Celeste Somnion | 98 | 100 | Not begun |
 | Clarissa Somnion | 96 | 98 | Not begun |
 
-All three remain UNRANKED. Magical and physical disciplines follow operational trials. Clarissa unaware of vast physical blessing secretly granted by Elys. Clarissa is Elys's fiancée, unaware Elys and Celeste still married from divine realm. [Turn 000179](turns/000179.md). Preserve player agency; chapter/visual/6 options.
+All still UNRANKED; magical and physical exams later. Player's latest instruction delegated control of Elys's actions; do not interpret it as requiring permanent loss of agency. Continue with detailed Celeste exam unless player redirects. Keep exactly six emoji-numbered options and visual scene.
 
 ## Canonical in-universe date
 
