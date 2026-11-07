@@ -53,18 +53,18 @@
       "equipped": {
         "main_hand": null,
         "off_hand": null,
-        "head": null,
-        "body": null,
-        "arms": null,
-        "legs": null,
-        "feet": null,
+        "head": "ITM-000002",
+        "body": "ITM-000002",
+        "arms": "ITM-000002",
+        "legs": "ITM-000002",
+        "feet": "ITM-000002",
         "relic_core": null,
         "ring_a": null,
         "ring_b": null,
         "amulet": null,
         "charm_a": null,
         "charm_b": null,
-        "artifact": null
+        "artifact": "ITM-000003"
       },
       "owned_item_ids": [
         "ITM-000001",
@@ -122,9 +122,32 @@
           "before": "Prior slots unknown",
           "after": "No new item equipped; Aletheia hovering at right as independent sentient Regalia companion; armor on frame, pack folded",
           "source": "Story turn 000256"
+        },
+        {
+          "turn": "000257",
+          "field": "equipped head/body/arms/legs/feet, artifact",
+          "before": "No verified equipped new items",
+          "after": "Regalia Aegis ITM-000002 worn across five linked armor slots; Forge Core ITM-000003 in artifact backpack slot",
+          "source": "Player explicitly dons armor/backpack, removes suit for asteroid test, re-equips after it survives",
+          "transaction_type": "EQUIP_EXISTING_ASSETS"
+        },
+        {
+          "turn": "000257",
+          "field": "personal fleet loss",
+          "before": "100 privately owned Andromedan-pattern armed ships",
+          "after": "1 uncrewed ship catastrophically destroyed in direct Aletheia throw; 99 other original ships not impacted by this incident",
+          "source": "Player-directed private vessel impact experiment; no casualties",
+          "incident": "FX-000257"
+        },
+        {
+          "turn": "000257",
+          "field": "current_location",
+          "before": "Lumenfall SSS Annex",
+          "after": "Outer Lumenfall system in space over barren planet impact region",
+          "source": "Player travels into space and makes three impacts"
         }
       ],
-      "last_verified_turn": "000256",
+      "last_verified_turn": "000257",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -192,7 +215,17 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Lumenfall SSS Assessment Annex"
+      "current_location": "Outer Lumenfall system, near impact site of surveyed barren rocky planet",
+      "current_activity": "After 3 direct throw field tests; full Regalia Aegis worn and Forge Core pack mounted, Aletheia hovering at right",
+      "known_personal_andromedan_fleet": {
+        "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
+        "original_count": 100,
+        "destroyed_in_turn_000257": 1,
+        "remaining_from_original_cohort": 99,
+        "other_operational_state": "UNKNOWN; count does not imply all remaining hulls operational",
+        "incident_record": "armory/tests/FX-000257_TRIPLE_IMPACT.md",
+        "jurisdiction": "Personal Elys property, distinct from Clarissa Andromedan navy and public Imperial military"
+      }
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3171,7 +3204,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; PHYSICALLY PRESENT; in spear form hovering at Elys's right side",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; spear form hovering at Elys's right after three thrown impacts",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3220,9 +3253,16 @@
           "before": "DESIGN ONLY, not yet manifested",
           "after": "Sentient and awakened in one continuous consciousness; corporeal U-013-Ω at Emperor Elys's right, staff/spear/humanoid validated",
           "source": "Axiom confirmation and delivery scene; direct user request to jump to arrival"
+        },
+        {
+          "turn": "000257",
+          "field": "kinetic field tests and personality continuity",
+          "before": "Newly awakened, first hovering at Elys's right in Annex",
+          "after": "Thrown three times at empty armor-in-asteroid, uncrewed warship, barren planet; remains conscious, functioning, conversational, and returned to right",
+          "source": "Player-directed experiments, FX-000257"
         }
       ],
-      "last_verified_turn": "000256",
+      "last_verified_turn": "000257",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3252,7 +3292,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Lumenfall SSS Assessment Annex, to Elys's right",
+      "current_location": "Outer Lumenfall system, hovering at Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256"
     }
@@ -3277,14 +3317,14 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "NEW",
+      "condition": "FUNCTIONAL AND SENTIENT AFTER THREE CONSECUTIVE HIGH-ENERGY THROWS",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
       "form": "Philosopher's Edge spear",
-      "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYs_RIGHT",
+      "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
         "Genesis Loom staff",
@@ -3352,7 +3392,22 @@
         "million-year operational lifetime",
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
-      ]
+      ],
+      "current_physical_location": "Floating to Emperor Elys's right in outer Lumenfall space",
+      "test_history": [
+        {
+          "id": "FX-000257",
+          "turn": "000257",
+          "events": [
+            "Thrown by Elys into asteroid-embedded Regalia Aegis; asteroid fractured and armor survived",
+            "Thrown by Elys through an uncrewed private Andromedan-pattern ship, destroyed hull",
+            "Thrown by Elys into barren rocky planet, huge molten basin and planetary crust damage"
+          ],
+          "result": "Weapon reformed and returned to Elys's right after each impact, continuous consciousness preserved",
+          "limits": "No independent activation of ultimate apotheocide lethal target-selection or guaranteed maximum theoretical damage proven"
+        }
+      ],
+      "last_modified_turn": "000257"
     },
     "ITM-000002": {
       "item_id": "ITM-000002",
@@ -3367,13 +3422,13 @@
       "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
       "delivery_status": "DELIVERED",
       "ownership_verified": true,
-      "equipped": false,
+      "equipped": true,
       "enhancement_level": 20,
       "quality": 100,
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
-      "durability": 100,
-      "condition": "NEW",
+      "durability": 96,
+      "condition": "OPERATIONAL, SELF-REPAIRED AFTER ASTEROID IMPACT; surface scorched and residual repair debt",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -3385,7 +3440,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Delivered armor frame in Lumenfall SSS Annex",
+      "current_physical_location": "On Elys in outer Lumenfall space",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -3405,7 +3460,27 @@
         "survival against Aletheia maximum god-killer discharge",
         "universal invulnerability",
         "guaranteed access to unauthorized networks"
-      ]
+      ],
+      "equipped_slots": [
+        "head",
+        "body",
+        "arms",
+        "legs",
+        "feet"
+      ],
+      "test_history": [
+        {
+          "id": "FX-000257-A",
+          "turn": "000257",
+          "test": "Embedded in asteroid and struck by Elys-thrown Aletheia",
+          "before_durability": 100,
+          "immediate_after_durability": 74,
+          "after_self_repair_durability": 96,
+          "result": "SURVIVED; pressure seal and sovereign core remained sound; sacrificial outer layers lost",
+          "limits": "Not a test of Aletheia's maximum activated god-killer execution mode"
+        }
+      ],
+      "last_modified_turn": "000257"
     },
     "ITM-000003": {
       "item_id": "ITM-000003",
@@ -3420,18 +3495,18 @@
       "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
       "delivery_status": "DELIVERED",
       "ownership_verified": true,
-      "equipped": false,
+      "equipped": true,
       "enhancement_level": 20,
       "quality": 100,
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "NEW",
+      "condition": "OPERATIONAL; safely detached to standby during armor impact then reattached",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Folded pack in Lumenfall SSS Annex",
+      "current_physical_location": "Attached to Elys's suit in outer Lumenfall space",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -3450,7 +3525,9 @@
         "unlimited extradimensional matter",
         "full unrestricted independent Imperial Nullforge equivalence",
         "creation of materials without actual inputs"
-      ]
+      ],
+      "equipped_slot": "artifact",
+      "last_modified_turn": "000257"
     }
   },
   "transactions": [
@@ -3486,6 +3563,39 @@
       "credits_spent": null,
       "material_spent": null,
       "source": "User-authorized unlimited private IR commission, delivered during 24-hour skip"
+    },
+    {
+      "transaction_id": "TX-000257-ITM-000002",
+      "turn": "000257",
+      "type": "EQUIP_ARMOR",
+      "item_id": "ITM-000002",
+      "owner": "char-elys",
+      "location": "Outer Lumenfall system",
+      "credits_spent": null,
+      "materials_spent": null,
+      "source": "Player-directed experiment and equipment use, FX-000257"
+    },
+    {
+      "transaction_id": "TX-000257-ITM-000003",
+      "turn": "000257",
+      "type": "EQUIP_BACKPACK",
+      "item_id": "ITM-000003",
+      "owner": "char-elys",
+      "location": "Outer Lumenfall system",
+      "credits_spent": null,
+      "materials_spent": null,
+      "source": "Player-directed experiment and equipment use, FX-000257"
+    },
+    {
+      "transaction_id": "TX-000257-ITM-000001",
+      "turn": "000257",
+      "type": "WEAPON_THROW_RETURN",
+      "item_id": "ITM-000001",
+      "owner": "char-elys",
+      "location": "Outer Lumenfall system",
+      "credits_spent": null,
+      "materials_spent": null,
+      "source": "Player-directed experiment and equipment use, FX-000257"
     }
   ],
   "next_item_sequence": 4
