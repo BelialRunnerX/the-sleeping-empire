@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000240
+**Save sequence:** 000241
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXIX: Elys offers a leash and asks Celeste to be a good girl; she voluntarily clips it to her collar and offers him the other end. Clarissa demands an honest account of their history.
-**Latest record:** [000240](turns/000240.md)
+**Story endpoint:** Chapter CLXXX: Elys snaps physical normality back, restoring Celeste's formal uniform and the Annex; private gifts are boxed away, records remain, and Clarissa still demands the truth about Celeste.
+**Latest record:** [000241](turns/000241.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys offered the leash clasp to Celeste saying “Be a good girl.” She blushed, teased him, **voluntarily fastened the clasp to her own silver collar**, and offered Elys the free end; Elys has not yet taken or used it. She expressly reserved the right to choose her roleplay limits and refuses any assumption of compelled submission. Celeste remains dressed in the gifted black corset, garter belt and stockings. Garrick distressed, Seraphine directs the certified candidates to leave the exam floor for private matters. **Clarissa asks her fiancé Elys for an honest explanation of his previously undisclosed history with Celeste**, not because of the collar. Celeste leaves the explanation to him. Do not invent Elys's answer. Clarissa does not know the secret divine marriage or her gifted strength's origin. Elys and Celeste are SSS certified. [Turn 000240](turns/000240.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys snapped his fingers and physically restored normality, **most especially Celeste's clothing**. Celeste now wears a pristine formal white-black Imperial military uniform with her SSS insignia. The previously accepted corset, garters, stockings, collar, and leash are stored in a gift case she holds; no collar or leash remains worn or attached. Equipment, stylus and facility damage restored; the incident reports and everyone's memories remain. No retroactive alteration of records, certification or consent. Seraphine pleased, Garrick still must file his report. **Clarissa again directly asks Elys about his and Celeste's secret history; Elys has not answered.** Celeste silent, Garrick closes his terminal, Seraphine is moving away. Clarissa does not yet know Elys and Celeste's secret divine marriage or the origin of her immense strength. Elys and Celeste both fully SSS certified; celebration pending. [Turn 000241](turns/000241.md).
 
 ## Examination ledger
 
