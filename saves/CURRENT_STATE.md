@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000214  
+**Save sequence:** 000215  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys selects recurring spicy option 7, teases Celeste with a private post-exam promise; Celeste advances hospital evacuation but trial still active.
-**Latest record:** [000214](turns/000214.md)  
+**Story endpoint:** Chapter CLXVIII: Elys and Celeste exchange dramatic public kiss during Celeste's live SSS Module II; reprimanded, storm crisis ongoing.
+**Latest record:** [000215](turns/000215.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** User chose **7**, recurring “🍆💦🫦😈🌶️” spicy/romantic option. Elys teases Celeste at spectator railing: finish saving the city, and they can privately discuss correcting her “appalling behavior” later. She delightfully blushes and says she enjoys being called trouble; no explicit action/contact. Seraphine reprimands the flirtation and tells Celeste to refocus; Garrick wants distraction zone declared, Clarissa bemused. Celeste independently brings wind-threatened medical transport into safe corridor, begins evacuating hospital's first cohort, and presents triage/evacuation priority sequence to three conflicting emergency officials (hospital first, eastern districts next, jurisdiction review afterward). One agrees, two seek modifications; no coercion. **Celeste SSS Module II coastal storm surge simulation ACTIVE, roughly 34:30/38:00 remaining.** 92,000 initially at risk, western flood barrier holding, hospital evacuation incomplete, command dispute unresolved. **Module II not passed**; Module III pending. [Turn 000214](turns/000214.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** User explicitly chose option 7 and asks for provocative public affection between Elys and Celeste. Elys extends invitation, Celeste **freely and enthusiastically** crosses to him and pulls him into a dramatic public kiss and close embrace. Seraphine strongly reprimands both and records an avoidable interruption; no automatic test disqualification. Garrick horrified, Clarissa embarrassed. Celeste returns to independently operate disaster simulator. Coastal arcology crisis Module II (92,000 at risk): **33:47 remaining of initial 38-minute countdown**, hospital evacuation underway but incomplete, western flood barrier holding, eastern district surge threatening homes which Celeste diverts with protective blue magic, three authorities: first accepts triage plan, second conditionally, third disputes jurisdiction. **Celeste Module II still ACTIVE, NOT PASSED.** [Turn 000215](turns/000215.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-User requested recurring **seventh option “🍆💦🫦😈🌶️”** with highly provocative flirtation/kink-tinged banter; maintain intense but non-explicit romantic tension, consensual adults, no explicit acts. Keep six core options plus seventh. Clarissa unaware Elys blessed her immense physical strength; explanation pending. Secret Elys/Celeste divine marriage unknown to Clarissa. User controls Elys's actions.
+Celeste consents to romance, but exam still enforces autonomy, noninterference and professional judgments; no explicit sexual acts. Clarissa doesn't know that Elys blessed her extraordinary strength or secret divine marriage between Elys and Celeste; private explanation pending. Recurring seventh mischievous spicy-romance option with emoji 🍆💦🫦😈🌶️, but keep non-graphic. User controls Elys; six normal options plus seventh.
 
 ## Canonical in-universe date
 
