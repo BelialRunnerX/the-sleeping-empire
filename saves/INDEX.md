@@ -280,6 +280,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000152](turns/000152.md) | CLVI | Played turn | Sir Turnip III discusses selfhood; consciousness remains open question | [000000](checkpoints/000000.md) |
 
+| [000153](turns/000153.md) | CLVII | Played turn | Lucien's interesting toasters spark Sir Turnip's diplomatic and tactical imagination | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
