@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000245
+**Save sequence:** 000246
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXIV: Elys says their marriage was not in a realm of existence, exploiting the distinction of a divine domain beyond existence; Clarissa asks if they considered themselves husband and wife.
-**Latest record:** [000245](turns/000245.md)
+**Story endpoint:** Chapter CLXXXV: Elys verifies a narrowly intended grammatical denial of individually being both husband and wife; Clarissa presents an explicit comprehensive marital-history statement for testing.
+**Latest record:** [000246](turns/000246.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa demanded to know if Elys and Celeste were married anywhere in any realm of existence. Elys said **“Technically we have not been married in a realm of existence.”** Their secret prior marriage occurred in a **divine domain beyond ordinary created existence**, so this narrow statement can be true; it was SPOKEN and **NOT ink-tested**. Celeste laughed, Garrick and Seraphine reacted to the metaphysical legalism. Clarissa asked Celeste whether they'd had a marriage ceremony, and Celeste answered “Define ceremony,” intensifying Clarissa's suspicion. Clarissa now asks Elys directly **“Have you and Celeste ever considered yourselves husband and wife?”** No response to that question yet. Clarissa still has not been explicitly told about the former divine marriage, nor the origin of her own superhuman strength. Elys has the truth pen available on the desk with fresh paper. Celeste wears pristine white-black SSS uniform; alternate clothing, collar, leash boxed. Both Elys and Celeste SSS certified, celebration pending. [Turn 000245](turns/000245.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote “No, we have not considered ourselves husband and wife” with the truth pen, explicitly intending **neither individual has personally considered themself to be simultaneously both husband and wife**. The pen glowed **TRUE with a semantic annotation** narrowing its verification to that meaning, not that the two were never married to one another. Celeste laughed; Garrick and Seraphine parsed the grammatical trick; Clarissa remains exasperated and suspicious. Clarissa **wrote but did not test**: “At some point in the past, Elys Somion and Celeste Somnion entered into a marital relationship with one another, regardless of location, jurisdiction, metaphysical classification, ceremonial form, or the terminology subsequently used to describe that relationship.” She asks Elys **whether he will allow her to test it**; she explicitly accepts that he may refuse. **No permission or answer has yet been given; do not test the sentence automatically.** Clarissa doesn't yet know the former divine marriage conclusively or the origin of her gifted strength. Celeste wears pristine formal SSS uniform, alternative outfit/collar/leash in her case. Both Celeste and Elys SSS certified, celebration pending. [Turn 000246](turns/000246.md).
 
 ## Examination ledger
 
