@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sleeping Empire Character Registry",
+  "type": "object",
+  "required": [
+    "version",
+    "characters",
+    "items",
+    "transactions"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "characters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "character_id",
+          "canonical_name",
+          "attributes",
+          "derived",
+          "equipped",
+          "change_log"
+        ],
+        "properties": {
+          "character_id": {
+            "type": "string"
+          },
+          "canonical_name": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "required": [
+              "MIG",
+              "AGI",
+              "END",
+              "INT",
+              "WIL",
+              "PRE",
+              "ARC",
+              "ENG"
+            ],
+            "properties": {
+              "MIG": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "AGI": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "END": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "INT": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "WIL": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "PRE": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ARC": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ENG": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "derived": {
+            "type": "object",
+            "properties": {
+              "HP": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "BR": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "PATK": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "MATK": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "PDEF": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "MDEF": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ACC": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "EVA": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CR": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CD": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "SPD": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "EN": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ER": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "HEAL": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "RES": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "PEN": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "equipped": {
+            "type": "object",
+            "required": [
+              "main_hand",
+              "off_hand",
+              "head",
+              "body",
+              "arms",
+              "legs",
+              "feet",
+              "relic_core",
+              "ring_a",
+              "ring_b",
+              "amulet",
+              "charm_a",
+              "charm_b",
+              "artifact"
+            ],
+            "properties": {
+              "main_hand": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "off_hand": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "head": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "body": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "arms": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "legs": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "feet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relic_core": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ring_a": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ring_b": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amulet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "charm_a": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "charm_b": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "artifact": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "owned_item_ids": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "change_log": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "object"
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
