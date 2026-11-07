@@ -471,3 +471,5 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000247](turns/000247.md) | CLXXXVI | Played turn | Elys says he doesn't remember; Clarissa defers public marriage questioning and plans private conversation | [000000](checkpoints/000000.md) |
 | [000248](turns/000248.md) | CLXXXVII | Played turn | Truth pen verifies Elys knows the answer but does not remember material circumstances; Clarissa seeks disclosure | [000000](checkpoints/000000.md) |
 | [000249](turns/000249.md) | CLXXXVIII | Played turn | Elys truth-tests ‘I have answered you’; Clarissa stops semantic debate, Celeste agrees to tell her side later | [000000](checkpoints/000000.md) |
+| [000250](turns/000250.md) | CLXXXIX | Played turn | Pen verifies Elys personally considers humans inferior; meaning unresolved | [000000](checkpoints/000000.md) |
+| [000251](turns/000251.md) | CXC | Played turn | Elys confirms technically human with pen, creating a self-referential puzzle | [000000](checkpoints/000000.md) |
