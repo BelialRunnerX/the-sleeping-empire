@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000239
+**Save sequence:** 000240
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXVIII: Celeste willingly wears the gifted corset, garter belt, stockings and collar; Clarissa persists in asking about the secret history between Elys and Celeste.
-**Latest record:** [000239](turns/000239.md)
+**Story endpoint:** Chapter CLXXIX: Elys offers a leash and asks Celeste to be a good girl; she voluntarily clips it to her collar and offers him the other end. Clarissa demands an honest account of their history.
+**Latest record:** [000240](turns/000240.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Celeste has voluntarily put on the black silver-embroidered corset, garter belt, stockings and collar given by Elys, emerging from the private changing suite pleased and teasing. Her preferences, expressly declared by the player, include consensual submission, humiliation play and some masochism, while preserving autonomy and the right to refuse. No leash attached; leash remains with Elys. Garrick and Seraphine object to the nonstandard attire; Clarissa laughs but again presses Elys to explain how he and Celeste know one another so intimately. Elys has not responded. Clarissa still does not know their secret prior divine marriage or her own tremendous strength's origin. **Celeste and Elys are SSS certified**, exams over, celebration pending. No sexual activity; scene non-graphic. [Turn 000239](turns/000239.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys offered the leash clasp to Celeste saying “Be a good girl.” She blushed, teased him, **voluntarily fastened the clasp to her own silver collar**, and offered Elys the free end; Elys has not yet taken or used it. She expressly reserved the right to choose her roleplay limits and refuses any assumption of compelled submission. Celeste remains dressed in the gifted black corset, garter belt and stockings. Garrick distressed, Seraphine directs the certified candidates to leave the exam floor for private matters. **Clarissa asks her fiancé Elys for an honest explanation of his previously undisclosed history with Celeste**, not because of the collar. Celeste leaves the explanation to him. Do not invent Elys's answer. Clarissa does not know the secret divine marriage or her gifted strength's origin. Elys and Celeste are SSS certified. [Turn 000240](turns/000240.md).
 
 ## Examination ledger
 
