@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000244
+**Save sequence:** 000245
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXIII: Elys verifies that he and Celeste never formed an Imperial union, a narrow truth that does not negate their secret divine marriage; Clarissa challenges the evasion.
-**Latest record:** [000244](turns/000244.md)
+**Story endpoint:** Chapter CLXXXIV: Elys says their marriage was not in a realm of existence, exploiting the distinction of a divine domain beyond existence; Clarissa asks if they considered themselves husband and wife.
+**Latest record:** [000245](turns/000245.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa asked whether Elys and Celeste were ever married. Elys instead wrote “me and Celeste have never formed an imperial union” with the truth pen. The ink returned **TRUE**, verifying only that no Imperial-legal/dynastic union occurred, not denying their **secret previous divine-realm marriage**. Garrick and Seraphine note the legal distinction; Celeste is amused but increasingly uneasy with the evasions. Clarissa sees the narrower statement as not responsive to her marriage question, asks Elys for candor, and still does not know about the divine marriage or her gifted strength's origin. Elys holds pen and verified paper. Celeste wears pristine SSS uniform, private gifts boxed. Both certified, celebration pending. [Turn 000244](turns/000244.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa demanded to know if Elys and Celeste were married anywhere in any realm of existence. Elys said **“Technically we have not been married in a realm of existence.”** Their secret prior marriage occurred in a **divine domain beyond ordinary created existence**, so this narrow statement can be true; it was SPOKEN and **NOT ink-tested**. Celeste laughed, Garrick and Seraphine reacted to the metaphysical legalism. Clarissa asked Celeste whether they'd had a marriage ceremony, and Celeste answered “Define ceremony,” intensifying Clarissa's suspicion. Clarissa now asks Elys directly **“Have you and Celeste ever considered yourselves husband and wife?”** No response to that question yet. Clarissa still has not been explicitly told about the former divine marriage, nor the origin of her own superhuman strength. Elys has the truth pen available on the desk with fresh paper. Celeste wears pristine white-black SSS uniform; alternate clothing, collar, leash boxed. Both Elys and Celeste SSS certified, celebration pending. [Turn 000245](turns/000245.md).
 
 ## Examination ledger
 
