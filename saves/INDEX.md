@@ -467,3 +467,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000243](turns/000243.md) | CLXXXII | Played turn | Elys verifies current friendship; Clarissa asks directly whether he and Celeste were ever married | [000000](checkpoints/000000.md) |
 | [000244](turns/000244.md) | CLXXXIII | Played turn | Elys verifies no Imperial union; Clarissa observes it does not exclude past divine marriage | [000000](checkpoints/000000.md) |
 | [000245](turns/000245.md) | CLXXXIV | Played turn | Elys invokes marriage beyond existence loophole; Clarissa asks whether they considered themselves spouses | [000000](checkpoints/000000.md) |
+| [000246](turns/000246.md) | CLXXXV | Played turn | Elys verifies a narrow semantic loophole; Clarissa offers comprehensive marriage statement to test | [000000](checkpoints/000000.md) |
