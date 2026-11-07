@@ -282,6 +282,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000153](turns/000153.md) | CLVII | Played turn | Lucien's interesting toasters spark Sir Turnip's diplomatic and tactical imagination | [000000](checkpoints/000000.md) |
 
+| [000154](turns/000154.md) | CLVIII | Played turn | Lucien magically appears, befriends Sir Turnip III and meets Celeste | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
