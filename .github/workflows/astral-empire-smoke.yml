@@ -38,3 +38,10 @@ jobs:
       - name: Test the playable browser loop
         working-directory: docs/games/astral-empire
         run: npm run test:browser
+      - name: Preserve browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aetherbound-browser-screenshots
+          path: docs/games/astral-empire/.artifacts/
+          if-no-files-found: ignore

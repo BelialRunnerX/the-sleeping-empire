@@ -839,37 +839,44 @@ function handleEvents() {
   }
 }
 function frame(now) {
-  const dt = Math.min((now - lastFrame) / 1000 || 0.016, 0.05);
+  const dt = Math.min((now - lastFrame) / 1000 || 0.016, 0.25);
   lastFrame = now;
   if (view) {
     const input = playing && !panel ? movement() : { x: 0, z: 0 };
     if (playing && !panel) {
-      const previous = { x: sim.player.x, z: sim.player.z };
-      sim.tick(dt, input);
-      const p = sim.player;
-      if (
-        (Math.abs(p.x - 13) < 3.2 && Math.abs(p.z + 5) < 3.2) ||
-        (Math.abs(p.x + 13) < 3.2 && Math.abs(p.z + 4) < 3.2)
-      ) {
-        p.x = previous.x;
-        p.z = previous.z;
-      }
-      if (holdingAttack) attack("strike");
-      if (gathering) {
-        if (Math.hypot(p.x - gathering.x, p.z - gathering.z) > 0.2)
-          gathering = null;
-        else {
-          gathering.left -= dt;
-          if (gathering.left <= 0) {
-            const result = gather(state, gathering.node);
-            notify(result.message);
+      // Advance bounded substeps so low rendering rates do not slow game time.
+      let remaining = dt;
+      while (remaining > 0) {
+        const step = Math.min(remaining, 0.05);
+        const previous = { x: sim.player.x, z: sim.player.z };
+        sim.tick(step, input);
+        const p = sim.player;
+        if (
+          (Math.abs(p.x - 13) < 3.2 && Math.abs(p.z + 5) < 3.2) ||
+          (Math.abs(p.x + 13) < 3.2 && Math.abs(p.z + 4) < 3.2)
+        ) {
+          p.x = previous.x;
+          p.z = previous.z;
+        }
+        state.position = { x: p.x, z: p.z };
+        if (holdingAttack) attack("strike");
+        if (gathering) {
+          if (Math.hypot(p.x - gathering.x, p.z - gathering.z) > 0.2)
             gathering = null;
-            save();
-            sound(740);
+          else {
+            gathering.left -= step;
+            if (gathering.left <= 0) {
+              const result = gather(state, gathering.node);
+              notify(result.message);
+              gathering = null;
+              save();
+              sound(740);
+            }
           }
         }
+        handleEvents();
+        remaining -= step;
       }
-      handleEvents();
       if (now - lastSave > 5000) save();
     }
     view.update(dt, input, now / 1000);

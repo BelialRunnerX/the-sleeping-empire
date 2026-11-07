@@ -56,6 +56,10 @@ page.on("pageerror", (e) => {
   console.error("Page error:", e.message);
 });
 const url = "http://127.0.0.1:" + server.address().port + "/index.html";
+// Optional typography must not make a local mechanics test network-dependent.
+await page.route(/https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) =>
+  route.abort(),
+);
 try {
   await page.goto(url);
   await page.locator("#loading").waitFor({ state: "hidden" });
@@ -73,10 +77,23 @@ try {
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(artifacts, "world.png") });
   await page.keyboard.down("d");
-  await page.waitForTimeout(850);
+  await page.waitForFunction(
+    () =>
+      Number(
+        document.querySelector("#coordinates").textContent.split(",")[0],
+      ) >= 5,
+    null,
+    { timeout: 45000 },
+  );
   await page.keyboard.up("d");
   await page.keyboard.press("e");
-  await page.waitForTimeout(1800);
+  await page.waitForFunction(
+    () =>
+      JSON.parse(localStorage.getItem("astral_empire_profile_browser-test_v3"))
+        ?.resources.herb > 0,
+    null,
+    { timeout: 45000 },
+  );
   const gathered = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("astral_empire_profile_browser-test_v3")),
   );
@@ -101,7 +118,14 @@ try {
   await page.getByRole("dialog", { name: "Workshop" }).waitFor();
   await page.keyboard.press("Escape");
   await page.keyboard.down("w");
-  await page.waitForTimeout(2100);
+  await page.waitForFunction(
+    () =>
+      Number(
+        document.querySelector("#coordinates").textContent.split(",")[1],
+      ) <= -12,
+    null,
+    { timeout: 45000 },
+  );
   await page.keyboard.up("w");
   await page.locator("#target-hud").waitFor({ state: "visible" });
   await page.keyboard.press("q");
