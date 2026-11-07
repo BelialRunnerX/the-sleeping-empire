@@ -413,6 +413,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000213](turns/000213.md) | CLXVIII | Played turn | Elys teases Celeste; she starts coordinated hospital rescue and command channel | [000000](checkpoints/000000.md) |
 
+| [000214](turns/000214.md) | CLXVIII | Played turn | Elys's provocative post-exam promise; Celeste moves hospital evac forward | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
