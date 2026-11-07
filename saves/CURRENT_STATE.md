@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000204  
+**Save sequence:** 000205  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys answers three ethical cases and is officially certified SSS; Celeste's examination ready.
-**Latest record:** [000204](turns/000204.md)  
+**Story endpoint:** Chapter CLXVII: Elys questions SSS for lacking mountain punching; Seraphine defends SSS competence vs unmeasured maximum destructive force.
+**Latest record:** [000205](turns/000205.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex.** Elys answered Module III in three direct parts: (1) try to convince unwilling patient life is worth living, instead of using force; assessors caution refusal of treatment can have reasons other than hopelessness, (2) ordinary legal means, evidence preservation and due process for accused person, (3) try to persuade peaceful lawful dissenters, then ignore their protests if persuasion fails, 'like a true Emperor'. Seraphine and independent senior assessors accept proportional restraint and non-coercion, flag the importance of patient autonomy and dissenters' rights, and **PASS Module III**. **ELYS SOMION HAS FORMALLY EARNED AND BEEN CERTIFIED SSS GUILD RANK** (all three SSS modules passed). Celeste delighted by prospect of humiliating critique, Garrick relieved. **Celeste Somnion's independent SSS examination is now READY, but no trial begun**; Seraphine has opened record. Clarissa still awaiting promised private explanation of her Elys-blessed immense physical strength and doesn't know its origin. Elys/Celeste continuing marriage from divine realm undisclosed to Clarissa. [Turn 000204](turns/000204.md).
+**9 Deepfall, 13,627 ICE, evening, remote Lumenfall SSS annex.** After becoming **SSS CERTIFIED** for passing all three assessment modules, Elys quips, **"I don't think this really qualifies me for SSS rank, I mean after all I didn't punch a mountain out of existence for you."** Seraphine Vael carefully explains recognized guild rank is about demonstrated adventurer competence, control, judgment, and proportional use of exceptional capabilities, not ability to cause biggest destruction. She readily acknowledges Elys's **absolute physical/divine power and destructive capacity remain unmeasured**; offers an **additional simulated, separately instrumented destructive-force evaluation** without invalidating his already certified SSS ranking. Celeste gleefully wants to see him punch a simulated mountain, Clarissa uneasy, Garrick begs no physical mountain harm. **No simulated punch has yet been attempted.** [Turn 000205](turns/000205.md).
 
 ## Examination ledger
 
-| Candidate | Strategy | Technical | Operational | Magical | Physical | Guild rank |
+| Candidate | Strategy | Technical | Operational | Magical | Physical | Rank |
 |---|---:|---:|---:|---:|---:|---|
-| Elys Somion | 99 | 100 | 100 | 100 | 100 | **SSS (certified)** |
-| Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS exam ready |
-| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank awaiting issue |
+| Elys Somion | 99 | 100 | 100 | 100 | 100 | **SSS CERTIFIED** |
+| Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS READY, not started |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank issue pending |
 
-**SSS:** Elys Modules I/II/III PASSED, officially SSS. Celeste SSS application accepted, exam ready, no modules yet. Respect Elys agency, six emoji choices.
+**SSS Elys fully completed**, separate specialist measurement optional; Celeste assessment still READY. Clarissa still awaiting private truth of Elys's overwhelming-strength blessing, and still ignorant of secret Elys/Celeste divine marriage. Preserve six distinct emoji numbered options, player controls Elys.
 
 ## Canonical in-universe date
 

@@ -396,6 +396,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000204](turns/000204.md) | CLXVII | Played turn | Elys ethical judgment passes; awarded SSS guild rank; Celeste next | [000000](checkpoints/000000.md) |
 
+| [000205](turns/000205.md) | CLXVII | Played turn | Elys disputes rank without punching a mountain; specialist simulation offered | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
