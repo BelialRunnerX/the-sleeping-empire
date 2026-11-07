@@ -189,9 +189,16 @@
           "before": "Only SSS-004 Pallbearer King boss intelligence",
           "after": "Mira revealed uncommissioned ~42km Nadir Leviathan sighting; SSS-004 contract remains accepted and pre-deployment",
           "source": "Player chose 7 to ask whether the Guild knows of a boss bigger than 900m"
+        },
+        {
+          "turn": "000263",
+          "field": "active_guild_contracts[SSS-004], location",
+          "before": "Pre-deployment, at Lumenfall Free Adventurers' Guild",
+          "after": "Expedition underway; arrived at Sepulcher exterior perimeter, six-horned silhouette observed, no fight",
+          "source": "Player selected option 1 to depart immediately for Sepulcher"
         }
       ],
-      "last_verified_turn": "000262",
+      "last_verified_turn": "000263",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -259,8 +266,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "Arrived at guild; no new contract accepted; Regalia Aegis worn/Forge Core attached; sentient Aletheia floating at right",
+      "current_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
+      "current_activity": "SSS-004 expedition underway, at Sepulcher exterior; six-horned silhouette observed; no entry or combat yet",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -314,15 +321,27 @@
           "contract_id": "SSS-004",
           "title": "The Sepulcher Between Stars",
           "rank": "SSS",
-          "status": "ACCEPTED_PRE_DEPLOYMENT",
+          "status": "IN_PROGRESS_AT_SITE_PRE_ENGAGEMENT",
           "base_reward_credits": 14000000,
           "reward_earned": false,
           "accepted_turn": "000261",
           "party_leader": "char-elys",
           "mission_dossier": "guild/SSS-004_SEPULCHER_BOSS_DOSSIER.md",
           "boss": "The Pallbearer King / SEPULCHER WARDEN-Ω",
-          "boss_status": "NOT_YET_ENCOUNTERED",
-          "location_status": "STILL_AT_LUMENFALL_GUILD"
+          "boss_status": "SIX_HORNED_SHADOW_OBSERVED_NOT_ENGAGED",
+          "location_status": "SEPULCHER_EXTERIOR_PERIMETER",
+          "progress": [
+            {
+              "turn": "000263",
+              "milestone": "Reached Sepulcher outer perimeter",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000263",
+              "milestone": "Observed moving giant six-horned silhouette beyond inner walls",
+              "status": "UNVERIFIED_PALLBEARER_IDENTITY"
+            }
+          ]
         }
       ]
     },
@@ -3303,7 +3322,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; hovering in spear form at Elys's right in the Guild hall",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; spear form at Elys's right, Sepulcher exterior, observing six-horned shadow",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3402,9 +3421,16 @@
           "before": "Excited by predicted Pallbearer King boss",
           "after": "Learned of tentative Nadir Leviathan observation; agrees size alone does not establish hostility, Sepulcher remains first assigned mission",
           "source": "Story turn 000262"
+        },
+        {
+          "turn": "000263",
+          "field": "travel, observation",
+          "before": "At Lumenfall Guild with Elys",
+          "after": "Accompanied Elys to Sepulcher exterior; spatial folding observed; possible Pallbearer King silhouette sighted; no attack",
+          "source": "User chose depart for SSS-004"
         }
       ],
-      "last_verified_turn": "000262",
+      "last_verified_turn": "000263",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3434,7 +3460,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath, beside Elys at his right",
+      "current_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary, hovering at Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256"
     },
@@ -3640,7 +3666,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath, hovering at Elys's right",
+      "current_physical_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary, Elys's right",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3688,7 +3714,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys at Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "On Elys at Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -3766,7 +3792,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Worn by Elys as backpack at Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "Attached to Elys at Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
