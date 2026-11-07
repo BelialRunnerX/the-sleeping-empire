@@ -1,0 +1,32 @@
+# Lumenfall Free Adventurers' Guild — High-Tier Contract Board
+
+**In-world observed:** 10 Deepfall, 13,627 ICE, night  
+**Location:** Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath  
+**Source:** [Turn 000259](../saves/turns/000259.md)  
+**Registered viewer:** Emperor Elys Somion (guild SSS Mythic certification; no new contract accepted)  
+**Guild ranks:** S = Elite, SS = Legendary, SSS = Mythic (no higher standardized rank).
+
+All listed credits are **advertised contract rewards**, not paid, earned, received, escrowed in Elys's possession or spent. Completing tasks, protecting civilians and maintaining proper records matter independently of destructive capacity. Tasks are **open** unless they are described as a provisional bulletin. No new quest is automatically accepted by merely inspecting the board.
+
+| ID | Rank | Name | Offered credits | Origin | Required objective | Status |
+| --- | --- | --- | ---: | --- | --- | --- |
+| S-041 | S Elite | The Nightside Rift | 320,000 | Veyrath deep terminator wilderness | Locate missing geological expedition, secure its findings, map safe subsurface path | OPEN |
+| S-117 | S Elite | Cinderglass Refinery | 480,000 | Dark-hemisphere orbit | Resolve reactivated autonomous defenses of derelict industrial refinery, secure area and document cause | OPEN |
+| SS-022 | SS Legendary | The Vanishing Convoy | 2,400,000 | Outer trade routes | Locate seven vanished freight vessels whose navigation beacons persist, rescue any survivors | OPEN |
+| SS-063 | SS Legendary | Silence Beneath Glass | 3,600,000 | Glass Wastes, buried site | Investigate electronics/magic suppression zone and three missing survey teams, recover if possible | OPEN |
+| SSS-004 | SSS Mythic | The Sepulcher Between Stars | 14,000,000 | Uncharted interstellar boundary | Establish stable access to ancient derelict fortress, survey unknown occupants and retrieve reliable archaeological records | OPEN |
+| SSS-011 | SSS Mythic | The Star Shepherd Array | 22,000,000 | Frontier transit infrastructure | Identify anomalous rewrites and stabilize interstellar passage network before chain failure | OPEN |
+
+**Previous guild lore reconciled:** [Turn 000164](../saves/turns/000164.md) introduced S-ranked "survey uncharted depths of Nightside Rift" now formalized as S-041. It also mentioned a lower-ranked abandoned orbital refinery inquiry as an example; **S-117** is reclassified to S following evidence of renewed automated defenses. No prior mission was accepted in either case.
+
+## Unranked emergency navigation bulletin (NOT a contract)
+
+**Outer-System Gravitational Anomaly — provisional observatory report**, posted very recently after a formerly mapped barren rocky planet **imploded and vanished completely** in the outer Lumenfall system ([Turn 000257](../saves/turns/000257.md) + [canonical errata](../saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md)). Long-distance observatories detect the missing planetary body and unexplained residual space/navigation readings. **Cause officially unknown; Guild does not know Elys's responsibility and has made no accusation**. No sanctioned Guild investigation contract, rank, acceptance, promised reward or assigned investigator as of turn 000259. The planet remains GONE; no surviving crater, singularity or remnant falsely invented.
+
+## Known consequences and party state
+
+- Elys still has **NO ACTIVE CONTRACT**. His guild SSS certification is unchanged.
+- Aletheia's independent guild-member eligibility and desired rank remain unregistered/unresolved.
+- Mira is established Guild receptionist, not invented as an examiner/decision-making official.
+- Elys wears pristine `ITM-000002` Regalia Aegis at 100/100 and `ITM-000003` Forge Core at 100/100; `ITM-000001` Aletheia hovers sentient at right in spear mode, not in main_hand.
+- Clarissa and Celeste remain at Nimbus; Elys's private warship lost in prior test remains lost; no new inventory/currency/stats shift from viewing board.
