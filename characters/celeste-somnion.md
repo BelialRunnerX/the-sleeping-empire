@@ -32,3 +32,7 @@
 ## Latest status — Chapter CLIII / Turn 000149
 
 The researchers were rescued in Turn 000145, and Celeste later traveled with Elys and Clarissa from Tideglass to Bellwynn. She remains friendly, loyal and independent. Clarissa knows her shared divine provenance with Elys and her association with time/ocean, but not all private background details. At the Greenhaven Harvest & Innovation Festival, Celeste voluntarily helps local inventor Niko Bell stabilize **Sir Turnip III** using ordinary tools and contest-compliant methods. The obstacle-course race is not yet decided. [Latest turn](../saves/turns/000149.md).
+
+## Innate divine eating capacity (authoritative player erratum, Chapter CLXV)
+
+Celeste's **divine eating capacity** is an intrinsic aspect of her nature, **NOT magic or an activated spell**. It can be used in ordinary eating competitions without violating rules against magical assistance. At Greenhaven's 43rd Annual Pie-Eating Championship, Celeste **used this capacity**, comfortably eating **24 violetberry pies and winning first place**. Previous narration saying she became full at three pies or deliberately restricted herself is superseded by the player's correction. See [revised turn](../saves/turns/000161.md).
