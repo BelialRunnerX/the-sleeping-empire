@@ -14,6 +14,14 @@ A living science-fantasy space-opera lore archive for the interactive story of E
 
 The ongoing sabbatical **does not constitute abdication**: Aurelia remains Regent, while Lethe oversees Somnus and the delegated management of Throne assets. Celeste is Imperial Hand **Enigma-01**, and Lucien is a formal Imperial Hand and Jester to the Crown.
 
+## Mechanics and character tracking
+
+- [Standing rules](rules/STANDING_RULES.md) - priority, gear continuity, per-character sheets and standard responses.
+- [Imperial Armory Codex](rules/GEAR_FORGING_SYSTEM.md) - forging, item grades, gems, reforging, unique relics and optional fictional banners.
+- [Character gear/stat registry](characters/GEAR_STAT_REGISTRY.json) - 45 initial records, with unknown values explicitly unfilled.
+- [Character sheet schema](rules/CHARACTER_SHEET_SCHEMA.json) - machine-readable sheet contract.
+- [Story message template](prompts/MESSAGE_TEMPLATE.md) - repeatable story and mechanics presentation.
+
 ## Interactive Living Codex
 
 **[Open the GitHub Pages codex](https://belialrunnerx.github.io/the-sleeping-empire/)** — a responsive sci-fi archive with personnel dossiers, a searchable record ledger, worlds, commercial holdings and source references.
