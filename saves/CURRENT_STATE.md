@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000259
+**Save sequence:** 000260
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCVIII: Celeste appears voluntarily unclothed with a collar and loose leash as narrative demonstration; Elys distinguishes in-fiction omnipotence from real-world divinity.
-**Latest record:** [000259](turns/000259.md)
+**Story endpoint:** Chapter CXCIX: After an intimate fade-out with Celeste, Elys plainly confesses their former divine marriage and his intention for Clarissa to be primary romantic partner; Clarissa asks if that is still his wish.
+**Latest record:** [000260](turns/000260.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys player-directs a demonstration: **Celeste voluntarily appears nude and wearing her gifted collar with a leash**, whose **loose free end remains in her own hand**. Her pristine SSS uniform is back in the gift case. The scene contains no explicit sexual acts. Celeste is teasing and unfazed; Garrick is flustered, Seraphine avoids looking, Clarissa suggests Celeste dress. Elys says he is all-powerful Emperor in the story but **not divine from the outside participant's perspective**. Seraphine and others agree that authorship grants power over the fictional world without literal external divinity. Garrick notes **“Divinity within a narrative does not imply divinity outside it.”** Celeste asks **what sort of world Elys chooses to create with his power**; unanswered. The Annex doors are open, but Elys has not left and Celeste's SSS celebration has not begun. Both SSS certified. Clarissa still does not know Elys and Celeste's secret past divine marriage, nor the origin of her extraordinary strength. Elys knows correct answer regarding marriage but genuinely lacks episodic memory of its material circumstances, as pen verified. [Turn 000259](turns/000259.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** User described Elys engaging in an intimate act with adult Celeste; narrator fades out rather than describing explicit sexual mechanics. Elys then finally **discloses** to Clarissa that he and Celeste have a **preexisting divine marriage**, established by his external player/author choices, but that in this story he wanted **Clarissa as his primary and genuine romantic partner** and concealed the divine marriage until the AI narrative accidentally let it slip. He does not know why he originally invented the divine marriage backstory. Celeste confirms the past marriage, acknowledges playing along with concealment, and grows more serious. Clarissa now explicitly **knows the divine marriage exists**; she is glad Elys wanted her but concerned about what ongoing arrangements mean for both herself and Celeste. **Clarissa asks Elys “Is that still what you want?”** meaning Clarissa being his primary genuine romantic partner. Elys has NOT answered. No truth pen used this turn. Celeste's exact post-encounter clothing is unspecified, so do not presume formal uniform is back on. Elys and Celeste both SSS certified; celebration still pending; examiners Garrick and Seraphine present; Annex doors open. Clarissa still doesn't know Elys bestowed her exceptional strength. Elys's former lack of episodic memory of marriage's material circumstances remains pen-confirmed. [Turn 000260](turns/000260.md).
 
 ## Examination ledger
 
