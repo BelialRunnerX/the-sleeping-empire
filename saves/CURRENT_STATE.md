@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000218  
+**Save sequence:** 000219  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys proposes magical-hand exam loophole; Seraphine rules it forbidden interference; no spell cast.
-**Latest record:** [000218](turns/000218.md)  
+**Story endpoint:** Chapter CLXVIII: Elys argues conjured hand is nonphysical; Seraphine clarifies physical effects and bans interference; no spell cast.
+**Latest record:** [000219](turns/000219.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys pulls out magic fountain pen, asks **“What rules are there against a magical hand spanking the person taking the exam?”** Seraphine explains the existing prohibition against unauthorized **external physical effects on an active candidate** covers magic hands/remote constructs regardless of physical or divine method. She explicitly confirms attempting that physical intervention would terminate Celeste's current SSS Module II under existing final warning, despite Celeste's personal willingness. Celeste delighted and jokes Elys defeated by footnote; Garrick celebrates bureaucracy win; Clarissa exasperated. **No magical hand conjured, no physical contact, no disqualification, no test intervention.** [Turn 000218](turns/000218.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys replies to Seraphine's physical-interference ruling, **“Well seeing as how the hand would be a non Physical object.”** Seraphine explains that a purely nonmaterial **visual apparition** may not produce contact, while a nonmaterial magical **force construct** that touches/slaps a candidate has physical consequences and is prohibited external interference; even harmless illusion may be considered distracting. Celeste jokes about metaphorical hands; Garrick opens draft proposed Amendment 47-C, “Ontological and Immaterial Forms of Candidate Interference.” **No hand summoned, no actual contact/interference.** Seraphine's earlier warning remains in place. Celeste's **SSS Module II coastal storm-surge crisis remains ACTIVE, not PASSED**, 92,000 at risk initially, hospital evacuation underway, flood barriers temporarily secure, three authorities not fully united. Last exact time remaining ~31:46, do not invent new time based purely on banter. [Turn 000219](turns/000219.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-**Simulation:** 92,000 at risk initially in coastal storm-surge, hospital evacuation underway, barriers temporarily stabilized, multi-authority dispute ongoing, last clock reading **31:46** of 38-min trial. Seraphine final warning of termination for further physical interference stands. Elys still owes Clarissa private explanation of Elys-given huge physical might; secret Elys/Celeste marriage not disclosed. Six normal options and a seventh 🍆💦🫦😈🌶️ choice reserved for provocative non-graphic teasing.
+Clarissa unaware Elys gave her immense physical might and unaware secret Elys/Celeste divine marriage; private explanation owed. Recurring seventh suggestive non-graphic option 🍆💦🫦😈🌶️ plus six standard options. User controls Elys's actions.
 
 ## Canonical in-universe date
 
