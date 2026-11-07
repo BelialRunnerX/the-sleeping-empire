@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000241
+**Save sequence:** 000242
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXX: Elys snaps physical normality back, restoring Celeste's formal uniform and the Annex; private gifts are boxed away, records remain, and Clarissa still demands the truth about Celeste.
-**Latest record:** [000241](turns/000241.md)
+**Story endpoint:** Chapter CLXXXI: Elys truthfully proves with a magical verification pen that he and Celeste have been childhood friends; Clarissa realizes this does not rule out a later relationship and presses for fuller disclosure.
+**Latest record:** [000242](turns/000242.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys snapped his fingers and physically restored normality, **most especially Celeste's clothing**. Celeste now wears a pristine formal white-black Imperial military uniform with her SSS insignia. The previously accepted corset, garters, stockings, collar, and leash are stored in a gift case she holds; no collar or leash remains worn or attached. Equipment, stylus and facility damage restored; the incident reports and everyone's memories remain. No retroactive alteration of records, certification or consent. Seraphine pleased, Garrick still must file his report. **Clarissa again directly asks Elys about his and Celeste's secret history; Elys has not answered.** Celeste silent, Garrick closes his terminal, Seraphine is moving away. Clarissa does not yet know Elys and Celeste's secret divine marriage or the origin of her immense strength. Elys and Celeste both fully SSS certified; celebration pending. [Turn 000241](turns/000241.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys responded to Clarissa's question with “We're childhood friends, of course,” producing a truth-verifying pen and writing **“Celeste Somnion and I have been friends since childhood.”** Ink glowed gold **TRUE**, verifying only that claim. Clarissa correctly noted it could be true yet incomplete, offering examples of childhood friends who later became lovers or spouses. Celeste seemed uneasy at “married” and pointed out Elys hadn't lied. **Clarissa asks Elys to write a more comprehensive statement and awaits his answer.** No admission of their past secret divine marriage yet; Clarissa is still unaware of her immense strength's origin. Elys retains the truth pen; the verified statement is on paper. Celeste in pristine restored formal Imperial SSS uniform, gift clothes/collar/leash cased and in her possession. Elys and Celeste both certified, celebration pending. [Turn 000242](turns/000242.md).
 
 ## Examination ledger
 
