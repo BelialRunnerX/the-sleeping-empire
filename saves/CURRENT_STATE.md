@@ -1,17 +1,17 @@
 # Current Story State
 
-**Save sequence:** 000176  
+**Save sequence:** 000177  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Garrick opens technical testing workshop after all three strategic tests; no technical candidate has started.
-**Latest record:** [000176](turns/000176.md)  
+**Story endpoint:** Chapter CLXVII: completed all three technical aptitude evaluations; operational next.
+**Latest record:** [000177](turns/000177.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE ~11:47 local, Lumenfall Free Adventurers' Guild, Veyrath; technical wing.** Garrick has opened the technical assessment after strategy scores **Elys Somion 99/100, Celeste Somnion 98/100, Clarissa Somnion 96/100**. The room contains dismantled field generators, service automaton, power-routing benches, and a starship-engine simulator, with yellow safety lines; Garrick claims four independent simulator safety layers. Technical categories: diagnostics, repair, fabrication, systems judgment. Garrick has **not picked the first candidate** or begun testing and asks whether there are questions about rules. Celeste's previous teasing question to Elys about spectacular failure remains unanswered; do not invent his answer.
+**9 Deepfall, 13,627 ICE, early afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** At the player's request, technical examinations concluded without intermediate play. Technical results **Elys Somion 100/100; Celeste Somnion 100/100; Clarissa Somnion 98/100** (small fabrication inefficiency). Celeste is an exceptionally talented technical prodigy and exposed a genuine calibration flaw confirmed by exam technicians. Elys fulfilled all test criteria and safety conditions. Earlier strategic results **Elys 99/100, Celeste 98/100, Clarissa 96/100** remain unchanged. All three real-name registrants remain **UNRANKED**, ₡450 registration previously paid; no overall rank yet.
 
-All three remain provisionally **UNRANKED**, real guild names and ₡450 registration unchanged. After technical come operational, magical, and physical tests. Clarissa's secretly granted overwhelming physical capability is unknown to her. **Elys and Celeste remain married from the divine realm; Clarissa is Elys's fiancée and does not know this marriage continues.** Maintain strict player agency, visual scene, exactly six emoji-numbered choices. [Turn 000176](turns/000176.md).
+**Immediate beat:** Garrick announces **operational aptitude next**, with magical and physical testing after. He insists on strictly non-destructive latter tests. No operational task has started, and he awaits instructions/questions. Preserve character distinctions; Clarissa's secretly granted vast physical might remains unknown to her; Elys and Celeste's continuing divine-realm marriage remains unknown to fiancée Clarissa. Neither relationship secret disclosed. [Turn 000177](turns/000177.md). Six distinct emoji-numbered options mandatory.
 
 ## Canonical in-universe date
 
