@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000211  
+**Save sequence:** 000212  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys sent glowing kissing emoji, jokes with Celeste about insult versus affection; Celeste's SSS Module II storm-crisis simulation begins.
-**Latest record:** [000211](turns/000211.md)  
+**Story endpoint:** Chapter CLXVIII: Elys playfully insults Celeste, who adores it; she safeguards western flood barrier but Module II crisis remains active.
+**Latest record:** [000212](turns/000212.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys earlier used divine pen to send a harmless glowing **😘** to Celeste's cheek; Seraphine warns further flirtation can distract, but no disqualification. [Turn 000210](turns/000210.md). Elys now asks Celeste, **“I can't tell if you'd enjoy my projectile more or an insult more.”** Celeste jokes she loves the projectile for affection and an insult for humiliation, while an affectionate insult is ideal craftsmanship. Clarissa calls her impossible, Celeste thanks her. Seraphine realizes reprimands delight her and chooses to WITHHOLD unnecessary criticism, which Celeste declares cruel and says she may have met her match. Seraphine starts **Celeste SSS Module II** coastal arcology simulated storm-surge crisis: **92,000** inhabitants at risk, **38 minute** deadline, barriers/transit failing, hospital isolated, three emergency authorities disagreeing. Celeste is actively starting, deploying three initial blue-white magic coordination rings to barriers, hospital, comms, and promises to save lives first, untangle governance second. **Timer just began, no crisis outcome yet; no Module II pass.** [Turn 000211](turns/000211.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys delivers playful insult to Celeste about her **hideous fashion relative to her body and her mind being small compared to her ass**. Celeste blushes and delights in the teasing insult; tells him it is a very good insult. Clarissa laughs after initial embarrassment, Garrick aghast, Seraphine reprimands them for flirtatious distractions during official test. **Celeste SSS Module II coastal storm surge trial remains ACTIVE:** 92,000 simulated inhabitants, clock **36:48 / 38:00 remaining**. She makes a competent **temporary western flood barrier reinforcement** in response to new fracture; no injuries; other flood risks, isolated hospital, and dispute among three rescue authorities still unresolved. She is about to challenge three officials on their competing demands. No trial pass or full rescue yet. [Turn 000212](turns/000212.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Elys still owes Clarissa private explanation of secretly granted immense physical might. Clarissa still unaware of secret Elys/Celeste divine marriage. Elys may observe; no technical interference absent player directive. Six options, user controls Elys's actions.
+Celeste acts independently; Elys gave only verbal teasing, no operational assistance. Clarissa still unaware of source of Elys-granted immense strength and secret Elys/Celeste divine marriage. Elys owes private explanation. Six choices, Elys agency.
 
 ## Canonical in-universe date
 
