@@ -406,6 +406,9 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000209](turns/000209.md) | CLXVIII | Played turn | Elys teases Celeste with pen; she passes SSS shipyard module | [000000](checkpoints/000000.md) |
 
+| [000210](turns/000210.md) | CLXVIII | Played turn | Elys sends Celeste magical kissing emoji; storm-crisis Module II briefing | [000000](checkpoints/000000.md) |
+| [000211](turns/000211.md) | CLXVIII | Played turn | Elys jokes about projectile versus insult; Celeste begins Module II | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

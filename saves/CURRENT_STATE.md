@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000209  
+**Save sequence:** 000211  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys silently teases Celeste with divine pen, Celeste independently passes SSS Module I shipyard, Module II next.
-**Latest record:** [000209](turns/000209.md)  
+**Story endpoint:** Chapter CLXVIII: Elys sent glowing kissing emoji, jokes with Celeste about insult versus affection; Celeste's SSS Module II storm-crisis simulation begins.
+**Latest record:** [000211](turns/000211.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall remote SSS annex.** Elys chose **6**: silently raises his divine fountain pen and teasingly looks at Celeste during her timed SSS Module I shipyard test; **he does not intervene**. Celeste delightfully calls the pen an accusation that he could solve it with one word. She then expertly coordinates **4,096 drones**, corrects **18,742 structural faults** while maintaining original ship identity, provenance, safety and workers, and returns ship to service with **23:41/30:00 elapsed**. Seraphine and independent experts verify and mark **Celeste SSS Module I PASSED**, with **time-management advisory** because she wasted the opening 16 minutes critiquing the original engineering. Celeste takes personal delight in criticism. Seraphine announces **Celeste Module II: adversarial operational command** awaiting briefing; **has not started**. Celeste warns Elys not to rescue her from her mistakes or otherwise help; outside interference invalidates her independent assessment. [Turn 000209](turns/000209.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys earlier used divine pen to send a harmless glowing **😘** to Celeste's cheek; Seraphine warns further flirtation can distract, but no disqualification. [Turn 000210](turns/000210.md). Elys now asks Celeste, **“I can't tell if you'd enjoy my projectile more or an insult more.”** Celeste jokes she loves the projectile for affection and an insult for humiliation, while an affectionate insult is ideal craftsmanship. Clarissa calls her impossible, Celeste thanks her. Seraphine realizes reprimands delight her and chooses to WITHHOLD unnecessary criticism, which Celeste declares cruel and says she may have met her match. Seraphine starts **Celeste SSS Module II** coastal arcology simulated storm-surge crisis: **92,000** inhabitants at risk, **38 minute** deadline, barriers/transit failing, hospital isolated, three emergency authorities disagreeing. Celeste is actively starting, deploying three initial blue-white magic coordination rings to barriers, hospital, comms, and promises to save lives first, untangle governance second. **Timer just began, no crisis outcome yet; no Module II pass.** [Turn 000211](turns/000211.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical | Rank |
 |---|---:|---:|---:|---:|---:|---|
 | Elys Somion | 99 | 100 | 100 | 100 | 100 | **SSS CERTIFIED** |
-| Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS MODULE I PASSED, II NEXT |
-| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank issue pending |
+| Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Clarissa unaware Elys provided her huge physical blessing and that Elys/Celeste are married from divine realm; Elys still owes private explanation. Elys may observe but no interventions in Celeste's independent tests unless explicit and exam consequences. Maintain 6 emoji numbered choices and Elys's agency.
+Elys still owes Clarissa private explanation of secretly granted immense physical might. Clarissa still unaware of secret Elys/Celeste divine marriage. Elys may observe; no technical interference absent player directive. Six options, user controls Elys's actions.
 
 ## Canonical in-universe date
 
