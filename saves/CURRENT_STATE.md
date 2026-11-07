@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000246
+**Save sequence:** 000247
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXV: Elys verifies a narrowly intended grammatical denial of individually being both husband and wife; Clarissa presents an explicit comprehensive marital-history statement for testing.
-**Latest record:** [000246](turns/000246.md)
+**Story endpoint:** Chapter CLXXXVI: Elys says ‘I don't remember’ rather than testing Clarissa's comprehensive marriage statement; Celeste offers qualified reminiscence, and Clarissa defers the direct reckoning to a private conversation.
+**Latest record:** [000247](turns/000247.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote “No, we have not considered ourselves husband and wife” with the truth pen, explicitly intending **neither individual has personally considered themself to be simultaneously both husband and wife**. The pen glowed **TRUE with a semantic annotation** narrowing its verification to that meaning, not that the two were never married to one another. Celeste laughed; Garrick and Seraphine parsed the grammatical trick; Clarissa remains exasperated and suspicious. Clarissa **wrote but did not test**: “At some point in the past, Elys Somion and Celeste Somnion entered into a marital relationship with one another, regardless of location, jurisdiction, metaphysical classification, ceremonial form, or the terminology subsequently used to describe that relationship.” She asks Elys **whether he will allow her to test it**; she explicitly accepts that he may refuse. **No permission or answer has yet been given; do not test the sentence automatically.** Clarissa doesn't yet know the former divine marriage conclusively or the origin of her gifted strength. Celeste wears pristine formal SSS uniform, alternative outfit/collar/leash in her case. Both Celeste and Elys SSS certified, celebration pending. [Turn 000246](turns/000246.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa requested permission to truth-test a broad statement about Elys and Celeste's previous marital relationship. Elys instead said **“I don't remember.”** It was spoken, NOT written or tested, and **genuine amnesia has not been established**; only the user controls Elys's inner memory and motives. Celeste laughed at the evasion; Garrick began an unfounded cognitive-issue note and Seraphine rejected it. Clarissa asked Celeste whether she remembered; Celeste said she remembers many things and some need metaphysical explanation, but did not confirm the secret prior divine marriage. Clarissa agrees not to force a public confession but expects candor and plans a separate discussion with Celeste. **The past marriage still has not been explicitly disclosed**, and Clarissa remains unaware of the origin of her superhuman strength. Blank paper and truth-testing pen are available; broad statement untested. Celeste in restored SSS formal uniform, alternative clothing/collar/leash in her gift case. Elys and Celeste certified; celebration pending. [Turn 000247](turns/000247.md).
 
 ## Examination ledger
 
