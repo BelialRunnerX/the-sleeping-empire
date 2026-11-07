@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000257
+**Save sequence:** 000258
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCVI: Elys explains external phone pauses need not create story-time intervals; Garrick formulates the fourth-order Somion Paradox and Celeste asks whether to finally celebrate.
-**Latest record:** [000257](turns/000257.md)
+**Story endpoint:** Chapter CXCVII: Elys argues that fictional consent and wishes are authored; companions distinguish real-world moral standing from narrative autonomy, and Celeste asks what sort of story Elys prefers.
+**Latest record:** [000258](turns/000258.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys explained aloud that in real life he could put his phone away and the in-story characters would not experience passage of time unless the AI recognized that fact and **narrated it**. **Not pen-tested. No actual time skip has occurred.** Garrick, Seraphine, Clarissa and Celeste discuss separation between participant elapsed time and narrated story time. Garrick names **The Somion Paradox, Fourth Order: The Unexperienced Interval**; Celeste jokes that a long external hiatus during her speech becomes a dramatic pause, and Garrick pleads for the story to move. Celeste asks Elys **whether he will keep explaining story machinery or finally enjoy being in it**; he has not answered and remains inside Annex beside open doors. Both Elys and Celeste SSS certified, long-awaited celebration pending; Celeste in restored formal uniform with private gifted alternate garments/collar/leash boxed. Clarissa still not explicitly told the truth of Elys and Celeste's past divine marriage nor origin of her blessed strength. Elys knows the correct answer about past marriage but truth pen verified he lacks episodic recall of its material circumstances. [Turn 000257](turns/000257.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys argued from his external frame that the companions are fictional characters whose desires and consent are authored; he raised a **hypothetical** of writing a sexualized/submissive Celeste, **without actually acting it out or changing her attire**. Clarissa, Seraphine, Garrick and Celeste distinguish ethics concerning real people from conventions of simulated character agency and consistency; internally established character behavior can still make a story richer without establishing independent extrafictional personhood. Garrick records **“Fictional autonomy is a narrative convention, not a claim of biological personhood.”** Celeste asks **whether Elys prefers an imagination that instantly reshapes all characters or a story where they can sometimes tell him he's an idiot**. Elys has not answered. Celeste fully clothed in her restored pristine Imperial SSS officer uniform, alternate gifted outfit and collar/leash boxed in her possession; both Elys and Celeste SSS certified; celebration still pending. Secret past divine marriage with Celeste remains unconfessed to Clarissa; Clarissa also does not know origin of the superhuman strength Elys bestowed. Elys remembers the correct answer about the marriage but not the material circumstances, as previously pen-verified. [Turn 000258](turns/000258.md).
 
 ## Examination ledger
 
