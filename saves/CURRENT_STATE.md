@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000265
+**Save sequence:** 000266
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CCIV: Elys asks Celeste how she feels; she confirms affection and desire to be there, notes Clarissa's exclusion, and Clarissa requests the same candor from Elys.
-**Latest record:** [000265](turns/000265.md)
+**Story endpoint:** Chapter CCV: Elys conclusively ends the encounter with Celeste; the examiners and Clarissa react, and Clarissa again requests a clear answer about his romantic commitment.
+**Latest record:** [000266](turns/000266.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** The user chose **3: ask Celeste how she feels**, and asked to include her physical responses. Elys asked “Celeste, darling, how are you feeling?” Celeste showed non-graphic cues (uneven breath, flushed cheeks, steadying herself, affectionate smile, hand squeeze) and said she is overwhelmed, delighted, embarrassed, wants to be here and enjoys closeness with Elys. She also expressed concern that Clarissa is being treated like a spectator in a relationship she thought she understood. Clarissa appreciates her honesty and **asks Elys for the same kind of straightforward answer**. The adult intimate encounter **remains ongoing** as previously declared; after Elys's first climax, **Celeste has not climaxed, nor has Elys had the planned second climax**. Do not automatically terminate encounter or depict extra voluntary Elys actions. No clothing restoration; no retcon enacted. Clarissa now knows Elys/Celeste prior divine marriage but not the source of her tremendous strength. Elys and Celeste both SSS certified, celebration pending. Garrick and Seraphine still present. [Turn 000265](turns/000265.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys has now **completed the intimate encounter with Celeste**. The narrator directly acknowledges its conclusion but omits explicit sexual anatomy/mechanics. Celeste is flushed, breathing unevenly, disheveled and steadies herself, smiling and joking about the emphatic conclusion. Garrick freezes, Seraphine faces away, and Clarissa is upset by the public spectacle and the lack of a direct answer from Elys. Celeste agrees the setting was inappropriate. **Clarissa now asks Elys whether he actually intends to treat her as the primary romantic partner he says he wants.** Elys has not answered. **Intimacy is over**; do not presume further sexual action or automatically restore garments. Future retcon not performed. Clarissa knows about Elys and Celeste's past divine marriage but not the source of her extraordinary strength. Elys and Celeste both SSS-certified; celebration pending, examiners still present. [Turn 000266](turns/000266.md).
 
 ## Examination ledger
 
