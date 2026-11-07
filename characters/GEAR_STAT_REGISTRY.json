@@ -143,8 +143,17 @@
           "turn": "000257",
           "field": "current_location",
           "before": "Lumenfall SSS Annex",
-          "after": "Outer Lumenfall system in space over barren planet impact region",
-          "source": "Player travels into space and makes three impacts"
+          "after": "Outer Lumenfall system, in space at the now-empty coordinates of the imploded/vanished barren planet",
+          "source": "User-directed triple impact with explicit errata: barren planet vanished"
+        },
+        {
+          "turn": "000257",
+          "kind": "USER_ERRATA_CORRECTION",
+          "field": "planetary impact and armor auto-repair outcome",
+          "before": "Planet gravitionally intact with a massive crater; Aegis 96/100 after partial self-repair",
+          "after": "Planet entirely imploded and vanished; Aegis automatically used asteroid material to fully restore to 100/100",
+          "source": "Exact user message: Errata: planet implodes and goes bye bye, also armor repairs itself with environmental material",
+          "no_new_story_turn": true
         }
       ],
       "last_verified_turn": "000257",
@@ -215,8 +224,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Outer Lumenfall system, near impact site of surveyed barren rocky planet",
-      "current_activity": "After 3 direct throw field tests; full Regalia Aegis worn and Forge Core pack mounted, Aletheia hovering at right",
+      "current_location": "Outer Lumenfall system, in space at the now-empty coordinates of the imploded/vanished barren planet",
+      "current_activity": "Regalia Aegis worn and pristine (100/100) following automatic environmental-matter repair; Forge Core mounted; Aletheia hovers to Elys's right; barren planet fully imploded and no longer exists",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -225,7 +234,21 @@
         "other_operational_state": "UNKNOWN; count does not imply all remaining hulls operational",
         "incident_record": "armory/tests/FX-000257_TRIPLE_IMPACT.md",
         "jurisdiction": "Personal Elys property, distinct from Clarissa Andromedan navy and public Imperial military"
-      }
+      },
+      "confirmed_planetary_events": [
+        {
+          "id": "FX-000257-P",
+          "turn": "000257",
+          "event": "Elys-thrown Aletheia impacted remote barren rocky planet; entire planet collapsed inward/imploded to bright point and vanished without a surviving planet or crater",
+          "planet_name": "UNSPECIFIED",
+          "ownership": "UNKNOWN",
+          "life_detected_in_impact_survey": false,
+          "celestial_body_status": "DESTROYED_AND_VANISHED",
+          "black_hole_remnant": "NOT_ESTABLISHED",
+          "orbital_aftereffects": "UNKNOWN",
+          "incident_record": "armory/tests/FX-000257_TRIPLE_IMPACT.md"
+        }
+      ]
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3260,6 +3283,14 @@
           "before": "Newly awakened, first hovering at Elys's right in Annex",
           "after": "Thrown three times at empty armor-in-asteroid, uncrewed warship, barren planet; remains conscious, functioning, conversational, and returned to right",
           "source": "Player-directed experiments, FX-000257"
+        },
+        {
+          "turn": "000257",
+          "kind": "USER_ERRATA_CORRECTION",
+          "field": "third test result",
+          "before": "Severely cratered surviving barren planet",
+          "after": "Complete inward implosion and disappearance of entire barren planet; Aletheia returns sentient and intact",
+          "source": "User's explicit errata, no turn advance"
         }
       ],
       "last_verified_turn": "000257",
@@ -3292,7 +3323,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Outer Lumenfall system, hovering at Elys's right",
+      "current_location": "Outer Lumenfall system, to Elys's right at the vanished planet's former coordinates",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256"
     }
@@ -3393,7 +3424,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Floating to Emperor Elys's right in outer Lumenfall space",
+      "current_physical_location": "Floating to Emperor Elys's right at former coordinates of the vanished barren planet",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3401,10 +3432,11 @@
           "events": [
             "Thrown by Elys into asteroid-embedded Regalia Aegis; asteroid fractured and armor survived",
             "Thrown by Elys through an uncrewed private Andromedan-pattern ship, destroyed hull",
-            "Thrown by Elys into barren rocky planet, huge molten basin and planetary crust damage"
+            "Thrown by Elys into a remote barren rocky planet: the entire world catastrophically imploded inward to an extinguished point and vanished completely, with no remaining world/crater"
           ],
-          "result": "Weapon reformed and returned to Elys's right after each impact, continuous consciousness preserved",
-          "limits": "No independent activation of ultimate apotheocide lethal target-selection or guaranteed maximum theoretical damage proven"
+          "result": "Weapon remains conscious and functional and returns to Elys's right after all three strikes; third strike destroyed the planet entirely",
+          "limits": "No independent activation of ultimate apotheocide lethal target-selection or guaranteed maximum theoretical damage proven",
+          "errata_applied": true
         }
       ],
       "last_modified_turn": "000257"
@@ -3427,8 +3459,8 @@
       "quality": 100,
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
-      "durability": 96,
-      "condition": "OPERATIONAL, SELF-REPAIRED AFTER ASTEROID IMPACT; surface scorched and residual repair debt",
+      "durability": 100,
+      "condition": "PRISTINE; FULLY RECONSTITUTED BY AUTOMATED ENVIRONMENTAL-MATTER TRANSMUTATION AFTER ASTEROID IMPACT; ALL SEALS AND CORE OPERATIONAL",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -3475,12 +3507,24 @@
           "test": "Embedded in asteroid and struck by Elys-thrown Aletheia",
           "before_durability": 100,
           "immediate_after_durability": 74,
-          "after_self_repair_durability": 96,
-          "result": "SURVIVED; pressure seal and sovereign core remained sound; sacrificial outer layers lost",
-          "limits": "Not a test of Aletheia's maximum activated god-killer execution mode"
+          "after_self_repair_durability": 100,
+          "result": "SURVIVED; pressure seal and sovereign core sound; all damaged armor replaced with nearby asteroid matter; 100/100 after repair; pristine.",
+          "limits": "Not a test of Aletheia's maximum activated god-killer execution mode",
+          "repair_mechanism": "Automatically gathers and transmutes environmental asteroid material to restore fully. No Forge Core operation or inventory materials."
         }
       ],
-      "last_modified_turn": "000257"
+      "last_modified_turn": "000257",
+      "self_repair": {
+        "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
+        "source": "Surrounding asteroid fragments and free-floating dust/minerals",
+        "requires_external_matter": true,
+        "does_not_require_forge_core": true,
+        "recovery_at_turn_000257": "74/100 -> 100/100",
+        "material_debit_mass": "UNKNOWN; scavenged environment, not character inventory",
+        "limitation": "Requires sufficient convertible local matter and energy; not universal immunity or guaranteed regeneration in empty void",
+        "first_confirmed_turn": "000257"
+      },
+      "errata_reference": "saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md"
     },
     "ITM-000003": {
       "item_id": "ITM-000003",
