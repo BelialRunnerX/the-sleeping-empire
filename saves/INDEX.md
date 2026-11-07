@@ -362,6 +362,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000187](turns/000187.md) | CLXVII | Played turn | Elys passes five breadth lanes 100/100; endurance last magical subtest | [000000](checkpoints/000000.md) |
 
+| [000188](turns/000188.md) | CLXVII | Played turn | Elys jokes about endurance and earns 100/100 magical; Celeste next | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

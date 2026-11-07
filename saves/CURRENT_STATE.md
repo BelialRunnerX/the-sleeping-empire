@@ -1,27 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000187  
+**Save sequence:** 000188  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys finishes five-lane magical breadth perfectly; endurance awaits.
-**Latest record:** [000187](turns/000187.md)  
+**Story endpoint:** Chapter CLXVII: Elys magical aptitude concludes 100/100 after endurance; Celeste called next.
+**Latest record:** [000188](turns/000188.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude lab.** Player chose option 1 to demonstrate all five magical breadth outcomes safely in order. Elys completes thermal regulation, electromagnetic shaping, spatial positioning, protective warding, restorative restructuring with no deviation/collateral above measurement threshold. Garrick awards **breadth 100/100**, not yet overall magic score. Earlier precision 100/100, dynamic control 100/100 and calibration passed. Celeste jokes the ward was tasteful, Clarissa notes the point of a safety test.
-
-**Immediate decision:** final **endurance** phase, twelve simulated minutes of continuous bounded regulated magical workload with deliberately introduced interruptions. The apparatus will terminate before its own limit; it cannot measure Elys's true maximum. Garrick asks if Elys is ready. No endurance phase has begun; await response. [Turn 000187](turns/000187.md).
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical lab.** Elys spoke: **"I've been known for my endurance right ladies?"** Celeste responded with delighted suggestiveness; Clarissa replied with playful praise of Elys's stubborn paperwork persistence. Garrick insisted on professionalism. Elys then chose to run the full **twelve-minute regulated endurance phase**. He maintained prescribed fields and precision through increased targets, reversed energy gradients, misleading status display, and timed adjustments; no instrument-detected degradation or safety issue. **Magical aptitude Elys Somion: 100/100 final discipline score**. Garrick emphasizes this certifies finite test performance, not his unlimited true ceiling. Celeste jokes about legendary endurance. **Celeste now called next for magical testing**, not begun. [Turn 000188](turns/000188.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
-|---|---:|---:|---:|---|---|
-| Elys Somion | 99 | 100 | 100 | Calibration passed; precision 100; dynamic 100; breadth 100; endurance pending | Not begun |
+|---|---:|---:|---:|---:|---|
+| Elys Somion | 99 | 100 | 100 | **100** | Not begun |
 | Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
 | Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-Guild rank still UNRANKED for all. Elys/Celeste divine marriage remains unknown to fiancée Clarissa; Clarissa's secret immense physical blessing remains unknown to her. Retain cinematic, chapter, six emoji numbered menu options.
+All candidates UNRANKED. Celeste and Elys are still married from divine realm, unbeknownst to Elys's fiancée Clarissa; Clarissa's enormous physical blessing from Elys also undisclosed. User controls Elys's dialogue and actions unless explicitly delegating. Continue with six emoji-numbered options and chapter visuals.
 
 ## Canonical in-universe date
 
