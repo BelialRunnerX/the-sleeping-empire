@@ -7,6 +7,8 @@ Independent sovereign owner of Andromeda, loving partner, and Bellweather commer
 
 **LATEST PLAYER CANON CORRECTION:** Clarissa is **Elys's fiancée, NOT his wife**. The player's brief reference to marriage was mistaken and subsequently corrected explicitly. Their wedding has NOT occurred. [Corrected canon](../saves/canon/clarissa-married-celeste-elys-dynamic.md).
 
+**Confidential continuity (unknown to Clarissa in-story):** Elys is **still married to Celeste Somnion** from their divine-realm past. Imperial law has **no monogamy requirement**. Clarissa remains his **fiancée**, not wife, and has **not been told** of his continuing marriage. [Latest canon](../saves/canon/elys-celeste-current-marriage-no-imperial-monogamy.md).
+
 ## Profile
 
 **Authoritative age and origin correction:** Clarissa is only **a couple of centuries old**. She attended the academy **as a fellow student alongside Elys approximately 200 years ago**. Elys subsequently **gifted her immortality and Andromeda**. She is **an advisor to the Senate on behalf of Lillith**. Do not portray her as a many-millennia-old immortal or pre-academy historical witness. This correction supersedes conflicting narration. See [the continuity note](../saves/canon/clarissa-age-role-correction-2026-11-06.md).
