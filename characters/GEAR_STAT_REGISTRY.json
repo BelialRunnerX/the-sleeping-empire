@@ -196,9 +196,23 @@
           "before": "Pre-deployment, at Lumenfall Free Adventurers' Guild",
           "after": "Expedition underway; arrived at Sepulcher exterior perimeter, six-horned silhouette observed, no fight",
           "source": "Player selected option 1 to depart immediately for Sepulcher"
+        },
+        {
+          "turn": "000264",
+          "field": "SSS-004 combat",
+          "before": "Six-horned outer guardian observed but unengaged",
+          "after": "Elys threw Aletheia at visible thoracic weak spot and destroyed outer body; sevenfold phase II revealed",
+          "source": "Player turn 000264"
+        },
+        {
+          "turn": "000265",
+          "field": "SSS-004 combat",
+          "before": "Seven active Phase II manifestations",
+          "after": "Aletheia homed through all seven on direct command; all bodies destroyed; speaking archive Heart revealed",
+          "source": "Player turn 000265"
         }
       ],
-      "last_verified_turn": "000263",
+      "last_verified_turn": "000265",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -266,8 +280,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
-      "current_activity": "SSS-004 expedition underway, at Sepulcher exterior; six-horned silhouette observed; no entry or combat yet",
+      "current_location": "Sepulcher Between Stars, exterior threshold overlooking opened Heart chamber, uncharted interstellar boundary",
+      "current_activity": "SSS-004 Phase III Heart revealed; original guardian and seven manifestations defeated; awaiting decision",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -321,15 +335,15 @@
           "contract_id": "SSS-004",
           "title": "The Sepulcher Between Stars",
           "rank": "SSS",
-          "status": "IN_PROGRESS_AT_SITE_PRE_ENGAGEMENT",
+          "status": "IN_PROGRESS_PHASE_III_HEART_REVEALED",
           "base_reward_credits": 14000000,
           "reward_earned": false,
           "accepted_turn": "000261",
           "party_leader": "char-elys",
           "mission_dossier": "guild/SSS-004_SEPULCHER_BOSS_DOSSIER.md",
           "boss": "The Pallbearer King / SEPULCHER WARDEN-Ω",
-          "boss_status": "SIX_HORNED_SHADOW_OBSERVED_NOT_ENGAGED",
-          "location_status": "SEPULCHER_EXTERIOR_PERIMETER",
+          "boss_status": "OUTER_VESSEL_DESTROYED_SEVEN_SHADOWS_DESTROYED_HEART_ACTIVE",
+          "location_status": "SEPULCHER_EXTERIOR_THRESHOLD",
           "progress": [
             {
               "turn": "000263",
@@ -340,8 +354,42 @@
               "turn": "000263",
               "milestone": "Observed moving giant six-horned silhouette beyond inner walls",
               "status": "UNVERIFIED_PALLBEARER_IDENTITY"
+            },
+            {
+              "turn": "000264",
+              "milestone": "Pallbearer King exterior shell destroyed by Elys's Aletheia throw into visible weak point; seven shadow bodies emerge",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000265",
+              "milestone": "Aletheia sovereign-directed guided homing attack pierced and destroyed 7 of 7 Unwritten Choir bodies",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000265",
+              "milestone": "Heart of Sepulcher black-star archival/spatial core with golden eye revealed and speaks to Elys",
+              "status": "ACTIVE_NOT_RESOLVED"
             }
-          ]
+          ],
+          "combat": {
+            "phase1": {
+              "status": "DEFEATED",
+              "outer_vessel": "DESTROYED",
+              "turn": "000264"
+            },
+            "phase2": {
+              "status": "DEFEATED",
+              "vessels_destroyed": 7,
+              "total_vessels": 7,
+              "turn": "000265"
+            },
+            "phase3": {
+              "status": "REVEALED_ACTIVE",
+              "heart_status": "UNKNOWN_NOT_ATTACKED",
+              "archives": "LINKED_AND_VISIBLE",
+              "first_contact": "Heart asks Elys whether he will break what the seven hands protected"
+            }
+          }
         }
       ]
     },
@@ -3322,7 +3370,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; spear form at Elys's right, Sepulcher exterior, observing six-horned shadow",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; intact spear form after successful seven-target homing attack; Heart revealed",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3428,9 +3476,23 @@
           "before": "At Lumenfall Guild with Elys",
           "after": "Accompanied Elys to Sepulcher exterior; spatial folding observed; possible Pallbearer King silhouette sighted; no attack",
           "source": "User chose depart for SSS-004"
+        },
+        {
+          "turn": "000264",
+          "field": "combat",
+          "before": "Hovering to Elys's right at Sepulcher",
+          "after": "Thrown into Pallbearer King's thoracic junction, destroyed giant outer body; returned to right",
+          "source": "Player"
+        },
+        {
+          "turn": "000265",
+          "field": "combat",
+          "before": "Seven Unwritten Choir manifestations active",
+          "after": "Directed homing attack destroyed seven of seven; returned to Elys's right fully intact",
+          "source": "Player"
         }
       ],
-      "last_verified_turn": "000263",
+      "last_verified_turn": "000265",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3460,7 +3522,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary, hovering at Elys's right",
+      "current_location": "Sepulcher Between Stars, hovering at Elys's right at exterior threshold",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256"
     },
@@ -3590,7 +3652,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "FUNCTIONAL AND SENTIENT AFTER THREE CONSECUTIVE HIGH-ENERGY THROWS",
+      "condition": "AWAKENED INTACT AFTER SUCCESSFUL SEVEN-TARGET GUIDED COMBAT ATTACK",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
@@ -3666,7 +3728,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary, Elys's right",
+      "current_physical_location": "Sepulcher Between Stars, hovering at Elys's right at exterior threshold",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3679,9 +3741,22 @@
           "result": "Weapon remains conscious and functional and returns to Elys's right after all three strikes; third strike destroyed the planet entirely",
           "limits": "No independent activation of ultimate apotheocide lethal target-selection or guaranteed maximum theoretical damage proven",
           "errata_applied": true
+        },
+        {
+          "id": "SSS-004-000264",
+          "turn": "000264",
+          "action": "Elys threw Aletheia into Pallbearer King's weak spot",
+          "result": "Outer vessel destroyed, sevenfold phase II revealed"
+        },
+        {
+          "id": "SSS-004-000265",
+          "turn": "000265",
+          "action": "On explicit sovereign direction Aletheia homed through all seven Phase II bodies",
+          "result": "7/7 penetrated and destroyed; weapon returned to right, intact; Heart revealed",
+          "limits": "Archives/core not attacked or defeated"
         }
       ],
-      "last_modified_turn": "000257"
+      "last_modified_turn": "000265"
     },
     "ITM-000002": {
       "item_id": "ITM-000002",
@@ -3714,7 +3789,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "On Elys at Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
+      "current_physical_location": "Worn by Elys at Sepulcher exterior threshold",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -3792,7 +3867,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Attached to Elys at Sepulcher Between Stars, exterior perimeter, uncharted interstellar boundary",
+      "current_physical_location": "Back-mounted on Elys at Sepulcher exterior threshold",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
