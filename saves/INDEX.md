@@ -326,6 +326,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000169](turns/000169.md) | CLXVII | Played turn | Three register under real names (Elys Somion, Clarissa Somnion, Celeste Somnion); strategy simulator paused | [000000](checkpoints/000000.md) |
 
+| [000170](turns/000170.md) | CLXVII | Played turn | Clarissa begins Kestrel Evacuation strategy test, asks for engine signatures of unidentified craft | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
