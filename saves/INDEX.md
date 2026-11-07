@@ -370,6 +370,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000191](turns/000191.md) | CLXVII | Played turn | Elys physical 100/100 certified range; Celeste called next | [000000](checkpoints/000000.md) |
 
+| [000192](turns/000192.md) | CLXVII | Played turn | Celeste physical 100/100; Clarissa holds untouched grip calibration | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
