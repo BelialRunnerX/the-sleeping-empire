@@ -1,61 +1,101 @@
-# Astral Empire · The Sleeping Empire mini-game
-## Version 1.2 · Celestial Combat (November 2026)
+# Astral Empire: Aetherbound
 
-### Tactical combat
-- **Elemental reactions:** Swap the elemental aura on enemies by attacking with different-element heroes. Reactions include Steam Break (Flame + Tide), Wildfire (Flame + Gale), Superconduct (Tide + Volt), Eclipse (Solar + Void), Starfall (Astral + Void), and Zenith (Astral + Solar). Other differing pairs create basic Resonance.
-- **Element advantages:** Favored matchups deal 20% more damage and unfavorable matchups deal 14% less.
-- **Combo chain:** Consecutive attacks by different elements build a chain up to 10, increasing damage by 4.5% per stack. Repeating the same element reduces the chain.
-- **Enemy intents:** Normal single-target attack, every-third-turn charged strike, and fourth-turn area Cataclysm from bosses. Intent labels are visible before each turn. Guarding heals and reduces damage.
-- **Elemental statuses:** Wildfire burns, Superconduct and Eclipse expose enemy defense, Steam Break weakens damage, Zenith heals the team, and Starfall restores energy.
-- **Animated combat:** Procedural monster variants, animated ambient runes, color-coded impact, and combat damage numbers.
+A third-person anime action RPG foundation for The Sleeping Empire. Version 3 replaces the menu-first landing page with a playable 3D frontier and connected build, combat, gathering, and crafting systems. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
 
-### Progression
-- **Hero awakening:** Spend duplicate hero echoes and gold to awaken a hero up to rank 5. Echo cost rises 1, 2, 3, 4, 5; each rank adds 8% base-stat scaling and boosts Burst damage. Existing duplicate bonuses remain.
-- **Party resonance:** Two heroes of the same element get +4% base-stat scaling; a trio gets +8%.
-- **Daily Astral Trial:** A harder boss fight, available again each new local day after victory. Winning grants 480 crystals, 650 gold, 7 ore, 2 gems and a 4★ or 5★ equipment drop (if inventory has space); normal stage progress is unchanged.
-- **Achievements:** Added Trial Champion and Awakening milestone rewards.
+Play at `/games/astral-empire/`. The rest of the Living Codex remains unchanged. The original gacha RPG, including its turn-based battles, awakening, forge, dispatches, achievements, and the earlier 2D sandbox, is preserved at [classic.html](classic.html).
 
-### Compatibility
-Uses the existing `astral_empire_v1` browser save key and `version: 1` JSON schema. Version 1 / 1.1 saves are migrated in place with new optional fields initialized. Local browser storage is device-specific; export JSON to transfer.
+## Implemented gameplay
 
-### Verification
+- Third-person WebGL world with a visible animated character, camera-relative movement, orbit/zoom camera, jump, evade, sanctuary, ruins, resource nodes, minimap, enemies, and a named boss.
+- Five active abilities: three-hit melee chain, ranged Astral Lance, radial Halo Rupture, offensive Rift Step, and Seraphic Eclipse. Skills consume mana and use separate cooldowns. Evade consumes stamina and grants brief invulnerability.
+- Enemies chase, telegraph attacks, strike, recover, leash to their home, and respawn. The Sleeping Warden has a wider, slower charged attack and epic loot. Hits no longer cancel attack telegraphs automatically.
+- Seven support modifiers: echo damage, larger area, life leech, ignite, faster cooldown recovery, execute, and an unlinked state. Two support slots per active skill; compatibility follows skill tags and duplicate supports are prevented.
+- Thirty allocatable constellation passives across six branches. Six capstones create tradeoffs: attack/spell specialization, mana scaling, armor/life versus movement, critical hits versus normal hits, recovery versus mana, and crafting/yield.
+- Three equipment slots, eight affix families, magic/rare/epic items, equipment drops, level scaling, tempering up to +20, affix reshaping, and salvage. Equipped items cannot be salvaged.
+- Seven lifeskills: Mining, Forestry, Herbalism, Fishing, Smithing, Alchemy, and Cooking. Gatherers gain resource yield through mastery. Smithing mastery improves crafted base power; alchemy/cooking mastery improves recipe output.
+- Six recipes spanning weapons, armor, charms, restorative draughts, transmutation essence, and meals. Meals improve life and recovery for 15 minutes. Gathering is interruptible by movement or enemy damage.
+- Twelve gacha heroes with different elements, visual weapon styles, and build traits. Summons retain the 40-pull legendary guarantee. Duplicates award crafting essence. Element changes on an enemy trigger extra reaction damage.
+- Five journal contracts, level experience, gold/crystal rewards, and four selectable realm palettes. Later routes unlock at levels 10, 20, and 30.
 
-Run the dependency-free smoke suite from the repository root:
+This is a first region and a build system foundation. It does not contain Path of Exile's content volume, endgame atlas, multiplayer economy, raids, or production anime character assets. Current characters and environment are procedural stylized meshes. Realm palettes share a region layout and enemy roster; they are not distinct fully authored planets. Flight, caves, building placement, housing, and full planetary physics remain future work.
 
-```bash
-node docs/games/astral-empire/tests/smoke.mjs
+## Controls
+
+| Action | Control |
+| --- | --- |
+| Move | WASD / arrows |
+| Camera | Right mouse drag; wheel to zoom |
+| Basic combo | Left mouse / hold |
+| Active skills | 1–4 |
+| Evade / jump | Shift / Space |
+| Target lock | Q |
+| Gather nearby node | E; remain still until complete |
+| Healing draught | F |
+| Equipment / skills / constellation | I / K / P |
+| Lifeskills / crafting / heroes / journal | L / C / H / J |
+| Settings / close panel | O / Escape |
+
+Phones have movement, evade, jump, interaction, and action buttons. Desktop is the primary play target. Opening the chronicle pauses the solo simulation.
+
+## C++ and browser architecture
+
+The shipped `native/simulation.wasm` is compiled from [native/simulation.cpp](native/simulation.cpp), a freestanding C++17 module. It runs world hashing, Elysium's derived tier and ore-yield formulas, and action-combat armor/critical damage calculations. The WebAssembly module has no host imports.
+
+JavaScript still owns the entity state machine, movement, input, skills, saves, and rendering integration. This is a C++/WebAssembly + WebGL hybrid, not a claim that the entire game has been rewritten in C++. A JavaScript numeric reference path keeps the game usable if WebAssembly loading fails. Tests compare both paths, including signed/unsigned boundary cases.
+
+| File | Responsibility |
+| --- | --- |
+| `engine/content.mjs` | Skills, support modifiers, heroes, affixes, passive graph, professions, recipes, contracts |
+| `engine/simulation.mjs` | Action combat, progression, inventory, crafting, migration, and rule enforcement |
+| `engine/native.mjs` | C++ WebAssembly loading and numeric reference fallback |
+| `engine/world.mjs` | Three.js scene, procedural meshes, terrain, camera, animation, effects, and resource visuals |
+| `engine/profiles.mjs` | Local profiles, isolated saves, migration, and recovery copies |
+| `engine/app.mjs` | HUD, panels, controls, browser loop, and save/export integration |
+
+Three.js 0.187.0 is vendored under `vendor/` with its MIT license. Runtime modules and WebAssembly are served locally; no runtime package CDN is required. Optional Google fonts have system-font fallbacks.
+
+## Persistence and compatibility
+
+- Create a named local profile and PIN, then use Continue to restore it. A local PIN gates save slots on that browser; it is not secure account authentication.
+- Saves use `astral_empire_profile_<id>_v3`; the previous payload is retained under the same key with `_backup` appended.
+- Existing profile names/PINs are recognized. On first entry, version 2 profile saves or the legacy `astral_empire_v1` save are copied into the new schema. Heroes, hero levels, gold, summon currency, tickets, pity, suitable equipment, and frontier material stock are migrated.
+- Legacy payloads are left intact for Classic mode. Classic and Aetherbound then progress independently; there is no bidirectional live sync. Classic terrain coordinates and edits are retained in the Classic save, not translated into 3D geometry.
+- Current realm, player position, life/mana, equipment, passives, skill links, professions, depleted-node recovery timestamps, defeated-enemy timestamps, quests, and consumables persist.
+- Health and mana restore at login. In-progress attacks, enemy health, cooldowns, and gathering channels restart; they are transient encounter state.
+- Save automatically every five seconds, after progression actions, on logout, and when the page hides. Use Settings → Export for a portable JSON backup. Import accepts version 1, 2, or 3.
+- Clearing browser data removes local profiles. Cloud recovery and cross-device sync need an authenticated backend.
+
+The service worker caches the complete local game shell, modules, Three.js, Classic page, and WebAssembly. Game documents use network-first updates. Cache handling is limited to this game directory. First load must be online or locally served.
+
+## Development and verification
+
+Serve this directory with an HTTP server; ES modules and WebAssembly should not be opened with `file://`. For example, from the repository root:
+
+```sh
+python -m http.server 8765 --directory docs
 ```
 
-It covers first launch, local saves, crafting, elemental reactions, summons, hero awakening, expeditions, daily boss victories, and daily reward locking. A GitHub Actions workflow (`.github/workflows/astral-empire-smoke.yml`) is configured to run it on changes to this game.
+Open `http://localhost:8765/games/astral-empire/`.
 
-### Offline update behavior
-The service worker uses network-first caching for game documents so online visitors receive updates, while offline visitors can still load the latest locally cached page. The cache is scoped to the game subdirectory.
+From this game directory:
 
+```sh
+npm ci
+npm test
+npx playwright install chromium
+npm run test:browser
+```
 
-## Version 1.1 · Frontier Dispatch Update
+`npm test` runs 19 Classic smoke checks and 14 action-RPG/WASM/save checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
 
-- Three timed expeditions (5, 15, and 30 minutes) with persistent mission state
-- Five one-time achievements awarding summon crystals
-- Responsive dispatch UI, updated mobile navigation and visual polish
-- Existing version 1 saves migrate automatically; exports include the new fields
+For an installed Chrome instead of downloaded Chromium, set `BROWSER_EXECUTABLE` to the browser executable path. The GitHub Actions workflow compiles the C++ module, runs rule/compatibility tests, then runs the browser suite.
 
+Rebuild the native module using Zig 0.14.1+ (set `ZIG` to its executable if it is not on PATH):
 
+```sh
+npm run build:native
+```
 
-Playable web gacha RPG embedded as a **subpage of the Living Codex**, rather than replacing the archive.
+Alternatively set `CXX=clang++` with a Clang WebAssembly target and `wasm-ld` available. The generated binary is committed so GitHub Pages needs no build process.
 
-## Play
-
-Go to `/games/astral-empire/` on the GitHub Pages site, or open `index.html` directly.
-
-- 12 collectible anime-style heroes, rarity system, 10-pulls and pity guarantees
-- Turn-based battles, character leveling, party selection and equipment forging
-- Responsive desktop and mobile UI, with local browser saves and JSON export/import
-- No backend, real-money purchases, third-party JS dependencies or account required
-
-## Deployment
-
-Site source: `docs/` on branch `master`. This folder contains standalone files and requires no build step.
-
-## Notes
-
-This mini-game is a **non-canon spin-off** from the Living Codex. Game progress is saved to `localStorage` per browser and can be moved with the built-in export/import controls. The PWA cache and service worker are scoped to this subdirectory and do not affect the main site.
+See [ELYSIUM_PORT.md](ELYSIUM_PORT.md) for the precise source-port boundary and [ROADMAP.md](ROADMAP.md) for the MMO and build-depth work remaining.

@@ -1,402 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0e0d21" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="description" content="Astral Empire is an offline-capable anime-inspired browser gacha RPG. Summon heroes, forge gear, and conquer the Starfall Rift." />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  
-  <title>ASTRAL EMPIRE · Anime Gacha RPG</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-    :root { --bg:#0e0d21;--panel:#17152d;--panel2:#1d1a39;--panel3:#242043;--border:rgba(200,183,255,.13);--ink:#f8f5ff;--muted:#9993b5;--pink:#ff6fbb;--lilac:#aa8aff;--blue:#6cdaf9;--gold:#ffd888;--green:#80e6b2;--red:#ff818e;--shadow:0 20px 70px rgba(1,0,17,.36);--radius:18px;--font:'DM Sans',system-ui,sans-serif;--display:'Outfit','DM Sans',system-ui,sans-serif; }
-    * { box-sizing:border-box; } html { -webkit-tap-highlight-color:transparent;scroll-behavior:smooth; } body { margin:0;background:radial-gradient(ellipse at 70% -25%,#35215b 0,transparent 40%),radial-gradient(ellipse at -25% 45%,#15254a 0,transparent 40%),var(--bg);color:var(--ink);font-family:var(--font);min-height:100vh;overflow-x:hidden; }
-    button,input,select { font:inherit; } button { cursor:pointer;touch-action:manipulation; } button:disabled { opacity:.42;cursor:not-allowed;filter:grayscale(.35); } button:focus-visible,[tabindex]:focus-visible { outline:2px solid var(--blue);outline-offset:3px; }
-    ::selection { background:#b467e0aa; } ::-webkit-scrollbar { width:8px;height:7px; } ::-webkit-scrollbar-thumb { background:#544576;border-radius:10px; }
-    .shell { max-width:1390px;margin:auto;min-height:100vh;display:grid;grid-template-columns:244px minmax(0,1fr); }
-    .sidebar { padding:27px 15px 20px 18px;background:linear-gradient(150deg,rgba(26,23,52,.96),rgba(15,13,32,.98));border-right:1px solid var(--border);min-height:100vh;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;z-index:10; }
-    .brand { display:flex;gap:12px;align-items:center;padding:8px 9px 30px; } .logo { width:41px;height:41px;flex-shrink:0;border:1px solid #c5a5ff66;background:linear-gradient(145deg,#38225c,#18244d);border-radius:13px;display:grid;place-items:center;box-shadow:inset 0 0 20px #a461ff3a,0 0 30px #5836b13a; } .logo svg { width:28px; }
-    .brand-name { font:800 18px/1.05 var(--display);letter-spacing:1.4px; } .brand-sub { font-size:10px;letter-spacing:2.6px;color:var(--lilac);font-weight:800;margin-top:5px; }
-    .nav-kicker { font-size:10px;letter-spacing:2px;font-weight:800;color:#716988;padding:0 15px;margin:12px 0 12px;text-transform:uppercase; }
-    .nav-item { width:100%;border:1px solid transparent;color:#a9a4c0;background:transparent;padding:13px 15px;margin:2px 0;border-radius:13px;display:flex;align-items:center;gap:13px;text-align:left;font-weight:800;font-size:13px;letter-spacing:.2px;transition:.18s; } .nav-item .nav-icon { width:24px;text-align:center;font-size:19px;filter:grayscale(.35); } .nav-item:hover { color:#fff;background:#ffffff0a; } .nav-item.active { background:linear-gradient(95deg,#6d4da74d,#50366b22);color:#f9f1ff;border-color:#a47bdd3b;box-shadow:inset 3px 0 #b28aff; } .nav-item.active .nav-icon { filter:none; }
-    .side-bottom { margin-top:auto;padding:14px 10px 5px; } .tiny-card { padding:14px;background:linear-gradient(135deg,#372c60aa,#222241b8);border:1px solid #b7a1e833;border-radius:16px; } .tiny-card strong{font:800 13px var(--display);} .tiny-card p{margin:6px 0 0;font-size:11px;line-height:1.5;color:#bcb4d4;} .version { font-size:10px;color:#69617e;padding:15px 0 0;text-align:center; }
-    .main { min-width:0; } .topbar { display:flex;align-items:center;justify-content:space-between;gap:12px;padding:25px 32px 18px; } .welcome small { display:block;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:4px; } .welcome h1 { margin:0;font:800 clamp(24px,2.6vw,32px)/1.1 var(--display);letter-spacing:-.7px; }
-    .wallet { display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end; } .pill { display:flex;align-items:center;gap:8px;background:#211d3d;border:1px solid var(--border);border-radius:11px;padding:9px 12px;font-weight:800;font-size:12px;white-space:nowrap; } .pill b{font-size:16px;} .pill .ico{font-size:17px;}
-    .page { padding:0 32px 90px;max-width:1200px;margin:0 auto; } .sectionhead { display:flex;align-items:center;justify-content:space-between;gap:15px;margin:23px 0 14px; } .sectionhead h2 { font:800 19px var(--display);margin:0;letter-spacing:-.3px; } .sectionhead small { color:var(--muted);font-size:12px; } .eyebrow { display:inline-block;color:#ce9bff;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:900;margin-bottom:10px; }
-    .panel { background:linear-gradient(145deg,rgba(31,27,60,.9),rgba(21,19,43,.96));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow); } .pad { padding:20px; }
-    .btn { display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #ac91db40;border-radius:12px;background:#32294c;color:#fff;font-size:12px;font-weight:900;letter-spacing:.3px;padding:12px 17px;min-height:42px;transition:transform .14s,filter .14s,box-shadow .14s;white-space:nowrap; } .btn:hover:not(:disabled) { filter:brightness(1.13);transform:translateY(-1px); } .btn:active:not(:disabled) { transform:translateY(1px); } .btn.primary { background:linear-gradient(115deg,#9861ef,#f070be);border-color:#d3aaff80;box-shadow:0 8px 26px #aa4dba45; } .btn.gold { background:linear-gradient(115deg,#f7cc76,#e79661);color:#3b2240;border-color:#ffe9b0;box-shadow:0 8px 24px #d38b593b; } .btn.subtle { background:#ffffff0c;border-color:#ffffff23; } .btn.small { padding:8px 12px;min-height:32px;font-size:11px;border-radius:9px; } .btn.full { width:100%; } .btn:disabled { box-shadow:none; }
-    .hero-banner { position:relative;overflow:hidden;min-height:296px;display:flex;background:radial-gradient(ellipse at 77% 60%,#9e64e14a,transparent 28%),linear-gradient(115deg,#2f2051,#231e48 57%,#533068);border:1px solid #8a69be5e;border-radius:22px;box-shadow:var(--shadow); } .hero-banner:before { content:'';position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg at 70% 50%,#ffffff06 0deg 6deg,transparent 7deg 24deg);animation:spin 65s linear infinite;pointer-events:none; } .hero-banner:after { content:'';position:absolute;width:300px;height:300px;border:1px solid #e7baff30;border-radius:50%;right:10%;top:0;box-shadow:0 0 0 30px #dba3ff0a,0 0 0 80px #dba3ff08; }
-    .banner-copy { padding:33px 36px;position:relative;z-index:2;width:62%; } .banner-copy h2 { margin:0 0 13px;font:900 clamp(28px,4vw,45px)/1 var(--display);letter-spacing:-1.2px;max-width:550px; } .banner-copy h2 i { font-style:normal;color:#ffbaec; } .banner-copy p { font-size:13px;color:#d1c3e2;line-height:1.65;max-width:390px;margin:0 0 22px; } .banner-character { position:absolute;bottom:-44px;right:0;width:40%;min-width:280px;height:350px;z-index:1;filter:drop-shadow(0 0 40px #b066ff77);pointer-events:none; } .banner-character svg { width:100%;height:100%;object-fit:contain; }
-    .feature-row { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:17px; } .feature { padding:20px;display:flex;align-items:center;gap:15px;min-height:100px; } .feature-icon { flex:0 0 49px;height:49px;display:grid;place-items:center;border-radius:15px;background:#9e64ff20;border:1px solid #b999ff30;font-size:27px; } .feature b { font:800 22px var(--display);display:block; } .feature small { font-size:11px;color:var(--muted);font-weight:700;display:block;margin-top:5px; }
-    .two-col { display:grid;grid-template-columns:1.45fr 1fr;gap:16px; } .hero-strip { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px; } .hero-mini { min-width:0;cursor:pointer;position:relative;overflow:hidden;background:#231f41;border-radius:13px;border:1px solid #a58cdc30;padding:8px;text-align:center; } .hero-mini .portrait { width:100%;height:123px;border-radius:9px;margin-bottom:8px; } .hero-mini b{font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .hero-mini small{font-size:10px;color:var(--muted);} .empty-slot { height:169px;border-radius:13px;border:1px dashed #8b77a75b;background:#a894ff08;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:12px; }
-    .quest-list { display:grid;gap:9px; } .quest { display:flex;align-items:center;gap:11px;padding:12px;border-radius:12px;border:1px solid #ffffff10;background:#ffffff05; } .quest-icon { font-size:23px; } .quest-main { flex:1;min-width:0; } .quest-main b{font-size:12px;} .quest-main p{font-size:11px;color:var(--muted);margin:4px 0 0;} .progress { height:6px;border-radius:10px;background:#100e20;overflow:hidden;margin-top:8px; } .progress>i { height:100%;display:block;border-radius:10px;background:linear-gradient(90deg,#9975f9,#f284c1);transition:width .3s; }
-    .summon-stage { min-height:356px;background:radial-gradient(ellipse at 50% 67%,#8f5fdd4a,transparent 47%),linear-gradient(155deg,#2a214f,#15182e 60%,#29224c);position:relative;overflow:hidden;border:1px solid #9d7ed44b;border-radius:21px;display:flex;align-items:center;justify-content:space-between; } .summon-stage:before { content:'✦  ✧     ✦          ✧       ✦         ✧';position:absolute;inset:8px 0 auto;text-align:center;color:#e1c5ff99;letter-spacing:42px;font-size:21px; } .summon-rune { width:440px;height:440px;position:absolute;right:3%;top:50%;transform:translateY(-50%);border:2px solid #ac86f433;border-radius:50%;box-shadow:0 0 0 21px #ac86f40a,0 0 0 70px #ac86f408,inset 0 0 64px #bd65ff29;animation:pulse 5s infinite; } .summon-rune:before {content:'';inset:21px;position:absolute;border:2px dashed #ffbfe849;border-radius:50%;animation:spin 38s linear infinite;} .summon-rune:after {content:'✦';position:absolute;inset:0;display:grid;place-items:center;color:#dbb6ff7a;font-size:230px;text-shadow:0 0 80px #e1adff;}
-    .summon-copy {position:relative;z-index:2;padding:37px;max-width:440px;} .summon-copy h2 { font:900 clamp(35px,4vw,52px)/1 var(--display);margin:0 0 15px;letter-spacing:-1.6px; } .summon-copy p{font-size:13px;color:#c8bfdd;line-height:1.65;} .summon-art{position:absolute;width:46%;height:415px;bottom:-75px;right:5%;z-index:1;filter:drop-shadow(0 0 40px #ba65ff77);pointer-events:none;}.summon-art svg{width:100%;height:100%;}
-    .summon-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:20px 0 0;}.summon-actions{display:flex;gap:10px;flex-wrap:wrap;}.rate-list{display:flex;flex-wrap:wrap;gap:15px;color:var(--muted);font-size:12px;margin-top:12px;}.rate-list b{color:#fff;}
-    .roster-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start;}.roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}.hero-card{cursor:pointer;position:relative;border:1px solid #ba9df82b;background:linear-gradient(150deg,#302646,#171729);border-radius:16px;overflow:hidden;transition:transform .16s,border-color .16s;}.hero-card:hover{transform:translateY(-3px);border-color:#d1b6ff88;}.hero-card.selected{border-color:#e2bbff;box-shadow:0 0 0 2px #9a62ef66;}.hero-card .portrait{height:159px;}.hero-card .card-footer{padding:11px;}.card-footer b{font:800 13px var(--display);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.card-footer small{font-size:10px;color:#c5b9d7;display:block;margin-top:4px;}.rarity-badge{position:absolute;right:8px;top:8px;z-index:2;font-size:10px;background:#100f26aa;border:1px solid #ffffff50;border-radius:8px;padding:5px 7px;color:#ffe6aa;letter-spacing:1px;font-weight:900;}.team-dot{position:absolute;left:8px;top:8px;z-index:2;background:#8267e9;border:1px solid #cabaff;font-size:10px;font-weight:900;border-radius:8px;padding:5px 7px;}.portrait{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 38%,var(--hero-glow,#ad7eff66),transparent 56%),linear-gradient(145deg,var(--hero-dark,#2b204b),#16152d);display:grid;place-items:center;}.portrait svg{height:112%;width:112%;max-width:330px;max-height:400px;position:relative;z-index:1;transform:translateY(4%);filter:drop-shadow(0 10px 12px #0005);}.portrait:before{content:'';position:absolute;width:70%;aspect-ratio:1;border-radius:50%;border:1px solid #ffffff25;box-shadow:0 0 0 21px #ffffff07,0 0 0 45px #ffffff04;top:14%;left:15%;}.portrait:after{content:'✦';position:absolute;right:15%;top:21%;font-size:20px;color:#fff7;}
-    .detail-head{display:flex;align-items:center;gap:14px;}.detail-head .portrait{width:107px;height:112px;flex:none;border:1px solid #d6b6fa3a;border-radius:13px;}.detail-head h3{font:900 22px var(--display);margin:6px 0;}.detail-head p{font-size:11px;color:var(--muted);margin:0;line-height:1.5;}.stat-line{display:flex;justify-content:space-between;font-size:12px;padding:9px 0;border-bottom:1px solid #ffffff0c;}.stat-line span{color:var(--muted);}.detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px;}.detail-actions .wide{grid-column:1/-1;}.equip-line{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#c4bbd9;padding:8px 0;border-bottom:1px solid #ffffff0c;}.equip-line b{color:#f5edff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .battle-map{border:1px solid #ad81e044;border-radius:22px;position:relative;overflow:hidden;min-height:355px;background:radial-gradient(ellipse at 50% 100%,#7252bc55,transparent 55%),linear-gradient(180deg,#12152e,#24234a 55%,#281e42);}.battle-map:before{content:'';position:absolute;inset:0;opacity:.5;background:linear-gradient(transparent 65%,#b38bff14 65% 66%,transparent 66%),repeating-linear-gradient(90deg,transparent 0 60px,#b58aff0b 61px 62px);transform:perspective(300px) rotateX(45deg) scale(1.5);transform-origin:bottom;}.battle-area{position:relative;z-index:2;display:flex;align-items:end;justify-content:space-around;min-height:318px;padding:24px 20px 10px;gap:12px;}.fighter{display:flex;flex-direction:column;align-items:center;width:42%;min-width:0;}.fighter-portrait{width:min(235px,100%);height:206px;position:relative;}.fighter-portrait .portrait{height:100%;background:transparent;}.fighter-portrait .portrait:before{opacity:.3;}.fighter-portrait .portrait svg{height:126%;width:126%;transform:translateY(4%);}.fighter.enemy .fighter-portrait{filter:drop-shadow(0 0 17px #ff5da35c);}.fighter-name{text-align:center;font:800 13px var(--display);margin:7px 0 5px;}.fighter-bars{width:min(260px,100%);}.bar{height:11px;background:#07081b;border-radius:8px;overflow:hidden;border:1px solid #ffffff20;}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#47c999,#99f5ba);border-radius:8px;transition:width .35s;}.bar.energy>i{background:linear-gradient(90deg,#7866ef,#e68cf7);}.fighter.enemy .bar>i{background:linear-gradient(90deg,#ec6074,#ffa58b);}.barlabel{font-size:10px;color:#e8e1ff;margin:4px 0 5px;text-align:center;font-weight:800;}.vs{font:900 24px var(--display);color:#ebbeff95;align-self:center;text-shadow:0 0 30px #e29cff;}.fighter.attacking{animation:lunge .35s ease-in-out;}.fighter.hit{animation:shake .38s;filter:brightness(1.8);}.damage-number{position:absolute;font:900 32px var(--display);color:#fff6a8;z-index:5;text-shadow:0 3px 12px #000;pointer-events:none;animation:floatUp .9s ease-out forwards;}.battle-bottom{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px;margin-top:15px;}.team-picks{display:flex;gap:9px;overflow-x:auto;padding:3px;}.team-pick{cursor:pointer;min-width:95px;flex:1;max-width:160px;padding:8px;border-radius:11px;background:#272241;border:1px solid #ffffff12;text-align:center;}.team-pick.active{border-color:#e4b3ff;box-shadow:0 0 0 1px #ae83fc;}.team-pick.dead{opacity:.4;filter:grayscale(1);}.team-pick .portrait{height:67px;border-radius:8px;}.team-pick b{display:block;font-size:10px;margin-top:7px;}.team-pick small{font-size:10px;color:var(--muted);}.battle-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}.action-btn{min-height:55px;white-space:normal;flex-direction:column;padding:8px;font-size:11px;text-align:center;}.action-btn span{font-size:10px;font-weight:500;color:#e0d6ee;}.battle-log{font-size:11px;color:#aca4ca;max-height:101px;overflow-y:auto;line-height:1.6;}.battle-log p{margin:4px 0;}.battle-log p:first-child{color:#fff;}
-    .forge-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;}.item-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;}.item-card{cursor:pointer;background:#211d39;border:1px solid #ffffff19;border-radius:13px;padding:11px;text-align:center;transition:.16s;min-width:0;}.item-card:hover,.item-card.selected{border-color:#d0a5ff;}.item-icon{height:65px;display:grid;place-items:center;font-size:37px;position:relative;background:radial-gradient(circle,#9d7dee33,transparent 70%);}.item-card b{font:800 11px var(--display);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.item-card small{font-size:10px;color:var(--muted);display:block;margin-top:4px;}.forge-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0;}.tab-chip{border:1px solid #ffffff1c;border-radius:9px;padding:9px 12px;background:#24203d;color:#b4aaca;font-size:11px;font-weight:900;}.tab-chip.active{background:#61438d;color:#fff;border-color:#ae88eb;}.forge-stat{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:9px 0;color:#c3b9d5;font-size:11px;}.forge-stat b{color:#fff;}
-    .notice{border:1px solid #c4a4e52f;background:#b495ed0b;padding:13px 15px;border-radius:11px;color:#bdb2d2;font-size:11px;line-height:1.6;}.empty{padding:37px;text-align:center;color:#aaa1bf;font-size:13px;}.empty .glyph{font-size:35px;display:block;margin-bottom:10px;}.settings-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 0;border-bottom:1px solid #ffffff12;}.settings-row b{font-size:13px;}.settings-row p{margin:5px 0 0;color:var(--muted);font-size:11px;line-height:1.5;}
-    .modal-wrap{position:fixed;inset:0;z-index:200;background:#090914d9;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(12px);animation:fade .15s;}.modal{background:radial-gradient(ellipse at 50% 0%,#48346980,transparent 60%),#1b1835;border:1px solid #bb9aee77;border-radius:22px;box-shadow:0 35px 100px #0009;max-width:min(720px,100%);width:100%;max-height:min(90dvh,880px);overflow-y:auto;padding:23px;position:relative;}.close{position:absolute;top:12px;right:13px;width:33px;height:33px;display:grid;place-items:center;border-radius:9px;color:#fff;background:#ffffff14;border:1px solid #ffffff2c;font-size:19px;z-index:3;}.modal-title{font:900 27px var(--display);margin:4px 42px 6px 0;}.modal-desc{font-size:12px;color:#bbb0cf;line-height:1.5;margin:0 0 17px;}.results{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:18px 0;}.result-card{position:relative;border:1px solid #d3b5f84a;border-radius:11px;overflow:hidden;animation:reveal .48s both;}.result-card .portrait{height:125px;}.result-card .result-foot{padding:7px 5px;background:#211a35;text-align:center;}.result-foot b{font-size:10px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.result-foot small{font-size:10px;color:#c1b7d1;}.result-card.legendary{box-shadow:0 0 26px #f9cf7c62;border-color:#fbdca3;}.result-card.epic{border-color:#b38bff;}.result-card.new:before{content:'NEW';position:absolute;top:5px;left:5px;background:#70e1be;color:#16342d;font-size:8px;font-weight:900;padding:3px 5px;border-radius:5px;z-index:3;}.result-card .rarity-badge{top:5px;right:5px;padding:3px 4px;font-size:8px;}.rarity3{color:#a5c4e9!important;}.rarity4{color:#cf9bff!important;}.rarity5{color:#ffd787!important;}.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#362852;border:1px solid #d7aeff8a;border-radius:12px;padding:12px 17px;z-index:400;color:white;font-size:12px;font-weight:800;box-shadow:0 20px 60px #0009;animation:toastin .22s;pointer-events:none;text-align:center;max-width:90vw;}
-    .bottom-nav{display:none;} .tag{border:1px solid #ffffff22;background:#ffffff0a;color:#e4d5f7;border-radius:7px;padding:4px 7px;font-size:10px;font-weight:800;}.separator{height:1px;background:#ffffff12;margin:16px 0;} .flex{display:flex;align-items:center;gap:9px;flex-wrap:wrap;} .muted{color:var(--muted);} .accent{color:#e8b7ff;}.success{color:var(--green);}.goldtext{color:var(--gold);}.smalltext{font-size:11px;line-height:1.6;color:var(--muted);}.hide{display:none!important;} .footer{color:#69607f;font-size:10px;text-align:center;margin-top:38px;}
-    @keyframes spin{to{transform:rotate(360deg)}} @keyframes pulse{50%{box-shadow:0 0 0 37px #ac86f40a,0 0 0 85px #ac86f405,inset 0 0 100px #bd65ff35;}} @keyframes fade{from{opacity:0}} @keyframes reveal{from{opacity:0;transform:translateY(15px) scale(.86)}to{opacity:1;transform:translateY(0) scale(1)}} @keyframes toastin{from{opacity:0;transform:translate(-50%,12px)}} @keyframes lunge{50%{transform:translateX(27px) scale(1.08)}} @keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}} @keyframes floatUp{to{opacity:0;transform:translateY(-75px)}}
-    @media(max-width:1150px){.shell{grid-template-columns:195px minmax(0,1fr)}.sidebar{padding-left:10px;padding-right:10px}.topbar{padding:22px 20px 17px}.page{padding:0 20px 95px}.roster-grid,.item-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.roster-layout,.forge-layout{grid-template-columns:minmax(0,1fr) 280px}.summon-art{right:0;}}
-    @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{display:none}.bottom-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:50;background:#161329ed;border-top:1px solid #b39ddb30;backdrop-filter:blur(22px);padding:7px 4px calc(8px + env(safe-area-inset-bottom));}.bottom-nav button{background:none;border:0;color:#9790b0;font-size:9px;font-weight:800;display:flex;align-items:center;gap:5px;flex-direction:column;padding:5px 1px;min-width:0;}.bottom-nav button span{font-size:21px}.bottom-nav button.active{color:#e0b4ff}.page{padding-bottom:105px}.topbar{padding-top:17px}.hero-banner{min-height:265px}.feature-row{gap:9px}.feature{padding:13px;gap:9px}.feature-icon{flex-basis:39px;height:39px;font-size:23px}.feature b{font-size:17px}.roster-layout,.forge-layout{grid-template-columns:minmax(0,1fr) 270px}}
-    @media(max-width:630px){.topbar{padding:14px 15px 14px;align-items:flex-start;flex-direction:column;gap:12px}.welcome small{font-size:10px}.welcome h1{font-size:26px}.wallet{width:100%;justify-content:flex-start;gap:6px}.pill{padding:7px 9px;border-radius:9px;font-size:11px;gap:6px}.pill b{font-size:13px}.page{padding:0 14px 107px}.hero-banner{min-height:320px}.banner-copy{width:100%;padding:28px 23px;z-index:3}.banner-copy h2{font-size:34px;max-width:260px}.banner-copy p{max-width:228px;font-size:11px;line-height:1.55}.banner-copy .btn{max-width:210px}.banner-character{width:78%;min-width:0;height:297px;right:-100px;bottom:-30px;opacity:.78}.feature-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.feature{padding:11px 8px;min-height:83px;flex-direction:column;text-align:center;gap:6px}.feature-icon{width:33px;height:33px;flex:0 0 33px;font-size:17px;border-radius:10px}.feature b{font-size:17px}.feature small{font-size:9px;margin-top:2px}.two-col{grid-template-columns:1fr}.sectionhead h2{font-size:17px}.summon-stage{min-height:360px;align-items:flex-start}.summon-copy{padding:30px 24px;max-width:100%}.summon-copy h2{font-size:38px;max-width:220px}.summon-copy p{max-width:210px;font-size:12px}.summon-art{width:75%;right:-65px;bottom:-69px;height:330px;opacity:.9}.summon-rune{right:-35%;top:60%;width:340px;height:340px}.summon-footer{align-items:stretch}.summon-actions{width:100%;display:grid;grid-template-columns:1fr 1fr}.summon-actions .btn{padding:11px 5px;font-size:11px}.roster-layout,.forge-layout{display:flex;flex-direction:column}.roster-grid,.item-grid{grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:8px}.hero-card .portrait{height:135px}.hero-card .card-footer{padding:9px 7px}.hero-card .card-footer b{font-size:11px}.hero-card .card-footer small{font-size:9px}.roster-layout>.panel,.forge-layout>.panel{width:100%}.battle-map{min-height:315px}.battle-area{min-height:288px;padding:20px 10px 9px}.fighter-portrait{height:177px}.vs{font-size:17px}.battle-bottom{grid-template-columns:1fr}.battle-actions{grid-template-columns:repeat(4,minmax(0,1fr))}.action-btn{font-size:10px;min-height:58px;padding:7px 3px}.action-btn span{font-size:9px}.team-pick{min-width:80px}.results{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.result-card .portrait{height:92px}.result-foot b{font-size:9px}.result-foot small{font-size:8px}.modal{padding:16px}.modal-title{font-size:23px}.detail-head .portrait{width:100px}.item-card{padding:8px}.item-icon{height:54px;font-size:28px}}
-    @media(max-width:365px){.hero-card .portrait{height:116px}.banner-character{right:-120px}.hero-strip{gap:5px}.hero-mini{padding:5px}.hero-mini .portrait{height:101px}.pill{font-size:10px}.results{grid-template-columns:repeat(3,minmax(0,1fr))}.result-card .portrait{height:130px}.battle-actions{grid-template-columns:1fr 1fr}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-    .codex-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 17px;background:#0c1325;color:#eed3ff;border-bottom:1px solid #ad85da52;font:600 12px system-ui,sans-serif;position:relative;z-index:80}.codex-bar a{color:#f5e4ff;text-decoration:none}.codex-bar a:hover{text-decoration:underline}.codex-bar small{color:#a49abb;font-weight:400;font-size:11px}@media(max-width:630px){.codex-bar{padding:9px 12px}.codex-bar small{display:none}}
-  
-  /* v1.1: imperial expedition deck and visual polish */
-  .dispatch-hero{position:relative;overflow:hidden;border-radius:22px;padding:clamp(22px,5vw,45px);margin-bottom:22px;background:radial-gradient(circle at 80% 30%,#a776e355,transparent 34%),linear-gradient(120deg,#1d2049,#11192c 75%);border:1px solid #bb9bff44;box-shadow:0 20px 65px #08071988}
-  .dispatch-hero h2{font-size:clamp(25px,4vw,43px);margin:12px 0;font-weight:800;letter-spacing:-1px}.dispatch-hero p{max-width:590px;color:#c9c5e6;line-height:1.8}.dispatch-stars{position:absolute;right:6%;top:10%;font-size:clamp(36px,7vw,90px);color:#cfb5ff66;pointer-events:none}
-  .dispatch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:20px 0 30px}.dispatch-card{display:flex;flex-direction:column;gap:12px;min-width:0;transition:transform .2s,border-color .2s}.dispatch-card:hover{transform:translateY(-4px);border-color:#ad8aff88}.dispatch-card h3{font-size:17px;margin:0}.dispatch-card p{margin:0}.dispatch-card .btn{margin-top:auto}.dispatch-icon{font-size:40px;filter:drop-shadow(0 0 20px #bb9aff88)}.dispatch-duration{font-size:11px;letter-spacing:1.5px;color:#d5b5ff;font-weight:800}.dispatch-active{margin-bottom:18px;border-color:#d4b1ff77;background:linear-gradient(110deg,#322348,#171b3c)}.dispatch-timer{font:800 clamp(32px,5vw,58px) monospace;color:#f2d8ff;letter-spacing:3px;margin:14px 0;text-shadow:0 0 35px #c084fc66}
-  .btn,.nav-item,.hero-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 7px 24px #8c64d03b}
-  .portrait svg{filter:drop-shadow(0 8px 17px #0a0b2399)}@media(max-width:850px){.dispatch-grid{grid-template-columns:1fr 1fr}}@media(max-width:580px){.dispatch-grid{grid-template-columns:1fr}.dispatch-stars{opacity:.3}.dispatch-hero{padding:23px}.dispatch-card{gap:9px}.bottom-nav{overflow-x:auto;justify-content:flex-start}.bottom-nav button{flex:0 0 auto;min-width:72px;font-size:10px}}
-  @media(prefers-reduced-motion:reduce){.dispatch-card,.btn,.nav-item,.hero-card{transition:none!important}}
-
-
-/* v1.2 battle effects, character awakening, intent warnings */
-.battle-front{display:grid;gap:17px}.battle-intro{text-align:center;padding:clamp(28px,5vw,55px)!important;background:radial-gradient(circle at 50% -15%,#8559df66,transparent 48%),linear-gradient(145deg,#211a48,#121827 80%);border-color:#b19cfc55;position:relative;overflow:hidden}
-.battle-intro::before{content:'✦　✧　✦　✧　✦';position:absolute;inset:15px auto auto 6%;font-size:23px;letter-spacing:4vw;color:#d3b6ff22;animation:starDrift 14s linear infinite;pointer-events:none}
-.battle-intro h2{font:900 clamp(31px,5vw,49px)/1.08 var(--display);letter-spacing:-1px;color:#f4e9ff;margin:16px 0}
-.battle-intro p{max-width:590px;margin:0 auto 25px;color:#cfc5e6;line-height:1.75}.trial-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:16px 0}.battle-intro small{display:block;color:#a49aba;line-height:1.6}
-.element-guide h2{margin:0}.element-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:15px 0}.element-guide-grid>span{background:#292243;border:1px solid #bb9bf02d;border-radius:11px;padding:13px 11px;font-size:12px;color:#e8dafa}.element-guide-grid b{display:block;color:#d9b0ff;font-size:11px;letter-spacing:.5px;margin-top:7px}
-.battle-topline{display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 10px}.battle-topline>div{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-.combo-chip{background:#8654a955;color:#ffe6ff!important;border-color:#dc99fb60!important}.combat-intent{display:flex;align-items:center;gap:14px;padding:12px 16px;background:linear-gradient(90deg,#302641,#1b1934);border:1px solid #dbabf544;border-radius:12px 12px 0 0;flex-wrap:wrap}
-.combat-intent span{font-size:10px;letter-spacing:1.5px;color:#b7a1cc}.combat-intent strong{font:800 13px var(--display);color:#ffd4ad;letter-spacing:1px}.combat-intent small{color:#bfb5d6;margin-left:auto}
-.battle-map{border-radius:0 0 22px 22px;background:radial-gradient(ellipse at 51% 90%,#7d59ca55,transparent 54%),linear-gradient(180deg,#0d1029,#202047 58%,#311c4f)}
-.battle-map::after{content:'✦　✧　·　✦　·　✧　✦　·　✦';position:absolute;inset:8% 0 auto 0;text-align:center;font-size:clamp(11px,1.8vw,24px);letter-spacing:2vw;color:#e6c7ff38;animation:starDrift 20s ease-in-out infinite;pointer-events:none}
-.arena-constellation{position:absolute;z-index:1;left:0;right:0;top:14px;text-align:center;font-size:16px;color:#edccff40;letter-spacing:12px;animation:twinkle 4s ease-in-out infinite}
-.battle-map.fx-burst{animation:arenaFlash .65s ease-out}.battle-map.fx-skill .fighter.enemy{animation:enemyStrike .5s ease-out}.battle-map.fx-attack .fighter.ally{animation:allyStrike .4s ease-out}
-.battle-map.element-flame{--impact:#ffab75}.battle-map.element-tide{--impact:#86d8fc}.battle-map.element-volt{--impact:#f5d98a}.battle-map.element-solar{--impact:#ffdea0}.battle-map.element-void{--impact:#e19bff}.battle-map.element-gale{--impact:#a2edb9}.battle-map.element-astral{--impact:#bfa5ff}
-.combat-splash{position:absolute;left:50%;top:19%;transform:translate(-50%,-50%);z-index:12;display:flex;flex-direction:column;align-items:center;pointer-events:none;animation:impactRise 1s ease-out both;text-shadow:0 4px 18px #000}
-.combat-splash strong{font:900 clamp(24px,4.5vw,48px) var(--display);color:var(--impact,#fff2ce)}.combat-splash span{font:900 13px var(--display);letter-spacing:2px;color:#fff7f7}
-.enemy-aura{font:800 10px var(--display);letter-spacing:1px;color:#ebcaff;text-align:center;line-height:1.7;min-height:15px}.enemy-variant svg{animation:enemyBreathe 3.5s ease-in-out infinite}.enemy-art-orbit{transform-origin:110px 130px;animation:enemyOrbit 21s linear infinite}
-.versus-sigil{font:900 43px var(--display);color:#eccaff70;align-self:center;animation:twinkle 3s ease-in-out infinite}
-.awaken-stars{color:#ffd68b;font-size:18px;letter-spacing:4px;text-shadow:0 0 18px #f6bd7e66;margin-top:10px}.awakening-panel{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(125deg,#302345,#221c3c);border:1px solid #d9a2fa50;border-radius:13px;padding:15px;margin:15px 0}.awakening-panel b{color:#f7d7ff}.awakening-panel p{max-width:280px;margin:5px 0}
-@keyframes starDrift{50%{transform:translateY(11px);opacity:.55}}@keyframes twinkle{50%{opacity:.37;filter:brightness(1.35)}}
-@keyframes enemyOrbit{to{transform:rotate(360deg)}}@keyframes enemyBreathe{50%{transform:translateY(-5px) scale(1.02)}}@keyframes arenaFlash{20%{filter:brightness(1.7)}100%{filter:brightness(1)}}@keyframes impactRise{0%{opacity:0;transform:translate(-50%,10px) scale(.65)}20%{opacity:1;transform:translate(-50%,-28px) scale(1.17)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-83px) scale(1)}}@keyframes enemyStrike{20%{filter:brightness(2.2)}100%{filter:brightness(1)}}@keyframes allyStrike{40%{transform:translateX(15px)}100%{transform:translateX(0)}}
-@media(max-width:800px){.element-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.element-guide-grid{grid-template-columns:1fr 1fr}.combat-intent small{width:100%;margin:0}.combat-intent{gap:7px 12px;padding:10px}.battle-intro{padding:24px 14px!important}.battle-topline{align-items:flex-start}.versus-sigil{font-size:27px}.awakening-panel .btn{width:100%}}
-@media(prefers-reduced-motion:reduce){.battle-intro::before,.battle-map::after,.arena-constellation,.enemy-variant svg,.enemy-art-orbit,.versus-sigil,.combat-splash,.battle-map.fx-burst,.battle-map.fx-skill .fighter.enemy,.battle-map.fx-attack .fighter.ally{animation:none!important}}
-
-  .awaken-chip{position:absolute;top:11px;right:10px;background:#6e427ddd;border:1px solid #f9ce9c;color:#fff0ca;padding:5px 8px;border-radius:9px;font:800 11px var(--display);box-shadow:0 0 20px #deaffc70}.combat-intent.combat-end{background:linear-gradient(90deg,#235046,#1b2336);border-color:#8ee3b755}.combat-intent.combat-end strong{color:#b4ffe2}
-</style>
-</head>
-<body>
-<div class="codex-bar"><a href="../../">← Return to The Sleeping Empire</a><small>Standalone game · Non-canon</small></div>
-<div id="app"></div><div id="overlay"></div><div id="toast-root"></div>
-<script>
-'use strict';
-(() => {
-  const KEY='astral_empire_v1';
-  const el=id=>document.getElementById(id);
-  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const fmt=n=>Math.floor(n).toLocaleString('en-US');
-  const rng=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
-  const random=arr=>arr[Math.floor(Math.random()*arr.length)];
-  const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
-  const HEROES=[
-    {id:'celeste',name:'Celeste',title:'The Violet Seraph',rarity:5,element:'Astral',role:'Mage',hair:'#dfc0ff',shade:'#b489f6',eyes:'#d98be9',skin:'#ffe4da',outfit:'#603c9b',accent:'#e1bfff',style:2,base:{hp:620,atk:114,def:39},skill:'Starlight Hymn',burst:'Seraphic Eclipse',bio:'The Celestial Court’s enigmatic starweaver. Her spells turn constellations into living instruments.'},
-    {id:'clarissa',name:'Clarissa',title:'Imperial Strategist',rarity:5,element:'Solar',role:'Guardian',hair:'#eacb8c',shade:'#b69460',eyes:'#70b8d7',skin:'#ffe0ce',outfit:'#344a69',accent:'#ffde9f',style:4,base:{hp:780,atk:85,def:58},skill:'Royal Formation',burst:'Iron Dominion',bio:'A relentless tactician, whose measured commands can turn a hopeless field into victory.'},
-    {id:'aurelia',name:'Aurelia',title:'Dawn’s First Blade',rarity:5,element:'Solar',role:'Knight',hair:'#f4dca5',shade:'#ca9f65',eyes:'#e6ab58',skin:'#ffe4d4',outfit:'#ad5d60',accent:'#ffd48b',style:1,base:{hp:700,atk:108,def:46},skill:'Radiant Slash',burst:'Daybreak Oath',bio:'A knight sworn to a light that has not yet risen. Her blade is a sunrise made steel.'},
-    {id:'nyx',name:'Nyx',title:'The Silent Oracle',rarity:5,element:'Void',role:'Assassin',hair:'#6576ad',shade:'#3d416d',eyes:'#f18bd4',skin:'#d8bfcc',outfit:'#362d67',accent:'#d49dff',style:3,base:{hp:550,atk:128,def:35},skill:'Nullstep',burst:'Night Without Stars',bio:'Born at the edge of nothing, Nyx knows the secret language of shadow.'},
-    {id:'kael',name:'Kael',title:'Ember Vanguard',rarity:4,element:'Flame',role:'Knight',hair:'#ed8566',shade:'#9e4c53',eyes:'#ffb16d',skin:'#e9b99f',outfit:'#663d55',accent:'#ffad79',style:4,base:{hp:580,atk:92,def:38},skill:'Ember Rush',burst:'Phoenix Break',bio:'An impulsive vanguard who refuses to allow a single spark to die.'},
-    {id:'lumi',name:'Lumi',title:'Moonlit Healer',rarity:4,element:'Tide',role:'Healer',hair:'#b7dcf8',shade:'#6895c5',eyes:'#6799d4',skin:'#ffe6df',outfit:'#457a9a',accent:'#b4ecff',style:2,base:{hp:560,atk:73,def:39},skill:'Moonwell',burst:'Blue Benediction',bio:'Her tranquil melodies mend shattered shields and tired spirits.'},
-    {id:'vexa',name:'Vexa',title:'Thunder Trickster',rarity:4,element:'Volt',role:'Assassin',hair:'#ea90d8',shade:'#9446a4',eyes:'#eec968',skin:'#ebc4c1',outfit:'#65407d',accent:'#f4a8e4',style:3,base:{hp:480,atk:103,def:32},skill:'Flashstep',burst:'Arc Tempest',bio:'Equal parts daredevil and genius, Vexa is the storm before the warning.'},
-    {id:'orin',name:'Orin',title:'Warden of Groves',rarity:4,element:'Gale',role:'Guardian',hair:'#8ab6a1',shade:'#426f67',eyes:'#d8c383',skin:'#debba4',outfit:'#4b776c',accent:'#a4f2bd',style:1,base:{hp:720,atk:66,def:54},skill:'Verdant Bastion',burst:'Ancient Canopy',bio:'His shield carries the weight and patience of a thousand growing forests.'},
-    {id:'mira',name:'Mira',title:'Starlit Apprentice',rarity:3,element:'Astral',role:'Mage',hair:'#ad9ee5',shade:'#716cb5',eyes:'#7fcce4',skin:'#f8d5cf',outfit:'#51658f',accent:'#dac4ff',style:2,base:{hp:440,atk:77,def:30},skill:'Comet Spark',burst:'Meteor Shower',bio:'Still learning the craft, Mira collects lost fragments of fallen constellations.'},
-    {id:'riven',name:'Riven',title:'Ironfront Scout',rarity:3,element:'Flame',role:'Knight',hair:'#a67c76',shade:'#6c575b',eyes:'#efad72',skin:'#ddb69b',outfit:'#756078',accent:'#e9ad96',style:4,base:{hp:530,atk:68,def:40},skill:'Flaring Edge',burst:'Vanguard Strike',bio:'A dependable scout who knows every alley of the frontier cities.'},
-    {id:'sora',name:'Sora',title:'Windborne Archer',rarity:3,element:'Gale',role:'Assassin',hair:'#9fcbd9',shade:'#547c9c',eyes:'#aadbad',skin:'#f4d4c2',outfit:'#457f80',accent:'#9fead5',style:3,base:{hp:430,atk:80,def:28},skill:'Sky Shot',burst:'Cyclone Volley',bio:'No compass can measure the roads that Sora has flown.'},
-    {id:'tess',name:'Tess',title:'Rift Mechanic',rarity:3,element:'Volt',role:'Guardian',hair:'#f3b388',shade:'#ab7773',eyes:'#74c6b7',skin:'#ffe0c9',outfit:'#4c6887',accent:'#ffd39b',style:1,base:{hp:580,atk:60,def:43},skill:'Flux Barrier',burst:'Overclock',bio:'Some heroes forge legends. Tess repairs them, usually while arguing with a wrench.'}
-  ];
-  const HERO_BY_ID=Object.fromEntries(HEROES.map(h=>[h.id,h]));
-  const SLOTS=['Weapon','Armor','Charm'];
-  const SLOT_ICONS={Weapon:'⚔️',Armor:'🛡️',Charm:'🔮'};
-  const ELEMENT_ICONS={Astral:'✦',Solar:'☀',Void:'☾',Flame:'🔥',Tide:'💧',Gale:'🍃',Volt:'⚡'};
-  const ITEM_WORDS={Weapon:['Starsteel Edge','Celestial Spear','Mooncrest Blade','Riftbreaker','Solar Saber'],Armor:['Astral Mantle','Imperial Plate','Guardian Vest','Warden Mail','Starlit Coat'],Charm:['Fate Pendant','Nebula Core','Echo Locket','Arcane Talisman','Seraph Sigil']};
-  let uid=0; let page='home',selectedHero='celeste',selectedItem=null,forgeTab='all',battle=null,modal=null,toastTimer=0,damageTimer=0;
-  let state;
-  function fresh(){ return {version:1,crystals:2500,gold:1600,tickets:6,ore:12,gems:2,echoes:0,pulls:0,pity:0,summoned:0,won:0,highest:0,stage:1,
-    heroes:{mira:{level:3,exp:0,duplicates:0},kael:{level:3,exp:0,duplicates:0},lumi:{level:2,exp:0,duplicates:0},tess:{level:1,exp:0,duplicates:0}},team:['kael','lumi','mira'],items:[{id:'starter-1',slot:'Weapon',name:'Recruit Blade',rarity:3,level:1,bonus:'atk',base:17,reforge:0,socketed:false,owner:'kael'},{id:'starter-2',slot:'Armor',name:'Traveler Vest',rarity:3,level:1,bonus:'def',base:10,reforge:0,socketed:false,owner:'lumi'}],quests:{firstPull:false,firstWin:false,forge:false,team:false},claimed:{},dailyDate:'',dailyClaimed:false,expedition:null,expeditionsCompleted:0,achievementClaims:{},trialDate:'',trialWins:0}; }
-  function sanitizeSave(obj){ if(!obj||typeof obj!=='object'||obj.version!==1) return fresh();const x=fresh(); for(const k of Object.keys(x)){if(Object.hasOwn(obj,k))x[k]=obj[k];}if(!x.heroes||typeof x.heroes!=='object')x.heroes=fresh().heroes;if(!Array.isArray(x.items))x.items=[];if(!Array.isArray(x.team))x.team=['kael','lumi','mira'];x.team=x.team.filter(id=>HERO_BY_ID[id]&&x.heroes[id]).slice(0,3);if(!x.quests||typeof x.quests!=='object')x.quests=fresh().quests;if(!x.claimed||typeof x.claimed!=='object')x.claimed={};if(!x.achievementClaims||typeof x.achievementClaims!=='object')x.achievementClaims={};x.trialDate=typeof x.trialDate==='string'?x.trialDate.slice(0,32):'';x.trialWins=clamp(Number(x.trialWins)||0,0,1e6);x.expeditionsCompleted=clamp(Number(x.expeditionsCompleted)||0,0,1e6);if(x.expedition){const e=x.expedition;if(!['scout','mining','vault'].includes(e.kind)||!Number.isFinite(e.ends)||!Array.isArray(e.team))x.expedition=null;else x.expedition={kind:e.kind,ends:clamp(e.ends,0,1e15),team:e.team.filter(id=>HERO_BY_ID[id]&&x.heroes[id]).slice(0,3)};}for(const k of ['crystals','gold','tickets','ore','gems','echoes','pulls','pity','summoned','won','highest','stage'])x[k]=clamp(Number(x[k])||0,0,1e9);for(const id of Object.keys(x.heroes)){if(!HERO_BY_ID[id])delete x.heroes[id];else {const v=x.heroes[id]||{};x.heroes[id]={level:clamp(Number(v.level)||1,1,60),exp:clamp(Number(v.exp)||0,0,1e7),duplicates:clamp(Number(v.duplicates)||0,0,99),awakened:clamp(Number(v.awakened)||0,0,5)};}}x.items=x.items.filter(i=>i&&SLOTS.includes(i.slot)).slice(0,250).map(i=>({...i,id:String(i.id),rarity:clamp(Number(i.rarity)||3,3,5),level:clamp(Number(i.level)||1,1,20),base:clamp(Number(i.base)||10,1,500),reforge:clamp(Number(i.reforge)||0,0,30),socketed:!!i.socketed,owner:HERO_BY_ID[i.owner]&&x.heroes[i.owner]?i.owner:null,bonus:['atk','def','hp'].includes(i.bonus)?i.bonus:'atk',name:String(i.name).slice(0,50)}));return x; }
-  try {state=sanitizeSave(JSON.parse(localStorage.getItem(KEY)));} catch{state=fresh();}
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){console.warn('Save failed',e);}}
-  const today=()=>new Date().toLocaleDateString('en-CA');
-  function notify(msg){const root=el('toast-root');root.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(toastTimer);toastTimer=setTimeout(()=>root.innerHTML='',2700);}
-  const ELEMENT_REACTIONS={"Flame|Tide":{"name":"STEAM BREAK","bonus":0.65,"effect":"weaken","description":"Weakens the enemy's next attacks"},"Flame|Gale":{"name":"WILDFIRE","bonus":0.47,"effect":"burn","description":"Ignites lasting damage"},"Tide|Volt":{"name":"SUPERCONDUCT","bonus":0.62,"effect":"expose","description":"Shreds enemy defense"},"Solar|Void":{"name":"ECLIPSE","bonus":0.82,"effect":"expose","description":"Cracks celestial armor"},"Astral|Void":{"name":"STARFALL","bonus":0.7,"effect":"energize","description":"Restores squad energy"},"Astral|Solar":{"name":"ZENITH","bonus":0.5,"effect":"heal","description":"Restores squad health"},"Flame|Solar":{"name":"SOLAR FLARE","bonus":0.55,"effect":"burn","description":"Radiant fire scorches the target"},"Gale|Volt":{"name":"STATIC TEMPEST","bonus":0.6,"effect":"expose","description":"Electrified winds weaken armor"},"Gale|Tide":{"name":"MISTRAL VEIL","bonus":0.35,"effect":"heal","description":"Refreshes allies"}};
-function reactionFor(a,b){if(!a||!b||a===b)return null;return ELEMENT_REACTIONS[[a,b].sort().join('|')]||{name:'RESONANCE',bonus:.28,effect:'none',description:'Elemental collision'};}
-function elementalMultiplier(a,b){
-  const advantages={Flame:['Gale'],Gale:['Tide'],Tide:['Flame'],Volt:['Tide'],Astral:['Void'],Solar:['Void'],Void:['Solar']};
-  return advantages[a]?.includes(b) ? 1.2 : (advantages[b]?.includes(a) ? 0.86 : 1);
-}
-function enemyIntent(turn,boss){
-  if(boss&&turn%4===0)return {type:'cataclysm',name:'☄ RIFT CATACLYSM',hint:'Area attack · guard your squad'};
-  if(turn%3===0)return {type:'charged',name:'⚡ CHARGED STRIKE',hint:'Heavy hit · guard or heal'};
-  return {type:'strike',name:'⚔ SHADOW CLAW',hint:'Single target attack'};
-}
-function awakeningCost(id){
- const h=state.heroes[id],rank=h?.awakened||0;
- return {rank,need:rank+1,gold:200*(rank+1),available:(h?.duplicates||0)-rank*(rank+1)/2};
-}
-function awakenHero(id){
- const h=state.heroes[id];if(!h)return;
- const c=awakeningCost(id);
- if(c.rank>=5||c.available<c.need||state.gold<c.gold){notify('Requires more duplicate echoes and gold.');return;}
- state.gold-=c.gold;h.awakened=c.rank+1;save();render();notify(HERO_BY_ID[id].name+' awakened to ✦'+h.awakened+'!');
-}
-function battleVictory(){
- if(!battle||battle.phase!=='playing')return;
- battle.phase='won';const stage=battle.stage;
- if(battle.mode==='trial'){
-   state.trialDate=today();state.trialWins=(state.trialWins||0)+1;
-   state.crystals+=480;state.gold+=650;state.ore+=7;state.gems+=2;
-   if(state.items.length<250){const drop=newItem();drop.rarity=Math.max(4,drop.rarity);drop.base+=drop.rarity*5;state.items.push(drop);logBattle('TRIAL REWARD: '+drop.rarity+'★ '+drop.name+' acquired!');}
-   logBattle('TRIAL CONQUERED! +480 crystals, +650 gold, +7 ore and +2 gems.');
- }else{
-   const crystal=90+stage*12+(stage%5===0?150:0),gold=160+stage*25,ore=2+(stage%5===0?3:0);
-   state.crystals+=crystal;state.gold+=gold;state.ore+=ore;
-   if(stage%3===0)state.gems++;
-   if(stage%4===0&&state.items.length<250){const drop=newItem();state.items.push(drop);logBattle('Loot: '+drop.rarity+'★ '+drop.name+'.');}
-   state.highest=Math.max(state.highest,stage);state.stage=Math.max(state.stage,stage+1);
-   logBattle('VICTORY! +'+crystal+' crystals, +'+gold+' gold, +'+ore+' ore'+(stage%3===0?', +1 gem':'')+'.');
- }
- state.won++;state.quests.firstWin=true;save();render();
-}
-
-  function levelCost(hid){return 65+state.heroes[hid].level*32;}
-  function hstats(id){
- const h=HERO_BY_ID[id],owned=state.heroes[id]||{level:1,duplicates:0,awakened:0};
- const allies=state.team.filter(x=>state.heroes[x]&&HERO_BY_ID[x]?.element===h.element).length;
- const synergy=state.team.includes(id)&&allies>1?(allies===3?.08:.04):0;
- const scale=1+(owned.level-1)*.12+Math.min(owned.duplicates,5)*.05+(owned.awakened||0)*.08+synergy;
- const stats={hp:Math.floor(h.base.hp*scale),atk:Math.floor(h.base.atk*scale),def:Math.floor(h.base.def*scale)};
- for(const item of state.items.filter(x=>x.owner===id)){
-   stats[item.bonus]+=itemPower(item);
-   if(item.socketed)stats.atk+=10+item.rarity*4;
- }
- return stats;
-}
-    function itemPower(i){return Math.round(i.base*(1+(i.level-1)*.15+i.reforge*.06));}
-  function rarityStars(n){return '★'.repeat(n);}
-  function percent(n,d){return d?clamp(n/d*100,0,100):0;}
-  function portrait(h,extra=''){ const id=esc(h.id); const hair=h.hair,shade=h.shade,skin=h.skin,eye=h.eyes,coat=h.outfit,acc=h.accent;const strands=h.style===2?`<path d="M62 116 Q49 164 60 226 Q80 224 93 184 L100 115Z" fill="${shade}"/><path d="M151 113 Q172 174 163 230 Q144 220 138 183L124 112Z" fill="${shade}"/>`:h.style===3?`<path d="M66 120 Q42 161 48 222L80 198 95 131Z" fill="${shade}"/><path d="M149 111 Q185 156 167 218 L139 189 137 126Z" fill="${shade}"/>`:'';
-   const front=h.style===4?`<path d="M59 99 Q62 47 106 51 Q155 43 161 102 L135 85 116 101 105 77 85 99 63 111Z" fill="${hair}"/><path d="M75 71Q100 33 131 62L111 85Z" fill="${shade}"/>`:h.style===3?`<path d="M58 102 Q55 38 114 46 Q168 45 160 114 Q145 99 140 70 Q121 99 106 100 Q88 88 77 118 L62 127Z" fill="${hair}"/><path d="M127 53 Q83 51 70 118L86 128Q101 80 145 74Z" fill="${shade}"/>`:h.style===1?`<path d="M57 114 Q51 45 110 45 Q168 43 164 116 L148 93 133 77 113 102 91 86 65 119Z" fill="${hair}"/><path d="M75 64Q110 35 137 61L102 105 89 89Z" fill="${shade}"/>`:`<path d="M57 112 Q51 47 103 42 Q172 39 164 122 Q157 96 139 78 Q125 109 110 109 Q88 87 66 131Z" fill="${hair}"/><path d="M135 49 Q106 36 87 59Q76 89 64 145L84 128Q99 86 145 70Z" fill="${shade}"/>`;
-   const accessories=h.rarity===5?`<path d="M61 100l-17-22 19 6 12-18 7 23" fill="${acc}" opacity=".82"/><path d="M155 90l10-21 12 11-7 24" fill="${acc}" opacity=".75"/>`:'';
-   return `<div class="portrait" style="--hero-glow:${acc}6e;--hero-dark:${coat}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 255" aria-label="Anime portrait of ${esc(h.name)}" role="img"><defs><linearGradient id="out-${id}" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${coat}"/><stop offset="1" stop-color="#181c3e"/></linearGradient><linearGradient id="skin-${id}" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#fff1ea"/><stop offset=".58" stop-color="${skin}"/><stop offset="1" stop-color="#bf9292"/></linearGradient><linearGradient id="hair-${id}" x1="0" x2="1"><stop stop-color="${shade}"/><stop offset=".45" stop-color="${hair}"/><stop offset="1" stop-color="${shade}"/></linearGradient></defs><g opacity=".45" fill="${acc}"><circle cx="29" cy="65" r="2"/><circle cx="182" cy="57" r="3"/><path d="M27 140l5-9 5 9-5 9Z"/><path d="M178 160l6-13 6 13-6 13Z"/></g><path d="M0 245 Q19 197 68 187 L89 176 128 176 158 187 Q197 193 220 245Z" fill="url(#out-${id})" stroke="${acc}" stroke-opacity=".68" stroke-width="2"/><path d="M89 169 L87 197 112 215 136 194 132 170Z" fill="${skin}"/><path d="M97 197l15 16 15-16 14 17-30 38-29-38Z" fill="#e6dff4" opacity=".78"/><path d="M60 181 Q41 201 38 248 M160 182 Q179 202 183 249" stroke="${acc}" stroke-width="5" fill="none" opacity=".55"/><path d="M89 211l-10 37M136 211l11 37" stroke="${acc}" stroke-width="4" opacity=".8"/><path d="M73 78 Q72 36 111 35 Q158 35 158 83 L163 148 Q143 171 114 170 Q84 167 64 143Z" fill="url(#hair-${id})"/>${strands}<path d="M67 99 Q65 63 111 61 Q158 63 155 102 L152 135 Q146 163 112 171 Q81 161 72 139Z" fill="url(#skin-${id})"/><path d="M67 114Q59 104 61 119l9 19ZM157 113q9-9 9 4l-12 20Z" fill="${skin}"/><path d="M81 121Q90 114 100 120" stroke="${shade}" stroke-width="2.7" fill="none"/><path d="M125 119Q135 113 146 120" stroke="${shade}" stroke-width="2.7" fill="none"/><path d="M80 129Q90 123 101 129Q91 141 81 132Z" fill="white"/><path d="M122 129Q134 123 146 129Q134 141 123 132Z" fill="white"/><ellipse cx="91" cy="130" rx="5" ry="7" fill="${eye}"/><ellipse cx="134" cy="130" rx="5" ry="7" fill="${eye}"/><ellipse cx="92" cy="127" rx="1.8" ry="2.4" fill="white"/><ellipse cx="135" cy="127" rx="1.8" ry="2.4" fill="white"/><path d="M105 143q6 3 10-1" stroke="#a77180" stroke-width="1.5" fill="none" opacity=".6"/><path d="M102 153Q112 159 123 152" stroke="#b56f81" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M73 141q10 6 19 0M133 141q10 5 19-1" stroke="#ed999d" opacity=".22" stroke-width="3"/>${front}${accessories}<path d="M102 194l10 6 10-6-10 15Z" fill="${acc}"/><path d="M107 235h10l-5-18Z" fill="${acc}" opacity=".6"/></svg></div>`; }
-  function heroCard(id,small=false){const h=HERO_BY_ID[id],own=state.heroes[id],idx=state.team.indexOf(id);return `<div class="hero-card ${selectedHero===id?'selected':''}" role="button" tabindex="0" data-action="select-hero" data-id="${id}">${portrait(h)}<span class="rarity-badge rarity${h.rarity}">${rarityStars(h.rarity)}</span>${idx!==-1?`<span class="team-dot">TEAM ${idx+1}</span>`:''}${own.awakened?`<span class="awaken-chip">✦ ${own.awakened}</span>`:''}<div class="card-footer"><b>${h.name}</b><small>${ELEMENT_ICONS[h.element]} ${h.element} · Lv. ${own.level}</small></div></div>`;}
-  function wallet(){return `<div class="wallet"><div class="pill" title="Astral Crystals"><span class="ico">💎</span><b>${fmt(state.crystals)}</b></div><div class="pill" title="Gold"><span class="ico">🪙</span><b>${fmt(state.gold)}</b></div><div class="pill" title="Summon Tickets"><span class="ico">🎟️</span><b>${fmt(state.tickets)}</b></div></div>`;}
-  function navHTML(mobile=false){return ['home','summon','battle','roster','forge','expeditions'].map((p,i)=>`<button class="${mobile?'':'nav-item '}${page===p?'active':''}" data-action="page" data-id="${p}" aria-label="${p}" ${page===p?'aria-current="page"':''}><span class="${mobile?'':'nav-icon'}">${['⌂','✧','⚔','♜','⚒','✦'][i]}</span>${['Sanctum','Summon','Battle','Roster','Forge','Dispatch'][i]}</button>`).join('');}
-  function render(){const pageNames={home:['Welcome back, Commander','Your empire awaits.'],summon:['Starlight Invocation','A new legend is one wish away.'],battle:['Starfall Rift','Conquer the frontier, one fight at a time.'],roster:['Hero Archive','Every legend begins with a name.'],forge:['The Astral Forge','Steel, starlight, and a little luck.'],expeditions:['Astral Expeditions','Dispatch your heroes and earn supplies.'],settings:['Settings','Your progress is saved in this browser.']};const [heading,sub]=pageNames[page]||pageNames.home;
-    el('app').innerHTML=`<div class="shell"><aside class="sidebar"><div class="brand"><div class="logo"><svg viewBox="0 0 40 40" fill="none"><path d="M20 2 26 15 38 20 26 25 20 38 14 25 2 20 14 15Z" fill="#d4b5ff"/><path d="m20 11 3 6 6 3-6 3-3 6-3-6-6-3 6-3Z" fill="#6a3daf"/></svg></div><div><div class="brand-name">ASTRAL<br>EMPIRE</div><div class="brand-sub">GACHA RPG</div></div></div><div class="nav-kicker">Explore</div>${navHTML()}<div class="nav-kicker" style="margin-top:24px">Account</div><button class="nav-item ${page==='settings'?'active':''}" data-action="page" data-id="settings"><span class="nav-icon">⚙</span>Settings</button><div class="side-bottom"><div class="tiny-card"><strong>✦ The Starfall Rift</strong><p>Summon legendary allies, forge their relics, and reclaim the constellations.</p></div><div class="version">V1.2 · CELESTIAL COMBAT</div></div></aside><main class="main"><header class="topbar"><div class="welcome"><small>${esc(sub)}</small><h1>${heading}</h1></div>${wallet()}</header><div class="page">${({home:renderHome,summon:renderSummon,battle:renderBattle,roster:renderRoster,forge:renderForge,expeditions:renderExpeditions,settings:renderSettings}[page]||renderHome)()}<div class="footer">ASTRAL EMPIRE · A free single-player browser adventure · No real-money purchases</div></div></main></div><nav class="bottom-nav" aria-label="Game navigation">${navHTML(true)}</nav>`;
-    renderModal(); }
-  function renderHome(){const featured=HERO_BY_ID.celeste;const maxStages=state.highest;return `<section class="hero-banner"><div class="banner-copy"><span class="eyebrow">✦ THE CONSTELLATIONS ARE CALLING</span><h2>Forge your<br><i>own legend.</i></h2><p>Summon a legendary squad, chain elemental reactions, awaken heroes, and conquer the Astral Rift.</p><button class="btn primary" data-action="page" data-id="summon">✧ SUMMON HEROES <span>→</span></button></div><div class="banner-character">${portrait(featured)}</div></section><div class="feature-row"><div class="panel feature"><div class="feature-icon">👑</div><div><b>${Object.keys(state.heroes).length}<small>Heroes owned</small></b></div></div><div class="panel feature"><div class="feature-icon">⚔️</div><div><b>${fmt(state.won)}<small>Battles won</small></b></div></div><div class="panel feature"><div class="feature-icon">✨</div><div><b>${fmt(state.pulls)}<small>Total summons</small></b></div></div></div><div class="two-col"><div><div class="sectionhead"><h2>Your Active Squad</h2><button class="btn small subtle" data-action="page" data-id="roster">Manage team →</button></div><div class="panel pad"><div class="hero-strip">${[0,1,2].map(i=>state.team[i]?`<div class="hero-mini" role="button" tabindex="0" data-action="view-hero" data-id="${state.team[i]}">${portrait(HERO_BY_ID[state.team[i]])}<b>${HERO_BY_ID[state.team[i]].name}</b><small>Lv. ${state.heroes[state.team[i]].level} · ${HERO_BY_ID[state.team[i]].role}</small></div>`:`<div class="empty-slot">＋<br>Empty slot</div>`).join('')}</div><button class="btn primary full" style="margin-top:14px" data-action="page" data-id="battle">⚔ ENTER THE STARFALL RIFT</button><p class="smalltext" style="margin:11px 0 0">Next battle: Stage ${state.stage} ${maxStages?' · Highest cleared: '+maxStages:''}</p></div></div><div><div class="sectionhead"><h2>Adventurer’s Ledger</h2><small>One-time rewards</small></div><div class="panel pad"><div class="quest-list">${questRows()}</div></div></div></div><div class="sectionhead"><h2>Daily supply</h2><small>Resets on your local calendar</small></div><div class="panel pad flex" style="justify-content:space-between"><div><b>🎁 A gift from the Astral Court</b><p class="smalltext" style="margin:6px 0 0">Claim 240 crystals + 250 gold each day.</p></div><button class="btn gold" data-action="daily" ${state.dailyDate===today()&&state.dailyClaimed?'disabled':''}>${state.dailyDate===today()&&state.dailyClaimed?'✓ CLAIMED':'CLAIM DAILY GIFT'}</button></div>`;}
-  const QUESTS=[{id:'firstPull',name:'A First Wish',desc:'Summon your first hero',goal:1,reward:300,icon:'✨'},{id:'firstWin',name:'A First Victory',desc:'Win your first battle',goal:1,reward:350,icon:'⚔️'},{id:'forge',name:'Master of Steel',desc:'Craft a piece of equipment',goal:1,reward:280,icon:'⚒️'},{id:'team',name:'The Chosen Three',desc:'Change your hero squad',goal:1,reward:200,icon:'👑'}];
-  function questRows(){return QUESTS.map(q=>`<div class="quest"><div class="quest-icon">${q.icon}</div><div class="quest-main"><b>${q.name}</b><p>${q.desc} · 💎 ${q.reward}</p><div class="progress"><i style="width:${state.quests[q.id]?100:0}%"></i></div></div><button class="btn small ${state.quests[q.id]&&!state.claimed[q.id]?'gold':'subtle'}" data-action="claim" data-id="${q.id}" ${!state.quests[q.id]||state.claimed[q.id]?'disabled':''}>${state.claimed[q.id]?'✓':state.quests[q.id]?'CLAIM':'LOCKED'}</button></div>`).join('');}
-  function renderSummon(){return `<div class="summon-stage"><div class="summon-rune"></div><div class="summon-copy"><span class="eyebrow">LIMITLESS STARS · PERMANENT BANNER</span><h2>Celestial<br><span style="color:#eaa8eb">Resonance</span></h2><p>Call heroes from beyond the veil. Every new soul writes another chapter of your empire.</p><div class="flex" style="margin-top:19px"><span class="tag">✦ 5★ PITY ${state.pity}/40</span><span class="tag">🎟 ${state.tickets} TICKETS</span></div></div><div class="summon-art">${portrait(HERO_BY_ID.celeste)}</div></div><div class="summon-footer"><div><strong style="font-size:13px">Featured 5★ heroes</strong><p class="smalltext" style="margin:6px 0 0">Celeste · Clarissa · Aurelia · Nyx</p></div><div class="summon-actions"><button class="btn primary" data-action="summon" data-count="1" ${state.tickets<1&&state.crystals<160?'disabled':''}>✧ SUMMON ×1 <span>160 💎</span></button><button class="btn gold" data-action="summon" data-count="10" ${state.tickets<10&&state.crystals<1500?'disabled':''}>✦ SUMMON ×10 <span>1,500 💎</span></button></div></div><div class="rate-list"><span><b class="rarity5">★★★★★</b> 3%</span><span><b class="rarity4">★★★★</b> 18%</span><span><b class="rarity3">★★★</b> 79%</span><span>Guaranteed 5★ by pull 40</span><span>10-pull guarantees at least one 4★ or higher</span></div><div class="panel pad" style="margin-top:23px"><div class="sectionhead" style="margin:0 0 12px"><h2>All possible summons</h2><small>Duplicates convert to 1 hero echo</small></div><div class="roster-grid">${HEROES.filter(h=>h.rarity>=4).map(h=>`<div class="hero-card" style="cursor:default">${portrait(h)}<span class="rarity-badge rarity${h.rarity}">${rarityStars(h.rarity)}</span><div class="card-footer"><b>${h.name}</b><small>${ELEMENT_ICONS[h.element]} ${h.element} · ${h.role}</small></div></div>`).join('')}</div></div><p class="notice" style="margin-top:14px">🎟 Tickets are automatically used first when you have enough for the selected summon size; otherwise crystals are spent. Crystals, tickets, and upgrade supplies are earned by playing. No payment system or real-money purchases exist.</p>`;}
-  function renderRoster(){
- const ids=Object.keys(state.heroes).filter(id=>HERO_BY_ID[id]).sort((a,b)=>HERO_BY_ID[b].rarity-HERO_BY_ID[a].rarity||state.heroes[b].level-state.heroes[a].level);
- if(!state.heroes[selectedHero])selectedHero=ids[0];
- const h=HERO_BY_ID[selectedHero],stats=hstats(h.id),own=state.heroes[h.id],inTeam=state.team.includes(h.id),c=awakeningCost(h.id);
- const awakened=own.awakened||0;
- const matching=state.team.filter(id=>HERO_BY_ID[id]?.element===h.element).length;
- return `<div class="sectionhead"><h2>Collected Heroes <span class="muted" style="font-size:12px">${ids.length}/${HEROES.length}</span></h2><small>Build elemental squads · awaken duplicates</small></div>
- <div class="roster-layout"><div class="roster-grid">${ids.map(id=>heroCard(id)).join('')}</div>
- <div class="panel pad"><div class="detail-head">${portrait(h)}<div><div class="rarity5">${rarityStars(h.rarity)}</div><h3>${h.name}</h3><p>${esc(h.title)}</p><p>${ELEMENT_ICONS[h.element]} ${h.element} · ${h.role}</p><div class="awaken-stars">${'✦'.repeat(awakened)}${'◇'.repeat(5-awakened)}</div></div></div>
- <p class="smalltext">${esc(h.bio)}</p><div class="stat-line"><span>Level</span><b>${own.level} / 60</b></div><div class="stat-line"><span>HP</span><b>${fmt(stats.hp)}</b></div><div class="stat-line"><span>Attack</span><b>${fmt(stats.atk)}</b></div><div class="stat-line"><span>Defense</span><b>${fmt(stats.def)}</b></div>
- <div class="stat-line"><span>Hero echoes</span><b>${own.duplicates} obtained · ${Math.max(0,c.available)} free</b></div><div class="stat-line"><span>Awakening</span><b>✦ ${awakened}/5 · +${awakened*8}% stats</b></div>
- <div class="stat-line"><span>Team resonance</span><b>${inTeam&&matching>=2?'✧ '+(matching>=3?8:4)+'% same-element bonus':'Requires 2 matching heroes'}</b></div>
- <div class="awakening-panel"><div><b>✦ Astral Awakening</b><p class="smalltext">Spend duplicate echoes to unlock permanent bonus stats and stronger bursts.</p></div><button class="btn gold" data-action="awaken-hero" data-id="${h.id}" ${awakened>=5||c.available<c.need||state.gold<c.gold?'disabled':''}>${awakened>=5?'MAX AWAKENED':'AWAKEN · '+c.need+' ECHO + '+c.gold+' 🪙'}</button></div>
- <div class="separator"></div><strong style="font-size:12px">Equipped relics</strong>${SLOTS.map(slot=>{const item=state.items.find(x=>x.owner===h.id&&x.slot===slot);return `<div class="equip-line"><span>${SLOT_ICONS[slot]} ${slot}</span><b>${item?esc(item.name)+' +'+item.level:'Empty'}</b></div>`;}).join('')}
- <div class="detail-actions"><button class="btn primary wide" data-action="team-toggle" data-id="${h.id}">${inTeam?'✓ REMOVE FROM TEAM':'＋ ADD TO TEAM'}</button><button class="btn" data-action="level-hero" data-id="${h.id}" ${own.level>=60||state.gold<levelCost(h.id)?'disabled':''}>⬆ LEVEL UP <span>🪙 ${levelCost(h.id)}</span></button><button class="btn subtle" data-action="page" data-id="forge">⚒ EQUIPMENT</button></div><p class="smalltext" style="margin:11px 0 0">${esc(h.skill)} · Burst: ${esc(h.burst)}</p></div></div>`;
-}
-    const ENEMIES=[{name:'Rift Stalker',element:'Void',icon:'👁️',color:'#ec87d4'},{name:'Ashen Revenant',element:'Flame',icon:'🔥',color:'#ff946a'},{name:'Arc Sentinel',element:'Volt',icon:'⚡',color:'#e6bf7a'},{name:'Void Harbinger',element:'Void',icon:'🌙',color:'#b992ff'},{name:'Starforged Colossus',element:'Astral',icon:'✦',color:'#96d4f7'}];
-  function enemyFor(stage){const x=ENEMIES[Math.min(4,Math.floor((stage-1)/5))]||random(ENEMIES);return {...x,name:stage%5===0?'RIFT BOSS · '+x.name:x.name,hp:Math.round((720+stage*175)*(stage%5===0?1.65:1)),atk:Math.round(66+stage*13),def:Math.round(17+stage*3)};}
-  function initBattle(mode='rift'){
- if(!state.team.length){notify('Add a hero to your squad first.');page='roster';render();return;}
- if(mode==='trial'&&state.trialDate===today()){notify('The Astral Trial has already been cleared today.');return;}
- const stage=mode==='trial'?Math.max(1,state.highest||1):state.stage;
- const e=enemyFor(stage);
- if(mode==='trial'){e.name='TRIAL BOSS · '+e.name.replace(/^RIFT BOSS · /,'');e.hp=Math.round(e.hp*1.6);e.atk=Math.round(e.atk*1.14);e.def=Math.round(e.def*1.17);}
- battle={mode,stage,enemy:{...e,current:e.hp,aura:e.element,burn:0,burnPower:0,weaken:0,exposed:0},
-   team:state.team.filter(id=>state.heroes[id]).map(id=>{const v=hstats(id);return {id,hp:v.hp,max:v.hp,energy:0,guard:false};}),
-   active:0,turn:1,combo:0,lastElement:null,reactions:0,fx:null,phase:'playing',
-   log:['Stage '+stage+': '+e.name+' approaches. Watch the enemy intent!']};
- render();
-}
-    function battleFighter(){if(!battle)return null;return battle.team[battle.active];}
-  function activeFighter(){if(!battle)return null;const c=battleFighter();return c&&c.hp>0?c:battle.team.find(x=>x.hp>0);}
-  function renderEnemyArt(e){
- const elements={
-   Void:{crest:'<path d="M47 99 21 49 69 71 110 28 151 71 199 49 173 104" fill="#312446" stroke="#dc91ff" stroke-width="3"/>',eyes:'<path d="M62 142 96 148 79 161Zm96 0-34 6 17 13Z" />'},
-   Flame:{crest:'<path d="M49 102Q19 68 60 28Q60 63 92 53Q103 19 118 11Q144 40 132 64Q170 34 164 13Q201 68 166 105" fill="#bd4f54" stroke="#ffd38d" stroke-width="3"/>',eyes:'<path d="M65 142 98 139 83 153Zm92 0-33-3 15 14Z"/>'},
-   Volt:{crest:'<path d="m58 106-30-64 43 20 25-44 29 47 48-27-21 67" fill="#5b4a81" stroke="#a3e9ff" stroke-width="3"/>',eyes:'<path d="m61 140 34 8-18 10Zm98 0-34 8 18 10Z"/>'},
-   Astral:{crest:'<path d="m110 17 15 40 36-17-12 35 40 25-44 5-35-19-35 19-44-5 40-25-12-35 36 17Z" fill="#6b5ea4" stroke="#f9dcff" stroke-width="3"/>',eyes:'<path d="m64 139 29 4-12 15Zm92 0-29 4 12 15Z"/>'}
- };
- const art=elements[e.element]||elements.Void;
- const variant=e.name.includes('Harbinger')?'M110 38l18 45-18 22-18-22Z':'M110 51l12 37-12 18-12-18Z';
- return `<div class="portrait enemy-variant" style="--hero-glow:${e.color}77;--hero-dark:#231632"><svg viewBox="0 0 220 255" role="img" aria-label="${esc(e.name)}" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="enemy-v12"><stop stop-color="${e.color}" stop-opacity=".65"/><stop offset="1" stop-color="#120c2c" stop-opacity=".05"/></radialGradient><linearGradient id="enemy-armor-v12" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${e.color}" stop-opacity=".75"/><stop offset="1" stop-color="#211a3d"/></linearGradient></defs><ellipse cx="110" cy="143" rx="101" ry="111" fill="url(#enemy-v12)"/><g class="enemy-art-orbit" stroke="${e.color}" stroke-width="1.2" fill="none" opacity=".5"><ellipse cx="110" cy="132" rx="99" ry="38" transform="rotate(-33 110 132)"/><circle cx="110" cy="130" r="84" stroke-dasharray="6 13"/></g><path d="M15 251Q25 180 65 172L50 126 75 94 110 79 145 94 170 126 155 172Q194 182 205 251Z" fill="url(#enemy-armor-v12)" stroke="${e.color}" stroke-width="3"/><g>${art.crest}</g><path d="M71 114Q110 79 149 114L164 148 145 191 110 208 75 191 56 148Z" fill="#150f27" stroke="${e.color}" stroke-width="2.5"/><path d="${variant}" fill="${e.color}" opacity=".85"/><g fill="${e.color}">${art.eyes}</g><path d="m87 176 23 12 23-12" fill="none" stroke="${e.color}" stroke-width="2" opacity=".7"/><path d="M47 194 18 231M173 194l29 37" stroke="${e.color}" stroke-width="10" opacity=".7"/><circle cx="110" cy="87" r="5" fill="#fffbff"/></svg></div>`;
-}
-    function renderBattle(){
- if(!battle)return `<div class="battle-front"><div class="panel pad battle-intro"><span class="eyebrow">✦ THE STARFALL RIFT</span><h2>Conquer the impossible.</h2><p>Switch heroes to build a combo, chain distinct elements for powerful reactions, and anticipate enemy attacks. Each turn reveals the enemy's next move.</p><div class="trial-actions"><button class="btn gold" data-action="start-battle" data-mode="rift">⚔ ENTER STAGE ${state.stage}</button><button class="btn primary" data-action="start-battle" data-mode="trial" ${state.trialDate===today()?'disabled':''}>☄ DAILY ASTRAL TRIAL ${state.trialDate===today()?'✓':'→'}</button></div><small>Trial rewards: 480 crystals, 650 gold, 7 ore, 2 gems and a 4★+ relic · Once per local day</small></div>
- <div class="element-guide panel pad"><div class="sectionhead"><h2>Elemental Warfare</h2><span class="tag">NEW COMBAT SYSTEM</span></div><div class="element-guide-grid"><span>🔥 Flame + 💧 Tide <b>Steam Break</b></span><span>🔥 Flame + 🍃 Gale <b>Wildfire</b></span><span>💧 Tide + ⚡ Volt <b>Superconduct</b></span><span>☀ Solar + ☾ Void <b>Eclipse</b></span><span>✦ Astral + ☾ Void <b>Starfall</b></span><span>✦ Astral + ☀ Solar <b>Zenith</b></span></div><p class="smalltext">Any two distinct elements trigger a reaction. Matching team elements grant bonus attributes. Guard against charged attacks and Rift Cataclysms.</p></div></div>`;
- const e=battle.enemy,a=activeFighter(),ah=a?HERO_BY_ID[a.id]:null,intent=enemyIntent(battle.turn,battle.stage%5===0||battle.mode==='trial');
- const fx=battle.fx;
- return `<div class="battle-topline"><div><span class="eyebrow">${battle.mode==='trial'?'DAILY BOSS TRIAL':'RIFT STAGE '+battle.stage}${battle.stage%5===0&&battle.mode!=='trial'?' · BOSS':''}</span><span class="tag">TURN ${battle.turn}</span><span class="tag combo-chip">✦ ${battle.combo} CHAIN</span></div><button class="btn small subtle" data-action="retreat">↩ RETREAT</button></div>
- <div class="combat-intent ${battle.phase!=='playing'?'combat-end':''}"><span>${battle.phase==='playing'?'ENEMY NEXT MOVE':'BATTLE RESULT'}</span><strong>${battle.phase==='won'?'✦ VICTORY':battle.phase==='lost'?'☠ DEFEAT':intent.name}</strong><small>${battle.phase==='playing'?intent.hint:battle.phase==='won'?'Rewards delivered to your inventory':'Strengthen your heroes and return'}</small></div>
- <div class="battle-map fx-${fx?.kind||'idle'} element-${(fx?.element||'astral').toLowerCase()}"><div class="arena-constellation" aria-hidden="true">✦　·　✧　·　✦　·　✧　·　✦</div>
- ${fx&&fx.damage?`<div class="combat-splash" aria-live="polite"><strong>${fmt(fx.damage)}</strong><span>${esc(fx.label||'')} ${ELEMENT_ICONS[fx.element]||'✦'}</span></div>`:''}
- <div class="battle-area"><div class="fighter ally" id="ally-fighter"><div class="fighter-portrait">${ah?portrait(ah):'<div class="empty">Defeated</div>'}</div><div class="fighter-name">${ah?ah.name:'None standing'}</div><div class="fighter-bars"><div class="bar"><i style="width:${a?percent(a.hp,a.max):0}%"></i></div><div class="barlabel">${a?fmt(a.hp)+' / '+fmt(a.max):'0'} HP</div><div class="bar energy"><i style="width:${a?a.energy:0}%"></i></div><div class="barlabel">${a?a.energy:0} / 100 ENERGY</div></div></div>
- <div class="versus-sigil">✧</div><div class="fighter enemy" id="enemy-fighter"><div class="fighter-portrait">${renderEnemyArt(e)}</div><div class="fighter-name">${esc(e.name)}</div><div class="enemy-aura">${ELEMENT_ICONS[e.aura]||'✦'} ${esc(e.aura||e.element)} AURA ${e.burn>0?'· 🔥 BURN '+e.burn:''} ${e.exposed>0?'· ⚡ EXPOSED':''} ${e.weaken>0?'· ⬡ WEAKENED':''}</div><div class="fighter-bars"><div class="bar"><i style="width:${percent(e.current,e.hp)}%"></i></div><div class="barlabel">${fmt(e.current)} / ${fmt(e.hp)} HP</div></div></div></div></div>
- <div class="battle-bottom"><div class="panel pad"><div class="sectionhead" style="margin:0 0 10px"><h2>Imperial Squad</h2><small>Switch to chain elements</small></div><div class="team-picks">${battle.team.map((f,i)=>`<div class="team-pick ${battle.active===i?'active':''} ${f.hp<=0?'dead':''}" role="button" tabindex="0" data-action="battle-select" data-index="${i}">${portrait(HERO_BY_ID[f.id])}<b>${HERO_BY_ID[f.id].name}</b><small>${ELEMENT_ICONS[HERO_BY_ID[f.id].element]} ${fmt(f.hp)} HP · ${f.energy} EN</small></div>`).join('')}</div><div class="separator"></div><div class="battle-log" aria-live="polite">${battle.log.slice(0,6).map(x=>`<p>› ${esc(x)}</p>`).join('')}</div></div>
- <div class="panel pad"><div class="sectionhead" style="margin:0 0 12px"><h2>Battle Actions</h2></div><div class="battle-actions">${battle.phase==='playing'?`<button class="btn action-btn primary" data-action="battle-move" data-move="attack">⚔ ATTACK<span>+25 energy</span></button><button class="btn action-btn" data-action="battle-move" data-move="skill">✦ SKILL<span>${ah?esc(ah.skill):''}</span></button><button class="btn action-btn gold" data-action="battle-move" data-move="burst" ${!a||a.energy<100?'disabled':''}>✴ BURST<span>100 energy</span></button><button class="btn action-btn subtle" data-action="battle-move" data-move="guard">⬡ GUARD<span>Heal + reduce damage</span></button>`:`<button class="btn gold full" style="grid-column:1/-1" data-action="${battle.phase==='won'?'next-battle':'retry-battle'}">${battle.phase==='won'?(battle.mode==='trial'?'★ RETURN TO RIFT':'★ NEXT STAGE'):'↻ TRY AGAIN'}</button>`}</div><p class="smalltext">Reactions triggered: <b>${battle.reactions}</b> · Current chain: <b>${battle.combo}</b> · ${battle.phase==='playing'?'Enemy attacks immediately after each action.':battle.phase==='won'?'Rewards claimed!':'The squad has fallen.'}</p></div></div>`;
-}
-    function itemCard(i){const tint=i.rarity===5?'#f2ca7d':i.rarity===4?'#bb91fc':'#89b2d8';return `<div role="button" tabindex="0" class="item-card ${selectedItem===i.id?'selected':''}" data-action="select-item" data-id="${esc(i.id)}"><div class="item-icon" style="color:${tint}">${SLOT_ICONS[i.slot]}${i.socketed?'<span style="font-size:13px;position:absolute;right:4px;bottom:4px">💠</span>':''}</div><b>${esc(i.name)}</b><small class="rarity${i.rarity}">${rarityStars(i.rarity)} · +${i.level}</small><small>${i.owner?'↳ '+HERO_BY_ID[i.owner]?.name:'Unequipped'}</small></div>`;}
-  function renderForge(){const items=state.items.filter(i=>forgeTab==='all'||i.slot===forgeTab);if(!state.items.some(i=>i.id===selectedItem))selectedItem=state.items[0]?.id||null;const i=state.items.find(x=>x.id===selectedItem);return `<div class="feature-row" style="margin-top:0"><div class="panel feature"><div class="feature-icon">⛏️</div><div><b>${fmt(state.ore)}<small>Starsteel ore</small></b></div></div><div class="panel feature"><div class="feature-icon">💠</div><div><b>${fmt(state.gems)}<small>Socket gems</small></b></div></div><div class="panel feature"><div class="feature-icon">🎒</div><div><b>${state.items.length}<small>Relics owned</small></b></div></div></div><div class="sectionhead"><h2>Equipment Workshop</h2><button class="btn gold small" data-action="craft" ${state.gold<150||state.ore<3||state.items.length>=250?'disabled':''}>⚒ FORGE RANDOM RELIC · 150 🪙 + 3 ⛏</button></div><div class="forge-layout"><div class="panel pad"><div class="forge-tabs">${['all',...SLOTS].map(t=>`<button class="tab-chip ${forgeTab===t?'active':''}" data-action="forge-tab" data-id="${t}">${t==='all'?'All Relics':SLOT_ICONS[t]+' '+t}</button>`).join('')}</div>${items.length?`<div class="item-grid">${items.map(itemCard).join('')}</div>`:'<div class="empty"><span class="glyph">⚒</span>No relics in this category. Craft one above!</div>'}</div><div class="panel pad">${i?`<div style="text-align:center;font-size:58px;line-height:1.25">${SLOT_ICONS[i.slot]}</div><div style="text-align:center"><div class="rarity${i.rarity}" style="font-size:12px">${rarityStars(i.rarity)}</div><h2 style="font:800 21px var(--display);margin:5px">${esc(i.name)}</h2><p class="smalltext">${i.slot} · Level ${i.level} / 20 · ${i.socketed?'💠 Gem socketed':'Empty gem socket'}</p></div><div class="stat-line"><span>Main attribute</span><b>${i.bonus.toUpperCase()} +${itemPower(i)}</b></div><div class="stat-line"><span>Reforge bonus</span><b>+${i.reforge*6}%</b></div><div class="stat-line"><span>Gem bonus</span><b>${i.socketed?'+ '+(10+i.rarity*4)+' ATK':'None'}</b></div><div class="stat-line"><span>Equipped to</span><b>${i.owner?HERO_BY_ID[i.owner]?.name:'Nobody'}</b></div><div class="separator"></div><label class="smalltext" for="equip-target">Equip to hero</label><select id="equip-target" style="width:100%;background:#27213f;border:1px solid #aa89c24a;color:#fff;padding:11px;border-radius:9px;margin:5px 0 10px">${Object.keys(state.heroes).map(id=>`<option value="${id}" ${id===i.owner?'selected':''}>${HERO_BY_ID[id]?.name}</option>`).join('')}</select><button class="btn primary full" data-action="equip" data-id="${esc(i.id)}">${i.owner?'⇄ EQUIP / SWAP':'＋ EQUIP RELIC'}</button>${i.owner?`<button class="btn subtle full" style="margin-top:7px" data-action="unequip" data-id="${esc(i.id)}">UNEQUIP</button>`:''}<div class="separator"></div><div class="detail-actions"><button class="btn small" data-action="upgrade-item" data-id="${esc(i.id)}" ${i.level>=20||state.gold<60||state.ore<2?'disabled':''}>⬆ REFINE<br>60 🪙 + 2 ⛏</button><button class="btn small" data-action="reforge-item" data-id="${esc(i.id)}" ${state.gold<75||state.ore<1||i.reforge>=30?'disabled':''}>♧ REFORGE<br>75 🪙 + 1 ⛏</button><button class="btn small wide subtle" data-action="socket-item" data-id="${esc(i.id)}" ${i.socketed||state.gems<1?'disabled':''}>💠 SOCKET A GEM · 1 GEM</button></div>`:'<div class="empty"><span class="glyph">🔮</span>Select a relic to examine it.</div>'}</div></div><p class="notice" style="margin-top:14px">⚒ Crafting generates weapons, armor, and charms in 3★ to 5★ quality. Refining raises an item’s main attribute; reforging adds permanent additional power; gems add attack. All equipment can be moved freely between heroes. Earn ore, gold, and gems in battles.</p>`;}
-  function renderSettings(){return `<div class="panel pad" style="max-width:680px"><div class="settings-row"><div><b>Export your save</b><p>Download a backup of all heroes, items, and game progress.</p></div><button class="btn" data-action="export">↓ EXPORT</button></div><div class="settings-row"><div><b>Import a save</b><p>Restore a saved JSON file. This will replace your current progress.</p></div><button class="btn" data-action="import">↑ IMPORT</button><input type="file" id="import-file" accept="application/json,.json" class="hide" /></div><div class="settings-row"><div><b>Start a new game</b><p>Delete local progress and restart with your original free heroes.</p></div><button class="btn subtle" data-action="reset">RESET</button></div><div class="settings-row"><div><b>Offline play and privacy</b><p>Everything runs on your device. No account, tracking, backend, or in-app payments. Progress saves in browser storage.</p></div><div class="tag">LOCAL SAVE</div></div></div><p class="notice" style="max-width:680px;margin-top:12px">For reliable saves on phones, host these files on a static HTTPS website (such as GitHub Pages) and open the same browser each time. Clearing browser data or using private browsing may erase progress. The Export button makes portable backups.</p>`;}
-  function renderModal(){const root=el('overlay');if(!modal){root.innerHTML='';return;}if(modal.kind==='summon'){root.innerHTML=`<div class="modal-wrap" data-action="close-modal"><div class="modal" role="dialog" aria-modal="true" aria-label="Summon results"><button class="close" data-action="close-modal" aria-label="Close">×</button><span class="eyebrow">✦ CELESTIAL RESONANCE</span><h2 class="modal-title">${modal.results.some(r=>HERO_BY_ID[r.id].rarity===5)?'A legendary star answers!':'Your summon results'}</h2><p class="modal-desc">${modal.results.length} hero${modal.results.length>1?'es':''} called · ${modal.results.filter(r=>r.isNew).length} new · Duplicates grant hero echoes for bonus stats.</p><div class="results">${modal.results.map((r,n)=>{const h=HERO_BY_ID[r.id];return `<div class="result-card ${h.rarity===5?'legendary':h.rarity===4?'epic':''} ${r.isNew?'new':''}" style="animation-delay:${Math.min(n*70,450)}ms">${portrait(h)}<span class="rarity-badge rarity${h.rarity}">${rarityStars(h.rarity)}</span><div class="result-foot"><b>${h.name}</b><small>${r.isNew?'New hero!':'Echo +1'}</small></div></div>`;}).join('')}</div><div class="flex" style="justify-content:flex-end"><button class="btn primary" data-action="close-modal">CONTINUE →</button></div></div></div>`;} else if(modal.kind==='confirm'){root.innerHTML=`<div class="modal-wrap" data-action="close-modal"><div class="modal" role="dialog" aria-modal="true" style="max-width:430px"><button class="close" data-action="close-modal">×</button><h2 class="modal-title">${esc(modal.title)}</h2><p class="modal-desc">${esc(modal.description)}</p><div class="flex" style="justify-content:flex-end"><button class="btn subtle" data-action="close-modal">CANCEL</button><button class="btn primary" data-action="confirm-${esc(modal.confirm)}">CONFIRM</button></div></div></div>`;}else if(modal.kind==='hero'){const h=HERO_BY_ID[modal.id];root.innerHTML=`<div class="modal-wrap" data-action="close-modal"><div class="modal" role="dialog" aria-modal="true" style="max-width:440px"><button class="close" data-action="close-modal">×</button><div style="width:190px;height:190px;margin:0 auto 14px">${portrait(h)}</div><h2 class="modal-title" style="text-align:center">${h.name}</h2><p class="modal-desc" style="text-align:center">${esc(h.title)} · ${h.role} · ${h.element}</p><button class="btn primary full" data-action="goto-hero" data-id="${h.id}">VIEW HERO</button></div></div>`;} }
-  function go(p){page=p;modal=null;render();window.scrollTo({top:0,behavior:'instant'});}
-  function summon(count){if(state.tickets<count&&state.crystals<(count===10?1500:160)){notify('Not enough tickets or crystals. Win battles to earn more!');return;}if(state.tickets>=count)state.tickets-=count;else state.crystals-=(count===10?1500:160);const results=[];const guaranteed4=count===10;let has4=false;for(let n=0;n<count;n++){let rarity;let roll=Math.random()*100;if(state.pity>=39||roll<3)rarity=5;else if(roll<21)rarity=4;else rarity=3;if(n===count-1&&guaranteed4&&!has4&&rarity===3)rarity=4;const choices=HEROES.filter(h=>h.rarity===rarity);const h=random(choices);const isNew=!state.heroes[h.id];if(isNew)state.heroes[h.id]={level:1,exp:0,duplicates:0};else state.heroes[h.id].duplicates=Math.min(99,state.heroes[h.id].duplicates+1);results.push({id:h.id,isNew});if(rarity>=4)has4=true;state.pity=rarity===5?0:state.pity+1;state.pulls++;state.summoned++;}
-    state.quests.firstPull=true;save();modal={kind:'summon',results};render();}
-  function daily(){if(state.dailyDate===today()&&state.dailyClaimed)return;state.crystals+=240;state.gold+=250;state.dailyDate=today();state.dailyClaimed=true;save();render();notify('Daily gift claimed: +240 crystals and +250 gold!');}
-  function claim(id){const q=QUESTS.find(q=>q.id===id);if(!q||!state.quests[id]||state.claimed[id])return;state.crystals+=q.reward;state.claimed[id]=true;save();render();notify(`Quest complete: +${q.reward} crystals!`);}
-  function teamToggle(id){if(state.team.includes(id)){if(state.team.length===1){notify('Your team needs at least one hero.');return;}state.team=state.team.filter(x=>x!==id);}else if(state.team.length>=3){notify('Your squad is full. Remove a hero first.');return;}else state.team.push(id);state.quests.team=true;battle=null;save();render();}
-  function levelHero(id){const owned=state.heroes[id],cost=levelCost(id);if(owned.level>=60||state.gold<cost){notify('Not enough gold or max level reached.');return;}state.gold-=cost;owned.level++;save();render();notify(`${HERO_BY_ID[id].name} reached level ${owned.level}!`);}
-  function newItem(){const slot=random(SLOTS),rarity=Math.random()<.06?5:Math.random()<.3?4:3;const bonus=slot==='Weapon'?'atk':slot==='Armor'?'def':random(['hp','atk']);return {id:'relic-'+Date.now()+'-'+rng(1000,9999),slot,name:random(ITEM_WORDS[slot]),rarity,level:1,bonus,base:rarity*8+(bonus==='hp'?65:0)+rng(2,14),reforge:0,socketed:false,owner:null};}
-  function craft(){if(state.gold<150||state.ore<3||state.items.length>=250){notify('Need 150 gold and 3 ore, or your inventory is full.');return;}state.gold-=150;state.ore-=3;const i=newItem();state.items.unshift(i);selectedItem=i.id;state.quests.forge=true;save();render();notify(`Forged ${i.rarity}★ ${i.name}!`);}
-  function equip(id){const item=state.items.find(i=>i.id===id);const target=el('equip-target')?.value;if(!item||!state.heroes[target])return;for(const x of state.items){if(x.id!==id&&x.owner===target&&x.slot===item.slot)x.owner=null;}item.owner=target;save();render();notify(`${item.name} equipped to ${HERO_BY_ID[target].name}.`);}
-  function unequip(id){const i=state.items.find(x=>x.id===id);if(i){i.owner=null;save();render();}}
-  function upgradeItem(id){const i=state.items.find(x=>x.id===id);if(!i||i.level>=20||state.gold<60||state.ore<2)return;state.gold-=60;state.ore-=2;i.level++;save();render();notify(`${i.name} refined to +${i.level}!`);}
-  function reforgeItem(id){const i=state.items.find(x=>x.id===id);if(!i||i.reforge>=30||state.gold<75||state.ore<1)return;state.gold-=75;state.ore--;i.reforge++;save();render();notify(`Reforged! ${i.name} gained +6% main attribute power.`);}
-  function socketItem(id){const i=state.items.find(x=>x.id===id);if(!i||i.socketed||state.gems<1)return;state.gems--;i.socketed=true;save();render();notify(`${i.name} received a socket gem!`);}
-  function logBattle(s){battle.log.unshift(s);battle.log=battle.log.slice(0,15);}
-  function battleSelect(index){if(!battle||battle.phase!=='playing'||!battle.team[index]||battle.team[index].hp<=0)return;battle.active=index;render();}
-  function battleMove(move){
- if(!battle||battle.phase!=='playing')return;
- const f=activeFighter();if(!f)return;
- const h=HERO_BY_ID[f.id],st=hstats(h.id),enemy=battle.enemy;
- if(move==='burst'&&f.energy<100){notify('Need 100 energy to unleash the Burst!');return;}
- if(!['attack','skill','burst','guard'].includes(move))return;
- const crit=Math.random()<(.17+(h.role==='Assassin'?.07:0));
- const variance=.92+Math.random()*.16;
- const def=enemy.def*(enemy.exposed>0?.55:1);
- let damage=0,heal=0;
- if(move==='attack'){
-   damage=Math.max(1,Math.floor((st.atk*1.12-def*.55)*variance*(crit?1.55:1)));
-   f.energy=clamp(f.energy+25,0,100);
- }else if(move==='skill'){
-   if(h.role==='Healer'){
-     heal=Math.floor(st.atk*1.8+st.hp*.10);
-     for(const x of battle.team)if(x.hp>0)x.hp=Math.min(x.max,x.hp+heal);
-     damage=Math.max(1,Math.floor(st.atk*.55-def*.2));
-   }else if(h.role==='Guardian'){
-     f.guard=true;heal=Math.floor(f.max*.11);f.hp=Math.min(f.max,f.hp+heal);
-     damage=Math.max(1,Math.floor(st.atk*1.35-def*.45));
-   }else damage=Math.max(1,Math.floor((st.atk*1.68-def*.46)*variance*(crit?1.55:1)));
-   f.energy=clamp(f.energy+34,0,100);
- }else if(move==='burst'){
-   damage=Math.max(1,Math.floor((st.atk*(h.role==='Healer'?2.6:3.25+(state.heroes[h.id].awakened||0)*.08)-def*.24)*variance));
-   if(h.role==='Healer')for(const x of battle.team)if(x.hp>0)x.hp=Math.min(x.max,x.hp+Math.floor(st.atk*2.2));
-   f.energy=0;
- }else{
-   heal=Math.floor(f.max*.16);f.hp=Math.min(f.max,f.hp+heal);f.guard=true;f.energy=clamp(f.energy+18,0,100);
-   logBattle(h.name+' braces, recovering '+heal+' HP and drawing enemy attention.');
- }
- if(move!=='guard'){
-   if(battle.lastElement&&battle.lastElement!==h.element)battle.combo=Math.min(10,battle.combo+1);
-   else if(battle.lastElement===h.element)battle.combo=Math.max(0,battle.combo-1);
-   const reaction=reactionFor(enemy.aura,h.element);
-   const elementMod=elementalMultiplier(h.element,enemy.element);
-   damage=Math.max(1,Math.floor(damage*(1+battle.combo*.045)*elementMod));
-   if(reaction){
-     const extra=Math.max(1,Math.floor(damage*reaction.bonus));
-     damage+=extra;battle.reactions++;
-     logBattle('✦ '+reaction.name+'! '+extra+' bonus damage.');
-     if(reaction.effect==='burn'){enemy.burn=Math.max(enemy.burn||0,3);enemy.burnPower=Math.floor(st.atk*.35);}
-     if(reaction.effect==='weaken')enemy.weaken=Math.max(enemy.weaken||0,2);
-     if(reaction.effect==='expose')enemy.exposed=Math.max(enemy.exposed||0,2);
-     if(reaction.effect==='energize')for(const ally of battle.team)if(ally.hp>0)ally.energy=clamp(ally.energy+16,0,100);
-     if(reaction.effect==='heal')for(const ally of battle.team)if(ally.hp>0)ally.hp=Math.min(ally.max,ally.hp+Math.floor(ally.max*.08));
-   }
-   enemy.aura=h.element;battle.lastElement=h.element;
-   enemy.current=Math.max(0,enemy.current-damage);
-   const actionName=move==='burst'?h.burst:move==='skill'?h.skill:'Attack';
-   logBattle(h.name+' · '+actionName+': '+fmt(damage)+' '+h.element+' damage'+(crit&&move!=='burst'?' · CRITICAL':'')+'.');
-   battle.fx={kind:move,damage,label:reaction?.name||(crit?'CRITICAL!':''),element:h.element,crit};
- }else battle.fx={kind:'guard',damage:0,label:'GUARD',element:h.element,crit:false};
- if(enemy.current<=0){battleVictory();return;}
- if(enemy.burn>0){
-   const dot=Math.max(8,enemy.burnPower||10);
-   enemy.current=Math.max(0,enemy.current-dot);enemy.burn--;
-   logBattle('🔥 Wildfire burns for '+fmt(dot)+' damage.');
-   if(enemy.current<=0){battleVictory();return;}
- }
- const intent=enemyIntent(battle.turn,battle.stage%5===0||battle.mode==='trial');
- const living=battle.team.filter(x=>x.hp>0);
- const targets=intent.type==='cataclysm'?living:[move==='guard'?f:intent.type==='charged'?f:random(living)];
- const weakened=enemy.weaken>0?.72:1;
- for(const target of targets){
-   if(target.hp<=0)continue;
-   const stats=hstats(target.id);
-   let hit=Math.max(1,Math.floor((enemy.atk-stats.def*.4)*(.88+Math.random()*.2)*(intent.type==='cataclysm'?1.08:intent.type==='charged'?1.7:1)*weakened));
-   if(target.guard)hit=Math.max(1,Math.floor(hit*.42));
-   target.hp=Math.max(0,target.hp-hit);target.guard=false;
-   logBattle(enemy.name+' · '+intent.name+' hits '+HERO_BY_ID[target.id].name+' for '+fmt(hit)+'.');
-   if(target.hp<=0)logBattle('☠ '+HERO_BY_ID[target.id].name+' has fallen.');
- }
- enemy.weaken=Math.max(0,(enemy.weaken||0)-1);enemy.exposed=Math.max(0,(enemy.exposed||0)-1);
- battle.turn++;
- if(!battle.team.some(x=>x.hp>0)){battle.phase='lost';logBattle('DEFEAT. Strengthen your squad and return to the Rift.');}
- else if(battle.team[battle.active].hp<=0)battle.active=battle.team.findIndex(x=>x.hp>0);
- render();
-}
-    function exportSave(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='astral-empire-save.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('Save exported!');}
-  function importSave(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const parsed=JSON.parse(r.result);if(parsed.version!==1)throw Error('Unknown save version');state=sanitizeSave(parsed);battle=null;selectedHero=Object.keys(state.heroes)[0]||'mira';selectedItem=null;save();go('home');notify('Save imported successfully!');}catch{notify('Invalid or unsupported save file.');}};r.readAsText(file);}
-  function resetSave(){state=fresh();battle=null;selectedHero='mira';selectedItem=null;save();go('home');notify('Fresh adventure started.');}
-
-  const EXPEDITIONS=[
-    {id:'scout',icon:'🪐',title:'Nebula Reconnaissance',minutes:5,description:'Survey drifting nebulae for crystal deposits.',crystals:120,gold:160,ore:0,gems:0},
-    {id:'mining',icon:'⛏️',title:'Asteroid Extraction',minutes:15,description:'Mine the imperial frontier for forging materials.',crystals:90,gold:300,ore:6,gems:0},
-    {id:'vault',icon:'🔮',title:'Forgotten Astral Vault',minutes:30,description:'Explore sealed ruins for rare gems and treasure.',crystals:260,gold:450,ore:3,gems:1}
-  ];
-  const ACHIEVEMENTS=[
-    {id:'collector',icon:'👑',name:'Court of Stars',description:'Recruit 8 distinct heroes',goal:8,value:()=>Object.keys(state.heroes).length,reward:500},
-    {id:'warrior',icon:'⚔️',name:'Rift Conqueror',description:'Win 10 battles',goal:10,value:()=>state.won,reward:600},
-    {id:'invoker',icon:'✨',name:'Celestial Patron',description:'Perform 30 summons',goal:30,value:()=>state.pulls,reward:450},
-    {id:'explorer',icon:'🪐',name:'Far Horizon',description:'Complete 5 expeditions',goal:5,value:()=>state.expeditionsCompleted,reward:400},
-    {id:'veteran',icon:'🏆',name:'Unbroken Ascent',description:'Clear stage 20',goal:20,value:()=>state.highest,reward:1000},
-    {id:'trial',icon:'☄️',name:'Astral Conqueror',description:'Clear a daily Astral Trial',goal:1,value:()=>state.trialWins||0,reward:550},
-    {id:'awakening',icon:'✦',name:'Court Transcendent',description:'Awaken a hero',goal:1,value:()=>Object.values(state.heroes).reduce((n,h)=>n+(h.awakened||0),0),reward:350}
-  ];
-  function renderExpeditions(){
-    const running=state.expedition;
-    const entry=running&&EXPEDITIONS.find(x=>x.id===running.kind);
-    const remaining=running?Math.max(0,Math.ceil((running.ends-Date.now())/1000)):0;
-    return `<div class="dispatch-hero"><span class="eyebrow">✦ THE IMPERIAL FRONTIER</span><h2>Beyond the Starfall Rift</h2><p>Send your active squad on timed expeditions. Return when the mission finishes to claim resources. Progress persists between sessions.</p><div class="dispatch-stars" aria-hidden="true">✧ · ✦ · ✧</div></div>
-    ${running?`<div class="panel pad dispatch-active"><span class="eyebrow">ACTIVE DISPATCH</span><h2>${entry.icon} ${entry.title}</h2><p class="smalltext">${remaining?'Mission underway. Return when the timer reaches zero.':'Mission complete! Your rewards are ready.'}</p><div class="dispatch-timer" data-expedition-timer>${remaining?formatDuration(remaining):'READY TO CLAIM'}</div><div class="flex" style="flex-wrap:wrap">${running.team.map(id=>`<span class="tag">${esc(HERO_BY_ID[id].name)}</span>`).join('')}</div><button class="btn gold" data-action="claim-expedition" ${remaining?'disabled':''} style="margin-top:16px">✦ CLAIM EXPEDITION REWARDS</button></div>`:'<p class="notice">No active expedition. Select a mission below to dispatch your current squad.</p>'}
-    <div class="dispatch-grid">${EXPEDITIONS.map(x=>`<article class="panel pad dispatch-card"><div class="dispatch-icon">${x.icon}</div><h3>${x.title}</h3><p class="smalltext">${x.description}</p><div class="dispatch-duration">◷ ${x.minutes} MINUTES</div><p class="smalltext">💎 ${x.crystals} · 🪙 ${x.gold}${x.ore?' · ⛏ '+x.ore:''}${x.gems?' · 🔮 '+x.gems:''}</p><button class="btn primary full" data-action="start-expedition" data-id="${x.id}" ${running?'disabled':''}>DISPATCH SQUAD →</button></article>`).join('')}</div>
-    <div class="sectionhead"><h2>Imperial Achievements</h2><small>${state.expeditionsCompleted} expeditions completed</small></div><div class="panel pad"><div class="quest-list">${ACHIEVEMENTS.map(a=>{const n=Math.min(a.goal,a.value());const done=n>=a.goal,claimed=!!state.achievementClaims[a.id];return `<div class="quest"><div class="quest-icon">${a.icon}</div><div class="quest-main"><b>${a.name}</b><p>${a.description} · ${n}/${a.goal} · 💎 ${a.reward}</p><div class="progress"><i style="width:${n/a.goal*100}%"></i></div></div><button class="btn small ${done&&!claimed?'gold':'subtle'}" data-action="claim-achievement" data-id="${a.id}" ${!done||claimed?'disabled':''}>${claimed?'✓':done?'CLAIM':'LOCKED'}</button></div>`}).join('')}</div></div>`;
-  }
-  function formatDuration(seconds){const m=Math.floor(seconds/60),s=seconds%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
-  function startExpedition(id){const mission=EXPEDITIONS.find(x=>x.id===id);if(!mission||state.expedition)return;const team=state.team.filter(x=>state.heroes[x]);if(!team.length){notify('Select a squad first.');return;}state.expedition={kind:id,ends:Date.now()+mission.minutes*60000,team:[...team]};save();render();notify('Expedition launched!');}
-  function claimExpedition(){const e=state.expedition;if(!e||Date.now()<e.ends)return;const mission=EXPEDITIONS.find(x=>x.id===e.kind);if(!mission)return;state.crystals+=mission.crystals;state.gold+=mission.gold;state.ore+=mission.ore;state.gems+=mission.gems;state.expeditionsCompleted++;state.expedition=null;save();render();notify('Expedition complete! Resources delivered to the treasury.');}
-  function claimAchievement(id){const a=ACHIEVEMENTS.find(x=>x.id===id);if(!a||state.achievementClaims[id]||a.value()<a.goal)return;state.crystals+=a.reward;state.achievementClaims[id]=true;save();render();notify('Achievement unlocked! +'+a.reward+' crystals');}
-  setInterval(()=>{if(page!=='expeditions'||!state.expedition||modal)return;const t=el('app')?.querySelector('[data-expedition-timer]');if(!t)return;const remain=Math.max(0,Math.ceil((state.expedition.ends-Date.now())/1000));if(remain===0){render();return;}t.textContent=formatDuration(remain);},1000);
-
-  function onAction(node){const action=node.dataset.action,id=node.dataset.id;
-    switch(action){case 'page':go(id);break;case 'start-expedition':startExpedition(id);break;case 'claim-expedition':claimExpedition();break;case 'claim-achievement':claimAchievement(id);break;case 'daily':daily();break;case 'claim':claim(id);break;case 'summon':summon(Number(node.dataset.count));break;case 'select-hero':selectedHero=id;render();break;case 'view-hero':modal={kind:'hero',id};renderModal();break;case 'goto-hero':selectedHero=id;go('roster');break;case 'team-toggle':teamToggle(id);break;case 'level-hero':levelHero(id);break;case 'awaken-hero':awakenHero(id);break;case 'craft':craft();break;case 'select-item':selectedItem=id;render();break;case 'forge-tab':forgeTab=id;render();break;case 'equip':equip(id);break;case 'unequip':unequip(id);break;case 'upgrade-item':upgradeItem(id);break;case 'reforge-item':reforgeItem(id);break;case 'socket-item':socketItem(id);break;case 'start-battle':initBattle(node.dataset.mode||'rift');break;case 'battle-select':battleSelect(Number(node.dataset.index));break;case 'battle-move':battleMove(node.dataset.move);break;case 'next-battle':battle=null;initBattle();break;case 'retry-battle':{const mode=battle?.mode||'rift';battle=null;initBattle(mode);break;}case 'retreat':modal={kind:'confirm',title:'Retreat from battle?',description:'Leave this battle without rewards. You can challenge the same stage again.',confirm:'retreat'};renderModal();break;case 'confirm-retreat':battle=null;modal=null;render();break;case 'close-modal':modal=null;renderModal();break;case 'export':exportSave();break;case 'import':el('import-file')?.click();break;case 'reset':modal={kind:'confirm',title:'Erase your progress?',description:'This permanently resets your current local save. Export a backup first if you want to keep your collection.',confirm:'reset'};renderModal();break;case 'confirm-reset':modal=null;resetSave();break;}}
-  document.addEventListener('click',e=>{const node=e.target.closest('[data-action]');if(!node)return;if(node.dataset.action==='close-modal'&&e.target!==node&&node.classList.contains('modal-wrap'))return;e.preventDefault();onAction(node);});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal){modal=null;renderModal();}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"][data-action]')){e.preventDefault();onAction(e.target);}});
-  document.addEventListener('change',e=>{if(e.target.id==='import-file')importSave(e.target.files[0]);});
-  window.addEventListener('pagehide',save);
-  if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-  render();
-})();
-</script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#17272d" />
+    <meta
+      name="description"
+      content="Astral Empire: Aetherbound. A third-person anime action RPG with linked skills, character builds, lifeskills, crafting, and persistent exploration."
+    />
+    <title>Astral Empire · Aetherbound</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="aetherbound.css" />
+  </head>
+  <body>
+    <canvas id="world" aria-label="Third person 3D world"></canvas>
+    <div id="vignette"></div>
+    <div id="landing"></div>
+    <div id="hud" hidden>
+      <header class="top-hud">
+        <div class="world-title">
+          <a href="../../" aria-label="Return to the Sleeping Empire">✧</a>
+          <div>
+            <span class="kicker">ASTRAL EMPIRE</span><b>Aetherbound</b
+            ><small id="realm-name">Emerald Bastion</small>
+          </div>
+        </div>
+        <div class="realm-status">
+          <span class="online-dot"></span> SOLO FRONTIER
+          <span class="sep">/</span> <span id="save-state">Saved</span
+          ><button data-panel="settings" aria-label="Open settings">☷</button>
+        </div>
+      </header>
+      <section class="character-hud">
+        <div class="portrait-mark" id="hero-glyph">K</div>
+        <div class="character-info">
+          <div class="character-name">
+            <b id="hero-name">Kael</b><span id="level">LV. 1</span>
+          </div>
+          <div class="meter life">
+            <i id="life-fill"></i><span id="life-text"></span>
+          </div>
+          <div class="meter mana">
+            <i id="mana-fill"></i><span id="mana-text"></span>
+          </div>
+          <div class="stamina"><i id="stamina-fill"></i></div>
+        </div>
+      </section>
+      <section class="objective-hud">
+        <span class="kicker">FRONTIER JOURNAL</span>
+        <h3 id="objective-title">A foothold in the wilds</h3>
+        <p id="objective-text">Gather resources around the sanctuary.</p>
+        <button data-panel="journal">View journal <span>J</span></button>
+      </section>
+      <section class="map-hud">
+        <canvas
+          id="minimap"
+          width="180"
+          height="180"
+          aria-label="Local map"
+        ></canvas>
+        <div>
+          <b id="zone-label">Dawnwake Sanctuary</b
+          ><span id="coordinates">0, 6</span>
+        </div>
+      </section>
+      <div id="target-hud" hidden>
+        <span id="target-name"></span>
+        <div class="meter"><i id="target-life"></i></div>
+        <small id="target-intent"></small>
+      </div>
+      <div id="world-labels" aria-hidden="true"></div>
+      <div id="interaction" hidden>
+        <kbd>E</kbd>
+        <div>
+          <b id="interact-name"></b><small id="interact-detail"></small>
+        </div>
+        <div id="gather-progress"></div>
+      </div>
+      <div id="notifications" role="status" aria-live="polite"></div>
+      <footer class="bottom-hud">
+        <div class="hero-switch">
+          <button data-panel="heroes">
+            <span id="class-name">DUELIST</span><b>Heroes <kbd>H</kbd></b>
+          </button>
+        </div>
+        <div>
+          <div class="skillbar" id="skillbar"></div>
+          <div class="experience"><i id="xp-fill"></i></div>
+          <div class="control-hints">
+            WASD move · Right drag orbit · Shift evade · Space jump · Q target ·
+            E gather · F potion
+          </div>
+        </div>
+        <div class="menu-dock">
+          <button data-panel="inventory" title="Equipment [I]">
+            ♜<small>GEAR</small></button
+          ><button data-panel="skills" title="Skill links [K]">
+            ✧<small>SKILLS</small></button
+          ><button data-panel="passives" title="Constellation [P]">
+            ✺<small>BUILD</small></button
+          ><button data-panel="lifeskills" title="Lifeskills [L]">
+            ♣<small>LIFE</small>
+          </button>
+        </div>
+      </footer>
+      <div class="touch-pad" id="touch-pad">
+        <button data-move="up" aria-label="Move forward">↑</button
+        ><button data-move="left" aria-label="Move left">←</button
+        ><button data-move="down" aria-label="Move backward">↓</button
+        ><button data-move="right" aria-label="Move right">→</button
+        ><button data-action="dodge" aria-label="Evade">↯</button
+        ><button data-action="jump" aria-label="Jump">⇡</button>
+      </div>
+    </div>
+    <div id="panels" hidden></div>
+    <div id="loading">
+      <div class="loading-star">✧</div>
+      <b>Awakening the frontier</b><span>Loading world systems…</span>
+    </div>
+    <script type="module" src="engine/app.mjs"></script>
+  </body>
 </html>

@@ -1,6 +1,6 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE='astral-empire-github-pages-v3';
-const FILES=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+const CACHE='astral-empire-aetherbound-v3-1';
+const FILES=['./','./index.html','./classic.html','./aetherbound.css','./manifest.webmanifest','./icon.svg','./engine/app.mjs','./engine/content.mjs','./engine/simulation.mjs','./engine/profiles.mjs','./engine/native.mjs','./engine/world.mjs','./native/simulation.wasm','./vendor/three.module.js','./vendor/three.core.js'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)));
   self.skipWaiting();
@@ -13,7 +13,7 @@ self.addEventListener('activate',event=>{
 });
 self.addEventListener('fetch',event=>{
   const request=event.request;
-  if(request.method!=='GET'||new URL(request.url).origin!==self.location.origin)return;
+  if(request.method!=='GET'||new URL(request.url).origin!==self.location.origin||!request.url.startsWith(self.registration.scope))return;
   if(request.mode==='navigate'||request.destination==='document'){
     event.respondWith(fetch(request).then(response=>{
       if(response.ok){const clone=response.clone();caches.open(CACHE).then(cache=>cache.put(request,clone));}

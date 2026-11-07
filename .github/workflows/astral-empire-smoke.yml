@@ -13,12 +13,28 @@ on:
 
 jobs:
   smoke:
-    name: Game mechanics regression
+    name: Classic, action RPG, and browser regression
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Test game mechanics and save compatibility
-        run: node docs/games/astral-empire/tests/smoke.mjs
+      - name: Install test tools
+        working-directory: docs/games/astral-empire
+        run: npm ci
+      - name: Compile the C++ WebAssembly module
+        working-directory: docs/games/astral-empire
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld
+          CXX=clang++ npm run build:native
+      - name: Test mechanics and save compatibility
+        working-directory: docs/games/astral-empire
+        run: npm test
+      - name: Install Chromium
+        working-directory: docs/games/astral-empire
+        run: npx playwright install --with-deps chromium
+      - name: Test the playable browser loop
+        working-directory: docs/games/astral-empire
+        run: npm run test:browser
