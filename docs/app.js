@@ -2,13 +2,15 @@
   "use strict";
 
   var D = window.EMPIRE_DATA;
+  if (D) D.turns = window.EMPIRE_TURN_RECORDS || [];
   if (!D) { document.body.insertAdjacentHTML("afterbegin", '<p role="alert">The codex index could not be loaded.</p>'); return; }
 
-  var labels = {overview:"OVERVIEW",chronicle:"CHRONICLE",characters:"CHARACTERS",portfolio:"SOMNUS PORTFOLIO",worlds:"WORLDS & HOLDINGS",archive:"SOURCE ARCHIVE"};
+  var labels = {overview:"OVERVIEW",chronicle:"CHRONICLE",records:"RECORD LEDGER",characters:"CHARACTERS",portfolio:"SOMNUS PORTFOLIO",worlds:"WORLDS & HOLDINGS",archive:"SOURCE ARCHIVE"};
   var routes = Object.keys(labels);
   var index = new Map();
   var types = [
     ["people", "characters", "Character"],
+    ["turns", "records", "Turn record"],
     ["portfolio", "portfolio", "Company"],
     ["exclusions", "portfolio", "Ownership boundary"],
     ["events", "chronicle", "Chronicle"],
@@ -40,7 +42,7 @@
   var drawerContent = document.getElementById("drawerContent");
   var drawerClose = document.getElementById("drawerClose");
   var previousFocus = null;
-  var currentTimeline = "all", currentPeople = "all";
+  var currentTimeline = "all", currentPeople = "all", currentRecordFilter = "latest", recordLimit = 18, currentRecordSearch = "";
 
   function esc(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
@@ -51,7 +53,7 @@
     return D.repo + String(path).split("/").map(encodeURIComponent).join("/");
   }
   function statusClass(status) {
-    return /^(Active|Operating)$/i.test(status) ? "active" : /^(Building|Transfer pending|Review|Consent pending|Reserved)$/i.test(status) ? "pending" : "";
+    return /^(Active|Operating|Research active)$/i.test(status) ? "active" : /^(Building|Transfer pending|Review|Consent pending|Reserved)$/i.test(status) ? "pending" : "";
   }
   function pill(status) {
     return '<span class="status-pill '+statusClass(status)+'">'+esc(status)+'</span>';
@@ -107,6 +109,35 @@
         '<strong>'+esc(w.name)+'</strong><p>'+esc(w.summary)+'</p><span class="world-ownership">'+esc(w.owner)+' ↗</span></button>';
     }).join("");
   }
+
+  function renderRecords(filter) {
+    currentRecordFilter = filter || currentRecordFilter;
+    document.querySelectorAll("[data-record-filter]").forEach(function(button) {
+      var active = button.dataset.recordFilter === currentRecordFilter;
+      button.classList.toggle("selected",active);
+      button.setAttribute("aria-pressed",String(active));
+    });
+    var sorted = (D.turns || []).slice().sort(function(a,b){return b.turn-a.turn;});
+    if(currentRecordFilter === "latest") sorted=sorted.slice(0,20);
+    else if(currentRecordFilter !== "all") sorted=sorted.filter(function(x){return x.era===currentRecordFilter;});
+    var words=currentRecordSearch.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if(words.length) sorted=sorted.filter(function(t){
+      var h=[t.title,t.chapter,t.kind,t.summary,t.detail,t.turn,t.source].join(" ").toLowerCase();
+      return words.every(function(w){return h.indexOf(w)>=0;});
+    });
+    var shown=sorted.slice(0,recordLimit);
+    document.getElementById("recordCount").textContent="DISPLAYING "+shown.length+" / "+sorted.length+" MATCHING SAVED RECORDS · SOURCE SNAPSHOT THROUGH 000149";
+    document.getElementById("recordList").innerHTML=shown.length?shown.map(function(t){
+      return '<article class="record-entry"><button type="button" data-open="'+esc(t.id)+'" aria-label="Read '+esc(t.title)+'">'+
+        '<span class="record-index">'+String(t.turn).padStart(6,"0")+'</span>'+
+        '<span class="record-body"><span class="record-meta">'+esc(t.chapter)+' / '+esc(t.kind)+'</span>'+
+        '<strong>'+esc(t.summary)+'</strong><span>OPEN VERIFIED RECORD ↗</span></span>'+
+        '<span class="record-chevron" aria-hidden="true">↗</span></button></article>';
+    }).join(""):'<div class="record-empty">No matching saved records. Try a different term or filter.</div>';
+    var more=document.getElementById("recordLoadMore");
+    more.hidden=shown.length>=sorted.length;
+  }
+
   function renderArchive() {
     document.getElementById("archiveGrid").innerHTML = D.files.map(function (f) {
       return '<a class="file-card" href="'+esc(sourceUrl(f.path))+'" target="_blank" rel="noopener noreferrer">' +
@@ -192,6 +223,7 @@
   }
 
   renderTimeline("all");
+  renderRecords("latest");
   renderPeople("all");
   renderPortfolio();
   renderWorlds();
@@ -208,6 +240,8 @@
     if (opener) {showDrawer(opener.dataset.open);return;}
     var filter = event.target.closest("[data-timeline]");
     if (filter) {renderTimeline(filter.dataset.timeline);return;}
+    var recordFilter = event.target.closest("[data-record-filter]");
+    if (recordFilter) {recordLimit=18;renderRecords(recordFilter.dataset.recordFilter);return;}
     var peopleFilter = event.target.closest("[data-people]");
     if (peopleFilter) {renderPeople(peopleFilter.dataset.people);return;}
     var searchButton = event.target.closest("[data-result], [data-file]");
@@ -224,6 +258,8 @@
     if (!event.target.closest(".search-shell")) closeSearch();
   });
 
+  document.getElementById("recordSearch").addEventListener("input",function(value){currentRecordSearch=this.value;recordLimit=18;renderRecords(currentRecordFilter);});
+  document.getElementById("recordLoadMore").addEventListener("click",function(){recordLimit+=24;renderRecords(currentRecordFilter);});
   searchInput.addEventListener("input", renderSearch);
   searchInput.addEventListener("focus", function () {if(searchInput.value.trim()) renderSearch();});
   searchInput.addEventListener("keydown", function (event) {

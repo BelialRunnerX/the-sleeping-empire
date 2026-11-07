@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#090f1d">
-  <meta name="description" content="The Sleeping Empire — an interactive chronicle of Elysomnion, the Black and Emerald Empire, Somnus and the worlds beyond.">
+  <meta name="description" content="The Sleeping Empire — an archival command center with verified fiction lore through Chapter CLIII, character dossiers and 142 saved story turns.">
   <meta property="og:title" content="The Sleeping Empire | Living Codex">
   <meta property="og:description" content="Explore the empire, its characters, chronology, worlds and Somnus corporate portfolio.">
   <title>The Sleeping Empire · Living Codex</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <script defer src="./data.js"></script>
-  <script defer src="./app.js"></script>
+  <link rel="stylesheet" href="./styles.css?v=cliii">
+  <script defer src="./data.js?v=cliii"></script>
+  <script defer src="./records.js?v=cliii"></script>
+  <script defer src="./app.js?v=cliii"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -28,13 +29,14 @@
     <nav class="side-nav" id="mainNav">
       <button class="nav-item active" data-route="overview" aria-current="page"><span class="nav-glyph">◈</span><span>Overview</span><span class="nav-arrow">↗</span></button>
       <button class="nav-item" data-route="chronicle"><span class="nav-glyph">⌛</span><span>Chronicle</span><span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-route="records"><span class="nav-glyph">▤</span><span>Record Ledger</span><span class="nav-arrow">↗</span></button>
       <button class="nav-item" data-route="characters"><span class="nav-glyph">♙</span><span>Characters</span><span class="nav-arrow">↗</span></button>
       <button class="nav-item" data-route="portfolio"><span class="nav-glyph">▥</span><span>Somnus Portfolio</span><span class="nav-arrow">↗</span></button>
       <button class="nav-item" data-route="worlds"><span class="nav-glyph">◎</span><span>Worlds & Holdings</span><span class="nav-arrow">↗</span></button>
       <button class="nav-item" data-route="archive"><span class="nav-glyph">☷</span><span>Source Archive</span><span class="nav-arrow">↗</span></button>
     </nav>
     <div class="sidebar-bottom">
-      <div class="sidebar-note"><span class="signal-dot"></span><span>CANON SYNCED<br><strong>THROUGH CH. XLVII</strong></span></div>
+      <div class="sidebar-note"><span class="signal-dot"></span><span>ARCHIVE VERIFIED<br><strong>THROUGH TURN 149</strong></span></div>
       <a class="sidebar-external" href="https://github.com/BelialRunnerX/the-sleeping-empire" target="_blank" rel="noopener noreferrer">View GitHub repository <span>↗</span></a>
       <small>AN UNFINISHED STORY · YOUR CHOICES SHAPE IT</small>
     </div>
@@ -42,7 +44,7 @@
   <div class="workspace">
     <header class="topbar">
       <div class="topbar-left"><button id="menuToggle" class="icon-button mobile-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><div class="breadcrumb"><span>ARCHIVE</span><span class="crumb-separator">/</span><strong id="currentCrumb">OVERVIEW</strong></div></div>
-      <div class="topbar-right">
+      <div class="topbar-right"><span class="sync-pill"><span class="sync-beacon" aria-hidden="true"></span> RECORDED · T149</span>
         <div class="search-shell">
           <label class="sr-only" for="searchInput">Search the codex</label>
           <span class="search-icon" aria-hidden="true">⌕</span>
@@ -58,53 +60,60 @@
         <div class="hero">
           <div class="hero-grain" aria-hidden="true"></div>
           <div class="hero-content">
-            <div class="eyebrow"><span class="short-line"></span>THE BLACK & EMERALD EMPIRE <span class="tiny-star">✦</span> INTERACTIVE ARCHIVE</div>
+            <div class="eyebrow"><span class="short-line"></span>THE BLACK & EMERALD EMPIRE <span class="tiny-star">✦</span> ARCHIVAL COMMAND</div>
             <h1 id="heroHeading">An empire<br><em>dreaming.</em></h1>
-            <p>Thirteen millennia of conquest, philosophy, impossible magic—and an emperor who would rather be growing wheat.</p>
+            <p>A verified record of an Empire that carries on while its sovereign travels incognito. Current transmission: Greenhaven, Bellwynn — a homemade robot awaits its first heat.</p>
             <div class="hero-actions">
-              <button class="primary-btn" data-route="chronicle">Explore the chronicle <span>↗</span></button>
-              <button class="secondary-btn" data-route="portfolio">Enter Somnus <span>↗</span></button>
+              <button class="primary-btn" data-route="records">Open record ledger <span>↗</span></button>
+              <button class="secondary-btn" data-route="characters">Personnel dossiers <span>↗</span></button>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
             <div class="orbit orbit-outer"></div><div class="orbit orbit-middle"></div><div class="orbit orbit-inner"></div>
             <div class="planet-glow"></div><div class="planet"><div class="planet-continent"></div></div>
             <div class="orbit-particle particle-one"></div><div class="orbit-particle particle-two"></div>
-            <div class="orbit-label label-alpha">EPSILON–7 <span>◆</span></div>
-            <div class="orbit-label label-beta"><span>◉</span> IMPERIAL CAPITAL</div>
+            <div class="orbit-label label-alpha">BELLWYNN <span>◆</span></div>
+            <div class="orbit-label label-beta"><span>◉</span> GREENHAVEN</div>
           </div>
-          <div class="hero-index">I / XLVII</div>
+          <div class="hero-index">CLIII / 149</div>
         </div>
         <div class="stat-row">
-          <div class="stat"><strong>13,000<span>+</span></strong><span>YEARS OF HISTORY</span></div>
-          <div class="stat"><strong>XLVII</strong><span>LATEST CHAPTER</span></div>
-          <div class="stat"><strong>05</strong><span>IMPERIAL HANDS & GUARDIAN</span></div>
-          <div class="stat"><strong>SOMNUS</strong><span>NEW HOLDING COMPANY</span></div>
+          <div class="stat"><strong>13,627</strong><span>IMPERIAL CONCORD ERA</span></div>
+          <div class="stat"><strong>CLIII</strong><span>LATEST CHAPTER</span></div>
+          <div class="stat"><strong>142</strong><span>INDEXED SAVE RECORDS</span></div>
+          <div class="stat"><strong>43</strong><span>PERSONNEL DOSSIERS</span></div>
         </div>
-        <div class="section-heading"><div><span class="eyebrow">CURRENT CANON</span><h2>Where the story stands</h2></div><span class="section-aside">LAST RECONCILED · 05 NOV 2026</span></div>
+        <div class="section-heading"><div><span class="eyebrow">VERIFIED CANON</span><h2>Situation report</h2></div><span class="section-aside">ARCHIVED · TURN 149 / 8 DEEPFALL</span></div>
         <div class="feature-grid">
-          <button class="feature-card feature-wide" data-route="portfolio"><span class="feature-kicker">01 / PRIVATE ENTERPRISE</span><span class="feature-icon">◈</span><strong>The rise of Somnus</strong><span>Lethe oversees the new holding company as commercial assets are consolidated. Mining is only a reservation; the wheat is real.</span><span class="feature-link">Inspect the corporate portfolio ↗</span></button>
-          <button class="feature-card" data-route="chronicle"><span class="feature-kicker">02 / THE LATEST ARC</span><span class="feature-icon">⌛</span><strong>From lecture to harvest</strong><span>Materials science, the Bellweather fair, honest competition, and the economics of feeding worlds.</span><span class="feature-link">Read the timeline ↗</span></button>
-          <button class="feature-card" data-route="characters"><span class="feature-kicker">03 / THE COURT</span><span class="feature-icon">✧</span><strong>People behind the power</strong><span>Meet Clarissa, Aurelia, Sentinel, Lethe and the people whose lives intersect the Emperor's.</span><span class="feature-link">Open character dossiers ↗</span></button>
+          <button class="feature-card feature-wide" data-route="records"><span class="feature-kicker">01 / CURRENT SCENE · T149</span><span class="feature-icon">◉</span><strong>Greenhaven · Sir Turnip III</strong><span>The Emperor and his companions watch Niko Bell’s amateur robot prepare for its obstacle-course heat. The competition has not been decided.</span><span class="feature-link">Inspect latest record ↗</span></button>
+          <button class="feature-card" data-route="chronicle"><span class="feature-kicker">02 / IMPERIAL CONTINUITY</span><span class="feature-icon">⌛</span><strong>The sabbatical, not abdication</strong><span>Elys travels as Corin Vale. Aurelia remains Regent while the machinery of the Empire continues its work.</span><span class="feature-link">Explore the chronology ↗</span></button>
+          <button class="feature-card" data-route="portfolio"><span class="feature-kicker">03 / COMMERCIAL NETWORK</span><span class="feature-icon">⬡</span><strong>Somnus · operational</strong><span>Original WSS fleet commissioned. Thirteen planetary computers completed. Older reports remain precisely dated snapshots.</span><span class="feature-link">Inspect the portfolio ↗</span></button>
         </div>
-        <div class="quote-banner"><span class="quote-mark">“</span><p>The respect of people who judge you by the work of your own hands.</p><span class="quote-credit">BELLWEATHER HARVEST ARC · CHAPTER XLIV</span></div>
+        <div class="ops-deck" aria-label="Archived mission briefing"><div class="ops-deck-main"><div class="ops-kicker"><span class="ops-pulse" aria-hidden="true"></span> ARCHIVAL TELEMETRY / READ-ONLY</div><h3>Greenhaven observation</h3><p>8 Deepfall · 13,627 ICE · approximately 15:30. An amateur engineering contest is about to begin. Three travelers remain undercover; the record stops before the first heat.</p><div class="ops-grid"><div><small>WORLD</small><strong>Bellwynn</strong></div><div><small>LOCATION</small><strong>Greenhaven festival</strong></div><div><small>SUBJECT</small><strong>Sir Turnip III</strong></div><div><small>OUTCOME</small><strong>Not recorded</strong></div></div><a href="https://github.com/BelialRunnerX/the-sleeping-empire/blob/master/saves/turns/000149.md" class="ops-source" target="_blank" rel="noopener noreferrer">VERIFY SOURCE · TURN 000149 ↗</a></div><div class="ops-scanner" aria-hidden="true"><div class="scanner-orbit scanner-a"></div><div class="scanner-orbit scanner-b"></div><div class="scanner-core"><span>◈</span></div><div class="scanner-mark mark-n">BELLWYNN</div><div class="scanner-mark mark-s">GREENHAVEN // RECORD 149</div></div></div>
+<div class="archive-disclaimer"><span>◈</span> <strong>Source discipline:</strong> This is a static archive of fictional played canon, not a live operations feed. Reported corporate figures are historical when their recorded date is earlier than the current scene.</div>
       </section>
 
       <section id="view-chronicle" class="view" hidden>
-        <div class="page-intro"><span class="eyebrow">HISTORICAL RECORD / ONGOING NARRATIVE</span><h1>The Chronicle<span class="period">.</span></h1><p>From the Three-Day Unification to the creation of Somnus. Filter by era, open an entry, or follow the original manuscripts.</p></div>
-        <div class="filterbar" role="group" aria-label="Filter timeline"><button class="filter-chip selected" data-timeline="all" aria-pressed="true">All eras</button><button class="filter-chip" data-timeline="empire" aria-pressed="false">The Empire</button><button class="filter-chip" data-timeline="academy" aria-pressed="false">Academy</button><button class="filter-chip" data-timeline="industry" aria-pressed="false">Industry & farming</button></div>
+        <div class="page-intro"><span class="eyebrow">HISTORICAL RECORD / ONGOING NARRATIVE</span><h1>The Chronicle<span class="period">.</span></h1><p>From the founding of the Empire to the Bellwynn festival. Browse events by era, inspect details, and follow the original recorded manuscripts.</p></div>
+        <div class="filterbar" role="group" aria-label="Filter timeline"><button class="filter-chip selected" data-timeline="all" aria-pressed="true">All eras</button><button class="filter-chip" data-timeline="empire" aria-pressed="false">The Empire</button><button class="filter-chip" data-timeline="academy" aria-pressed="false">Academy</button><button class="filter-chip" data-timeline="industry" aria-pressed="false">Industry & farming</button><button class="filter-chip" data-timeline="journey" aria-pressed="false">Sabbatical journey</button></div>
         <div id="timelineList" class="timeline-list"></div>
       </section>
 
-      <section id="view-characters" class="view" hidden>
-        <div class="page-intro"><span class="eyebrow">DIPLOMACY / INTELLIGENCE / THE PEOPLE</span><h1>Character Dossiers<span class="period">.</span></h1><p>The ancient Hands, the new managers, the scientists, and the farmers. Select any dossier to explore relationships and continuity.</p></div>
+      <section id="view-records" class="view" hidden aria-labelledby="recordHeading">
+<div class="page-intro"><span class="eyebrow">DURABLE SAVES / TRACEABLE HISTORICAL RECORD</span><h1 id="recordHeading">Record Ledger<span class="period">.</span></h1><p>142 available durable turn records through Chapter CLIII. Search the official saved-turn summaries; open any entry for its source manuscript. Missing turn numbers are not silently invented.</p></div>
+<div class="ledger-banner"><span class="ledger-indicator">◉</span><div><strong>LATEST VERIFIED RECORD · TURN 000149</strong><p>Greenhaven, Bellwynn · 8 Deepfall 13,627 ICE · the Sir Turnip III obstacle-course heat remains unresolved.</p></div><a target="_blank" rel="noopener noreferrer" href="https://github.com/BelialRunnerX/the-sleeping-empire/blob/master/saves/turns/000149.md">READ SOURCE ↗</a></div>
+<div class="record-controls"><label class="record-search-label" for="recordSearch">SEARCH SAVED TURNS<input id="recordSearch" type="search" autocomplete="off" placeholder="Find a chapter, turn, event or subject…"></label><div class="record-filterbar" role="group" aria-label="Filter saved turns"><button class="filter-chip selected" data-record-filter="latest" aria-pressed="true">Latest</button><button class="filter-chip" data-record-filter="all" aria-pressed="false">All records</button><button class="filter-chip" data-record-filter="journey" aria-pressed="false">Sabbatical</button><button class="filter-chip" data-record-filter="industry" aria-pressed="false">Somnus era</button><button class="filter-chip" data-record-filter="academy" aria-pressed="false">Earlier turns</button></div></div><div class="record-count" id="recordCount" aria-live="polite"></div><div class="record-list" id="recordList"></div><button class="record-more" id="recordLoadMore" type="button" hidden>LOAD MORE VERIFIED RECORDS ↓</button><p class="record-footnote">Source: <a href="https://github.com/BelialRunnerX/the-sleeping-empire/blob/master/saves/INDEX.md" target="_blank" rel="noopener noreferrer">saves/INDEX.md ↗</a>. Summaries are archival and do not authorize the site to invent later actions.</p>
+</section>
+
+<section id="view-characters" class="view" hidden>
+        <div class="page-intro"><span class="eyebrow">DIPLOMACY / INTELLIGENCE / THE PEOPLE</span><h1>Character Dossiers<span class="period">.</span></h1><p>43 indexed dossiers spanning the imperial court, corporate intelligences, faculty, civilian communities and new Bellwynn encounters. Portraits are interpretive illustrations.</p></div>
         <div class="filterbar" role="group" aria-label="Filter people"><button class="filter-chip selected" data-people="all" aria-pressed="true">Everyone</button><button class="filter-chip" data-people="court" aria-pressed="false">Imperial court</button><button class="filter-chip" data-people="business" aria-pressed="false">Somnus & WSS</button><button class="filter-chip" data-people="civilian" aria-pressed="false">Academy & civilians</button></div>
         <div class="cards-grid" id="peopleGrid"></div>
       </section>
 
       <section id="view-portfolio" class="view" hidden>
-        <div class="page-intro"><span class="eyebrow">PRIVATE COMMERCE / ASSET GOVERNANCE</span><h1>Somnus<span class="period">.</span></h1><p>A living portfolio with clear boundaries between owned, planned and excluded assets. Select an organization for its ownership, responsibilities and current stage.</p></div>
-        <div class="portfolio-top"><div class="holding-brand"><span class="holding-symbol">◑</span><div><small>PRIVATE HOLDING COMPANY</small><strong>SOMNUS</strong><span>OWNER: HAZAEL WHEATLEY · OVERSEER: LETHE</span></div></div><div class="holding-summary"><span class="status-live">● INCORPORATED</span><p>Operating companies and transfers are not the same thing. See statuses below.</p></div></div>
+        <div class="page-intro"><span class="eyebrow">PRIVATE COMMERCE / ASSET GOVERNANCE</span><h1>Somnus<span class="period">.</span></h1><p>Established operating companies, historical reports and explicitly excluded holdings. Statuses reflect later played canon, not founding-stage proposals or simulated live metrics.</p></div>
+        <div class="portfolio-top"><div class="holding-brand"><span class="holding-symbol">◑</span><div><small>PRIVATE HOLDING COMPANY</small><strong>SOMNUS</strong><span>PRIVATE HOLDINGS: HAZAEL WHEATLEY · OVERSEER: LETHE</span></div></div><div class="holding-summary"><span class="status-live">● ESTABLISHED OPERATIONS</span><p>Company figures are reported checkpoints. Imperial public assets remain legally separate.</p></div></div>
         <div class="subheading"><span>PORTFOLIO STRUCTURE</span><span>SELECT TO INSPECT ↓</span></div>
         <div class="org-grid" id="orgGrid"></div>
         <div class="portfolio-exclusions"><div class="subheading"><span>OUTSIDE THE COMPANY</span><span>NON-TRANSFERABLE / PROTECTED</span></div><div id="exclusionGrid" class="exclusion-grid"></div></div>
@@ -113,7 +122,7 @@
       </section>
 
       <section id="view-worlds" class="view" hidden>
-        <div class="page-intro"><span class="eyebrow">KNOWN WORLDS / OWNERSHIP & STATUS</span><h1>Atlas of Holdings<span class="period">.</span></h1><p>Worlds, jurisdictions and sites in the Empire. Not every place is owned; not every plan has been built.</p></div>
+        <div class="page-intro"><span class="eyebrow">KNOWN WORLDS / OWNERSHIP & STATUS</span><h1>World Atlas<span class="period">.</span></h1><p>Recent destinations, privately held estates, independent settlements and operating infrastructure. Every entry identifies its jurisdiction and source.</p></div>
         <div id="worldGrid" class="world-grid"></div>
       </section>
 
@@ -123,7 +132,7 @@
         <div class="archive-footer"><strong>Canon confidence protocol</strong><p>Played decisions outrank unacted proposals. A character's beliefs are not objective narration. Historical records remain historical; later chapters may update the current state. The player alone controls Elys's decisions and dialogue.</p></div>
       </section>
 
-      <footer class="footer"><span>✦ THE SLEEPING EMPIRE · LIVING CODEX</span><span>FICTIONAL UNIVERSE · COMMUNITY CHRONICLE</span><a href="https://github.com/BelialRunnerX/the-sleeping-empire" target="_blank" rel="noopener noreferrer">SOURCE ON GITHUB ↗</a></footer>
+      <footer class="footer"><span>✦ THE SLEEPING EMPIRE · LIVING CODEX</span><span>READ-ONLY · FICTIONAL SOURCE RECORD</span><a href="https://github.com/BelialRunnerX/the-sleeping-empire" target="_blank" rel="noopener noreferrer">SOURCE ON GITHUB ↗</a></footer>
     </main>
   </div>
 </div>

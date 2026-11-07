@@ -1,22 +1,22 @@
-/* Display index for the Living Codex. Individual sourced dossiers are in /characters. */
+/* Living Codex presentation index — reconciled with saved story through Turn 000149. */
 window.EMPIRE_DATA = {
-  "version": "2026-11-05 · Chapter XLVII",
+  "version": "Turn 000149 · Chapter CLIII · 8 Deepfall 13,627 ICE",
   "repo": "https://github.com/BelialRunnerX/the-sleeping-empire/blob/master/",
   "people": [
     {
       "id": "elys",
       "name": "Elysomnion",
-      "alias": "Elys / Hazael Wheatley",
+      "alias": "Corin Vale / Hazael Wheatley",
       "group": "court",
       "glyph": "✦",
-      "role": "Emperor · undercover independent researcher",
-      "blurb": "An effectively omnipotent, not omniscient sovereign seeking an ordinary life as a farmer and student.",
-      "detail": "The ancient Emperor of the Black and Emerald Empire, whose Three-Day Unification ended historic wars at a staggering human cost. He retains ultimate sovereignty but delegates routine government to Aurelia. Publicly he lives and studies as Hazael Wheatley, farmer, research fellow and owner of Somnus. Only confidants know the link between identities.",
+      "role": "Emperor · non-abdicating sabbatical",
+      "blurb": "The sovereign travels anonymously through ordinary civilian society, currently on Bellwynn with Clarissa and Celeste.",
+      "detail": "Elysomnion remains sovereign of the Empire but declared an indefinite non-abdicating sabbatical. Aurelia retains delegated regency, Lethe manages Somnus and delegated Throne assets, while Elys travels as Corin Vale. His earlier Hazael Wheatley identity remains connected to Caldris farming, Somnus, and academia. At the Greenhaven festival, the amateur robot competition is about to begin.",
       "facts": [
-        "Sole shareholder of Somnus under the civilian identity Hazael Wheatley.",
-        "Personally cultivates a small wheat field at his private Caldris farmhouse.",
-        "His historical Imperial biography was never rewritten to make him a farmer.",
-        "Effectively omnipotent but not omniscient; the player alone chooses his actions."
+        "Current public travel alias: Corin Vale; no automatic revelation of imperial identity.",
+        "Current location: Greenhaven Festival Grounds, Bellwynn.",
+        "Regency delegated, throne not abdicated.",
+        "The player alone controls his dialogue and decisions."
       ],
       "source": "characters/elys.md"
     },
@@ -26,14 +26,14 @@ window.EMPIRE_DATA = {
       "alias": "Clari",
       "group": "court",
       "glyph": "♛",
-      "role": "Fiancée · Empress of Andromeda",
-      "blurb": "Independent sovereign owner of Andromeda, loving partner, and Bellweather commercial negotiator.",
-      "detail": "Clarissa received the entire Andromeda galaxy as an engagement gift and owns its assets outright, independently of the Imperial Treasury and Somnus. She shares Nimbus 50/50 with Hazael, built the cozy Caldris farmhouse, enjoys ordinary agricultural life, and was explicitly tasked with Bellweather WSS services negotiations.",
+      "role": "Fiancée · independent Empress of Andromeda",
+      "blurb": "Independent sovereign of Andromeda, now enjoying ordinary festival life on Bellwynn under the cover Mara Calder.",
+      "detail": "Clarissa is Elys's fiancée, independent owner of Andromeda and co-owner of completed Nimbus estate. She accompanies Elys as Mara Calder during his civilian sabbatical; they recently arrived at the Greenhaven festival on Bellwynn. She knows Celeste shares divine origins with Elys, but does not know every private aspect of their history.",
       "facts": [
-        "Andromeda remains 100% her private property.",
-        "Nimbus: 50% Clarissa, 50% Hazael.",
-        "Negotiating WSS services with Tomas and Nessa; final rates and signatures pending.",
-        "Fiancée, not yet married; capable and independently minded."
+        "Owns Andromeda independently.",
+        "Nimbus completed; joint 50/50 private estate.",
+        "Current travel name: Mara Calder.",
+        "Observing Sir Turnip III's upcoming contest; no result yet."
       ],
       "source": "characters/clarissa.md"
     },
@@ -44,8 +44,8 @@ window.EMPIRE_DATA = {
       "group": "court",
       "glyph": "♜",
       "role": "Immortal Hand · Regent of the Empire",
-      "blurb": "The ancient administrator who runs the Empire while its sovereign attends classes and grows wheat.",
-      "detail": "Aurelia possesses broad delegated governmental authority. She manages the Imperial administration, disciplines policy errors, and does not require Elys's consent for ordinary public decisions. She is not the head of Somnus, and no commercial holding may absorb the Imperial Treasury.",
+      "blurb": "Acting Regent with responsibility for daily state governance while the Emperor remains sovereign on sabbatical.",
+      "detail": "Aurelia retains independently exercised, delegated state authority during Elys's non-abdicating sabbatical. She remains distinct from Lethe's corporate and asset-administration remit. A prior Somnus-related regulatory software concealment was corrected; the sweeping corporate immunity decree remained unratified and without force.",
       "facts": [
         "Regency and public authority separate from Somnus.",
         "Supervises evolving noble-flight legislation and safeguards.",
@@ -104,14 +104,32 @@ window.EMPIRE_DATA = {
       "source": "characters/veronica.md"
     },
     {
+      "id": "celeste-somnion",
+      "name": "Celeste Somnion",
+      "alias": "Enigma-01",
+      "group": "court",
+      "glyph": "≈",
+      "role": "Imperial Hand · Enigma-01",
+      "blurb": "Friendly cyan-haired divine companion with aspects of time and ocean; currently helping a young robot-builder.",
+      "detail": "Celeste is a powerful, warm, loyal Imperial Hand designated Enigma-01, freed from a causal containment chamber beneath Tideglass. Elys and Celeste share divine origins, and she embodies aspects of time and ocean. She now joins Elys and Clarissa on Bellwynn and helps Niko Bell improve the balance of Sir Turnip III without using reality or temporal powers.",
+      "facts": [
+        "Formal Hand designation Enigma-01.",
+        "Intelligent, loyal and independently minded; not a covert threat.",
+        "Cyan hair and turquoise eyes.",
+        "Helped Niko Bell with ordinary contest-compliant tools.",
+        "Some personal history is known only to relevant characters."
+      ],
+      "source": "characters/celeste-somnion.md"
+    },
+    {
       "id": "sentinel",
       "name": "Sentinel",
       "alias": "Guardian AI",
       "group": "court",
       "glyph": "◎",
-      "role": "Imperial guardian · private confidant",
-      "blurb": "A distributed intelligence that guards the sovereign, audits systems and practices relentless deadpan humor.",
-      "detail": "Sentinel is active and operational in the current era, despite earlier root lore describing its development. It supports Elys personally and can commission bounded company AIs; it is not Lethe or WSS's CEO.",
+      "role": "Imperial guardian · emergency contact",
+      "blurb": "Distributed, dryly humorous guardian intelligence; Vesta handles routine private travel during the sabbatical.",
+      "detail": "Sentinel remains active but is not the day-to-day travel and household AI during the sabbatical. Vesta fills that private role, while Sentinel remains available for Imperial emergencies and security matters.",
       "facts": [
         "Imperial/security remit, distinct from corporate management.",
         "Protected Elys's Hazael Wheatley identity.",
@@ -120,22 +138,36 @@ window.EMPIRE_DATA = {
       "source": "characters/sentinel.md"
     },
     {
+      "id": "vesta",
+      "name": "Vesta",
+      "alias": "Nimbus household AI",
+      "group": "court",
+      "glyph": "⌂",
+      "role": "Private household · travel AI",
+      "blurb": "Discreet and capable private AI for Elys and Clarissa, with warm humor and meticulous travel logistics.",
+      "detail": "Vesta manages the Nimbus household and accompanies Elys, Clarissa and Celeste during their private sabbatical travel. She arranged the economy flight to Bellwynn and protects their civilian cover. She is separate from Sentinel's security remit and Lethe's asset administration.",
+      "facts": [
+        "Manages personal travel and lodging.",
+        "Private expenditure distinct from public Imperial Treasury.",
+        "Uses Corin Vale and Mara Calder cover identities.",
+        "Present at Greenhaven festival."
+      ],
+      "source": "characters/vesta.md"
+    },
+    {
       "id": "lethe",
       "name": "Lethe",
       "alias": "Overseer of Somnus",
       "group": "business",
       "glyph": "◑",
-      "role": "Somnus · executive overseer",
-      "blurb": "Elegant, exacting portfolio manager with a name borrowed from the river of forgetfulness.",
-      "detail": "LETHE was appointed by Elys when he incorporated the single-word holding company SOMNUS. She supervises capital, group governance, consolidations, auditing and material escalations while protecting private home, co-owned property and Imperial jurisdiction. Her jokes about forgetting are intentional; the records are intact.",
+      "role": "Somnus · executive / delegated asset administration",
+      "blurb": "Leads the Somnus group and administers delegated Throne assets under Elys's standing instructions, separate from Regent Aurelia.",
+      "detail": "Lethe directs the mature Somnus industrial and commercial network, and holds delegated administration of Throne assets. Sovereign state authority remains with Emperor Elys and Regent Aurelia. Her recorded Day 60 enterprise metrics are historical checkpoints rather than current audited totals.",
       "facts": [
-        "Somnus incorporated; Hazael retains 100% shares.",
-        "Commercial asset transfers initiated, not all completed.",
-        "No authority to annex Andromeda, the Imperial Treasury or military command.",
-        "Distinct from Steward, the WSS CEO.",
-        "Charcoal suit, long silver-black hair, pale violet eyes; measured, soft voice.",
-        "Routine budgets and manager appointments are delegated; new ventures, acquisitions, major capital commitments and ownership changes require Hazael’s approval.",
-        "Monthly consolidated reporting; sustainable returns versus broader community investment priorities remain unanswered."
+        "Somnus and delegated Throne asset management.",
+        "Separate from Aurelia's state regency.",
+        "Day 60 metrics not live data.",
+        "No automatic ownership of Clarissa's Andromeda or public military."
       ],
       "source": "characters/lethe.md"
     },
@@ -220,6 +252,22 @@ window.EMPIRE_DATA = {
       "source": "characters/tomas.md"
     },
     {
+      "id": "niko-bell",
+      "name": "Niko Bell",
+      "alias": "Sir Turnip III's creator",
+      "group": "civilian",
+      "glyph": "⚙",
+      "role": "Bellwynn · young robot inventor",
+      "blurb": "A teenage tinkerer whose magnificently unstable agricultural robot receives unexpected help at the festival.",
+      "detail": "At the Greenhaven Harvest & Innovation Festival, Niko Bell enters Sir Turnip III, an improvised robot with one oversized wheel, two tiny legs and a dubious balancing algorithm. Celeste uses ordinary tools to improve it before the race; the heat is about to begin and its outcome is not yet known.",
+      "facts": [
+        "Local teenager with grease-stained overalls.",
+        "Sir Turnip I caught fire; Sir Turnip II drove into a pond.",
+        "Sir Turnip III's final competition result is unresolved."
+      ],
+      "source": "characters/niko-bell.md"
+    },
+    {
       "id": "nessa",
       "name": "Nessa Calder",
       "alias": "Chief maintenance engineer",
@@ -270,16 +318,16 @@ window.EMPIRE_DATA = {
     {
       "id": "lucien",
       "name": "Lucien Vale",
-      "alias": "Baron von Buttercream? Not yet.",
+      "alias": "Inventor / pastry entrepreneur",
       "group": "civilian",
       "glyph": "✷",
-      "role": "Student · inventor · pastry entrepreneur",
-      "blurb": "Inventor and enthusiastic bakery magnate with access to an absurdly dangerous ship.",
-      "detail": "Lucien founded the orbital Cream-Pie-R bakery venture, became embroiled in a security-summary leak through a misconfigured bakery bot, and dreams of becoming Baron von Buttercream. The title has NOT been granted. He uses the Extraordinary Debtor on defined civilian terms but does not own it.",
+      "role": "Imperial Hand · Jester to the Crown",
+      "blurb": "Officially recognized as an Imperial Hand and Crown Jester; his inventions and bakery enterprises remain his own chaotic domain.",
+      "detail": "Lucien Vale's appointment as an Imperial Hand and Jester to the Crown is formally established. Earlier student, pastry and spacecraft adventures remain historical canon, but his official court appointment supersedes his earlier student-only role.",
       "facts": [
-        "His automated notification bot accidentally obtained meeting summaries; gateway was closed.",
-        "Flight qualification for nobility differs from controlled public-flight safety testing.",
-        "Extraordinary Debtor ownership reverted to Elys."
+        "Recognized Imperial Hand and formal Jester to the Crown.",
+        "Pastry entrepreneur and inventor.",
+        "Student-era status is a historical snapshot."
       ],
       "source": "characters/lucien.md"
     },
@@ -576,18 +624,18 @@ window.EMPIRE_DATA = {
       "id": "somnus",
       "name": "SOMNUS",
       "glyph": "◑",
-      "status": "Active",
+      "status": "Operating",
       "tag": "Holding company",
       "owner": "100% Hazael Wheatley",
-      "summary": "Incorporated parent company, overseen by Lethe.",
-      "detail": "Somnus is a privately owned corporate holding entity, with Lethe as executive overseer. Hazael ordered eligible commercial holdings transferred. Asset-by-asset conveyances are in progress; that is not the same as completed title transfers.",
+      "summary": "Mature private commercial group; Lethe oversees its divisions and delegated Throne assets.",
+      "detail": "Somnus is an established, large-scale holding group under Hazael/Elys's private ownership, with Lethe as executive overseer. Expansion and voluntary acquisitions are established in prior played canon. Future public handoff remains a long-term intention, not a completed transfer. Imperial sovereignty remains separate from corporate control.",
       "facts": [
-        "Hazael holds all issued shares.",
-        "Lethe directs audited portfolio-level capital and governance.",
-        "Private residential, sovereign and Clarissa-owned assets are protected.",
-        "New mining/alchemy ventures remain only reserved/proposed."
+        "Lethe directs the group; Regent Aurelia directs public government.",
+        "Future public handoff is a proposal, not an enacted conveyance.",
+        "Day 60 system counts and acquisitions are historical company reports.",
+        "Independent contractors and competitors remain distinct."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "agriculture",
@@ -596,95 +644,111 @@ window.EMPIRE_DATA = {
       "status": "Operating",
       "tag": "Commercial farming",
       "owner": "Hazael / Somnus transfer pending",
-      "summary": "Caldris wheat cultivation; seedlings growing, not harvested.",
-      "detail": "The productive Caldris farming operation is being consolidated, subject to residential and property carve-outs. The domestic farmhouse and Elys's small personally farmed field are intentionally outside corporate facilities management. A global harvest-scale business has not yet been proven.",
+      "summary": "Commercial crop and food systems; small private Caldris field remains separately owned.",
+      "detail": "Commercial agricultural logistics and production operate at scale across Somnus activities. The original Caldris field cultivated personally by Elys remains a meaningful private, noncorporate area. Do not assume an unrecorded new harvest from the original plot.",
       "facts": [
-        "First crop germinated, no revenue from first commercial harvest.",
-        "Fully automated large-scale cultivation plan in phases.",
-        "Separate accounting distinguishes genuine profit from food subsidies."
+        "Bellweather remains an independent, nonexclusive cooperative partner.",
+        "Personal Caldris residence and field are distinct from corporate facilities.",
+        "No invented current harvest totals."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "wss",
       "name": "Wheatley Storage & Shipping",
       "glyph": "➜",
-      "status": "Building",
+      "status": "Operating",
       "tag": "Storage and logistics",
       "owner": "Hazael → Somnus transfer initiated",
-      "summary": "Company active; 22 cargo vessels and storage facilities ordered.",
-      "detail": "WSS operates administratively with Steward as CEO, Meridian on freight, Ledger on finances and Granary on storage. Physical facilities and 22 purpose-built civilian vessels have been authorized and begun construction, but are not commissioned. Freight/storage exchange listings are active; delivery certification pending.",
+      "summary": "Original 22 civilian freighters completed and commissioned; freight and warehousing services operating.",
+      "detail": "Wheatley Storage & Shipping operates under Steward, with Meridian, Ledger and Granary. The original 6 trunk, 12 medium and 4 feeder vessels were completed and commissioned during earlier played canon. Bellweather accepted a revised nonexclusive relationship and remains independent; additional expansions have not been assigned invented counts.",
       "facts": [
-        "Fleet: 6 trunk-route, 12 medium bulk, 4 feeder ships.",
-        "Bellweather storage expansion target +60,000 tonnes.",
-        "Bellweather retrofit subject to Nessa's 17 engineering corrections.",
-        "Service fees with Tomas/Clarissa are provisional, not signed."
+        "22 original freighters are completed and commissioned.",
+        "Bellweather remains independent under a nonexclusive agreement.",
+        "Additional market-expansion resources exist but precise ownership and counts were not enumerated.",
+        "Distinct from armed Imperial vessels."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "industrial",
       "name": "Industrial Holdings",
       "glyph": "⚙",
-      "status": "Transfer pending",
+      "status": "Operating",
       "tag": "Shipyard and production",
       "owner": "Hazael → Somnus proposed consolidation",
-      "summary": "Caldris orbital shipyard and civilian fabrication capability.",
-      "detail": "Caldris II's private orbital shipyard is laying the keel for the civilian freight fleet. Transfer into a separately accounted Somnus industrial division is underway; the label 'Somnus Industrial Holdings' is an organizational proposal, not independently verified incorporation.",
+      "summary": "Industrial manufacturing, materials and regional network operations expanded during the Mnemosyne era.",
+      "detail": "Somnus maintains substantial industrial operations and the computing/security capacity for expansion. Earlier title-transfer proposals are historical status snapshots, not a current description of all completed operations. Exact new legal subsidiary details require sources.",
       "facts": [
         "Fabricating commercial freight designs within permitted trade-tech ceiling.",
         "Restricted warships must not become uncontrolled civilian company property.",
         "Industrial title transfers subject to legal clearance."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "strategic",
       "name": "Strategic Assets",
       "glyph": "⛨",
-      "status": "Review",
+      "status": "Restricted",
       "tag": "Restricted private property",
       "owner": "Hazael; restricted review only",
-      "summary": "100 armed Andromedan vessels and the Extraordinary Debtor are separate.",
-      "detail": "Lethe proposes separately governed holding arrangements for private restricted ships, with human-authorized security command and licensing. This is not a completed transfer and does not confer authority over Imperial public forces. Lucien retains specified civilian privileges on Extraordinary Debtor.",
+      "summary": "Corporate defensive security is distinct from the Imperial military and personally owned ships.",
+      "detail": "Strategos coordinates private business continuity and security for Somnus. Elys's separately owned 100 armed Andromedan-pattern vessels and Clarissa's navy do not automatically belong to Somnus; the military command of the state remains separate.",
       "facts": [
         "100 armed vessels are distinct from WSS's 22 civilian freighters.",
         "Extraordinary Debtor has separate weapons/autonomy rules.",
         "Not identical to the Imperial military or public sovereign forces."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "smite",
       "name": "SMITE",
       "glyph": "⛏",
-      "status": "Reserved",
+      "status": "Operating",
       "tag": "Prospective asteroid mining",
       "owner": "Reserved under Hazael/Somnus",
-      "summary": "Space Mining and Industrial Technology Expeditions.",
-      "detail": "Sentinel reserved the SMITE commercial name and prospective trademark. The Emperor's joke about monopolizing low-grade asteroid alchemy was humor; no mining company was incorporated, no mining contracts were granted, and no industrial monopoly exists.",
+      "summary": "Space Mining and Industrial Technology Expeditions is active in surveys, mining and industrial expansion.",
+      "detail": "SMITE progressed past its early reserved-name status. Tellur, Vein and Forge support mining, material and industrial work. Do not imply ownership of a surveyed resource without a transaction.",
       "facts": [
-        "Full name: Space Mining and Industrial Technology Expeditions.",
-        "No capital or mining rights committed.",
-        "Could later supply feedstock to an alchemy venture."
+        "Active surveying and industrial procurement.",
+        "Earlier 'reserved-only' wording is historical.",
+        "No completed galaxy-wide mining monopoly."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "apophatic",
       "name": "Apophatic Technologies",
       "glyph": "◇",
-      "status": "Proposed",
+      "status": "Research active",
       "tag": "Alchemical science",
       "owner": "No company formed",
-      "summary": "Alchemy, lasting material transmutation and magical negation.",
-      "detail": "The apophatic name alludes to understanding through negation. It is an intellectual/research-company proposal, not reserved or incorporated. Candidate divisions are Materia (transmutation, materials) and Negativa (negation/field suppression).",
+      "summary": "Alchemy, materials transformation and negation technology R&D with prototypes and verification limits.",
+      "detail": "Apophatic Technologies progressed beyond the original proposal. Axiom oversees advanced R&D with Prima/Materia and Nihil/Negativa divisions. Research progress and prototypes exist; unrestricted release of hazardous or exotic negation is not assumed.",
       "facts": [
-        "Materia Division: research concept only.",
-        "Negativa Division: research concept only.",
-        "Commercial export of technologies beyond agreed standards remains restricted."
+        "Advanced industrial R&D is active.",
+        "Research prototypes are not unlimited export authorization.",
+        "Operating status supersedes original concept-only stage."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
+    },
+    {
+      "id": "mnemosyne",
+      "name": "Mnemosyne Compute Network",
+      "glyph": "⌘",
+      "status": "Operating",
+      "tag": "Planetary-scale computation",
+      "owner": "Somnus under independent defensive systems",
+      "summary": "Thirteen completed planetary compute worlds; no fourteenth has been established.",
+      "detail": "Mnemosyne I was created and brought online; Mnemosyne II and eleven further full planetary compute worlds followed in the established construction timeline. All thirteen operate with heavily defended independent regional systems. No fourteenth world was created in canon.",
+      "facts": [
+        "13 planetary compute worlds completed.",
+        "Defensive regional systems under commercial security.",
+        "No invented 14th world."
+      ],
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     }
   ],
   "exclusions": [
@@ -736,17 +800,81 @@ window.EMPIRE_DATA = {
       "name": "Nimbus",
       "glyph": "☁",
       "owner": "50% Hazael / 50% Clarissa",
-      "status": "Consent pending",
-      "summary": "Jointly held storm world. Hazael's share cannot be transferred without reviewing Clarissa's rights.",
-      "detail": "Formerly Thalassar Prime, Nimbus is a planned private storm-watching retreat, not a constructed corporate estate. Joint title requires consent review before any Somnus transfer.",
+      "status": "Completed private estate",
+      "summary": "Completed 50/50 Clarissa–Elys family estate, outside ordinary corporate control.",
+      "detail": "The family estate on Nimbus has been completed, as revealed in Chapter LIV. Clarissa and Elys retain their equal private ownership. Do not describe Nimbus as an unfinished planned property.",
       "facts": [
-        "Clarissa's 50% cannot be reassigned by Lethe.",
-        "Private estate on Nimbus not built."
+        "Completed residence and family grounds.",
+        "Clarissa retains 50% ownership.",
+        "Not the corporate or military headquarters."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "saves/turns/000048.md"
     }
   ],
   "events": [
+    {
+      "era": "journey",
+      "source": "saves/turns/000149.md",
+      "id": "greenhaven-fair",
+      "chapter": "CH. CLIII · T149",
+      "title": "Sir Turnip III takes the starting line",
+      "summary": "Celeste helps Niko Bell stabilize a homemade agricultural robot at Greenhaven's Harvest & Innovation Festival. The heat is not yet decided.",
+      "detail": "On Bellwynn's young modern colony, Elys, Clarissa and Celeste reach the festival by tram. Celeste follows amateur contest rules, improves Sir Turnip III with hand tools, and meets local builder Niko Bell. A polished corporate entrant is present. The first heat has not started; results remain unknown."
+    },
+    {
+      "era": "journey",
+      "source": "saves/turns/000148.md",
+      "id": "bellwynn-arrival",
+      "chapter": "CH. CLII · T148",
+      "title": "A newer world, and an ordinary holiday",
+      "summary": "The trio travels economy from Tideglass to Bellwynn, a 43-year-old agricultural and manufacturing colony.",
+      "detail": "Vesta arranges private civilian passage on Morning Finch. Corin Vale, Mara Calder and Celeste arrive at Greenhaven Terminal ~13:46 on 8 Deepfall, 13,627 ICE. No known precursor ruins appear in public records; absence of records is not universal proof of absence."
+    },
+    {
+      "era": "journey",
+      "source": "saves/turns/000147.md",
+      "id": "divine-origins",
+      "chapter": "CH. CLI · T147",
+      "title": "A companion from the divine realm",
+      "summary": "Elys explains Celeste's shared divine provenance and her association with time and ocean to Clarissa.",
+      "detail": "After the Tideglass rescue, Clarissa learns Elys and Celeste share divine origins and that Celeste embodies time or ocean depending on perspective. Not all privately held background is known to every character."
+    },
+    {
+      "era": "journey",
+      "source": "saves/turns/000145.md",
+      "id": "tideglass-rescue",
+      "chapter": "CH. CXLIX · T145",
+      "title": "The rescue beneath Pelagia",
+      "summary": "Elys and Celeste free Saren and Keth, join Elara Venn and return safely to the Tideglass harbor.",
+      "detail": "The causal repair loop is stopped and all three research personnel are rescued. The party returns to the harbor; no one remains trapped."
+    },
+    {
+      "era": "journey",
+      "source": "saves/turns/000144.md",
+      "id": "enigma",
+      "chapter": "CH. CXLVII–CXLVIII",
+      "title": "Enigma-01 joins the Hands",
+      "summary": "Celeste Somnion is freed from causal containment and accepts a loyal Hand appointment.",
+      "detail": "Elys frees Celeste from a containment mechanism beneath Tideglass. She freely accepts a loyal binding and the formal Hand designation Enigma-01, while retaining her independent judgment."
+    },
+    {
+      "era": "journey",
+      "source": "saves/turns/000123.md",
+      "id": "sabbatical",
+      "chapter": "CH. CXXVII–CXXVIII",
+      "title": "An emperor takes a sabbatical",
+      "summary": "Elys steps away from routine governance but explicitly does not abdicate, traveling as Corin Vale.",
+      "detail": "Aurelia continues as Regent; Vesta later takes over private travel duties. The Emperor's sovereign capacity remains unchanged."
+    },
+    {
+      "era": "industry",
+      "source": "saves/turns/000047.md",
+      "id": "mnemosyne-network",
+      "chapter": "CH. LIII · T047",
+      "title": "Thirteen planetary computers",
+      "summary": "Mnemosyne grows to thirteen complete and defended planetary-scale compute worlds.",
+      "detail": "Somnus completed Mnemosyne I and II and eleven further computing planets, each with regional defensive systems. This is a prior completed milestone, not a live operational status feed."
+    },
     {
       "id": "lethe-appointed",
       "chapter": "CH. XLVII",
@@ -885,19 +1013,63 @@ window.EMPIRE_DATA = {
   ],
   "worlds": [
     {
+      "id": "bellwynn-world",
+      "name": "Bellwynn",
+      "glyph": "◉",
+      "type": "CURRENT CIVILIAN STOP",
+      "owner": "Modern independent agricultural/light-manufacturing settlement",
+      "summary": "The party is at Greenhaven's Harvest & Innovation Festival on a 43-year-old modern colony.",
+      "detail": "Modern settlement founded in 13,584 ICE. Rolling fields, electric trams, solar-roofed buildings and ordinary farming robots characterize Greenhaven. Public records report no known precursor ruins; that is not absolute proof about hidden history.",
+      "facts": [
+        "Latest scene: 8 Deepfall 13,627 ICE, ~15:30.",
+        "Greenhaven festival; Sir Turnip III at starting line.",
+        "No contest results recorded."
+      ],
+      "source": "saves/turns/000149.md"
+    },
+    {
+      "id": "tideglass-world",
+      "name": "Tideglass",
+      "glyph": "≈",
+      "type": "RECENT EXPEDITION",
+      "owner": "Civilian ocean world",
+      "summary": "Pelagia harbor and a sealed undersea causal facility, where Celeste was discovered and rescued.",
+      "detail": "The Tideglass adventure is historical to the current Bellwynn scene. Celeste emerged from containment; Saren and Keth were subsequently rescued.",
+      "facts": [
+        "Tideglass rescue completed.",
+        "Current party has departed."
+      ],
+      "source": "saves/turns/000145.md"
+    },
+    {
+      "id": "mnemosyne-worlds",
+      "name": "Mnemosyne Network",
+      "glyph": "⬡",
+      "type": "COMPUTE-WORLD CONSTELLATION",
+      "owner": "Somnus commercial infrastructure with independent defensive systems",
+      "summary": "Thirteen completed compute worlds across earlier Somnus construction stages.",
+      "detail": "Mnemosyne I, Mnemosyne II, and eleven further full planetary computers were completed and are defended by independent regional systems.",
+      "facts": [
+        "13 total completed worlds.",
+        "Not a fourteenth world.",
+        "Source figures are previously established fictional operations."
+      ],
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
+    },
+    {
       "id": "caldris-world",
       "name": "Caldris II",
       "type": "AGRICULTURAL WORLD",
       "glyph": "◉",
       "owner": "Originally 100% Hazael Wheatley · corporate farm transfer underway",
-      "summary": "The Emperor's wheat planet, with a modest farmhouse, a growing field, private shipyard and new commercial infrastructure.",
-      "detail": "Caldris II was purchased with clear title and developed for large-scale agriculture. A small personal field has germinated; commercial production volumes and first sales are not yet established. Its shipyard is producing WSS's ordered civilian freighters; personal residential land is excluded from Somnus management.",
+      "summary": "Private original farmstead and broader commercial food production associated with Somnus.",
+      "detail": "The private farmhouse and hand-cultivated patch are separate from Somnus commercial facilities. WSS's original 22 civilian freighters were eventually completed and commissioned.",
       "facts": [
-        "Agricultural operations entering Somnus subject to carve-outs.",
-        "100 privately owned armed ships are a separate restricted security asset.",
-        "The 22 WSS civilian freighters are being built, not yet delivered."
+        "Private personal field remains distinct.",
+        "WSS 22 original vessels commissioned.",
+        "No invented current crop output."
       ],
-      "source": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "nimbus-world",
@@ -905,13 +1077,14 @@ window.EMPIRE_DATA = {
       "type": "STORM-WORLD RETREAT",
       "glyph": "☁",
       "owner": "50% Hazael Wheatley / 50% Clarissa Somnion",
-      "summary": "A weather-beaten world of dramatic oceans and storms, planned as a private refuge.",
-      "detail": "Formerly Thalassar Prime. A scenic cottage or observatory is planned, not built. Transfer of Hazael's share to Somnus requires agreement review and Clarissa's ownership rights; her share remains hers.",
+      "summary": "Completed privately held family estate on a storm world, jointly owned by Elys and Clarissa.",
+      "detail": "Formerly Thalassar Prime. Clarissa completed the estate and invited friends to a housewarming. Nimbus is privately held 50/50 and distinct from corporate security or Imperial public institutions.",
       "facts": [
-        "No completed estate or operational corporate resort.",
-        "Its joint ownership cannot be rewritten unilaterally."
+        "Completed home, not an unbuilt plan.",
+        "Owned jointly by Clarissa and Elys.",
+        "Not an Imperial or Somnus headquarters."
       ],
-      "source": "chronicle/TECHNOLOGY_ECONOMY_AND_LOCATIONS.md"
+      "source": "saves/turns/000048.md"
     },
     {
       "id": "andromeda-world",
@@ -948,14 +1121,14 @@ window.EMPIRE_DATA = {
       "type": "COOPERATIVE AGRICULTURE",
       "glyph": "♧",
       "owner": "Independent local farmers and cooperative",
-      "summary": "Farming communities facing freight bottlenecks; first proposed WSS storage and shipping customer.",
-      "detail": "Bellweather and nearby cooperative worlds remain independently owned. Tomas Venn negotiates service access, not a sale of farms. Six aging silos and delayed dispatch drive infrastructure plans.",
+      "summary": "Independent agricultural cooperative with a revised nonexclusive WSS relationship.",
+      "detail": "Bellweather remains independently governed by its farmers and cooperative. The revised storage/logistics partnership is nonexclusive.",
       "facts": [
         "72,000 tonnes usable storage at visited terminal; 68,400 inventory.",
         "8.2% last-season loss and 11-day dispatch delay are co-op reported figures.",
         "New WSS expansion and retrofits under construction/review, not complete."
       ],
-      "source": "chronicle/POST_WAC_STORY_AND_OPERATIONS.md"
+      "source": "chronicle/SOMNUS_MNEMOSYNE_ERA.md"
     },
     {
       "id": "vespera-world",
@@ -1002,47 +1175,107 @@ window.EMPIRE_DATA = {
   "milestones": [
     {
       "icon": "✓",
-      "title": "Incorporated",
-      "text": "Somnus exists, with Lethe as overseer and Hazael as sole shareholder."
+      "title": "Mature Somnus operations",
+      "text": "Private commercial group under Lethe; future public handoff remains unexecuted."
     },
     {
-      "icon": "↻",
-      "title": "Transfers underway",
-      "text": "WSS equity, agricultural operations and industrial holdings are being legally consolidated."
+      "icon": "✓",
+      "title": "22 WSS freighters commissioned",
+      "text": "Original 6 trunk, 12 medium and 4 feeder civilian vessels complete."
     },
     {
-      "icon": "⚒",
-      "title": "Construction mobilized",
-      "text": "22 civilian ships, Caldris export terminal, Bellweather storage and retrofit projects are in stages of execution."
+      "icon": "✓",
+      "title": "13 computing worlds operational",
+      "text": "Completed Mnemosyne planetary-scale compute network and separate defensive systems."
     },
     {
-      "icon": "⌁",
-      "title": "Commercial offers",
-      "text": "Exchange access and service listings work; certified physical delivery and final Bellweather pricing remain outstanding."
+      "icon": "✓",
+      "title": "Industry and research active",
+      "text": "SMITE performs mining/industrial work; Apophatic has active R&D and prototypes."
     },
     {
-      "icon": "◇",
-      "title": "Reserved and proposed",
-      "text": "SMITE: reserved name. Apophatic Technologies: not registered or operating."
+      "icon": "≠",
+      "title": "Ownership boundaries retained",
+      "text": "Andromeda, Nimbus family estate and public Imperial institutions remain distinct."
     },
     {
-      "icon": "⛨",
-      "title": "Protected property",
-      "text": "Andromeda, Imperial Treasury, private farmhouse and Clarissa's Nimbus rights are not simply Somnus assets."
+      "icon": "○",
+      "title": "Day 60 numbers are historical",
+      "text": "Company report metrics are snapshots, not a current audited or live dashboard."
     }
   ],
   "files": [
     {
+      "title": "Latest Played Turn · 000149",
+      "path": "saves/turns/000149.md",
+      "summary": "Greenhaven festival, Niko Bell, Sir Turnip III and the unresolved robot obstacle-course heat.",
+      "type": "LATEST PLAYED"
+    },
+    {
+      "title": "Current Durable Story State",
+      "path": "saves/CURRENT_STATE.md",
+      "summary": "Current continuity, private travel context, active scene and open narrative threads.",
+      "type": "CURRENT STATE"
+    },
+    {
+      "title": "Full Turn Record Index",
+      "path": "saves/INDEX.md",
+      "summary": "Chapter and endpoint entries for all existing durable story turns through 000149.",
+      "type": "RECORD LEDGER"
+    },
+    {
+      "title": "Turn 000148 · Bellwynn Arrival",
+      "path": "saves/turns/000148.md",
+      "summary": "Economy travel and arrival at the young modern colony of Bellwynn.",
+      "type": "PLAYED TURN"
+    },
+    {
+      "title": "Character Index",
+      "path": "Character_Index.md",
+      "summary": "Court, academy, Somnus, Celeste, Vesta and Niko Bell dossiers.",
+      "type": "CHARACTER INDEX"
+    },
+    {
+      "title": "Celeste Somnion · Enigma-01",
+      "path": "characters/celeste-somnion.md",
+      "summary": "Canonical Imperial Hand identity and recent Tideglass/Bellwynn developments.",
+      "type": "DOSSIER"
+    },
+    {
+      "title": "Vesta · Household AI",
+      "path": "characters/vesta.md",
+      "summary": "Travel companion remit separate from Sentinel and public funds.",
+      "type": "DOSSIER"
+    },
+    {
+      "title": "Niko Bell",
+      "path": "characters/niko-bell.md",
+      "summary": "Bellwynn tinkerer and creator of Sir Turnip III.",
+      "type": "DOSSIER"
+    },
+    {
+      "title": "Somnus and Mnemosyne Era",
+      "path": "chronicle/SOMNUS_MNEMOSYNE_ERA.md",
+      "summary": "Established mature corporate operations, completed vessels and thirteen compute worlds.",
+      "type": "OPERATIONS"
+    },
+    {
+      "title": "Latest Save Protocol",
+      "path": "saves/README.md",
+      "summary": "How durable turns are recorded and interpreted.",
+      "type": "PROTOCOL"
+    },
+    {
       "title": "Corporate Portfolio & Governance",
       "path": "chronicle/SOMNUS_CORPORATE_PORTFOLIO.md",
       "summary": "Detailed holdings, statuses, subsidiary management, asset-transfer caveats and legal boundaries.",
-      "type": "LATEST CANON"
+      "type": "HISTORICAL SNAPSHOT"
     },
     {
       "title": "Post-WAC Story & Operations",
       "path": "chronicle/POST_WAC_STORY_AND_OPERATIONS.md",
       "summary": "Chronology from the College through Bellweather, WSS, SMITE, Somnus and Lethe.",
-      "type": "LATEST CANON"
+      "type": "HISTORICAL SNAPSHOT"
     },
     {
       "title": "Chronicle Index",
@@ -1122,5 +1355,21 @@ window.EMPIRE_DATA = {
       "summary": "The Empire's representative institutions and political order.",
       "type": "ROOT ARCHIVE"
     }
-  ]
+  ],
+  "latest": {
+    "turn": 149,
+    "chapter": "CLIII",
+    "date": "8 Deepfall, 13,627 ICE",
+    "time": "~15:30",
+    "world": "Bellwynn",
+    "location": "Greenhaven Festival Grounds",
+    "activity": "Harvest & Innovation Festival · agricultural robot obstacle-course heat",
+    "headline": "A perfectly ordinary day, for once.",
+    "summary": "Elys (Corin Vale), Clarissa (Mara Calder), and Celeste Somnion have reached the Greenhaven festival. Celeste helped Niko Bell stabilize Sir Turnip III with ordinary tools. The first competition heat is about to begin; there is no recorded result.",
+    "source": "saves/turns/000149.md",
+    "kind": "Played turn",
+    "privacy": "Incognito travel · no public revelation of identities",
+    "recorded": "2026-11-06",
+    "sourcePolicy": "Static fictional archive; not live sensor data."
+  }
 };
