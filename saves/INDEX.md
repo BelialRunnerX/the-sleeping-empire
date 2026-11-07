@@ -272,6 +272,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 - [User-confirmed hidden ancient history](canon/bellwynn-hidden-history-foreshadowing.md) — Vesta's anti-foreshadowing line is intentional foreshadowing; no new played story turn.
 
+| [000149](turns/000149.md) | CLIII | Played turn | Greenhaven tram, Celeste sponsors Sir Turnip III at robot competition | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
