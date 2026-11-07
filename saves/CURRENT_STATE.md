@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000247
+**Save sequence:** 000248
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVI: Elys says ‘I don't remember’ rather than testing Clarissa's comprehensive marriage statement; Celeste offers qualified reminiscence, and Clarissa defers the direct reckoning to a private conversation.
-**Latest record:** [000247](turns/000247.md)
+**Story endpoint:** Chapter CLXXXVII: Elys verifies by truth pen that he knows the correct answer to Clarissa's marriage question but genuinely does not remember the material circumstances; Clarissa asks him to state the known answer.
+**Latest record:** [000248](turns/000248.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Clarissa requested permission to truth-test a broad statement about Elys and Celeste's previous marital relationship. Elys instead said **“I don't remember.”** It was spoken, NOT written or tested, and **genuine amnesia has not been established**; only the user controls Elys's inner memory and motives. Celeste laughed at the evasion; Garrick began an unfounded cognitive-issue note and Seraphine rejected it. Clarissa asked Celeste whether she remembered; Celeste said she remembers many things and some need metaphysical explanation, but did not confirm the secret prior divine marriage. Clarissa agrees not to force a public confession but expects candor and plans a separate discussion with Celeste. **The past marriage still has not been explicitly disclosed**, and Clarissa remains unaware of the origin of her superhuman strength. Blank paper and truth-testing pen are available; broad statement untested. Celeste in restored SSS formal uniform, alternative clothing/collar/leash in her gift case. Elys and Celeste certified; celebration pending. [Turn 000247](turns/000247.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote with his truth pen: “While I’m aware of what the correct answer to your line of questioning is, I in fact do not actually remember the material circumstances of such occasion as the previous history we are discussing.” The pen confirmed **TRUE without semantic qualification**. Elys knows the correct answer regarding his and Celeste's past divine marriage, but **genuinely lacks episodic recollection of its material circumstances**. Cause and source of knowledge have not been established. Celeste says she remembers some of that history quite clearly, and suggests talking privately; Clarissa agrees. Garrick and Seraphine distinguish factual knowledge from episodic recollection; Garrick's notes closed. **Clarissa now asks Elys: “If you know what the correct answer is, will you tell me what it is?”** Elys has not answered. Clarissa still has not received explicit disclosure of Elys and Celeste's past divine marriage nor learned the origin of her own superhuman strength. Celeste wears pristine white-black SSS uniform; alternate gifted clothes/collar/leash in her case. Both Elys and Celeste SSS certified; celebration pending. [Turn 000248](turns/000248.md).
 
 ## Examination ledger
 
