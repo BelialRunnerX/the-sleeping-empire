@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000247
+**Save sequence:** 000248
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVI: Elys asks about Emperor-reserved weapons; Garrick explains sovereign-keyed binding, but no existing item is yet verified as Emperor-exclusive or in Elys's possession.
-**Latest record:** [000247](turns/000247.md)
+**Story endpoint:** Chapter CLXXXVII: Elys inspects the uncrafted Thirteenfold Dawn SSS solar spear blueprint and its proposed features, without crafting, spending or changing ownership.
+**Latest record:** [000248](turns/000248.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asks **“Any weapons reserved for the Emperor?”** Garrick opens a read-only **Sovereign-keyed armament** interface in the Armory catalog, explaining the system supports exclusive binding to an Imperial sovereignty key, but **no specific item is currently verified as Emperor-exclusive or as owned by Elys**. Seraphine suggests an **Imperial Regalia** designation could be formally established if Elys wills it; **no such decree/designation has been made**. Concepts displayed: `U-001 Singularity Dagger` (Elys's established invention, proposed SSS gear grade only; ownership, location, enhancement and exclusivity UNKNOWN), and `U-007 Thirteenfold Dawn` (SSS solar spear blueprint only; not crafted or awarded). Item grade and examination rank remain independent, and sovereign-keyed binding need not be Emperor-exclusive by default. Celeste asks what weapon Elys would consider worthy of himself; Garrick jokes about missing inventory documentation. **No items, character stats, ranks, resources, gear, money or ownership changed**. Elys and Celeste both SSS certified, Clarissa rank pending, celebration not begun. Clarissa knows pre-Empire other-realm facts about Elys/Celeste but **not their secret divine marriage** or the source of her own great strength. No truth pen. Celeste wears restored white-black SSS uniform, gifts boxed. [Turn 000247](turns/000247.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys chose option **3** to **inspect the concept-only `U-007 Thirteenfold Dawn` SSS Sovereign-grade Solar two-handed spear blueprint** using Garrick's read-only Imperial Armory terminal. The rendered white-gold spear bears thirteen solar halo motifs and a heliocore; it is **not actually forged, owned, equipped, Emperor-exclusive or in the room**. Its proposed unique signature **Thirteenfold Meridian** involves up to thirteen solar marks and a bounded single-target burst/ward; precise numbers and related draft traits are **unapproved concepts, not adopted item rules**. SSS allows six ordinary affixes, four gem sockets, +0..+20 reinforcement, R1..R5 refinement and optional quest awakening. Proposed SSS reference costs: 200,000 credits, 240 Forge Alloy, 200 Aether Dust, 30 Resonance Crystals, 3 Sovereign Embers plus blueprint, quest, provenance and Imperial Nullforge. **No player authorized a craft, transfer, equipment change, spending or binding; no registry change**. Celeste admires the design, jokes about its elaborate solar halos and would be interested in testing a real spear someday. Clarissa expresses caution about sovereign weapons. Garrick awaits Elys's next decision. Both Elys and Celeste SSS certified, Clarissa final rank pending, celebration pending. Clarissa knows pre-Empire extrarealm ties with Celeste, **not secret divine marriage** or source of her own enormous strength. Celeste dressed in restored SSS uniform, gifts boxed. No truth pen or formal Imperial Regalia decree. [Turn 000248](turns/000248.md).
 
 ## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
 
