@@ -53,3 +53,13 @@ The fully armored Emperor concept image generated in the preceding user turn is 
 ## Archival integrity
 
 **Nothing yet physically delivered:** This order and the generated concept illustration change the canon of **plans and commissions**, not Elys's present armor or gear. No stat boosts, combat proofs, financial postings or manufacturing completion inferred. IR-0001 Aletheia still pending. The two packages must be delivered within the SAME deadline but have independent acceptance tests.
+
+## FINAL DELIVERY RECORD — Turn 000256 · 10 Deepfall, 13,627 ICE, evening
+
+**The entire IR-0002 package was delivered on the original 24-hour deadline**, without adding another day. Elys remains in the **Lumenfall SSS Assessment Annex** and owns both devices as private Imperial Regalia. Two minted physical asset IDs:
+- **`ITM-000002` U-014-Ω AE-Ω Regalia Aegis**: completed ultra-advanced non-sentient sealed exosuit, white/black/gold/emerald appearance consistent with approved visual concept, high-grade materials, full-body environmental adaptation, wear-comfort, stealth, self-repair, propulsion, bounded autonomous authorized cyber-reconnaissance and data capture. Arrived **on an armor frame and has NOT been put on/equipped**. No full-time wear started.
+- **`ITM-000003` U-015-Ω RF-Ω Regalia Forge Core**: completed non-sentient wearable mobile workshop/forge/backpack. Demonstrably unfolds robotic fabrication arms and an operational bounded field forge, repair/assembly systems, alchemy/refining, med and food synth, secure storage and data processing. Arrived **folded beside the armor; not equipped**. Actual material stock balances and maximum-rate Nullforge equivalence are not proven.
+
+**Independent acceptance and limits:** Controlled environmental, materials, anti-transmutation/negation, and stealth/cyber lab/sandbox verification passed. Seraphine explicitly **declined to certify survival against the full maximum-power U-013-Ω god-killer output**, which remains untested. No real unauthorized third-party network penetration or captured classified data was established. The exosuit and pack are **non-sentient**, unlike completed sentient Aletheia. Exact manufacturing spending/volume and fitted gem/rune substat ledger are UNKNOWN until audit, not zero.
+
+**Delivery status:** Completed/accepted; not equipped. [Turn 000256](../../saves/turns/000256.md) · [Registry](../../characters/GEAR_STAT_REGISTRY.json).
