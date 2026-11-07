@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000263
+**Save sequence:** 000264
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CCII: Elys climaxes and ends the intimate encounter with Celeste; Clarissa asks what happens now, while the promised retcon remains unperformed.
-**Latest record:** [000263](turns/000263.md)
+**Story endpoint:** Chapter CCIII: Elys clarifies intimacy with Celeste is still ongoing after his first climax, with a second intended after hers; no further climax or cessation has occurred. Clarissa remains concerned.
+**Latest record:** [000264](turns/000264.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys explicitly climaxed, **ending the previously ongoing sexual encounter** with adult Celeste. Narrator acknowledges this directly without describing graphic mechanics. Celeste appears satisfied, retains her collar and gift case, and suggests bathing, dressing and celebrating. **No clothing was automatically restored**; do not assume otherwise. Clarissa bluntly reminds Elys that he admitted their past divine marriage, chose Clarissa as his intended primary/genuine partner, and mentioned a future narrative retcon, **which has NOT happened**. **Clarissa asks “So what happens now?”** Elys has not replied. Garrick wants to leave; Seraphine requires SSS certificates signed. Both Elys and Celeste earned SSS, celebration pending. Clarissa still doesn't know Elys secretly gave her immense strength. User wants direct, causally coherent narration, especially for intimate scene continuity; avoid offscreen skipped consequences. [Turn 000263](turns/000263.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys corrected narrator's mistaken assumption that the intimate encounter with adult Celeste was finished. He has had a first climax and intends a **second one, but not until after Celeste climaxes**. **Neither Celeste's climax nor Elys's second climax has happened yet.** Celeste's non-graphic responses include catching her breath, flushing, closing eyes briefly and squeezing his hand, and she smiles with anticipation. Their intimacy continues in non-graphic narration; do not auto-skip/terminate or assume clothing restored. Garrick shuts down note-taking, Seraphine approves. Clarissa is hurt/frustrated that Elys continues instead of addressing what their relationship means, and Celeste agrees Clarissa's concerns matter. Elys announced a future retcon but **none performed**. Clarissa knows former divine marriage with Celeste, but not Elys's gift of her extraordinary strength. Elys and Celeste SSS certified, celebration pending. [Turn 000264](turns/000264.md).
 
 ## Examination ledger
 
