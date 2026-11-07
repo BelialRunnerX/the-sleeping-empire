@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000212  
+**Save sequence:** 000213  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys playfully insults Celeste, who adores it; she safeguards western flood barrier but Module II crisis remains active.
-**Latest record:** [000212](turns/000212.md)  
+**Story endpoint:** Chapter CLXVIII: Elys playfully threatens disciplinary spanking, Celeste teases; she starts hospital corridor and common command channel in active Module II.
+**Latest record:** [000213](turns/000213.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys delivers playful insult to Celeste about her **hideous fashion relative to her body and her mind being small compared to her ass**. Celeste blushes and delights in the teasing insult; tells him it is a very good insult. Clarissa laughs after initial embarrassment, Garrick aghast, Seraphine reprimands them for flirtatious distractions during official test. **Celeste SSS Module II coastal storm surge trial remains ACTIVE:** 92,000 simulated inhabitants, clock **36:48 / 38:00 remaining**. She makes a competent **temporary western flood barrier reinforcement** in response to new fracture; no injuries; other flood risks, isolated hospital, and dispute among three rescue authorities still unresolved. She is about to challenge three officials on their competing demands. No trial pass or full rescue yet. [Turn 000212](turns/000212.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys jokes to Celeste that if she doesn't behave he may spank her “for disciplinary reasons of course.” Celeste enjoys the suggestion, jokes it would fail to improve her behavior, and cheekily asks Seraphine to add disciplinary punishment to exam rules; Seraphine rejects that absolutely and demands no distracting antics. Garrick alarmed, Clarissa laughs. **No spanking or physical discipline occurred.** Celeste refocuses on her **SSS Module II** coastal storm surge disaster (92,000 inhabitants at risk). Timer **35:52 remaining / original 38:00**. Western barrier stabilized, **hospital tower still isolated**, rival authorities still dispute. Celeste **creates a protected aerial medical evacuation corridor** and launches drones but evacuations incomplete. She opens a shared real-time evidence/communications channel to all three authorities, respects free agency, attempts to establish emergency coordination. Seraphine logs **Celeste maintains effectiveness despite “significant external distraction”**, and Celeste gleefully tells Elys he's officially classified as such. **Module II still ACTIVE and not passed**, Module III not started. [Turn 000213](turns/000213.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Celeste acts independently; Elys gave only verbal teasing, no operational assistance. Clarissa still unaware of source of Elys-granted immense strength and secret Elys/Celeste divine marriage. Elys owes private explanation. Six choices, Elys agency.
+Elys didn't intervene technically. Clarissa unaware Elys secretly granted extraordinary strength, private conversation promised; still doesn't know Elys/Celeste secret divine marriage. Six numbered emoji options, agency stays with Elys.
 
 ## Canonical in-universe date
 
