@@ -96,9 +96,17 @@
           "before": "provisional visual/persona settings",
           "after": "Elys approved Aletheia/Materia appearance, voice, temperament based on existing anime image",
           "source": "Player explicitly selected choice 1 Based off image; no delivery or equipment granted"
+        },
+        {
+          "turn": "000255",
+          "field": "pending_commissions",
+          "before": "IR-0001 Aletheia only",
+          "after": "IR-0001 Aletheia plus IR-0002 Regalia Aegis suit and Forge Core backpack, same 24-hour deadline",
+          "source": "Explicit user's prior armor and backpack request; no physical items delivered, costs measured or stat changes",
+          "status": "project only"
         }
       ],
-      "last_verified_turn": "000254",
+      "last_verified_turn": "000255",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -125,6 +133,34 @@
           "humanoid_design_reference": "Turn 000254 and the previously generated image",
           "voice_design": "Crystalline Contralto",
           "personality_design": "Intelligent, fiercely loyal, playful, proud, devoted; independent judgment and technical caution"
+        },
+        {
+          "id": "IR-0002",
+          "design_ids": [
+            "U-014-Ω",
+            "U-015-Ω"
+          ],
+          "names": [
+            "Regalia Aegis",
+            "Regalia Forge Core"
+          ],
+          "status": "COMMISSIONED_NOT_DELIVERED",
+          "authorization_turn": "000255",
+          "authorization_source": "Player's armor/backpack design and same 24-hour requirement immediately preceding story continuation",
+          "wearer": "char-elys",
+          "owner_on_delivery": "char-elys",
+          "sentient": false,
+          "design_reference": "Anime full-armored Emperor image generated in previous conversation turn",
+          "delivery_target": "10 Deepfall, 13,627 ICE, corresponding evening (same original 24-hour window as IR-0001)",
+          "assigned_item_ids": [],
+          "record_path": "armory/commissions/IR-0002_REGALIA_AEGIS_FORGE_CORE.md",
+          "engineering": {
+            "axiom": "systems integration",
+            "prima": "defenses/survival/comfort",
+            "nihil": "stealth/cyberwarfare/intelligence",
+            "lethe": "private oversight"
+          },
+          "notes": "Armor always wearable, extreme vacuum/atmosphere travel; autonomous but NON-SENTIENT cyber and data collection; backpack mobile base/forge; defense vs U-013-Ω is untested design objective, not guaranteed."
         }
       ]
     },
