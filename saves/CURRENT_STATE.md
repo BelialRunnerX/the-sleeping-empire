@@ -1,27 +1,27 @@
 # Current Story State
 
-**Save sequence:** 000186  
+**Save sequence:** 000187  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys perfect 36-sphere dynamic-control test; breadth testing next.
-**Latest record:** [000186](turns/000186.md)  
+**Story endpoint:** Chapter CLXVII: Elys finishes five-lane magical breadth perfectly; endurance awaits.
+**Latest record:** [000187](turns/000187.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude laboratory.** Player chose continuous matter-alignment for **36 independently tracked spheres** against random changing target assignments over 120 seconds. Elys successfully followed every instruction, including instantaneous halt, partial reversal and target swaps. No detectable deviations/collateral disturbance at apparatus resolution; Garrick awards **dynamic-control subtest 100/100**. This is not unlimited precision proof, not overall magical exam result.
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude lab.** Player chose option 1 to demonstrate all five magical breadth outcomes safely in order. Elys completes thermal regulation, electromagnetic shaping, spatial positioning, protective warding, restorative restructuring with no deviation/collateral above measurement threshold. Garrick awards **breadth 100/100**, not yet overall magic score. Earlier precision 100/100, dynamic control 100/100 and calibration passed. Celeste jokes the ward was tasteful, Clarissa notes the point of a safety test.
 
-Next is **breadth**: five isolated small-effect lanes—thermal regulation, electromagnetic shaping, spatial positioning, protective warding and restorative restructuring. Garrick says distinct outcome in each lane matters, and candidate may select magical mechanism. **No breadth lane attempted**. Await Elys's choice. [Turn 000186](turns/000186.md).
+**Immediate decision:** final **endurance** phase, twelve simulated minutes of continuous bounded regulated magical workload with deliberately introduced interruptions. The apparatus will terminate before its own limit; it cannot measure Elys's true maximum. Garrick asks if Elys is ready. No endurance phase has begun; await response. [Turn 000187](turns/000187.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
 |---|---:|---:|---:|---|---|
-| Elys Somion | 99 | 100 | 100 | Calibration passed; precision 100; dynamic 100; breadth pending | Not begun |
+| Elys Somion | 99 | 100 | 100 | Calibration passed; precision 100; dynamic 100; breadth 100; endurance pending | Not begun |
 | Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
 | Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-All three still UNRANKED. Elys/Celeste continuing marriage remains unknown to fiancée Clarissa; Clarissa's overwhelming physical might, secretly blessed by Elys, unknown to her. Do not reveal by accident. Next magic testing should be deliberate and detailed, no forced full-power discharge.
+Guild rank still UNRANKED for all. Elys/Celeste divine marriage remains unknown to fiancée Clarissa; Clarissa's secret immense physical blessing remains unknown to her. Retain cinematic, chapter, six emoji numbered menu options.
 
 ## Canonical in-universe date
 

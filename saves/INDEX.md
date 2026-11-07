@@ -360,6 +360,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000186](turns/000186.md) | CLXVII | Played turn | Elys controls 36 spheres flawlessly; five-lane magical breadth phase next | [000000](checkpoints/000000.md) |
 
+| [000187](turns/000187.md) | CLXVII | Played turn | Elys passes five breadth lanes 100/100; endurance last magical subtest | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
