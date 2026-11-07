@@ -483,3 +483,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000259](turns/000259.md) | CXCVIII | Played turn | Elys inspects six open high-tier S/SS/SSS Guild contracts and an unassigned missing-planet bulletin; no contract accepted | [000000](checkpoints/000000.md) |
 | [000260](turns/000260.md) | CXCIX | Played turn | Mira briefs Elys on public observatory record of vanished planet; real cause remains unknown to Guild, no anomaly investigation contract | [000000](checkpoints/000000.md) |
 | [000261](turns/000261.md) | CC | Played turn | Elys selects SSS-004 Sepulcher Between Stars: 900-metre Pallbearer King multi-phase boss mission accepted, deployment and reward pending | [000000](checkpoints/000000.md) |
+| [000262](turns/000262.md) | CCI | Played turn | Elys asks for boss bigger than Pallbearer King; Mira reveals uncommissioned 42km Nadir Leviathan, Sepulcher SSS-004 contract remains accepted | [000000](checkpoints/000000.md) |
