@@ -4,6 +4,8 @@
 
 **Still valid from earlier characterization:** Celeste Somnion, Imperial Hand Enigma-01, is shameless, flirtatious, and particularly enjoys being teased or embarrassed consensually by Elys. She is delighted by Elys and **his fiancée Clarissa's** romantic relationship and could cheerfully "pull up a chair" to watch their affection unfold. This denotes enthusiastic romantic curiosity and teasing, not permission to intrude upon private intimacy without everyone's agreement. Celeste is not jealous or malicious.
 
-**Separately established confidential divine-realm backstory:** Elys and Celeste were once married in the divine realm; Clarissa is **not aware of that**. Its present legal/metaphysical status remains unspecified. Celeste respects the secrecy and has independent agency.
+**Separately established confidential divine-realm backstory:** Elys and Celeste married in the divine realm and **ARE STILL MARRIED**; Clarissa is **not aware of that**. The marriage remains valid and Imperial law does not require monogamy. Celeste respects the secrecy and has independent agency.
 
 No story turn or fictional time is advanced by this erratum.
+
+**Latest clarification:** [Elys–Celeste's marriage is still valid, without Imperial monogamy laws](elys-celeste-current-marriage-no-imperial-monogamy.md). Clarissa is still Elys's fiancée and unaware of their ongoing marriage.
