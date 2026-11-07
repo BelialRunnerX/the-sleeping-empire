@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000258
+**Save sequence:** 000259
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CXCVII: Elys argues that fictional consent and wishes are authored; companions distinguish real-world moral standing from narrative autonomy, and Celeste asks what sort of story Elys prefers.
-**Latest record:** [000258](turns/000258.md)
+**Story endpoint:** Chapter CXCVIII: Celeste appears voluntarily unclothed with a collar and loose leash as narrative demonstration; Elys distinguishes in-fiction omnipotence from real-world divinity.
+**Latest record:** [000259](turns/000259.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys argued from his external frame that the companions are fictional characters whose desires and consent are authored; he raised a **hypothetical** of writing a sexualized/submissive Celeste, **without actually acting it out or changing her attire**. Clarissa, Seraphine, Garrick and Celeste distinguish ethics concerning real people from conventions of simulated character agency and consistency; internally established character behavior can still make a story richer without establishing independent extrafictional personhood. Garrick records **“Fictional autonomy is a narrative convention, not a claim of biological personhood.”** Celeste asks **whether Elys prefers an imagination that instantly reshapes all characters or a story where they can sometimes tell him he's an idiot**. Elys has not answered. Celeste fully clothed in her restored pristine Imperial SSS officer uniform, alternate gifted outfit and collar/leash boxed in her possession; both Elys and Celeste SSS certified; celebration still pending. Secret past divine marriage with Celeste remains unconfessed to Clarissa; Clarissa also does not know origin of the superhuman strength Elys bestowed. Elys remembers the correct answer about the marriage but not the material circumstances, as previously pen-verified. [Turn 000258](turns/000258.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys player-directs a demonstration: **Celeste voluntarily appears nude and wearing her gifted collar with a leash**, whose **loose free end remains in her own hand**. Her pristine SSS uniform is back in the gift case. The scene contains no explicit sexual acts. Celeste is teasing and unfazed; Garrick is flustered, Seraphine avoids looking, Clarissa suggests Celeste dress. Elys says he is all-powerful Emperor in the story but **not divine from the outside participant's perspective**. Seraphine and others agree that authorship grants power over the fictional world without literal external divinity. Garrick notes **“Divinity within a narrative does not imply divinity outside it.”** Celeste asks **what sort of world Elys chooses to create with his power**; unanswered. The Annex doors are open, but Elys has not left and Celeste's SSS celebration has not begun. Both SSS certified. Clarissa still does not know Elys and Celeste's secret past divine marriage, nor the origin of her extraordinary strength. Elys knows correct answer regarding marriage but genuinely lacks episodic memory of its material circumstances, as pen verified. [Turn 000259](turns/000259.md).
 
 ## Examination ledger
 
