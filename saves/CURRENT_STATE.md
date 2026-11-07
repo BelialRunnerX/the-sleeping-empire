@@ -9,6 +9,9 @@
 
 ## Resume at this exact beat
 
+**LATEST CANON CHARACTER ERRATUM:** Celeste Somnion is **very shameless, provocatively playful, and actively enjoys consensual teasing, humiliation and punishment-themed flirtation**; tsundere-like mock resistance may signal delighted invitation rather than actual embarrassment, while her real consent/agency always matters. She can view even the old causal imprisonment with provocatively aroused amusement in hindsight, without implying her captors had consent. This is an update to personality, not a new played scene. Preserve her brilliance, extraordinary power, loyalty and warmth. [Details](canon/celeste-temperament-shameless-masochistic.md).
+
+
 **AUTHORITATIVE PLAYER ERRATUM:** Celeste Somnion **USES her innate divine eating capacity, which is NOT magic**, in the Greenhaven pie contest. Her previous three-pie satiety/defeat is RETCONNED. **Celeste WON with 24 pies; Mayor Brindle second 8, Kira third 7, Lucien 5.** Winning using innate divine physiology did not violate the festival's no-magic rule. The next scene stays at Lucien asking Elys whether he can participate in tomorrow's dessert showcase while pursuing Bel. [Revised record](turns/000161.md).
 
 
