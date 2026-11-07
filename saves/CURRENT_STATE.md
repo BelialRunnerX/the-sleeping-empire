@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000178  
-**Type:** played turn; prior baseline reconstructed  
+**Save sequence:** 000179  
+**Type:** played turn with explicit player continuity correction  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: all three operational assessments complete; magical testing next.
-**Latest record:** [000178](turns/000178.md)  
+**Story endpoint:** Chapter CLXVII: Elys Somion first operational tester, scenario 17 awaiting first route decision.
+**Latest record:** [000179](turns/000179.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Player chose to proceed directly to all three operational assessments; they were completed as compact narrated simulations. Results: **Elys Somion 98/100** convoy extraction, minor efficiency deduction; **Celeste Somnion 96/100** damaged research vessel, delegation/workload deduction; **Clarissa Somnion 100/100** evacuation camp, flawless logistical leadership. Garrick commends Clarissa. Celeste asks if Clarissa won the section; Garrick agrees by rubric. **Next is magical aptitude**, with **physical aptitude** afterward. Crystal measuring columns illuminate beyond the chamber; non-destructive protocol remains required. No magical exam started.
+**9 Deepfall, 13,627 ICE, early afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** The user explicitly directed a **more detailed rewind to the first operational tester**. Preserve earlier archive turn 000178 as historical narration, but **supersede and void its operational scores (Elys 98, Celeste 96, Clarissa 100)**. Operational exams are NOT completed; **Elys Somion goes first**, with Celeste and Clarissa in gallery. Detailed **Scenario Seventeen: The Kestrel Corridor Extraction** begins. Elys is incident commander in a simulation with 240 evacuees and 18 crew, six transports and two escort crawlers; 7 hours fuel at normal use; 12 critical-care packs; deadline toxic weather arrival 110 simulated minutes. Three routes: North Causeway 42 km fastest, bridge telemetry contradictory (OPEN vs STRUCTURAL FAILURE, both authenticated); Quarry Bypass 71 km rough but survey-confirmed; East Service Tunnel 33 km network-closed, uninspected. Intermittent dispatch; one survey drone and one engineering team available. Non-magical ordinary resources only within examination scenario. Dispatcher awaits Elys's **first route/inspection instruction**. Nothing has moved; clock just started. Do not decide Elys's choices or pre-score him.
 
-## Individual guild examination ledger
+## Examination ledger
 
 | Candidate | Strategy | Technical | Operational |
-|---|---:|---:|---:|
-| Elys Somion | 99 | 100 | **98** |
-| Celeste Somnion | 98 | 100 | **96** |
-| Clarissa Somnion | 96 | 98 | **100** |
+|---|---:|---:|---|
+| Elys Somion | 99 | 100 | In progress, no score |
+| Celeste Somnion | 98 | 100 | Not begun |
+| Clarissa Somnion | 96 | 98 | Not begun |
 
-All three registered with real names Elys Somion, Clarissa Somnion, Celeste Somnion; ₡450 paid, **UNRANKED** until completion of magical and physical testing. Secret: Elys granted Clarissa overwhelming physical might unbeknownst to her; reveal only when it manifests or player tells her. Secret: Elys and Celeste remain married from divine realm; fiancée Clarissa unaware. Preserve their independent agency. [Turn 000178](turns/000178.md). Chapter banner, cinematic setting, exactly six emoji-numbered menu options.
+All three remain UNRANKED. Magical and physical disciplines follow operational trials. Clarissa unaware of vast physical blessing secretly granted by Elys. Clarissa is Elys's fiancée, unaware Elys and Celeste still married from divine realm. [Turn 000179](turns/000179.md). Preserve player agency; chapter/visual/6 options.
 
 ## Canonical in-universe date
 
