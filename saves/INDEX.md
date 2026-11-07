@@ -425,6 +425,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000219](turns/000219.md) | CLXVIII | Played turn | Seraphine clarifies immaterial hand can still physically interfere | [000000](checkpoints/000000.md) |
 
+| [000220](turns/000220.md) | CLXVIII | Played turn | Elys shouts drill-instructor teasing; Celeste advances authorized evacuations | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.

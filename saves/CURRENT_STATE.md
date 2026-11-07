@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000219  
+**Save sequence:** 000220  
 **Type:** played turn  
-**Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVIII: Elys argues conjured hand is nonphysical; Seraphine clarifies physical effects and bans interference; no spell cast.
-**Latest record:** [000219](turns/000219.md)  
+**Recorded:** 2026-11-07
+**Story endpoint:** Chapter CLXVIII: Elys bellows mock drill-instructor command at Celeste; she laughs and continues voluntary rescue operations.
+**Latest record:** [000220](turns/000220.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys replies to Seraphine's physical-interference ruling, **“Well seeing as how the hand would be a non Physical object.”** Seraphine explains that a purely nonmaterial **visual apparition** may not produce contact, while a nonmaterial magical **force construct** that touches/slaps a candidate has physical consequences and is prohibited external interference; even harmless illusion may be considered distracting. Celeste jokes about metaphorical hands; Garrick opens draft proposed Amendment 47-C, “Ontological and Immaterial Forms of Candidate Interference.” **No hand summoned, no actual contact/interference.** Seraphine's earlier warning remains in place. Celeste's **SSS Module II coastal storm-surge crisis remains ACTIVE, not PASSED**, 92,000 at risk initially, hospital evacuation underway, flood barriers temporarily secure, three authorities not fully united. Last exact time remaining ~31:46, do not invent new time based purely on banter. [Turn 000219](turns/000219.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys shouts drill instructor style, **“CONCENTRATE ON SHAKING THEM CHEEKS, CANDIDATE!”** at Celeste during her active SSS Module II coastal flood emergency. Celeste laughs, salutes, answers "SIR, YES, SIR!" and jokes about reporting to later inspection. Seraphine firmly calls for professionalism; Garrick and Clarissa despair. **Only verbal teasing, no magical or physical interference.** Celeste independently maintains flood protection, medical evacuation, creates additional eastern civilian evacuation route, and **obtains municipal commander's approval using genuine casualty projections** rather than coercing him. City crisis still ACTIVE, **not resolved or passed**. 92,000 simulated residents initially at risk, hospital evacuation ongoing, authority disagreement only partially settled, barriers holding. Last exact clock read 31:46 remaining (from earlier chapter beat), avoid asserting a fresh exact number. [Turn 000220](turns/000220.md).
 
 ## Examination ledger
 
@@ -19,7 +19,7 @@
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 | SSS I PASSED, II ACTIVE, III PENDING |
 | Clarissa Somnion | 96 | 98 | 100 | 97 | 98 | Standard rank pending |
 
-Clarissa unaware Elys gave her immense physical might and unaware secret Elys/Celeste divine marriage; private explanation owed. Recurring seventh suggestive non-graphic option 🍆💦🫦😈🌶️ plus six standard options. User controls Elys's actions.
+Seraphine's warning of termination upon another unauthorized physical interruption remains. Elys owes private explanation of his gift of strength to Clarissa; she does not know source or that Elys/Celeste secretly remain married. Seven choices, seventh 🍆💦🫦😈🌶️ non-graphic suggestive flirtation; Elys action agency.
 
 ## Canonical in-universe date
 
