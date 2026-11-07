@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000193  
+**Save sequence:** 000194  
 **Type:** played turn  
-**Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Clarissa discovers overwhelming strength, physical 98/100; asks Elys what he knew.
-**Latest record:** [000193](turns/000193.md)  
+**Recorded:** 2026-11-06  
+**Story endpoint:** Chapter CLXVII: Elys promises Clarissa private truth; SSS assessments for Elys and Celeste requested, pending review.
+**Latest record:** [000194](turns/000194.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath physical aptitude hall.** User selected to watch Clarissa's full physical examination. She obeys Garrick's instruction and squeezes gently; high force registers unexpectedly but she stops safely. Independent sensors agree, so Garrick moves to passive force/load-limited equipment and does NOT damage gear. Her physical strength and resilience exceed the instrument's certified upper range; her acceleration is top-band but first deceleration start required corrective repeat; coordination initially overcorrected, then clean; fragile glass controlled-force test starts overcautious then passes. **Clarissa physical 98/100**. She discovers she is enormously strong but **still does not know the source** (Elys's secret blessing). She recalls his earlier warning to 'mind your strength' and looks at him: **'Elys, you told me to mind my strength. What exactly did you know?'** This is LIVE question; Elys's answer is entirely the player's choice. [Turn 000193](turns/000193.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** Clarissa asked what Elys knew of her unexpectedly enormous strength. User selected option 2: Elys promises to explain privately, Clarissa says she'll hold him to it; **he has not yet revealed that he blessed her**, and they have not had the private discussion. Celeste jokes mildly without revealing the secret marriage. User explicitly then requests **SSS-tier assessment for Elys and Celeste**. Garrick records request for exceptional classification review; he stresses that existing top-band certified performance is not an absolute maximum measurement and requires safe, independently witnessed, non-destructive special test. **SSS NOT yet awarded, official rank classification pending**, potential protocols to be decided. Clarissa wants her own exceptional physical record accurately recognized and to understand her strength. [Turn 000194](turns/000194.md).
 
 ## Examination ledger
 
@@ -17,9 +17,9 @@
 |---|---:|---:|---:|---:|---:|
 | Elys Somion | 99 | 100 | 100 | 100 | 100 |
 | Celeste Somnion | 98 | 100 | 99 | 99 | 100 |
-| Clarissa Somnion | 96 | 98 | 100 | 97 | **98** |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | 98 |
 
-All five disciplines for all three completed. **Guild ranks still unassigned/pending Garrick's announcement.** Clarissa knows she has enormous physical strength but not its Elys-given origin. Elys and Celeste still married from divine realm, unknown to Elys's fiancée Clarissa; avoid accidental disclosure. Preserve meaningful control of Elys speech and secrets; six numbered emoji choices.
+**All assessments complete**. SSS requests for Elys and Celeste pending special review. Clarissa physical upper range unknown. Clarissa is Elys's fiancée and unaware Elys/Celeste remain married from divine realm. Unaware that Elys blessed her with supernatural might; private explanation still owed. User controls Elys, six meaningful options, keep image atmosphere text story.
 
 ## Canonical in-universe date
 
