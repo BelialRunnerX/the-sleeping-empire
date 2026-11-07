@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000249
+**Save sequence:** 000251
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXVIII: Elys verifies ‘I have answered you’ with truth ink; Clarissa ends the semantic interrogation and asks Celeste to share her memories privately later.
-**Latest record:** [000249](turns/000249.md)
+**Story endpoint:** Chapter CXC: Elys verifies both his personal belief that humans are an inferior species and the fact he is technically human, prompting questions about self-reference and what he means by inferior.
+**Latest record:** [000251](turns/000251.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote **“I have answered you”** with his truth pen, which confirmed **TRUE** (he has responded in the conversation). It does **not** establish that his responses disclosed the answer to Clarissa's actual marriage question. Garrick celebrated the technicality; Seraphine distinguished truthful propositions from adequate answers; Celeste laughed. Clarissa agrees he has responded truthfully but remains uninformed and stops pushing the matter publicly. She asks Celeste if she would someday privately tell her own recollections; Celeste **agrees** without disclosing the former divine marriage yet. **Truth-pen memory fact still binding:** Elys knows the correct answer but does not personally remember the material circumstances of that event. Garrick records “100% Factual Accuracy, Negligible Information Transfer.” Clarissa also does not know origin of her tremendous strength. Elys and Celeste both SSS certified; Celeste in formal restored SSS uniform, alternative clothes/collar/leash in her gift case; celebration still pending. [Turn 000249](turns/000249.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys wrote **"I consider humans an inferior species"** with truth pen; **TRUE** as his subjective opinion, without clarifying the meaning of inferior and without issuing any public edict. He followed with **"I am also technically human"**, written with the truth pen (🖋️), which also verified **TRUE** on the basis of his human origin/identity despite extraordinary divine abilities. Clarissa and Celeste highlight that he has included himself in the category he called inferior; this is not a logical contradiction unless the specific meaning creates one. No objective hierarchy, moral devaluation or change in citizenship law has been established. Clarissa asks what dimension of inferiority Elys means. The prior question about Elys and Celeste's secret divine marriage remains unresolved; Clarissa still doesn't know the source of her extraordinary strength. Both Elys and Celeste SSS certified, with Celeste in formal uniform, gifted alternate clothing/collar/leash boxed and celebration pending. [Turn 000251](turns/000251.md).
 
 ## Examination ledger
 
