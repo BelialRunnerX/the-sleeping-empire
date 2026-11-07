@@ -312,6 +312,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000162](turns/000162.md) | CLXVI | Played turn | Elys teases Celeste about the ocean's bottomless depths while she keeps eating; she invites him to feed her pie | [000000](checkpoints/000000.md) |
 
+| [000163](turns/000163.md) | CLXVII | Played turn | Elys, Clarissa and Celeste depart Bellwynn for twilight planet Veyrath; Lucien remains for Bel and baking | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
