@@ -18,6 +18,16 @@
 ### Compatibility
 Uses the existing `astral_empire_v1` browser save key and `version: 1` JSON schema. Version 1 / 1.1 saves are migrated in place with new optional fields initialized. Local browser storage is device-specific; export JSON to transfer.
 
+### Verification
+
+Run the dependency-free smoke suite from the repository root:
+
+```bash
+node docs/games/astral-empire/tests/smoke.mjs
+```
+
+It covers first launch, local saves, crafting, elemental reactions, summons, hero awakening, expeditions, daily boss victories, and daily reward locking. A GitHub Actions workflow (`.github/workflows/astral-empire-smoke.yml`) is configured to run it on changes to this game.
+
 ### Offline update behavior
 The service worker uses network-first caching for game documents so online visitors receive updates, while offline visitors can still load the latest locally cached page. The cache is scoped to the game subdirectory.
 
