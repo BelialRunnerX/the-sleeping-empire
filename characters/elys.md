@@ -42,3 +42,7 @@ A commanding, god-like figure with a regal and ancient presence. Wears ornate bl
 Unspecified ages, origins, powers and relationships remain unestablished. Earlier archive snapshots describe earlier periods; current updates do not retroactively change those scenes. See the [source coverage note](../chronicle/SOURCE_COVERAGE.md).
 
 [All character profiles](../Character_Index.md)
+
+## Marital relationships — updated player canon
+
+Elys remains **married to Celeste Somnion**, a divine-realm marriage still in force, **while engaged to Clarissa Somnion**, who is not yet his wife. The Empire has **no laws mandating monogamy**. Clarissa has not yet been told of the Elys–Celeste marriage. [Authoritative correction](../saves/canon/elys-celeste-current-marriage-no-imperial-monogamy.md).
