@@ -487,3 +487,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000263](turns/000263.md) | CCII | Played turn | Elys climaxes, ending encounter with Celeste; Clarissa asks what happens next | [000000](checkpoints/000000.md) |
 | [000264](turns/000264.md) | CCIII | Played turn | Elys corrects intimacy continuity: second climax intended only after Celeste's, neither has yet occurred | [000000](checkpoints/000000.md) |
 | [000265](turns/000265.md) | CCIV | Played turn | Elys asks Celeste how she feels; she affirms feelings and concerns for Clarissa; Clarissa requests candor | [000000](checkpoints/000000.md) |
+| [000266](turns/000266.md) | CCV | Played turn | Elys completes intimate encounter; Clarissa presses for honest relationship commitment | [000000](checkpoints/000000.md) |
