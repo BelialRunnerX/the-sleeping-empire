@@ -402,6 +402,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000207](turns/000207.md) | CLXVII | Played turn | Elys argues simulated mountain unnecessarily complicated; Celeste ready | [000000](checkpoints/000000.md) |
 
+| [000208](turns/000208.md) | CLXVIII | Played turn | Celeste begins SSS shipyard recovery, 14 minutes remaining | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
