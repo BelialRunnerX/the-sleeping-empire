@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000246
+**Save sequence:** 000247
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXV: Garrick opens a read-only Imperial Armory catalog preview in the Annex; Celeste asks Elys whether to choose weapons, statistics or cake.
-**Latest record:** [000246](turns/000246.md)
+**Story endpoint:** Chapter CLXXXVI: Elys asks about Emperor-reserved weapons; Garrick explains sovereign-keyed binding, but no existing item is yet verified as Emperor-exclusive or in Elys's possession.
+**Latest record:** [000247](turns/000247.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Following the explanation that **SSS is the highest current standard examination rank**, Garrick opens a **read-only Imperial Armory equipment catalog** at the Annex. This is a holographic inspection console, not actual crafting or resource transfer. Seraphine clarifies that **SSS exam certification is separate from SSS Sovereign item grade**. No items, stats, materials, currencies, loot, or rank have changed, and no forge action or random draw has occurred. Celeste jokes about no confirmed gear ownership despite SSS status, and admires a concept-only silver spear. Clarissa joins the banter. **Celeste asks Elys “So which shall it be? Weapons, statistics, or cake?”** Elys has not answered. Read-only user-facing character/forge/gem menus are available in the reply. Both Elys and Celeste SSS certified, Clarissa rank pending, celebration delayed. Clarissa knows pre-Empire other-realm ties with Celeste but **not the hidden prior divine marriage**, nor the fact Elys granted her vast strength. No truth pen. Celeste dressed in restored white-black formal uniform; alternate gifts and collar/leash boxed. [Turn 000246](turns/000246.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asks **“Any weapons reserved for the Emperor?”** Garrick opens a read-only **Sovereign-keyed armament** interface in the Armory catalog, explaining the system supports exclusive binding to an Imperial sovereignty key, but **no specific item is currently verified as Emperor-exclusive or as owned by Elys**. Seraphine suggests an **Imperial Regalia** designation could be formally established if Elys wills it; **no such decree/designation has been made**. Concepts displayed: `U-001 Singularity Dagger` (Elys's established invention, proposed SSS gear grade only; ownership, location, enhancement and exclusivity UNKNOWN), and `U-007 Thirteenfold Dawn` (SSS solar spear blueprint only; not crafted or awarded). Item grade and examination rank remain independent, and sovereign-keyed binding need not be Emperor-exclusive by default. Celeste asks what weapon Elys would consider worthy of himself; Garrick jokes about missing inventory documentation. **No items, character stats, ranks, resources, gear, money or ownership changed**. Elys and Celeste both SSS certified, Clarissa rank pending, celebration not begun. Clarissa knows pre-Empire other-realm facts about Elys/Celeste but **not their secret divine marriage** or the source of her own great strength. No truth pen. Celeste wears restored white-black SSS uniform, gifts boxed. [Turn 000247](turns/000247.md).
 
 ## Imperial Armory Codex and standardized narration (rules activated, not a story turn)
 
