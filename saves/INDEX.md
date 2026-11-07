@@ -296,7 +296,7 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000160](turns/000160.md) | CLXIV | Played turn | Elys advises Lucien to be blunt and sincere; Lucien asks whether one flower is too much | [000000](checkpoints/000000.md) |
 
-| [000161](turns/000161.md) | CLXV | Played turn | Lucien and Celeste enter pie contest; mayor wins; Lucien offered tomorrow's dessert showcase | [000000](checkpoints/000000.md) |
+| [000161](turns/000161.md) | CLXV | Played turn | Celeste wins pie contest through innate divine eating capacity (not magic); Lucien offered dessert showcase | [000000](checkpoints/000000.md) |
 
 ## Historical coverage
 
