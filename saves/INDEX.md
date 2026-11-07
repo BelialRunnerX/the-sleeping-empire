@@ -474,3 +474,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000250](turns/000250.md) | CLXXXIX | Played turn | Lethe identifies Axiom, Prima and Nihil as Apophatic AI directors and offers technical consultation | [000000](checkpoints/000000.md) |
 | [000251](turns/000251.md) | CXC | Played turn | Elys orders Axiom, Prima, Nihil to design maximum-specification million-year god-killer staff/spear, no costs capped; plan only | [000000](checkpoints/000000.md) |
 | [000252](turns/000252.md) | CXCI | Played turn | Elys commissions U-013-Ω exclusively for himself with 24-hour delivery requirement, safety review and tracking | [000000](checkpoints/000000.md) |
+| [000253](turns/000253.md) | CXCII | Played turn | Elys jokes about god-killer versus cake paperwork, then mandates sentient right-side companion Aletheia with humanoid Materia form in IR-0001 | [000000](checkpoints/000000.md) |
