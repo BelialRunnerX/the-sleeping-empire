@@ -484,3 +484,6 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000260](turns/000260.md) | CXCIX | Played turn | Mira briefs Elys on public observatory record of vanished planet; real cause remains unknown to Guild, no anomaly investigation contract | [000000](checkpoints/000000.md) |
 | [000261](turns/000261.md) | CC | Played turn | Elys selects SSS-004 Sepulcher Between Stars: 900-metre Pallbearer King multi-phase boss mission accepted, deployment and reward pending | [000000](checkpoints/000000.md) |
 | [000262](turns/000262.md) | CCI | Played turn | Elys asks for boss bigger than Pallbearer King; Mira reveals uncommissioned 42km Nadir Leviathan, Sepulcher SSS-004 contract remains accepted | [000000](checkpoints/000000.md) |
+| [000263](turns/000263.md) | CCII | Played turn | Elys travels to Sepulcher exterior, surveys space-folding fortress, observes six-horned giant without engaging | [000000](checkpoints/000000.md) |
+| [000264](turns/000264.md) | CCIII | Played turn | Elys throws Aletheia at Pallbearer King's weak spot, defeats giant outer vessel, reveals seven Phase II shadows | [000000](checkpoints/000000.md) |
+| [000265](turns/000265.md) | CCIV | Played turn | Aletheia homing-missile attack pierces 7/7 Unwritten Choir vessels; Heart of Sepulcher archival core revealed and speaking | [000000](checkpoints/000000.md) |
