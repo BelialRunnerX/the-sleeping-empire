@@ -3,11 +3,14 @@
 **Save sequence:** 000161  
 **Type:** played turn; prior baseline reconstructed  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXV, Celeste wins pie contest using innate divine eating capacity (not magic), Lucien participates fairly; Lucien asks Elys whether he can do dessert showcase and pursue Bel tomorrow
+**Story endpoint:** Chapter CLXV (revised), Celeste messily devours 24 pies to win, continues eating unscored after bell; Lucien asks Elys if he can pursue dessert showcase and Bel tomorrow.
 **Latest record:** [000161](turns/000161.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
+
+**LATEST AUTHORITATIVE SCENE REWRITE:** Chapter CLXV / Turn 000161 was rewritten in full: **Celeste has an exuberantly messy, utterly shameless pie-eating performance, eats 24 scored pies to win, and DOES NOT STOP at the bell**. She continues to eat unscored pies afterward, covered in violetberry filling and crust, delighted at being watched and teased, especially by Elys. Her divine eating capacity is **innate, not magic**; no rules violated. **Never revert to 3-pie loss or 24 as an absolute ceiling on her appetite.** She is STILL eating at the current story endpoint while Lucien asks whether he can pursue tomorrow's dessert showcase and Bel. [Rewritten canonical turn](turns/000161.md).
+
 
 **LATEST AUTHORITATIVE PLAYER CANON:** **Elys and Celeste Somnion ARE STILL MARRIED** (divine-realm marriage never ended), and **the Empire has NO monogamy laws**. Clarissa Somnion remains **Elys's FIANCÉE, NOT WIFE**, and **does NOT KNOW** he is married to Celeste. Earlier claims that Elys/Celeste's current marital status was undefined or former are superseded. No story action advanced. [Canon](canon/elys-celeste-current-marriage-no-imperial-monogamy.md).
 
