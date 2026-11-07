@@ -392,6 +392,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000202](turns/000202.md) | CLXVII | Played turn | Providential Resolution passes SSS operational trial without coercion | [000000](checkpoints/000000.md) |
 
+| [000203](turns/000203.md) | CLXVII | Played turn | Elys receives SSS restraint and judgment case briefing; decision pending | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
