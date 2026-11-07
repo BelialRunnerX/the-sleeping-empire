@@ -1,25 +1,25 @@
 # Current Story State
 
-**Save sequence:** 000190  
+**Save sequence:** 000191  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Clarissa completes magical aptitude 97/100; all magic exams complete, physical next.
-**Latest record:** [000190](turns/000190.md)  
+**Story endpoint:** Chapter CLXVII: Elys earns physical 100/100 at rated machine limits; Celeste next.
+**Latest record:** [000191](turns/000191.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath.** User selected to watch **Clarissa's detailed magical exam**. Clarissa shows lower-scale magic than Elys/Celeste but excellent discipline: passes calibrated output while declining unsafe optional higher output; precision ring has one recovered tolerance slip; controls 36 dynamic targets with six grouped reference fields and two small delays; completes all breadth tests with notably excellent defense/ward fail-safe design; finishes 12-minute endurance with small drift but safe termination. Garrick scores **Clarissa Somnion magical aptitude 97/100**. Clarissa says she can improve; Celeste praises her safety competence. All three magical examinations are completed. **Physical aptitude next**, with force plates, inertial rigs and load-bearing apparatus. Garrick warns that machinery must not be overloaded. No physical test or order chosen. **Clarissa has no idea Elys secretly granted her overwhelming physical might.** [Turn 000190](turns/000190.md).
+**9 Deepfall, 13,627 ICE, late afternoon, Lumenfall Free Adventurers' Guild, Veyrath physical aptitude hall.** User chose to begin Elys's physical examination. He completed bounded no-magic, non-destructive test on strength, acceleration/reaction, coordination/balance, safe resilience and delicate force control. He reached upper certified machine range without loss of precision, safety violation or damage; fragile glass cylinder force test passed. Garrick records **Elys Somion physical 100/100 (CERTIFIED RANGE)**, with absolute maximum unmeasured. Celeste jokes that Elys defeated another facility by honoring its manual; Clarissa notices force control. Garrick **calls Celeste next for physical testing**; no test begun yet. [Turn 000191](turns/000191.md).
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
-|---|---:|---:|---:|---:|---|
-| Elys Somion | 99 | 100 | 100 | 100 | Not begun |
+|---|---:|---:|---:|---:|---:|
+| Elys Somion | 99 | 100 | 100 | 100 | **100** |
 | Celeste Somnion | 98 | 100 | 99 | 99 | Not begun |
-| Clarissa Somnion | 96 | 98 | 100 | **97** | Not begun |
+| Clarissa Somnion | 96 | 98 | 100 | 97 | Not begun |
 
-All candidates remain UNRANKED until physical assessment and rank determination. Elys/Celeste are still married from divine realm; fiancée Clarissa unaware. Clarissa's immense physical gift is unknown to her until revealed by her experience or player disclosure. Preserve non-destructive testing, no arbitrary nerfs to Elys/Celeste. Continue cinematic with exactly six emoji-numbered choices.
+Guild ranks not formally awarded until all assessments conclude. All physical equipment has finite rated limits and must be respected, not shattered to demonstrate divine might. **Clarissa's physically overwhelming Elys-given blessing remains unknown to her** until forthcoming test/reveal; she knows her usual physical ability from prior experiences but not its supernatural scale. The fact that Elys and Celeste are married from divine realm is still hidden from fiancée Clarissa. Six emoji-numbered choices, evocative scene, maintain Elys agency.
 
 ## Canonical in-universe date
 
