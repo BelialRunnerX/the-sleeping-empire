@@ -4,14 +4,14 @@ Individual profiles consolidated from the foundational archive, academy chronicl
 
 Profiles with limited source material deliberately retain those gaps. [Source coverage and limits](chronicle/SOURCE_COVERAGE.md).
 
-**LATEST USER CONTINUITY:** Clarissa Somnion is **Elys's wife**, not fiancée. [Authoritative record](saves/canon/clarissa-married-celeste-elys-dynamic.md).
+**LATEST USER CONTINUITY:** Clarissa Somnion is **Elys's fiancée, not his wife**. [Authoritative record](saves/canon/clarissa-married-celeste-elys-dynamic.md).
 
 ## Imperial court and historical figures
 
 | Character | Role |
 |---|---|
 | [Elysomnion](characters/elys.md) | Emperor · undercover independent researcher |
-| [Clarissa Somnion](characters/clarissa.md) | Wife of Elys · sovereign of Andromeda |
+| [Clarissa Somnion](characters/clarissa.md) | Fiancée of Elys · sovereign of Andromeda |
 | [Aurelia](characters/aurelia.md) | Immortal Hand · Regent of the Empire |
 | [Bel](characters/bel.md) | Immortal Hand · Diplomacy |
 | [Lillith](characters/lillith.md) | Immortal Hand · Military command |
