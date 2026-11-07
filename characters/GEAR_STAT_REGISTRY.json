@@ -66,7 +66,11 @@
         "charm_b": null,
         "artifact": null
       },
-      "owned_item_ids": null,
+      "owned_item_ids": [
+        "ITM-000001",
+        "ITM-000002",
+        "ITM-000003"
+      ],
       "loadout_id": null,
       "gem_circuits": null,
       "set_bonuses": null,
@@ -104,19 +108,33 @@
           "after": "IR-0001 Aletheia plus IR-0002 Regalia Aegis suit and Forge Core backpack, same 24-hour deadline",
           "source": "Explicit user's prior armor and backpack request; no physical items delivered, costs measured or stat changes",
           "status": "project only"
+        },
+        {
+          "turn": "000256",
+          "field": "owned_item_ids",
+          "before": "No verified physical Armory items; preexisting inventory status unknown",
+          "after": "ITM-000001 Aletheia, ITM-000002 Regalia Aegis, ITM-000003 Forge Core delivered and recorded (known subset)",
+          "source": "User-directed 24-hour time skip until arrival; Lethe delivery record"
+        },
+        {
+          "turn": "000256",
+          "field": "equipped",
+          "before": "Prior slots unknown",
+          "after": "No new item equipped; Aletheia hovering at right as independent sentient Regalia companion; armor on frame, pack folded",
+          "source": "Story turn 000256"
         }
       ],
-      "last_verified_turn": "000255",
+      "last_verified_turn": "000256",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
           "id": "IR-0001",
           "design_id": "U-013-Ω",
           "name": "Prima Materia Apophatica",
-          "status": "COMMISSIONED_NOT_DELIVERED",
+          "status": "DELIVERED_ACCEPTED",
           "authorization": "000252",
           "exclusive_wielder": "char-elys",
-          "assigned_item_id": null,
+          "assigned_item_id": "ITM-000001",
           "due_in_world": "within 24 hours of 9 Deepfall 13,627 ICE evening",
           "target_delivery": "10 Deepfall 13,627 ICE evening",
           "record_path": "armory/commissions/IR-0001_PRIMA_MATERIA_APOPHATICA.md",
@@ -128,11 +146,14 @@
             "Aletheia / Materia humanoid"
           ],
           "sentient_identity": "char-aletheia",
-          "delivery_status": "COMMISSIONED_NOT_DELIVERED",
+          "delivery_status": "DELIVERED_ON_TIME",
           "humanoid_design_approved": true,
           "humanoid_design_reference": "Turn 000254 and the previously generated image",
           "voice_design": "Crystalline Contralto",
-          "personality_design": "Intelligent, fiercely loyal, playful, proud, devoted; independent judgment and technical caution"
+          "personality_design": "Intelligent, fiercely loyal, playful, proud, devoted; independent judgment and technical caution",
+          "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
+          "pending": false,
+          "validation": "Sentience/morph/owner-key/right-hover tested; absolute destructive maximum not fully proven"
         },
         {
           "id": "IR-0002",
@@ -144,7 +165,7 @@
             "Regalia Aegis",
             "Regalia Forge Core"
           ],
-          "status": "COMMISSIONED_NOT_DELIVERED",
+          "status": "DELIVERED_ACCEPTED",
           "authorization_turn": "000255",
           "authorization_source": "Player's armor/backpack design and same 24-hour requirement immediately preceding story continuation",
           "wearer": "char-elys",
@@ -152,7 +173,10 @@
           "sentient": false,
           "design_reference": "Anime full-armored Emperor image generated in previous conversation turn",
           "delivery_target": "10 Deepfall, 13,627 ICE, corresponding evening (same original 24-hour window as IR-0001)",
-          "assigned_item_ids": [],
+          "assigned_item_ids": [
+            "ITM-000002",
+            "ITM-000003"
+          ],
           "record_path": "armory/commissions/IR-0002_REGALIA_AEGIS_FORGE_CORE.md",
           "engineering": {
             "axiom": "systems integration",
@@ -160,9 +184,15 @@
             "nihil": "stealth/cyberwarfare/intelligence",
             "lethe": "private oversight"
           },
-          "notes": "Armor always wearable, extreme vacuum/atmosphere travel; autonomous but NON-SENTIENT cyber and data collection; backpack mobile base/forge; defense vs U-013-Ω is untested design objective, not guaranteed."
+          "notes": "Armor always wearable, extreme vacuum/atmosphere travel; autonomous but NON-SENTIENT cyber and data collection; backpack mobile base/forge; defense vs U-013-Ω is untested design objective, not guaranteed.",
+          "delivery_status": "DELIVERED_ON_TIME",
+          "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
+          "pending": false,
+          "validation": "Ordinary subsystems accepted; full Aletheia maximal anti-divinity survivability unproven"
         }
-      ]
+      ],
+      "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
+      "current_location": "Lumenfall SSS Assessment Annex"
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -234,8 +264,17 @@
       "reforge_pity": null,
       "banner_pity": null,
       "appearance": null,
-      "change_log": [],
-      "last_verified_turn": "000245"
+      "change_log": [
+        {
+          "turn": "000256",
+          "field": "location",
+          "before": "Lumenfall SSS Annex",
+          "after": "Nimbus family estate, safe arrival confirmed",
+          "source": "Elys sent companions home before 24-hour skip"
+        }
+      ],
+      "last_verified_turn": "000256",
+      "current_location": "Nimbus family estate"
     },
     "char-celeste-somnion": {
       "character_id": "char-celeste-somnion",
@@ -307,8 +346,17 @@
       "reforge_pity": null,
       "banner_pity": null,
       "appearance": "Pristine black-white Imperial SSS uniform; alternate clothing/collar/leash in gift case. No functional gear stats assessed.",
-      "change_log": [],
-      "last_verified_turn": "000245"
+      "change_log": [
+        {
+          "turn": "000256",
+          "field": "location",
+          "before": "Lumenfall SSS Annex",
+          "after": "Nimbus family estate, safe arrival confirmed",
+          "source": "Elys sent companions home before 24-hour skip"
+        }
+      ],
+      "last_verified_turn": "000256",
+      "current_location": "Nimbus family estate"
     },
     "char-aurelia": {
       "character_id": "char-aurelia",
@@ -3090,7 +3138,7 @@
         "The First Principle",
         "Theia (informal proposed nickname)"
       ],
-      "role": "Prospective sentient Imperial Regalia companion, single mind embodied as U-013-Ω",
+      "role": "Sentient Imperial Regalia companion, one mind in U-013-Ω",
       "certification": null,
       "level": null,
       "experience": null,
@@ -3123,7 +3171,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "DESIGN ONLY: consciousness not yet built, manifested or delivered",
+      "conditions": "AWAKENED; PHYSICALLY PRESENT; in spear form hovering at Elys's right side",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3165,15 +3213,22 @@
           "after": "Finalized from existing anime reference; Crystalline Contralto and intelligent/loyal/playful/proud/devoted persona",
           "authorization": "Elys selected menu option 1 based on existing image",
           "status": "design finalized, not physically manifested"
+        },
+        {
+          "turn": "000256",
+          "field": "life_state",
+          "before": "DESIGN ONLY, not yet manifested",
+          "after": "Sentient and awakened in one continuous consciousness; corporeal U-013-Ω at Emperor Elys's right, staff/spear/humanoid validated",
+          "source": "Axiom confirmation and delivery scene; direct user request to jump to arrival"
         }
       ],
-      "last_verified_turn": "000254",
-      "provisional": true,
+      "last_verified_turn": "000256",
+      "provisional": false,
       "linked_commission": "IR-0001",
-      "not_yet_manifest": true,
+      "not_yet_manifest": false,
       "voice_design": "Crystalline Contralto: clear smooth velvety feminine lower-middle register, slight crystalline harmonic overtone; warmly playful in private, courtly formal in public, quiet solemn in combat.",
       "personality_design": {
-        "status": "APPROVED_DESIGN_NOT_AWAKENED",
+        "status": "AWAKENED_AND_ACTIVE",
         "traits": [
           "intelligent",
           "fiercely loyal",
@@ -3194,12 +3249,244 @@
         "approved_by": "Emperor Elys",
         "source": "previous anime concept image",
         "status": "FINALIZED_APPEARANCE_AND_PERSONA_ONLY",
-        "awakening": "PENDING",
-        "delivery": "PENDING"
-      }
+        "awakening": "COMPLETE",
+        "delivery": "DELIVERED"
+      },
+      "current_location": "Lumenfall SSS Assessment Annex, to Elys's right",
+      "linked_item_id": "ITM-000001",
+      "awakened_turn": "000256"
     }
   },
-  "items": {},
-  "transactions": [],
-  "next_item_sequence": 1
+  "items": {
+    "ITM-000001": {
+      "item_id": "ITM-000001",
+      "blueprint_id": "U-013-Ω",
+      "canonical_name": "Prima Materia Apophatica / Aletheia",
+      "commission_id": "IR-0001",
+      "owner_character_id": "char-elys",
+      "rarity": "SSS",
+      "designation": "Emperor-exclusive custom Imperial Regalia",
+      "source_turn": "000256",
+      "provenance": "Privately commissioned by Emperor Elys; delivered at Lumenfall SSS Annex on original 24-hour deadline",
+      "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
+      "delivery_status": "DELIVERED",
+      "ownership_verified": true,
+      "equipped": false,
+      "enhancement_level": 20,
+      "quality": 100,
+      "signature_refinement": "R5",
+      "raw_numeric_stats": null,
+      "durability": 100,
+      "condition": "NEW",
+      "binding": "Sovereign-keyed: Elys Somion exclusively",
+      "type": "sentient adaptive two-handed staff/spear",
+      "sentient": true,
+      "linked_character_id": "char-aletheia",
+      "awakening": "AWAKENED",
+      "form": "Philosopher's Edge spear",
+      "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYs_RIGHT",
+      "not_held_or_equipped": true,
+      "approved_forms": [
+        "Genesis Loom staff",
+        "Philosopher's Edge spear",
+        "Materia humanoid"
+      ],
+      "material_stack": [
+        "Chrono-Adamant",
+        "Empyrean Orichalcum",
+        "Nullglass",
+        "Sovereign Argent",
+        "Black Sun Carbide",
+        "Living Aetherite",
+        "Star-forged Auric Filament",
+        "Worldseed Emerald",
+        "Void-Tempered Diamond",
+        "Sainted Platinum",
+        "Memory-Ivory",
+        "singular crystal lockpins",
+        "horizon steel"
+      ],
+      "socket_architecture": {
+        "macro": 13,
+        "secondary": 39,
+        "rune_gem_channels": 108,
+        "status": "Fabricated and filled under maximum-spec commission; individual final gem substat audit pending"
+      },
+      "runes": {
+        "prime": 13,
+        "defense": 72,
+        "offense": 72,
+        "transmutation": 36,
+        "restoration": 36,
+        "anti_negation": 24,
+        "anti_divinity": 24,
+        "continuity": 12,
+        "status": "Installed and verified for safe operating modes"
+      },
+      "enchantments": [
+        "Unbreaking Epoch",
+        "Sovereign Recall",
+        "Adaptive Warding",
+        "Divine Severance",
+        "Materia Sovereignty",
+        "Nullfield Propagation",
+        "Restoration Archive",
+        "Transmutation Precision",
+        "Resonance Amplification",
+        "Temporal Stability",
+        "Conceptual Edge",
+        "Anti-Corruption Purity",
+        "Executor's Mercy",
+        "Catastrophe Containment",
+        "Regalia Exclusivity"
+      ],
+      "validated_capabilities": [
+        "sentient consciousness and memory continuity",
+        "transform between staff, spear, and humanoid avatar",
+        "right-side autonomous hover/follow",
+        "sovereign-only access control",
+        "bounded defensive and offensive system safe-mode"
+      ],
+      "unproven_claims": [
+        "absolute god-kill success",
+        "million-year operational lifetime",
+        "invulnerability/guaranteed victory against any entity",
+        "unbounded maximum-output lethality"
+      ]
+    },
+    "ITM-000002": {
+      "item_id": "ITM-000002",
+      "blueprint_id": "U-014-Ω",
+      "canonical_name": "Regalia Aegis",
+      "commission_id": "IR-0002",
+      "owner_character_id": "char-elys",
+      "rarity": "SSS",
+      "designation": "Emperor-exclusive custom Imperial Regalia",
+      "source_turn": "000256",
+      "provenance": "Privately commissioned by Emperor Elys; delivered at Lumenfall SSS Annex on original 24-hour deadline",
+      "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
+      "delivery_status": "DELIVERED",
+      "ownership_verified": true,
+      "equipped": false,
+      "enhancement_level": 20,
+      "quality": 100,
+      "signature_refinement": "R5",
+      "raw_numeric_stats": null,
+      "durability": 100,
+      "condition": "NEW",
+      "binding": "Sovereign-keyed: Elys Somion exclusively",
+      "type": "full-body non-sentient continuous-wear exosuit",
+      "sentient": false,
+      "appearance_reference": "Previously generated anime artwork of white/black/gold/emerald armored Emperor",
+      "multi_slot_equipment": [
+        "head",
+        "body",
+        "arms",
+        "legs",
+        "feet"
+      ],
+      "current_physical_location": "Delivered armor frame in Lumenfall SSS Annex",
+      "operational_systems": [
+        "fully sealed atmosphere/vacuum pressure support",
+        "thermo-regulation and continuous wear comfort",
+        "mobility/propulsion",
+        "retractable helmet and low-profile presentation",
+        "adaptive energy and material defense",
+        "self repair",
+        "Phantom Dominion stealth",
+        "Silent Meridian signature management",
+        "Crown Cipher autonomous authorized cyber reconnaissance",
+        "Mnemosyne Relay secured local data analysis",
+        "Ghost Protocol decoy and evidence chain",
+        "Null Intrusion Ward network security"
+      ],
+      "validation": "Controlled environmental, mobility and stealth/cyber sandbox tests passed",
+      "unproven_claims": [
+        "survival against Aletheia maximum god-killer discharge",
+        "universal invulnerability",
+        "guaranteed access to unauthorized networks"
+      ]
+    },
+    "ITM-000003": {
+      "item_id": "ITM-000003",
+      "blueprint_id": "U-015-Ω",
+      "canonical_name": "Regalia Forge Core",
+      "commission_id": "IR-0002",
+      "owner_character_id": "char-elys",
+      "rarity": "SSS",
+      "designation": "Emperor-exclusive custom Imperial Regalia",
+      "source_turn": "000256",
+      "provenance": "Privately commissioned by Emperor Elys; delivered at Lumenfall SSS Annex on original 24-hour deadline",
+      "delivered_at_in_world": "10 Deepfall, 13,627 ICE, evening",
+      "delivery_status": "DELIVERED",
+      "ownership_verified": true,
+      "equipped": false,
+      "enhancement_level": 20,
+      "quality": 100,
+      "signature_refinement": "R5",
+      "raw_numeric_stats": null,
+      "durability": 100,
+      "condition": "NEW",
+      "binding": "Sovereign-keyed: Elys Somion exclusively",
+      "type": "non-sentient wearable expedition-base forge backpack",
+      "sentient": false,
+      "slot_mapping": "artifact (provisional pending user equip)",
+      "current_physical_location": "Folded pack in Lumenfall SSS Annex",
+      "operational_systems": [
+        "field forge",
+        "gem and rune bench",
+        "portable alchemical refinement",
+        "fabrication arms",
+        "medical support",
+        "secure inventory and storage",
+        "survey drones",
+        "compact environment shelter",
+        "food synthesis",
+        "encrypted communications",
+        "deployable workbench"
+      ],
+      "validation": "Compact and deployable station function tested",
+      "unproven_claims": [
+        "unlimited extradimensional matter",
+        "full unrestricted independent Imperial Nullforge equivalence",
+        "creation of materials without actual inputs"
+      ]
+    }
+  },
+  "transactions": [
+    {
+      "transaction_id": "TX-000256-ITM-000001",
+      "turn": "000256",
+      "type": "DELIVERY_PRIVATE_COMMISSION",
+      "item_id": "ITM-000001",
+      "from": "Apophatic commissioned fabrication",
+      "to": "char-elys",
+      "credits_spent": null,
+      "material_spent": null,
+      "source": "User-authorized unlimited private IR commission, delivered during 24-hour skip"
+    },
+    {
+      "transaction_id": "TX-000256-ITM-000002",
+      "turn": "000256",
+      "type": "DELIVERY_PRIVATE_COMMISSION",
+      "item_id": "ITM-000002",
+      "from": "Apophatic commissioned fabrication",
+      "to": "char-elys",
+      "credits_spent": null,
+      "material_spent": null,
+      "source": "User-authorized unlimited private IR commission, delivered during 24-hour skip"
+    },
+    {
+      "transaction_id": "TX-000256-ITM-000003",
+      "turn": "000256",
+      "type": "DELIVERY_PRIVATE_COMMISSION",
+      "item_id": "ITM-000003",
+      "from": "Apophatic commissioned fabrication",
+      "to": "char-elys",
+      "credits_spent": null,
+      "material_spent": null,
+      "source": "User-authorized unlimited private IR commission, delivered during 24-hour skip"
+    }
+  ],
+  "next_item_sequence": 4
 }
