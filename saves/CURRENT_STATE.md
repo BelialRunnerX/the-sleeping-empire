@@ -1,25 +1,27 @@
 # Current Story State
 
-**Save sequence:** 000183  
+**Save sequence:** 000184  
 **Type:** played turn  
 **Recorded:** 2026-11-06
-**Story endpoint:** Chapter CLXVII: Elys inspected magical assessment apparatus, no magical exam begun.
-**Latest record:** [000183](turns/000183.md)  
+**Story endpoint:** Chapter CLXVII: Elys begins magical exam, passes low-energy calibration; three-ring precision exercise awaits his approach.
+**Latest record:** [000184](turns/000184.md)  
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude laboratory.** User selected option 5 to **inspect magical measurement devices and safeguards**. The guild has six crystal columns and test lanes for output, precision, control, breadth, endurance; voluntary effects with absorber lattices and independent aborts. Instruments have finite ceiling; above it, display reads **ABOVE INSTRUMENT RANGE**. Shutdown controls test lattice, not a person's unlimited magic. Elys and Celeste cannot be force-suppressed by devices; Garrick says top score is measured through executing a safe assignment rather than overpowering equipment. Celeste and Clarissa comment approvingly on honest instrument range and practical scoring. **Garrick offers low-energy calibration or alternate measurement protocol. No magical test started or scored.** [Turn 000183](turns/000183.md).
+**9 Deepfall, 13,627 ICE, afternoon, Lumenfall Free Adventurers' Guild, Veyrath magical aptitude lab.** Player chose option 1 to begin Elys's safe controlled magical examination. Garrick's first low-power calibration asks for stable field around a suspended protected crystal; Elys produces low-power tightly regulated field, sensors report 0.000% fluctuation at display resolution, 0.001% containment load, no unintended emission. Garrick cautions **below detection limit != mathematical perfection**. This is a successful initial calibration, not Elys's full output or a final magical score.
+
+**Live decision:** Three rings rotate about a protected central crystal. Garrick asks Elys to position them independently without measurable force on the core. Elys has not moved rings or chosen mechanism. Celeste jokes about Elys inventing physics; Clarissa dryly remarks that it would be excessive even for him. See [Turn 000184](turns/000184.md). This is a detailed exam, so do not skip or score entire test before player does next action. Elys controls his next move.
 
 ## Examination ledger
 
 | Candidate | Strategy | Technical | Operational | Magical | Physical |
 |---|---:|---:|---:|---|---|
-| Elys Somion | 99 | 100 | 100 | Not begun | Not begun |
+| Elys Somion | 99 | 100 | 100 | In progress: calibration successful | Not begun |
 | Celeste Somnion | 98 | 100 | 99 | Not begun | Not begun |
 | Clarissa Somnion | 96 | 98 | 100 | Not begun | Not begun |
 
-All UNRANKED. Clarissa's overwhelming physical blessing secretly from Elys is unknown to her; her fiancé Elys and Celeste's ongoing divine-realm marriage still undisclosed. Keep exact six menu options and visual staging. Elys remains player controlled, except when explicitly delegated.
+All still UNRANKED. Elys and Celeste's continuing divine-realm marriage not known to fiancée Clarissa; Clarissa's enormous physical blessing from Elys unknown to Clarissa. Non-destructive measurement; instrument maximum is finite, with ABOVE INSTRUMENT RANGE available. Mandatory header, visual atmosphere and six distinct emoji-numbered options per narrative turn.
 
 ## Canonical in-universe date
 
