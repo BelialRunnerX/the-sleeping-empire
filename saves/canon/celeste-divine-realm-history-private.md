@@ -12,3 +12,7 @@
 ## Partial disclosure in Chapter CLI / Turn 000147
 
 Elys personally told Clarissa that he and Celeste **grew up together, or grew out of, the divine realm**, that he was surprised by Celeste's presence because he did not know other **Divines** had visited this reality, and that Celeste is **an embodiment of time or the ocean depending on perspective**. These facts are now known to Clarissa and not categorically secret. **The marriage remains PRIVATE and was NOT disclosed.** Celeste upheld that boundary.
+
+## Clarissa's current status — player correction
+
+The player has now explicitly clarified that **Elys and Clarissa are MARRIED**, superseding old descriptions of Clarissa as his fiancée. The earlier divine-realm marriage of **Elys and Celeste** remains a **secret from Clarissa** and its present legal/metaphysical status has not been established. [Later canon](clarissa-married-celeste-elys-dynamic.md).
