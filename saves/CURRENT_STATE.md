@@ -1,15 +1,15 @@
 # Current Story State
 
-**Save sequence:** 000242
+**Save sequence:** 000243
 **Type:** played turn
 **Recorded:** 2026-11-07
-**Story endpoint:** Chapter CLXXXI: Elys truthfully proves with a magical verification pen that he and Celeste have been childhood friends; Clarissa realizes this does not rule out a later relationship and presses for fuller disclosure.
-**Latest record:** [000242](turns/000242.md)
+**Story endpoint:** Chapter CLXXXII: Elys verifies ‘Me and Celeste are friends’ with truth ink, but Clarissa presses past technical truths and directly asks if he and Celeste were ever married.
+**Latest record:** [000243](turns/000243.md)
 **Checkpoint:** [000000](checkpoints/000000.md)
 
 ## Resume at this exact beat
 
-**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys responded to Clarissa's question with “We're childhood friends, of course,” producing a truth-verifying pen and writing **“Celeste Somnion and I have been friends since childhood.”** Ink glowed gold **TRUE**, verifying only that claim. Clarissa correctly noted it could be true yet incomplete, offering examples of childhood friends who later became lovers or spouses. Celeste seemed uneasy at “married” and pointed out Elys hadn't lied. **Clarissa asks Elys to write a more comprehensive statement and awaits his answer.** No admission of their past secret divine marriage yet; Clarissa is still unaware of her immense strength's origin. Elys retains the truth pen; the verified statement is on paper. Celeste in pristine restored formal Imperial SSS uniform, gift clothes/collar/leash cased and in her possession. Elys and Celeste both certified, celebration pending. [Turn 000242](turns/000242.md).
+**9 Deepfall, 13,627 ICE, evening, Lumenfall SSS Annex.** Elys asked “Relationship was, or is?” and wrote “Me and Celeste are friends” with his magical truth pen; the ink confirmed **TRUE**. Two verified statements are now written: lifelong childhood friendship and current friendship. Garrick, Seraphine and Clarissa observe the truth of these statements does not establish completeness. Celeste laughed but became more serious as Clarissa pressed. **Clarissa has now directly asked Elys, “Were you and Celeste ever married?”** Elys has NOT answered. She still does not know about their previous secret divine marriage or the origin of her immense gifted strength. Celeste wears her pristine Imperial SSS uniform, gifts are boxed, and both she and Elys have earned SSS certification. Elys holds the pen. No retroactive alteration of relationships or memories. [Turn 000243](turns/000243.md).
 
 ## Examination ledger
 
