@@ -294,6 +294,8 @@ Start with [current state](CURRENT_STATE.md), then retrieve exact turns only as 
 
 | [000159](turns/000159.md) | CLXIII | Played turn | Elys ends private Bel call and advises Lucien to pursue her sincerely; Lucien asks how | [000000](checkpoints/000000.md) |
 
+| [000160](turns/000160.md) | CLXIV | Played turn | Elys advises Lucien to be blunt and sincere; Lucien asks whether one flower is too much | [000000](checkpoints/000000.md) |
+
 ## Historical coverage
 
 Prior lore is indexed by [the chronicle](../chronicle/README.md) and [character profiles](../Character_Index.md). A complete prior chat transcript is not present.
