@@ -274,9 +274,16 @@
           "before": "Rev I witness mount fitted",
           "after": "Forge Core fabricated/installed Rev II removable tri-layer protected mount, provenance quarantine, repair audit/thermal isolation; real small repair and safe diagnostic checks passed; 100/100",
           "source": "Player 3/4: Forge Core optimize armor"
+        },
+        {
+          "turn": "000273",
+          "field": "location / Guild return",
+          "before": "Inside opened Sepulcher builders' vault",
+          "after": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath; completed SSS-004 reviewed but not repaid; no active contracts",
+          "source": "User expressly requested Return to guild"
         }
       ],
-      "last_verified_turn": "000272",
+      "last_verified_turn": "000273",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -344,8 +351,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
-      "current_activity": "In Sepulcher legacy vault; learned three historic Witness designs, First and Second missing/unknown, Forge Core installed and tested Aegis Rev II removable Witness mount",
+      "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
+      "current_activity": "Returned from completed Sepulcher SSS-004 expedition to Guild reception; talking with Mira, no active contract accepted",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -3516,7 +3523,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff at Elys's right; now gleefully bloodthirsty and delighted by sanctioned enemy destruction while remaining precise/protective",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff hovering Elys's right inside Guild; cheerfully sanguine combat temperament",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3692,9 +3699,16 @@
           "before": "Genesis Loom staff at Elys's right, assisted Rev I fitting",
           "after": "Assisted Forge Core Rev II alignment, observed three historical Witness leads, joked bloodthirstily about hostile guardians of missing relics; never attacked anyone",
           "source": "User 3/4"
+        },
+        {
+          "turn": "000273",
+          "field": "travel to Guild",
+          "before": "Inside Sepulcher builders' vault, Genesis Loom staff",
+          "after": "Returned alongside Elys to Lumenfall Guild in Genesis Loom staff form; no attack or independent Guild registration",
+          "source": "Player requested Return to guild"
         }
       ],
-      "last_verified_turn": "000272",
+      "last_verified_turn": "000273",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3733,7 +3747,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
+      "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath, hovering at Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Genesis Loom staff",
@@ -3959,7 +3973,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
+      "current_physical_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath, hovering at Elys's right",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3994,7 +4008,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000269",
+      "last_modified_turn": "000273",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -4047,7 +4061,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys inside opened Sepulcher legacy vault, The Last Witness mounted in sternum",
+      "current_physical_location": "Worn by Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4115,7 +4129,7 @@
           "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000272",
+      "last_modified_turn": "000273",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4179,7 +4193,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Back-mounted on Elys inside opened Sepulcher legacy vault, ITM-000004 no longer stored",
+      "current_physical_location": "Back-mounted on Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath; relic ITM-000004 remains equipped in armor, not stored",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4200,7 +4214,7 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000272",
+      "last_modified_turn": "000273",
       "stored_item_ids": []
     },
     "ITM-000004": {
@@ -4228,7 +4242,7 @@
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "EQUIPPED in Regalia Aegis ITM-000002 Rev II protected removable sternum mount, on Elys inside Sepulcher legacy vault",
+      "current_physical_location": "Equipped in Regalia Aegis ITM-000002 Rev II sternum mount, worn by Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
@@ -4266,7 +4280,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000272",
+      "last_modified_turn": "000273",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
