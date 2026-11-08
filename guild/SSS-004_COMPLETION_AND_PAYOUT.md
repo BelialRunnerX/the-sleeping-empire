@@ -43,3 +43,8 @@ This is an actual fictional in-world payment, **not** merely contract accept/esc
 - The Heart has revealed a sealed **builders' legacy vault** below throne. **UNOPENED, contents UNKNOWN**, not part of base payout or automatically granted to Elys.
 - **Current position:** Elys remains at **Sepulcher exterior threshold** in 100/100 worn Regalia Aegis and 100/100 worn Forge Core. Sentient Aletheia **Genesis Loom staff form**, hovering to his RIGHT; not mechanically in main_hand. Remaining Forge Core drones recalled after independent site work.
 - **Mission closed**, may initiate optional separate archive project/legacy-vault investigation without reopening SSS-004 or repaying base reward.
+
+
+## Post-completion legacy retrieval — turn 000269
+
+After the one-time ₡14,000,000 SSS-004 completion award was paid and cleared in turn 000268, Elys retrieved **`ITM-000004 The Last Witness`** from the Heart's voluntarily opened builders' vault beneath the throne. This ancient relic is **separate from the Guild contract award**; it was not part of the Guild's transfer and **does not trigger another credit payout**. The item is registered as owned by Elys and securely stored in Forge Core; relic_core equipment slot remains empty. [Story turn](../saves/turns/000269.md) · [relic dossier](../armory/relics/ITM-000004_THE_LAST_WITNESS.md).
