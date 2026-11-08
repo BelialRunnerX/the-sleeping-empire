@@ -374,9 +374,16 @@
           "before": "Asterion Depot inner calibration gallery; third living Light-Born still connected to calibration",
           "after": "Third Light-Born freely rescued to Cradle protected ward after one-channel synthetic test; now aboard Madrigal with medically revived Captain Ancal",
           "source": "Autonomous played chapters CCXLIV–CCXLVII; no item or currency transaction"
+        },
+        {
+          "turn": "000302",
+          "field": "Veronica relationship / primary traveling companionship",
+          "before": "Veronica's feelings unreciprocated in old lore, Elys and Aletheia party",
+          "after": "Reciprocated recurring romantic partner Veronica joins Elys's party as primary traveling companion, Aletheia retains place",
+          "source": "Explicit user-directed new canon, enacted mutual kiss in CCXLVIII"
         }
       ],
-      "last_verified_turn": "000301",
+      "last_verified_turn": "000302",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -444,7 +451,7 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Madrigal, medical bay, folded-space boundary near Asterion Depot",
+      "current_location": "Madrigal, emergency archive, folded-space region near Asterion",
       "current_activity": "Independent investigation of Madrigal and ancient boundary, Captain Sera Ancal rescued; Asterion one-channel humane replacement tested and third Light-Born medically freed",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
@@ -1293,7 +1300,7 @@
       "character_id": "char-veronica",
       "canonical_name": "Veronica",
       "aliases": [],
-      "role": "Intelligence",
+      "role": "Immortal Imperial Hand; Head of Imperial Intelligence and Interrogation; primary traveling companion and romantic partner of Elys",
       "certification": null,
       "level": null,
       "experience": null,
@@ -1326,7 +1333,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": null,
+      "conditions": "IMMORTAL; ALIVE; ACTIVE Head of Imperial Intelligence; recurring voluntarily reciprocated Elys romance; PRIMARY traveling companion alongside Aletheia; 15 prehensile tentacles; no newly established gear/physical injuries",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -1351,9 +1358,26 @@
       "upgrade_resources": null,
       "reforge_pity": null,
       "banner_pity": null,
-      "appearance": null,
-      "change_log": [],
-      "last_verified_turn": null
+      "appearance": "Current user-photograph-based humanoid appearance: adult, long straight dark-brown brunette hair, fair skin, soft poised face, curvy feminine silhouette; navy fitted top/dark jeans/black shoes for latest scene, lavender lingerie alternative private wardrobe reference. Retains 15 prehensile tentacles (3 heavy, 3 fine-suckered, 3 grasping, 6 rapid). Earlier purple hair is former visual styling.",
+      "change_log": [
+        {
+          "turn": "000302",
+          "field": "appearance, companion status, consensual romance, location",
+          "before": "Immortal intelligence chief with earlier purple hair, predatory affection for Elys not previously reciprocated; offsite",
+          "after": "Now on Madrigal with Elys and Aletheia as recurring voluntarily reciprocated romantic partner and primary traveling companion; current long brunette photo-informed appearance, original 15 tentacles; intelligence role retained",
+          "source": "Direct user messages plus enacted Chapter CCXLVIII; no new physical owned items"
+        }
+      ],
+      "last_verified_turn": "000302",
+      "current_location": "Madrigal, emergency archive within folded-space region near Asterion",
+      "relationship_to_elys": "Established mutually chosen recurring romantic partner; gentle and implicitly sexually suggestive toward Elys, always distinct from coercive touch; primary traveling companion. Clarissa engagement and Celeste divine marriage unaffected.",
+      "personality_design": {
+        "core": "Sinisterly courteous, softly spoken, intelligent, manipulative and professionally competent intelligence chief; lightly yandere possessive affection controlled by Elys's and others' agency",
+        "to_others": "Vaguely malicious unsettling teasing, psychological wit, no random assault",
+        "to_elys": "Femme-fatale intimacy, erotic double meanings, affectionate and romantic predatory playfulness freely reciprocated",
+        "eldritch_theme": "Sexual Cthulhu: beautiful tentacled eldritch seductress motif; not literal species confirmation",
+        "agency": "Compelling Contact is coercive not informed consent; do not use in romance or assume infallible truth"
+      }
     },
     "char-sentinel": {
       "character_id": "char-sentinel",
@@ -4169,7 +4193,7 @@
           "source": "Chapters CCXLIV–CCXLVII; no duplicated item, no new gear"
         }
       ],
-      "last_verified_turn": "000301",
+      "last_verified_turn": "000302",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4208,7 +4232,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Madrigal medical bay, folded-space boundary near Asterion Depot",
+      "current_location": "Madrigal, emergency archive with Elys and Veronica",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Materia humanoid",
