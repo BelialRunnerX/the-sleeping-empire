@@ -68,6 +68,7 @@ export function readVisualSettings(storage, small = false, reduced = false) {
       storage.getItem("astral_empire_visuals_v1") || "{}",
     );
     return {
+      style: saved.style === "model" ? "model" : "illustrated",
       quality: GRAPHICS[saved.quality]
         ? saved.quality
         : small
@@ -79,7 +80,11 @@ export function readVisualSettings(storage, small = false, reduced = false) {
           : reduced,
     };
   } catch {
-    return { quality: small ? "low" : "balanced", reducedMotion: reduced };
+    return {
+      style: "illustrated",
+      quality: small ? "low" : "balanced",
+      reducedMotion: reduced,
+    };
   }
 }
 

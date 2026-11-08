@@ -1,6 +1,14 @@
 # Astral Empire: Aetherbound
 
-A third-person anime action RPG foundation for The Sleeping Empire. Version 3 replaces the menu-first landing page with a playable 3D frontier and connected build, combat, gathering, and crafting systems. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
+An anime action RPG foundation for The Sleeping Empire. The default presentation is an illustrated isometric 2.5D frontier with connected builds, combat, gathering and crafting. The earlier procedural third-person 3D view remains selectable in Settings at the sanctuary. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
+
+## Version 3.3 · Illustrated Frontier
+
+The default view now uses original AI-generated anime sprite art with an orthographic isometric camera. All twelve heroes have portraits and two full-body sprite poses. Scene depth, terrain, particles and hit detection remain in the existing WebGL/simulation coordinate system, while painted character/scenery cutouts face the camera. Trees, cottages, the portal, forge, resources, ruins and four enemy archetypes use an illustrated prop atlas. A four-surface atlas supplies painterly grass, paths, stone and riverbanks. The HUD and roster show the matching portrait art, and the title has an original illustration.
+
+Movement switches between two poses and adds a small bob; facing mirrors the sprite, and attacks add tilt/recoil with the existing travelling projectiles and impact effects. This is a limited sprite animation treatment, not a full directional animation set. The boss currently enlarges the sentinel illustration. Settings → Art style retains the procedural 3D prototype; switching is restricted to the sanctuary. Device preferences and existing version 3 progress remain compatible. If illustration loading fails, the game falls back to procedural 3D.
+
+See [assets/ASSETS.md](assets/ASSETS.md) for every generated asset's role, provenance and exact prompt. The title illustration is not a gameplay screenshot. All five WebP assets are local, precached for offline play, and total roughly 2.9 MB.
 
 ## Version 3.2 · Dawnlight
 
@@ -42,7 +50,7 @@ Play at `/games/astral-empire/`. The rest of the Living Codex remains unchanged.
 - Twelve gacha heroes with different elements, visual weapon styles, and build traits. Summons retain the 40-pull legendary guarantee. Duplicates award crafting essence. Element changes on an enemy trigger extra reaction damage.
 - Five journal contracts, level experience, gold/crystal rewards, and four selectable realm palettes. Later routes unlock at levels 10, 20, and 30.
 
-This is a first region and a build system foundation. It does not contain Path of Exile's content volume, endgame atlas, multiplayer economy, raids, or production anime character assets. Current characters and environment are procedural stylized meshes. Realm palettes share a region layout and enemy roster; they are not distinct fully authored planets. Flight, caves, building placement, housing, and full planetary physics remain future work.
+This is a first region and a build system foundation. It does not contain Path of Exile's content volume, endgame atlas, multiplayer economy or raids. The default character art is a small illustrated sprite library; complete directional combat animations remain future work. Realm palettes share a region layout and enemy roster; they are not distinct fully authored planets. Flight, caves, building placement, housing, and full planetary physics remain future work.
 
 ## Controls
 
@@ -78,6 +86,7 @@ JavaScript still owns the entity state machine, movement, input, skills, saves, 
 | `engine/native.mjs` | C++ WebAssembly loading and numeric reference fallback |
 | `engine/world.mjs` | Three.js scene, terrain, camera, lighting/shadows, combat effects, and resource visuals |
 | `engine/art.mjs` | Original procedural art, cel materials, outfits, architecture, landscape, water, foliage, and visual presets |
+| `engine/illustrated.mjs` | Illustrated sprite atlases, two-pose character treatment, painted props/terrain, and shared-world integration |
 | `engine/profiles.mjs` | Local profiles, isolated saves, migration, and recovery copies |
 | `engine/app.mjs` | HUD, panels, controls, browser loop, and save/export integration |
 
@@ -118,7 +127,7 @@ npm run test:visual
 
 `npm test` runs 19 Classic smoke checks and 23 action-RPG/WASM/save checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, free scout recruitment, switching disciplines and landing a projectile hit, the damage inspector, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
 
-The browser suite also exercises graphics presets, reduced-motion persistence, close-up orbit/zoom and F8 HUD restoration. The visual suite renders every realm, cycles all twelve hero appearances and all three presets, checks shader errors and geometry lifetime, and records scene draw/triangle/texture counts. These are structural checks and screenshot review aids, not a hardware frame-rate benchmark or pixel-perfect image comparison.
+The browser suite also exercises switching between illustrated/3D styles, graphics presets, reduced-motion persistence, orbit/zoom and F8 HUD restoration. The visual suite renders every illustrated realm plus the procedural 3D fallback, cycles all twelve hero appearances and all three presets, checks shader errors and geometry lifetime, and records scene draw/triangle/texture counts. These are structural checks and screenshot review aids, not a hardware frame-rate benchmark or pixel-perfect image comparison.
 
 For an installed Chrome instead of downloaded Chromium, set `BROWSER_EXECUTABLE` to the browser executable path. The GitHub Actions workflow compiles the C++ module, runs rule/compatibility tests, then runs the browser and visual suites.
 

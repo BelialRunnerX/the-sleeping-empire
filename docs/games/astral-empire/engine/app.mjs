@@ -31,6 +31,7 @@ import { loadNative, numeric } from "./native.mjs";
 import { Profiles } from "./profiles.mjs";
 import { WorldView, ground } from "./world.mjs";
 import { readVisualSettings } from "./art.mjs";
+import { loadIllustrations } from "./illustrated.mjs";
 const $ = (id) => document.getElementById(id),
   escape = (s) =>
     String(s ?? "").replace(
@@ -143,7 +144,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.2 · Dawnlight</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.3 · Illustrated Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -181,7 +182,12 @@ function updateHUD() {
     st = stats(state),
     hero = HEROES.find((h) => h.id === state.hero);
   $("hero-name").textContent = hero.name;
-  $("hero-glyph").textContent = hero.name[0];
+  const heroIndex = HEROES.indexOf(hero);
+  $("hero-glyph").textContent = "";
+  $("hero-glyph").classList.add("anime-portrait");
+  $("hero-glyph").style.backgroundPosition =
+    `${(heroIndex % 3) * 50}% ${Math.floor(heroIndex / 3) * (100 / 3)}%`;
+  $("hero-glyph").setAttribute("aria-label", hero.name + " portrait");
   $("class-name").textContent =
     hero.role.toUpperCase() + " · " + hero.weapon.toUpperCase();
   $("level").textContent = "LV. " + state.level;
@@ -455,7 +461,7 @@ function heroes() {
  <div class="grid-3">${HEROES.map((h) => {
    const owned = state.heroes.includes(h.id),
      active = state.hero === h.id;
-   return `<article class="card ${active ? "selected" : ""}"><div class="row spread"><span class="icon" style="color:${h.color}">✧</span><span class="tag">${h.element.toUpperCase()} · ${h.weapon.toUpperCase()}</span></div><h3>${h.name}</h3><p>${h.title} · ${h.role}</p><p>${h.perk}</p><button data-hero="${h.id}" ${!owned || active ? "disabled" : ""}>${active ? "ACTIVE HERO" : owned ? "TAKE THE FIELD" : "NOT RECRUITED"}</button></article>`;
+   return `<article class="card hero-card ${active ? "selected" : ""}"><div class="hero-illustration" role="img" aria-label="${h.name} anime portrait" style="background-position:${(HEROES.indexOf(h) % 3) * 50}% ${Math.floor(HEROES.indexOf(h) / 3) * (100 / 3)}%"><span class="tag">${h.element.toUpperCase()} · ${h.weapon.toUpperCase()}</span></div><div class="hero-card-copy"><h3>${h.name}</h3><p>${h.title} · ${h.role}</p><p>${h.perk}</p><button data-hero="${h.id}" ${!owned || active ? "disabled" : ""}>${active ? "ACTIVE HERO" : owned ? "TAKE THE FIELD" : "NOT RECRUITED"}</button></div></article>`;
  }).join("")}</div>`;
 }
 function journal() {
@@ -474,7 +480,7 @@ function realms() {
   return `<p class="small muted">Waygates open as your account level rises. Each destination has its own terrain palette, resources, and enemy progression.</p><div class="grid-2">${REALMS.map((r) => `<article class="card ${state.realm === r.id ? "selected" : ""}"><h3>${r.name}</h3><p>${r.gravity} g source world · ${r.tier === 0 ? "Frontier sanctuary" : "Requires level " + r.tier * 10}</p><button data-realm="${r.id}" ${state.level < r.tier * 10 || r.id === state.realm ? "disabled" : ""}>${r.id === state.realm ? "CURRENT REALM" : state.level < r.tier * 10 ? "WAYGATE LOCKED" : "TRAVEL"}</button></article>`).join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right mouse drag: camera orbit<br>Mouse wheel: camera distance<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: heroes · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="render-style">ART STYLE · CHANGE AT SANCTUARY</label><select id="render-style"><option value="illustrated" ${visuals.style !== "model" ? "selected" : ""}>Illustrated anime · isometric 2.5D</option><option value="model" ${visuals.style === "model" ? "selected" : ""}>Procedural 3D prototype</option></select><br><br><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right mouse drag: camera orbit<br>Mouse wheel: camera distance<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: heroes · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -710,6 +716,19 @@ document.addEventListener("click", (e) => {
 });
 document.addEventListener("change", async (e) => {
   const n = e.target;
+  if (n.id === "render-style") {
+    if (Math.hypot(sim.player.x, sim.player.z) >= 14 || !combatSafe()) {
+      n.value = visuals.style;
+      notify("Change art style inside the sanctuary.");
+      return;
+    }
+    visuals.style = n.value;
+    try {
+      localStorage.setItem("astral_empire_visuals_v1", JSON.stringify(visuals));
+    } catch {}
+    save();
+    buildView();
+  }
   if (n.id === "graphics-quality" || n.id === "reduced-motion") {
     visuals.quality = $("graphics-quality").value;
     visuals.reducedMotion = $("reduced-motion").checked;
@@ -974,6 +993,11 @@ document.addEventListener("visibilitychange", () => {
 async function boot() {
   await loadNative();
   try {
+    try {
+      await loadIllustrations();
+    } catch {
+      visuals.style = "model";
+    }
     buildView();
     landing();
     $("loading").hidden = true;

@@ -29,6 +29,8 @@ The C++ world hash, damage, elemental mitigation and swept-collision exports are
 
 ## Not ported
 
+Version 3.3's isometric camera, sprite rendering, two-pose animation treatment and AI-generated portrait/scenery/ground/title assets are new Aetherbound work. None were extracted from Elysium or Minecraft. The numeric C++ ABI and source-formula port boundary are unchanged.
+
 Minecraft chunk generation and saves, block states, terrain lighting, fluids, rooms, oxygen distributors, suits, hazard mitigation, station generation, native waygates, dimensions, network payloads, biome generation, mob/entity AI, contracts/archive logic, claims, vehicles, logistics, industry, automation, research, enchanting, flora, trinkets, and dungeon generation remain outside this implementation.
 
 The corresponding Java/NeoForge files should be translated by behavior and tested against extracted pure rules as each feature is added. WebAssembly is an implementation option for expensive simulation; it does not remove Minecraft runtime dependencies automatically.

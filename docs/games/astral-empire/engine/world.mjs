@@ -2,6 +2,7 @@ import * as T from "../vendor/three.module.js";
 import { hash, roll } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
 import { ArtDirector, GRAPHICS } from "./art.mjs";
+import { IllustratedArt } from "./illustrated.mjs";
 const color = (hex) => new T.Color(hex);
 export function ground(x, z, realm = "bastion") {
   if (Math.hypot(x, z) < 13) return 0;
@@ -67,13 +68,9 @@ export class WorldView {
     this.scene = new T.Scene();
     const realm = REALMS.find((r) => r.id === state.realm) || REALMS[0];
     this.realm = realm;
-    this.art = new ArtDirector(
-      this.scene,
-      state.realm,
-      state.seed,
-      ground,
-      roll,
-    );
+    this.illustrated = visuals.style !== "model";
+    const Art = this.illustrated ? IllustratedArt : ArtDirector;
+    this.art = new Art(this.scene, state.realm, state.seed, ground, roll);
     this.scene.background = color(this.art.palette.mist);
     this.scene.fog = new T.Fog(this.art.palette.mist, 65, 195);
     this.visuals = visuals;
@@ -90,15 +87,13 @@ export class WorldView {
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.04;
-    this.camera = new T.PerspectiveCamera(
-      52,
-      innerWidth / innerHeight,
-      0.1,
-      250,
-    );
-    this.yaw = 0;
-    this.pitch = 0.12;
-    this.distance = 8.5;
+    this.distance = this.illustrated ? 13 : 8.5;
+    this.yaw = this.illustrated ? Math.PI / 4 : 0;
+    this.pitch = this.illustrated ? 0.5 : 0.12;
+    this.camera = this.illustrated
+      ? new T.OrthographicCamera(-20, 20, 12, -12, 0.1, 300)
+      : new T.PerspectiveCamera(52, innerWidth / innerHeight, 0.1, 250);
+    this.updateFrustum();
     this.nodes = [];
     this.foes = new Map();
     this.projectileMeshes = new Map();
@@ -116,9 +111,12 @@ export class WorldView {
     this.sun = sun;
     this.scene.add(sun, sun.target);
     this.createTerrain();
-    this.createSanctuary();
+    if (this.illustrated) Object.assign(this, this.art.sanctuary());
+    else {
+      this.createSanctuary();
+      this.art.sanctuary();
+    }
     this.createScenery();
-    this.art.sanctuary();
     this.createNodes();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.scene.add(this.character);
@@ -126,11 +124,21 @@ export class WorldView {
     this.applyVisualSettings(visuals);
     this.camera.position.set(0, 7, 16);
     this.resize = () => {
-      this.camera.aspect = innerWidth / innerHeight;
-      this.camera.updateProjectionMatrix();
+      this.updateFrustum();
       this.renderer.setSize(innerWidth, innerHeight);
     };
     addEventListener("resize", this.resize);
+  }
+  updateFrustum() {
+    if (this.illustrated) {
+      const height = this.distance * 0.72,
+        aspect = innerWidth / innerHeight;
+      this.camera.left = -height * aspect;
+      this.camera.right = height * aspect;
+      this.camera.top = height;
+      this.camera.bottom = -height;
+    } else this.camera.aspect = innerWidth / innerHeight;
+    this.camera.updateProjectionMatrix();
   }
   createTerrain() {
     const plane = new T.PlaneGeometry(320, 320, 100, 100);
@@ -156,11 +164,13 @@ export class WorldView {
     plane.computeVertexNormals();
     const terrain = new T.Mesh(
       plane,
-      new T.MeshStandardMaterial({
-        vertexColors: true,
-        roughness: 1,
-        map: this.art.groundTexture(),
-      }),
+      this.illustrated
+        ? this.art.groundMaterial()
+        : new T.MeshStandardMaterial({
+            vertexColors: true,
+            roughness: 1,
+            map: this.art.groundTexture(),
+          }),
     );
     terrain.receiveShadow = true;
     this.scene.add(terrain);
@@ -251,6 +261,7 @@ export class WorldView {
     }
     this.sun.shadow.mapSize.set(preset.shadow || 512, preset.shadow || 512);
     this.art.quality(settings);
+    this.canvas.dataset.artStyle = this.illustrated ? "illustrated" : "model";
     this.canvas.dataset.quality = settings.quality;
     this.canvas.dataset.shadows = String(!!preset.shadow);
     document.body.classList.toggle("reduced-motion", settings.reducedMotion);
@@ -277,7 +288,9 @@ export class WorldView {
         g = new T.Group(),
         y = ground(d.x, d.z, this.state.realm);
       g.position.set(d.x, y, d.z);
-      if (d.kind === "ore") {
+      if (this.illustrated && d.kind !== "fish")
+        g.add(this.art.resource(d.kind));
+      else if (d.kind === "ore") {
         for (let i = 0; i < 4; i++) {
           const c = mesh(
             g,
@@ -369,115 +382,118 @@ export class WorldView {
     this.sim.spawn(this.state.realm + "-warden", 0, -48, true);
     this.sim.spawn(this.state.realm + "-training", -4, -3, false, "training");
     for (const e of this.sim.enemies) {
-      const g = new T.Group();
-      const dark = e.training
-          ? 0x92775b
-          : e.boss
-            ? 0x454866
-            : e.archetype === "sentinel"
-              ? 0x506b7b
-              : e.archetype === "archer"
-                ? 0x527868
-                : e.archetype === "oracle"
-                  ? 0x875167
-                  : 0x666379,
-        glow = e.boss
-          ? 0xe5b76b
-          : e.archetype === "oracle"
-            ? 0xffb080
-            : 0xc6a3ed;
-      const shape = (...args) => this.art.shape(g, ...args);
-      if (e.training) {
-        shape("tube", 0x7a624b, 0, 0.9, 0, 0.1, 1.8, 0.1);
-        shape("box", 0x8b7152, 0, 1.5, 0, 1.4, 0.16, 0.16);
-        shape("orb", 0xb6a17b, 0, 1.3, 0, 0.38, 0.52, 0.26);
-        shape("orb", 0xc6b18a, 0, 2.02, 0, 0.28, 0.29, 0.26);
-        for (const x of [-0.1, 0.1])
-          shape("box", 0x423d36, x, 2.05, 0.24, 0.045, 0.05, 0.025);
-        for (const y of [1, 1.3, 1.6])
-          shape("tube", 0x685b54, 0, y, 0, 0.39, 0.055, 0.27);
-        shape("gem", 0x728e91, 0, 1.35, 0.29, 0.18, 0.25, 0.04);
-      } else {
-        shape("orb", dark, 0, 1.3, 0, 0.42, 0.57, 0.28);
-        for (const sign of [-1, 1]) {
-          const plate = shape(
-            "gem",
-            dark,
-            sign * 0.23,
-            0.78,
-            -0.04,
-            0.26,
-            0.65,
-            0.26,
-          );
-          plate.rotation.z = sign * -0.2;
-          shape("gem", 0x4b5066, sign * 0.17, 0.32, 0.02, 0.13, 0.35, 0.17);
-          shape("gem", dark, sign * 0.49, 1.67, 0, 0.25, 0.21, 0.28);
-          const claw = shape(
-            "gem",
-            0x8e9ca5,
-            sign * 0.51,
-            1.05,
-            0.15,
-            0.09,
-            0.42,
-            0.12,
-          );
-          claw.rotation.z = sign * -0.18;
-          const horn = shape(
-            "cone",
-            0xa6a5ac,
-            sign * 0.25,
-            2.42,
-            -0.03,
-            0.1,
-            0.65,
-            0.1,
-          );
-          horn.rotation.z = sign * -0.3;
-        }
-        shape("orb", 0x2c3448, 0, 2.02, 0, 0.3, 0.35, 0.25);
-        shape("gem", 0xa4b1b7, 0, 2.02, 0.2, 0.25, 0.28, 0.08);
-        for (const x of [-0.12, 0.12]) {
-          const eye = shape("box", glow, x, 2.07, 0.28, 0.12, 0.035, 0.025);
-          eye.material = this.art.material(glow, 0.9);
-        }
-        const core = shape("gem", glow, 0, 1.55, 0.29, 0.13, 0.2, 0.06);
-        core.material = this.art.material(glow, 0.65);
-        this.art.ring(g, 0.34, 0.025, glow, 2.61);
-        if (e.boss) {
+      const g = this.illustrated ? this.art.enemy(e) : new T.Group();
+      if (!this.illustrated) {
+        const dark = e.training
+            ? 0x92775b
+            : e.boss
+              ? 0x454866
+              : e.archetype === "sentinel"
+                ? 0x506b7b
+                : e.archetype === "archer"
+                  ? 0x527868
+                  : e.archetype === "oracle"
+                    ? 0x875167
+                    : 0x666379,
+          glow = e.boss
+            ? 0xe5b76b
+            : e.archetype === "oracle"
+              ? 0xffb080
+              : 0xc6a3ed;
+        const shape = (...args) => this.art.shape(g, ...args);
+        if (e.training) {
+          shape("tube", 0x7a624b, 0, 0.9, 0, 0.1, 1.8, 0.1);
+          shape("box", 0x8b7152, 0, 1.5, 0, 1.4, 0.16, 0.16);
+          shape("orb", 0xb6a17b, 0, 1.3, 0, 0.38, 0.52, 0.26);
+          shape("orb", 0xc6b18a, 0, 2.02, 0, 0.28, 0.29, 0.26);
+          for (const x of [-0.1, 0.1])
+            shape("box", 0x423d36, x, 2.05, 0.24, 0.045, 0.05, 0.025);
+          for (const y of [1, 1.3, 1.6])
+            shape("tube", 0x685b54, 0, y, 0, 0.39, 0.055, 0.27);
+          shape("gem", 0x728e91, 0, 1.35, 0.29, 0.18, 0.25, 0.04);
+        } else {
+          shape("orb", dark, 0, 1.3, 0, 0.42, 0.57, 0.28);
           for (const sign of [-1, 1]) {
-            const wing = shape(
+            const plate = shape(
               "gem",
               dark,
-              sign * 0.82,
-              1.95,
-              -0.23,
-              0.28,
-              0.86,
-              0.19,
+              sign * 0.23,
+              0.78,
+              -0.04,
+              0.26,
+              0.65,
+              0.26,
             );
-            wing.rotation.z = sign * -0.55;
-            shape("gem", glow, sign * 0.64, 1.8, 0.09, 0.12, 0.32, 0.07);
+            plate.rotation.z = sign * -0.2;
+            shape("gem", 0x4b5066, sign * 0.17, 0.32, 0.02, 0.13, 0.35, 0.17);
+            shape("gem", dark, sign * 0.49, 1.67, 0, 0.25, 0.21, 0.28);
+            const claw = shape(
+              "gem",
+              0x8e9ca5,
+              sign * 0.51,
+              1.05,
+              0.15,
+              0.09,
+              0.42,
+              0.12,
+            );
+            claw.rotation.z = sign * -0.18;
+            const horn = shape(
+              "cone",
+              0xa6a5ac,
+              sign * 0.25,
+              2.42,
+              -0.03,
+              0.1,
+              0.65,
+              0.1,
+            );
+            horn.rotation.z = sign * -0.3;
+          }
+          shape("orb", 0x2c3448, 0, 2.02, 0, 0.3, 0.35, 0.25);
+          shape("gem", 0xa4b1b7, 0, 2.02, 0.2, 0.25, 0.28, 0.08);
+          for (const x of [-0.12, 0.12]) {
+            const eye = shape("box", glow, x, 2.07, 0.28, 0.12, 0.035, 0.025);
+            eye.material = this.art.material(glow, 0.9);
+          }
+          const core = shape("gem", glow, 0, 1.55, 0.29, 0.13, 0.2, 0.06);
+          core.material = this.art.material(glow, 0.65);
+          this.art.ring(g, 0.34, 0.025, glow, 2.61);
+          if (e.boss) {
+            for (const sign of [-1, 1]) {
+              const wing = shape(
+                "gem",
+                dark,
+                sign * 0.82,
+                1.95,
+                -0.23,
+                0.28,
+                0.86,
+                0.19,
+              );
+              wing.rotation.z = sign * -0.55;
+              shape("gem", glow, sign * 0.64, 1.8, 0.09, 0.12, 0.32, 0.07);
+            }
           }
         }
+        if (e.boss) g.scale.setScalar(1.7);
+        if (e.archetype === "sentinel")
+          mesh(g, "box", 0x8ca7b2, -0.65, 1.2, 0.3, 0.75, 1.3, 0.18);
+        if (e.archetype === "archer") {
+          const bow = new T.Mesh(
+            new T.TorusGeometry(0.65, 0.05, 6, 24, Math.PI),
+            mat(0xc6b685),
+          );
+          bow.position.set(0.6, 1.4, 0.2);
+          bow.rotation.z = Math.PI / 2;
+          g.add(bow);
+        }
+        if (e.archetype === "oracle") {
+          const orb = mesh(g, "sphere", 0xfbb28b, 0.7, 1.7, 0.3, 0.23);
+          orb.material = mat(0xfbb28b, 0.7);
+        }
       }
-      if (e.boss) g.scale.setScalar(1.7);
-      if (e.archetype === "sentinel")
-        mesh(g, "box", 0x8ca7b2, -0.65, 1.2, 0.3, 0.75, 1.3, 0.18);
-      if (e.archetype === "archer") {
-        const bow = new T.Mesh(
-          new T.TorusGeometry(0.65, 0.05, 6, 24, Math.PI),
-          mat(0xc6b685),
-        );
-        bow.position.set(0.6, 1.4, 0.2);
-        bow.rotation.z = Math.PI / 2;
-        g.add(bow);
-      }
-      if (e.archetype === "oracle") {
-        const orb = mesh(g, "sphere", 0xfbb28b, 0.7, 1.7, 0.3, 0.23);
-        orb.material = mat(0xfbb28b, 0.7);
-      }
+      if (this.illustrated && e.boss) g.scale.setScalar(1.7);
       const telegraph = new T.Mesh(
         new T.RingGeometry(0.1, e.boss ? 6 : 3.3, 48),
         new T.MeshBasicMaterial({
@@ -668,6 +684,8 @@ export class WorldView {
     }
     if (c.userData.attack > 0 && weapon === "staff")
       c.arms[1].rotation.x = -1.4;
+    c.userData.facing = p.facing;
+    c.userData.cameraYaw = this.yaw;
     this.art.animateAvatar(
       c,
       stride,
@@ -680,10 +698,17 @@ export class WorldView {
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
     this.sun.target.updateMatrixWorld();
-    const target = new T.Vector3(p.x, terrainY + 1.4, p.z);
+    const target = new T.Vector3(
+      p.x,
+      terrainY + (this.illustrated ? 0.7 : 1.4),
+      p.z,
+    );
+    if (this.illustrated) this.updateFrustum();
     const offset = new T.Vector3(
       Math.sin(this.yaw) * this.distance,
-      1.8 + this.pitch * 4,
+      this.illustrated
+        ? this.distance * (0.7 + this.pitch * 0.3)
+        : 1.8 + this.pitch * 4,
       Math.cos(this.yaw) * this.distance,
     );
     this.camera.position.lerp(
@@ -691,8 +716,10 @@ export class WorldView {
       1 - Math.exp(-9 * dt),
     );
     this.camera.lookAt(target);
-    this.gateRing.rotation.z += this.visuals.reducedMotion ? 0 : dt * 0.22;
-    this.gateCrystal.position.y = 2.8 + Math.sin(animationTime) * 0.14;
+    if (this.gateRing)
+      this.gateRing.rotation.z += this.visuals.reducedMotion ? 0 : dt * 0.22;
+    if (this.gateCrystal)
+      this.gateCrystal.position.y = 2.8 + Math.sin(animationTime) * 0.14;
     this.npc.rotation.y = Math.atan2(p.x - 6, p.z + 1);
     for (const node of this.nodes) {
       node.mesh.visible = !(this.state.depleted[node.id] > Date.now());
@@ -813,7 +840,12 @@ export class WorldView {
     // Retire unique avatar geometry while keeping shared art materials alive.
     const shared = new Set(this.art.geometries.values());
     object.traverse((o) => {
-      if (o.geometry && !shared.has(o.geometry)) o.geometry.dispose();
+      if (o.geometry && !o.isSprite && !shared.has(o.geometry))
+        o.geometry.dispose();
+      if (o.userData.ownedTexture) {
+        o.material.map.dispose();
+        this.art.textures.delete(o.material.map);
+      }
       if (o.material && ![...this.art.materials.values()].includes(o.material))
         o.material.dispose();
     });
@@ -823,7 +855,7 @@ export class WorldView {
     const geometrySet = new Set(),
       materialSet = new Set();
     this.scene.traverse((o) => {
-      if (o.geometry) geometrySet.add(o.geometry);
+      if (o.geometry && !o.isSprite) geometrySet.add(o.geometry);
       if (o.material)
         for (const m of Array.isArray(o.material) ? o.material : [o.material])
           materialSet.add(m);

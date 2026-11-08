@@ -599,7 +599,42 @@ kbd {
   display: flex;
   align-items: center;
   padding: 6vw;
-  background: linear-gradient(90deg, #112837e8 0, #142a34af 35%, #152b3c22 85%);
+  background:
+    linear-gradient(90deg, #102238dd 0, #11223c99 30%, #142a3410 70%),
+    url("assets/aetherbound-keyart.webp") center / cover;
+}
+.anime-portrait {
+  background-image: url("assets/heroes-anime.webp");
+  background-size: 300% 400%;
+}
+.card.hero-card {
+  padding: 0;
+  overflow: hidden;
+}
+.hero-illustration {
+  background-image: url("assets/heroes-anime.webp");
+  background-size: 300% 400%;
+  aspect-ratio: 1;
+  position: relative;
+}
+.hero-illustration .tag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: #142238d9;
+  border: 1px solid #ecd4a34d;
+  color: #f6e4be;
+  padding: 5px 9px;
+}
+.hero-card-copy {
+  padding: 16px 20px 20px;
+}
+.hero-card-copy h3 {
+  font-size: 25px;
+  margin: 0 0 6px;
+}
+.hero-card.selected {
+  box-shadow: 0 0 22px #d4bff128;
 }
 .landing-copy {
   max-width: 580px;
@@ -771,6 +806,7 @@ select {
   flex-direction: column;
 }
 .panel-top {
+  flex-shrink: 0;
   padding: 20px 25px;
   display: flex;
   justify-content: space-between;
@@ -790,6 +826,7 @@ select {
   border: 0;
 }
 .panel-tabs {
+  flex-shrink: 0;
   display: flex;
   gap: 6px;
   padding: 10px 22px;
@@ -807,9 +844,10 @@ select {
   border-bottom: 1px solid var(--gold);
 }
 .panel-body {
+  flex: 1;
   padding: 22px 25px;
   overflow: auto;
-  min-height: 150px;
+  min-height: 0;
 }
 .grid-2 {
   display: grid;

@@ -1,42 +1,51 @@
-# Dawnlight visual implementation
+# Illustrated Frontier: visual implementation
 
-Version 3.2 establishes a consistent stylized fantasy presentation using original geometry and shaders authored in `engine/art.mjs` and `engine/world.mjs`. It does not include downloaded character art, third-party models, AI-generated image assets, or Minecraft assets. Three.js is vendored under its recorded MIT license. Optional Google fonts continue to have system fallbacks.
+Version 3.3 makes illustrated isometric 2.5D the default presentation. The earlier Dawnlight procedural third-person renderer remains available under Settings → Art style, changeable at the sanctuary. Both views operate on the same simulation state and world coordinates.
 
-## What actually renders
+## What the current game renders
 
-- Four-band nearest-filtered cel ramp, selective inverted-hull character outlines, ACES tone mapping and a warm directional light. Balanced/High use one camera-following orthographic shadow map with PCF filtering; Performance disables it.
-- Gradient sky with a procedural cloud band, sun disc, multiple distant ridgelines, linear fog and coordinated realm colors. The sky is a fixed art direction, not a day/night or weather simulation.
-- Layered procedural hero clothing, hair locks, eye details, armor trim, boots and distinct blade/bow/staff geometry. Twelve heroes use the shared body with their own colors and weapon treatment. Hip/knee/shoulder/elbow pivots provide simple locomotion and casting poses. A subdivided cape uses vertex displacement; there is no skeletal skinning, facial rig, cloth physics or production animation library.
-- Tiled stone and subtle terrain grain are original deterministic CanvasTextures. Buildings have structural trim, layered roof geometry, chimneys, lit window materials, banners and planters. Portal runes surround an animated transparent shader. Lanterns use emissive materials; they do not add costly point-light shadows.
-- Instanced trunks, four-layer tree canopies and up to 4,800 three-blade grass tufts. A shared time uniform drives grass sway, water ripples, portal motion and motes. The riverbed is visually lowered under the water, and the crossing uses its visible deck height. This is shallow decorative water; there is no swimming, fluid simulation or boat system.
-- Additive slash crescents, short projectile trails and bounded elemental impact sparks. Enemy telegraphs remain visible during windups. Effects do not alter simulation hit timing or damage.
+- An orthographic camera, alpha-tested anime character sprites, painted scenery/enemy sprites and painterly ground surfaces. The WebGL depth buffer provides world occlusion; these are camera-facing cutouts rather than skeletal 3D models.
+- Twelve portraits in a 3×4 atlas and twenty-four full-body poses in a 6×4 atlas. Each hero uses an adjacent pair. Movement steps between the two poses, adds a small bob and mirrors facing; attack feedback adds tilt/recoil and existing slash/projectile/impact effects. There are no eight-direction sheets, fully authored attack/death clips or lip sync.
+- Sixteen painted prop cells: trees, cottage, portal, ore, herbs, gatherable tree, forge, ruins, boulder, lantern, dummy and four enemy archetypes. The Warden currently uses an enlarged sentinel illustration.
+- A 2×2 ground atlas blends grass, paths, courtyard stone and riverbanks in a world-coordinate shader. Mirrored tiling and mipmaps limit visible seams and aliasing. River height, the wooden crossing, wind-driven grass, motes and travelling combat effects continue to use scene geometry/shaders.
+- A separate title illustration and matching portrait HUD/roster. Title artwork is promotional imagery, not a screenshot or a promise that the game has an illustrated cinematic engine.
+
+All five raster assets were generated for this project with the built-in image tool, then encoded locally as WebP. They total approximately 2.9 MB and are served/pre-cached with the game. See [assets/ASSETS.md](assets/ASSETS.md) for ownership/provenance boundaries and exact prompts. No Minecraft or Elysium art was imported. Three.js remains vendored with its MIT license.
+
+## Existing gameplay and controls
+
+The camera/view change does not replace movement, world positions, enemy AI, hit resolution, projectiles, support links, gear, gathering, crafting or saves. WASD remains relative to the camera. Right drag changes camera angle, wheel zooms and F8 hides/restores the HUD. Combat continues in scenic view. Q targets, E gathers and 1–4 cast as before.
+
+The art preference lives in `astral_empire_visuals_v1`, outside the version 3 progression payload. Legacy visual preferences default to the illustrated style. Switching art style is limited to the sanctuary and rebuilds the solo encounter view. If atlas loading fails, startup falls back to the procedural model view.
 
 ## Device controls
 
-| Preset | Maximum pixel ratio | Shadow map | Grass tufts | Ambient motes |
+| Preset | Maximum pixel ratio | Shadow map in model view | Grass tufts | Ambient motes |
 | --- | ---: | ---: | ---: | ---: |
 | Performance | 1 | Off | 600 | 36 |
 | Balanced | 1.5 | 1024² | 2,400 | 90 |
 | High fidelity | 2 | 2048² | 4,800 | 150 |
 
-Settings apply immediately without reloading or replacing a save. `astral_empire_visuals_v1` stores device preferences outside the version 3 progression payload. Reduced motion stops ambient shader time, cape flutter and portal rotation, hides drifting motes, suppresses impact sparks, and minimizes CSS animations/transitions. Locomotion, attack poses, projectiles, telegraphs and camera movement remain functional. This is not a full accessibility audit.
+Painted sprites use simple contact shadows and baked illustration lighting; they do not cast physically accurate animated character shadows. The procedural model view retains cel materials, selective outlines, a directional light and camera-following PCF shadow map. It also retains simple articulated mesh limbs and a vertex-displaced cape.
 
-F8 hides/restores the HUD and vignette. Combat continues; this is a scenic viewing toggle rather than a paused photo editor. Right drag orbits, and wheel zoom ranges from 3.8 to 20 units.
+Reduced motion stops ambient shader time and portal rotation, hides motes, suppresses impact sparks and minimizes CSS animation/transitions. Player-driven movement, stepping, attacks, projectiles, telegraphs and camera controls remain functional. This is not a full accessibility audit.
 
-## Verification and budgets
+## Verification and structural budgets
 
-`npm run test:visual` uses an isolated local renderer harness, deterministic sample seed, four realms, all twelve hero swaps and all presets. It captures `.artifacts/realm-*.png`, rejects shader compilation errors, checks that hero swaps do not accumulate geometry, and enforces conservative scene limits of 1,200 draw calls, 600,000 triangles and 15 resident textures in the sample view. Counts include the active shadow pass and depend on view/frustum. These limits detect structural regressions; they do not promise a particular frame rate.
+`npm run test:visual` renders all four illustrated realms and the model fallback, cycles all twelve hero appearances and all three presets, rejects shader errors and checks geometry lifetime. It enforces sample-view limits of 1,200 draw calls, 600,000 triangles and 15 resident textures.
 
-The player browser suite also captures the title, sanctuary, close-up character, combat and mobile UI. It verifies F8 restoration, graphics changes and preference persistence through reload, alongside real movement, combat, gathering, saving and offline loading. Screenshots are review artifacts; there is no automated perceptual image-diff claim. GitHub Actions uploads them with the test run.
+For the same sample riverbank view at High fidelity, the illustrated implementation measured about 89 draw calls and 70,000 triangles, compared with roughly 730 calls and 219,000 triangles for the previous model scene. Counts depend on view and active shadow passes. These are structural measurements, not a hardware frame-rate claim.
 
-Removed hero geometry/materials, expired spark/slash effects and projectile trails are disposed. Scene teardown releases geometry, materials, procedural textures, shadow targets and the renderer. Shared instanced scenery reduces draw overhead, but buildings and avatars still use many separate meshes. Mesh merging, authored LODs, mobile GPU profiling and broader hardware tests remain priorities before significantly increasing scene density.
+The player browser suite checks art-style selection, portrait/roster rendering, graphics presets, preference persistence, orbit/zoom and F8 restoration alongside actual combat, gathering, profile saves, mobile layout and offline reload. It captures `.artifacts/` screenshots. The visual harness paces frames and flushes GPU work to support software rendering on CI. Screenshot review is manual; there is no automated perceptual image-diff claim. GitHub Actions uploads the artifacts.
 
-## Next fidelity milestones
+Removed hero textures/materials and expired effects are disposed; shared prop materials/atlas sources are reused. Scene teardown releases view-owned geometry, materials, textures, shadow targets and the renderer. Base image sources are intentionally shared across view rebuilds.
 
-1. Original skeletal anime models with authored topology, UVs, hair cards, faces and outfit variants, with provenance/license records for every asset.
-2. Animation blending, grounded feet, weapon trails matched to authored swing timing, hit reactions, charge/cast poses and enemy locomotion.
-3. Distinct authored realm landmarks, terrain materials, caves, environment collision and camera occlusion handling.
-4. Profile-driven mesh batching/LODs, device testing, dynamic resolution, optional postprocessing and color/accessibility controls.
-5. Authored music, environmental audio, weapon/impact sound layers and voice assets with recorded rights.
+## Next anime fidelity milestones
 
-The game remains a solo browser RPG prototype with local profiles. This rendering pass adds no cloud identity or shared-world server. The existing Elysium formula ports and C++/WebAssembly ABI 2 are unchanged; see `ELYSIUM_PORT.md` for the source boundary.
+1. Consistent multi-direction walk, run, dodge, attack, cast, hurt and death sheets, aligned to actual simulation timing.
+2. Dedicated Warden art and animation, biome-specific enemies and scenery, richer outfit variants and weapon silhouettes.
+3. Occluder fading near the player, tighter sprite foot anchors/footprints, painted water/bridge details and distinct authored realm landmarks.
+4. A coherent illustrated icon library, matching spell-effect sheets, better mobile composition, color/accessibility controls and broader device profiling.
+5. Authored music, environmental audio, layered combat sound and recorded provenance for all assets.
+
+The game remains a solo browser RPG with local profiles. This rendering milestone adds no cloud identity or shared-world server. Native C++/WebAssembly ABI 2 and the Elysium formula ports are unchanged.

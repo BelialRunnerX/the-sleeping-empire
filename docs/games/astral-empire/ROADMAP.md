@@ -2,6 +2,8 @@
 
 ## Current milestone
 
+Version 3.3 makes illustrated isometric 2.5D the default art direction, retaining the third-person procedural 3D view as a sanctuary setting. Twelve heroes have AI-generated portrait art and paired full-body sprite poses; painted scenery, enemies, terrain and title art share a consistent direction. Gameplay and version 3 saves remain connected to the existing simulation. Full directional animation sheets, dedicated boss sprites and richer environmental art remain ahead.
+
 Playable solo action-RPG region with an actual third-person WebGL view and a compiled C++ numeric module. Version 3.1 adds blade/bow/staff disciplines, travelling projectiles, delayed echoes, piercing/chaining, typed damage/resistance, mechanical reactions, four enemy archetypes and a two-phase Warden. Combat, character builds, equipment, lifeskills, crafting, heroes, and local persistence are connected. This remains a foundation rather than a completed MMO or a Path of Exile-sized content library.
 
 ## 1. Combat identity and build depth
@@ -22,6 +24,8 @@ Playable solo action-RPG region with an actual third-person WebGL view and a com
 - Profile the simulation and move stable high-cost loops into C++/WebAssembly with parity fixtures. Keep UI/content authoring in maintainable browser modules.
 
 ## 3. World and presentation
+
+- Expand the illustrated direction with true multi-direction walking, attack, casting, hurt and death animation sheets. Add dedicated Warden/boss art, coherent biome-specific prop libraries, sprite occlusion fading and consistent world-object footprints. Retain exact asset provenance and separate title illustrations from gameplay screenshots.
 
 Version 3.2 delivers a procedural visual foundation: cel materials/outlines, soft directional shadows, atmosphere, detailed outfits/weapons, simple articulated limbs and capes, sanctuary architecture, layered instanced foliage, animated water, projectile trails/impacts, three graphics presets, reduced ambient motion and an F8 scenic view. Four-realm render checks and geometry-lifetime checks accompany it. Authored skeletal models, production animation and distinct realm maps are still future work.
 

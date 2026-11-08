@@ -14,6 +14,7 @@ const types = {
   ".js": "text/javascript",
   ".wasm": "application/wasm",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
   ".webmanifest": "application/manifest+json",
 };
 const server = createServer(async (req, res) => {
@@ -74,7 +75,7 @@ try {
   await page.locator("#loading").waitFor({ state: "hidden" });
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(artifacts, "landing.png") });
-  console.log("3D title screen rendered");
+  console.log("Anime title screen rendered");
   await page.locator("#profile-name").fill("Browser Test");
   await page.locator("#profile-pin").fill("2468");
   await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
@@ -85,14 +86,28 @@ try {
   );
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(artifacts, "world.png") });
+  assert.equal(
+    await page.locator("#world").getAttribute("data-art-style"),
+    "illustrated",
+  );
   await page.keyboard.press("o");
+  await page.locator("#render-style").selectOption("model");
+  assert.equal(
+    await page.locator("#world").getAttribute("data-art-style"),
+    "model",
+  );
+  await page.locator("#render-style").selectOption("illustrated");
+  assert.equal(
+    await page.locator("#world").getAttribute("data-art-style"),
+    "illustrated",
+  );
   await page.locator("#graphics-quality").selectOption("high");
   assert.equal(
     await page.locator("#world").getAttribute("data-shadows"),
     "true",
   );
   await page.keyboard.press("Escape");
-  // Orbit to the face and zoom through real camera controls, then restore the
+  // Orbit and zoom through real camera controls, then restore the
   // initial heading before movement checks. F8 must hide and restore the HUD.
   await page.mouse.move(1100, 430);
   await page.mouse.down({ button: "right" });
@@ -113,7 +128,7 @@ try {
   await page.mouse.down({ button: "right" });
   await page.mouse.move(1100, 430);
   await page.mouse.up({ button: "right" });
-  await page.mouse.wheel(0, 587.5);
+  await page.mouse.wheel(0, 600);
   await page.keyboard.press("o");
   await page.locator("#graphics-quality").selectOption("low");
   await page.locator("#reduced-motion").check();
@@ -130,6 +145,8 @@ try {
   await page.keyboard.press("Escape");
   // Exercise the new disciplines through the player UI, including actual impact.
   await page.keyboard.press("h");
+  await page.locator(".hero-illustration").first().waitFor();
+  await page.screenshot({ path: resolve(artifacts, "anime-roster.png") });
   await page.getByRole("button", { name: "RECRUIT SORA · FREE" }).click();
   await page.locator('[data-hero="sora"]').click();
   await page.keyboard.press("Escape");

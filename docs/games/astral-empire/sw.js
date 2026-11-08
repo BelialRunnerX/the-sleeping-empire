@@ -1,6 +1,6 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE='astral-empire-aetherbound-v3-4';
-const FILES=['./','./index.html','./classic.html','./aetherbound.css','./manifest.webmanifest','./icon.svg','./engine/app.mjs','./engine/content.mjs','./engine/simulation.mjs','./engine/progression.mjs','./engine/combat.mjs','./engine/profiles.mjs','./engine/native.mjs','./engine/world.mjs','./engine/art.mjs','./native/simulation.wasm','./vendor/three.module.js','./vendor/three.core.js'];
+const CACHE='astral-empire-aetherbound-v3-5';
+const FILES=['./','./index.html','./classic.html','./aetherbound.css','./manifest.webmanifest','./icon.svg','./engine/app.mjs','./engine/content.mjs','./engine/simulation.mjs','./engine/progression.mjs','./engine/combat.mjs','./engine/profiles.mjs','./engine/native.mjs','./engine/world.mjs','./engine/art.mjs','./engine/illustrated.mjs','./assets/heroes-anime.webp','./assets/heroes-walk.webp','./assets/props-anime.webp','./assets/ground-anime.webp','./assets/aetherbound-keyart.webp','./native/simulation.wasm','./vendor/three.module.js','./vendor/three.core.js'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)));
   self.skipWaiting();

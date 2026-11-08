@@ -61,10 +61,18 @@ try {
     const { WorldView } = await import("/engine/world.mjs");
     const { freshState, Simulation } = await import("/engine/simulation.mjs");
     const { HEROES } = await import("/engine/content.mjs");
+    const { loadIllustrations } = await import("/engine/illustrated.mjs");
+    await loadIllustrations();
     window.artTest = { WorldView, freshState, Simulation, HEROES };
   });
-  for (const realm of ["bastion", "moon", "cinder", "frost"]) {
-    const report = await page.evaluate(async (realm) => {
+  for (const scene of [
+    ...["bastion", "moon", "cinder", "frost"].map((realm) => ({
+      realm,
+      style: "illustrated",
+    })),
+    { realm: "bastion", style: "model" },
+  ]) {
+    const report = await page.evaluate(async ({ realm, style }) => {
       const { WorldView, freshState, Simulation, HEROES } = window.artTest;
       const state = freshState(9372);
       state.realm = realm;
@@ -72,6 +80,7 @@ try {
         view = new WorldView(document.querySelector("canvas"), state, sim, {
           quality: "high",
           reducedMotion: false,
+          style,
         });
       const render = async () => {
         view.update(0.1, { x: 0, z: 0 }, 12);
@@ -92,7 +101,7 @@ try {
       state.hero = "kael";
       view.setHero();
       for (const quality of ["low", "balanced", "high"]) {
-        view.applyVisualSettings({ quality, reducedMotion: false });
+        view.applyVisualSettings({ quality, reducedMotion: false, style });
         await render();
       }
       // A riverbank view exposes animated water, terrain, foliage and the skyline.
@@ -117,7 +126,7 @@ try {
         triangles: view.renderer.info.render.triangles,
         textures: view.renderer.info.memory.textures,
       };
-    }, realm);
+    }, scene);
     assert.ok(
       report.after <= report.baseline + 4,
       "Hero changes leaked geometry: " + JSON.stringify(report),
@@ -128,7 +137,13 @@ try {
     );
     assert.ok(report.textures < 16, "Unexpected texture growth");
     await page.screenshot({
-      path: resolve(artifacts, "realm-" + realm + ".png"),
+      path: resolve(
+        artifacts,
+        "realm-" +
+          scene.realm +
+          (scene.style === "model" ? "-model" : "") +
+          ".png",
+      ),
       timeout: 60000,
     });
     console.log("Rendered", JSON.stringify(report));
