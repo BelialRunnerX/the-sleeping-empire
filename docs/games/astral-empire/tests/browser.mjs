@@ -175,7 +175,9 @@ try {
   await page.getByRole("button", { name: "Heroes", exact: true }).click();
   await page.locator('[data-hero="kael"]').click();
   await page.keyboard.press("Escape");
+  // In the 45-degree view, D+S travels along positive world X to the herb.
   await page.keyboard.down("d");
+  await page.keyboard.down("s");
   await page.waitForFunction(
     () =>
       Number(
@@ -185,6 +187,7 @@ try {
     { timeout: 45000 },
   );
   await page.keyboard.up("d");
+  await page.keyboard.up("s");
   await page.keyboard.press("e");
   await page.waitForFunction(
     () =>
