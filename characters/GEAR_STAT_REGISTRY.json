@@ -224,9 +224,16 @@
           "before": "Phase III Heart offered Last Memory; archives partly protected",
           "after": "Aletheia accepted and isolated Last Memory, identified Eater of Names, destroyed active local root and linked copies; Heart cooperative; reward still pending",
           "source": "Player explicitly directed Aletheia to take memory and find/destroy thing"
+        },
+        {
+          "turn": "000268",
+          "field": "SSS-004 Guild award",
+          "before": "Threat defeated, evidence/route verification pending, payout unearned",
+          "after": "Safe route repaired/certified, evidence accepted by Guild, SSS-004 completed and ₡14,000,000 cleared to Elys personal Guild account",
+          "source": "User choice 4/6; Guild payout audit GUILD-PAYOUT-SSS004-000268"
         }
       ],
-      "last_verified_turn": "000267",
+      "last_verified_turn": "000268",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -294,8 +301,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Sepulcher Between Stars, exterior threshold overlooking opened Heart chamber, uncharted interstellar boundary",
-      "current_activity": "SSS-004 primary hostile Eater of Names destroyed by Aletheia within quarantined Last Memory; Heart preserved; awaiting archive verification, safe-route survey and Guild report",
+      "current_location": "Sepulcher Between Stars, secured exterior approach threshold, uncharted interstellar boundary",
+      "current_activity": "SSS-004 completed/paid; Heart active and cooperative; sealed builders' legacy vault revealed but not opened",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -330,7 +337,7 @@
           "SSS-011"
         ],
         "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
-        "accepted_contract_id": "SSS-004",
+        "accepted_contract_id": null,
         "anomaly_bulletin_status": "PROVISIONAL_PUBLIC_OBSERVATORY_BRIEFING_ONLY_NOT_CONTRACT",
         "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira",
         "restricted_observation_files": [
@@ -342,22 +349,26 @@
             "intelligence": "PROVISIONAL",
             "file": "guild/VEIL-09_NADIR_LEVIATHAN.md"
           }
+        ],
+        "completed_contract_ids": [
+          "SSS-004"
         ]
       },
-      "active_guild_contracts": [
+      "active_guild_contracts": [],
+      "completed_guild_contracts": [
         {
           "contract_id": "SSS-004",
           "title": "The Sepulcher Between Stars",
           "rank": "SSS",
-          "status": "PRIMARY_THREAT_NEUTRALIZED_ARCHIVE_RECOVERY_VERIFICATION_PENDING",
+          "status": "COMPLETED_GUILD_VERIFIED_PAID_CLOSED",
           "base_reward_credits": 14000000,
-          "reward_earned": false,
+          "reward_earned": true,
           "accepted_turn": "000261",
           "party_leader": "char-elys",
           "mission_dossier": "guild/SSS-004_SEPULCHER_BOSS_DOSSIER.md",
           "boss": "The Pallbearer King / SEPULCHER WARDEN-Ω",
-          "boss_status": "PHASE_I_AND_II_DEFEATED_EATER_OF_NAMES_DESTROYED_HEART_PRESERVED",
-          "location_status": "SEPULCHER_EXTERIOR_THRESHOLD",
+          "boss_status": "PHASE_I_II_AND_EATER_DESTROYED_HEART_PRESERVED",
+          "location_status": "SEPULCHER_SECURED_PRIMARY_APPROACH",
           "progress": [
             {
               "turn": "000263",
@@ -398,6 +409,21 @@
               "turn": "000267",
               "milestone": "Heart of Sepulcher survives; local geometry stabilizing; full independent archive backup and guild evidence not yet delivered",
               "status": "PENDING"
+            },
+            {
+              "turn": "000268",
+              "milestone": "Forge Core drones/Regalia/Aletheia Genesis Loom with Heart stabilize main corridor and spatial anchors",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000268",
+              "milestone": "Guild independent inspection probe verifies secured route and authenticated non-infectious archive evidence",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000268",
+              "milestone": "Guild approved and paid +₡14,000,000 to Elys personal credit account",
+              "status": "COMPLETE"
             }
           ],
           "combat": {
@@ -414,15 +440,36 @@
             },
             "phase3": {
               "status": "PRIMARY_HOSTILE_THREAT_DEFEATED",
-              "heart_status": "PRESERVED_NO_LONGER_HOSTILE",
+              "heart_status": "PRESERVED_NONHOSTILE_COOPERATIVE",
               "archives": "LINKED_PRESERVED_PARTIAL_VERIFIED_COPY_IN_ALETHEIA",
               "first_contact": "Heart asks Elys whether he will break what the seven hands protected",
               "final_memory": "RECEIVED_QUARANTINED_HISTORIC_RECORD_PRESERVED_ACTIVE_THREAT_REMOVED",
               "heart_last_question": "STRANGER. WILL YOU HEAR WHAT I REMEMBER?",
               "root_hostile": "EATER_OF_NAMES_DESTROYED_IN_SEPULCHER",
-              "spatial_stability": "LOCAL_IMPROVING_DEEP_ROUTES_UNSURVEYED"
+              "spatial_stability": "MAIN_APPROACH_AND_HEART_ROUTE_CERTIFIED",
+              "guild_verification": "ACCEPTED"
             }
-          }
+          },
+          "payout_status": "SETTLED_CREDITED_AVAILABLE",
+          "payout_transaction_id": "GUILD-PAYOUT-SSS004-000268",
+          "payout_amount": 14000000,
+          "payout_currency": "credits",
+          "completed_turn": "000268",
+          "verification_record": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
+        }
+      ],
+      "confirmed_currency_events": [
+        {
+          "id": "GUILD-PAYOUT-SSS004-000268",
+          "turn": "000268",
+          "currency": "credits",
+          "delta": 14000000,
+          "direction": "CREDIT",
+          "account": "Elys personal Guild-linked credit account",
+          "clearing_status": "SETTLED_AVAILABLE",
+          "prior_balance": null,
+          "aggregate_balance": null,
+          "source": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
         }
       ]
     },
@@ -3403,7 +3450,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; Philosopher's Edge spear hovering Elys's right; archive ward remains; Eater of Names locally destroyed",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom at Elys's right; protected archive remains in Heart custody",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3537,9 +3584,16 @@
           "before": "Genesis Loom staff shielding archive; Last Memory unseen",
           "after": "Quarantined Last Memory and identified Eater of Names; destroyed active parasite root and linked local instances in Philosopher's Edge form; preserved inert history and ward",
           "source": "Elys's explicit direction; no Elys entry or arbitrary actions"
+        },
+        {
+          "turn": "000268",
+          "field": "site stabilization support",
+          "before": "Spear hovering Elys right; parasite defeated; spatial machinery partly unstable",
+          "after": "Genesis Loom staff hovering right; archive safeguards ongoing; Heart/Forge Core certified main route; mission completed",
+          "source": "User 4/6"
         }
       ],
-      "last_verified_turn": "000267",
+      "last_verified_turn": "000268",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3569,25 +3623,20 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Sepulcher Between Stars, hovering at Elys's right at exterior threshold",
+      "current_location": "Sepulcher Between Stars, hovering at Elys's right at secured exterior threshold",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
-      "current_form": "Philosopher's Edge spear",
+      "current_form": "Genesis Loom staff",
       "active_tasks": [
         {
           "task": "PROTECT_ARCHIVE",
-          "location": "Sepulcher Heart chamber, bounded non-sentient anchored ward",
+          "location": "Sepulcher Heart chamber via non-sentient anchored ward",
           "status": "ACTIVE_BOUNDED"
         },
         {
           "task": "PRESERVE_RECORDS",
           "location": "Protected Aletheia mnemonic memory",
           "status": "PARTIAL_VERIFIED_SNAPSHOTS_ONLY"
-        },
-        {
-          "task": "QUARANTINED_LAST_MEMORY",
-          "location": "Protected Aletheia mnemonic memory",
-          "status": "INERT_HISTORICAL_RECORD_HOSTILE_PATTERN_DESTROYED"
         }
       ]
     },
@@ -3689,9 +3738,16 @@
           "before": "Briefed Elys on accepted Sepulcher SSS-004",
           "after": "Discussed provisional Nadir Leviathan 42km restricted threat observation, not a contract; SSS-004 still assigned",
           "source": "Story turn 000262"
+        },
+        {
+          "turn": "000268",
+          "field": "SSS-004 administrative closure",
+          "before": "Contract at site and previously active",
+          "after": "Received mission dossier and forwarded senior verification; Guild accepted and settled ₡14M payout",
+          "source": "Turn 000268"
         }
       ],
-      "last_verified_turn": "000262",
+      "last_verified_turn": "000268",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
@@ -3717,13 +3773,13 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "INTACT; EATER OF NAMES LOCAL ROOT DESTROYED; ARCHIVE WARD ANCHORED",
+      "condition": "INTACT; GENESIS LOOM SUPPORTED GUILD-CERTIFIED STABILIZATION",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
-      "form": "Philosopher's Edge spear",
+      "form": "Genesis Loom staff",
       "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
@@ -3793,7 +3849,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Sepulcher Between Stars, hovering at Elys's right at exterior threshold",
+      "current_physical_location": "Sepulcher Between Stars, hovering at Elys's right at secured exterior threshold",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3828,7 +3884,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000267",
+      "last_modified_turn": "000268",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -3954,7 +4010,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "OPERATIONAL; safely detached to standby during armor impact then reattached",
+      "condition": "OPERATIONAL; DRONES USED FOR REMOTE SEPULCHER STABILIZATION AND RETURNED",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
@@ -3980,7 +4036,7 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000257"
+      "last_modified_turn": "000268"
     }
   },
   "transactions": [
@@ -4049,6 +4105,20 @@
       "credits_spent": null,
       "materials_spent": null,
       "source": "Player-directed experiment and equipment use, FX-000257"
+    },
+    {
+      "transaction_id": "GUILD-PAYOUT-SSS004-000268",
+      "turn": "000268",
+      "type": "GUILD_CONTRACT_REWARD_CREDIT",
+      "currency": "credits",
+      "amount": 14000000,
+      "direction": "CREDIT",
+      "from": "Lumenfall Free Adventurers' Guild Treasury",
+      "to": "char-elys personal Guild-linked account",
+      "status": "SETTLED_AVAILABLE",
+      "prior_balance": null,
+      "post_balance": null,
+      "source": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
     }
   ],
   "next_item_sequence": 4
