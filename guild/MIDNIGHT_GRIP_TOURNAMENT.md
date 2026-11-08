@@ -68,3 +68,10 @@ In [played turn 000279](../saves/turns/000279.md), while Elys remains present as
 **Open division:** New adult NPC **Captain Vaedra Halden**, S-ranked vanguard with scar through left eyebrow and red armor, **formally registers as FIRST confirmed Open entrant**, openly declares enhanced mechanical forearm brace/actuator gauntlets in compliance with Open division rules. She expresses interest in testing against Elys but no challenge is accepted/no Open match played. **Her equipment belongs to Vaedra, no player-owned gear or item IDs created**.
 
 **Aletheia:** Gaily predatory spectator in Genesis Loom staff form at Elys's RIGHT, joking about bruised pride and dismemberment, **does not interfere or attack**. All contestants unharmed. Elys's VEIL-09-R SSS reconnaissance contract remains ACCEPTED_PRE_DEPLOYMENT, ₡9M unearned, not canceled by Guild sport.
+
+
+## Final champions — turn 000280
+
+Under user-authorized autonomous sabbatical narration [turn 000280](../saves/turns/000280.md), Elys faces Bram Coppervein in an unaugmented Standard match and wins **2–0**, both pins safe. Remaining entrants are given fair opportunities; **ELYS SOMION wins the Standard championship**, no rank or equipment prize. **Captain Vaedra Halden**, S-rank Vanguard, wins the **Open championship** after a legitimate run among enhanced entrants including Lysander Quill. Open bout scores unnamed; no invented scores. The trophy is a ceremonial Guild award, not a persistent inventory item, and no money is paid.
+
+Final established matches: (1) Seren 2–0 Orvek, (2) Bram 2–0 Lysander, (3) Elys 2–0 Orvek separate Standard entry bout, (4) Bram 2–1 Seren featured qualifier, (5) Elys 2–0 Bram feature bout. **Tournament COMPLETE**, no injury or property damage. Elys does not compete against Vaedra. Aletheia cheers, not an active athlete. The accepted VEIL-09-R SSS reconnaissance is unaffected and is deployed following morning in 000281.
