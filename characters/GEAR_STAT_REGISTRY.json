@@ -260,9 +260,23 @@
           "before": "The Last Witness stored in Forge Core, relic_core empty",
           "after": "ITM-000004 physically installed and ACTIVE in Regalia Aegis sternum; equipped relic_core; removed from Forge Core inventory, normal continuity tests passed",
           "source": "User explicit instruction integrate relic into armor"
+        },
+        {
+          "turn": "000272",
+          "field": "witness historical intelligence",
+          "before": "Only Last Witness confirmed",
+          "after": "Heart reports three completed designs: First stationary Observatory of Still Names (lost), Second mobile refugee sanctuary (lost), Last Witness Elys-equipped; nine doors represent builders",
+          "source": "Player selected 3/4: Heart question"
+        },
+        {
+          "turn": "000272",
+          "field": "armor relic optimization",
+          "before": "Rev I witness mount fitted",
+          "after": "Forge Core fabricated/installed Rev II removable tri-layer protected mount, provenance quarantine, repair audit/thermal isolation; real small repair and safe diagnostic checks passed; 100/100",
+          "source": "Player 3/4: Forge Core optimize armor"
         }
       ],
-      "last_verified_turn": "000271",
+      "last_verified_turn": "000272",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -331,7 +345,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
-      "current_activity": "In Sepulcher legacy vault; Forge Core has integrated Last Witness into worn Aegis in protected sternum relic_core slot; basic activation verified",
+      "current_activity": "In Sepulcher legacy vault; learned three historic Witness designs, First and Second missing/unknown, Forge Core installed and tested Aegis Rev II removable Witness mount",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -500,7 +514,30 @@
           "aggregate_balance": null,
           "source": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
         }
-      ]
+      ],
+      "known_witness_class_history": {
+        "source": "The Heart of the Sepulcher; turn 000272",
+        "created_total": 3,
+        "first": {
+          "name": "The First Witness / The Foundation",
+          "type": "stationary material-event witness",
+          "last_seen": "Observatory of Still Names",
+          "current_status": "UNKNOWN_NOT_INVENTORY"
+        },
+        "second": {
+          "name": "The Second Witness / The Remembrance",
+          "type": "mobile testimony/identity sanctuary",
+          "last_seen": "Departing builders territory on refugee vessel",
+          "current_status": "UNKNOWN_NOT_INVENTORY"
+        },
+        "third": {
+          "name": "The Last Witness / The Continuity",
+          "item_id": "ITM-000004",
+          "status": "OWNED_AND_ARMOR_EQUIPPED"
+        },
+        "nine_doors": "Represent nine participating ancient builder civilizations, not nine Witness-class instruments",
+        "dossier": "armory/relics/WITNESS_CLASS_TRILOGY.md"
+      }
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3648,9 +3685,16 @@
           "before": "Examined unequipped Last Witness in Forge Core storage",
           "after": "Genesis Loom staff assisted with safe removable armoring, relic core auth and activation; archival ward preserved; exuberant sanguine battle banter",
           "source": "User requested armor integration"
+        },
+        {
+          "turn": "000272",
+          "field": "technical support and historical inquiry",
+          "before": "Genesis Loom staff at Elys's right, assisted Rev I fitting",
+          "after": "Assisted Forge Core Rev II alignment, observed three historical Witness leads, joked bloodthirstily about hostile guardians of missing relics; never attacked anyone",
+          "source": "User 3/4"
         }
       ],
-      "last_verified_turn": "000271",
+      "last_verified_turn": "000272",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3991,7 +4035,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "PRISTINE 100/100; LAST WITNESS ITM-000004 INTEGRATED IN STERNUM; ALL ARMOR SYSTEMS OPERATIONAL",
+      "condition": "PRISTINE 100/100; REV II LAST WITNESS STERNUM CRADLE INSTALLED AND ACTIVE; HERMETIC PRESSURE/LIFE SUPPORT INTACT",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -4020,7 +4064,12 @@
         "The Last Witness active identity-continuity anchor",
         "Independent tamper-evident Testament Seal",
         "Witness-linked self-repair continuity cross-check",
-        "Authorized Sepulcher Waymark and Custodian Accord interfaces"
+        "Authorized Sepulcher Waymark and Custodian Accord interfaces",
+        "Rev II triple-layer mechanical isolation for relic core",
+        "Quarantined provenance-check bus between Mnemosyne Relay and independent Witness",
+        "Post-repair component structural and sovereign identity cross-check",
+        "Fault-separated thermal and relic power-management routing",
+        "Sovereign-authorized removable service extraction path"
       ],
       "validation": "Controlled environmental, mobility and stealth/cyber sandbox tests passed",
       "unproven_claims": [
@@ -4054,9 +4103,19 @@
           "result": "PASS: seal and core stable; 100/100; test history rewrite flagged and rejected, reconstruction continuity verified in model",
           "limits": "No real destructive ontological attack or absolute immunity testing; numeric effectiveness unmeasured",
           "integration_record": "armory/integrations/IR-0002_LAST_WITNESS_000271.md"
+        },
+        {
+          "id": "IR-0002-WITNESS-REVII-000272",
+          "turn": "000272",
+          "test": "Protected removable tri-layer Witness mount upgrade while worn; isolated provenance bus and material-fed repair continuity",
+          "before_durability": 100,
+          "after_durability": 100,
+          "result": "PASS normal pressure/mobility; controlled impact load isolation; synthetic tamper rejected; minor sacrificial panel abrasion repaired from local matter with authenticated Witness check",
+          "limits": "Maximum god-class attacks, practical absolute ontological immunity, numeric effectiveness, broader full destructive loads remain untested",
+          "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000271",
+      "last_modified_turn": "000272",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4070,19 +4129,30 @@
       "errata_reference": "saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md",
       "linked_relic_core_item_id": "ITM-000004",
       "relic_mount": {
-        "design": "Insulated sovereign-keyed removable central sternum cradle",
+        "design": "Tri-layer sovereign-isolated removable sternum cradle: distributed impact cage, isolation shell, independently authenticated relic lock",
         "relic_item_id": "ITM-000004",
         "installed_turn": "000271",
-        "integration_report": "armory/integrations/IR-0002_LAST_WITNESS_000271.md",
-        "material_source": "Local Sepulcher mineral debris, actual mass/energy unknown",
-        "witness_independence": "Independent tamper-evident record and authentication hardware, separately verifiable from suit controller",
+        "integration_report": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md",
+        "material_source": "Existing Sepulcher non-archival loose mineral debris transmuted into mounting hardware, exact quantity unknown",
+        "witness_independence": "Quarantined provenance bus to Mnemosyne Relay; neither can silently rewrite other history",
         "mounted": true,
-        "removable": true
+        "removable": true,
+        "revision": "REV_II",
+        "revision_turn": "000272",
+        "outer_protection": "Integrated load spreading through torso/shoulder/back structural supports",
+        "middle_protection": "Fault-isolated thermal, vibration and power routing",
+        "inner_protection": "Removable sovereign-keyed cradle for physically single independent relic ITM-000004",
+        "safeguarded_extractable": true,
+        "extract_requires": "Sovereign-authorized maintenance"
       },
       "validated_capabilities": [
         "ITM-000004 installed in protected physical relic mount with original life support intact",
         "Artificial test registry tampering detected by independent witness cross-check",
-        "Simulated self-repair component identity continuity cross-check passed"
+        "Simulated self-repair component identity continuity cross-check passed",
+        "Rev II sternum Witness cradle installed with tri-layer shock isolation tested under bounded controlled pulse",
+        "Real local-matter self-repair of deliberately abraded small armor panel passed independent relic continuity check",
+        "Independent quarantined history/audit detects injected synthetic record mismatch",
+        "Normal hermetic seal and mobility preserved after hardware optimization"
       ]
     },
     "ITM-000003": {
@@ -4104,7 +4174,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "OPERATIONAL 100/100; ITM-000004 REMOVED FROM STORAGE FOR DIRECT ARMOR INSTALLATION",
+      "condition": "OPERATIONAL 100/100; COMPLETED NON-DESTRUCTIVE REV II ARMOR CORE OPTIMIZATION; NOT STORING ITM-000004",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
@@ -4130,7 +4200,7 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000271",
+      "last_modified_turn": "000272",
       "stored_item_ids": []
     },
     "ITM-000004": {
@@ -4152,13 +4222,13 @@
       "signature_refinement": null,
       "raw_numeric_stats": null,
       "durability": null,
-      "condition": "PRISTINE; INSTALLED, AUTHENTICATED AND ACTIVE IN REGALIA AEGIS",
+      "condition": "PRISTINE; ACTIVE IN REV II SOVEREIGN-ISOLATED ARMOR CRADLE",
       "binding": "Heart-approved personal custody of Elys; not a transfer of Heart/archives",
       "type": "relic_core",
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "Mounted inside Regalia Aegis ITM-000002 protected sternum cradle, physically worn by Elys in Sepulcher legacy vault",
+      "current_physical_location": "EQUIPPED in Regalia Aegis ITM-000002 Rev II protected removable sternum mount, on Elys inside Sepulcher legacy vault",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
@@ -4196,7 +4266,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000271",
+      "last_modified_turn": "000272",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
@@ -4266,8 +4336,16 @@
         "artificial_ledger_corruption_detection": "PASS",
         "simulated_armor_repair_identity_check": "PASS",
         "real_extreme_conceptual_attack": "NOT_TESTED",
-        "reported_numeric_stats": "UNKNOWN"
-      }
+        "reported_numeric_stats": "UNKNOWN",
+        "revision": "REV_II",
+        "revision_turn": "000272",
+        "controlled_sternum_impulse": "PASS_IN_TESTED_RANGE",
+        "independent_audit_bridge": "PASS_SYNTHETIC_TAMPER_DETECTION",
+        "sacrificial_microplate_repair": "PASS_REAL_LOCAL_MATTER_REPAIR_WITH_RELIC_CONTINUITY_CHECK",
+        "vault_pressure_and_mobility": "PASS",
+        "authorized_extraction": "PASS_SIMULATED_NOT_PHYSICALLY_REMOVED"
+      },
+      "integration_revision": "REV_II_000272"
     }
   },
   "transactions": [
@@ -4377,6 +4455,19 @@
       "credits_spent": null,
       "materials_spent": "Nearby Sepulcher mineral debris, quantity unknown; no user inventory debit asserted",
       "source": "armory/integrations/IR-0002_LAST_WITNESS_000271.md"
+    },
+    {
+      "transaction_id": "TX-000272-AEGIS-REVII",
+      "turn": "000272",
+      "type": "NON_DESTRUCTIVE_ARMOR_OPTIMIZATION",
+      "item_id": "ITM-000002",
+      "linked_item_id": "ITM-000004",
+      "forge_item_id": "ITM-000003",
+      "owner": "char-elys",
+      "operation": "Tri-layer isolation mount, quarantined provenance channel and self-repair identity audit; physical hardware revision, not a new item",
+      "credits_spent": null,
+      "materials_spent": "Local non-archival Sepulcher mineral debris; exact amount and energy not measured",
+      "source": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
     }
   ],
   "next_item_sequence": 5
