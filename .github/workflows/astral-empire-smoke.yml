@@ -48,3 +48,4 @@ jobs:
           name: aetherbound-browser-screenshots
           path: docs/games/astral-empire/.artifacts/
           if-no-files-found: ignore
+          include-hidden-files: true

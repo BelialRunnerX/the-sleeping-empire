@@ -64,7 +64,7 @@ try {
     window.artTest = { WorldView, freshState, Simulation, HEROES };
   });
   for (const realm of ["bastion", "moon", "cinder", "frost"]) {
-    const report = await page.evaluate((realm) => {
+    const report = await page.evaluate(async (realm) => {
       const { WorldView, freshState, Simulation, HEROES } = window.artTest;
       const state = freshState(9372);
       state.realm = realm;
@@ -73,23 +73,27 @@ try {
           quality: "high",
           reducedMotion: false,
         });
-      const render = () => {
-        for (let i = 0; i < 4; i++) view.update(0.1, { x: 0, z: 0 }, 12);
+      const render = async () => {
+        view.update(0.1, { x: 0, z: 0 }, 12);
+        // Give software renderers time to submit each frame instead of queuing
+        // dozens of shadow passes in a single evaluation task.
+        view.renderer.getContext().finish();
+        await new Promise(requestAnimationFrame);
       };
-      render();
+      await render();
       const baseline = view.renderer.info.memory.geometries;
       // Switching every hero must retire unique capes/weapon geometry.
       for (const hero of HEROES) {
         state.hero = hero.id;
         view.setHero();
-        render();
+        await render();
       }
       const after = view.renderer.info.memory.geometries;
       state.hero = "kael";
       view.setHero();
       for (const quality of ["low", "balanced", "high"]) {
         view.applyVisualSettings({ quality, reducedMotion: false });
-        render();
+        await render();
       }
       // A riverbank view exposes animated water, terrain, foliage and the skyline.
       sim.player.x = 20;
@@ -98,8 +102,13 @@ try {
       view.yaw = -0.6;
       view.pitch = 0.45;
       view.distance = 13;
-      render();
+      for (let i = 0; i < 4; i++) await render();
       window.artTest.view = view;
+      window.artTest.draw = () => {
+        view.update(0.016, { x: 0, z: 0 }, 12);
+        window.artTest.frame = requestAnimationFrame(window.artTest.draw);
+      };
+      window.artTest.frame = requestAnimationFrame(window.artTest.draw);
       return {
         realm,
         baseline,
@@ -120,9 +129,13 @@ try {
     assert.ok(report.textures < 16, "Unexpected texture growth");
     await page.screenshot({
       path: resolve(artifacts, "realm-" + realm + ".png"),
+      timeout: 60000,
     });
     console.log("Rendered", JSON.stringify(report));
-    await page.evaluate(() => window.artTest.view.dispose());
+    await page.evaluate(() => {
+      cancelAnimationFrame(window.artTest.frame);
+      window.artTest.view.dispose();
+    });
   }
   assert.deepEqual(errors, []);
   console.log(
