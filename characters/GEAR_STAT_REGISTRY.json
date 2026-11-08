@@ -58,7 +58,7 @@
         "arms": "ITM-000002",
         "legs": "ITM-000002",
         "feet": "ITM-000002",
-        "relic_core": null,
+        "relic_core": "ITM-000004",
         "ring_a": null,
         "ring_b": null,
         "amulet": null,
@@ -253,9 +253,16 @@
           "before": "Ancient relic owned, stored, unequipped, four known bounded functions",
           "after": "Aletheia confirmed functional architecture and inferred relational continuity discrepancy forensics via safe dummy record simulation; no equip, activation or bonuses",
           "source": "User chose 2 from 000269: have Aletheia analyze relic's capabilities"
+        },
+        {
+          "turn": "000271",
+          "field": "equipped.relic_core + Regalia Aegis mount",
+          "before": "The Last Witness stored in Forge Core, relic_core empty",
+          "after": "ITM-000004 physically installed and ACTIVE in Regalia Aegis sternum; equipped relic_core; removed from Forge Core inventory, normal continuity tests passed",
+          "source": "User explicit instruction integrate relic into armor"
         }
       ],
-      "last_verified_turn": "000270",
+      "last_verified_turn": "000271",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -324,7 +331,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
-      "current_activity": "In opened Sepulcher legacy vault; Aletheia completed noninvasive appraisal of stored Last Witness; relic_core slot still vacant",
+      "current_activity": "In Sepulcher legacy vault; Forge Core has integrated Last Witness into worn Aegis in protected sternum relic_core slot; basic activation verified",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -3634,9 +3641,16 @@
           "before": "Genesis Loom staff at Elys right in builders vault",
           "after": "Studied Last Witness with Heart and Forge Core passive sensors; described four functions plus bounded relational witness forensics; exuberant sanguine banter, no attack",
           "source": "User direct appraisal request"
+        },
+        {
+          "turn": "000271",
+          "field": "technical assistance",
+          "before": "Examined unequipped Last Witness in Forge Core storage",
+          "after": "Genesis Loom staff assisted with safe removable armoring, relic core auth and activation; archival ward preserved; exuberant sanguine battle banter",
+          "source": "User requested armor integration"
         }
       ],
-      "last_verified_turn": "000270",
+      "last_verified_turn": "000271",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3977,7 +3991,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "PRISTINE; FULLY RECONSTITUTED BY AUTOMATED ENVIRONMENTAL-MATTER TRANSMUTATION AFTER ASTEROID IMPACT; ALL SEALS AND CORE OPERATIONAL",
+      "condition": "PRISTINE 100/100; LAST WITNESS ITM-000004 INTEGRATED IN STERNUM; ALL ARMOR SYSTEMS OPERATIONAL",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -3989,7 +4003,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys, inside builders' legacy vault, Sepulcher",
+      "current_physical_location": "Worn by Elys inside opened Sepulcher legacy vault, The Last Witness mounted in sternum",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4002,7 +4016,11 @@
         "Crown Cipher autonomous authorized cyber reconnaissance",
         "Mnemosyne Relay secured local data analysis",
         "Ghost Protocol decoy and evidence chain",
-        "Null Intrusion Ward network security"
+        "Null Intrusion Ward network security",
+        "The Last Witness active identity-continuity anchor",
+        "Independent tamper-evident Testament Seal",
+        "Witness-linked self-repair continuity cross-check",
+        "Authorized Sepulcher Waymark and Custodian Accord interfaces"
       ],
       "validation": "Controlled environmental, mobility and stealth/cyber sandbox tests passed",
       "unproven_claims": [
@@ -4028,9 +4046,17 @@
           "result": "SURVIVED; pressure seal and sovereign core sound; all damaged armor replaced with nearby asteroid matter; 100/100 after repair; pristine.",
           "limits": "Not a test of Aletheia's maximum activated god-killer execution mode",
           "repair_mechanism": "Automatically gathers and transmutes environmental asteroid material to restore fully. No Forge Core operation or inventory materials."
+        },
+        {
+          "id": "IR-0002-RELIC-INTEGRATION-000271",
+          "turn": "000271",
+          "test": "Install Last Witness physical relic core, activate wearer identity anchor and independent armor continuity ledger; harmless simulated history rewrite and reconstruction",
+          "result": "PASS: seal and core stable; 100/100; test history rewrite flagged and rejected, reconstruction continuity verified in model",
+          "limits": "No real destructive ontological attack or absolute immunity testing; numeric effectiveness unmeasured",
+          "integration_record": "armory/integrations/IR-0002_LAST_WITNESS_000271.md"
         }
       ],
-      "last_modified_turn": "000257",
+      "last_modified_turn": "000271",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4041,7 +4067,23 @@
         "limitation": "Requires sufficient convertible local matter and energy; not universal immunity or guaranteed regeneration in empty void",
         "first_confirmed_turn": "000257"
       },
-      "errata_reference": "saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md"
+      "errata_reference": "saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md",
+      "linked_relic_core_item_id": "ITM-000004",
+      "relic_mount": {
+        "design": "Insulated sovereign-keyed removable central sternum cradle",
+        "relic_item_id": "ITM-000004",
+        "installed_turn": "000271",
+        "integration_report": "armory/integrations/IR-0002_LAST_WITNESS_000271.md",
+        "material_source": "Local Sepulcher mineral debris, actual mass/energy unknown",
+        "witness_independence": "Independent tamper-evident record and authentication hardware, separately verifiable from suit controller",
+        "mounted": true,
+        "removable": true
+      },
+      "validated_capabilities": [
+        "ITM-000004 installed in protected physical relic mount with original life support intact",
+        "Artificial test registry tampering detected by independent witness cross-check",
+        "Simulated self-repair component identity continuity cross-check passed"
+      ]
     },
     "ITM-000003": {
       "item_id": "ITM-000003",
@@ -4062,12 +4104,12 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "OPERATIONAL; DRONES USED FOR REMOTE SEPULCHER STABILIZATION AND RETURNED",
+      "condition": "OPERATIONAL 100/100; ITM-000004 REMOVED FROM STORAGE FOR DIRECT ARMOR INSTALLATION",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Worn on Elys, builders' legacy vault, contains ITM-000004 in secure storage",
+      "current_physical_location": "Back-mounted on Elys inside opened Sepulcher legacy vault, ITM-000004 no longer stored",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4088,10 +4130,8 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000268",
-      "stored_item_ids": [
-        "ITM-000004"
-      ]
+      "last_modified_turn": "000271",
+      "stored_item_ids": []
     },
     "ITM-000004": {
       "item_id": "ITM-000004",
@@ -4106,19 +4146,19 @@
       "delivered_at_in_world": "10 Deepfall, 13,627 ICE, night",
       "delivery_status": "RECOVERED_AND_OWNED",
       "ownership_verified": true,
-      "equipped": false,
+      "equipped": true,
       "enhancement_level": null,
       "quality": null,
       "signature_refinement": null,
       "raw_numeric_stats": null,
       "durability": null,
-      "condition": "PRISTINE, SEALED AND OPERATIONAL",
+      "condition": "PRISTINE; INSTALLED, AUTHENTICATED AND ACTIVE IN REGALIA AEGIS",
       "binding": "Heart-approved personal custody of Elys; not a transfer of Heart/archives",
       "type": "relic_core",
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "Secured within ITM-000003 Regalia Forge Core backpack inventory, on Elys inside Sepulcher legacy vault",
+      "current_physical_location": "Mounted inside Regalia Aegis ITM-000002 protected sternum cradle, physically worn by Elys in Sepulcher legacy vault",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
@@ -4156,7 +4196,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000270",
+      "last_modified_turn": "000271",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
@@ -4193,7 +4233,41 @@
           "scope": "SIMULATED_RECORDS_ONLY",
           "limits": "No automatic resurrection, perfect forensic trace, attacker identification, or guarantee of real-world protection"
         }
-      ]
+      ],
+      "attachment_mode": "ARMOR_INTEGRATED_REMOVABLE_RELIC_CORE",
+      "linked_armor_item_id": "ITM-000002",
+      "installed_turn": "000271",
+      "active_modes": {
+        "ANCHOR_OF_IDENTITY": {
+          "status": "ACTIVE",
+          "scope": "Authorized bearer Elys and authenticated Regalia continuity",
+          "limits": "Bounded, no universal protection or resurrection"
+        },
+        "TESTAMENT_SEAL": {
+          "status": "ENABLED",
+          "scope": "Authenticated tamper-evident suit identity and record chain; bounded storage",
+          "limits": "Original eyewitness can still be wrong"
+        },
+        "SEPULCHER_WAYMARK": {
+          "status": "SYNCHRONIZED",
+          "scope": "Verified stable main approach path only",
+          "limits": "Not instantaneous travel"
+        },
+        "CUSTODIANS_ACCORD": {
+          "status": "AUTHENTICATED_REQUEST_ON_DEMAND",
+          "scope": "Heart approval required for each archival request",
+          "limits": "No compulsory access"
+        }
+      },
+      "integration_calibration": {
+        "turn": "000271",
+        "physical_mount": "PASS",
+        "normal_identity_link": "PASS",
+        "artificial_ledger_corruption_detection": "PASS",
+        "simulated_armor_repair_identity_check": "PASS",
+        "real_extreme_conceptual_attack": "NOT_TESTED",
+        "reported_numeric_stats": "UNKNOWN"
+      }
     }
   },
   "transactions": [
@@ -4288,6 +4362,21 @@
       "price": null,
       "credits_spent": 0,
       "source": "User-directed retrieval, turns 000268-000269"
+    },
+    {
+      "transaction_id": "TX-000271-ITM-000004",
+      "turn": "000271",
+      "type": "RELIC_CORE_EQUIP_ARMOR_INTEGRATION",
+      "item_id": "ITM-000004",
+      "armor_item_id": "ITM-000002",
+      "forge_item_id": "ITM-000003",
+      "owner": "char-elys",
+      "slot": "relic_core",
+      "from": "Forge Core ITM-000003 secure inventory",
+      "to": "Regalia Aegis ITM-000002 protected sternum mount",
+      "credits_spent": null,
+      "materials_spent": "Nearby Sepulcher mineral debris, quantity unknown; no user inventory debit asserted",
+      "source": "armory/integrations/IR-0002_LAST_WITNESS_000271.md"
     }
   ],
   "next_item_sequence": 5
