@@ -1,36 +1,39 @@
 # Current Story State
 
-**Save sequence:** 000299  
-**Type:** played autonomous narration round (three displayed chapters; detailed synopsis, not verbatim archive)  
+**Save sequence:** 000300  
+**Type:** played autonomous three-chapter narration round, summarized  
 **Recorded:** 2026-11-08  
-**Latest record:** [000299](turns/000299.md)  
-**Latest non-narrative correction:** [Aletheia's one-body transformation rule](errata/000299_ALETHEIA_FORM_IDENTITY.md) (no new story turn)  
-**Checkpoint:** [000299](checkpoints/000299.md)  
-**Story endpoint:** Chapter CCXL, “The Auditor's Mistake,” at a previously unidentified 18 km transfer platform on the first harmonic intercept route toward mobile Asterion.
+**Latest record:** [000300](turns/000300.md)  
+**Checkpoint:** [000300](checkpoints/000300.md)  
+**Latest Aletheia player errata:** [000299 form identity](errata/000299_ALETHEIA_FORM_IDENTITY.md)  
+**Story endpoint:** Chapter CCXLIII, Asterion Depot inner calibration gallery; sealed external observation iris opens.
 
-## Resume here
+## Exact resumption
 
-**In-world date:** 13 Deepfall, 13,627 ICE (approximate; elapsed travel times not measured). Elys and sentient Aletheia have intercepted an old transfer installation, neutralized hostile automated defenses, and found **two living Light-Born among the original 23 transferred from Heliogenesis Cradle**. One captive is conscious and can speak but has not recovered their own name. The second is alive, medically unstable, consciousness unknown. Both are still in life-support capsules now enclosed by Elys's independent, functional protected medical transport cradle. Matriarch Seven has acknowledged an evacuation/care request; the two have **not yet been delivered** to the Cradle. Independent advocates and consent still apply; they are not owned property. Elys and Aletheia can prepare to depart once safe medical arrangements are made.
+13 Deepfall 13,627 ICE, elapsed travel unmeasured. Elys and Aletheia have now arrived at **authenticated ASTERION DEPOT**, a massive moving transfer citadel surrounded by a dark halo, NOT verified to be the whole Night Engine. Its occupied patrol cruiser fired at Elys and was harmlessly disabled by innate negation/full reflection. Elys gently, sincerely offered its exhausted commander protected surrender, then negated central-command punitive execution controls. Commander freely surrendered; crew survived. Aletheia, one physical weapon, transformed from Materia humanoid to Philosopher's Edge spear, destroyed attacking automated turrets without damaging occupied ship, transformed fully back into humanoid. Surrendering officers remain subject to individualized lawful process, not automatic punishment or forgiveness.
 
-A recovered Gloam Court engineering assessment shows the larger moving **Asterion** station used living stellar beings as phase-navigation calibration references; designers considered non-living mechanical substitutes, which later administrators rejected on cost/schedule grounds. The unknown **Auditor** remotely attempted to kill captives and erase archives, but Elys's innate negation stopped all hostile effects; Aletheia destroyed automated defenses and preserved local buffers. Auditor claims the Night Engine keeps some pre-stellar darkness away; **this is unverified**, not narrator fact. An archived phase-correction schedule narrows the next **moving rendezvous corridor**; distant sensors see an enormous dark, haloed object matching some Asterion signatures, but identity, destination and hostile intentions remain unconfirmed. Last line from Aletheia: she intends to be “positively insufferable” if fighting a truly hostile large opponent. **Neither Night Engine nor confirmed Asterion Depot has been boarded or defeated.**
+The **two survivors located at previous first-intercept station were safely delivered to an independent protected medical ward at Heliogenesis Cradle** via continuous-support transit, confirmed by Dr. Maris Vey. Conscious first survivor voluntarily accepts temporary medical care; second alive but unstable. Both retain rights and advocates; Matriarch Seven's reforms ongoing. Liora welcomed them.
 
-## Priority protagonist and format rules
+Inside Asterion, **a third living, conscious Light-Born from the historical 23 transfers** was independently matched by Last Witness and Cradle record and remains medically dependent in the calibration ring, not yet extracted. Elys stops its coercive memory regression, maintains environmental support, respects its refusal to disclose its name. So **3 of original 23 alive confirmed; other 20 still unknown**. Historical evidence of 17 with agency unchanged.
 
-Read [binding autonomous narration](../narration/AUTONOMOUS_SABBATICAL_NARRATION.md). User explicitly authorized narrator to write routine Elys speech/actions and advance multi-chapter adventures without requiring choice menus; user can intervene or errata at any time. This supersedes older no-Elys-dialogue and fixed-menu defaults while active. Continue with concrete companion-driven adventures, fights, discoveries, occasional humor, and meaningful ethics; keep cinematic chapter headings and place/date strips.
+Engineering archive reveals **genuine unfinished mechanical alternative reference prototype and incomplete simulations**, canceled for cost/schedule before final testing. An isolated nonliving field test worked several seconds only, NOT a finished or validated replacement. Independent instruments find spacetime fluctuation beyond halo. Auditor's claims about a pre-stellar cosmic threat remain unverified; identity of Auditor and fate of missing 20 unknown. Final cliffhanger: observation iris opening for direct look at region beyond darkness.
 
-**Elys's absolute power is intrinsic and UNCONDITIONAL:** invulnerable to literally all threats incl. physical, psychic, magical, temporal, identity, conceptual and ontological erasure, with inherent unlimited negation and **FULL REFLECTION**, not derived from armor, Last Witness, allies or power supply. No bypass, cooldown, drain, weakness or arbitrary ceiling. He is **not omniscient**, and cannot simply know concealed truth without discovery. He is Emperor on sabbatical, ordinarily minimizes his status, uses sovereignty when injustice or corruption warrants it.
+## Binding narrator posture
 
-Aletheia (she) is the **ONE SENTIENT PHYSICAL WEAPON** `ITM-000001` itself; **Materia humanoid is the very same Philosopher's Edge spear transformed**, alternatively Genesis Loom staff. Forms are mutually exclusive; she **cannot carry, hold or rest a separate spear while humanoid**. At the CCXL closing beat she transformed into **Philosopher's Edge spear form** and remains one companion beside Elys, not a separate human carrying the spear. She is affectionate toward innocents and **gaily bloodthirsty toward genuine hostiles**. [Binding user errata](errata/000299_ALETHEIA_FORM_IDENTITY.md).
+[Autonomous Sabbatical Narration](../narration/AUTONOMOUS_SABBATICAL_NARRATION.md): user authorized Elys's routine choices and dialogue, companion-led fights, no need for turn-by-turn menu; user may intervene or errata. Film-inspired new Elys personality aspect (turn 000300): **serenely overwhelming and frighteningly gentle, authentic offer to help exhausted foes, no need to posture, cares for autonomy and persons, can stop violence without killing**; not the Void's manipulative annihilation. Still playful, dryly ironic and capable of proportionate fierce action; no forced universal pacifism.
 
-## Operational continuity
+Elys **absolutely and intrinsically invulnerable to every threat incl. conceptual/ontological erasure**, with infinite native negation and full reflection, no loophole/recharge/gear dependence; NOT omniscient. On sabbatical, avoids invoking Emperor status unless necessary.
 
-- 23 historical Heliogenesis transfers, 17 documented showing independent moral agency at transfer; **two now alive and located**, other 21 fates unknown. Liora at Cradle has seen stars in protected first external viewing chamber; still medically dependent. Matriarch reforms and gradual restoration of star output underway, not complete. Dr. Maris Vey remains civilian scientific advisor at Cradle, with research subject to Light-Born consent.
-- Seven Gloam warships, 31 boarding craft disabled earlier without deaths; Commodore Sareth Voss surrendered and held for proper legal proceedings, not killed.
-- Equipment: `ITM-000001 Aletheia` companion; `ITM-000002 Regalia Aegis` worn 100/100; `ITM-000003 Regalia Forge Core` 100/100; `ITM-000004 Last Witness` equipped in Aegis relic core; `ITM-000005 Sixfold Harmonic Resonator` and `ITM-000006 Horizon Needle` stored separately and unequipped in Forge Core. No new inventory this round; next item ID `ITM-000007` available. No speculative stat or gear upgrades.
-- VEIL-09-R Guild ₡9M reward remains **pending independent corridor audit, NOT earned or paid**. SSS-004 previous ₡14M paid exactly once. No added contract or proceeds.
-- Celeste/Clarissa at completed Nimbus residence, Aurelia remains Regent, Somnus controlled by Lethe. Prior romantic secrets and Clarissa's gifted strength disclosure remain unchanged. Elys owns no Light-Born, Cradle or Imperial public assets through rescue.
-- Veyruun (~42 km friendly Leviathan) and 12 young reunited; separate species from Light-Born. Sepulcher Heart cooperative, Eater of Names locally destroyed, Last Witness integrated; previous barren planet fully imploded, private fleet accounting unchanged.
+Aletheia ITM-000001 IS THE SPEAR; one entity that wholly transforms between **Materia humanoid, Philosopher's Edge spear, Genesis Loom staff** (no simultaneous humanoid holding a separate spear). Currently **Materia humanoid beside Elys**, gaily bloodthirsty to genuine aggressors, protective of innocents. [Mandatory correction](errata/000299_ALETHEIA_FORM_IDENTITY.md).
 
-## Next natural beat
+## Constant ledger
 
-Confirm transport safety and consent protections; inspect the narrowed moving phase corridor and immense unidentified object; investigate Night Engine and the Auditor using evidence; allow companions to fight hostile threats. Do not assume already found, purchased, rescued, killed or paid for things merely hypothesized. See [turn 000299](turns/000299.md) for full new events and [turn 000298](turns/000298.md) for previous endpoint.
+- Aegis ITM-000002 worn 100/100; Forge Core ITM-000003 100/100; Last Witness ITM-000004 equipped at relic core; ITM-000005 Sixfold Harmonic Resonator and ITM-000006 Horizon Needle stored separately, unequipped. Next item ID 7. No new possessions, gear upgrades, currency, contracts this round.
+- VEIL-09-R Guild ₡9M pending independent audit, not paid. SSS-004 ₡14M paid once. Night Engine investigation uncommissioned separate.
+- Liora protected at Cradle; Matriarch reforms underway; Maris civilian scientist subject to informed consent. Seven earlier Gloam ships and 31 boarding craft disabled with crews alive, Commodore Voss held for legal disposition.
+- Clarissa fiancée, Celeste existing divine spouse relationship concealed from Clarissa; both at private Nimbus home. Aurelia Regent; Lethe Somnus executive, Bel female. No new disclosures or ownership changes.
+- Veyruun and 12 young reunited; Sepulcher Heart cooperative; old barren planet imploded under prior correction.
+
+## Next
+
+Explore observational iris, test real outside conditions independent of Auditor, protect the third living captive and the surrendered crew, develop a fully verified humane nonliving reference replacement before extraction. No automatic full Night Engine victory or instant knowledge.

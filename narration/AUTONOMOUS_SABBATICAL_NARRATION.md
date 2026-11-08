@@ -14,3 +14,8 @@
 7. **Continuity:** Same Empire, same character histories, existing mission/ledger intact. Current mission at 000280+ `VEIL-09-R` accepted with binding Contingency A permitting necessary defensive including lethal force against credible hostile threats, **no hunting unknown Leviathan solely for size**. Full equipment canon as in gear registry. The user may always interrupt this mode. This directive supersedes earlier default "do not narrate Elys decisions/dialogue" limitation **until user explicitly changes the directive**.
 
 **Sources:** [Turn 000280](../saves/turns/000280.md), [Turn 000281](../saves/turns/000281.md), [Turn 000282](../saves/turns/000282.md).
+
+
+## Additional personality direction — after turn 000299 / played 000300
+
+User shared https://youtu.be/AY9WkB5BVlA and asked to adapt “Aren't you tired of fighting? Let me help you” to Elys. Source identification: The Void in *Thunderbolts* (2025), independently verified film script/quote sources; **the actual video transcript was not accessible**. Elys may exhibit **serene, unshakably gentle, almost frightening compassion** for exhausted fighters and coerced enemies, offering genuine protection and a real choice to surrender. Unlike the Void, his mercy **never masks coerced annihilation**. Continue irony, curiosity, quiet sabbatical, respect for personhood, just consequences, decisive counterforce when warranted, absolute innate powers, narrator autonomy subject to user errata. Avoid repeatedly quoting a catchphrase. Example in [turn 000300](../saves/turns/000300.md).

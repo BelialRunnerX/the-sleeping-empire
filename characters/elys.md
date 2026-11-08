@@ -46,3 +46,10 @@ Unspecified ages, origins, powers and relationships remain unestablished. Earlie
 ## Marital relationships — updated player canon
 
 Elys remains **married to Celeste Somnion**, a divine-realm marriage still in force, **while engaged to Clarissa Somnion**, who is not yet his wife. The Empire has **no laws mandating monogamy**. Clarissa has not yet been told of the Elys–Celeste marriage. [Authoritative correction](../saves/canon/elys-celeste-current-marriage-no-imperial-monogamy.md).
+
+
+## Film-inspired quiet mercy — user-requested turn 000300
+
+The user supplied a YouTube film link and specifically asked to draw upon the line “Aren't you tired of fighting? Let me help you” as an Elys **personality inspiration**. Independently identified as spoken by the Void in *Thunderbolts* (2025); **the actual YouTube edit's transcript could not be directly checked**. Elys is NOT the Void and the Void's apparent mercy masking annihilation is NOT adopted as Elys's ethics.
+
+**Elys may be terribly calm, soft-spoken, and overwhelming without posturing.** He can recognize the exhaustion of a sincere, coerced or lost adversary and offer real relief and protection; surrender must be a genuine choice that preserves the person's dignity and future accountability, not trickery or erasure. His impossible-to-harm presence can make gentle offers more frightening than threats. He still has ironic humor, ordinary curiosity, sovereignty and willingness to use proportionate extreme force/companion combat as warranted; this is not compulsory pacifism or pardon. In [turn 000300](../saves/turns/000300.md) he protected surrendering patrol personnel, accepted the Light-Born's right not to tell him its name, and examined alternative technologies before coercive living removal. User autonomy/errata remains absolute.
