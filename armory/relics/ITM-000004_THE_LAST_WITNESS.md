@@ -25,3 +25,14 @@ A hand-sized **twelve-pointed black-crystal star**, bound in threads of luminous
 The Heart offered the relic voluntarily after Elys removed the archive predator without destroying the Heart/records; the vault automatically opened upon user choice to retrieve. No trap, unwilling sentient object or unobserved prisoner was inside. The **larger ancient archive remains in the Heart's custody**. The user's new personality direction for Aletheia is a **separate sentient character adjustment**, not a property of this relic.
 
 **Source:** [Turn 000269](../../saves/turns/000269.md) and [SSS-004 completion record](../../guild/SSS-004_COMPLETION_AND_PAYOUT.md).
+
+
+## Noninvasive full functional appraisal — Turn 000270
+
+Aletheia, in sentient Genesis Loom staff form at Elys's right, inspected The Last Witness through the transparent protected Forge Core compartment **while leaving it physically stored, unequipped and inactive**. The cooperating Heart described its architecture. The twelve crystalline points contain independent continuity/witness reference structures rather than conventional shield emitters. Its four established modes—**Anchor of Identity, Testament Seal, Sepulcher Waymark and Custodian's Accord**—are confirmed to fit the observed design but **not combat-stress-certified or assigned numeric bonuses**.
+
+**New bounded finding: relational continuity / discrepancy forensics.** Fine inscriptions record **relationships between recorded identities and independently witnessed events**, e.g., an explorer and a vessel manifest, a witness and their testimony. Aletheia demonstrated in a **harmless artificial diagnostic simulation only** that deleting the explorer's primary record can leave a contradictory reference preserved in the independent ship log. Such cross-reference discrepancies may be used to **infer that identity/record erasure or rewriting took place**. This is an analytical implication of **Anchor of Identity + Testament Seal**, not an added standalone ability, automatic recovery of deleted persons, guaranteed attacker identification, no-cost scanning of all timelines, or proof of performance under real predatory assault.
+
+**Measured limits:** Exact material composition, physical age, numerical resistance/stats, active power budget, range, charges, target count and failure thresholds remain UNKNOWN. Observing architecture and a safe simulated test is **not activating the real item**, proving protection against all god-class attacks, or recording new equipment buffs. The Last Witness remains in Forge Core storage; **Elys's `relic_core` gear slot is empty**.
+
+**Heart's testimony:** “A WITNESS MAY REMAIN EVEN WHEN THE ONE REMEMBERED IS GONE.” The Heart remains autonomous and retains custody of the broader historical archive. [Played turn 000270](../../saves/turns/000270.md).
