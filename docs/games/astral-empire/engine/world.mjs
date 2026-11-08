@@ -1,6 +1,7 @@
 import * as T from "../vendor/three.module.js";
 import { hash, roll } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
+import { ArtDirector, GRAPHICS } from "./art.mjs";
 const color = (hex) => new T.Color(hex);
 export function ground(x, z, realm = "bastion") {
   if (Math.hypot(x, z) < 13) return 0;
@@ -8,7 +9,13 @@ export function ground(x, z, realm = "bastion") {
     (Math.sin(x * 0.028) * Math.cos(z * 0.035) * 2 +
       Math.sin(z * 0.08 + x * 0.02) * 0.7) *
     Math.min(1, (Math.hypot(x, z) - 13) / 20);
-  return realm === "moon" ? hill * 0.6 : hill;
+  const elevation = realm === "moon" ? hill * 0.6 : hill;
+  // Shallow riverbed keeps the water surface above the land. The crossing
+  // shares the visible deck height so characters walk on its planks.
+  if (Math.abs(x - 30) < 5.8 && Math.abs(z - 6) < 1.25) return 0.05;
+  const bank = Math.max(0, Math.min(1, (5.8 - Math.abs(x - 30)) / 1.8));
+  const smoothBank = bank * bank * (3 - 2 * bank);
+  return elevation * (1 - smoothBank) - 0.72 * smoothBank;
 }
 const materials = new Map(),
   geometries = new Map();
@@ -42,30 +49,47 @@ function geo(type, a = 1, b = 1, c = 1) {
 }
 function mesh(group, type, c, x, y, z, a = 1, b = 1, d = 1) {
   const m = new T.Mesh(geo(type, a, b, d), mat(c));
+  m.castShadow = m.receiveShadow = true;
   m.position.set(x, y, z);
   group.add(m);
   return m;
 }
 export class WorldView {
-  constructor(canvas, state, sim) {
+  constructor(
+    canvas,
+    state,
+    sim,
+    visuals = { quality: "balanced", reducedMotion: false },
+  ) {
     this.canvas = canvas;
     this.state = state;
     this.sim = sim;
     this.scene = new T.Scene();
     const realm = REALMS.find((r) => r.id === state.realm) || REALMS[0];
     this.realm = realm;
-    this.scene.background = color(realm.sky);
-    this.scene.fog = new T.Fog(realm.sky, 48, 160);
+    this.art = new ArtDirector(
+      this.scene,
+      state.realm,
+      state.seed,
+      ground,
+      roll,
+    );
+    this.scene.background = color(this.art.palette.mist);
+    this.scene.fog = new T.Fog(this.art.palette.mist, 65, 195);
+    this.visuals = visuals;
     this.renderer = new T.WebGLRenderer({
       canvas,
       antialias: true,
       powerPreference: "high-performance",
     });
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    this.renderer.setPixelRatio(
+      Math.min(devicePixelRatio, GRAPHICS[visuals.quality].pixelRatio),
+    );
+    this.renderer.shadowMap.type = T.PCFSoftShadowMap;
     this.renderer.setSize(innerWidth, innerHeight);
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.15;
+    this.renderer.toneMappingExposure = 1.04;
     this.camera = new T.PerspectiveCamera(
       52,
       innerWidth / innerHeight,
@@ -74,23 +98,32 @@ export class WorldView {
     );
     this.yaw = 0;
     this.pitch = 0.12;
-    this.distance = 9;
+    this.distance = 8.5;
     this.nodes = [];
     this.foes = new Map();
     this.projectileMeshes = new Map();
     this.effects = [];
     this.moving = false;
-    this.scene.add(new T.HemisphereLight(0xf1efff, 0x344d46, 2.6));
-    const sun = new T.DirectionalLight(0xffebd7, 3.2);
-    sun.position.set(-35, 70, 30);
-    this.scene.add(sun);
+    this.scene.add(new T.HemisphereLight(0xb9cee9, 0x445b50, 1.65));
+    const sun = new T.DirectionalLight(0xffdfb0, 2.65);
+    sun.position.set(-30, 48, -22);
+    sun.shadow.camera.left = sun.shadow.camera.bottom = -24;
+    sun.shadow.camera.right = sun.shadow.camera.top = 24;
+    sun.shadow.camera.near = 1;
+    sun.shadow.camera.far = 110;
+    sun.shadow.bias = -0.0015;
+    sun.shadow.normalBias = 0.16;
+    this.sun = sun;
+    this.scene.add(sun, sun.target);
     this.createTerrain();
     this.createSanctuary();
     this.createScenery();
+    this.art.sanctuary();
     this.createNodes();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.scene.add(this.character);
     this.createEnemies();
+    this.applyVisualSettings(visuals);
     this.camera.position.set(0, 7, 16);
     this.resize = () => {
       this.camera.aspect = innerWidth / innerHeight;
@@ -123,36 +156,16 @@ export class WorldView {
     plane.computeVertexNormals();
     const terrain = new T.Mesh(
       plane,
-      new T.MeshToonMaterial({ vertexColors: true }),
-    );
-    this.scene.add(terrain);
-    const water = new T.Mesh(
-      new T.PlaneGeometry(11, 250),
-      new T.MeshPhongMaterial({
-        color: this.state.realm === "cinder" ? 0xeb7540 : 0x66b7c6,
-        transparent: true,
-        opacity: 0.8,
-        shininess: 80,
+      new T.MeshStandardMaterial({
+        vertexColors: true,
+        roughness: 1,
+        map: this.art.groundTexture(),
       }),
     );
-    water.rotation.x = -Math.PI / 2;
-    water.position.set(30, -0.15, -10);
-    this.scene.add(water);
-    this.water = water;
-    for (let i = 0; i < 7; i++) {
-      const mountain = new T.Mesh(
-        new T.ConeGeometry(22 + roll(9, i, 1) * 18, 42 + roll(9, i, 2) * 25, 5),
-        mat(0x748d91),
-      );
-      mountain.position.set((i - 3) * 47, -6, -135 - Math.abs(i - 3) * 6);
-      this.scene.add(mountain);
-    }
-    const moon = new T.Mesh(
-      new T.SphereGeometry(7, 24, 16),
-      new T.MeshBasicMaterial({ color: 0xf6e8df }),
-    );
-    moon.position.set(65, 65, -110);
-    this.scene.add(moon);
+    terrain.receiveShadow = true;
+    this.scene.add(terrain);
+    this.art.water();
+    this.art.sky();
   }
   createSanctuary() {
     const plaza = new T.Group();
@@ -218,163 +231,29 @@ export class WorldView {
     this.npc = npc;
   }
   building(x, z, wall, roof) {
-    const g = new T.Group();
-    g.position.set(x, 0, z);
-    this.scene.add(g);
-    mesh(g, "box", wall, 0, 2, 0, 5, 4, 5);
-    const r = mesh(g, "cone", roof, 0, 5.2, 0, 4.5, 3.4, 4);
-    r.rotation.y = Math.PI / 4;
-    mesh(g, "box", 0x414557, 0, 1.2, 2.52, 1.2, 2.4, 0.08);
-    for (const a of [-1.6, 1.6])
-      mesh(g, "box", 0xdbc9a0, a, 2.3, 2.53, 0.7, 0.9, 0.08);
+    this.art.building(x, z, wall, roof);
   }
   avatar(hero) {
-    const g = new T.Group(),
-      skin = 0xf8ddcb,
-      hair = hero.color || "#ccc3ee",
-      coat = hero.coat || "#536071";
-    const body = mesh(g, "cone", coat, 0, 1.13, 0, 0.39, 0.83, 6);
-    body.rotation.z = Math.PI;
-    mesh(g, "box", 0xe8dfcf, 0, 1.25, 0.22, 0.22, 0.45, 0.07);
-    mesh(g, "cylinder", 0xd1b77e, 0, 0.83, 0, 0.29, 0.09, 10);
-    const head = mesh(g, "sphere", skin, 0, 1.91, 0, 0.32);
-    head.scale.set(0.92, 1.09, 0.9);
-    const cap = mesh(g, "sphere", hair, 0, 2.05, -0.035, 0.34);
-    cap.scale.set(1, 0.85, 1);
-    for (let i = 0; i < 6; i++) {
-      const bang = mesh(
-        g,
-        "cone",
-        hair,
-        (i - 2.5) * 0.095,
-        1.99,
-        0.25,
-        0.09,
-        0.32,
-        3,
-      );
-      bang.rotation.z = 0.2 + (i - 2) * 0.12;
-    }
-    for (const x of [-0.115, 0.115]) {
-      mesh(g, "sphere", 0xffffff, x, 1.92, 0.27, 0.065).scale.set(1, 1.3, 0.3);
-      mesh(g, "sphere", 0x637a9f, x, 1.92, 0.29, 0.034).scale.set(1, 1.5, 0.3);
-    }
-    const cape = mesh(g, "cone", coat, 0, 1.1, -0.2, 0.42, 1.15, 4);
-    cape.rotation.x = -0.15;
-    cape.scale.z = 0.4;
-    g.legs = [];
-    g.arms = [];
-    for (const sign of [-1, 1]) {
-      const leg = new T.Group();
-      leg.position.set(sign * 0.15, 0.8, 0);
-      mesh(leg, "box", 0x283b4b, 0, -0.3, 0, 0.18, 0.65, 0.2);
-      mesh(leg, "box", 0x2e293a, 0, -0.65, 0.07, 0.22, 0.22, 0.32);
-      g.add(leg);
-      g.legs.push(leg);
-      const arm = new T.Group();
-      arm.position.set(sign * 0.35, 1.52, 0);
-      mesh(arm, "cylinder", coat, 0, -0.19, 0, 0.105, 0.4, 8);
-      mesh(arm, "sphere", skin, 0, -0.43, 0, 0.105);
-      g.add(arm);
-      g.arms.push(arm);
-    }
-    const weapon = new T.Group();
-    g.arms[1].add(weapon);
-    weapon.position.set(0, -0.5, 0);
-    if (hero.weapon === "staff") {
-      mesh(weapon, "cylinder", 0xa7a1b3, 0, 0.1, 0, 0.035, 1.9, 6);
-      const orb = mesh(weapon, "sphere", 0xcab5f3, 0, 1.2, 0, 0.18);
-      orb.material = mat(0xc3abff, 0.6);
-    } else if (hero.weapon === "bow") {
-      const b = new T.Mesh(
-        new T.TorusGeometry(0.5, 0.035, 6, 24, Math.PI),
-        mat(0xc7aa75),
-      );
-      b.rotation.z = Math.PI / 2;
-      weapon.add(b);
-    } else {
-      mesh(weapon, "box", 0xd8e4eb, 0, -0.35, 0.15, 0.12, 1.1, 0.055);
-      mesh(weapon, "box", 0xcda869, 0, 0.15, 0.15, 0.4, 0.07, 0.08);
-    }
-    const shadow = new T.Mesh(
-      new T.CircleGeometry(0.65, 20),
-      new T.MeshBasicMaterial({
-        color: 0x17272d,
-        transparent: true,
-        opacity: 0.23,
-        depthWrite: false,
-      }),
-    );
-    shadow.rotation.x = -Math.PI / 2;
-    shadow.position.y = 0.035;
-    g.add(shadow);
-    g.userData = { attack: 0 };
-    return g;
+    return this.art.avatar(hero);
   }
   createScenery() {
-    const trunkGeo = new T.CylinderGeometry(0.18, 0.3, 2.8, 5),
-      leafGeo = new T.IcosahedronGeometry(2, 0),
-      trunks = new T.InstancedMesh(trunkGeo, mat(0x605e5d), 150),
-      leaves = new T.InstancedMesh(
-        leafGeo,
-        mat(
-          this.state.realm === "bastion"
-            ? 0x5d8b75
-            : this.state.realm === "moon"
-              ? 0x81769e
-              : 0x9ba6b8,
-        ),
-        150,
-      ),
-      dummy = new T.Object3D();
-    let count = 0;
-    for (let i = 0; i < 250; i++) {
-      const x = roll(this.state.seed, i, 22) * 220 - 110,
-        z = roll(this.state.seed, i, 23) * 220 - 110;
-      if (
-        Math.abs(x) < 8 ||
-        Math.hypot(x, z) < 18 ||
-        Math.abs(x - 30) < 9 ||
-        count >= 150
-      )
-        continue;
-      const y = ground(x, z, this.state.realm),
-        scale = 0.8 + roll(1, i, 5) * 0.8;
-      dummy.position.set(x, y + 1.4 * scale, z);
-      dummy.scale.set(scale, scale, scale);
-      dummy.updateMatrix();
-      trunks.setMatrixAt(count, dummy.matrix);
-      dummy.position.y = y + 4 * scale;
-      dummy.scale.set(scale * 1.2, scale, scale);
-      dummy.updateMatrix();
-      leaves.setMatrixAt(count, dummy.matrix);
-      count++;
+    this.art.landscape();
+  }
+  applyVisualSettings(settings) {
+    this.visuals = { ...settings };
+    const preset = GRAPHICS[settings.quality] || GRAPHICS.balanced;
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio, preset.pixelRatio));
+    this.renderer.setSize(innerWidth, innerHeight);
+    this.renderer.shadowMap.enabled = this.sun.castShadow = !!preset.shadow;
+    if (this.sun.shadow.mapSize.x !== preset.shadow && this.sun.shadow.map) {
+      this.sun.shadow.map.dispose();
+      this.sun.shadow.map = null;
     }
-    trunks.count = leaves.count = count;
-    this.scene.add(trunks, leaves);
-    for (let i = 0; i < 22; i++) {
-      const x = roll(this.state.seed, i, 30) * 140 - 70,
-        z = roll(this.state.seed, i, 31) * 140 - 70;
-      if (Math.hypot(x, z) < 18) continue;
-      const rock = mesh(
-        this.scene,
-        "sphere",
-        0x7e858d,
-        x,
-        ground(x, z, this.state.realm),
-        z,
-        1,
-      );
-      rock.scale.set(1.2 + roll(1, i, 1) * 2, 0.6 + roll(1, i, 2), 1.2);
-    }
-    const ruins = new T.Group();
-    ruins.position.set(0, ground(0, -49, this.state.realm), -49);
-    this.scene.add(ruins);
-    for (const x of [-9, 9]) {
-      mesh(ruins, "cylinder", 0x88939a, x, 2.5, 0, 0.65, 5, 8);
-      mesh(ruins, "box", 0xb0a99f, x, 5, 0, 1.6, 0.35, 1.6);
-    }
-    mesh(ruins, "box", 0x91959a, 0, 0.2, 0, 22, 0.4, 16);
+    this.sun.shadow.mapSize.set(preset.shadow || 512, preset.shadow || 512);
+    this.art.quality(settings);
+    this.canvas.dataset.quality = settings.quality;
+    this.canvas.dataset.shadows = String(!!preset.shadow);
+    document.body.classList.toggle("reduced-motion", settings.reducedMotion);
   }
   createNodes() {
     const definitions = [
@@ -507,16 +386,82 @@ export class WorldView {
           : e.archetype === "oracle"
             ? 0xffb080
             : 0xc6a3ed;
-      mesh(g, "cone", dark, 0, 1.05, 0, 0.55, 1.8, 6);
-      mesh(g, "sphere", dark, 0, 2, 0, 0.4);
-      for (const x of [-0.16, 0.16]) {
-        const eye = mesh(g, "sphere", glow, x, 2.04, 0.36, 0.065);
-        eye.material = mat(glow, 1);
+      const shape = (...args) => this.art.shape(g, ...args);
+      if (e.training) {
+        shape("tube", 0x7a624b, 0, 0.9, 0, 0.1, 1.8, 0.1);
+        shape("box", 0x8b7152, 0, 1.5, 0, 1.4, 0.16, 0.16);
+        shape("orb", 0xb6a17b, 0, 1.3, 0, 0.38, 0.52, 0.26);
+        shape("orb", 0xc6b18a, 0, 2.02, 0, 0.28, 0.29, 0.26);
+        for (const x of [-0.1, 0.1])
+          shape("box", 0x423d36, x, 2.05, 0.24, 0.045, 0.05, 0.025);
+        for (const y of [1, 1.3, 1.6])
+          shape("tube", 0x685b54, 0, y, 0, 0.39, 0.055, 0.27);
+        shape("gem", 0x728e91, 0, 1.35, 0.29, 0.18, 0.25, 0.04);
+      } else {
+        shape("orb", dark, 0, 1.3, 0, 0.42, 0.57, 0.28);
+        for (const sign of [-1, 1]) {
+          const plate = shape(
+            "gem",
+            dark,
+            sign * 0.23,
+            0.78,
+            -0.04,
+            0.26,
+            0.65,
+            0.26,
+          );
+          plate.rotation.z = sign * -0.2;
+          shape("gem", 0x4b5066, sign * 0.17, 0.32, 0.02, 0.13, 0.35, 0.17);
+          shape("gem", dark, sign * 0.49, 1.67, 0, 0.25, 0.21, 0.28);
+          const claw = shape(
+            "gem",
+            0x8e9ca5,
+            sign * 0.51,
+            1.05,
+            0.15,
+            0.09,
+            0.42,
+            0.12,
+          );
+          claw.rotation.z = sign * -0.18;
+          const horn = shape(
+            "cone",
+            0xa6a5ac,
+            sign * 0.25,
+            2.42,
+            -0.03,
+            0.1,
+            0.65,
+            0.1,
+          );
+          horn.rotation.z = sign * -0.3;
+        }
+        shape("orb", 0x2c3448, 0, 2.02, 0, 0.3, 0.35, 0.25);
+        shape("gem", 0xa4b1b7, 0, 2.02, 0.2, 0.25, 0.28, 0.08);
+        for (const x of [-0.12, 0.12]) {
+          const eye = shape("box", glow, x, 2.07, 0.28, 0.12, 0.035, 0.025);
+          eye.material = this.art.material(glow, 0.9);
+        }
+        const core = shape("gem", glow, 0, 1.55, 0.29, 0.13, 0.2, 0.06);
+        core.material = this.art.material(glow, 0.65);
+        this.art.ring(g, 0.34, 0.025, glow, 2.61);
+        if (e.boss) {
+          for (const sign of [-1, 1]) {
+            const wing = shape(
+              "gem",
+              dark,
+              sign * 0.82,
+              1.95,
+              -0.23,
+              0.28,
+              0.86,
+              0.19,
+            );
+            wing.rotation.z = sign * -0.55;
+            shape("gem", glow, sign * 0.64, 1.8, 0.09, 0.12, 0.32, 0.07);
+          }
+        }
       }
-      for (const x of [-0.5, 0.5])
-        mesh(g, "cone", dark, x, 1.3, 0, 0.2, 1.3, 4);
-      const crown = mesh(g, "cone", glow, 0, 2.65, 0, 0.27, 0.6, 4);
-      crown.material = mat(glow, 0.3);
       if (e.boss) g.scale.setScalar(1.7);
       if (e.archetype === "sentinel")
         mesh(g, "box", 0x8ca7b2, -0.65, 1.2, 0.3, 0.75, 1.3, 0.18);
@@ -561,6 +506,7 @@ export class WorldView {
   }
   setHero() {
     this.scene.remove(this.character);
+    this.releaseObject(this.character);
     this.character = this.avatar(HEROES.find((h) => h.id === this.state.hero));
     this.scene.add(this.character);
   }
@@ -603,11 +549,12 @@ export class WorldView {
         ? 0xffdcad
         : 0xc7b1ff;
     const ring = new T.Mesh(
-      new T.TorusGeometry(
-        event.id === "strike" ? 2 : event.radius,
-        0.06,
-        5,
+      new T.RingGeometry(
+        event.id === "strike" ? 1.6 : event.radius * 0.85,
+        event.id === "strike" ? 2.3 : event.radius,
         64,
+        1,
+        event.id === "strike" ? -0.7 : 0,
         event.id === "strike" ? Math.PI * 1.3 : Math.PI * 2,
       ),
       new T.MeshBasicMaterial({
@@ -615,14 +562,85 @@ export class WorldView {
         transparent: true,
         opacity: 1,
         depthWrite: false,
+        side: T.DoubleSide,
+        blending: T.AdditiveBlending,
       }),
     );
     ring.rotation.x = -Math.PI / 2;
     g.add(ring);
+    if (!this.visuals.reducedMotion) {
+      for (let i = 0; i < 8; i++) {
+        const a = (i * Math.PI) / 4;
+        const shard = new T.Mesh(
+          new T.OctahedronGeometry(0.12),
+          new T.MeshBasicMaterial({
+            color: c,
+            transparent: true,
+            opacity: 0.8,
+            blending: T.AdditiveBlending,
+            depthWrite: false,
+          }),
+        );
+        shard.position.set(
+          Math.sin(a) * (event.radius || 2) * 0.8,
+          0.2 + (i % 3) * 0.15,
+          Math.cos(a) * (event.radius || 2) * 0.8,
+        );
+        shard.scale.y = 3;
+        g.add(shard);
+      }
+    }
     g.rotation.y = event.facing;
     this.scene.add(g);
     this.effects.push({ mesh: g, life: 0.5, max: 0.5 });
     this.character.userData.attack = 0.35;
+  }
+  impactFX(event) {
+    // Bounded, short-lived additive sparks; these never alter hit resolution.
+    if (this.visuals.reducedMotion || this.effects.length >= 24) return;
+    const tint =
+      {
+        Flame: 0xffad68,
+        Tide: 0x82dbff,
+        Volt: 0xffe58e,
+        Astral: 0xc3a0ff,
+        Gale: 0x95e6bd,
+        Void: 0xce8bdb,
+        Solar: 0xffe4ab,
+      }[event.element] || 0xe6eaff;
+    const g = new T.Group();
+    g.position.set(
+      event.x,
+      ground(event.x, event.z, this.state.realm) + 1.25,
+      event.z,
+    );
+    for (let i = 0; i < (event.critical ? 10 : 6); i++) {
+      const a = i * 2.399;
+      const spark = new T.Mesh(
+        new T.OctahedronGeometry(0.06),
+        new T.MeshBasicMaterial({
+          color: tint,
+          transparent: true,
+          opacity: 0.95,
+          blending: T.AdditiveBlending,
+          depthWrite: false,
+        }),
+      );
+      spark.position.set(
+        Math.sin(a) * 0.2,
+        Math.cos(i) * 0.15,
+        Math.cos(a) * 0.2,
+      );
+      spark.userData.velocity = new T.Vector3(
+        Math.sin(a) * 2,
+        1.4 + Math.cos(i) * 1.3,
+        Math.cos(a) * 2,
+      );
+      spark.scale.y = 2.7;
+      g.add(spark);
+    }
+    this.scene.add(g);
+    this.effects.push({ mesh: g, life: 0.38, max: 0.38, sparks: true });
   }
   update(dt, input, time) {
     const p = this.sim.player,
@@ -631,9 +649,10 @@ export class WorldView {
     c.position.set(p.x, terrainY + p.y, p.z);
     c.rotation.y = p.facing;
     this.moving = !!(input.x || input.z);
+    const animationTime = this.visuals.reducedMotion ? 0 : time;
     const stride = this.moving
-      ? Math.sin(time * 12) * 0.5
-      : Math.sin(time * 2) * 0.035;
+      ? Math.sin(time * 12) * 0.55
+      : Math.sin(animationTime * 2) * 0.025;
     c.legs[0].rotation.x = stride;
     c.legs[1].rotation.x = -stride;
     c.arms[0].rotation.x = -stride * 0.6;
@@ -649,7 +668,18 @@ export class WorldView {
     }
     if (c.userData.attack > 0 && weapon === "staff")
       c.arms[1].rotation.x = -1.4;
+    this.art.animateAvatar(
+      c,
+      stride,
+      animationTime,
+      this.moving,
+      this.visuals.reducedMotion,
+    );
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
+    this.art.update(time, this.visuals.reducedMotion);
+    this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
+    this.sun.target.position.set(p.x, terrainY, p.z);
+    this.sun.target.updateMatrixWorld();
     const target = new T.Vector3(p.x, terrainY + 1.4, p.z);
     const offset = new T.Vector3(
       Math.sin(this.yaw) * this.distance,
@@ -661,8 +691,8 @@ export class WorldView {
       1 - Math.exp(-9 * dt),
     );
     this.camera.lookAt(target);
-    this.gateRing.rotation.z += dt * 0.22;
-    this.gateCrystal.position.y = 2.8 + Math.sin(time) * 0.14;
+    this.gateRing.rotation.z += this.visuals.reducedMotion ? 0 : dt * 0.22;
+    this.gateCrystal.position.y = 2.8 + Math.sin(animationTime) * 0.14;
     this.npc.rotation.y = Math.atan2(p.x - 6, p.z + 1);
     for (const node of this.nodes) {
       node.mesh.visible = !(this.state.depleted[node.id] > Date.now());
@@ -721,6 +751,21 @@ export class WorldView {
           mesh(g, "cone", tint, 0, 0, -0.35, 0.12, 0.7, 6).rotation.x =
             Math.PI / 2;
         }
+        for (let i = 0; i < 4; i++) {
+          const trail = new T.Mesh(
+            new T.OctahedronGeometry(1),
+            new T.MeshBasicMaterial({
+              color: tint,
+              transparent: true,
+              opacity: 0.35 - i * 0.065,
+              depthWrite: false,
+              blending: T.AdditiveBlending,
+            }),
+          );
+          trail.position.z = -0.3 - i * 0.35;
+          trail.scale.set(0.1 - i * 0.015, 0.1 - i * 0.015, 0.45);
+          g.add(trail);
+        }
         this.projectileMeshes.set(shot.id, g);
         this.scene.add(g);
       }
@@ -734,6 +779,12 @@ export class WorldView {
     for (const [id, g] of this.projectileMeshes)
       if (!activeShots.has(id)) {
         this.scene.remove(g);
+        // Only trails have unique geometry/materials; core meshes are cached.
+        for (const ch of g.children)
+          if (ch.material.blending === T.AdditiveBlending) {
+            ch.geometry.dispose();
+            ch.material.dispose();
+          }
         this.projectileMeshes.delete(id);
       }
     this.effects = this.effects.filter((e) => {
@@ -741,6 +792,11 @@ export class WorldView {
       e.mesh.scale.multiplyScalar(1 + dt * 0.6);
       for (const child of e.mesh.children)
         child.material.opacity = Math.max(0, e.life / e.max);
+      if (e.sparks)
+        for (const child of e.mesh.children) {
+          child.position.addScaledVector(child.userData.velocity, dt);
+          child.userData.velocity.y -= dt * 5;
+        }
       if (e.life <= 0) {
         this.scene.remove(e.mesh);
         for (const ch of e.mesh.children) {
@@ -752,6 +808,15 @@ export class WorldView {
       return true;
     });
     this.renderer.render(this.scene, this.camera);
+  }
+  releaseObject(object) {
+    // Retire unique avatar geometry while keeping shared art materials alive.
+    const shared = new Set(this.art.geometries.values());
+    object.traverse((o) => {
+      if (o.geometry && !shared.has(o.geometry)) o.geometry.dispose();
+      if (o.material && ![...this.art.materials.values()].includes(o.material))
+        o.material.dispose();
+    });
   }
   dispose() {
     removeEventListener("resize", this.resize);
@@ -765,6 +830,10 @@ export class WorldView {
     });
     for (const g of geometrySet) g.dispose();
     for (const m of materialSet) m.dispose();
+    this.art.dispose();
+    this.sun.shadow.dispose();
+    materials.clear();
+    geometries.clear();
     this.renderer.dispose();
   }
 }

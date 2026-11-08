@@ -55,6 +55,15 @@ page.on("pageerror", (e) => {
   errors.push(e.message);
   console.error("Page error:", e.message);
 });
+page.on("console", (message) => {
+  if (
+    message.type() === "error" &&
+    /Shader Error|VALIDATE_STATUS|THREE.WebGLProgram|GL_INVALID/.test(
+      message.text(),
+    )
+  )
+    errors.push(message.text());
+});
 const url = "http://127.0.0.1:" + server.address().port + "/index.html";
 // Optional typography must not make a local mechanics test network-dependent.
 await page.route(/https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) =>
@@ -76,6 +85,49 @@ try {
   );
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(artifacts, "world.png") });
+  await page.keyboard.press("o");
+  await page.locator("#graphics-quality").selectOption("high");
+  assert.equal(
+    await page.locator("#world").getAttribute("data-shadows"),
+    "true",
+  );
+  await page.keyboard.press("Escape");
+  // Orbit to the face and zoom through real camera controls, then restore the
+  // initial heading before movement checks. F8 must hide and restore the HUD.
+  await page.mouse.move(1100, 430);
+  await page.mouse.down({ button: "right" });
+  await page.mouse.move(1100 - Math.PI / 0.006, 430);
+  await page.mouse.up({ button: "right" });
+  await page.mouse.wheel(0, -600);
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(500);
+  assert.equal(
+    await page
+      .locator("#hud")
+      .evaluate((el) => getComputedStyle(el).visibility),
+    "hidden",
+  );
+  await page.screenshot({ path: resolve(artifacts, "hero-detail.png") });
+  await page.keyboard.press("F8");
+  await page.mouse.move(1100 - Math.PI / 0.006, 430);
+  await page.mouse.down({ button: "right" });
+  await page.mouse.move(1100, 430);
+  await page.mouse.up({ button: "right" });
+  await page.mouse.wheel(0, 587.5);
+  await page.keyboard.press("o");
+  await page.locator("#graphics-quality").selectOption("low");
+  await page.locator("#reduced-motion").check();
+  assert.equal(
+    await page.locator("#world").getAttribute("data-shadows"),
+    "false",
+  );
+  assert.equal(
+    await page.evaluate(() =>
+      document.body.classList.contains("reduced-motion"),
+    ),
+    true,
+  );
+  await page.keyboard.press("Escape");
   // Exercise the new disciplines through the player UI, including actual impact.
   await page.keyboard.press("h");
   await page.getByRole("button", { name: "RECRUIT SORA · FREE" }).click();
@@ -185,6 +237,16 @@ try {
   assert.ok(saved.position.z < 6);
   await page.reload();
   await page.locator("#loading").waitFor({ state: "hidden" });
+  assert.equal(
+    await page.locator("#world").getAttribute("data-quality"),
+    "low",
+  );
+  assert.equal(
+    await page.evaluate(() =>
+      document.body.classList.contains("reduced-motion"),
+    ),
+    true,
+  );
   await page.locator("#profile-name").fill("Browser Test");
   await page.locator("#profile-pin").fill("2468");
   await page.getByRole("button", { name: "CONTINUE →" }).click();

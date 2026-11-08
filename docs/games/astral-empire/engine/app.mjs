@@ -30,6 +30,7 @@ import {
 import { loadNative, numeric } from "./native.mjs";
 import { Profiles } from "./profiles.mjs";
 import { WorldView, ground } from "./world.mjs";
+import { readVisualSettings } from "./art.mjs";
 const $ = (id) => document.getElementById(id),
   escape = (s) =>
     String(s ?? "").replace(
@@ -46,6 +47,11 @@ const $ = (id) => document.getElementById(id),
 const fmt = (n) => Math.round(n).toLocaleString(),
   profiles = new Profiles(localStorage),
   keys = new Set();
+const visuals = readVisualSettings(
+  localStorage,
+  innerWidth < 700,
+  matchMedia("(prefers-reduced-motion: reduce)").matches,
+);
 let state = freshState(),
   sim = new Simulation(state),
   view,
@@ -117,11 +123,12 @@ function save() {
 function buildView() {
   if (view) view.dispose();
   sim = new Simulation(state);
-  view = new WorldView($("world"), state, sim);
+  view = new WorldView($("world"), state, sim, visuals);
   if (playing) renderBar();
 }
 function landing() {
   playing = false;
+  document.body.classList.remove("scenic-view");
   panel = null;
   keys.clear();
   $("panels").hidden = true;
@@ -136,7 +143,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.1 · Weapon Disciplines</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.2 · Dawnlight</span></footer>`;
 }
 function enter(create) {
   try {
@@ -467,7 +474,7 @@ function realms() {
   return `<p class="small muted">Waygates open as your account level rises. Each destination has its own terrain palette, resources, and enemy progression.</p><div class="grid-2">${REALMS.map((r) => `<article class="card ${state.realm === r.id ? "selected" : ""}"><h3>${r.name}</h3><p>${r.gravity} g source world · ${r.tier === 0 ? "Frontier sanctuary" : "Requires level " + r.tier * 10}</p><button data-realm="${r.id}" ${state.level < r.tier * 10 || r.id === state.realm ? "disabled" : ""}>${r.id === state.realm ? "CURRENT REALM" : state.level < r.tier * 10 ? "WAYGATE LOCKED" : "TRAVEL"}</button></article>`).join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p>Simulation: ${numeric.backend}<br>Right mouse drag: camera orbit<br>Mouse wheel: camera distance<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: heroes · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right mouse drag: camera orbit<br>Mouse wheel: camera distance<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: heroes · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -482,6 +489,8 @@ function openPanel(id) {
   $("panels").querySelector(".panel-close").focus();
 }
 function closePanel() {
+  if ($("panels").contains(document.activeElement))
+    document.activeElement.blur();
   panel = null;
   $("panels").hidden = true;
   keys.clear();
@@ -701,6 +710,14 @@ document.addEventListener("click", (e) => {
 });
 document.addEventListener("change", async (e) => {
   const n = e.target;
+  if (n.id === "graphics-quality" || n.id === "reduced-motion") {
+    visuals.quality = $("graphics-quality").value;
+    visuals.reducedMotion = $("reduced-motion").checked;
+    try {
+      localStorage.setItem("astral_empire_visuals_v1", JSON.stringify(visuals));
+    } catch {}
+    view.applyVisualSettings(visuals);
+  }
   if (n.dataset.linkSkill) {
     const skill = n.dataset.linkSkill,
       index = Number(n.dataset.linkIndex);
@@ -734,9 +751,14 @@ document.addEventListener("pointerover", (e) => {
   }
 });
 document.addEventListener("keydown", (e) => {
-  if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
   if (e.key === "Escape") {
     closePanel();
+    return;
+  }
+  if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.key === "F8" && playing) {
+    e.preventDefault();
+    document.body.classList.toggle("scenic-view");
     return;
   }
   if (!playing) return;
@@ -817,7 +839,7 @@ addEventListener("pointermove", (e) => {
 $("world").addEventListener(
   "wheel",
   (e) => {
-    view.distance = clamp(view.distance + e.deltaY * 0.008, 5, 20);
+    view.distance = clamp(view.distance + e.deltaY * 0.008, 3.8, 20);
     e.preventDefault();
   },
   { passive: false },
@@ -865,7 +887,10 @@ function floating(event) {
 function handleEvents() {
   for (const event of sim.events.splice(0)) {
     if (event.type === "skill") view.skillFX(event);
-    if (event.type === "damage" || event.type === "reaction") floating(event);
+    if (event.type === "damage" || event.type === "reaction") {
+      floating(event);
+      view.impactFX(event);
+    }
     if (event.type === "hurt") {
       gathering = null;
       document.getElementById("hit-flash")?.remove();

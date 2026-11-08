@@ -2,6 +2,14 @@
 
 A third-person anime action RPG foundation for The Sleeping Empire. Version 3 replaces the menu-first landing page with a playable 3D frontier and connected build, combat, gathering, and crafting systems. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
 
+## Version 3.2 · Dawnlight
+
+A visual pass adds a banded cel-shading ramp, selective character outlines, a warm directional light with camera-following soft shadows, a gradient sky, distant ridgelines, atmospheric fog, and four coordinated realm palettes. Original procedural characters now have layered outfits, shoulder armor, boots, face/eye details, more detailed weapons, articulated knees/elbows and a moving cape. Enemies have masked armor silhouettes; the training effigy is a wooden practice dummy.
+
+The sanctuary gains tiled stone, gold inlays, portal runes and an animated veil, blossom trees, lanterns, layered roofs, windows and planters. Instanced canopy layers and wind-driven grass, subtle terrain surface grain, drifting motes, a shallow riverbed, animated water and a wooden crossing add environment detail. Slashes, travelling projectile trails and elemental impact sparks strengthen combat feedback. These visuals are original code-authored art, not imported anime character models or additional Elysium ports.
+
+Settings now offers **Performance**, **Balanced**, and **High fidelity** presets plus **Reduce ambient motion & effects**. These device preferences persist separately from progression. Desktop defaults to Balanced; a first visit below 700px defaults to Performance. The browser's reduced-motion preference supplies the initial setting. **F8** hides/restores the HUD for scenic viewing; the camera and combat stay active. See [VISUALS.md](VISUALS.md) for art ownership, rendering budgets and remaining limitations.
+
 ## Version 3.1 · Weapon Disciplines
 
 The first combat-depth expansion adds distinct weapon behavior and enemies that ask for different responses:
@@ -51,6 +59,7 @@ This is a first region and a build system foundation. It does not contain Path o
 | Equipment / skills / constellation | I / K / P |
 | Lifeskills / crafting / heroes / journal | L / C / H / J |
 | Settings / close panel | O / Escape |
+| Scenic view / restore HUD | F8 |
 
 Phones have movement, evade, jump, interaction, and action buttons. Desktop is the primary play target. Opening the chronicle pauses the solo simulation.
 
@@ -67,7 +76,8 @@ JavaScript still owns the entity state machine, movement, input, skills, saves, 
 | `engine/combat.mjs` | Weapon movesets, cast snapshots, projectiles, typed damage, reactions, ailments, enemy AI, boss phases |
 | `engine/progression.mjs` | Inventory, crafting, derived stats, migration, skills, quests, and recruitment |
 | `engine/native.mjs` | C++ WebAssembly loading and numeric reference fallback |
-| `engine/world.mjs` | Three.js scene, procedural meshes, terrain, camera, animation, effects, and resource visuals |
+| `engine/world.mjs` | Three.js scene, terrain, camera, lighting/shadows, combat effects, and resource visuals |
+| `engine/art.mjs` | Original procedural art, cel materials, outfits, architecture, landscape, water, foliage, and visual presets |
 | `engine/profiles.mjs` | Local profiles, isolated saves, migration, and recovery copies |
 | `engine/app.mjs` | HUD, panels, controls, browser loop, and save/export integration |
 
@@ -103,11 +113,14 @@ npm ci
 npm test
 npx playwright install chromium
 npm run test:browser
+npm run test:visual
 ```
 
 `npm test` runs 19 Classic smoke checks and 23 action-RPG/WASM/save checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, free scout recruitment, switching disciplines and landing a projectile hit, the damage inspector, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
 
-For an installed Chrome instead of downloaded Chromium, set `BROWSER_EXECUTABLE` to the browser executable path. The GitHub Actions workflow compiles the C++ module, runs rule/compatibility tests, then runs the browser suite.
+The browser suite also exercises graphics presets, reduced-motion persistence, close-up orbit/zoom and F8 HUD restoration. The visual suite renders every realm, cycles all twelve hero appearances and all three presets, checks shader errors and geometry lifetime, and records scene draw/triangle/texture counts. These are structural checks and screenshot review aids, not a hardware frame-rate benchmark or pixel-perfect image comparison.
+
+For an installed Chrome instead of downloaded Chromium, set `BROWSER_EXECUTABLE` to the browser executable path. The GitHub Actions workflow compiles the C++ module, runs rule/compatibility tests, then runs the browser and visual suites.
 
 Rebuild the native module using Zig 0.14.1+ (set `ZIG` to its executable if it is not on PATH):
 

@@ -23,6 +23,8 @@ Playable solo action-RPG region with an actual third-person WebGL view and a com
 
 ## 3. World and presentation
 
+Version 3.2 delivers a procedural visual foundation: cel materials/outlines, soft directional shadows, atmosphere, detailed outfits/weapons, simple articulated limbs and capes, sanctuary architecture, layered instanced foliage, animated water, projectile trails/impacts, three graphics presets, reduced ambient motion and an F8 scenic view. Four-realm render checks and geometry-lifetime checks accompany it. Authored skeletal models, production animation and distinct realm maps are still future work.
+
 - Replace placeholder procedural meshes with original rigged anime characters, authored outfits, weapon animations, facial expression, effects, and sound/music assets with recorded licenses.
 - Build distinct maps for each realm; add streamable terrain chunks, caves, vertical traversal, weather, day/night, environment collision, navigation, safe spawn validation, world events, and discoverable dungeons.
 - Translate Elysium air/hazard/suit behavior into readable browser survival mechanics. Apply actual per-world gravity instead of metadata alone.
