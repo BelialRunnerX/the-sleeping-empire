@@ -509,9 +509,14 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000285](turns/000285.md) | CCXXIV | Played turn | Aletheia defeats eleven hostile Iron Saints, Elys full reflect, cooperative Twelfth Saint supplies lawful release directive | [000000](checkpoints/000000.md) |
 | [000286](turns/000286.md) | CCXXV | Played turn | Twelve young freed, old navigation machine repaired with inert anchors, new ITM-000006 Horizon Needle gifted | [000000](checkpoints/000000.md) |
 | [000287](turns/000287.md) | CCXXVI | Played turn | Veyruun and children reunited, Guild rescue confirms three crew safe, First Nest seven-star map, ₡9M verification pending | [000000](checkpoints/000000.md) |
-| [000288](turns/000288.md) | CCXXVII | Played turn | Guild certifies VEIL-09-R and settles +₡9M once; First Nest investigation begins | [000000](checkpoints/000000.md) |
-| [000289](turns/000289.md) | CCXXVIII | Played turn | Seven-star route sentinel tests Elys's ethics and grants access to quiet First Nest | [000000](checkpoints/000000.md) |
-| [000290](turns/000290.md) | CCXXIX | Played turn | Aurelian Spire shows six million registry entries but no physical citizens for 186 years | [000000](checkpoints/000000.md) |
-| [000291](turns/000291.md) | CCXXX | Played turn | Chorus admits preserved post-disaster minds; Aletheia disables seven gatekeepers, Calder speaks | [000000](checkpoints/000000.md) |
-| [000292](turns/000292.md) | CCXXXI | Played turn | Nema solves ninth-door consent puzzle, preserved citizens request voluntary telepresence | [000000](checkpoints/000000.md) |
-| [000293](turns/000293.md) | CCXXXII | Played turn | Liora sees real stars; 12 armed quarantine vessels attack; Elys negates/reflects shots, Aletheia begins defense | [000000](checkpoints/000000.md) |
+| [000288](turns/000288.md) | CCXXVII | Played turn | Mira confirms Veilward audit pending; Elys chooses Seven-Star Quiet Crown | [000000](checkpoints/000000.md) |
+| [000289](turns/000289.md) | CCXXVIII | Played turn | Quiet Crown observatory data; rescue invitation from research cutter | [000000](checkpoints/000000.md) |
+| [000290](turns/000290.md) | CCXXIX | Played turn | Maris Vey and two researchers rescued from recursive navigation hazard | [000000](checkpoints/000000.md) |
+| [000291](turns/000291.md) | CCXXX | Played turn | Heliogenesis Cradle and conscious stellar nursery investigated | [000000](checkpoints/000000.md) |
+| [000292](turns/000292.md) | CCXXXI | Played turn | Liora first speaks; Matriarch coercion exposed; Gloam Court arrives | [000000](checkpoints/000000.md) |
+| [000293](turns/000293.md) | CCXXXII | Played turn | Aletheia disables seven hostile Gloam warships and 31 boarding craft | [000000](checkpoints/000000.md) |
+| [000294](turns/000294.md) | CCXXXIII | Played turn | Matriarch's Article Twelve hearing and Light-Born rights begin | [000000](checkpoints/000000.md) |
+| [000295](turns/000295.md) | CCXXXIV | Played turn | Liora safely sees real stars for first time | [000000](checkpoints/000000.md) |
+| [000296](turns/000296.md) | CCXXXV | Played turn | Voss, Auditor failed execution collar; Night Engine transfer evidence | [000000](checkpoints/000000.md) |
+| [000297](turns/000297.md) | CCXXXVI | Played turn | Matriarch accepts fault, starts restoring stars, Night Engine clues | [000000](checkpoints/000000.md) |
+| [000298](turns/000298.md) | CCXXXVII | Played turn | Seven candidate Asterion intercept windows; prepare next investigation | [000000](checkpoints/000000.md) |
