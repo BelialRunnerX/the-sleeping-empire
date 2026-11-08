@@ -295,9 +295,16 @@
           "before": "VEIL-09 only provisional uncommissioned observational case",
           "after": "Marshal Ilyra Venn approves SSS VEIL-09-R non-hunting reconnaissance/first-contact offer, ₡9M proposed reward, NOT accepted/deployed/earned",
           "source": "User chose option 1 request authorization; no acceptance chosen"
+        },
+        {
+          "turn": "000276",
+          "field": "active_guild_contracts",
+          "before": "VEIL-09-R approved offer, no active Guild contracts",
+          "after": "VEIL-09-R accepted/pre-deployment for ₡9M offered unpaid, Marshal Venn approved lethal defensive force against credible imminent hostile threats",
+          "source": "User explicitly accepted with condition; Venn agreed in turn 000276"
         }
       ],
-      "last_verified_turn": "000275",
+      "last_verified_turn": "000276",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -366,7 +373,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "At Mira's Guild reception desk; new SSS VEIL-09-R The Veilward Watch reconnaissance mission offer approved, awaiting explicit acceptance; no active mission",
+      "current_activity": "At Lumenfall Guild; accepted SSS VEIL-09-R reconnaissance with approved lethal defense contingency, awaiting departure",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -401,7 +408,7 @@
           "SSS-011"
         ],
         "unranked_bulletin": "OUTER_SYSTEM_GRAVITATIONAL_ANOMALY",
-        "accepted_contract_id": null,
+        "accepted_contract_id": "VEIL-09-R",
         "anomaly_bulletin_status": "PROVISIONAL_PUBLIC_OBSERVATORY_BRIEFING_ONLY_NOT_CONTRACT",
         "anomaly_public_info": "Former barren planet observed collapsing inward and disappearing after emerald-white flash; residual navigation/gravitational measurements uncertain; no public suspect/reward/authorized Guild expedition; raw data not available from Mira",
         "restricted_observation_files": [
@@ -431,19 +438,59 @@
             "title": "The Veilward Watch",
             "tier": "SSS",
             "type": "NON_HUNTING_RECON_FIRST_CONTACT",
-            "status": "APPROVED_AWAITING_PLAYER_ACCEPTANCE",
+            "status": "ACCEPTED_ACTIVE_PRE_DEPLOYMENT",
             "base_reward_credits": 9000000,
             "reward_earned": false,
             "authorized_by": "Senior Expedition Marshal Ilyra Venn",
             "created_turn": "000275",
             "dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
             "subject": "Nadir Leviathan (~42km, intent unknown)",
-            "combat_permissions": "DEFENSIVE_FORCE_AGAINST_VERIFIED_IMMINENT_THREAT_ONLY",
-            "has_been_accepted": false
+            "combat_permissions": "APPROVED_CONTINGENCY_A_LETHAL_FORCE_ON_CREDIBLE_IMMINENT_HOSTILE_THREAT",
+            "has_been_accepted": true,
+            "accepted_turn": "000276"
           }
         ]
       },
-      "active_guild_contracts": [],
+      "active_guild_contracts": [
+        {
+          "contract_id": "VEIL-09-R",
+          "title": "The Veilward Watch",
+          "rank": "SSS",
+          "type": "NON_HUNTING_RECON_FIRST_CONTACT",
+          "status": "ACCEPTED_PRE_DEPLOYMENT",
+          "base_reward_credits": 9000000,
+          "reward_earned": false,
+          "accepted_turn": "000276",
+          "party_leader": "char-elys",
+          "mission_dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
+          "subject": "VEIL-09 Nadir Leviathan",
+          "subject_hostility": "UNPROVEN",
+          "subject_location": "APPROXIMATE_VEILWARD_EXPANSE_THREE_OBSERVATION_ZONES",
+          "location_status": "STILL_AT_LUMENFALL_GUILD",
+          "rules_of_engagement": {
+            "id": "CONTINGENCY_A_HOSTILE_CONTACT",
+            "status": "APPROVED_AND_BINDING",
+            "approved_by": "Senior Expedition Marshal Ilyra Venn",
+            "allows_lethal_defense": true,
+            "trigger": "Clear hostile initiation or credible imminent threat to Elys, party or others",
+            "scope": "Any genuinely hostile encountered entity, creature, vessel or construct",
+            "first_hit_requirement": false,
+            "limits": "No unprovoked hunting or killing nonhostile subjects; lethal force when necessary to neutralize the threat"
+          },
+          "progress": [
+            {
+              "turn": "000276",
+              "milestone": "Elys accepted SSS recon with amended lethal defensive force clause, Marshal approved; broad survey map released",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000276",
+              "milestone": "Travel to Veilward and locate unknown Leviathan",
+              "status": "NOT_STARTED"
+            }
+          ]
+        }
+      ],
       "completed_guild_contracts": [
         {
           "contract_id": "SSS-004",
@@ -3759,9 +3806,16 @@
           "before": "Reviewed Leviathan provisional telemetry at Guild",
           "after": "Watched senior Guild review, speaks delightfully sanguine about truly hostile enemies but acknowledges observation-only Leviathan terms; remains Genesis Loom staff right-side",
           "source": "Choice 1; no action, damage or independent registration"
+        },
+        {
+          "turn": "000276",
+          "field": "Guild assignment",
+          "before": "Discussing uncontracted VEIL-09 while Genesis Loom staff at Elys's right",
+          "after": "Elys accepted VEIL-09-R with approved contingent lethal defense; Aletheia remains sentient Genesis Loom staff at right, no attacks",
+          "source": "Player direct acceptance and condition"
         }
       ],
-      "last_verified_turn": "000275",
+      "last_verified_turn": "000276",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3936,9 +3990,16 @@
           "before": "Mira showed VEIL-09 survey reanalysis",
           "after": "Forwarded Elys's non-hunting SSS recon request; Marshal Ilyra Venn approved VEIL-09-R offered contract for ₡9M, awaits Elys acceptance; not active",
           "source": "Choice 1 from Turn 000274"
+        },
+        {
+          "turn": "000276",
+          "field": "Guild contract registration",
+          "before": "Presented approved VEIL-09-R offer",
+          "after": "Forwarded lethal defense addendum to Marshal Venn, signed accepted SSS VEIL-09-R, broad Veilward observations released",
+          "source": "Player requested contract acceptance with contingency"
         }
       ],
-      "last_verified_turn": "000275",
+      "last_verified_turn": "000276",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
