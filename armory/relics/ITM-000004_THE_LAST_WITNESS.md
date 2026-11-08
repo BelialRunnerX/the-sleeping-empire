@@ -6,7 +6,7 @@
 **Classification:** Unique, **SSS-equivalent singular ancient relic** (appraisal category, not a new Guild rank)  
 **Owner:** Emperor Elys Somion (`char-elys`)  
 **Acquisition:** Retrieved physically by Elys from the builders' vault beneath the Sepulcher throne, **turn 000269**, with voluntary authorization from the Heart  
-**Where kept:** Secured in the worn `ITM-000003` Regalia Forge Core inventory, **NOT equipped in `relic_core`**  
+**Where kept (current after turn 000271):** **EQUIPPED** in Emperor Elys's `relic_core` slot, physically mounted in the protected, removable sternum cradle of worn `ITM-000002 Regalia Aegis`. Previously stored in `ITM-000003` Forge Core through turn 000270.  
 **Condition:** Pristine, sealed, operative. Non-sentient relic; any old preserved records are data/testimony, not owned persons.  
 **Raw numerical stats:** **UNKNOWN / appraisal pending** (do not invent levels, HP, shield percentages, enhancement values or added character attributes)  
 **Sale price / market:** UNKNOWN, not listed; no credit transaction for voluntary custody transfer
@@ -36,3 +36,12 @@ Aletheia, in sentient Genesis Loom staff form at Elys's right, inspected The Las
 **Measured limits:** Exact material composition, physical age, numerical resistance/stats, active power budget, range, charges, target count and failure thresholds remain UNKNOWN. Observing architecture and a safe simulated test is **not activating the real item**, proving protection against all god-class attacks, or recording new equipment buffs. The Last Witness remains in Forge Core storage; **Elys's `relic_core` gear slot is empty**.
 
 **Heart's testimony:** “A WITNESS MAY REMAIN EVEN WHEN THE ONE REMEMBERED IS GONE.” The Heart remains autonomous and retains custody of the broader historical archive. [Played turn 000270](../../saves/turns/000270.md).
+
+
+## Armor integration and active deployment — Turn 000271
+
+**CURRENT authoritative state:** Emperor Elys directed the Forge Core to physically integrate the **existing and unique** Last Witness `ITM-000004` into **worn Regalia Aegis `ITM-000002`**. It is **no longer in the Forge Core backpack's storage**. It is now **equipped in Elys's `relic_core` slot**, housed inside a removable protected central sternum cradle. It remains **individually owned, non-sentient, pristine, and retains its ID**; no new copy or consumption of the relic. The mount was forged from local available mineral debris, and armored without breaking life support.
+
+**Authenticated currently-active modes:** bounded **Anchor of Identity** on Elys/armor continuity; **Testament Seal** tamper-evident recording enabled; **Sepulcher Waymark** synchronized on the certified main route; **Custodian's Accord** valid for future Heart-mediated requests. The armored systems cross-check repaired components and sovereign authorization against an **independent Witness continuity reference**, increasing traceability of tampering and identity/record corruption but providing **no resurrection, guaranteed universal invulnerability, perfect truth detection or unbounded archive access**.
+
+**Tested:** Physical mounting and continuity bus; artificial test record corruption rejected; reconstructed armor history verified in a harmless simulation. **Not tested:** real high-grade ontological erasure, arbitrary cosmic conceptual damage, extreme-attack survivability, power/target throughput. Raw numerical relic attributes remain UNKNOWN. Both Regalia Aegis and Forge Core continue at **100/100**. [Turn 000271](../../saves/turns/000271.md) · [Integration specification](../integrations/IR-0002_LAST_WITNESS_000271.md). Earlier descriptions of **"where kept: Forge Core / unequipped"** apply ONLY before turn 000271.
