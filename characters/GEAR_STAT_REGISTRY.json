@@ -302,9 +302,16 @@
           "before": "VEIL-09-R approved offer, no active Guild contracts",
           "after": "VEIL-09-R accepted/pre-deployment for ₡9M offered unpaid, Marshal Venn approved lethal defensive force against credible imminent hostile threats",
           "source": "User explicitly accepted with condition; Venn agreed in turn 000276"
+        },
+        {
+          "turn": "000277",
+          "field": "Guild event location and activity",
+          "before": "At Mira's counter, VEIL-09-R reconnaissance accepted but pre-deployment",
+          "after": "Starts/hosts The Midnight Grip arm-wrestling competition in main hall; two standard bouts completed; Elys has not entered; VEIL-09-R still pre-deployment",
+          "source": "Player freeform command: Start an arm wrestling competition in the guild hall"
         }
       ],
-      "last_verified_turn": "000276",
+      "last_verified_turn": "000277",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -372,8 +379,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "At Lumenfall Guild; accepted SSS VEIL-09-R reconnaissance with approved lethal defense contingency, awaiting departure",
+      "current_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
+      "current_activity": "Hosting newly started Midnight Grip Guild arm-wrestling tournament; first two Standard preliminary bouts finished; Elys not yet entered, Orvek asks him to compete. VEIL-09-R recon remains accepted/pre-deployment.",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -630,7 +637,37 @@
         },
         "nine_doors": "Represent nine participating ancient builder civilizations, not nine Witness-class instruments",
         "dossier": "armory/relics/WITNESS_CLASS_TRILOGY.md"
-      }
+      },
+      "guild_events": [
+        {
+          "id": "MIDNIGHT_GRIP_10_DEEPFALL_13627",
+          "name": "The Midnight Grip",
+          "start_turn": "000277",
+          "type": "ARM_WRESTLING_TOURNAMENT",
+          "venue": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
+          "elys_role": "INITIATOR_HOST_NOT_ENTERED",
+          "status": "IN_PROGRESS",
+          "match_format": "BEST_OF_THREE",
+          "standard_division": "NO_ACTIVE_MAGIC_OR_EQUIPMENT_ENHANCEMENTS",
+          "open_division": "DECLARED_POWERS_ALLOWED_WITH_SAFETY_RULES",
+          "prize": "TROPHY_AND_BRAGGING_RIGHTS_NO_CREDITS_ASSIGNED",
+          "results": [
+            {
+              "bout": 1,
+              "winner": "Seren Vale",
+              "loser": "Orvek Stonehand",
+              "score": "2-0"
+            },
+            {
+              "bout": 2,
+              "winner": "Bram Coppervein",
+              "loser": "Lysander Quill",
+              "score": "2-0"
+            }
+          ],
+          "file": "guild/MIDNIGHT_GRIP_TOURNAMENT.md"
+        }
+      ]
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3609,7 +3646,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff hovering Elys's right inside Guild; cheerfully sanguine combat temperament",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff at Elys's right; gaily sanguine banter; no tournament entry or lethal engagement",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3813,9 +3850,16 @@
           "before": "Discussing uncontracted VEIL-09 while Genesis Loom staff at Elys's right",
           "after": "Elys accepted VEIL-09-R with approved contingent lethal defense; Aletheia remains sentient Genesis Loom staff at right, no attacks",
           "source": "Player direct acceptance and condition"
+        },
+        {
+          "turn": "000277",
+          "field": "Guild sports event",
+          "before": "Guild reception with Elys, VEIL-09-R pre-deployment",
+          "after": "Attends Elys-initiated arm wrestling in Guild main hall; no independent bout/attack, playfully encourages Elys to pin Orvek; remains Genesis Loom staff",
+          "source": "Player starts Midnight Grip"
         }
       ],
-      "last_verified_turn": "000276",
+      "last_verified_turn": "000277",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3854,7 +3898,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath, hovering at Elys's right",
+      "current_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath, hovering to Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Genesis Loom staff",
@@ -3997,9 +4041,16 @@
           "before": "Presented approved VEIL-09-R offer",
           "after": "Forwarded lethal defense addendum to Marshal Venn, signed accepted SSS VEIL-09-R, broad Veilward observations released",
           "source": "Player requested contract acceptance with contingency"
+        },
+        {
+          "turn": "000277",
+          "field": "Guild social event",
+          "before": "Registered Elys's VEIL-09-R acceptance",
+          "after": "Facilitates neutral referee and Guild training table for Midnight Grip arm-wrestling event, safely supervised, no tournament Guild money transfer",
+          "source": "Player command"
         }
       ],
-      "last_verified_turn": "000276",
+      "last_verified_turn": "000277",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
@@ -4101,7 +4152,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath, hovering at Elys's right",
+      "current_physical_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath, hovering to Elys's right",
       "test_history": [
         {
           "id": "FX-000257",
@@ -4189,7 +4240,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "Worn by Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4321,7 +4372,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Back-mounted on Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath; relic ITM-000004 remains equipped in armor, not stored",
+      "current_physical_location": "Back-mounted on Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath; Last Witness not stored",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4370,7 +4421,7 @@
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "Equipped in Regalia Aegis ITM-000002 Rev II sternum mount, worn by Elys at Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "Equipped in Aegis ITM-000002 Rev II sternum mount, worn by Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
