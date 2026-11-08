@@ -1274,6 +1274,21 @@ select {
   }
 }
 @media (max-width: 760px) {
+  .objective-hud {
+    width: 195px;
+  }
+  .objective-hud h3 {
+    font-size: 17px;
+    margin: 6px 0;
+  }
+  .objective-hud p {
+    font-size: 9px;
+    margin: 5px 0;
+  }
+  #target-hud {
+    top: 285px;
+    width: 200px;
+  }
   .skillbar {
     gap: 3px;
   }
