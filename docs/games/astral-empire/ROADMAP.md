@@ -25,7 +25,7 @@ Playable solo action-RPG region with an actual third-person WebGL view and a com
 
 ## 3. World and presentation
 
-- Expand the illustrated direction with true multi-direction walking, attack, casting, hurt and death animation sheets. Add dedicated Warden/boss art, coherent biome-specific prop libraries, sprite occlusion fading and consistent world-object footprints. Retain exact asset provenance and separate title illustrations from gameplay screenshots.
+- Expand the illustrated direction with true multi-direction walking, attack, casting, hurt and death animation sheets. Add dedicated Warden/boss art, coherent biome-specific prop libraries and consistent world-object footprints. Extend the implemented scenery fading to richer dungeon interiors. Retain exact asset provenance and separate title illustrations from gameplay screenshots.
 
 Version 3.2 delivers a procedural visual foundation: cel materials/outlines, soft directional shadows, atmosphere, detailed outfits/weapons, simple articulated limbs and capes, sanctuary architecture, layered instanced foliage, animated water, projectile trails/impacts, three graphics presets, reduced ambient motion and an F8 scenic view. Four-realm render checks and geometry-lifetime checks accompany it. Authored skeletal models, production animation and distinct realm maps are still future work.
 

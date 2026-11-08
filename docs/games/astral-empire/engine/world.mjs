@@ -716,6 +716,10 @@ export class WorldView {
       1 - Math.exp(-9 * dt),
     );
     this.camera.lookAt(target);
+    if (this.illustrated) {
+      this.camera.updateMatrixWorld();
+      this.art.fadeOccluders(c, this.camera, dt);
+    }
     if (this.gateRing)
       this.gateRing.rotation.z += this.visuals.reducedMotion ? 0 : dt * 0.22;
     if (this.gateCrystal)

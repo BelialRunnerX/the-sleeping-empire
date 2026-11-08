@@ -104,6 +104,16 @@ try {
         view.applyVisualSettings({ quality, reducedMotion: false, style });
         await render();
       }
+      let occlusion = true;
+      if (style === "illustrated") {
+        const tree = view.art.occluders.find(
+          (sprite) => sprite.userData.propIndex === 1,
+        );
+        sim.player.x = tree.position.x - Math.sin(view.yaw) * 1.8;
+        sim.player.z = tree.position.z - Math.cos(view.yaw) * 1.8;
+        for (let i = 0; i < 12; i++) await render();
+        occlusion = tree.material.opacity < 0.8;
+      }
       // A riverbank view exposes animated water, terrain, foliage and the skyline.
       sim.player.x = 20;
       sim.player.z = 7;
@@ -125,6 +135,7 @@ try {
         calls: view.renderer.info.render.calls,
         triangles: view.renderer.info.render.triangles,
         textures: view.renderer.info.memory.textures,
+        occlusion,
       };
     }, scene);
     assert.ok(
@@ -136,6 +147,11 @@ try {
       "Scene exceeded structural rendering budget: " + JSON.stringify(report),
     );
     assert.ok(report.textures < 16, "Unexpected texture growth");
+    assert.equal(
+      report.occlusion,
+      true,
+      "Scenery should fade when it covers the player",
+    );
     await page.screenshot({
       path: resolve(
         artifacts,

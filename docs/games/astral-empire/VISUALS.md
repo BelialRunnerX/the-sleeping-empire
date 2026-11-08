@@ -9,6 +9,7 @@ Version 3.3 makes illustrated isometric 2.5D the default presentation. The earli
 - Sixteen painted prop cells: trees, cottage, portal, ore, herbs, gatherable tree, forge, ruins, boulder, lantern, dummy and four enemy archetypes. The Warden currently uses an enlarged sentinel illustration.
 - A 2×2 ground atlas blends grass, paths, courtyard stone and riverbanks in a world-coordinate shader. Mirrored tiling and mipmaps limit visible seams and aliasing. River height, the wooden crossing, wind-driven grass, motes and travelling combat effects continue to use scene geometry/shaders.
 - A separate title illustration and matching portrait HUD/roster. Title artwork is promotional imagery, not a screenshot or a promise that the game has an illustrated cinematic engine.
+- Tall scenery fades when its projected bounds cover the hero, preserving character visibility behind trees, houses and arches.
 
 All five raster assets were generated for this project with the built-in image tool, then encoded locally as WebP. They total approximately 2.9 MB and are served/pre-cached with the game. See [assets/ASSETS.md](assets/ASSETS.md) for ownership/provenance boundaries and exact prompts. No Minecraft or Elysium art was imported. Three.js remains vendored with its MIT license.
 
@@ -44,7 +45,7 @@ Removed hero textures/materials and expired effects are disposed; shared prop ma
 
 1. Consistent multi-direction walk, run, dodge, attack, cast, hurt and death sheets, aligned to actual simulation timing.
 2. Dedicated Warden art and animation, biome-specific enemies and scenery, richer outfit variants and weapon silhouettes.
-3. Occluder fading near the player, tighter sprite foot anchors/footprints, painted water/bridge details and distinct authored realm landmarks.
+3. Tighter sprite foot anchors/footprints, painted water/bridge details and distinct authored realm landmarks. Extend the implemented scenery fading to richer buildings and dungeon interiors.
 4. A coherent illustrated icon library, matching spell-effect sheets, better mobile composition, color/accessibility controls and broader device profiling.
 5. Authored music, environmental audio, layered combat sound and recorded provenance for all assets.
 

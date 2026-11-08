@@ -32,6 +32,7 @@ export class IllustratedArt extends ArtDirector {
     super(...args);
     if (!sheets) throw Error("Illustration atlases have not loaded");
     this.propMaterials = new Map();
+    this.occluders = [];
   }
   cell(sheet, columns, rows, col, row) {
     const texture = sheets[sheet].clone();
@@ -56,11 +57,37 @@ export class IllustratedArt extends ArtDirector {
           color: tint,
         }),
       );
-    const sprite = new T.Sprite(this.propMaterials.get(key));
+    const tall = index < 4 || index === 8;
+    const sprite = new T.Sprite(
+      tall ? this.propMaterials.get(key).clone() : this.propMaterials.get(key),
+    );
     sprite.center.set(0.5, 0.04);
     sprite.scale.set(width, height, 1);
     sprite.position.set(x, y, z);
+    sprite.userData.propIndex = index;
+    if (tall) this.occluders.push(sprite);
     return sprite;
+  }
+  fadeOccluders(character, camera, dt) {
+    const feet = character.position.clone().project(camera);
+    const head = character.position
+      .clone()
+      .add(new T.Vector3(0, 1.6, 0))
+      .project(camera);
+    const blend = 1 - Math.exp(-10 * dt);
+    for (const sprite of this.occluders) {
+      const p = sprite.getWorldPosition(new T.Vector3()).project(camera);
+      const halfWidth = Math.abs(sprite.scale.x) / (camera.right - camera.left);
+      const height = (sprite.scale.y * 2) / (camera.top - camera.bottom);
+      const obscures =
+        p.z < feet.z - 0.0001 &&
+        Math.abs(head.x - p.x) < halfWidth * 0.8 &&
+        head.y > p.y - height * 0.04 &&
+        head.y < p.y + height * 0.96;
+      const opacity = obscures ? 0.34 : 1;
+      sprite.material.opacity += (opacity - sprite.material.opacity) * blend;
+      sprite.material.alphaTest = sprite.material.opacity < 0.9 ? 0.06 : 0.28;
+    }
   }
   shadow(group, width = 1) {
     const shadow = new T.Mesh(
