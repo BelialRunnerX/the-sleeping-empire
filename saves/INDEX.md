@@ -528,3 +528,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000302](turns/000302.md) | CCXLVIII–CCXLIX | Autonomous played round, character/relationship update | Veronica joins as primary traveling companion and romantic partner; damaged Madrigal warning resolved to two carriers; auxiliary launch signal recovered | [000302](checkpoints/000302.md) |
 
 **Non-narrative player clarification after turn 000302:** [Veronica's updated anti-divine, purple-haired, predatory femme-fatale characterization](canon/VERONICA_ANTI_DIVINE_FEMME_FATALE_2026-11-08.md). This is a character/canon update, not an added played chapter or change to the 000302 save number.
+| [000303](turns/000303.md) | CCL–CCLV | Autonomous played arc finale (detailed synopsis) | All 23 transferred Light-Born accounted; Asterion exploitation ended; Madrigal crew accounted; VEIL-09-R ₡9M audited and paid; three companions return to Guild | [000303](checkpoints/000303.md) |
