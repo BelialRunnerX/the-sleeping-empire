@@ -70,7 +70,8 @@
         "ITM-000001",
         "ITM-000002",
         "ITM-000003",
-        "ITM-000004"
+        "ITM-000004",
+        "ITM-000005"
       ],
       "loadout_id": null,
       "gem_circuits": null,
@@ -323,9 +324,30 @@
           "before": "Elys beat Orvek 2–0, tournament continuing",
           "after": "Bram beat Seren 2–1 in Standard qualifier, Vaedra Halden S-rank registered Open with declared gauntlets; Elys has not chosen another opponent; no prize",
           "source": "User requested Continue; NPC-driven bracket advancement only"
+        },
+        {
+          "turn": "000280-000282",
+          "field": "story autonomy and intrinsic powers",
+          "before": "Player-controlled turn-by-turn choices; innate powers not previously formalized in registry",
+          "after": "User authorizes narrator to write Elys dialogue/choices; absolute intrinsic invulnerability including erasure, innate unlimited negation/full reflection; Sabbatical low-profile",
+          "source": "User explicit extended direction in turn 000280"
+        },
+        {
+          "turn": "000280",
+          "field": "Midnight Grip completed",
+          "before": "Bram qualifier winner, Elys has only beaten Orvek",
+          "after": "Elys wins 2–0 over Bram under Standard and wins Standard championship after fair remaining entries; Captain Vaedra wins Open division; no awarded inventory/cash",
+          "source": "Autonomous user-approved story"
+        },
+        {
+          "turn": "000281-000282",
+          "field": "Veilward first exploration",
+          "before": "VEIL-09-R accepted predeployment at Guild",
+          "after": "Departed to Veilward; rescued three viable people, defeated six attacking salvage ships through Aletheia; heard Leviathan may protect ships and observed its distant form; acquired ITM-000005 resonator gift",
+          "source": "User authorized companion-led autonomous adventure"
         }
       ],
-      "last_verified_turn": "000279",
+      "last_verified_turn": "000282",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -393,8 +415,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "At Midnight Grip table; watching Bram's 2-1 Standard qualifier victory over Seren; S-rank Captain Vaedra Halden joins Open; Elys has not accepted any new match. VEIL-09-R active predeployment.",
+      "current_location": "Veilward Expanse outer debris observation zone, near Pilgrim's Rest rescue area, Nadir Leviathan distant in view",
+      "current_activity": "Autonomous sabbatical expedition: rescued three viable Pilgrim's Rest crew from six hostile salvagers; Aletheia disabled all pirate vessels without crew deaths; acquired Sixfold Harmonic Resonator; two distinct signals detected near Leviathan",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -478,7 +500,7 @@
           "title": "The Veilward Watch",
           "rank": "SSS",
           "type": "NON_HUNTING_RECON_FIRST_CONTACT",
-          "status": "ACCEPTED_PRE_DEPLOYMENT",
+          "status": "IN_PROGRESS_OUTER_SURVEY_FIRST_CONTACT_PENDING",
           "base_reward_credits": 9000000,
           "reward_earned": false,
           "accepted_turn": "000276",
@@ -486,8 +508,8 @@
           "mission_dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
           "subject": "VEIL-09 Nadir Leviathan",
           "subject_hostility": "UNPROVEN",
-          "subject_location": "APPROXIMATE_VEILWARD_EXPANSE_THREE_OBSERVATION_ZONES",
-          "location_status": "STILL_AT_LUMENFALL_GUILD",
+          "subject_location": "FIRST_DIRECT_DISTANT_VISUAL_FROM_VEILWARD_DEBRIS_ZONE_POSITION_PRECISE_COORDS_UNCERTAIN",
+          "location_status": "VEILWARD_EXPANSE_OUTER_DEBRIS_ZONE",
           "rules_of_engagement": {
             "id": "CONTINGENCY_A_HOSTILE_CONTACT",
             "status": "APPROVED_AND_BINDING",
@@ -508,6 +530,26 @@
               "turn": "000276",
               "milestone": "Travel to Veilward and locate unknown Leviathan",
               "status": "NOT_STARTED"
+            },
+            {
+              "turn": "000281",
+              "milestone": "Departed Guild and reached Veilward Expanse outer survey zone; launched survey drones and found derelict Pilgrim's Rest with 3 viable cryostasis occupants",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Six illegal hostile salvage craft disabled without fatalities by Aletheia after attack; 3 civilians stabilized, Seris Thane revived, Guild rescue signaled",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Rescued navigator provided first-person report Leviathan appeared to shield vessel from dimensionally anomalous storm; six-pulse frequency recorded in gifted instrument",
+              "status": "PROVISIONAL_EVIDENCE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Nadir Leviathan directly observed at distance, turning toward second distinct signal; contact and causation not yet established",
+              "status": "IN_PROGRESS"
             }
           ]
         }
@@ -659,8 +701,8 @@
           "start_turn": "000277",
           "type": "ARM_WRESTLING_TOURNAMENT",
           "venue": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
-          "elys_role": "INITIATOR_HOST_STANDARD_DIVISION_COMPETITOR",
-          "status": "IN_PROGRESS_BRACKET_ADVANCING",
+          "elys_role": "INITIATOR_HOST_STANDARD_CHAMPION",
+          "status": "COMPLETE_STANDARD_AND_OPEN_CHAMPIONS_DECLARED",
           "match_format": "BEST_OF_THREE",
           "standard_division": "NO_ACTIVE_MAGIC_OR_EQUIPMENT_ENHANCEMENTS",
           "open_division": "DECLARED_POWERS_ALLOWED_WITH_SAFETY_RULES",
@@ -702,21 +744,73 @@
               ],
               "outcome": "Technique versus endurance, safe pins, no injuries",
               "bracket_note": "Bram leading qualified contestants; championship not awarded, Elys's next opponent undecided"
+            },
+            {
+              "bout": 5,
+              "type": "STANDARD_CHAMPIONSHIP_FEATURED_MATCH",
+              "winner": "Elys Somion",
+              "loser": "Bram Coppervein",
+              "score": "2-0",
+              "enhancements": "NONE",
+              "outcome": "Safe controlled natural-strength pins, no injury or property damage; subsequent unrecorded entrants receive fair opportunity; Elys declared Standard champion",
+              "no_player_item_mint": true
             }
           ],
           "file": "guild/MIDNIGHT_GRIP_TOURNAMENT.md",
-          "elys_current_bracket_status": "REGISTERED_STANDARD_ENTRY_WIN_AWAITING_NEXT_PLAYER_CHOICE",
+          "elys_current_bracket_status": "STANDARD_CHAMPION",
           "current_qualifier_leader": "Bram Coppervein",
           "open_division_entrants": [
             {
               "name": "Captain Vaedra Halden",
               "rank": "S",
               "equipment": "Declared mechanical forearm bracing/actuator gauntlets",
-              "status": "REGISTERED_NOT_YET_COMPETED"
+              "status": "OPEN_CHAMPION_AFTER_REGULAR_BRACKET"
             }
-          ]
+          ],
+          "standard_champion": "Elys Somion",
+          "open_champion": "Captain Vaedra Halden",
+          "completed_turn": "000280"
         }
-      ]
+      ],
+      "autonomous_sabbatical_narration": {
+        "effective_turn": "000280",
+        "source": "narration/AUTONOMOUS_SABBATICAL_NARRATION.md",
+        "status": "USER_AUTHORIZED_ACTIVE_UNTIL_USER_CORRECTION",
+        "emperor_on_sabbatical": true,
+        "write_elys_dialogue": true,
+        "choose_elys_routine_adventure_actions": true,
+        "avoid_imperial_status_except_if_necessary": true,
+        "powers": {
+          "invulnerability": "ABSOLUTE_UNCONDITIONAL_ALL_ATTACKS_ERASURE_INCLUDED",
+          "innate_negation": "ABSOLUTE_UNCONDITIONAL",
+          "full_reflection": "ABSOLUTE_UNCONDITIONAL",
+          "omniscience": false
+        },
+        "companions_do_major_fighting": true,
+        "user_errata_immediately_authoritative": true
+      },
+      "innate_powers": {
+        "absolute_invulnerability": {
+          "status": "ALWAYS_ON",
+          "scope": "ALL_FORMS_OF_DAMAGE_PHYSICAL_MAGICAL_CONCEPTUAL_TEMPORAL_SPIRITUAL_ONTOLOGICAL_ERASURE_INCLUDED",
+          "source": "INNATE_NOT_DEPENDENT_ON_REGALIA",
+          "bypass_possible": false
+        },
+        "absolute_negation": {
+          "status": "INNATE_UNLIMITED",
+          "scope": "ALL_ATTACKS_POWERS_AND_THREATS_AS_DIRECTED_BY_ELYS",
+          "bypass_possible": false
+        },
+        "full_reflection": {
+          "status": "INNATE_UNLIMITED",
+          "scope": "ALL_DIRECTED_HOSTILE_EFFECTS_AND_ATTACKS_AS_CONTROLLED_BY_ELYS",
+          "bypass_possible": false
+        },
+        "knowledge": {
+          "omniscient": false,
+          "requires_investigation": true
+        }
+      }
     },
     "char-clarissa": {
       "character_id": "char-clarissa",
@@ -3695,7 +3789,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff at Elys's right; gaily sanguine banter; no tournament entry or lethal engagement",
+      "conditions": "AWAKENED; SENTIENT; INTACT; HUMANOID MATERIA FORM BESIDE ELYS; gaily sanguine; six hostile ships disabled with no fatalities",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3920,9 +4014,16 @@
           "before": "Cheered Elys's unaugmented win",
           "after": "Watches Bram/Seren qualification match and S-rank Vaedra registration, delightfully sanguine jokes, no magical interference",
           "source": "User Continue"
+        },
+        {
+          "turn": "000281-000282",
+          "field": "autonomous combat",
+          "before": "Sanguine spectator at Guild",
+          "after": "Humanoid/spear/staff transformations; gleefully disabled six hostile pirate ships after attack without killing crews, aided rescue, now humanoid near Elys",
+          "source": "User approved companion-led fighting"
         }
       ],
-      "last_verified_turn": "000279",
+      "last_verified_turn": "000282",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3961,20 +4062,25 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath, hovering to Elys's right",
+      "current_location": "Veilward Expanse outer debris observation zone, alongside Elys",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
-      "current_form": "Genesis Loom staff",
+      "current_form": "Materia humanoid",
       "active_tasks": [
         {
-          "task": "PROTECT_ARCHIVE",
-          "location": "Sepulcher Heart chamber via non-sentient anchored ward",
-          "status": "ACTIVE_BOUNDED"
+          "task": "ACCOMPANY_ELYS",
+          "location": "Veilward Expanse",
+          "status": "ACTIVE"
         },
         {
-          "task": "PRESERVE_RECORDS",
-          "location": "Protected Aletheia mnemonic memory",
-          "status": "PARTIAL_VERIFIED_SNAPSHOTS_ONLY"
+          "task": "SECURE_PARTIAL_SEPULCHER_ARCHIVE_SNAPSHOTS",
+          "location": "Aletheia protected memory",
+          "status": "HELD_AND_PROTECTED"
+        },
+        {
+          "task": "REMOTE_BOUND_ARCHIVE_WARD",
+          "location": "Sepulcher Heart, non-sentient anchored ward",
+          "status": "REMAINS_BOUNDED_AS_ESTABLISHED"
         }
       ]
     },
@@ -4139,13 +4245,13 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "INTACT; GENESIS LOOM STAFF; DELIGHTEDLY SANGUINE COMBAT TEMPERAMENT, ARCHIVE WARD BOUNDED",
+      "condition": "INTACT; ONE SENTIENT IDENTITY; HUMAN0ID MATERIA AFTER HOSTILE PIRATE DISARMAMENT",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
-      "form": "Genesis Loom staff",
+      "form": "Materia humanoid",
       "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
@@ -4215,7 +4321,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath, hovering to Elys's right",
+      "current_physical_location": "Veilward Expanse outer debris observation zone, alongside Elys",
       "test_history": [
         {
           "id": "FX-000257",
@@ -4250,7 +4356,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000273",
+      "last_modified_turn": "000282",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -4291,7 +4397,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "PRISTINE 100/100; REV II WITNESS MOUNT INTACT; WRESTLING ARM POWERED STRENGTH ASSIST ISOLATED DURING STANDARD BOUT; ALL OTHER SYSTEMS OPERATIONAL",
+      "condition": "PRISTINE 100/100; REV II WITNESS MOUNT AND ALL SEALS OPERATIONAL",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -4303,7 +4409,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "Worn by Elys in Veilward Expanse with ITM-000004 equipped in Rev II sternum mount",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4371,7 +4477,7 @@
           "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000278",
+      "last_modified_turn": "000282",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4442,7 +4548,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Back-mounted on Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath; Last Witness not stored",
+      "current_physical_location": "Worn artifact/backpack on Elys in Veilward Expanse, contains ITM-000005; ITM-000004 remains equipped on armor",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4463,8 +4569,10 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000273",
-      "stored_item_ids": []
+      "last_modified_turn": "000282",
+      "stored_item_ids": [
+        "ITM-000005"
+      ]
     },
     "ITM-000004": {
       "item_id": "ITM-000004",
@@ -4491,7 +4599,7 @@
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "Equipped in Aegis ITM-000002 Rev II sternum mount, worn by Elys at Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
+      "current_physical_location": "EQUIPPED relic_core in Regalia Aegis ITM-000002 on Elys in Veilward Expanse",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
@@ -4529,7 +4637,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000273",
+      "last_modified_turn": "000282",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
@@ -4609,6 +4717,41 @@
         "authorized_extraction": "PASS_SIMULATED_NOT_PHYSICALLY_REMOVED"
       },
       "integration_revision": "REV_II_000272"
+    },
+    "ITM-000005": {
+      "item_id": "ITM-000005",
+      "blueprint_id": "PILGRIMS_REST_RESONATOR",
+      "canonical_name": "Sixfold Harmonic Resonator",
+      "owner_character_id": "char-elys",
+      "rarity": "Rare",
+      "type": "scientific harmonic analyzer, non-weapon",
+      "sentient": false,
+      "source_turn": "000282",
+      "provenance": "Voluntarily gifted by rescued adult chief navigator Seris Thane of Pilgrim's Rest",
+      "equipped": false,
+      "ownership_verified": true,
+      "condition": "OPERATIONAL; SIX-PULSE SURVEY REFERENCE SECURED",
+      "durability": null,
+      "raw_numeric_stats": null,
+      "current_physical_location": "Secured inside ITM-000003 Regalia Forge Core inventory worn by Elys in Veilward Expanse",
+      "abilities": [
+        {
+          "id": "SIX_PULSE_COMPARISON",
+          "description": "Finite-range detection/comparison of repeating harmonic electromagnetism and exotic spatial/gravitomagnetic oscillations, with six-pulse recording"
+        },
+        {
+          "id": "MULTISIGNAL_RECOGNITION",
+          "description": "Distinguish second local signal from six-pulse reference without identifying source"
+        }
+      ],
+      "limitations": [
+        "Not a weapon",
+        "Unknown range, power and sensitivity",
+        "Not an all-space tracker or translator",
+        "Cannot prove creature hostility or identify second phenomenon"
+      ],
+      "documentation": "armory/instruments/ITM-000005_SIXFOLD_HARMONIC_RESONATOR.md",
+      "last_modified_turn": "000282"
     }
   },
   "transactions": [
@@ -4731,7 +4874,18 @@
       "credits_spent": null,
       "materials_spent": "Local non-archival Sepulcher mineral debris; exact amount and energy not measured",
       "source": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
+    },
+    {
+      "transaction_id": "TX-000282-ITM-000005",
+      "turn": "000282",
+      "type": "VOLUNTARY_ITEM_GIFT",
+      "item_id": "ITM-000005",
+      "from": "Seris Thane, Pilgrim's Rest chief navigator",
+      "to": "char-elys",
+      "price": null,
+      "currency_movement": 0,
+      "source": "saves/turns/000282.md"
     }
   ],
-  "next_item_sequence": 5
+  "next_item_sequence": 6
 }
