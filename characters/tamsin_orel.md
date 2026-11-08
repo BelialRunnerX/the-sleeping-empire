@@ -11,3 +11,8 @@ Tamsin is technically exacting, weary of self-justifying administrative cruelty,
 Tamsin remains a free independent engineer; not automatically an Imperial subject to a new employer, owned asset, romantic interest, or permanent member of Elys's party. No known level, numeric stats, weapon, funds or rank.
 
 **Current thread:** further design, safety validation and audit at Asterion, with the mysterious Auditor still controlling parts of the installation.
+
+
+## Completed humane calibration conversion — Turn 000303
+
+Tamsin's nonliving reference system was independently tested over 14–15 Deepfall with Elys, Maris Vey, Aletheia (entirely Genesis Loom staff during measurement) and authorized independent technicians. **All remaining twelve living Light-Born** in secondary bays were safely freed from coercive use and delivered to protected care. There were 15 historic living survivors total (earlier three already rescued), and eight verified past deaths. The mobile Asterion lightbeacon system is deactivated while original spatial-stabilization anchors remain active and monitored. Tamsin is alive and remains an independent technical participant in ongoing safety oversight, not automatically an employee or property of Elys. Initial one-channel-only status above is an earlier historical stage, superseded by completed per-channel verification in Chapter CCLIII. [Turn 000303](../saves/turns/000303.md).
