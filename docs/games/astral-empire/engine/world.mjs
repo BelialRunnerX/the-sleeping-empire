@@ -3,6 +3,7 @@ import { hash, roll } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
 import { ArtDirector, GRAPHICS } from "./art.mjs";
 import { IllustratedArt } from "./illustrated.mjs";
+import { WorkstationView } from "./workstations.mjs";
 const color = (hex) => new T.Color(hex);
 export function ground(x, z, realm = "bastion") {
   if (Math.hypot(x, z) < 13) return 0;
@@ -117,6 +118,12 @@ export class WorldView {
       this.art.sanctuary();
     }
     this.createScenery();
+    this.workstations = new WorkstationView(
+      this.scene,
+      state,
+      this.art,
+      this.illustrated,
+    );
     this.createNodes();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.scene.add(this.character);
@@ -695,6 +702,7 @@ export class WorldView {
     );
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
     this.art.update(time, this.visuals.reducedMotion);
+    this.workstations.update(time, this.visuals.reducedMotion);
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
     this.sun.target.updateMatrixWorld();

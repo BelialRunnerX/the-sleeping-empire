@@ -10,6 +10,11 @@ import {
   WEAPONS,
 } from "./content.mjs";
 import { numeric } from "./native.mjs";
+import {
+  freshProduction,
+  normalizeProduction,
+  nearStation,
+} from "./artisan.mjs";
 export const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const finite = (v, fallback = 0) =>
   Number.isFinite(Number(v)) ? Number(v) : fallback;
@@ -76,6 +81,10 @@ export function freshState(seed = 438102) {
       essence: 2,
       potions: 5,
       meal: 0,
+      billet: 0,
+      plank: 0,
+      extract: 0,
+      aether: 0,
     },
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
@@ -92,7 +101,15 @@ export function freshState(seed = 438102) {
     },
     depleted: {},
     defeated: {},
-    statistics: { kills: 0, gathers: 0, crafts: 0, bosses: 0 },
+    statistics: {
+      kills: 0,
+      gathers: 0,
+      crafts: 0,
+      bosses: 0,
+      processed: 0,
+      workstations: 0,
+    },
+    production: freshProduction(),
     claimed: [],
     deepest: 0,
     foodUntil: 0,
@@ -196,6 +213,7 @@ export function migrateState(input) {
     s.realm = ["bastion", "moon", "cinder", "frost"].includes(input.realm)
       ? input.realm
       : "bastion";
+    s.production = normalizeProduction(input.production);
     return s;
   }
   if (input.version === 1 || input.version === 2) {
@@ -419,6 +437,15 @@ export function gather(s, node, now = Date.now()) {
 export function craft(s, id, seed = Date.now()) {
   const recipe = RECIPES.find((r) => r.id === id);
   if (
+    recipe?.station &&
+    (!nearStation(s, recipe.station) ||
+      (s.production?.stations[recipe.station]?.tier || 0) < recipe.tier)
+  )
+    return {
+      ok: false,
+      message: "Visit the recipe's upgraded sanctuary workstation first.",
+    };
+  if (
     !recipe ||
     !Object.entries(recipe.cost).every(([k, n]) => s.resources[k] >= n)
   )
@@ -430,9 +457,12 @@ export function craft(s, id, seed = Date.now()) {
     };
   for (const [k, n] of Object.entries(recipe.cost)) s.resources[k] -= n;
   if (recipe.type) {
-    const item = makeItem(seed, s.level, recipe.type);
+    const item = makeItem(seed, s.level, recipe.type, recipe.rarity || "rare");
+    if (recipe.itemName) item.name = recipe.itemName;
     item.base = Math.round(
-      item.base * (1 + (professionLevel(s, "smithing") - 1) * 0.03),
+      item.base *
+        (1 + (professionLevel(s, "smithing") - 1) * 0.03) *
+        (recipe.baseBonus || 1),
     );
     if (stats(s).keystones.includes("artisan"))
       item.base = Math.round(item.base * 1.25);

@@ -2,6 +2,8 @@
 
 ## Current milestone
 
+Version 3.4 connects raw gathering stock to three constructible sanctuary workstations, paid timed queues, offline catch-up, profession XP, tier upgrades and refined epic gear. Illustrated machines, activity/progress effects, map tracking and proximity interaction accompany the loop. Sites are fixed, and local saves remain non-authoritative; general housing, logistics and shared-world economy are still future work.
+
 Version 3.3 makes illustrated isometric 2.5D the default art direction, retaining the third-person procedural 3D view as a sanctuary setting. Twelve heroes have AI-generated portrait art and paired full-body sprite poses; painted scenery, enemies, terrain and title art share a consistent direction. Gameplay and version 3 saves remain connected to the existing simulation. Full directional animation sheets, dedicated boss sprites and richer environmental art remain ahead.
 
 Playable solo action-RPG region with an actual third-person WebGL view and a compiled C++ numeric module. Version 3.1 adds blade/bow/staff disciplines, travelling projectiles, delayed echoes, piercing/chaining, typed damage/resistance, mechanical reactions, four enemy archetypes and a two-phase Warden. Combat, character builds, equipment, lifeskills, crafting, heroes, and local persistence are connected. This remains a foundation rather than a completed MMO or a Path of Exile-sized content library.
@@ -19,7 +21,7 @@ Playable solo action-RPG region with an actual third-person WebGL view and a com
 
 - Introduce item bases, implicit properties, prefix/suffix pools, affix tiers, crafting benches, deterministic and random crafting currencies, sockets, quality types, durability, and material provenance.
 - Expand mining into veins/depth/ore grades; add forestry regrowth, plant seasons, fishing timing/locations/bait, farming, processing, cooking buffs, alchemy effects, and equipment specialization.
-- Implement Elysium foundry/alloy rules with real input/output inventories and timed jobs. Add workstation placement and persistent camp/housing construction.
+- Extend the implemented two-input matching, paid queues and output trays with the remaining Elysium recipe catalogue, power/share rules and inventory networks. Expand fixed sanctuary build sites into validated free-placement camps/housing with collision and permissions.
 - Add production chains, profession quests, tools, mastery specializations, storage, worker assignments, logistics, and simulation while regions are unloaded.
 - Profile the simulation and move stable high-cost loops into C++/WebAssembly with parity fixtures. Keep UI/content authoring in maintainable browser modules.
 

@@ -5,7 +5,12 @@ import { HEROES } from "./content.mjs";
 let sheets, pending;
 export function loadIllustrations() {
   return (pending ??= Promise.all(
-    ["heroes-walk.webp", "props-anime.webp", "ground-anime.webp"].map((name) =>
+    [
+      "heroes-walk.webp",
+      "props-anime.webp",
+      "ground-anime.webp",
+      "workstations-anime.webp",
+    ].map((name) =>
       new T.TextureLoader().loadAsync(
         new URL("../assets/" + name, import.meta.url).href,
       ),
@@ -17,7 +22,12 @@ export function loadIllustrations() {
       texture.magFilter = T.LinearFilter;
       texture.generateMipmaps = false;
     });
-    sheets = { heroes: textures[0], props: textures[1], ground: textures[2] };
+    sheets = {
+      heroes: textures[0],
+      props: textures[1],
+      ground: textures[2],
+      stations: textures[3],
+    };
     sheets.ground.generateMipmaps = true;
     sheets.ground.minFilter = T.LinearMipmapLinearFilter;
     sheets.ground.anisotropy = 4;
@@ -170,6 +180,19 @@ export class IllustratedArt extends ArtDirector {
   building(x, z) {
     this.scene.add(this.prop(2, x, 0, z, 8.4, 8.4));
   }
+  stationSprite(cell) {
+    const sprite = new T.Sprite(
+      new T.SpriteMaterial({
+        map: this.cell("stations", 3, 1, cell, 0),
+        transparent: true,
+        alphaTest: 0.25,
+        depthWrite: true,
+      }),
+    );
+    sprite.center.set(0.5, 0.025);
+    sprite.scale.set(3.7, 3.7, 1);
+    return sprite;
+  }
   groundMaterial() {
     const tint =
       this.realm === "moon"
@@ -233,7 +256,6 @@ export class IllustratedArt extends ArtDirector {
     this.scene.add(this.prop(3, 0, 0, -6, 7.2, 7.2));
     this.building(-13, -4);
     this.building(13, -5);
-    this.scene.add(this.prop(7, -10, 0, 5, 3.5, 3.5));
     for (const sign of [-1, 1]) {
       this.tree(sign * 9, -10, 1.1, true);
       for (const z of [-4, 6])

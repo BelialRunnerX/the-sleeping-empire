@@ -67,3 +67,18 @@ Use case: stylized-concept. Asset type: ground texture atlas for an original ani
 Create ONE square texture atlas divided into exactly FOUR EQUAL SQUARE QUADRANTS, a 2x2 grid, no gaps or lines. Every quadrant is a perfectly TOP-DOWN orthographic ground surface, filled edge to edge with its material, independently tileable with continuous edges. Beautiful detailed hand-painted anime JRPG environment art, refined painterly brushwork and clear readable small detail, gentle diffuse illumination, no directional shadows or perspective. TOP LEFT: lush jade-green meadow grass, organic soft leaf clusters, tiny subtle yellow-green blades, a very few tiny white clover flowers. TOP RIGHT: warm pale ochre dirt path, delicate natural gravel and worn patches, subtle variation. BOTTOM LEFT: refined ivory grey stone courtyard paving, weathered rounded rectangular slabs, understated golden flecks, small cracks and seams; elegant fantasy sanctuary material, not a brick wall. BOTTOM RIGHT: pale sandy riverbank soil with scattered moss and tiny river pebbles.
 No trees, props, buildings, characters, water, letters, labels, grids, frames, large rocks or empty margins. Each quadrant must be a useful unobstructed repeating ground texture. Restrained contrast so sprites and combat effects remain readable.
 ```
+
+## Workstation expansion · 2026-11-08
+
+[workstations-anime.webp](workstations-anime.webp) is a new 3×1 atlas for the foundry, joinery and laboratory. It was generated using the built-in `image_gen.imagegen` tool and encoded locally as WebP quality 92 with Sharp CLI 5.2.0, preserving alpha. It is original AI-generated project art, not manually painted artwork or an Elysium/Minecraft asset. The game adds activity effects in code; the sheet is static.
+
+Exact generation prompt:
+
+```text
+Use case: stylized-concept. Asset type: transparent isometric workstation atlas for the original anime RPG Aetherbound.
+Create one horizontal 3:1 atlas with EXACTLY THREE EQUAL SQUARE CELLS, side by side, no gaps, dividers, lettering or labels. Each cell contains one complete small workstation, centered with generous transparent padding, actual transparent alpha background. View from above in an isometric three-quarter perspective. Refined illustrated anime JRPG scenery matching elegant ivory stone, dark blue wood, brass/gold fittings, jade accents and warm painterly detail, fine clean linework and readable silhouettes. No characters, no floor slab outside each object's natural base, no 3D render, no pixel art.
+LEFT CELL: a compact cobalt alloy foundry, ornate dark slate and ivory masonry furnace with brass chimney, blue crucible, soft amber fire, a small anvil and ingot tray; no flying sparks outside the cell.
+MIDDLE CELL: an artisan joinery bench, beautifully detailed dark teal wooden sawhorse/worktable, neat cut planks, fine hand saw, brass clamps and small mechanical wheel, restrained ivy-green cloth trim.
+RIGHT CELL: an elegant starleaf alchemy bench, dark-violet wood and gold-trimmed desk, glass retort and curved tubes, glowing lavender and teal liquid flasks, a small herb drying rack and carefully arranged flowers.
+The three workstations should be equally sized, visually distinct and fully contained in their exact thirds of the transparent atlas. Request 1536x512 or highest available 3:1 resolution.
+```

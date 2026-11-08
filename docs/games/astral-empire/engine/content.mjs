@@ -575,6 +575,45 @@ export const PROFESSIONS = [
 ];
 export const RECIPES = [
   {
+    id: "aetherblade",
+    name: "Aetherbound oathblade",
+    itemName: "Aetherbound oathblade",
+    profession: "smithing",
+    cost: { billet: 2, plank: 2, aether: 1 },
+    type: "weapon",
+    rarity: "epic",
+    baseBonus: 1.15,
+    station: "foundry",
+    tier: 2,
+    desc: "An epic weapon with four affixes and 15% stronger base power. Craft at a tier-two foundry.",
+  },
+  {
+    id: "artisan-mantle",
+    name: "Artisan's starweave",
+    itemName: "Artisan's starweave",
+    profession: "smithing",
+    cost: { plank: 2, extract: 2, billet: 1 },
+    type: "armor",
+    rarity: "epic",
+    baseBonus: 1.1,
+    station: "joinery",
+    tier: 1,
+    desc: "Epic armor with four affixes and 10% stronger base armor. Craft at the joinery.",
+  },
+  {
+    id: "distilled-conduit",
+    name: "Distilled astral conduit",
+    itemName: "Distilled astral conduit",
+    profession: "alchemy",
+    cost: { extract: 2, aether: 1 },
+    type: "charm",
+    rarity: "epic",
+    baseBonus: 1.1,
+    station: "alchemy",
+    tier: 2,
+    desc: "An epic conduit with four affixes. Requires a tier-two laboratory.",
+  },
+  {
     id: "blade",
     name: "Cobalt oathblade",
     profession: "smithing",
@@ -724,6 +763,24 @@ for (const b of branches)
     });
   }
 export const QUESTS = [
+  {
+    id: "atelier-build",
+    name: "An artisan's foothold",
+    description: "Construct one sanctuary workstation.",
+    stat: "workstations",
+    goal: 1,
+    gold: 150,
+    crystals: 80,
+  },
+  {
+    id: "atelier-orders",
+    name: "From wilds to workshop",
+    description: "Collect five processed orders.",
+    stat: "processed",
+    goal: 5,
+    gold: 300,
+    crystals: 160,
+  },
   {
     id: "gather",
     name: "A foothold in the wilds",

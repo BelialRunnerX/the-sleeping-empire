@@ -10,6 +10,180 @@
   --line: #c8cbb52b;
   --serif: "Cormorant Garamond", Georgia, serif;
 }
+.artisan-shortcut {
+  position: absolute;
+  left: 32px;
+  bottom: 103px;
+  background: #192d3ee8;
+  border-color: #d7bc8570;
+  pointer-events: auto;
+}
+#artisan-ready:not(:empty) {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: #e4c487;
+  color: #263847;
+  font-weight: 700;
+}
+#station-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.station-label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: auto;
+  background: #13273de6;
+  border: 1px solid #b0bdba66;
+  text-align: center;
+  padding: 7px 10px;
+  max-width: 220px;
+  box-shadow: 0 4px 15px #10223344;
+}
+.station-label b,
+.station-label small {
+  display: block;
+}
+.station-label small {
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  color: #c4d1d1;
+}
+.station-label.ready {
+  border-color: #e5c281;
+  box-shadow: 0 0 15px #eccb8355;
+}
+.artisan-intro {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 18px;
+}
+.artisan-intro h3 {
+  font: 600 28px var(--serif);
+  margin: 7px 0;
+}
+.artisan-intro p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.artisan-chain {
+  color: var(--gold);
+  white-space: nowrap;
+  font: 600 17px var(--serif);
+}
+.artisan-chain span {
+  color: var(--muted);
+  margin: 0 5px;
+}
+.station-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.station-art {
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: url("assets/workstations-anime.webp");
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+}
+.station-card.blueprint .station-art {
+  opacity: 0.45;
+  filter: saturate(0.45);
+}
+.station-card h3 {
+  margin: 10px 0;
+}
+.station-location {
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: #b9d2cd;
+}
+.station-output,
+.station-upgrade {
+  background: #acbad009;
+  padding: 13px;
+  border: 1px solid var(--line);
+  margin: 16px 0;
+}
+.station-output b {
+  color: var(--gold);
+  font: 600 19px var(--serif);
+}
+.production-job,
+.processing-recipe {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+}
+.production-job small,
+.processing-recipe > small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin: 7px 0;
+  line-height: 1.5;
+}
+.production-job button {
+  font-size: 8px;
+  padding: 5px 8px;
+}
+.station-card .resource-line {
+  gap: 5px;
+  margin: 10px 0;
+}
+.station-card .resource-line span {
+  font-size: 9px;
+}
+.resource-line .missing {
+  color: #e8a79d;
+}
+.resource-line .paid {
+  color: #b9d8bd;
+}
+.artisan-next,
+.atelier-link {
+  margin: 18px 0;
+}
+@media (max-width: 900px) {
+  .station-grid {
+    grid-template-columns: 1fr;
+  }
+  .station-art {
+    width: 180px;
+    float: right;
+    margin-left: 15px;
+  }
+  .artisan-intro {
+    display: block;
+  }
+}
+@media (max-width: 760px) {
+  .artisan-shortcut {
+    left: 15px;
+    bottom: 185px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+  .artisan-shortcut kbd {
+    display: none;
+  }
+  .station-art {
+    width: 125px;
+  }
+  .artisan-chain {
+    font-size: 16px;
+  }
+}
 * {
   box-sizing: border-box;
 }

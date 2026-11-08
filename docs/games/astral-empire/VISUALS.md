@@ -11,13 +11,15 @@ Version 3.3 makes illustrated isometric 2.5D the default presentation. The earli
 - A separate title illustration and matching portrait HUD/roster. Title artwork is promotional imagery, not a screenshot or a promise that the game has an illustrated cinematic engine.
 - Tall scenery fades when its projected bounds cover the hero, preserving character visibility behind trees, houses and arches.
 
-All five raster assets were generated for this project with the built-in image tool, then encoded locally as WebP. They total approximately 2.9 MB and are served/pre-cached with the game. See [assets/ASSETS.md](assets/ASSETS.md) for ownership/provenance boundaries and exact prompts. No Minecraft or Elysium art was imported. Three.js remains vendored with its MIT license.
+All six raster assets, including the 3.4 workstation atlas, were generated for this project with the built-in image tool, then encoded locally as WebP. They total approximately 3.5 MB and are served/pre-cached with the game. See [assets/ASSETS.md](assets/ASSETS.md) for ownership/provenance boundaries and exact prompts. No Minecraft or Elysium art was imported. Three.js remains vendored with its MIT license.
 
 ## Existing gameplay and controls
 
 The camera/view change does not replace movement, world positions, enemy AI, hit resolution, projectiles, support links, gear, gathering, crafting or saves. WASD remains relative to the camera. Right drag changes camera angle, wheel zooms and F8 hides/restores the HUD. Combat continues in scenic view. Q targets, E gathers and 1–4 cast as before.
 
 The art preference lives in `astral_empire_visuals_v1`, outside the version 3 progression payload. Legacy visual preferences default to the illustrated style. Switching art style is limited to the sanctuary and rebuilds the solo encounter view. If atlas loading fails, startup falls back to the procedural model view.
+
+Version 3.4 adds illustrated foundry/joinery/laboratory sites, translucent construction previews, progress rings, production particles, output badges and nearby labels. Map tracking highlights a chosen site. These are static illustrations with procedural activity effects. Idle, undamaged targets no longer occupy the target HUD until combat or explicit targeting.
 
 ## Device controls
 

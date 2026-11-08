@@ -32,6 +32,17 @@ import { Profiles } from "./profiles.mjs";
 import { WorldView, ground } from "./world.mjs";
 import { readVisualSettings } from "./art.mjs";
 import { loadIllustrations } from "./illustrated.mjs";
+import {
+  STATIONS,
+  MATERIAL_NAMES,
+  settleProduction,
+  buildStation,
+  upgradeStation,
+  enqueueProcessing,
+  cancelProcessing,
+  collectProduction,
+} from "./artisan.mjs";
+import { artisanPanel, jobTime } from "./artisan-ui.mjs";
 const $ = (id) => document.getElementById(id),
   escape = (s) =>
     String(s ?? "").replace(
@@ -62,6 +73,8 @@ let state = freshState(),
   lastFrame = 0,
   lastHud = 0,
   lastSave = 0,
+  lastProduction = 0,
+  trackedStation = null,
   dragging = false,
   lastPointer = { x: 0, y: 0 },
   noticeId = 0,
@@ -74,6 +87,7 @@ const tabs = [
   ["passives", "Constellation"],
   ["lifeskills", "Lifeskills"],
   ["crafting", "Workshop"],
+  ["artisan", "Atelier"],
   ["heroes", "Heroes"],
   ["journal", "Journal"],
   ["realms", "Waygates"],
@@ -111,6 +125,7 @@ function sound(frequency = 440) {
 function save() {
   if (!playing) return;
   try {
+    settleProduction(state);
     profiles.save(state);
     $("save-state").textContent = "Saved";
     lastSave = performance.now();
@@ -144,7 +159,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.3 · Illustrated Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.4 · Artisan Awakening</span></footer>`;
 }
 function enter(create) {
   try {
@@ -213,7 +228,15 @@ function updateHUD() {
   }
   $("cd-potion").style.height = (sim.potionCD / 12) * 100 + "%";
   $("ct-potion").textContent = sim.potionCD > 0 ? Math.ceil(sim.potionCD) : "";
-  const target = sim.locked?.hp > 0 ? sim.locked : sim.nearest(16);
+  const nearestTarget = sim.nearest(16);
+  const target =
+    sim.locked?.hp > 0
+      ? sim.locked
+      : nearestTarget &&
+          (nearestTarget.hp < nearestTarget.max ||
+            (!nearestTarget.training && nearestTarget.phase !== "idle"))
+        ? nearestTarget
+        : null;
   $("target-hud").hidden = !target;
   if (target) {
     $("target-name").textContent =
@@ -266,8 +289,24 @@ function updateHUD() {
       "Improve your build, master professions, and open new waygates.";
   }
   const node = view.nearestNode();
-  $("interaction").hidden = !!panel || !node;
-  if (node) {
+  const station = view.workstations.nearest(sim.player);
+  const useStation =
+    station &&
+    (!node || station.distance < Math.hypot(node.x - p.x, node.z - p.z));
+  $("interaction").hidden = !!panel || (!node && !station);
+  if (useStation) {
+    $("interact-name").textContent = station.name;
+    const production = state.production.stations[station.id];
+    $("interact-detail").textContent = production.tier
+      ? "Tier " +
+        production.tier +
+        " · " +
+        production.jobs.length +
+        " queued · " +
+        production.completed +
+        " ready"
+      : "Construction blueprint · E to open Atelier";
+  } else if (node) {
     const job = PROFESSIONS.find((p) => p.node === node.kind);
     $("interact-name").textContent =
       node.kind === "ore"
@@ -285,6 +324,35 @@ function updateHUD() {
     ? (1 - gathering.left / gathering.total) * 100 + "%"
     : "0%";
   drawMap();
+  updateStationLabels();
+  $("artisan-ready").textContent =
+    Object.values(state.production.stations).reduce(
+      (total, s) => total + s.completed,
+      0,
+    ) || "";
+}
+function updateStationLabels() {
+  $("station-labels").innerHTML = view.workstations.entries
+    .map(({ def }) => {
+      const station = state.production.stations[def.id],
+        distance = Math.hypot(sim.player.x - def.x, sim.player.z - def.z);
+      if (
+        distance > 24 ||
+        (distance > 7 && trackedStation !== def.id && !station.completed)
+      )
+        return "";
+      const point = view.project(def.x, 3.4, def.z);
+      if (
+        !point.visible ||
+        point.x < 0 ||
+        point.x > innerWidth ||
+        point.y < 0 ||
+        point.y > innerHeight
+      )
+        return "";
+      return `<button class="station-label ${station.completed ? "ready" : ""}" data-panel="artisan" style="left:${point.x}px;top:${point.y}px"><b>${def.icon} ${def.name}</b><small>${station.completed ? station.completed + " ORDERS READY" : station.tier ? "TIER " + station.tier : "BLUEPRINT"} · ${Math.round(distance)}m</small></button>`;
+    })
+    .join("");
 }
 function drawMap() {
   const c = $("minimap").getContext("2d"),
@@ -324,6 +392,23 @@ function drawMap() {
       c.beginPath();
       c.arc(x, y, e.boss ? 4 : 2, 0, Math.PI * 2);
       c.fill();
+    }
+  if (state.realm === "bastion")
+    for (const def of STATIONS) {
+      const [x, y] = at(def.x, def.z),
+        station = state.production.stations[def.id];
+      c.fillStyle = station.completed
+        ? "#ffe0a2"
+        : station.tier
+          ? "#9bd0bb"
+          : "#7c929c";
+      c.fillRect(x - 2, y - 2, 4, 4);
+      if (trackedStation === def.id) {
+        c.strokeStyle = "#ffe0a2";
+        c.beginPath();
+        c.arc(x, y, 6, 0, Math.PI * 2);
+        c.stroke();
+      }
     }
   c.translate(90, 90);
   c.rotate(-p.facing);
@@ -439,8 +524,10 @@ function lifeskills() {
   )}</div><div class="row" style="margin-top:16px"><button class="gold-button" data-panel="crafting">OPEN WORKSHOP →</button><span class="small muted">Resources recover after 3 minutes. Progress saves through logout.</span></div>`;
 }
 function workshop() {
-  return `<div class="resource-line">${Object.entries(state.resources)
-    .map(([key, n]) => `<span>${key} <b>${n}</b></span>`)
+  return `<div class="card atelier-link"><h3>From raw materials to masterworks</h3><p>Build workstations, queue processing and collect refined materials in the sanctuary Atelier.</p><button data-panel="artisan">OPEN ATELIER · B →</button></div><div class="resource-line">${Object.entries(
+    state.resources,
+  )
+    .map(([key, n]) => `<span>${MATERIAL_NAMES[key] || key} <b>${n}</b></span>`)
     .join("")}</div><div class="grid-3">${RECIPES.map(
     (r) =>
       `<article class="card"><span class="tag">${r.profession.toUpperCase()} · MASTERY ${professionLevel(state, r.profession)}</span><h3 style="margin-top:12px">${r.name}</h3><p>${r.desc}</p><div class="resource-line">${Object.entries(
@@ -491,7 +578,7 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">THE AETHERBOUND CHRONICLE</span><h2>${title}</h2></div><button class="panel-close" data-action="close" aria-label="Close panel">×</button></header><nav class="panel-tabs">${tabs.map(([key, name]) => `<button data-panel="${key}" class="${panel === key ? "active" : ""}">${name}</button>`).join("")}</nav><div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, heroes, journal, realms, settings }[id] || inventory)()}</div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">THE AETHERBOUND CHRONICLE</span><h2>${title}</h2></div><button class="panel-close" data-action="close" aria-label="Close panel">×</button></header><nav class="panel-tabs">${tabs.map(([key, name]) => `<button data-panel="${key}" class="${panel === key ? "active" : ""}">${name}</button>`).join("")}</nav><div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, journal, realms, settings }[id] || inventory)()}</div></section>`;
   $("panels").querySelector(".panel-close").focus();
 }
 function closePanel() {
@@ -521,6 +608,16 @@ function attack(id) {
 function startGather() {
   if (!playing || panel) return;
   const node = view.nearestNode();
+  const station = view.workstations.nearest(sim.player);
+  if (
+    station &&
+    (!node ||
+      station.distance <
+        Math.hypot(node.x - sim.player.x, node.z - sim.player.z))
+  ) {
+    openPanel("artisan");
+    return;
+  }
   if (!node) return;
   if (!combatSafe()) {
     notify("Clear nearby hostiles before gathering.");
@@ -607,6 +704,50 @@ document.addEventListener("click", (e) => {
       openPanel("crafting");
       sound(500);
     }
+    return;
+  }
+  if (n.dataset.trackStation) {
+    trackedStation = n.dataset.trackStation;
+    closePanel();
+    notify(
+      "Tracking " +
+        STATIONS.find((d) => d.id === trackedStation).name +
+        ". Follow the gold marker on your map.",
+    );
+    return;
+  }
+  if (
+    n.dataset.buildStation ||
+    n.dataset.upgradeStation ||
+    n.dataset.process ||
+    n.dataset.collectStation ||
+    n.dataset.cancelStation
+  ) {
+    if (!combatSafe()) {
+      notify("Leave combat before using a workstation.");
+      return;
+    }
+    const result = n.dataset.buildStation
+      ? buildStation(state, n.dataset.buildStation)
+      : n.dataset.upgradeStation
+        ? upgradeStation(state, n.dataset.upgradeStation)
+        : n.dataset.process
+          ? enqueueProcessing(
+              state,
+              n.dataset.process,
+              Number(n.dataset.quantity),
+            )
+          : n.dataset.collectStation
+            ? collectProduction(state, n.dataset.collectStation)
+            : cancelProcessing(
+                state,
+                n.dataset.cancelStation,
+                Number(n.dataset.cancelJob),
+              );
+    notify(result.message);
+    save();
+    openPanel("artisan");
+    if (result.ok) sound(620);
     return;
   }
   if (n.dataset.item) {
@@ -788,6 +929,7 @@ document.addEventListener("keydown", (e) => {
     p: "passives",
     l: "lifeskills",
     c: "crafting",
+    b: "artisan",
     h: "heroes",
     j: "journal",
     o: "settings",
@@ -937,6 +1079,30 @@ function frame(now) {
   const dt = Math.min((now - lastFrame) / 1000 || 0.016, 0.25);
   lastFrame = now;
   if (view) {
+    if (playing && now - lastProduction > 1000) {
+      const finished = settleProduction(state);
+      if (finished) {
+        save();
+        if (panel === "artisan") openPanel("artisan");
+      }
+      if (panel === "artisan")
+        for (const station of Object.values(state.production.stations))
+          for (const job of station.jobs) {
+            const time = document.querySelector(`[data-job-time="${job.id}"]`),
+              progress = document.querySelector(
+                `[data-job-progress="${job.id}"]`,
+              );
+            if (time) time.textContent = jobTime(job);
+            if (progress)
+              progress.style.width =
+                clamp(
+                  ((Date.now() - job.start) / (job.end - job.start)) * 100,
+                  0,
+                  100,
+                ) + "%";
+          }
+      lastProduction = now;
+    }
     const input = playing && !panel ? movement() : { x: 0, z: 0 };
     if (playing && !panel) {
       // Advance bounded substeps so low rendering rates do not slow game time.

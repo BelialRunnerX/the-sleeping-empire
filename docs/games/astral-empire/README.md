@@ -2,6 +2,14 @@
 
 An anime action RPG foundation for The Sleeping Empire. The default presentation is an illustrated isometric 2.5D frontier with connected builds, combat, gathering and crafting. The earlier procedural third-person 3D view remains selectable in Settings at the sanctuary. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
 
+## Version 3.4 · Artisan Awakening
+
+Open **Atelier [B]** to construct a foundry, joinery and alchemy laboratory at fixed sanctuary sites. New workstation art, construction previews, progress rings/particles, output badges, map tracking and proximity interaction make production visible in the world. Idle, undamaged targets stay out of the target HUD until combat or explicit targeting.
+
+Reserve inputs for sequential processing queues, collect goods and profession XP, cancel waiting work for exact refunds, and upgrade through three tiers for faster processing and larger queues. Already-paid work catches up through reloads/offline intervals; there is no unattended auto-repeat. Five processes create refined materials/draughts and feed three epic equipment recipes. Two new journal contracts reward construction and processing.
+
+Existing version 3 saves gain the production fields without replacing old progress. See [ARTISAN.md](ARTISAN.md) for recipes, costs, controls, persistence and limitations. Elysium's order-independent two-input matching/count logic is translated to exact browser IDs; recipes, queue scheduling and workstation systems are original adaptations. [ELYSIUM_PORT.md](ELYSIUM_PORT.md) records that boundary.
+
 ## Version 3.3 · Illustrated Frontier
 
 The default view now uses original AI-generated anime sprite art with an orthographic isometric camera. All twelve heroes have portraits and two full-body sprite poses. Scene depth, terrain, particles and hit detection remain in the existing WebGL/simulation coordinate system, while painted character/scenery cutouts face the camera. Trees, cottages, the portal, forge, resources, ruins and four enemy archetypes use an illustrated prop atlas. A four-surface atlas supplies painterly grass, paths, stone and riverbanks. The HUD and roster show the matching portrait art, and the title has an original illustration.
@@ -46,9 +54,9 @@ Play at `/games/astral-empire/`. The rest of the Living Codex remains unchanged.
 - Thirty allocatable constellation passives across six branches. Six capstones create tradeoffs: attack/spell specialization, mana scaling, armor/life versus movement, critical hits versus normal hits, recovery versus mana, and crafting/yield.
 - Three equipment slots, 13 affix families, magic/rare/epic items, equipment drops, level scaling, tempering up to +20, affix reshaping, and salvage. Equipped items cannot be salvaged.
 - Seven lifeskills: Mining, Forestry, Herbalism, Fishing, Smithing, Alchemy, and Cooking. Gatherers gain resource yield through mastery. Smithing mastery improves crafted base power; alchemy/cooking mastery improves recipe output.
-- Six recipes spanning weapons, armor, charms, restorative draughts, transmutation essence, and meals. Meals improve life and recovery for 15 minutes. Gathering is interruptible by movement or enemy damage.
+- Nine equipment/instant-consumable recipes plus five timed workstation processes. Meals improve life and recovery for 15 minutes. Gathering is interruptible by movement or enemy damage.
 - Twelve gacha heroes with different elements, visual weapon styles, and build traits. Summons retain the 40-pull legendary guarantee. Duplicates award crafting essence. Element changes on an enemy trigger extra reaction damage.
-- Five journal contracts, level experience, gold/crystal rewards, and four selectable realm palettes. Later routes unlock at levels 10, 20, and 30.
+- Seven journal contracts, level experience, gold/crystal rewards, and four selectable realm palettes. Later routes unlock at levels 10, 20, and 30.
 
 This is a first region and a build system foundation. It does not contain Path of Exile's content volume, endgame atlas, multiplayer economy or raids. The default character art is a small illustrated sprite library; complete directional combat animations remain future work. Realm palettes share a region layout and enemy roster; they are not distinct fully authored planets. Flight, caves, building placement, housing, and full planetary physics remain future work.
 
@@ -66,6 +74,7 @@ This is a first region and a build system foundation. It does not contain Path o
 | Healing draught | F |
 | Equipment / skills / constellation | I / K / P |
 | Lifeskills / crafting / heroes / journal | L / C / H / J |
+| Sanctuary Atelier | B; E when a workstation is the nearest interaction |
 | Settings / close panel | O / Escape |
 | Scenic view / restore HUD | F8 |
 
@@ -87,6 +96,8 @@ JavaScript still owns the entity state machine, movement, input, skills, saves, 
 | `engine/world.mjs` | Three.js scene, terrain, camera, lighting/shadows, combat effects, and resource visuals |
 | `engine/art.mjs` | Original procedural art, cel materials, outfits, architecture, landscape, water, foliage, and visual presets |
 | `engine/illustrated.mjs` | Illustrated sprite atlases, two-pose character treatment, painted props/terrain, and shared-world integration |
+| `engine/artisan.mjs` / `engine/artisan-ui.mjs` | Production rules, migration, queues and Atelier panel |
+| `engine/workstations.mjs` | Workstation previews, progress rings, particles and proximity |
 | `engine/profiles.mjs` | Local profiles, isolated saves, migration, and recovery copies |
 | `engine/app.mjs` | HUD, panels, controls, browser loop, and save/export integration |
 
@@ -125,7 +136,7 @@ npm run test:browser
 npm run test:visual
 ```
 
-`npm test` runs 19 Classic smoke checks and 23 action-RPG/WASM/save checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, free scout recruitment, switching disciplines and landing a projectile hit, the damage inspector, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
+`npm test` runs 19 Classic smoke checks, 23 action-RPG/WASM/save checks and 9 production checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, free scout recruitment, switching disciplines and landing a projectile hit, the damage inspector, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
 
 The browser suite also exercises switching between illustrated/3D styles, graphics presets, reduced-motion persistence, orbit/zoom and F8 HUD restoration. The visual suite renders every illustrated realm plus the procedural 3D fallback, cycles all twelve hero appearances and all three presets, checks shader errors and geometry lifetime, and records scene draw/triangle/texture counts. These are structural checks and screenshot review aids, not a hardware frame-rate benchmark or pixel-perfect image comparison.
 
@@ -140,3 +151,5 @@ npm run build:native
 Alternatively set `CXX=clang++` with a Clang WebAssembly target and `wasm-ld` available. The generated binary is committed so GitHub Pages needs no build process.
 
 See [ELYSIUM_PORT.md](ELYSIUM_PORT.md) for the precise source-port boundary and [ROADMAP.md](ROADMAP.md) for the MMO and build-depth work remaining.
+
+The production browser scenario uses a seeded raw-stock import, then actual station travel, construction, timed queues, cancellation/refunds, reload/collection, upgrades, epic craft/equip, mobile layout and relog persistence. Run just that scenario with `ARTISAN_ONLY=1 npm run test:browser` (set the environment variable using your shell).
