@@ -71,3 +71,8 @@ At Elys's explicit direction, he fully donned `ITM-000002` Regalia Aegis (linked
 ## Explicit user errata to test 000257
 
 The final armor state is **pristine, fully self-repaired at 100/100 durability**, not 96/100 or partially scarred. Ambient asteroid material was **consumed and transmuted automatically by Regalia Aegis**, without Forge Core support. This [correction](../../saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md) supersedes earlier report values; no story time advance occurred.
+
+
+## Relic-core integration — turn 000271
+
+Following the Last Witness's retrieval in 000269 and noninvasive appraisal in 000270, Elys ordered direct **armor integration** in [turn 000271](../../saves/turns/000271.md). The Forge Core used local mineral debris to fabricate and install an **insulated removable sternum mount** for **unique relic `ITM-000004 The Last Witness`**, now equipped in **`relic_core`**, physically part of **Aegis `ITM-000002`** without losing independent identity/record verification. Forge Core `ITM-000003` no longer stores the relic. Aegis 100/100 and Forge Core 100/100, armor's prior environmental self-repair/pressure/sealing systems unaffected; sentient Aletheia hovers right in Genesis Loom staff form. Anchor of Identity and bounded Testament Seal active; authenticated Waymark and Heart Accord available. Basic simulated tamper/continuity calibration passed; no real maximum-erasure test, no assumed numerical stat boost, no new artifact mint. [Integration record](../integrations/IR-0002_LAST_WITNESS_000271.md).
