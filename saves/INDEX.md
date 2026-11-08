@@ -520,3 +520,4 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000296](turns/000296.md) | CCXXXV | Played turn | Voss, Auditor failed execution collar; Night Engine transfer evidence | [000000](checkpoints/000000.md) |
 | [000297](turns/000297.md) | CCXXXVI | Played turn | Matriarch accepts fault, starts restoring stars, Night Engine clues | [000000](checkpoints/000000.md) |
 | [000298](turns/000298.md) | CCXXXVII | Played turn | Seven candidate Asterion intercept windows; prepare next investigation | [000000](checkpoints/000000.md) |
+| [000299](turns/000299.md) | CCXXXVIII–CCXL | Autonomous played round, detailed synopsis | Two historic Light-Born found alive at first intercept; Auditor's failed sabotage; Asterion phase-corridor lead | [000299](checkpoints/000299.md) |
