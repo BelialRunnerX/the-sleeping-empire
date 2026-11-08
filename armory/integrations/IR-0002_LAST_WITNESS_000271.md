@@ -35,3 +35,8 @@ Mount: sovereign-keyed independent protection cradle under central white-gold ar
 The Last Witness remains ONE artifact with unique `ITM-000004` ID, now equipped. Forge Core storage list must **NOT** still include it. Armor `linked_relic_core_item_id` must equal `ITM-000004`, Elys `equipped.relic_core` must equal `ITM-000004`, item `equipped` must be true, location physically under Aegis sternum. This installation should have ONE `TX-000271-ITM-000004` transaction, no new item mint and no money movement. Earlier Sepulcher payout `GUILD-PAYOUT-SSS004-000268` should still exist exactly once.
 
 Relic source: [Last Witness dossier](../relics/ITM-000004_THE_LAST_WITNESS.md); initial armor source [IR-0002](../commissions/IR-0002_REGALIA_AEGIS_FORGE_CORE.md).
+
+
+## Revision II installed afterward — 000272
+
+The original physical Rev I installation in this file remains valid as history, but is now superseded operationally by the **INSTALLED Rev II tri-layer protective mount and independent witness audit**, authorized when Elys selected options **3/4** in [turn 000272](../../saves/turns/000272.md). The Last Witness stays unique, armor-equipped in `relic_core` and not in Forge Core storage. No automatic/ejected replacement. See [Rev II details and tests](IR-0002_WITNESS_CRADLE_REV2_000272.md).
