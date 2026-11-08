@@ -5,7 +5,7 @@
 **Guild authority:** Senior Expedition Marshal **Ilyra Venn**, approved this offer in [Turn 000275](../saves/turns/000275.md) after Mira forwarded Elys's request.  
 **Eligible lead:** Elys Somion, Guild SSS-certified; solo lead permitted. Sentient companion Aletheia may accompany in Regalia form; she is **not independently Guild-registered**.  
 **Advertised base reward:** **₡9,000,000** on authenticated completion and senior Guild verification; **UNEARNED / UNPAID**. Any future bonuses require separate authorization; do not invent them.  
-**CURRENT STATUS:** `APPROVED_MISSION_OFFER_AWAITING_PLAYER_ACCEPTANCE`; **not yet assigned/accepted**, no deployment, no permits granted to hunt, no travel or attack. Guild will release restricted route/navigation advisories after acceptance.
+**CURRENT STATUS (after turn 000276):** `ACCEPTED_PRE_DEPLOYMENT`, actively assigned to Elys Somion with signed defensive Contingency A; no departure, attack, or payout. Initial restricted broad Veilward observation-region map and navigation cautions have been released. Reconnaissance, NOT a hunting license.
 
 ## Mission goals on acceptance
 1. Locate and observe the Leviathan at prudent range, verify its approximate measurements, behavior and environment.
@@ -26,3 +26,11 @@
 The original **SSS-004 Sepulcher** quest was already **completed, verified, paid +₡14M exactly once** in turn 000268, not transferred again here. `VEIL-09-R` is a separate offered SSS reconnaissance with **₡9M unearned**; it does not join `char-elys.active_guild_contracts` before explicit acceptance. Guild board may include it as an *approved offer* distinct from both active contracts and observation-only VEIL-09 file.
 
 **Current physical context:** Elys at Lumenfall Guild reception with Mira; Aletheia Genesis Loom staff hovering RIGHT, Last Witness equipped in Rev II Aegis relic_core, Forge Core backpack intact, no time skip.
+
+## Signed Contingency A — Hostile Contact (turn 000276)
+
+Elys explicitly **accepted the contract on condition that he may kill any entity that becomes hostile**. Receptionist Mira referred the amendment to **Senior Expedition Marshal Ilyra Venn**, who granted binding approval and assigned the mission to Elys in [Turn 000276](../saves/turns/000276.md).
+
+**Actual agreed clause:** If an encountered creature, ship, construct or other entity initiates hostilities or demonstrates a **credible and imminent hostile threat** to Elys, his companions or others, Elys as expedition lead may employ **necessary defensive force, up to and including lethal force, as he tactically judges necessary to neutralize the threat**. He **is not required to suffer the first hit**. Observed clear hostile acts/threats justify response without awaiting a prolonged verification bureaucracy. This approval is not a blanket license to kill a merely large, cryptic, frightened or noncommunicative life-form; **no active hunt against the Leviathan solely on size/unknown nature**. Since reconnaissance remains the mission purpose, defensive engagement is a contingency; accidental collateral, contact and records are to be documented when feasible. The Marshal's approval resolves the user's requested contract condition without authorizing an arbitrary unprovoked attack.
+
+**Operational state:** CONTRACT **ACCEPTED and ACTIVE / PRE-DEPLOYMENT**, **₡9,000,000 offered, not yet earned or paid**. Guild released **broad observational regions** of the three earlier distant sightings; no confirmed present position of Leviathan or precise safe approach coordinates. Aletheia may accompany as Elys's sentient companion without being separately registered, retains sovereign-directed lethal targeting rule. Elys is still at Mira's reception counter and has not departed.
