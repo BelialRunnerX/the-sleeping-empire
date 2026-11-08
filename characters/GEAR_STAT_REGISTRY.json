@@ -246,9 +246,16 @@
           "before": "Sepulcher secured exterior threshold",
           "after": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
           "source": "Elys entered certified safe corridor and physically retrieved vault gift"
+        },
+        {
+          "turn": "000270",
+          "field": "ITM-000004 appraisal",
+          "before": "Ancient relic owned, stored, unequipped, four known bounded functions",
+          "after": "Aletheia confirmed functional architecture and inferred relational continuity discrepancy forensics via safe dummy record simulation; no equip, activation or bonuses",
+          "source": "User chose 2 from 000269: have Aletheia analyze relic's capabilities"
         }
       ],
-      "last_verified_turn": "000269",
+      "last_verified_turn": "000270",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -317,7 +324,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
-      "current_activity": "Retrieved unique Last Witness Relic Core from voluntarily opened legacy vault; stored in Forge Core, unequipped; SSS004 completed and paid",
+      "current_activity": "In opened Sepulcher legacy vault; Aletheia completed noninvasive appraisal of stored Last Witness; relic_core slot still vacant",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -3620,9 +3627,16 @@
           "before": "Exterior secured threshold",
           "after": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
           "source": "Accompanies Elys to retrieved vault item, Genesis Loom staff form unchanged"
+        },
+        {
+          "turn": "000270",
+          "field": "relic appraisal",
+          "before": "Genesis Loom staff at Elys right in builders vault",
+          "after": "Studied Last Witness with Heart and Forge Core passive sensors; described four functions plus bounded relational witness forensics; exuberant sanguine banter, no attack",
+          "source": "User direct appraisal request"
         }
       ],
-      "last_verified_turn": "000269",
+      "last_verified_turn": "000270",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4142,7 +4156,44 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000269"
+      "last_modified_turn": "000270",
+      "appraisal": {
+        "turn": "000270",
+        "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
+        "status": "FUNCTIONAL_ARCHITECTURE_CHARACTERIZED_NOT_ACTIVE_COMBAT_CERTIFIED",
+        "confirmed_design_domains": [
+          "ANCHOR_OF_IDENTITY",
+          "TESTAMENT_SEAL",
+          "SEPULCHER_WAYMARK",
+          "CUSTODIANS_ACCORD"
+        ],
+        "new_forensic_inference": "Relationship references among independent testimony may reveal discrepancies left by erased/re-written records; ability to detect missing evidence, not to reconstruct people or identify perpetrators automatically",
+        "demonstration_scope": "SAFE_SIMULATION_NOT_ACTUAL_RELIC_ACTIVATION",
+        "unknowns": [
+          "exact materials",
+          "age",
+          "numerical stat bonuses",
+          "active resistance thresholds",
+          "power use",
+          "target count",
+          "effective range",
+          "failure modes under high tier attacks"
+        ]
+      },
+      "appraised_capabilities": [
+        {
+          "id": "RELATIONAL_CONTINUITY_DISCREPANCY_ANALYSIS",
+          "type": "ANALYTICAL_INFERENCE_NOT_NEW_POWER",
+          "derives_from": [
+            "ANCHOR_OF_IDENTITY",
+            "TESTAMENT_SEAL"
+          ],
+          "mechanism": "Cross-correlate independently maintained relations among identities and events to infer missing/re-written records",
+          "tested_on_real_relic": false,
+          "scope": "SIMULATED_RECORDS_ONLY",
+          "limits": "No automatic resurrection, perfect forensic trace, attacker identification, or guarantee of real-world protection"
+        }
+      ]
     }
   },
   "transactions": [
