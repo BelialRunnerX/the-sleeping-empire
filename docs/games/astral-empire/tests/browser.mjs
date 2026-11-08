@@ -73,6 +73,7 @@ await page.route(/https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) =>
 );
 try {
   if (process.env.ARTISAN_ONLY === "1") {
+    await page.close();
     await testArtisanFlow(browser, url, artifacts);
   } else {
     await page.goto(url);
@@ -307,6 +308,7 @@ try {
     await page.locator("#hud").waitFor({ state: "visible" });
     await page.context().setOffline(false);
     assert.deepEqual(errors, []);
+    await page.close();
     await testArtisanFlow(browser, url, artifacts);
     console.log(
       "Browser checks passed: WebGL/WASM startup, profile creation, movement, harvesting, support links, passives, workshop, skills, logout/login, reload, mobile layout, offline reload.",

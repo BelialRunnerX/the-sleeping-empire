@@ -40,7 +40,15 @@ export async function testArtisanFlow(browser, url, artifacts) {
   const close = () => page.keyboard.press("Escape");
   const walk = async (keys, axis, threshold, direction) => {
     await close();
-    for (const key of keys) await page.keyboard.down(key);
+    // Deliver both halves of an isometric diagonal before the next simulation
+    // frame. Separate CDP round trips can leave a lone key held for a slow
+    // software-rendered frame, drifting the fixed route into the cottage.
+    await page.evaluate((keys) => {
+      for (const key of keys)
+        document.dispatchEvent(
+          new KeyboardEvent("keydown", { key, bubbles: true }),
+        );
+    }, keys);
     try {
       await page.waitForFunction(
         ({ axis, threshold, direction }) => {
@@ -56,7 +64,12 @@ export async function testArtisanFlow(browser, url, artifacts) {
         { timeout: 45000 },
       );
     } finally {
-      for (const key of keys) await page.keyboard.up(key);
+      await page.evaluate((keys) => {
+        for (const key of keys)
+          document.dispatchEvent(
+            new KeyboardEvent("keyup", { key, bubbles: true }),
+          );
+      }, keys);
     }
     await panel();
   };
