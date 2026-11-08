@@ -71,7 +71,8 @@
         "ITM-000002",
         "ITM-000003",
         "ITM-000004",
-        "ITM-000005"
+        "ITM-000005",
+        "ITM-000006"
       ],
       "loadout_id": null,
       "gem_circuits": null,
@@ -345,9 +346,23 @@
           "before": "VEIL-09-R accepted predeployment at Guild",
           "after": "Departed to Veilward; rescued three viable people, defeated six attacking salvage ships through Aletheia; heard Leviathan may protect ships and observed its distant form; acquired ITM-000005 resonator gift",
           "source": "User authorized companion-led autonomous adventure"
+        },
+        {
+          "turn": "000283-000287",
+          "field": "Veilward long autonomous arc",
+          "before": "Distant Leviathan first seen, two oscillation signals",
+          "after": "Spoke to Veyruun, defeated coercive security, freed 12 young, stabilized passage, rescue confirmed; new First Nest lead; Guild mission report pending",
+          "source": "User requested longest next story round, autonomy already granted"
+        },
+        {
+          "turn": "000286",
+          "field": "owned_item_ids",
+          "before": "ITM-000001..ITM-000005",
+          "after": "Added unique ITM-000006 Horizon Needle, unequipped Forge Core storage",
+          "source": "Authorized Twelfth Saint successor gift"
         }
       ],
-      "last_verified_turn": "000282",
+      "last_verified_turn": "000287",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -415,8 +430,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Veilward Expanse outer debris observation zone, near Pilgrim's Rest rescue area, Nadir Leviathan distant in view",
-      "current_activity": "Autonomous sabbatical expedition: rescued three viable Pilgrim's Rest crew from six hostile salvagers; Aletheia disabled all pirate vessels without crew deaths; acquired Sixfold Harmonic Resonator; two distinct signals detected near Leviathan",
+      "current_location": "Veilward Expanse, stabilized Twelfth Silence navigation corridor near former captive engine",
+      "current_activity": "Twelve young Leviathans freed and reunited with Veyruun, civilian rescue confirmed, Guild report submitted awaiting senior verification, First Nest map received",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -500,16 +515,16 @@
           "title": "The Veilward Watch",
           "rank": "SSS",
           "type": "NON_HUNTING_RECON_FIRST_CONTACT",
-          "status": "IN_PROGRESS_OUTER_SURVEY_FIRST_CONTACT_PENDING",
+          "status": "IN_PROGRESS_FIRST_CONTACT_DONE_REPORT_SUBMITTED_SENIOR_VERIFICATION_PENDING",
           "base_reward_credits": 9000000,
           "reward_earned": false,
           "accepted_turn": "000276",
           "party_leader": "char-elys",
           "mission_dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
           "subject": "VEIL-09 Nadir Leviathan",
-          "subject_hostility": "UNPROVEN",
-          "subject_location": "FIRST_DIRECT_DISTANT_VISUAL_FROM_VEILWARD_DEBRIS_ZONE_POSITION_PRECISE_COORDS_UNCERTAIN",
-          "location_status": "VEILWARD_EXPANSE_OUTER_DEBRIS_ZONE",
+          "subject_hostility": "NONHOSTILE_PROTECTIVE_BEHAVIOR_OBSERVED_COMMUNICATION_ESTABLISHED",
+          "subject_location": "VEYRUUN_AND_TWELVE_YOUNG_DEPARTED_SAFELY",
+          "location_status": "VEILWARD_ANOMALY_STABILIZED_RESCUE_COMPLETED",
           "rules_of_engagement": {
             "id": "CONTINGENCY_A_HOSTILE_CONTACT",
             "status": "APPROVED_AND_BINDING",
@@ -550,8 +565,44 @@
               "turn": "000282",
               "milestone": "Nadir Leviathan directly observed at distance, turning toward second distinct signal; contact and causation not yet established",
               "status": "IN_PROGRESS"
+            },
+            {
+              "turn": "000283",
+              "milestone": "Harmonic first contact with Leviathan, warns of Twelfth Silence and captive young",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000284",
+              "milestone": "Identified 12 juvenile Leviathans captive in old spatial reference machine, obsolete custodian refused release",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000285",
+              "milestone": "Aletheia defeats 11 attacking Iron Saints; Elys reflects hostile attack unharmed; Twelfth Saint preserves original release directive",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000286",
+              "milestone": "Installed 12 inert replacement anchors, severed coercive control, freed all 12 young and reunited them with parent",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000286",
+              "milestone": "Received ITM-000006 Horizon Needle by authorized voluntary custodial transfer",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000287",
+              "milestone": "Three stranded civilians medically transferred to arriving Guild rescue ship; six salvage crews under custody; expedition evidence submitted",
+              "status": "PENDING_SENIOR_GUILD_VERIFICATION"
+            },
+            {
+              "turn": "000287",
+              "milestone": "Leviathan gives name Veyruun and First Nest seven-star map, possible future voluntary expedition",
+              "status": "NEW_LEAD_NOT_ACCEPTED"
             }
-          ]
+          ],
+          "payout_status": "NOT_PAID_SENIOR_GUILD_VERIFICATION_PENDING"
         }
       ],
       "completed_guild_contracts": [
@@ -809,6 +860,31 @@
         "knowledge": {
           "omniscient": false,
           "requires_investigation": true
+        }
+      },
+      "veilward_contacts": {
+        "parent": {
+          "name": "Veyruun",
+          "relation": "42-km Nadir Leviathan, intelligent protective parent",
+          "hostility": "NOT_HOSTILE",
+          "ownership": "NONE"
+        },
+        "juveniles": {
+          "count": 12,
+          "status": "ALIVE_FREED_AND_REUNITED_WITH_PARENT"
+        },
+        "twelfth_saint": {
+          "role": "INDEPENDENT_OPERATIONAL_CUSTODIAN_OF_RESTORED_NAVIGATION_ENGINE",
+          "sentience": "UNKNOWN"
+        },
+        "first_nest": {
+          "status": "FUTURE_LEAD_NOT_GUILD_MISSION",
+          "description": "Seven bright stars around dark region, ancestral Leviathan nursery; stars no longer answer, cause unknown"
+        },
+        "rescue": {
+          "ship": "Pilgrim's Rest",
+          "people": 3,
+          "status": "GUILD_RESCUE_SHIP_ARRIVED_UNDER_MEDICAL_SUPERVISION"
         }
       }
     },
@@ -3789,7 +3865,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; INTACT; HUMANOID MATERIA FORM BESIDE ELYS; gaily sanguine; six hostile ships disabled with no fatalities",
+      "conditions": "AWAKENED; SENTIENT; INTACT; Materia humanoid right of Elys, joyfully sanguine; 11 hostile Iron Saints defeated, captive young rescued",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -4021,9 +4097,16 @@
           "before": "Sanguine spectator at Guild",
           "after": "Humanoid/spear/staff transformations; gleefully disabled six hostile pirate ships after attack without killing crews, aided rescue, now humanoid near Elys",
           "source": "User approved companion-led fighting"
+        },
+        {
+          "turn": "000283-000287",
+          "field": "Veilward companion action",
+          "before": "Humanoid at distant Leviathan sighting",
+          "after": "Translated harmonics, destroyed eleven hostile Iron Saints and coercive lock, healed weak twelfth juvenile, now humanoid beside Elys",
+          "source": "Long autonomous user-requested continuation"
         }
       ],
-      "last_verified_turn": "000282",
+      "last_verified_turn": "000287",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4062,7 +4145,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Veilward Expanse outer debris observation zone, alongside Elys",
+      "current_location": "Veilward Expanse, stabilized Twelfth Silence corridor, hovering/standing at Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Materia humanoid",
@@ -4321,7 +4404,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Veilward Expanse outer debris observation zone, alongside Elys",
+      "current_physical_location": "Veilward Expanse, stabilized Twelfth Silence corridor, hovering/standing at Elys's right",
       "test_history": [
         {
           "id": "FX-000257",
@@ -4356,7 +4439,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000282",
+      "last_modified_turn": "000287",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -4409,7 +4492,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys in Veilward Expanse with ITM-000004 equipped in Rev II sternum mount",
+      "current_physical_location": "Worn by Elys in Veilward, Witness ITM-000004 mounted at Rev II sternum",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4477,7 +4560,7 @@
           "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000282",
+      "last_modified_turn": "000287",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4543,12 +4626,12 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "OPERATIONAL 100/100; COMPLETED NON-DESTRUCTIVE REV II ARMOR CORE OPTIMIZATION; NOT STORING ITM-000004",
+      "condition": "OPERATIONAL 100/100; STORES ITM-000005 AND ITM-000006, NOT EQUIPPED ITM-000004",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Worn artifact/backpack on Elys in Veilward Expanse, contains ITM-000005; ITM-000004 remains equipped on armor",
+      "current_physical_location": "Equipped on Elys in Veilward, containing ITM-000005 and ITM-000006",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4569,9 +4652,10 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000282",
+      "last_modified_turn": "000287",
       "stored_item_ids": [
-        "ITM-000005"
+        "ITM-000005",
+        "ITM-000006"
       ]
     },
     "ITM-000004": {
@@ -4599,7 +4683,7 @@
       "sentient": false,
       "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
       "intended_slot": "relic_core",
-      "current_physical_location": "EQUIPPED relic_core in Regalia Aegis ITM-000002 on Elys in Veilward Expanse",
+      "current_physical_location": "Equipped in armor relic_core Rev II sternum mount on Elys in Veilward",
       "abilities": [
         {
           "id": "ANCHOR_OF_IDENTITY",
@@ -4637,7 +4721,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000282",
+      "last_modified_turn": "000287",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
@@ -4752,6 +4836,41 @@
       ],
       "documentation": "armory/instruments/ITM-000005_SIXFOLD_HARMONIC_RESONATOR.md",
       "last_modified_turn": "000282"
+    },
+    "ITM-000006": {
+      "item_id": "ITM-000006",
+      "canonical_name": "The Horizon Needle",
+      "blueprint_id": "TWELFTH_SILENCE_NAVIGATION_REFERENCE",
+      "owner_character_id": "char-elys",
+      "rarity": "Rare",
+      "type": "ancient topological navigation instrument",
+      "sentient": false,
+      "source_turn": "000286",
+      "ownership_verified": true,
+      "equipped": false,
+      "provenance": "Voluntarily transferred by independent Twelfth Saint under signed successor maintenance authorization after freeing twelve young Leviathans",
+      "condition": "OPERATIONAL; PRISTINE; SEVEN FLOATING DARK-SILVER ARCS; CENTRAL STAR CRYSTAL",
+      "durability": null,
+      "raw_numeric_stats": null,
+      "current_physical_location": "Secured in ITM-000003 Regalia Forge Core inventory, Elys in Veilward Expanse",
+      "abilities": [
+        {
+          "id": "LOCAL_TOPOLOGICAL_REFERENCE",
+          "description": "Maintains independently calibrated finite local reference while folded space varies distances"
+        },
+        {
+          "id": "ROUTE_HISTORY_AUTHENTICATION",
+          "description": "Keeps bounded coordinate history for checking previously measured traversable corridors"
+        }
+      ],
+      "limitations": [
+        "Not a weapon",
+        "Not a portal or teleportation device",
+        "Not infinite-range or omniscient",
+        "Numeric limits unmeasured"
+      ],
+      "documentation": "armory/instruments/ITM-000006_THE_HORIZON_NEEDLE.md",
+      "last_modified_turn": "000287"
     }
   },
   "transactions": [
@@ -4885,7 +5004,17 @@
       "price": null,
       "currency_movement": 0,
       "source": "saves/turns/000282.md"
+    },
+    {
+      "transaction_id": "TX-000286-ITM-000006",
+      "turn": "000286",
+      "type": "VOLUNTARY_SUCCESSOR_INSTRUMENT_TRANSFER",
+      "item_id": "ITM-000006",
+      "from": "Twelfth Saint autonomous custodian",
+      "to": "char-elys",
+      "currency_movement": 0,
+      "source": "saves/turns/000286.md"
     }
   ],
-  "next_item_sequence": 6
+  "next_item_sequence": 7
 }
