@@ -47,3 +47,24 @@ Although Orvek already lost to Seren 2–0 in preliminary match 1, he expressly 
 - No other semifinal/final outcomes, stakes, cash, equipment or rankings conferred.
 - **Elys is now an entered Standard competitor, but NOT yet declared tournament champion**. Seren and Bram are free to face him in a future selected match; other waiting competitors remain.
 - Aletheia, in Genesis Loom STAFF at Elys's RIGHT, banters gleefully about embarrassment and shipbreaking but does NOT physically interfere. Mira referee remains fair; no special allowance to injure opponents. `VEIL-09-R` remains ACCEPTED/PRE-DEPLOYMENT, ₡9M reward not paid.
+
+## Bram versus Seren — turn 000279
+
+In [played turn 000279](../saves/turns/000279.md), while Elys remains present as a Standard-division competitor after his 2–0 entry-bout win against Orvek, Mira and Guild referee conduct the next **Standard division featured qualifier** between the prior two undefeated winners:
+
+**New Match 4 — BRAM COPPERVEIN defeats SEREN VALE 2–1** (best-of-three, ordinary strength/skill, no magic, no injury):
+- **Round 1 Seren:** A swift wrist-angle reversal defeats Bram's initially fixed brace.
+- **Round 2 Bram:** Reads Seren's adjustments and patiently pins with endurance.
+- **Round 3 Bram:** Seren approaches a pin, Bram safely corrects his shoulder leverage and reverses to win, **2–1 overall**.
+
+**Current confirmed results** (do not erase prior outcomes):
+1. Seren 2–0 Orvek (Standard preliminary)
+2. Bram 2–0 Lysander (Standard preliminary)
+3. Elys 2–0 Orvek (separate Standard ENTRY CHALLENGE, not replacing Seren's win)
+4. **Bram 2–1 Seren (Standard featured qualifier, turn 000279)**
+
+**Standard championship remains OPEN**: other named/unnamed entrants in queue, no title awarded, no trophy or Guild rank changes. Bram leads completed qualifying results and invites Elys to consider a direct Standard match; **Elys has NOT accepted**. Seren is friendly toward Bram and may compete later; no forced elimination or rematch.
+
+**Open division:** New adult NPC **Captain Vaedra Halden**, S-ranked vanguard with scar through left eyebrow and red armor, **formally registers as FIRST confirmed Open entrant**, openly declares enhanced mechanical forearm brace/actuator gauntlets in compliance with Open division rules. She expresses interest in testing against Elys but no challenge is accepted/no Open match played. **Her equipment belongs to Vaedra, no player-owned gear or item IDs created**.
+
+**Aletheia:** Gaily predatory spectator in Genesis Loom staff form at Elys's RIGHT, joking about bruised pride and dismemberment, **does not interfere or attack**. All contestants unharmed. Elys's VEIL-09-R SSS reconnaissance contract remains ACCEPTED_PRE_DEPLOYMENT, ₡9M unearned, not canceled by Guild sport.
