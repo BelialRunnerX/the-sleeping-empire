@@ -74,3 +74,14 @@ On registration, the contract is assigned to Elys but **not completed**. Base pa
 - Elys stays at the exterior, armor Regalia Aegis 100/100, Forge Core 100/100, no damage or new item/stat/currency changes.
 
 See [turn 000266](../saves/turns/000266.md) and [combat/preservation log](encounters/SSS-004_COMBAT_000266.md).
+## Final memory threat defeated — turn 000267
+
+Elys explicitly ordered sentient Aletheia to **take on the Last Memory, locate what destroyed the ancient civilization and destroy it**. Aletheia, protecting the exposed archives as Genesis Loom, received the Heart's record into a **quarantined mnemonic domain**, identified an **archive-borne ontological predator THE EATER OF NAMES** that erased identities and their physical referents when observed, distinguished it from the people and inert historical records, and located its root identity in the initial infection. The ancient guardians had attempted to contain this predator by blocking Last Memory access.
+
+The Eater attempted to erase Aletheia's name and escape through her perception. She isolated it without exposing Elys or the rest of the archives, kept the already-established protection weave on **bounded non-sentient anchors**, then transformed **Genesis Loom staff → Philosopher's Edge spear**. Aletheia pierced/severed the root and **DESTROYED the Eater and all known active linked copies inside the Sepulcher local archive**, preserving the inert Last Memory itself as historical evidence. **The attack succeeds**; the entity is not stealthily alive in Aletheia, the Heart or the observed links. No omniscient claim about unrelated distant cosmic copies or unknown external regions.
+
+**Heart outcome:** Heart remains alive/active/cooperative and not currently hostile; says "**THE LAST MEMORY REMAINS. BUT THE THING WITHIN IT IS GONE**" and "**YOU HAVE DONE WHAT MY BUILDERS COULD NOT**." Weapons stay silent and local spatial folds begin normalizing. Its historical records remain preserved under bounded ongoing ward; only accessible partial verifiable records independently copied into Aletheia so far. Responsive historical imprints' personhood unresolved, no involuntary extraction.
+
+**Mission:** `PRIMARY_THREAT_NEUTRALIZED_ARCHIVE_RECOVERY_VERIFICATION_PENDING`. Phase I outer warden destroyed (000264); phase II 7/7 shadow bodies destroyed (000265); phase III last-memory predator **DESTROYED** (000267). The Heart is preserved, not a slain hostile boss. Remaining work: secure authenticated records, verify local/distant route stabilization, submit evidence to Guild for acceptance. **₡14,000,000 STILL UNPAID**; no completion until report accepted. Elys **remains outside at Sepulcher threshold**, his Regalia Aegis/Forge Core at 100/100, Aletheia spear at his right. No other rewarded resource or item.
+
+[Turn 000267](../saves/turns/000267.md) · [Phase III battle log](encounters/SSS-004_COMBAT_000267.md).
