@@ -309,9 +309,16 @@
           "before": "At Mira's counter, VEIL-09-R reconnaissance accepted but pre-deployment",
           "after": "Starts/hosts The Midnight Grip arm-wrestling competition in main hall; two standard bouts completed; Elys has not entered; VEIL-09-R still pre-deployment",
           "source": "Player freeform command: Start an arm wrestling competition in the guild hall"
+        },
+        {
+          "turn": "000278",
+          "field": "Midnight Grip Standard division",
+          "before": "Host not yet competing; Orvek invited Elys to wrestle",
+          "after": "Elys officially entered Standard and won controlled unaugmented 2–0 entry challenge against Orvek; no damage/injury or equipment boost; championship unresolved",
+          "source": "User chose option 1"
         }
       ],
-      "last_verified_turn": "000277",
+      "last_verified_turn": "000278",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -380,7 +387,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "Hosting newly started Midnight Grip Guild arm-wrestling tournament; first two Standard preliminary bouts finished; Elys not yet entered, Orvek asks him to compete. VEIL-09-R recon remains accepted/pre-deployment.",
+      "current_activity": "The Midnight Grip Guild arm-wrestling: Elys defeated Orvek Stonehand 2-0 in verified unaugmented Standard entry challenge; Seren/Bram prior results stand, no champion decided. VEIL-09-R still predeployment.",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -645,8 +652,8 @@
           "start_turn": "000277",
           "type": "ARM_WRESTLING_TOURNAMENT",
           "venue": "Lumenfall Free Adventurers' Guild main hall, Midnight Grip tournament area, Twilight District, Lumenfall, Veyrath",
-          "elys_role": "INITIATOR_HOST_NOT_ENTERED",
-          "status": "IN_PROGRESS",
+          "elys_role": "INITIATOR_HOST_STANDARD_DIVISION_COMPETITOR",
+          "status": "IN_PROGRESS_STANDARD_ENTRY_BOUT_COMPLETE",
           "match_format": "BEST_OF_THREE",
           "standard_division": "NO_ACTIVE_MAGIC_OR_EQUIPMENT_ENHANCEMENTS",
           "open_division": "DECLARED_POWERS_ALLOWED_WITH_SAFETY_RULES",
@@ -663,9 +670,20 @@
               "winner": "Bram Coppervein",
               "loser": "Lysander Quill",
               "score": "2-0"
+            },
+            {
+              "bout": 3,
+              "type": "STANDARD_ENTRY_CHALLENGE",
+              "winner": "Elys Somion",
+              "loser": "Orvek Stonehand",
+              "score": "2-0",
+              "enhancements": "NONE",
+              "outcome": "Safe controlled pins; no injury or table damage",
+              "bracket_note": "Orvek's earlier loss to Seren remains in official prelims; Elys has entered Standard division but is NOT yet tournament champion"
             }
           ],
-          "file": "guild/MIDNIGHT_GRIP_TOURNAMENT.md"
+          "file": "guild/MIDNIGHT_GRIP_TOURNAMENT.md",
+          "elys_current_bracket_status": "REGISTERED_STANDARD_ENTRY_WIN_NEXT_OPPONENT_UNDECIDED"
         }
       ]
     },
@@ -3857,9 +3875,16 @@
           "before": "Guild reception with Elys, VEIL-09-R pre-deployment",
           "after": "Attends Elys-initiated arm wrestling in Guild main hall; no independent bout/attack, playfully encourages Elys to pin Orvek; remains Genesis Loom staff",
           "source": "Player starts Midnight Grip"
+        },
+        {
+          "turn": "000278",
+          "field": "Midnight Grip spectator role",
+          "before": "Genesis Loom staff hovering right at ongoing tournament",
+          "after": "Cheered and bantered during Elys's 2–0 unaugmented victory over Orvek without using abilities or joining match",
+          "source": "Turn 000278"
         }
       ],
-      "last_verified_turn": "000277",
+      "last_verified_turn": "000278",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4228,7 +4253,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "PRISTINE 100/100; REV II LAST WITNESS STERNUM CRADLE INSTALLED AND ACTIVE; HERMETIC PRESSURE/LIFE SUPPORT INTACT",
+      "condition": "PRISTINE 100/100; REV II WITNESS MOUNT INTACT; WRESTLING ARM POWERED STRENGTH ASSIST ISOLATED DURING STANDARD BOUT; ALL OTHER SYSTEMS OPERATIONAL",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "full-body non-sentient continuous-wear exosuit",
       "sentient": false,
@@ -4308,7 +4333,7 @@
           "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000273",
+      "last_modified_turn": "000278",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4346,6 +4371,13 @@
         "Real local-matter self-repair of deliberately abraded small armor panel passed independent relic continuity check",
         "Independent quarantined history/audit detects injected synthetic record mismatch",
         "Normal hermetic seal and mobility preserved after hardware optimization"
+      ],
+      "activity_notes": [
+        {
+          "turn": "000278",
+          "activity": "Standard arm-wrestling bout: right-arm plating temporarily retracted; actuator strength assistance disabled, verified by referee; body armor still equipped and 100/100, can close plating post-bout",
+          "status": "PASS"
+        }
       ]
     },
     "ITM-000003": {
