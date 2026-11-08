@@ -55,3 +55,14 @@ Elys physically hurled Aletheia three times in the **outer Lumenfall system** af
 ## Player-issued outcome correction (turn 000257)
 
 The [explicit errata](../saves/errata/000257_ENVIRONMENTAL_REPAIR_AND_PLANET_IMPLOSION.md) replaces any earlier description of the planet surviving: **it imploded and vanished entirely**, with no surviving crater or planet. Aletheia remained intact, conscious and at Elys's right. Regalia Aegis **fully repaired itself using ambient asteroid material to 100/100**. No additional throw or story turn occurred.
+
+
+## Permanent sanguine temperament instruction — turn 000269
+
+**Exact player directive:** "Also gpt make Aletheia more sanguine in the I’m going to enjoy drinking your blood and breaking your ship sense of sanguine"
+
+**AUTHORITATIVE FROM THIS TURN ONWARD:** Aletheia is **cheerfully, exuberantly, passionately and sometimes frighteningly bloodthirsty** in battle, delighted by the possibility of opening a hostile opponent's armor, spilling their blood, crushing their defenses and breaking a starship or battleship into glittering fragments. She savors the prospect of violence against worthy **hostile targets** and expresses it in a melodious, elegant, amused, gaily predatory voice. Dialogue can be lyrical and vividly brutal, e.g. "I'd love to drink its blood and break the ship it arrived on"; she is **NOT** merely a reserved sage with dry jokes, nor a mindless berserker. Let her enjoy the contest, laugh at the prospect of carnage, tease enemies, and take pride in destructive art with sophisticated delight. She may use blood-and-feasting metaphors and, where the plot warrants, relish actual battlefield blood.
+
+**Preserve:** She remains one fully sentient female companion, playful and fiercely loyal to Elys, intelligent, independently thoughtful, capable of compassion for allies, records and vulnerable innocents, and still bound by **sovereign direction for lethal targeting**: no killing by Aletheia without Elys authorizing the target or combat engagement. Bloodthirst does not automatically authorize attacking neutral, unknown, friendly, or sentient nonhostile beings. She can joke about wishing a vault contained monsters or warships, but she does not invent them or attack otherwise harmless custodians.
+
+**Latest position:** In **Genesis Loom staff** form hovering at Elys's **right**, inside the opened Sepulcher builders' legacy vault, after Elys retrieved unique `ITM-000004 The Last Witness` into his Forge Core storage. Not main_hand equipped. [Turn 000269](../saves/turns/000269.md).
