@@ -369,7 +369,7 @@
           "source": "User requests multiple autonomous chapters"
         }
       ],
-      "last_verified_turn": "000293",
+      "last_verified_turn": "000298",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -437,8 +437,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "First Nest, Aurelian Spire civic archive observation gallery, beside Liora Fen telepresence test",
-      "current_activity": "Aletheia just began defensive engagement with 12 armed falsely claiming Imperial quarantine vessels; their second shot at Elys fully reflected, first attack on gallery negated; Liora and Nema safe, fleet encounter unresolved.",
+      "current_location": "Quiet Crown, Heliogenesis Cradle observation balcony, First Nest",
+      "current_activity": "Light-Born protected, Gloam Court warships disabled, Matriarch governance reform, Night Engine seven candidate intercept windows",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -516,7 +516,110 @@
           }
         ]
       },
-      "active_guild_contracts": [],
+      "active_guild_contracts": [
+        {
+          "contract_id": "VEIL-09-R",
+          "title": "The Veilward Watch",
+          "rank": "SSS",
+          "type": "NON_HUNTING_RECON_FIRST_CONTACT",
+          "status": "IN_PROGRESS_FINAL_GUILD_CORRIDOR_AUDIT_PENDING",
+          "base_reward_credits": 9000000,
+          "reward_earned": false,
+          "accepted_turn": "000276",
+          "party_leader": "char-elys",
+          "mission_dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
+          "subject": "VEIL-09 Nadir Leviathan",
+          "subject_hostility": "NONHOSTILE_PROTECTIVE_BEHAVIOR_OBSERVED_COMMUNICATION_ESTABLISHED",
+          "subject_location": "VEYRUUN_AND_TWELVE_YOUNG_DEPARTED_SAFELY",
+          "location_status": "VEILWARD_ANOMALY_STABILIZED_RESCUE_COMPLETED",
+          "rules_of_engagement": {
+            "id": "CONTINGENCY_A_HOSTILE_CONTACT",
+            "status": "APPROVED_AND_BINDING",
+            "approved_by": "Senior Expedition Marshal Ilyra Venn",
+            "allows_lethal_defense": true,
+            "trigger": "Clear hostile initiation or credible imminent threat to Elys, party or others",
+            "scope": "Any genuinely hostile encountered entity, creature, vessel or construct",
+            "first_hit_requirement": false,
+            "limits": "No unprovoked hunting or killing nonhostile subjects; lethal force when necessary to neutralize the threat"
+          },
+          "progress": [
+            {
+              "turn": "000276",
+              "milestone": "Elys accepted SSS recon with amended lethal defensive force clause, Marshal approved; broad survey map released",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000276",
+              "milestone": "Travel to Veilward and locate unknown Leviathan",
+              "status": "NOT_STARTED"
+            },
+            {
+              "turn": "000281",
+              "milestone": "Departed Guild and reached Veilward Expanse outer survey zone; launched survey drones and found derelict Pilgrim's Rest with 3 viable cryostasis occupants",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Six illegal hostile salvage craft disabled without fatalities by Aletheia after attack; 3 civilians stabilized, Seris Thane revived, Guild rescue signaled",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Rescued navigator provided first-person report Leviathan appeared to shield vessel from dimensionally anomalous storm; six-pulse frequency recorded in gifted instrument",
+              "status": "PROVISIONAL_EVIDENCE"
+            },
+            {
+              "turn": "000282",
+              "milestone": "Nadir Leviathan directly observed at distance, turning toward second distinct signal; contact and causation not yet established",
+              "status": "IN_PROGRESS"
+            },
+            {
+              "turn": "000283",
+              "milestone": "Harmonic first contact with Leviathan, warns of Twelfth Silence and captive young",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000284",
+              "milestone": "Identified 12 juvenile Leviathans captive in old spatial reference machine, obsolete custodian refused release",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000285",
+              "milestone": "Aletheia defeats 11 attacking Iron Saints; Elys reflects hostile attack unharmed; Twelfth Saint preserves original release directive",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000286",
+              "milestone": "Installed 12 inert replacement anchors, severed coercive control, freed all 12 young and reunited them with parent",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000286",
+              "milestone": "Received ITM-000006 Horizon Needle by authorized voluntary custodial transfer",
+              "status": "COMPLETE"
+            },
+            {
+              "turn": "000287",
+              "milestone": "Three stranded civilians medically transferred to arriving Guild rescue ship; six salvage crews under custody; expedition evidence submitted",
+              "status": "PENDING_SENIOR_GUILD_VERIFICATION"
+            },
+            {
+              "turn": "000287",
+              "milestone": "Leviathan gives name Veyruun and First Nest seven-star map, possible future voluntary expedition",
+              "status": "NEW_LEAD_NOT_ACCEPTED"
+            },
+            {
+              "turn": "000298",
+              "milestone": "First Nest rescue separate from Leviathan contract, still awaiting independent corridor audit",
+              "status": "PENDING_GUILD_VERIFICATION"
+            }
+          ],
+          "payout_status": "NOT_PAID",
+          "payout_transaction_id": null,
+          "payout_amount": null,
+          "completed_turn": null
+        }
+      ],
       "completed_guild_contracts": [
         {
           "contract_id": "SSS-004",
@@ -618,108 +721,6 @@
           "payout_currency": "credits",
           "completed_turn": "000268",
           "verification_record": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
-        },
-        {
-          "contract_id": "VEIL-09-R",
-          "title": "The Veilward Watch",
-          "rank": "SSS",
-          "type": "NON_HUNTING_RECON_FIRST_CONTACT",
-          "status": "COMPLETED_GUILD_VERIFIED_PAID_CLOSED",
-          "base_reward_credits": 9000000,
-          "reward_earned": true,
-          "accepted_turn": "000276",
-          "party_leader": "char-elys",
-          "mission_dossier": "guild/VEIL-09-R_THE_VEILWARD_WATCH.md",
-          "subject": "VEIL-09 Nadir Leviathan",
-          "subject_hostility": "NONHOSTILE_PROTECTIVE_BEHAVIOR_OBSERVED_COMMUNICATION_ESTABLISHED",
-          "subject_location": "VEYRUUN_AND_TWELVE_YOUNG_DEPARTED_SAFELY",
-          "location_status": "VEILWARD_ANOMALY_STABILIZED_RESCUE_COMPLETED",
-          "rules_of_engagement": {
-            "id": "CONTINGENCY_A_HOSTILE_CONTACT",
-            "status": "APPROVED_AND_BINDING",
-            "approved_by": "Senior Expedition Marshal Ilyra Venn",
-            "allows_lethal_defense": true,
-            "trigger": "Clear hostile initiation or credible imminent threat to Elys, party or others",
-            "scope": "Any genuinely hostile encountered entity, creature, vessel or construct",
-            "first_hit_requirement": false,
-            "limits": "No unprovoked hunting or killing nonhostile subjects; lethal force when necessary to neutralize the threat"
-          },
-          "progress": [
-            {
-              "turn": "000276",
-              "milestone": "Elys accepted SSS recon with amended lethal defensive force clause, Marshal approved; broad survey map released",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000276",
-              "milestone": "Travel to Veilward and locate unknown Leviathan",
-              "status": "NOT_STARTED"
-            },
-            {
-              "turn": "000281",
-              "milestone": "Departed Guild and reached Veilward Expanse outer survey zone; launched survey drones and found derelict Pilgrim's Rest with 3 viable cryostasis occupants",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000282",
-              "milestone": "Six illegal hostile salvage craft disabled without fatalities by Aletheia after attack; 3 civilians stabilized, Seris Thane revived, Guild rescue signaled",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000282",
-              "milestone": "Rescued navigator provided first-person report Leviathan appeared to shield vessel from dimensionally anomalous storm; six-pulse frequency recorded in gifted instrument",
-              "status": "PROVISIONAL_EVIDENCE"
-            },
-            {
-              "turn": "000282",
-              "milestone": "Nadir Leviathan directly observed at distance, turning toward second distinct signal; contact and causation not yet established",
-              "status": "IN_PROGRESS"
-            },
-            {
-              "turn": "000283",
-              "milestone": "Harmonic first contact with Leviathan, warns of Twelfth Silence and captive young",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000284",
-              "milestone": "Identified 12 juvenile Leviathans captive in old spatial reference machine, obsolete custodian refused release",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000285",
-              "milestone": "Aletheia defeats 11 attacking Iron Saints; Elys reflects hostile attack unharmed; Twelfth Saint preserves original release directive",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000286",
-              "milestone": "Installed 12 inert replacement anchors, severed coercive control, freed all 12 young and reunited them with parent",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000286",
-              "milestone": "Received ITM-000006 Horizon Needle by authorized voluntary custodial transfer",
-              "status": "COMPLETE"
-            },
-            {
-              "turn": "000287",
-              "milestone": "Three stranded civilians medically transferred to arriving Guild rescue ship; six salvage crews under custody; expedition evidence submitted",
-              "status": "PENDING_SENIOR_GUILD_VERIFICATION"
-            },
-            {
-              "turn": "000287",
-              "milestone": "Leviathan gives name Veyruun and First Nest seven-star map, possible future voluntary expedition",
-              "status": "NEW_LEAD_NOT_ACCEPTED"
-            },
-            {
-              "turn": "000288",
-              "milestone": "Guild verification accepted first contact, rescue and safe navigation corridor; one ₡9M award credited",
-              "status": "COMPLETE"
-            }
-          ],
-          "payout_status": "SETTLED_AVAILABLE",
-          "payout_transaction_id": "GUILD-PAYOUT-VEIL09R-000288",
-          "payout_amount": 9000000,
-          "completed_turn": "000288"
         }
       ],
       "confirmed_currency_events": [
@@ -734,17 +735,6 @@
           "prior_balance": null,
           "aggregate_balance": null,
           "source": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
-        },
-        {
-          "id": "GUILD-PAYOUT-VEIL09R-000288",
-          "turn": "000288",
-          "currency": "credits",
-          "delta": 9000000,
-          "direction": "CREDIT",
-          "account": "Elys personal Guild-linked account",
-          "clearing_status": "SETTLED_AVAILABLE",
-          "prior_balance": null,
-          "aggregate_balance": null
         }
       ],
       "known_witness_class_history": {
@@ -4155,7 +4145,7 @@
           "source": "User-autonomous chapters"
         }
       ],
-      "last_verified_turn": "000293",
+      "last_verified_turn": "000298",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4194,10 +4184,10 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Exterior of Aurelian Spire, engaging 12 attacking quarantine-claimed warships",
+      "current_location": "Quiet Crown, Heliogenesis Cradle observation balcony, First Nest",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
-      "current_form": "Philosopher's Edge spear",
+      "current_form": "Materia humanoid",
       "active_tasks": [
         {
           "task": "ACCOMPANY_ELYS",
@@ -4383,7 +4373,7 @@
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
-      "form": "Philosopher's Edge spear",
+      "form": "Materia humanoid",
       "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
@@ -4488,7 +4478,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000293",
+      "last_modified_turn": "000298",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -4609,7 +4599,7 @@
           "record": "armory/integrations/IR-0002_WITNESS_CRADLE_REV2_000272.md"
         }
       ],
-      "last_modified_turn": "000293",
+      "last_modified_turn": "000298",
       "self_repair": {
         "mechanism": "Automated environmental material harvesting and transmutation into replacement armor structure",
         "source": "Surrounding asteroid fragments and free-floating dust/minerals",
@@ -4701,7 +4691,7 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000293",
+      "last_modified_turn": "000298",
       "stored_item_ids": [
         "ITM-000005",
         "ITM-000006"
@@ -4770,7 +4760,7 @@
         "durability under universal conceptual attacks"
       ],
       "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
-      "last_modified_turn": "000293",
+      "last_modified_turn": "000298",
       "appraisal": {
         "turn": "000270",
         "method": "Noninvasive Aletheia Genesis Loom/Forge Core scan with voluntary Heart technical explanation; simulated identity loss on dummy records only",
@@ -4884,7 +4874,7 @@
         "Cannot prove creature hostility or identify second phenomenon"
       ],
       "documentation": "armory/instruments/ITM-000005_SIXFOLD_HARMONIC_RESONATOR.md",
-      "last_modified_turn": "000293"
+      "last_modified_turn": "000298"
     },
     "ITM-000006": {
       "item_id": "ITM-000006",
@@ -4919,7 +4909,7 @@
         "Numeric limits unmeasured"
       ],
       "documentation": "armory/instruments/ITM-000006_THE_HORIZON_NEEDLE.md",
-      "last_modified_turn": "000293"
+      "last_modified_turn": "000298"
     }
   },
   "transactions": [
@@ -5063,20 +5053,6 @@
       "to": "char-elys",
       "currency_movement": 0,
       "source": "saves/turns/000286.md"
-    },
-    {
-      "transaction_id": "GUILD-PAYOUT-VEIL09R-000288",
-      "turn": "000288",
-      "type": "GUILD_CONTRACT_REWARD_CREDIT",
-      "currency": "credits",
-      "amount": 9000000,
-      "direction": "CREDIT",
-      "from": "Lumenfall Guild treasury",
-      "to": "char-elys personal Guild-linked account",
-      "status": "SETTLED_AVAILABLE",
-      "prior_balance": null,
-      "post_balance": null,
-      "source": "saves/turns/000288.md"
     }
   ],
   "next_item_sequence": 7
