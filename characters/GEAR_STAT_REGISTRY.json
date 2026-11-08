@@ -69,7 +69,8 @@
       "owned_item_ids": [
         "ITM-000001",
         "ITM-000002",
-        "ITM-000003"
+        "ITM-000003",
+        "ITM-000004"
       ],
       "loadout_id": null,
       "gem_circuits": null,
@@ -231,9 +232,23 @@
           "before": "Threat defeated, evidence/route verification pending, payout unearned",
           "after": "Safe route repaired/certified, evidence accepted by Guild, SSS-004 completed and ₡14,000,000 cleared to Elys personal Guild account",
           "source": "User choice 4/6; Guild payout audit GUILD-PAYOUT-SSS004-000268"
+        },
+        {
+          "turn": "000269",
+          "field": "owned_item_ids",
+          "before": "ITM-000001, ITM-000002, ITM-000003",
+          "after": "Also ITM-000004 The Last Witness, unique relic_core in secured Forge Core inventory, not equipped",
+          "source": "User requested retrieve the vault item; Heart grants custody voluntarily"
+        },
+        {
+          "turn": "000269",
+          "field": "current_location",
+          "before": "Sepulcher secured exterior threshold",
+          "after": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
+          "source": "Elys entered certified safe corridor and physically retrieved vault gift"
         }
       ],
-      "last_verified_turn": "000268",
+      "last_verified_turn": "000269",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -301,8 +316,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Sepulcher Between Stars, secured exterior approach threshold, uncharted interstellar boundary",
-      "current_activity": "SSS-004 completed/paid; Heart active and cooperative; sealed builders' legacy vault revealed but not opened",
+      "current_location": "Sepulcher Between Stars, opened builders' legacy vault beneath the throne",
+      "current_activity": "Retrieved unique Last Witness Relic Core from voluntarily opened legacy vault; stored in Forge Core, unequipped; SSS004 completed and paid",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -3450,7 +3465,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom at Elys's right; protected archive remains in Heart custody",
+      "conditions": "AWAKENED; SENTIENT; ACTIVE; Genesis Loom staff at Elys's right; now gleefully bloodthirsty and delighted by sanctioned enemy destruction while remaining precise/protective",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -3591,9 +3606,23 @@
           "before": "Spear hovering Elys right; parasite defeated; spatial machinery partly unstable",
           "after": "Genesis Loom staff hovering right; archive safeguards ongoing; Heart/Forge Core certified main route; mission completed",
           "source": "User 4/6"
+        },
+        {
+          "turn": "000269",
+          "field": "personality_design",
+          "before": "Wry, clever, proud and philosophical, occasional combat humor",
+          "after": "Persistent more sanguine / delightedly bloodthirsty and lyrically predatory toward hostile foes, eager for blood, wreckage, ship-breaking and battle; still loyal, protective and no autonomous lethal judgment",
+          "source": "User explicit out-of-character request: make Aletheia more sanguine in the 'I'm going to enjoy drinking your blood and breaking your ship' sense"
+        },
+        {
+          "turn": "000269",
+          "field": "location",
+          "before": "Exterior secured threshold",
+          "after": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
+          "source": "Accompanies Elys to retrieved vault item, Genesis Loom staff form unchanged"
         }
       ],
-      "last_verified_turn": "000268",
+      "last_verified_turn": "000269",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3610,10 +3639,19 @@
           "observant",
           "philosophical",
           "independent judgment",
-          "dry irony"
+          "dry irony",
+          "sanguine (bloodthirstily cheerful)",
+          "eager for battle against hostile adversaries",
+          "gleefully enjoys breaking enemy ships and armor",
+          "poetically vicious combat banter",
+          "playfully predatory",
+          "protective of allies and innocent recorded beings"
         ],
         "agency": "May express personal preferences, recognize uncertainty, disagree and raise safety objections; no independent lethal god-class targeting.",
-        "reference": "Turn 000254, anime illustration from previous ChatGPT image generation"
+        "reference": "Turn 000254, anime illustration from previous ChatGPT image generation",
+        "user_direction_turn": "000269",
+        "combat_voice": "Aletheia is sanguine in the gleefully bloodthirsty sense: she radiantly anticipates spilling hostile enemies' blood, crushing opponents, cracking ships and savoring violent action; can say she would enjoy drinking a foe's blood and breaking its ship. Voice: elegant, lyrical, delighted, warmly cruel to enemies, affectionate and teasing to Elys; not merely restrained dry wit.",
+        "safety_continuity": "Retain one fully sentient personality, intelligent judgment, sovereign-directed lethal authorization; never independently attack innocents or declare lethal targets without Elys's authorization. Earlier empathy and archive protection remain part of her personality."
       },
       "design_approval": {
         "turn": "000254",
@@ -3623,7 +3661,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Sepulcher Between Stars, hovering at Elys's right at secured exterior threshold",
+      "current_location": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Genesis Loom staff",
@@ -3773,7 +3811,7 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "INTACT; GENESIS LOOM SUPPORTED GUILD-CERTIFIED STABILIZATION",
+      "condition": "INTACT; GENESIS LOOM STAFF; DELIGHTEDLY SANGUINE COMBAT TEMPERAMENT, ARCHIVE WARD BOUNDED",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
@@ -3849,7 +3887,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Sepulcher Between Stars, hovering at Elys's right at secured exterior threshold",
+      "current_physical_location": "Sepulcher Between Stars, builders' legacy vault, hovering at Elys's right",
       "test_history": [
         {
           "id": "FX-000257",
@@ -3884,7 +3922,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000268",
+      "last_modified_turn": "000269",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",
@@ -3937,7 +3975,7 @@
         "legs",
         "feet"
       ],
-      "current_physical_location": "Worn by Elys at Sepulcher exterior threshold",
+      "current_physical_location": "Worn by Elys, inside builders' legacy vault, Sepulcher",
       "operational_systems": [
         "fully sealed atmosphere/vacuum pressure support",
         "thermo-regulation and continuous wear comfort",
@@ -4015,7 +4053,7 @@
       "type": "non-sentient wearable expedition-base forge backpack",
       "sentient": false,
       "slot_mapping": "artifact (provisional pending user equip)",
-      "current_physical_location": "Back-mounted on Elys at Sepulcher exterior threshold",
+      "current_physical_location": "Worn on Elys, builders' legacy vault, contains ITM-000004 in secure storage",
       "operational_systems": [
         "field forge",
         "gem and rune bench",
@@ -4036,7 +4074,75 @@
         "creation of materials without actual inputs"
       ],
       "equipped_slot": "artifact",
-      "last_modified_turn": "000268"
+      "last_modified_turn": "000268",
+      "stored_item_ids": [
+        "ITM-000004"
+      ]
+    },
+    "ITM-000004": {
+      "item_id": "ITM-000004",
+      "blueprint_id": "SEP-LEGACY-001",
+      "canonical_name": "The Last Witness",
+      "commission_id": null,
+      "owner_character_id": "char-elys",
+      "rarity": "SSS",
+      "designation": "Unique ancient mnemonic Relic Core; Sepulcher builders' voluntary legacy",
+      "source_turn": "000269",
+      "provenance": "Retrieved by Elys personally from inner builders' legacy vault beneath Sepulcher throne; Heart voluntarily authorized custody",
+      "delivered_at_in_world": "10 Deepfall, 13,627 ICE, night",
+      "delivery_status": "RECOVERED_AND_OWNED",
+      "ownership_verified": true,
+      "equipped": false,
+      "enhancement_level": null,
+      "quality": null,
+      "signature_refinement": null,
+      "raw_numeric_stats": null,
+      "durability": null,
+      "condition": "PRISTINE, SEALED AND OPERATIONAL",
+      "binding": "Heart-approved personal custody of Elys; not a transfer of Heart/archives",
+      "type": "relic_core",
+      "sentient": false,
+      "appearance": "Hand-sized twelve-point black crystalline star with golden filigree and still white inner flame, microscopic orbiting names",
+      "intended_slot": "relic_core",
+      "current_physical_location": "Secured within ITM-000003 Regalia Forge Core backpack inventory, on Elys inside Sepulcher legacy vault",
+      "abilities": [
+        {
+          "id": "ANCHOR_OF_IDENTITY",
+          "description": "On deliberate equip/deploy, bounded continuity protection for authorized identities/records against mnemonic/ontological erasure; not universal immunity",
+          "activation": "REQUIRES_EQUIP_OR_DEPLOY",
+          "validation": "Observed ancient Heart identification and vault resonance; full comparative strength unmeasured"
+        },
+        {
+          "id": "TESTAMENT_SEAL",
+          "description": "Writes/cross-checks provenance-authenticated tamper-evident testimony in bounded storage, not infinite storage or omniscience",
+          "activation": "ON_DEMAND"
+        },
+        {
+          "id": "SEPULCHER_WAYMARK",
+          "description": "Retains stable certified approach coordinates for Heart route; not unrestricted teleportation",
+          "activation": "ON_DEMAND"
+        },
+        {
+          "id": "CUSTODIANS_ACCORD",
+          "description": "Authenticated future request handshake with Heart, subject to Heart consent; no ownership or override",
+          "activation": "ON_DEMAND"
+        }
+      ],
+      "limitations": [
+        "Not resurrection",
+        "No automatic ex nihilo knowledge",
+        "No universal godlike immunity proven",
+        "Does not contain all ancient archived persons/data",
+        "Does not control Heart",
+        "Not already equipped"
+      ],
+      "unproven_claims": [
+        "specific raw numeric buffs",
+        "maximum resistance level",
+        "durability under universal conceptual attacks"
+      ],
+      "documentation": "armory/relics/ITM-000004_THE_LAST_WITNESS.md",
+      "last_modified_turn": "000269"
     }
   },
   "transactions": [
@@ -4119,7 +4225,19 @@
       "prior_balance": null,
       "post_balance": null,
       "source": "guild/SSS-004_COMPLETION_AND_PAYOUT.md"
+    },
+    {
+      "transaction_id": "TX-000269-ITM-000004",
+      "turn": "000269",
+      "type": "VAULT_LEGACY_ITEM_RECOVERY",
+      "item_id": "ITM-000004",
+      "from": "Heart of Sepulcher voluntary custody authorization",
+      "to": "char-elys",
+      "location": "Opened builders' legacy vault beneath Sepulcher throne",
+      "price": null,
+      "credits_spent": 0,
+      "source": "User-directed retrieval, turns 000268-000269"
     }
   ],
-  "next_item_sequence": 4
+  "next_item_sequence": 5
 }
