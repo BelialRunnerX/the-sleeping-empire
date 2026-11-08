@@ -3897,7 +3897,7 @@
         "PEN": null
       },
       "element_affinity": null,
-      "conditions": "SENTIENT, INTACT, PHILOSOPHER'S EDGE SPEAR; bloodthirstily delighted; ordered to disable hostile vessels and preserve crews where feasible; attack just begun",
+      "conditions": "SENTIENT; INTACT; ONE PHYSICAL ENTITY; CURRENTLY PHILOSOPHER'S EDGE SPEAR FORM; no separate humanoid when spear-shaped and no separate weapon when humanoid; sentient companion to Elys",
       "equipped": {
         "main_hand": null,
         "off_hand": null,
@@ -4143,9 +4143,19 @@
           "before": "Restored Veilward corridor and returned to Materia",
           "after": "Accompanied Elys through seven-question test, disabled seven threatening Gatekeepers without killing possible consciousnesses, now Philosopher's Edge spear starting battle against attacking quarantine fleet",
           "source": "User-autonomous chapters"
+        },
+        {
+          "turn": "000299",
+          "kind": "USER_ERRATA_CORRECTION",
+          "field": "physical identity / form exclusivity / inaccurate humanoid weapon staging",
+          "before": "Chapters CCXXXVIII–CCXL incorrectly depicted a humanoid Aletheia carrying/resting/producing a separate spear",
+          "after": "Aletheia IS the single spear item ITM-000001; Materia humanoid IS the same spear transformed; Genesis Loom staff another mutually exclusive form; never a simultaneous human and spear. Final CCXL state: one spear-form Aletheia at Elys's side.",
+          "source": "User verbatim errata following turn 000299; saves/errata/000299_ALETHEIA_FORM_IDENTITY.md",
+          "no_new_story_turn": true,
+          "no_new_item": true
         }
       ],
-      "last_verified_turn": "000298",
+      "last_verified_turn": "000299",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4184,10 +4194,10 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Quiet Crown, Heliogenesis Cradle observation balcony, First Nest",
+      "current_location": "Unidentified 18 km transfer platform, first Quiet Crown / Asterion candidate intercept",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
-      "current_form": "Materia humanoid",
+      "current_form": "Philosopher's Edge spear",
       "active_tasks": [
         {
           "task": "ACCOMPANY_ELYS",
@@ -4367,13 +4377,13 @@
       "signature_refinement": "R5",
       "raw_numeric_stats": null,
       "durability": 100,
-      "condition": "INTACT; ONE SENTIENT IDENTITY; HUMAN0ID MATERIA AFTER HOSTILE PIRATE DISARMAMENT",
+      "condition": "INTACT; SINGULAR SENTIENT WEAPON; FORMS HUMANOID MATERIA / SPEAR PHILOSOPHER'S EDGE / STAFF GENESIS LOOM MUTUALLY EXCLUSIVE",
       "binding": "Sovereign-keyed: Elys Somion exclusively",
       "type": "sentient adaptive two-handed staff/spear",
       "sentient": true,
       "linked_character_id": "char-aletheia",
       "awakening": "AWAKENED",
-      "form": "Materia humanoid",
+      "form": "Philosopher's Edge spear",
       "attachment_mode": "AUTONOMOUS_HOVER_AT_ELYS_RIGHT",
       "not_held_or_equipped": true,
       "approved_forms": [
@@ -4435,7 +4445,8 @@
         "transform between staff, spear, and humanoid avatar",
         "right-side autonomous hover/follow",
         "sovereign-only access control",
-        "bounded defensive and offensive system safe-mode"
+        "bounded defensive and offensive system safe-mode",
+        "single physical sentient weapon transforming exclusively between humanoid Materia, Philosopher's Edge spear and Genesis Loom staff; cannot carry a separate spear in humanoid form"
       ],
       "unproven_claims": [
         "absolute god-kill success",
@@ -4443,7 +4454,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Exterior of Aurelian Spire, engaging 12 attacking quarantine-claimed warships",
+      "current_physical_location": "Unidentified transfer platform, first Quiet Crown / Asterion candidate intercept, beside Elys",
       "test_history": [
         {
           "id": "FX-000257",
@@ -4478,7 +4489,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000298",
+      "last_modified_turn": "000299",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",

@@ -4,6 +4,7 @@
 **Type:** played autonomous narration round (three displayed chapters; detailed synopsis, not verbatim archive)  
 **Recorded:** 2026-11-08  
 **Latest record:** [000299](turns/000299.md)  
+**Latest non-narrative correction:** [Aletheia's one-body transformation rule](errata/000299_ALETHEIA_FORM_IDENTITY.md) (no new story turn)  
 **Checkpoint:** [000299](checkpoints/000299.md)  
 **Story endpoint:** Chapter CCXL, “The Auditor's Mistake,” at a previously unidentified 18 km transfer platform on the first harmonic intercept route toward mobile Asterion.
 
@@ -19,7 +20,7 @@ Read [binding autonomous narration](../narration/AUTONOMOUS_SABBATICAL_NARRATION
 
 **Elys's absolute power is intrinsic and UNCONDITIONAL:** invulnerable to literally all threats incl. physical, psychic, magical, temporal, identity, conceptual and ontological erasure, with inherent unlimited negation and **FULL REFLECTION**, not derived from armor, Last Witness, allies or power supply. No bypass, cooldown, drain, weakness or arbitrary ceiling. He is **not omniscient**, and cannot simply know concealed truth without discovery. He is Emperor on sabbatical, ordinarily minimizes his status, uses sovereignty when injustice or corruption warrants it.
 
-Aletheia (she) is a single sentient `ITM-000001` in Material humanoid, Philosopher's Edge spear and Genesis Loom staff forms, affectionate toward innocents and **gaily bloodthirsty toward genuine hostiles**, loves breaking ships. She currently has humanoid form and spear available, is at Elys's side.
+Aletheia (she) is the **ONE SENTIENT PHYSICAL WEAPON** `ITM-000001` itself; **Materia humanoid is the very same Philosopher's Edge spear transformed**, alternatively Genesis Loom staff. Forms are mutually exclusive; she **cannot carry, hold or rest a separate spear while humanoid**. At the CCXL closing beat she transformed into **Philosopher's Edge spear form** and remains one companion beside Elys, not a separate human carrying the spear. She is affectionate toward innocents and **gaily bloodthirsty toward genuine hostiles**. [Binding user errata](errata/000299_ALETHEIA_FORM_IDENTITY.md).
 
 ## Operational continuity
 
