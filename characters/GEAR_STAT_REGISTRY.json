@@ -281,9 +281,16 @@
           "before": "Inside opened Sepulcher builders' vault",
           "after": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath; completed SSS-004 reviewed but not repaid; no active contracts",
           "source": "User expressly requested Return to guild"
+        },
+        {
+          "turn": "000274",
+          "field": "VEIL-09 Guild briefing",
+          "before": "Uncommissioned provisional 42km Leviathan observations",
+          "after": "Mira shows reanalysis of 3 survey sightings: asteroid displacement, six-pulse spinal glow, uncrewed probe spatial distortion, possible external phenomenon; intent unconfirmed and no authorized contract",
+          "source": "Player selected 4 to ask Mira about Nadir Leviathan"
         }
       ],
-      "last_verified_turn": "000273",
+      "last_verified_turn": "000274",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -352,7 +359,7 @@
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
       "current_location": "Lumenfall Free Adventurers' Guild, reception counter, Twilight District, Lumenfall, Veyrath",
-      "current_activity": "Returned from completed Sepulcher SSS-004 expedition to Guild reception; talking with Mira, no active contract accepted",
+      "current_activity": "Mira briefs Elys on latest comparative VEIL-09 Leviathan imagery, no mission accepted or departure",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -394,10 +401,17 @@
           {
             "id": "VEIL-09",
             "name": "Nadir Leviathan",
-            "status": "NO_CONTRACT",
+            "status": "OBSERVATION_ONLY_NO_AUTHORIZED_HUNT_OR_SURVEY_MISSION",
             "estimated_length_km": 42,
-            "intelligence": "PROVISIONAL",
-            "file": "guild/VEIL-09_NADIR_LEVIATHAN.md"
+            "intelligence": "PROVISIONAL_REANALYZED_THREE_EXISTING_SURVEY_SIGHTINGS",
+            "file": "guild/VEIL-09_NADIR_LEVIATHAN.md",
+            "last_briefed_turn": "000274",
+            "observed_features": [
+              "asteroids apparently deflect ahead of subject; cause unknown",
+              "spinal luminous cavities show six pulse sequence with pause; meaning unknown",
+              "unmanned probe navigational distortion precedes apparent disappearance; probe recovers",
+              "Aletheia suggests an external phenomenon possible, not established"
+            ]
           }
         ],
         "completed_contract_ids": [
@@ -3706,9 +3720,16 @@
           "before": "Inside Sepulcher builders' vault, Genesis Loom staff",
           "after": "Returned alongside Elys to Lumenfall Guild in Genesis Loom staff form; no attack or independent Guild registration",
           "source": "Player requested Return to guild"
+        },
+        {
+          "turn": "000274",
+          "field": "VEIL-09 discussion",
+          "before": "Genesis Loom staff on Elys's right after Guild return",
+          "after": "Observes probe telemetry, suggests external distortion could precede Leviathan maneuver; cheerfully bloodthirsty but no attack",
+          "source": "Story 000274"
         }
       ],
-      "last_verified_turn": "000273",
+      "last_verified_turn": "000274",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -3869,9 +3890,16 @@
           "before": "Contract at site and previously active",
           "after": "Received mission dossier and forwarded senior verification; Guild accepted and settled ₡14M payout",
           "source": "Turn 000268"
+        },
+        {
+          "turn": "000274",
+          "field": "VEIL-09 reception",
+          "before": "Mira welcomes Elys after Sepulcher",
+          "after": "Shares provisional comparison of existing VEIL-09 imagery, offers petition for recon at senior Guild discretion, no commission issued",
+          "source": "Player choice 4"
         }
       ],
-      "last_verified_turn": "000268",
+      "last_verified_turn": "000274",
       "first_known_turn": "000164",
       "current_location": "Lumenfall Free Adventurers' Guild, Twilight District, Lumenfall, Veyrath",
       "known_history": "Processed Elys and his companions' advanced placement requests; sees Elys return with Guild SSS rank, new armor and sentient weapon; has not registered Aletheia independently."
