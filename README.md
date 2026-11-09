@@ -2,7 +2,13 @@
 
 A living science-fantasy space-opera lore archive for the interactive story of Emperor **Elysomnion** and the Black and Emerald Empire.
 
-## Latest verified canon — Chapter CLIII · Turn 000149
+## Imperial Codex — modern wiki
+
+**[Enter the Imperial Codex](https://belialrunnerx.github.io/the-sleeping-empire/codex/)** — formal black/emerald/gold reference site, searchable seven-register structure and linked original sources. Its current checkpoint is **Chapter CCLXVIII · Turn 000306**. The earlier Living Codex dashboard remains a **historical Turn 149 snapshot**, not the active endpoint.
+
+**[Open the Obsidian-compatible canon vault](wiki/README.md)** — linked Markdown registers, YAML front matter, canon protocol and a custom Obsidian CSS snippet. Original story saves and lore documents have been preserved in place.
+
+## Historical site snapshot — Chapter CLIII · Turn 000149
 
 **Scene:** 8 Deepfall 13,627 ICE, approximately 15:30 at the **Greenhaven Harvest & Innovation Festival**, on Bellwynn. Elys (traveling incognito as **Corin Vale**), Clarissa (**Mara Calder**) and **Celeste Somnion** are watching **Niko Bell's** eccentric amateur robot **Sir Turnip III** prepare for an obstacle-course heat. **The contest result is not yet established.**
 
