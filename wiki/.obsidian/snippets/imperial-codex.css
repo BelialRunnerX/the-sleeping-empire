@@ -1,0 +1,2 @@
+/* Enable under Obsidian Settings > Appearance > CSS snippets. */
+.theme-dark{--background-primary:#080e15;--background-secondary:#101d25;--text-normal:#e8eee8;--text-muted:#9baea9;--interactive-accent:#46c49a;--text-accent:#a3e7d2;--h1-color:#e8c98a;--h2-color:#b5d9c9;--blockquote-border-color:#b49257} .markdown-rendered h1,.markdown-rendered h2{font-family:Georgia,serif;letter-spacing:.015em}.markdown-rendered blockquote{border-left:3px solid #b49257;background:#14232a;padding:8px 20px}.workspace-tab-header.is-active{box-shadow:inset 0 -2px #b49257}
