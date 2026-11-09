@@ -403,9 +403,16 @@
           "before": "Festival private invitation only, no official bracket/entry",
           "after": "Defeated female S-rank Captain Vaedra Halden 2–0 arm wrestling; formally enrolled Unarmed and Open Championship; prizes not won",
           "source": "Player's explicit correction and chapters CCLXI–CCLXII"
+        },
+        {
+          "turn": "000306",
+          "field": "Festival of Seven Blades opening competition",
+          "before": "No on-page result for this match",
+          "after": "{\"status\":\"OPENING_WIN\",\"opponent\":\"Darric Vale\",\"method\":\"legal safe ring-out\",\"turn\":\"000306\"}",
+          "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
         }
       ],
-      "last_verified_turn": "000305",
+      "last_verified_turn": "000306",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -473,8 +480,8 @@
         }
       ],
       "owned_item_ids_completeness": "KNOWN_REGISTERED_DELIVERIES_ONLY; previous untracked possessions may exist",
-      "current_location": "Lumenfall Guild upper floor, Festival of Seven Blades registrar, Lumenfall, Veyrath",
-      "current_activity": "S-118 orchard investigation closed; examining private Festival of Seven Blades invitation with Veronica and Aletheia",
+      "current_location": "Sevenfold Arena, Lumenfall, Veyrath",
+      "current_activity": "At Sevenfold Arena with Veronica and Aletheia after Unarmed opening win, awaits Open Block C qualifying bout and possible Vaedra matchup",
       "known_personal_andromedan_fleet": {
         "source_baseline": "100 privately owned armed Andromedan-pattern ships before turn 000257",
         "original_count": 100,
@@ -999,7 +1006,16 @@
           "Unarmed Combat",
           "Open Championship"
         ],
-        "no_prizes_yet": true
+        "no_prizes_yet": true,
+        "open_qualifier": "PENDING"
+      },
+      "festival_results": {
+        "unarmed_u07": {
+          "status": "OPENING_WIN",
+          "opponent": "Darric Vale",
+          "method": "legal safe ring-out",
+          "turn": "000306"
+        }
       }
     },
     "char-clarissa": {
@@ -1464,10 +1480,17 @@
           "before": "No event registration",
           "after": "Registered Tactical Trial, Team Exhibition, Open Championship; primary companion and romantic partner status unchanged",
           "source": "Played chapter CCLXII"
+        },
+        {
+          "turn": "000306",
+          "field": "Festival of Seven Blades opening competition",
+          "before": "No on-page result for this match",
+          "after": "{\"status\":\"OPENING_WIN\",\"opponent\":\"Commander Elian Marr\",\"method\":\"protected courier extraction simulation, no simulated casualties, 18 minutes left\",\"turn\":\"000306\"}",
+          "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
         }
       ],
-      "last_verified_turn": "000305",
-      "current_location": "Lumenfall Guild upper floor, Festival of Seven Blades registrar, Lumenfall, Veyrath",
+      "last_verified_turn": "000306",
+      "current_location": "Sevenfold Arena, Lumenfall, Veyrath",
       "relationship_to_elys": "Established mutually chosen recurring romantic partner; gentle and implicitly sexually suggestive toward Elys, always distinct from coercive touch; primary traveling companion. Clarissa engagement and Celeste divine marriage unaffected.",
       "personality_design": {
         "core": "Brilliant and competent immortal intelligence chief; anti-divine eldritch femme fatale; predatory maliciousness, wicked mischievous humor and too-sweet threat-laden flirtation; fiercely loyal and possessive toward Elys",
@@ -1488,6 +1511,14 @@
           "Open Championship"
         ],
         "no_prizes_yet": true
+      },
+      "festival_results": {
+        "tactical_t03": {
+          "status": "OPENING_WIN",
+          "opponent": "Commander Elian Marr",
+          "method": "protected courier extraction simulation, no simulated casualties, 18 minutes left",
+          "turn": "000306"
+        }
       }
     },
     "char-sentinel": {
@@ -4323,9 +4354,16 @@
           "before": "No event registration",
           "after": "Registered Armed Duel/Open Championship as one sentient body that wholly transforms between humanoid, spear and staff; remains humanoid",
           "source": "Played chapter CCLXII"
+        },
+        {
+          "turn": "000306",
+          "field": "Festival of Seven Blades opening competition",
+          "before": "No on-page result for this match",
+          "after": "{\"status\":\"OPENING_WIN\",\"opponent\":\"Lady Seris Vaunt\",\"method\":\"referee decisive control (spear point halted before injury)\",\"turn\":\"000306\"}",
+          "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
         }
       ],
-      "last_verified_turn": "000305",
+      "last_verified_turn": "000306",
       "provisional": false,
       "linked_commission": "IR-0001",
       "not_yet_manifest": false,
@@ -4364,7 +4402,7 @@
         "awakening": "COMPLETE",
         "delivery": "DELIVERED"
       },
-      "current_location": "Lumenfall Guild upper floor, Festival of Seven Blades registrar, Lumenfall, Veyrath",
+      "current_location": "Sevenfold Arena, Lumenfall, Veyrath",
       "linked_item_id": "ITM-000001",
       "awakened_turn": "000256",
       "current_form": "Materia humanoid",
@@ -4396,6 +4434,14 @@
         ],
         "one_sentient_physical_weapon": true,
         "no_prizes_yet": true
+      },
+      "festival_results": {
+        "armed_a04": {
+          "status": "OPENING_WIN",
+          "opponent": "Lady Seris Vaunt",
+          "method": "referee decisive control (spear point halted before injury)",
+          "turn": "000306"
+        }
       }
     },
     "char-mira": {
@@ -5230,11 +5276,26 @@
           "before": "Previously established female S-rank Open Division tournament entrant, not yet paired with Elys",
           "after": "Lost best-of-three 0–2 to Elys in Open arm-wrestling with fully declared actuator gauntlets; no injury, wants future martial duel",
           "source": "Player correction and played chapter CCLXI"
+        },
+        {
+          "turn": "000306",
+          "field": "Festival of Seven Blades opening competition",
+          "before": "No on-page result for this match",
+          "after": "{\"status\":\"OPENING_WIN_ADVANCED\",\"opponent\":\"Arden Sol\",\"method\":\"controlled gauntlet legal strike\",\"turn\":\"000306\"}",
+          "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
         }
       ],
-      "last_verified_turn": "000305",
-      "current_location": "Lumenfall Free Adventurers' Guild, festival registrar area",
-      "provisional": false
+      "last_verified_turn": "000306",
+      "current_location": "Sevenfold Arena, Lumenfall, Veyrath",
+      "provisional": false,
+      "festival_results": {
+        "open_block_c": {
+          "status": "OPENING_WIN_ADVANCED",
+          "opponent": "Arden Sol",
+          "method": "controlled gauntlet legal strike",
+          "turn": "000306"
+        }
+      }
     },
     "char-maelis-corven": {
       "character_id": "char-maelis-corven",
@@ -5410,7 +5471,7 @@
         "invulnerability/guaranteed victory against any entity",
         "unbounded maximum-output lethality"
       ],
-      "current_physical_location": "Lumenfall Guild, festival registration area beside Elys in humanoid form",
+      "current_physical_location": "Sevenfold Arena, Lumenfall, in whole-body Materia humanoid form beside Elys",
       "test_history": [
         {
           "id": "FX-000257",
@@ -5445,7 +5506,7 @@
           "limits": "Complete independent archive backup and distant cosmic copies not omnisciently established"
         }
       ],
-      "last_modified_turn": "000305",
+      "last_modified_turn": "000306",
       "active_effects": [
         {
           "id": "SSS-004-ARCHIVE-WEAVE",

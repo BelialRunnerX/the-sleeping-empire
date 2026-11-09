@@ -24,3 +24,15 @@ Referee stoppage and yielding govern matches, deliberate killing of yielded/disq
 Advertised category purses, commissioned equipment and relic appraisal rights; one **SEALED grand prize** whose identity, full provenance and actual transfer conditions have **not been revealed**. Nobody has won or received any equipment, credits, titles or registration expenditures yet. No opponent bracket secretly determined. No new unique owned item ID or pay transaction generated.
 
 **Next scene:** 17 Deepfall preliminary bracket posting, ordinary festival preparations, and 19 Deepfall opening competitions.
+
+## Opening Festival Round — Played Turn 000306, Chapters CCLXIII–CCLXVIII
+
+Official preliminary bracket announcement **17 Deepfall**; event opening **19 Deepfall 13,627 ICE** at Sevenfold Arena. Presiding adjudicator **Grand Marshal Ysoria Thane** (white/gold armor). All entrants retain voluntary nonlethal competition/referee stoppage, declared capabilities and Elys's absolute inherent invulnerability/negation/full reflection.
+
+**Verified opening wins only; NO championships/prizes:**
+- **Elys Somion Unarmed U-07:** A-rank **Darric Vale** defeated by legal safe ring-out; advances to later unarmed bout, no injuries.
+- **Aletheia Armed Duel A-04:** SS swordmaster **Lady Seris Vaunt** defeated by controlled close spear-point and referee decisive-control stoppage; Aletheia is one complete sentient `ITM-000001` changing human→spear→human, no duplicate weapon/wielder.
+- **Veronica Tactical Trial T-03:** SS tactician **Commander Elian Marr** defeated by legitimate logistics/intelligence deception around fictional courier, no simulated casualties and 18 minutes left, no erotic/coercive touch.
+- **Captain Vaedra Halden Open Championship Block C opening:** SS duelist **Arden Sol** defeated by controlled legal gauntlet strike. Vaedra advanced. **Elys's Block C Open qualifier is NOT YET PLAYED**; only a possible subsequent Elys-vs-Vaedra martial match if Elys advances.
+
+**Awaiting:** Elys Open qualifier, Aletheia Open Block B, Veronica Open Block D, Team roster and later Tactical rounds, all finals. Sealed grand prize remains unknown; NO entry charges/purses/loot/item ownership awarded in this played round.

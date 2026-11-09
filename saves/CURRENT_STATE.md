@@ -1,37 +1,39 @@
 # Current Story State
 
-**Save sequence:** 000305  
-**Type:** played user-corrected S-rank arm-wrestling and Festival of Seven Blades registration  
-**Recorded:** 2026-11-08  
-**Latest record:** [000305](turns/000305.md)  
-**Checkpoint:** [000305](checkpoints/000305.md)  
-**Story endpoint:** Chapter CCLXII, “Seven Blades, Three Entrants,” evening **16 Deepfall 13,627 ICE**, upstairs at **Lumenfall Free Adventurers' Guild** after registering three festival entrants. Elys and companions are still in the Guild; event starts 19 Deepfall at Sevenfold Arena. Preliminary brackets announced 17 Deepfall.
+**Save sequence:** 000306  
+**Type:** autonomous played six-chapter Festival of Seven Blades opening round  
+**Recorded:** 2026-11-09  
+**Latest record:** [000306](turns/000306.md)  
+**Checkpoint:** [000306](checkpoints/000306.md)  
+**Aletheia form errata:** [One wholly transforming sentient spear](errata/000299_ALETHEIA_FORM_IDENTITY.md)  
+**Veronica canon:** [Anti-divine purple-haired femme fatale](canon/VERONICA_ANTI_DIVINE_FEMME_FATALE_2026-11-08.md)  
+**Story endpoint:** Chapter CCLXVIII, "The Crimson Gauntlet", evening **19 Deepfall, 13,627 ICE**, Sevenfold Arena at Lumenfall, party of Elys/Veronica/Aletheia present in competitors' gallery. The festival has STARTED, opening rounds underway, **NO championship finalized and NO prizes awarded**.
 
-## Immediate canon
+## Newly played tournament facts
 
-**Intended female S-rank with gloves:** **Captain Vaedra Halden**, crimson-armored S-rank vanguard, scar through LEFT eyebrow, reinforced articulated combat gauntlets/forearm actuators, direct and confident, a previous **Open Division** tournament entrant; NOT Celeste and NOT a newly invented male adventurer. Old rules best-of-three, Open declared mechanical enhancements permitted, no concealed spells or joint damage, safety referee. In newly played Chapter CCLXI **Elys beats Vaedra 2–0 in a fair arm-wrestling match** using no active enhancements or equipment to amplify strength; she has full declared mechanical gauntlets and respect for Elys, no injuries. Vaedra wants a duel where she can use normal combat skills, outcome not predetermined and bracket not known.
+**17 Deepfall preliminary brackets:** Elys registered Unarmed Combat U-07 against A-rank Darric Vale, Open Championship Block C O-12 (opponent awaiting qualifier). Aletheia Armed Duel A-04 versus SS Lady Seris Vaunt, Open Block B O-09 not played. Veronica Tactical Trial T-03 versus SS Commander Elian Marr, Team Exhibition roster not set, Open Block D O-16 not played. Captain Vaedra Halden's placement within Open Block C makes a possible matchup with Elys if both advance.
 
-**Festival of Seven Blades** — independently administered event, NOT a Guild contract. **Location:** Sevenfold Arena, Lumenfall. **Opening:** 19 Deepfall, 13,627 ICE. **Registrar:** Maelis Corven. **Preliminary bracket posting:** 17 Deepfall. Seven disciplines: Unarmed Combat, Armed Duel, Arcane Combat, Artifice, Team Exhibition, Tactical Trial, Open Championship. Voluntary participation with nonlethal/referee rules and declared equipment/powers; **Elys never loses intrinsic absolute invulnerability/negation/full reflection**, no artificial limiting mechanism. No confirmed universal upper power limit. Sealed **grand prize** identity UNKNOWN; possible cash and commissioned gear prizes not yet won. Three festival entries were ACCEPTED:
-- **Elys Somion:** Unarmed Combat; Open Championship.
-- **Aletheia** (ONE physical sentient spear ITM-000001): Armed Duel; Open Championship, can compete as itself without separate wielder.
-- **Veronica**: Tactical Trial; Team Exhibition; Open Championship.
-No fee, gear issue, award, payout, bracket result, or match after Vaedra arm wrestling in this turn.
+**Opening 19 Deepfall at Sevenfold Arena:** Grand Marshal **Ysoria Thane**, presiding adjudicator in white/gold armor; seven floating rings for Unarmed, Armed, Arcane, Artifice, Team, Tactical, Open. Nonlethal competition with declaration of unusual capacities, yielding and referee stoppage; Elys intrinsic powers cannot be stripped or suppressed.
 
-## Party/character rules
+**Confirmed match results:**
+- **ELYS WINS Unarmed U-07** against A-rank martial artist Darric Vale by **safe ring-out**, after allowing talented opponent to demonstrate techniques; not category champion. No injuries.
+- **ALETHEIA WINS Armed A-04** vs SS silver-haired swordmaster Lady Seris Vaunt using whole-body transform **Materia humanoid → sentient Philosopher's Edge spear → Materia humanoid**, no duplicate person or extra weapon, blade point stopped safely before throat; decisive control under referee.
+- **VERONICA WINS Tactical T-03** vs SS Commander Elian Marr in simulated courier recovery objective, intelligence manipulation with no coercive touch, **no simulated casualties, 18 minutes remaining**. Not tactical category champion.
+- **VAEDRA HALDEN WINS Open Block C qualifier** vs SS Arden Sol with refined legal controlled gauntlet strikes; advanced. **Elys has not yet fought Open qualifier.** Only if Elys qualifies will he match Vaedra in next round, not currently a finished duel.
 
-**Elys:** Invulnerable **unconditionally to literally all possible harm** incl. conceptual/ontological/erasure, inherent unlimited negation and FULL reflection, without borrowed sources, cooldown, weakness or bypass; NOT omniscient. Low-profile ancient Emperor on sabbatical, dry ironic humor, genuine serene mercy, narrator may decide ordinary actions and speak for him under explicit user permission; errata overrides.
+**Next scene:** Elys's Block C Open Championship qualifier and whether he advances to meet Vaedra; subsequent rounds of Aletheia/Veronica and optional team exhibition. Sealed grand prize still UNKNOWN; no award or equipment/payout.
 
-**Veronica:** Elys's PRIMARY traveling companion and freely reciprocal romantic partner, intelligent Head of Imperial Intelligence, **vivid-purple-haired voluptuous adult appearing early twenties, fifteen tentacles, anti-divine Cthulhu-like eldritch femme fatale** with sinister/malicious teasing of everybody else and affectionate suggestiveness toward Elys. No sexual coercion enacted. Clarissa remains fiancée; Celeste remains secretly existing divine spouse without disclosure to Clarissa. [Profile canon](canon/VERONICA_ANTI_DIVINE_FEMME_FATALE_2026-11-08.md).
+## Current companions and permanent canon
 
-**Aletheia:** ONE sentient weapon body `ITM-000001`; whole-body mutually exclusive **Materia humanoid / Philosopher's Edge spear / Genesis Loom staff**, never humanoid holding separate spear. Currently humanoid at Guild, independent and gaily sanguine toward actual hostiles, protective of innocents. [Form errata](errata/000299_ALETHEIA_FORM_IDENTITY.md).
+Elys ancient Emperor on sabbatical, **unconditional intrinsic INVULNERABILITY TO ALL attacks/harm including identity/concept/ontological erasure, limitless innate NEGATION and FULL REFLECTION, no bypass/cooldown/item dependence**, **NOT omniscient**, quietly compassionate, ironic. Standing narrator authorization to write Elys routine dialogue/choices, player can errata.
 
-## Ledger
+Veronica Elys's PRIMARY traveling companion/reciprocated romantic partner (not excluding Aletheia), immortal Head of Intelligence, adult early-twenties-looking curvy woman with **VIVID PURPLE HAIR and FIFTEEN prehensile appendages**, anti-divine Cthulhu-like eldritch femme fatale, softly wicked flirting as threat to others and intimate suggestive warmth toward Elys. No erotic coercion. Clarissa fiancée/Celeste preexisting divine spouse undisclosed to Clarissa; previous relationships continue.
 
-- Guild contracts **SSS-004 ₡14M**, **VEIL-09-R ₡9M**, **S-118 ₡75k** each completed/paid ONCE; no current active Guild contract. Festival registration is distinct, not a contract; no payout or spending this turn. Exact total balance UNKNOWN.
-- Equipment `ITM-000001` Aletheia humanoid, `ITM-000002` Aegis 100/100 worn, `ITM-000003` Forge Core 100/100, `ITM-000004` Last Witness unique in relic core; `ITM-000005` Sixfold Harmonic Resonator, `ITM-000006` Horizon Needle and `ITM-000007` Foldglass Wayfinder separately unequipped and stored in Forge Core. Next item sequence 8.
-- 23 historic transferred Light-Born: 15 living medically protected, eight verified dead; Asterion operation closed, ancient fixed beacon stabilizer remains. *Madrigal* nine crew: three survived, six dead. Government and Somnus relationships unchanged.
-- Vaedra registered separately in Open Division but exact 19 Deepfall bracket pairing unknown.
+Aletheia ONE sentient physical weapon `ITM-000001` transforming mutually exclusively into Materia humanoid / Philosopher's Edge spear / Genesis Loom staff. NEVER separate human carrying spear. Current form **Materia humanoid** in Sevenfold spectator gallery, joyous at hostile competition but respects referee safety, independent agency.
 
-## Next natural scene
+**Guild contracts:** SSS-004 ₡14M, VEIL-09-R ₡9M, S-118 ₡75k each settled ONCE before festival; no active Guild contracts and Festival independently administered. Total personal balance unknown. **No tournament payout or entry cost, no equipment acquisition, next item ID8**. Aegis/Forge Core 100%, Last Witness uniquely equipped in relic core, Sixfold Resonator, Horizon Needle and Foldglass Wayfinder uniquely stored unequipped.
 
-Lumenfall Guild after registration, with Vaedra nearby; possible pre-festival social/strategy and bracket posting on 17 Deepfall, travel to Sevenfold Arena on 19 Deepfall. No sudden Guild contract or festival victory without played matches.
+**Older arcs:** Asterion closed (15 historic Light-Born alive protected, eight dead), fixed stabilizer monitoring, director Rook alive in lawful custody; Madrigal three survivors/six dead. Vaedra remains S-rank scarred left eyebrow with crimson armor and articulated actuator gauntlets; prior arm wrestling Elys 2–0, no proper Elys-versus-Vaedra duel yet.
+
+## Location/time next
+Sevenfold Arena, Lumenfall, evening 19 Deepfall 13,627 ICE. The afternoon opening bouts concluded, crowd cheering. Elys may fight upcoming Open qualifier; Vaedra is already advanced waiting on bracket. No automatic win/qualification without narrated result.
