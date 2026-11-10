@@ -23,3 +23,5 @@ Browser tests use Chromium desktop and touch viewport emulation, not physical iO
 - Dedicated quest UI regression passes 1440x900 desktop, 390x844 touch portrait, 844x390 touch landscape in installed Chrome: locked final quest, actual claim, immediate persisted reward, claimed disabled status, zero page errors. Portrait screenshot inspected: readable single-column cards, reward/hint text wraps within panel.
 - Screenshots: `.artifacts/intro-quest-1440.png`, `intro-quest-390.png`, `intro-quest-844.png`.
 - Tests were run via direct Node commands; npm test stalled under environment proxy/telemetry constraints. Initial browser attempt was interrupted by blocked telemetry; approved local Chrome run succeeded.
+
+- Full existing tests/browser.mjs completed successfully (exit 0), including artisan, desktop/mobile hydroponics, microvoxel and finite geology processing/crafting flows.
