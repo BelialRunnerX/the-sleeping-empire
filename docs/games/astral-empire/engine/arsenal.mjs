@@ -75,6 +75,7 @@ export const ARMOR_FORMS = {
   },
 };
 export const ITEM_FRAMES = {
+  assay: { label: "Cobalt assay optics", description: "+1 gathered material before fibre Fortune; ascension strengthens yield.", yield: 1 },
   cultivator: {
     label: "Fortune harvest lattice",
     description: "Fibre Fortune 1; each Prospector ascension adds 1 Fortune. Multiplies the complete fibre yield and independently rolls cultivated seed returns.",

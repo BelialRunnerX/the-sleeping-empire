@@ -2,6 +2,26 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.13 - Core Materials
+
+Use **Industry > Core drilling** or approach the new Dawnwake rig at **x-1, z22**.
+Build it with 3 stone, 2 legacy cobalt and 2 timber. Extract finite cobalt cells,
+then survey adjacent borefields when one is depleted. Mining mastery, equipment,
+Artisan and Luck compound with recovery. Each extraction has a 2.5-second cooldown.
+
+At the built Foundry, refine **canonical raw cobalt + timber** into a canonical
+cobalt ingot. Two ingots, two field cord and one circuitry craft a rank-4
+**Cobalt assay lens** armor harness. Equipped assay optics add gathering yield
+before fibre Fortune, so the harness combines with a Cultivator charm rather
+than replacing it. Existing legacy cobalt/billet recipes stay distinct.
+
+This is an explicitly temporary **remote surface-drill adapter**, not walkable
+underground terrain. Source-derived ore identities, placement bands and finite
+save-backed depletion are connected to a complete browser crafting loop. Only
+cobalt is enabled for this first playable slice; the full catalogue is not a
+claim that every material can currently be obtained. Existing saves migrate
+without reset, and unknown valid canonical resource IDs are preserved.
+
 ## Version 3.12 · Microvoxel Field Trial
 
 A rounded microvoxel outcrop sits south of Dawnwake at **x0, z14**. Approach

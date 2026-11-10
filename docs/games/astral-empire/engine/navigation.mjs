@@ -1,4 +1,5 @@
 import { cottages } from "./frontier.mjs";
+import { CORE_DRILL } from "./geology-field.mjs";
 import { NURSERY } from "./nursery.mjs";
 import { OUTCROP, boxOccupied } from "./microvoxels.mjs";
 
@@ -6,6 +7,7 @@ export function obstacles(state, layout, tiles = []) {
   const streamed = [...tiles];
   return [
     ...(state.realm === "bastion" ? [{ ...OUTCROP, microStore: state.microvoxels }] : []),
+    ...(state.realm === "bastion" ? [CORE_DRILL] : []),
     ...(state.realm === "bastion" && state.nursery?.tier ? [NURSERY] : []),
     ...cottages,
     ...layout.structures,

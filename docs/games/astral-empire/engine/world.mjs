@@ -11,6 +11,7 @@ import { surface } from "./surfaces.mjs";
 import { equippedForm } from "./arsenal.mjs";
 import { FIBRE_PLANTS } from "./ecology.mjs";
 import { animateFieldProp, FieldDressing, fieldProp } from "./field-art.mjs";
+import { createCoreDrillView } from "./geology-ui.mjs";
 import { createNurseryView } from "./nursery-view.mjs";
 import { createMicrovoxelView } from "./microvoxel-view.mjs";
 const color = (hex) => new T.Color(hex);
@@ -146,6 +147,7 @@ export class WorldView {
     this.art.sanctuary();
     this.createScenery();
     this.workstations = new WorkstationView(this.scene, state, this.art);
+    this.coreDrill = state.realm === "bastion" ? createCoreDrillView(this.scene, this.art, this.height) : null;
     this.nursery = state.realm === "bastion"
       ? createNurseryView(this.scene, this.art, this.height) : null;
     this.microvoxels = state.realm === "bastion"
@@ -716,6 +718,7 @@ export class WorldView {
   interactables() {
     const now = Date.now();
     return [
+      ...(this.coreDrill ? [this.coreDrill] : []),
       ...(this.nursery ? [this.nursery.target] : []),
       ...(this.microvoxels ? [this.microvoxels.target] : []),
       ...this.features.filter(

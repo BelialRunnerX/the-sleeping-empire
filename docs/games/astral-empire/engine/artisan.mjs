@@ -36,6 +36,7 @@ export const STATIONS = [
   },
 ];
 export const PROCESS_RECIPES = [
+  { id: "source-cobalt-ingot", name: "Canonical cobalt ingot", station: "foundry", first: { id: "elysiumores:raw_cobalt", count: 1 }, second: { id: "timber", count: 1 }, output: { id: "elysiumores:cobalt_ingot", count: 1 }, seconds: 10, profession: "smithing", xp: 20, tier: 1 },
   {
     id: "refine-gold",
     name: "Gold ingot",
@@ -146,6 +147,7 @@ export const PROCESS_RECIPES = [
   },
 ];
 export const MATERIAL_NAMES = {
+  "elysiumores:raw_cobalt": "raw cobalt (canonical)", "elysiumores:cobalt_ingot": "cobalt ingot (canonical)",
   goldShard: "Gold shards",
   silverShard: "Silver shards",
   redstone: "Redstone",

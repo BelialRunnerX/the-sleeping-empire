@@ -7,6 +7,7 @@ import assert from "node:assert/strict";
 import { testArtisanFlow } from "./artisan-browser.mjs";
 import { testNurseryFlow } from "./nursery-browser.mjs";
 import { testMicrovoxelFlow } from "./microvoxels-browser.mjs";
+import { testGeologyFlow } from "./geology-browser.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url)),
   artifacts = resolve(root, ".artifacts");
 await mkdir(artifacts, { recursive: true });
@@ -74,7 +75,10 @@ await page.route(/https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) =>
   route.abort(),
 );
 try {
-  if (process.env.MICROVOXEL_ONLY === "1") {
+  if (process.env.GEOLOGY_ONLY === "1") {
+    await page.close();
+    await testGeologyFlow(browser, url, artifacts);
+  } else if (process.env.MICROVOXEL_ONLY === "1") {
     await page.close();
     await testMicrovoxelFlow(browser, url, artifacts);
   } else if (process.env.NURSERY_ONLY === "1") {
@@ -431,6 +435,7 @@ try {
     await testArtisanFlow(browser, url, artifacts);
     await testNurseryFlow(browser, url, artifacts);
     await testMicrovoxelFlow(browser, url, artifacts);
+    await testGeologyFlow(browser, url, artifacts);
     console.log(
       "Browser checks passed: WebGL/WASM startup, profile creation, movement, harvesting, support links, passives, workshop, skills, logout/login, reload, mobile layout, offline reload.",
     );

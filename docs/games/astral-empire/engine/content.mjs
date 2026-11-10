@@ -622,6 +622,7 @@ export const PROFESSIONS = [
   },
 ];
 export const RECIPES = [
+  { id: "cobalt-assay-lens", name: "Cobalt assay lens", itemName: "Cobalt assay lens", type: "armor", form: "light", frame: "assay", profession: "fabrication", level: 4, cost: { "elysiumores:cobalt_ingot": 2, fieldCord: 2, circuitry: 1 }, desc: "Survey harness: +1 gathering yield before Fortune. Stacks with a Cultivator charm." },
   {
     id: "loomflax-cord", name: "Field cord · Loomflax",
     cost: { loomflaxFibre: 3 }, result: "fieldCord", count: 1,

@@ -91,3 +91,31 @@ The corresponding Java/NeoForge files should be translated by behavior and teste
 The former game remains available as `classic.html`, and its 19 regression checks still run against that page. New Aetherbound saves use version 3 keys; earlier saves remain intact. Migration imports suitable hero/equipment/material data into the action RPG. Old tile edits are not claimed to become 3D terrain changes.
 
 The project remains a static game subpage. No root-site lore/navigation changes, remote account service, multiplayer server, paid infrastructure, or real-money system were introduced.
+
+## 3.13 canonical geology integration
+
+The runtime material catalogue and ore manifest are generated from Elysium-mono
+commit c0ebd4692c4e95964149a119bd5fff7a4f9d4ea4. Their metadata retain the source
+repository/commit and ore placement file paths. The identity foundation contains 631 canonical entries and
+255 ore placement records; unresolved tags are not invented. Only cobalt is
+currently exposed through a complete playable loop.
+
+The ore adapter preserves rarity-band size/attempt counts, height bounds, host
+matching, biome selectors and family availability gates. Each sampling unit is
+a 16x16 horizontal column across the source height range, not repeated attempts
+per vertical cube. Seeded random-walk veins and overlap ownership are browser
+adaptations, not Minecraft's exact generator. The temporary immutable strata
+model supplies deepslate at Y<=0, stone above and overworld biome membership.
+It is separate from the rendered heightfield. Deposits are depleted by stable
+version/seed/realm/column/feature/attempt/cell identity and never timer-respawn.
+
+CordonMaterials/OreDrops support canonical raw cobalt. Source smelting's
+raw-cobalt-to-ingot 1:1 ratio and 200-tick/10-second duration are represented by
+the existing browser Foundry queue. Timber fuel, core rig cost/cooldown, remote
+directional access, player-yield bonuses and the assay harness recipe are newly
+authored browser gameplay. Legacy cobalt is not silently converted.
+
+Direct mineable underground subvoxel terrain, physical ore cells, caves, base
+Minecraft strata/material obtainability, tool gates and full recipe closure
+remain unfinished. The drill is an additive extraction alternative, not a
+substitute or postponement of that terrain work.

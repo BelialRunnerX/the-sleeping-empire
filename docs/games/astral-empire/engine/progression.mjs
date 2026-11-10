@@ -13,6 +13,7 @@ import { numeric } from "./native.mjs";
 import { normalizeExploration } from "./frontier.mjs";
 import { FIBRE_PLANTS, fibreYield, fortuned } from "./ecology.mjs";
 import { cropReadyAt, nearNursery, normalizeNursery } from "./nursery.mjs";
+import { normalizeGeology, preserveCanonicalResources, RAW_COBALT, COBALT_INGOT } from "./geology-field.mjs";
 import { normalizeMicrovoxels } from "./microvoxels.mjs";
 import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
 import { GEODE_MATERIALS, GEODE_GROWTH_MS } from "./geodes.mjs";
@@ -82,6 +83,7 @@ export function makeItem(seed, level = 1, slot = "weapon", rarity = "rare") {
   };
 }
 export function freshState(seed = 438102) {
+  if (!Number.isSafeInteger(seed)) seed = 438102;
   return {
     version: 3,
     seed,
@@ -104,6 +106,7 @@ export function freshState(seed = 438102) {
     life: 300,
     mana: 120,
     resources: {
+      [RAW_COBALT]: 0, [COBALT_INGOT]: 0,
       cobalt: 0,
       stone: 0,
       timber: 0,
@@ -135,6 +138,7 @@ export function freshState(seed = 438102) {
     },
     nursery: normalizeNursery(),
     microvoxels: normalizeMicrovoxels(),
+    geology: normalizeGeology(null, seed),
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
       makeItem(seed, 1, "weapon", "magic"),
@@ -202,8 +206,9 @@ export function migrateState(input) {
       : fresh.heroes;
     if (!s.heroes.includes(s.hero)) s.heroes.push(s.hero);
     s.resources = { ...fresh.resources };
-    for (const k of Object.keys(fresh.resources))
+    for (const k of Object.keys(fresh.resources).filter(k => !k.includes(":")))
       s.resources[k] = clamp(Math.floor(finite(input.resources?.[k])), 0, 1e8);
+    preserveCanonicalResources(s.resources, input.resources);
     s.professions = { ...fresh.professions };
     for (const k of Object.keys(fresh.professions))
       s.professions[k] = clamp(finite(input.professions?.[k]), 0, 1e8);
@@ -315,6 +320,7 @@ export function migrateState(input) {
     s.production = normalizeProduction(input.production);
     s.nursery = normalizeNursery(input.nursery);
     s.microvoxels = normalizeMicrovoxels(input.microvoxels);
+    s.geology = normalizeGeology(input.geology, fresh.seed);
     s.seed = fresh.seed;
     s.exploration = normalizeExploration(input.exploration, s.seed);
     return s;
@@ -431,6 +437,7 @@ export function stats(s, now = Date.now()) {
     if (item.ascensionPath === "harvest")
       v.luckChance = 1 - (1 - v.luckChance) * (1 - tier * 0.04);
     const frame = ITEM_FRAMES[item.frame];
+    if (frame?.yield) v.yield += frame.yield * (1 + tier * .07);
     if (frame?.fortune) v.fortune += frame.fortune + (item.ascensionPath === "harvest" ? tier : 0);
     if (frame?.luck) v.luckChance = 1 - (1 - v.luckChance) * (1 - frame.luck);
     if (frame?.reflect)

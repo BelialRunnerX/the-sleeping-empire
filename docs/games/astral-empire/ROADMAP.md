@@ -72,3 +72,14 @@ Prioritize repeatable depth in the next releases: distinct item bases and tiers 
 ## Release gates
 
 Each milestone should ship as a working loop with migration tests and a browser integration check. The first networked milestone should prove two authenticated clients can share a zone and persist a validated inventory change through server restart. The first economy milestone should prove duplicate/replayed reward requests cannot create additional value. Content count alone is not a readiness gate.
+
+### After 3.13 core-material adapter
+
+- Continue direct subvoxel terrain visibility, streaming, 3D collision and
+  underground access; retain the core drill as an alternative, not the world.
+- Connect canonical ore IDs/depletion to actual mineable terrain cells, then
+  expand material families only alongside complete tool/station/recipe loops.
+- Implement missing base Minecraft materials explicitly; use obtainability
+  closure checks with real roots and report unsupported dynamic recipes.
+- Promote compounding cultivation, yield gear, Fortune, manufacturing and
+  world-pressure interactions rather than neutralizing them with arbitrary caps.
