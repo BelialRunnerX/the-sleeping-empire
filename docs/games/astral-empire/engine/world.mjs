@@ -87,7 +87,7 @@ export class WorldView {
       Math.min(devicePixelRatio, GRAPHICS[visuals.quality].pixelRatio),
     );
     this.renderer.shadowMap.type = T.PCFSoftShadowMap;
-    this.renderer.setSize(innerWidth, innerHeight);
+    this.renderer.setSize(canvas.clientWidth || innerWidth, canvas.clientHeight || innerHeight, false);
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.04;
@@ -171,9 +171,12 @@ export class WorldView {
     this.updateCamera(0, {});
     this.resize = () => {
       this.updateFrustum();
-      this.renderer.setSize(innerWidth, innerHeight);
+      this.renderer.setSize(this.canvas.clientWidth || innerWidth, this.canvas.clientHeight || innerHeight, false);
     };
     addEventListener("resize", this.resize);
+    this.viewportObserver = new ResizeObserver(this.resize);
+    this.viewportObserver.observe(this.canvas);
+    globalThis.visualViewport?.addEventListener("resize", this.resize);
   }
   get yaw() {
     return this.rig.yaw;
@@ -217,7 +220,7 @@ export class WorldView {
     this.camera.updateMatrixWorld();
   }
   updateFrustum() {
-    this.camera.aspect = innerWidth / innerHeight;
+    this.camera.aspect = (this.canvas.clientWidth || innerWidth) / (this.canvas.clientHeight || innerHeight);
     this.camera.updateProjectionMatrix();
   }
   createTerrain(tile) {
@@ -361,7 +364,7 @@ export class WorldView {
     this.visuals = { ...settings };
     const preset = GRAPHICS[settings.quality] || GRAPHICS.balanced;
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, preset.pixelRatio));
-    this.renderer.setSize(innerWidth, innerHeight);
+    this.renderer.setSize(this.canvas.clientWidth || innerWidth, this.canvas.clientHeight || innerHeight, false);
     this.renderer.shadowMap.enabled = this.sun.castShadow = !!preset.shadow;
     if (this.sun.shadow.mapSize.x !== preset.shadow && this.sun.shadow.map) {
       this.sun.shadow.map.dispose();
@@ -1321,6 +1324,8 @@ export class WorldView {
   dispose() {
     this.microvoxels?.dispose();
     removeEventListener("resize", this.resize);
+    this.viewportObserver?.disconnect();
+    globalThis.visualViewport?.removeEventListener("resize", this.resize);
     const geometrySet = new Set(),
       materialSet = new Set();
     this.scene.traverse((o) => {

@@ -1,43 +1,54 @@
-/* Input capability, not viewport width, selects the touch layout. */
-html, body { height: 100%; height: 100dvh; overscroll-behavior: none; }
-.device-controls { position: absolute; top: calc(64px + env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); display:flex; gap:6px; align-items:flex-start; pointer-events:auto; z-index:30; }
-.device-controls button, .device-controls summary { min-height:44px; padding:10px; font-size:12px; }
-.device-controls details { background:#142638ed; border:1px solid #8bd7e766; border-radius:8px; }
-.device-controls summary { cursor:pointer; }
-.device-controls details[open] { width:min(280px,75vw); }
-.device-controls label, .device-controls p { display:block; margin:10px; font-size:12px; }
-.device-controls select { display:block; width:100%; min-height:44px; }
-.touch-actions { display:none; }
-html[data-controls="desktop"] .touch-pad { display:none !important; }
-html[data-controls="touch"] .touch-pad { display:grid; position:absolute; bottom:calc(20px + env(safe-area-inset-bottom)); left:max(10px,env(safe-area-inset-left)); grid-template-columns:repeat(3,44px); grid-template-rows:repeat(2,44px); gap:3px; }
-html[data-controls="touch"] .touch-pad button { min-width:44px; min-height:44px; padding:0; touch-action:none; }
-html[data-controls="touch"] .touch-pad button:nth-child(1) {grid-column:2;grid-row:1;}
-html[data-controls="touch"] .touch-pad button:nth-child(2) {grid-column:1;grid-row:2;}
-html[data-controls="touch"] .touch-pad button:nth-child(3) {grid-column:2;grid-row:2;}
-html[data-controls="touch"] .touch-pad button:nth-child(4) {grid-column:3;grid-row:2;}
-html[data-controls="touch"] .touch-pad button:nth-child(5) {grid-column:1;grid-row:1;}
-html[data-controls="touch"] .touch-pad button:nth-child(6) {grid-column:3;grid-row:1;}
-html[data-controls="touch"] .touch-actions { display:flex;position:absolute;right:max(10px,env(safe-area-inset-right));bottom:calc(145px + env(safe-area-inset-bottom));gap:4px; }
-.touch-actions button {min-width:44px;min-height:44px;touch-action:none;padding:8px;font-size:11px;}
-html[data-controls="touch"] .bottom-hud {bottom:env(safe-area-inset-bottom);}
-html[data-controls="touch"] .control-hints {display:none;}
-body:has(#panels:not([hidden])) .touch-actions, body:has(#panels:not([hidden])) .touch-pad {visibility:hidden;}
-@media(max-width:760px) { html[data-controls="touch"] .skillbar {margin-left:150px;} html[data-controls="touch"] .skill {min-width:40px;width:40px;} .panel-window {max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px);} }
-@media(max-height:500px) { .device-controls {top:max(8px,env(safe-area-inset-top));right:max(140px,env(safe-area-inset-right));} }
-html[data-controls="touch"] .touch-actions {bottom:calc(120px + env(safe-area-inset-bottom));}
-html[data-controls="touch"] .camera-dock {bottom:calc(180px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px);flex-wrap:wrap;}
-html[data-controls="touch"] .camera-dock button {min-height:44px;min-width:36px;}
-@media(max-width:760px) {
-  html[data-controls="touch"] .bottom-hud > div:nth-child(2) {width:calc(100% - 148px);}
-  html[data-controls="touch"] .skillbar {margin-left:0;justify-content:flex-start;overflow-x:auto;padding-bottom:4px;}
-  html[data-controls="touch"] .skill {flex-shrink:0;min-height:44px;}
-  html[data-controls="touch"] .menu-dock button {min-width:44px;min-height:44px;}
-  html[data-controls="touch"] .atelier-launch {bottom:240px;}
-}
-html[data-controls="touch"] .camera-dock {width:calc(100vw - 24px);max-width:460px;box-sizing:border-box;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;}
-html[data-controls="touch"] .camera-dock button {flex-shrink:0;}
-html[data-controls="touch"] .artisan-shortcut {bottom:calc(240px + env(safe-area-inset-bottom));min-height:44px;}
+/* One viewport and explicit touch zones: no overlapping desktop toolbar stack. */
+html,body {height:100%;height:100dvh;width:100%;margin:0;overflow:hidden;overscroll-behavior:none;}
+#world {display:block;width:100% !important;height:100% !important;}
+.device-controls {position:absolute;top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));z-index:50;pointer-events:auto;}
+.device-controls details {background:#142638f5;border:1px solid #8bd7e766;border-radius:8px;}
+.device-controls summary,.device-controls button {min-height:44px;padding:10px;font-size:12px;}
+.device-controls details[open] {width:min(320px,calc(100vw - 24px));max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow-y:auto;box-sizing:border-box;}
+.device-controls label,.device-controls p {display:block;margin:10px;font-size:12px;}
+.device-controls select {display:block;width:100%;min-height:44px;font-size:16px;}
+.close-controls {display:block;width:calc(100% - 20px);margin:10px;}
+.touch-actions {display:none;}
+html[data-controls="desktop"] .touch-pad {display:none!important;}
+html[data-controls="touch"] #hud {--safe-bottom:max(8px,env(safe-area-inset-bottom));--safe-left:max(8px,env(safe-area-inset-left));--safe-right:max(8px,env(safe-area-inset-right));}
+html[data-controls="touch"] .top-hud {left:var(--safe-left);right:100px;top:max(8px,env(safe-area-inset-top));height:44px;}
+html[data-controls="touch"] .world-title b {font-size:22px;}
+html[data-controls="touch"] .world-title .kicker,html[data-controls="touch"] .world-title small,html[data-controls="touch"] .realm-status {display:none;}
+html[data-controls="touch"] .character-hud {top:calc(60px + env(safe-area-inset-top));left:var(--safe-left);width:190px;}
+html[data-controls="touch"] .portrait-mark {width:32px;height:40px;font-size:24px;}
+html[data-controls="touch"] .character-info {width:145px;}
+html[data-controls="touch"] .map-hud {top:calc(60px + env(safe-area-inset-top));right:var(--safe-right);width:70px;}
+html[data-controls="touch"] .map-hud canvas {width:70px;height:70px;}
+html[data-controls="touch"] .map-hud b {font-size:7px;}
+html[data-controls="touch"] .objective-hud {left:var(--safe-left);top:calc(132px + env(safe-area-inset-top));width:210px;padding:6px;}
+html[data-controls="touch"] .objective-hud .kicker,html[data-controls="touch"] .objective-hud p {display:none;}
+html[data-controls="touch"] .objective-hud h3 {font-size:15px;margin:0;}
+html[data-controls="touch"] .objective-hud button {min-height:44px;}
+html[data-controls="touch"] .touch-pad {display:grid;position:absolute;left:var(--safe-left);bottom:var(--safe-bottom);grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px);gap:4px;}
+html[data-controls="touch"] .touch-pad button {width:44px;height:44px;padding:0;touch-action:none;}
+html[data-controls="touch"] .touch-pad button:nth-child(1){grid-area:1/2;}
+html[data-controls="touch"] .touch-pad button:nth-child(2){grid-area:2/1;}
+html[data-controls="touch"] .touch-pad button:nth-child(3){grid-area:2/2;}
+html[data-controls="touch"] .touch-pad button:nth-child(4){grid-area:2/3;}
+html[data-controls="touch"] .touch-pad button:nth-child(5){grid-area:1/1;}
+html[data-controls="touch"] .touch-pad button:nth-child(6){grid-area:1/3;}
+html[data-controls="touch"] .touch-actions {display:flex;position:absolute;bottom:calc(112px + var(--safe-bottom));right:var(--safe-right);gap:4px;}
+.touch-actions button {min-width:44px;height:44px;padding:6px;font-size:11px;touch-action:none;}
+html[data-controls="touch"] .bottom-hud {position:absolute;left:auto;right:var(--safe-right);bottom:var(--safe-bottom);width:calc(100% - 164px - var(--safe-right));max-width:300px;display:block;}
+html[data-controls="touch"] .bottom-hud > div {width:100%;min-width:0;}
+html[data-controls="touch"] .hero-switch,html[data-controls="touch"] .control-hints {display:none;}
+html[data-controls="touch"] .skillbar {display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));gap:4px;margin:0;min-width:0;}
+html[data-controls="touch"] .skill,html[data-controls="touch"] .skill.potion {width:100%;min-width:0;height:44px;margin:0;}
+html[data-controls="touch"] .skill > span {font-size:22px;}
+html[data-controls="touch"] .skill kbd {font-size:8px;}
+html[data-controls="touch"] .experience {margin-top:3px;}
+html[data-controls="touch"] .device-controls .camera-dock,html[data-controls="touch"] .device-controls .menu-dock,html[data-controls="touch"] .device-controls .artisan-shortcut {position:static;transform:none;width:auto;max-width:none;margin:10px;display:flex;flex-wrap:wrap;gap:4px;}
+html[data-controls="touch"] .device-controls .camera-dock button,html[data-controls="touch"] .device-controls .menu-dock button {min-width:44px;min-height:44px;}
+html[data-controls="touch"] #interaction {bottom:calc(166px + var(--safe-bottom));left:50%;width:min(260px,calc(100% - 20px));min-width:0;padding:6px;font-size:11px;pointer-events:none;}
+html[data-controls="touch"] #interaction kbd {display:none;}
+html[data-controls="touch"] #notifications {bottom:calc(218px + var(--safe-bottom));max-width:230px;}
+body:has(#panels:not([hidden])) .touch-actions,body:has(#panels:not([hidden])) .touch-pad {visibility:hidden;}
 @media(max-height:500px) {
-  html[data-controls="touch"] .artisan-shortcut {bottom:calc(120px + env(safe-area-inset-bottom));}
-  html[data-controls="touch"] .quest-hud {display:none;}
+ html[data-controls="touch"] .objective-hud,html[data-controls="touch"] .map-hud {display:none;}
+ html[data-controls="touch"] .character-hud {top:calc(52px + env(safe-area-inset-top));}
 }

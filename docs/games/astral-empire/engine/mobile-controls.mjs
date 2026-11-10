@@ -14,6 +14,19 @@ export function installMobileControls(doc = document, win = window) {
   const bar=doc.createElement('div'); bar.className='device-controls';
   bar.innerHTML='<button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">Fullscreen</button><details id="control-options"><summary>Controls</summary><label>Input layout<select id="control-scheme"><option value="auto">Auto detect</option><option value="touch">Touch / on-screen</option><option value="desktop">Keyboard / controller</option></select></label><p>Touch: pad moves; drag the world to look, pinch to zoom. A connected controller hides touch controls in Auto.</p><p id="fullscreen-help" role="status"></p></details>';
   hud.append(bar);
+  const options=bar.querySelector('details');
+  const fullButton=bar.querySelector('#fullscreen-toggle');
+  options.insertBefore(fullButton,options.querySelector('label'));
+  const close=doc.createElement('button');close.type='button';close.textContent='Back to game';close.className='close-controls';options.append(close);
+  close.addEventListener('click',()=>options.open=false);
+  options.addEventListener('click',e=>{if(e.target.closest('[data-panel]'))options.open=false;});
+  doc.addEventListener('keydown',e=>{if(e.key==='Escape')options.open=false;});
+  doc.addEventListener('pointerdown',e=>{if(options.open&&!bar.contains(e.target))options.open=false;});
+  const movable=['.camera-dock','.menu-dock','.artisan-shortcut'].map(selector=>{
+    const node=doc.querySelector(selector);if(!node)return null;
+    const marker=doc.createComment('control-home');node.before(marker);return {node,marker};
+  }).filter(Boolean);
+
   const select=bar.querySelector('select');select.value=preference;
   const full=bar.querySelector('#fullscreen-toggle'), help=bar.querySelector('#fullscreen-help');
   const actions=doc.createElement('div');actions.className='touch-actions';
@@ -23,11 +36,13 @@ export function installMobileControls(doc = document, win = window) {
   const emit=(type,k)=>doc.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true}));
   const release=()=>{for(const k of held.values())emit('keyup',k);held.clear();for(const k of ['w','a','s','d'])emit('keyup',k);};
   for(const button of actions.querySelectorAll('button')) {
-    button.addEventListener('pointerdown',e=>{e.preventDefault();const k=button.dataset.touchKey;held.set(e.pointerId,k);emit('keydown',k);button.setPointerCapture(e.pointerId);});
+    button.addEventListener('pointerdown',e=>{e.preventDefault();const k=button.dataset.touchKey;held.set(e.pointerId,k);emit('keydown',k);if(button.hasPointerCapture?.(e.pointerId)===false){try{button.setPointerCapture(e.pointerId);}catch{}}});
     for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,e=>{const k=held.get(e.pointerId);if(k)emit('keyup',k);held.delete(e.pointerId);});
   }
   const pads=()=>{try{return [...(win.navigator.getGamepads?.()||[])].some(p=>p?.connected);}catch{return false;}};
-  const apply=()=>{release();doc.documentElement.dataset.controls=resolveControlScheme(preference,detectMobile(win),pads());};
+  const apply=()=>{release();const scheme=resolveControlScheme(preference,detectMobile(win),pads());doc.documentElement.dataset.controls=scheme;
+    for(const {node,marker} of movable) {if(scheme==='touch')options.insertBefore(node,close);else marker.after(node);}
+    options.open=false;};
   select.addEventListener('change',()=>{preference=select.value;try{win.localStorage.setItem(key,preference);}catch{}apply();});
   win.addEventListener('gamepadconnected',apply);win.addEventListener('gamepaddisconnected',apply);
   const coarse=win.matchMedia('(pointer: coarse)');coarse.addEventListener?.('change',apply);
