@@ -5,23 +5,28 @@ import { clone } from "../vendor/SkeletonUtils.js";
 import { CHUNK_SIZE, fieldNoise } from "./chunks.mjs";
 import { FIELD_ANIMALS, localWildlife } from "./ecology.mjs";
 import { walk } from "./navigation.mjs";
+import { createLumiMotion, updateLumiMotion } from "./creature-motion.mjs";
 
 const templates = new Map();
 let loading;
 export function loadFieldArt() {
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   return (loading ??= Promise.allSettled(
-    ["grass", "boulder", "fibre-plant", "fenstag", "brackhide", "shearjaw"].map(
+    ["grass", "boulder", "fibre-plant", "fenstag", "brackhide", "shearjaw", "orbi"].map(
       async (id) => {
         const { scene, animations } = await loader.loadAsync(
-          new URL("../assets/field/" + id + ".glb", import.meta.url).href,
+          new URL(id === "fenstag" ? "../assets/creatures/lumi-deer-lod1.glb" : id === "orbi" ? "../assets/creatures/orbi-runtime.glb" : "../assets/field/" + id + ".glb", import.meta.url).href,
         );
+        if (id === "fenstag") scene.rotation.y = -Math.PI / 2; // authored +X -> movement +Z
+        scene.updateMatrixWorld(true);
         const bounds = new T.Box3().setFromObject(scene, true);
         if (bounds.isEmpty()) throw Error("Empty field asset " + id);
         scene.traverse((mesh) => {
           if (mesh.isMesh) mesh.userData.sharedFieldAsset = true;
         });
-        templates.set(id, { scene, bounds, animations });
+        let skinned = false;
+        scene.traverse((node) => { if (node.isSkinnedMesh) skinned = true; });
+        templates.set(id, { scene, bounds, animations, skinned });
       },
     ),
   ));
@@ -30,9 +35,9 @@ export function loadFieldArt() {
 export function fieldProp(id, height, tint) {
   const template = templates.get(id);
   if (!template) return null;
-  const { scene, bounds, animations } = template;
+  const { scene, bounds, animations, skinned } = template;
   const root = new T.Group();
-  const object = animations.length ? clone(scene) : scene.clone();
+  const object = animations.length || skinned ? clone(scene) : scene.clone();
   const center = bounds.getCenter(new T.Vector3());
   const scale = height / (bounds.max.y - bounds.min.y);
   object.scale.multiplyScalar(scale);
@@ -41,6 +46,7 @@ export function fieldProp(id, height, tint) {
     scale,
   );
   root.add(object);
+  if (id === "fenstag") root.userData.lumiMotion = createLumiMotion(object);
   if (tint)
     object.traverse((mesh) => {
       if (!mesh.isMesh || Array.isArray(mesh.material)) return;
@@ -59,6 +65,7 @@ export function fieldProp(id, height, tint) {
 }
 
 export function animateFieldProp(root, name, dt) {
+  if (root?.userData.lumiMotion) { updateLumiMotion(root.userData.lumiMotion, name, dt); return; }
   const animation = root?.userData.fieldAnimation;
   const action = animation?.clips.get(name);
   if (!action) return;

@@ -31,11 +31,11 @@ export function fibrePatch(realm, id, species, x, z) {
 
 export const FIELD_ANIMALS = {
   fenstag: {
-    height: 1.6,
+    height: 3.8, // includes tall crystal antlers; torso remains below the 3-block player
     speed: 3.2,
     flight: 8,
     run: "Gallop",
-    tint: 0xc2d9c8,
+    tint: null, // preserve the authored ivory, gold and cyan materials
   },
   brackhide: { height: 0.9, speed: 2.4, flight: 5, run: "Run", tint: 0xbeb0ba },
 };

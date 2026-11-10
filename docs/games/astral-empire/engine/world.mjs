@@ -938,7 +938,8 @@ export class WorldView {
     for (const e of this.sim.enemies) {
       if (this.foes.has(e.id)) continue;
       const g = new T.Group();
-      const beast = e.archetype === "shearjaw" ? fieldProp("shearjaw", 1.4, 0xa8c8e0) : null;
+      const beast = e.archetype === "shearjaw" ? fieldProp("shearjaw", 1.4, 0xa8c8e0) : e.archetype === "drone" ? fieldProp("orbi", 0.95) : null;
+      if (beast && e.archetype === "drone") beast.position.y = 1.45;
       {
         const dark = e.training
             ? 0x92775b
