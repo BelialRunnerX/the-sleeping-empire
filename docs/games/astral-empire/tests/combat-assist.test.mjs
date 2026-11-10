@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {updateCombatAssist} from '../engine/combat-assist.mjs';
+import {Simulation,freshState,skillStats} from '../engine/simulation.mjs';
+const setup=()=>{const s=freshState(),sim=new Simulation(s);sim.enemies=[];const p=sim.player,e=sim.spawn('assist',p.x+1,p.z);e.hp=9999;return {s,sim,e};};
+test('auto target selects live nearest, auto fire preserves normal cooldown',()=>{const {s,sim,e}=setup();const range=skillStats(s,'strike').range;assert.equal(updateCombatAssist(sim,{autoTarget:true,range}),true);assert.equal(sim.locked,e);const cd=sim.cooldowns.strike,mana=sim.player.mana;assert.equal(updateCombatAssist(sim,{autoTarget:true,range}),false);assert.equal(sim.cooldowns.strike,cd);assert.equal(sim.player.mana,mana);});
+test('out of range never fires or spends resources; auto fire off preserves lock',()=>{const {sim,e}=setup();sim.locked=e;e.x+=8;assert.equal(updateCombatAssist(sim,{range:2}),false);assert.ok(!sim.cooldowns.strike);e.x=sim.player.x+1;assert.equal(updateCombatAssist(sim,{range:2,autoFire:false}),false);assert.equal(sim.locked,e);});
+test('lost dead or unlocked targets stop, never substitute without auto target',()=>{for(const kind of ['removed','dead','unlocked']){const {sim,e}=setup();sim.locked=e;if(kind==='removed')sim.enemies=[];if(kind==='dead')e.hp=0;if(kind==='unlocked')sim.locked=null;assert.equal(updateCombatAssist(sim,{range:3}),false);assert.equal(sim.locked,null);}});
+test('pause and player death suppress fire, death clears lock',()=>{const {sim,e}=setup();sim.locked=e;assert.equal(updateCombatAssist(sim,{range:3,enabled:false}),false);sim.player.hp=0;assert.equal(updateCombatAssist(sim,{range:3}),false);assert.equal(sim.locked,null);});
+test('terrain visibility gate prevents subterranean target/attack',()=>{const {sim}=setup();sim.combatVisible=()=>false;assert.equal(updateCombatAssist(sim,{autoTarget:true,range:3}),false);assert.equal(sim.locked,null);});

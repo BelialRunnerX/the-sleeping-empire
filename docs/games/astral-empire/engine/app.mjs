@@ -1,3 +1,4 @@
+import { updateCombatAssist } from "./combat-assist.mjs";
 import {
   HEROES,
   SKILLS,
@@ -241,7 +242,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.14.2 · Mobile Touch Fix</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.14.3 · Twin Sticks & Targeting</span></footer>`;
 }
 function enter(create) {
   try {
@@ -861,7 +862,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>PC auto target selects a nearby foe. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; empty ground does not move you.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -1049,6 +1050,7 @@ document.addEventListener("click", (e) => {
     return;
   }
   if (!playing) return;
+  if(n.dataset.assist){toggleAssist(n.dataset.assist);openPanel("settings");return;}
   if (n.dataset.camera) {
     cameraControl(n.dataset.camera);
     return;
@@ -1458,7 +1460,8 @@ document.addEventListener("keydown", (e) => {
   if (k === "z") cameraControl("left");
   if (k === "x") cameraControl("right");
   if (k === " " && sim.player.y === 0) sim.player.velocityY = 8;
-  if (k === "q") sim.locked = sim.locked ? null : sim.nearest(30);
+  if (k === "q") { if(document.documentElement.dataset.controls === "touch") sim.locked=sim.locked?null:sim.nearest(30); else toggleAssist("autoTarget"); }
+  if (k === "t") toggleAssist("autoFire");
   if (k === "e") startGather();
   if (k === "f") {
     sim.heal();
@@ -1470,6 +1473,11 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
 const canvas = $("world"),
   pointers = new Map();
+const ASSIST_KEY="astral_empire_combat_assist_v1";
+let assist={autoTarget:true,autoFire:true}, inputFocused=true;
+try {const stored=JSON.parse(localStorage.getItem(ASSIST_KEY));for(const key of ['autoTarget','autoFire'])if(typeof stored?.[key]==='boolean')assist[key]=stored[key];}catch{}
+function toggleAssist(key){assist[key]=!assist[key];if(key==='autoTarget'&&!assist[key])sim.locked=null;try{localStorage.setItem(ASSIST_KEY,JSON.stringify(assist));}catch{}notify(`${key==='autoTarget'?'Auto target (Q)':'Auto fire (T)'}: ${assist[key]?'ON':'OFF'}`);}
+addEventListener('focus',()=>{inputFocused=true;});
 let cameraSave;
 let capturedLook = false;
 function saveCamera() {
@@ -1481,6 +1489,12 @@ function saveCamera() {
     } catch {}
   }, 180);
 }
+document.addEventListener('aether-touch-camera',e=>{
+  if(!view||!playing||panel)return;
+  const {x,y,dt}=e.detail;
+  if(x)view.rig.translate(x*view.rig.distance*dt*.7,0);
+  if(y)view.rig.zoom(Math.exp(y*dt*1.4));
+});
 function cameraControl(action) {
   if (!view || !playing || panel) return;
   if (action === "center") view.rig.recenter(true);
@@ -1527,6 +1541,7 @@ canvas.addEventListener("mousemove", (e) => {
   view.rig.orbit(-e.movementX * 0.006, e.movementY * 0.004);
 });
 addEventListener("blur", () => {
+  inputFocused=false;
   setFreeLook(false);
   keys.clear();
   pointers.clear();
@@ -1608,8 +1623,9 @@ function endPointer(e) {
     !p.moved &&
     (p.mode === "tap" || p.mode === "touch")
   ) {
-    if (p.mode === "touch" && combatClick) attack("strike");
-    else beginTravel(view.pick(e.clientX, e.clientY));
+    const enemy=view.pickEnemy(e.clientX,e.clientY);
+    if(enemy){cancelTravel();sim.locked=enemy;notify("Target locked");}
+    else if(p.mode !== "touch") beginTravel(view.pick(e.clientX, e.clientY));
   }
   if (p.mode === "orbit" || p.mode === "touch") saveCamera();
 }
@@ -1814,6 +1830,9 @@ function frame(now) {
         }
         state.position = { x: p.x, z: p.z };
         if (holdingAttack || activePad?.held.has(2)) attack("strike");
+        const primary=skillStats(state,"strike");
+        if(updateCombatAssist(sim,{autoTarget:assist.autoTarget && document.documentElement.dataset.controls!=="touch" && !activePad,autoFire:assist.autoFire,range:primary.range||primary.radius,enabled:inputFocused&&!document.hidden&&!panel&&!gathering})){sound(230);}
+        canvas.dataset.autoTarget=String(assist.autoTarget);canvas.dataset.autoFire=String(assist.autoFire);canvas.dataset.lockedTarget=sim.locked?.id||"";
         if (gathering) {
           if (Math.hypot(p.x - gathering.x, p.z - gathering.z) > 0.2)
             gathering = null;

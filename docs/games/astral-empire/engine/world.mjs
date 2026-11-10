@@ -738,6 +738,14 @@ export class WorldView {
       })),
     ];
   }
+  pickEnemy(clientX, clientY) {
+    const rect=this.canvas.getBoundingClientRect();
+    this.ray.setFromCamera(new T.Vector2((clientX-rect.left)/rect.width*2-1,1-(clientY-rect.top)/rect.height*2),this.camera);
+    let best=this.ray.intersectObjects(this.terrainTiles,false)[0]?.distance??Infinity,target=null;
+    for(const e of this.sim.enemies){const mesh=this.foes.get(e.id)?.mesh;if(e.hp<=0||!mesh?.visible||Math.hypot(e.x-this.sim.player.x,e.z-this.sim.player.z)>30)continue;
+      const hit=this.ray.intersectObject(mesh,true)[0];if(hit&&hit.distance<best){best=hit.distance;target=e;}}
+    return target;
+  }
   pick(clientX, clientY) {
     const rect = this.canvas.getBoundingClientRect();
     this.ray.setFromCamera(

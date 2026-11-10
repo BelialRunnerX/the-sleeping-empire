@@ -63,3 +63,47 @@ body:has(#panels:not([hidden])) .touch-actions,body:has(#panels:not([hidden])) .
 }
 .device-controls details[open] {max-width:calc(var(--view-width,100vw) - max(8px,env(safe-area-inset-left)) - max(8px,env(safe-area-inset-right)) - 8px);max-height:calc(var(--view-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px);}
 html[data-controls="touch"] .device-controls {right:var(--safe-right);}
+/* Twin sticks replace the arrow pad; keep the center view open. */
+.touch-stick {display:none;}
+html[data-controls="touch"] .touch-pad {display:none!important;}
+html[data-controls="touch"] .touch-stick {display:block;position:absolute;bottom:var(--safe-bottom);width:88px;height:88px;border:1px solid #b4e4e76b;border-radius:50%;background:#17303966;touch-action:none;pointer-events:auto;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;}
+.touch-stick.move {left:var(--safe-left);}
+.touch-stick.camera {right:var(--safe-right);}
+.touch-stick i {position:absolute;left:50%;top:50%;width:34px;height:34px;background:#b5dfe784;border:1px solid #d0f9fa99;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.stick-label {position:absolute;bottom:7px;width:100%;text-align:center;font-size:8px;letter-spacing:.07em;pointer-events:none;}
+html[data-controls="touch"] .bottom-hud {left:50%;right:auto;transform:translateX(-50%);width:144px;max-width:calc(100% - 210px);bottom:var(--safe-bottom);}
+html[data-controls="touch"] .skillbar {grid-template-columns:repeat(3,minmax(32px,1fr));gap:3px;}
+html[data-controls="touch"] .skill,html[data-controls="touch"] .skill.potion {height:36px;}
+html[data-controls="touch"] .skill > span {font-size:16px;}
+html[data-controls="touch"] .skill kbd {font-size:7px;}
+html[data-controls="touch"] .touch-actions {left:50%;right:auto;transform:translateX(-50%);bottom:calc(86px + var(--safe-bottom));gap:3px;}
+html[data-controls="touch"] .touch-actions button {min-width:36px;height:36px;font-size:9px;padding:4px;}
+html[data-controls="touch"] #interaction {width:180px;max-width:calc(100% - 220px);font-size:9px;bottom:calc(130px + var(--safe-bottom));}
+html[data-controls="touch"] #interaction b,html[data-controls="touch"] #interaction strong {font-size:11px;}
+html[data-controls="touch"] #interaction small {font-size:9px;}
+html[data-controls="touch"] #notifications {font-size:10px;max-width:180px;bottom:calc(170px + var(--safe-bottom));}
+body:has(#panels:not([hidden])) .touch-stick {visibility:hidden;}
+@media(orientation:landscape) and (max-height:500px) {
+ html[data-controls="touch"] .top-hud {display:none;}
+ html[data-controls="touch"] .character-hud {top:max(8px,env(safe-area-inset-top));width:130px;gap:5px;}
+ html[data-controls="touch"] .portrait-mark {width:24px;height:30px;}
+ html[data-controls="touch"] .character-info {width:100px;}
+ html[data-controls="touch"] .character-name {font-size:10px;margin-bottom:3px;}
+ html[data-controls="touch"] .meter {height:5px;margin:3px 0;}
+ html[data-controls="touch"] .meter span {display:none;}
+ html[data-controls="touch"] .stamina {height:2px;margin-top:3px;}
+ html[data-controls="touch"] .device-controls summary {font-size:10px;padding:8px;min-height:36px;}
+ html[data-controls="touch"] #interaction {top:8px;bottom:auto;max-width:180px;width:180px;padding:4px;}
+}
+/* Keep secondary actions in the sheet instead of another field toolbar. */
+@media(orientation:landscape) and (max-height:500px) {
+ html[data-controls="touch"] #notifications {top:52px;bottom:auto;left:50%;right:auto;transform:translateX(-50%);width:180px;max-height:42px;overflow:hidden;pointer-events:none;}
+ html[data-controls="touch"] #notifications .notification {padding:5px;font-size:9px;margin:0;}
+ html[data-controls="touch"] #notifications .notification:not(:last-child) {display:none;}
+ html[data-controls="touch"] .frontier-label {font-size:9px;padding:4px;}
+}
+@media(orientation:landscape) and (max-height:500px) {
+ html[data-controls="touch"] .bottom-hud {width:231px;max-width:calc(100% - 210px);}
+ html[data-controls="touch"] .skillbar {grid-template-columns:repeat(6,minmax(30px,1fr));}
+ html[data-controls="touch"] .touch-actions {bottom:calc(48px + var(--safe-bottom));}
+}
