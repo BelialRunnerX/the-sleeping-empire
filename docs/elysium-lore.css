@@ -1,0 +1,76 @@
+/* Elysium lore presentation only. Canon, records and game controls are unchanged. */
+html[data-theme="dark"] {
+  --bg:#091e29; --sidebar:#0d2733; --side:#0d2733;
+  --panel:#143642; --panel-2:#1b4653; --panel2:#1b4653;
+  --text:#eff5ef; --ink:#eff5ef; --muted:#b4cdd1;
+  --line:#477583; --line-soft:#294e5b; --border:#477583;
+  --accent:#e7cca0; --accent-strong:#f4deb4; --gold:#e7cca0;
+  --teal:#89e1e8; --emerald:#89e1e8; --link:#a0e9ee;
+}
+html[data-theme="light"] {
+  --bg:#edf5f4; --sidebar:#e1efef; --side:#e1efef;
+  --panel:#f8fcfa; --panel-2:#d9ecee; --panel2:#d9ecee;
+  --text:#173d49; --ink:#173d49; --muted:#45646d;
+  --line:#9abdc4; --line-soft:#c4dcdf; --border:#9abdc4;
+  --accent:#805821; --accent-strong:#684414; --gold:#805821;
+  --teal:#126774; --emerald:#126774; --link:#126774;
+}
+body.archive-page,body.codex-page {
+  background:radial-gradient(ellipse at 80% 0%,#72d8e416,transparent 55%),var(--bg);
+  color:var(--text); -webkit-text-size-adjust:100%;
+}
+.codex-page .main { max-width:1320px; }
+.codex-page .nav,.archive-page .sidebar {
+  background:linear-gradient(155deg,#93dfea0c,transparent 55%),var(--side);
+  border-right-color:var(--line); box-shadow:inset -1px 0 #d2ffff10;
+}
+.codex-page .sigil,.archive-page .brand-sigil { border-radius:14px; color:var(--gold); box-shadow:0 0 28px #6ce1ef13,inset 0 1px #e6ffff25; }
+.codex-page .brand,.codex-page .title,.codex-page .sectiontitle,.codex-page .tile strong { font-family:Marcellus,Georgia,serif; }
+.codex-page .navlink.selected,.archive-page .nav-item.active { color:var(--link); background:var(--panel2); border-left:2px solid var(--gold); }
+.codex-page .tile,.codex-page .panel,.archive-page .feature-card,.archive-page .world-card,.archive-page .person-card,.archive-page .file-card,.archive-page .ops-deck,.archive-page .stat-row {
+  background:linear-gradient(135deg,#c6faff09,transparent 65%),var(--panel);
+  border-color:var(--line); border-radius:16px;
+  box-shadow:inset 0 1px #d8ffff20,0 8px 24px #03141e12;
+}
+.codex-page .tile:hover,.archive-page .feature-card:hover { border-color:var(--teal); box-shadow:inset 0 1px #d8ffff40,0 8px 28px #32bbd31c; }
+.codex-page .banner {
+  min-height:310px; display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(24px,4vw,44px); border-radius:20px; border-color:#abd9df85;
+  background:linear-gradient(90deg,#082b3af5 0%,#103344d9 48%,#14384642 100%),url("games/astral-empire/assets/solarpunk-menu.png") 60% center/cover;
+  color:#f7edd9; box-shadow:inset 0 1px #e3ffff55,0 18px 40px #041c2725;
+}
+.codex-page .banner h2 { font-size:clamp(30px,3vw,43px); }
+.codex-page .banner p { color:#d6e9ec; max-width:560px; }
+.codex-page .banner a,.codex-page .banner .tag { color:#a6eff4; }
+.codex-page .banner:after { display:none; }
+.codex-page .banner h2,.codex-page .banner p { text-shadow:0 2px 8px #082431; }
+.archive-page .hero {
+  background:linear-gradient(90deg,#082b3af5,#103344dc 48%,#14384652),url("games/astral-empire/assets/solarpunk-menu.png") 65% center/cover;
+  border-color:#abd9df85; border-radius:22px; color:#f7edd9;
+}
+.archive-page .hero-art { opacity:.18; pointer-events:none; }
+.archive-page .hero h1 em { color:#b8f0f3; }
+.archive-page .hero-content { position:relative; z-index:2; }
+.archive-page .hero p { color:#d6e9ec; }
+.archive-page .hero .primary-btn { background:linear-gradient(120deg,#b3eef2,#80cfdc); color:#123541; border-color:#d5f5f5; }
+.archive-page .hero .secondary-btn { background:#113746c9; color:#eef8f5; border-color:#a6dce57a; }
+.archive-page .hero .eyebrow { color:#b5edf0; }
+.archive-page .hero:before { color:#c7e4e7; }
+.codex-page .btn,.codex-page .search,.archive-page .search-shell { border-radius:12px; }
+.codex-page .btn { min-width:44px; min-height:44px; }
+.codex-page .search { min-width:0; }
+.codex-page .source,.codex-page .lead,.codex-page .panel,.archive-page .file-path { overflow-wrap:anywhere; }
+.codex-page .right { background:linear-gradient(180deg,#84d9e408,transparent); }
+.codex-page .toolbar { gap:8px; }
+.codex-page :focus-visible,.archive-page :focus-visible { outline:3px solid var(--teal); outline-offset:3px; }
+@media(max-width:700px) {
+  .codex-page .main { padding:16px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left)); }
+  .codex-page .banner { min-height:300px; background-position:57% center; }
+  .codex-page .title { font-size:clamp(34px,10vw,44px); }
+  .codex-page .nav { padding-bottom:max(24px,env(safe-area-inset-bottom)); height:100dvh; }
+  .codex-page .tile { min-height:140px; }
+  .codex-page .toolbar .search { font-size:16px; }
+  .archive-page .hero { background-position:55% center; }
+  .archive-page .hero-art { display:none; }
+}
+@media(prefers-reduced-motion:reduce) { .codex-page *, .archive-page * { scroll-behavior:auto!important; transition:none!important; } }

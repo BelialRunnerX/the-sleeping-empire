@@ -39,3 +39,9 @@ Static, accessible and responsive source-backed explorer for the fictional Sleep
 In [GitHub Pages settings](https://github.com/BelialRunnerX/the-sleeping-empire/settings/pages), use **Deploy from a branch → master → /docs**. GitHub Pages may take time to refresh its cache after commit.
 
 **Canon boundaries:** Public summaries must not invent NPC knowledge of private user-directed facts. Company reports are attributed to their period and source, not fabricated as current live telemetry. Historical documents are retained as historical snapshots.
+
+## Elysium visual alignment
+
+Both the historical dashboard and current Imperial Codex load `elysium-lore.css`: cyan glass, warm ivory/gold accents, and the existing Elysium solarpunk menu artwork. This is presentation only; archival state and primary sources are unchanged. The game itself does not import this stylesheet.
+
+Browser regression: after installing the game test dependencies, run `node docs/tests/lore-browser.mjs` from the repository root. Uses installed Chrome; covers both routes at 320/393/852/1440px, overflow, themes, search/no-results/Escape, navigation history and mobile menu dismissal. Screenshots go to the existing ignored game artifact directory.
