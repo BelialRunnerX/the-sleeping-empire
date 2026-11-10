@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.8 · Dawnwake Materials
+
+Kael and Mira now use retextured VRoid placeholder rigs. Clothing and hair use portrait-derived colors, and equipped weapons and shields follow the hand joints. The world uses photographed ground, slate, stone and alloy color and normal maps alongside a fabric normal. The asset bundle loads locally and remains available offline. Source and license details are in [assets/ASSETS.md](assets/ASSETS.md).
+
 ## Version 3.7 · Foundry Ascension
 
 Crystallography adds gold, silver, redstone and rime geodes. After harvesting, a visible small bud grows through medium and large stages into a mature cluster. Growth continues offline. The Lifeskills material guide lists where to find each material and what to make with it.

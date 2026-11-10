@@ -1,4 +1,6 @@
 import * as T from "../vendor/three.module.js";
+import { surface } from "./surfaces.mjs";
+import { applyAvatarRig, poseAvatarRig } from "./avatar-rig.mjs";
 
 // Original, code-authored art. No downloaded models, textures or hidden CDN assets.
 const PALETTES = {
@@ -177,15 +179,17 @@ function sculptedFace() {
   geometry.computeVertexNormals();
   return geometry;
 }
-function naturalForm(detail, canopy) {
-  const geometry = new T.IcosahedronGeometry(1, detail);
+function naturalForm(canopy) {
+  const geometry = new T.SphereGeometry(1, canopy ? 20 : 32, canopy ? 14 : 22);
   const p = geometry.attributes.position;
   for (let i = 0; i < p.count; i++) {
     const x = p.getX(i),
       y = p.getY(i),
       z = p.getZ(i);
     const variation =
-      1 + 0.13 * Math.sin(x * 11 + y * 8 + z * 5) * Math.sin(z * 10 - y * 7);
+      1 +
+      0.105 * Math.sin(x * 5 + y * 4 + z * 3) * Math.sin(z * 6 - y * 5) +
+      0.045 * Math.sin(x * 11 - y * 8 + z * 7) * Math.sin(x * 7 + z * 9);
     p.setXYZ(
       i,
       x * variation,
@@ -246,21 +250,54 @@ export class ArtDirector {
                   : kind === "gem"
                     ? new T.IcosahedronGeometry(1, 0)
                     : kind === "crown"
-                      ? naturalForm(2, true)
+                      ? naturalForm(true)
                       : kind === "stone"
-                        ? naturalForm(1, false)
+                        ? naturalForm(false)
                         : kind === "cone"
                           ? new T.ConeGeometry(1, 1, 8)
                           : kind === "tube"
                             ? new T.CylinderGeometry(1, 1, 1, 12)
                             : new T.BoxGeometry(1, 1, 1),
       );
-    const m = new T.Mesh(this.geometries.get(kind), this.material(c));
+    const material =
+      kind === "stone"
+        ? this.surfaceMaterial("rock", c)
+        : kind === "shield"
+          ? this.surfaceMaterial("alloy", c)
+          : this.material(c);
+    const m = new T.Mesh(this.geometries.get(kind), material);
     m.position.set(x, y, z);
     m.scale.set(sx, sy, sz);
     m.castShadow = m.receiveShadow = true;
     group.add(m);
     return m;
+  }
+  surfaceMaterial(name, c) {
+    const kit = surface(name),
+      key = name + ":" + c;
+    if (!kit.normalMap) return this.material(c);
+    if (!this.materials.has(key)) {
+      const tint = new T.Color(c).lerp(
+        new T.Color(0xffffff),
+        name === "rock" ? 0.44 : 0.58,
+      );
+      const material = new T.MeshStandardMaterial({
+        color: tint,
+        ...kit,
+        roughness: name === "alloy" ? 0.48 : 0.88,
+        metalness: name === "alloy" ? 0.19 : 0,
+        normalScale: new T.Vector2(0.48, 0.48),
+      });
+      if (name === "alloy")
+        material.onBeforeCompile = (shader) => {
+          shader.fragmentShader = shader.fragmentShader.replace(
+            "#include <map_fragment>",
+            "#include <map_fragment>\ndiffuseColor.rgb=mix(diffuseColor.rgb,vec3(.40,.49,.60),.36);",
+          );
+        };
+      this.materials.set(key, material);
+    }
+    return this.materials.get(key);
   }
   outline(m, scale = 1.035) {
     const shell = new T.Mesh(
@@ -783,8 +820,10 @@ export class ArtDirector {
       0.12,
       0.01,
     );
+    const attachments = { left: [], right: [] };
     const weapon = new T.Group();
     g.elbows[1].add(weapon);
+    attachments.right.push(weapon);
     weapon.position.y = -0.35;
     if (hero.form === "spear") {
       weapon.rotation.z = -0.22;
@@ -808,6 +847,7 @@ export class ArtDirector {
         const mount = new T.Group();
         mount.position.y = -0.35;
         g.elbows[i].add(mount);
+        attachments[i ? "right" : "left"].push(mount);
         this.shape(mount, "tube", dark, 0, 0.08, 0.04, 0.043, 0.22, 0.044);
         this.shape(mount, "panel", gold, 0, -0.04, 0.04, 0.22, 0.055, 0.094);
         this.shape(
@@ -901,6 +941,7 @@ export class ArtDirector {
       const shield = new T.Group();
       shield.position.set(0, -0.22, 0.17);
       g.elbows[0].add(shield);
+      attachments.left.push(shield);
       this.shape(shield, "shield", 0x35425c, 0, -0.04, 0, 0.79, 1.0, 0.18);
       this.shape(shield, "shield", 0xc4a97d, 0, -0.04, 0.051, 0.74, 0.93, 0.14);
       this.shape(shield, "shield", 0x67849e, 0, -0.04, 0.083, 0.64, 0.82, 0.12);
@@ -955,9 +996,19 @@ export class ArtDirector {
       sash.rotation.z = 0.46;
     }
     g.userData = { attack: 0, crest };
+    applyAvatarRig(g, hero, attachments);
     return g;
   }
   animateAvatar(g, stride, time, moving, reduced) {
+    poseAvatarRig(
+      g,
+      stride,
+      moving,
+      g.userData.attack > 0,
+      g.userData.guarding,
+      time,
+      g.userData.weapon,
+    );
     g.knees.forEach(
       (k, i) =>
         (k.rotation.x = moving
@@ -1080,7 +1131,9 @@ export class ArtDirector {
     const floor = new T.Mesh(
       new T.CircleGeometry(9.9, 96),
       new T.MeshStandardMaterial({
-        map: this.stoneTexture(),
+        map: surface("slate").map || this.stoneTexture(),
+        normalMap: surface("slate").normalMap || null,
+        normalScale: new T.Vector2(0.64, 0.64),
         roughness: 0.93,
         color: 0xf0e9d1,
       }),

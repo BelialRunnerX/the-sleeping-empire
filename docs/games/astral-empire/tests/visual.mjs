@@ -58,6 +58,14 @@ page.on("console", (message) => {
 try {
   await page.goto("http://127.0.0.1:" + server.address().port);
   await page.evaluate(async () => {
+    const { loadAvatarRigs } = await import("/engine/avatar-rig.mjs");
+    const { loadSurfaces } = await import("/engine/surfaces.mjs");
+    const loaded = (
+      await Promise.all([loadAvatarRigs(), loadSurfaces()])
+    ).flat();
+    const failed = loaded.filter((r) => r.status === "rejected");
+    if (failed.length)
+      throw Error(failed.map((x) => x.reason?.message).join("; "));
     const { WorldView } = await import("/engine/world.mjs");
     const { freshState, Simulation, craft, alterItem } = await import(
       "/engine/simulation.mjs"
@@ -89,6 +97,21 @@ try {
         view.renderer.getContext().finish();
         await new Promise(requestAnimationFrame);
       };
+      await render();
+      if (!view.character.userData.rig)
+        throw Error("Kael did not load the rigged avatar");
+      const leg = view.character.userData.rig.bones.L_UpperLeg;
+      const idle = leg.rotation.x;
+      view.update(0.016, { x: 1, z: 0 }, 12.16);
+      if (Math.abs(leg.rotation.x - idle) < 0.01)
+        throw Error("Rig walk pose did not reach the leg joint");
+      state.hero = "mira";
+      view.setHero();
+      await render();
+      if (!view.character.userData.rig)
+        throw Error("Mira did not load the rigged avatar");
+      state.hero = "kael";
+      view.setHero();
       await render();
       const baseline = view.renderer.info.memory.geometries;
       // Switching every hero must retire unique capes/weapon geometry.
@@ -167,7 +190,10 @@ try {
       report.calls < 1200 && report.triangles < 600000,
       "Scene exceeded structural rendering budget: " + JSON.stringify(report),
     );
-    assert.ok(report.textures < 16, "Unexpected texture growth");
+    assert.ok(
+      report.textures < 48,
+      "Unexpected texture growth: " + report.textures,
+    );
     assert.equal(
       report.picked && report.allMeshes,
       true,

@@ -84,3 +84,20 @@ MIDDLE CELL: an artisan joinery bench, beautifully detailed dark teal wooden saw
 RIGHT CELL: an elegant starleaf alchemy bench, dark-violet wood and gold-trimmed desk, glass retort and curved tubes, glowing lavender and teal liquid flasks, a small herb drying rack and carefully arranged flowers.
 The three workstations should be equally sized, visually distinct and fully contained in their exact thirds of the transparent atlas. Request 1536x512 or highest available 3:1 resolution.
 ```
+
+## Version 3.8 surface and character placeholders
+
+| Files | Source and treatment |
+| --- | --- |
+| `surfaces/ground-*.webp` | [Grass Path 2](https://polyhaven.com/a/grass_path_2), Rob Tuytel. Diffuse and OpenGL normal maps. |
+| `surfaces/slate-*.webp` | [Large Grey Tiles](https://polyhaven.com/a/large_grey_tiles), Rob Tuytel. Diffuse and OpenGL normal maps. |
+| `surfaces/rock-*.webp` | [Rock 01](https://polyhaven.com/a/rock_01), Rob Tuytel. Diffuse and OpenGL normal maps. |
+| `surfaces/alloy-*.webp` | [Blue Metal Plate](https://polyhaven.com/a/blue_metal_plate), Rob Tuytel. Diffuse and OpenGL normal maps. |
+| `surfaces/cloth-normal.webp` | [Fabric Pattern 05](https://polyhaven.com/a/fabric_pattern_05). Only the OpenGL normal map is used. |
+| `characters/kael.glb`, `characters/mira.glb` | pixiv VRoid Studio AvatarSample_C and AvatarSample_A. [Source copies](https://github.com/madjin/vrm-samples/tree/e16eb187100149a315ad92c3c9968f1d5baa6c7d/vroid/stable) and [pixiv sample terms](https://vroid.pixiv.help/hc/en-us/articles/4402394424089-VRoidPreset-A-Z). |
+
+Poly Haven maps use the [CC0 asset license](https://polyhaven.com/license). The 1K source JPG maps were encoded to 768-pixel WebP for color and 512-pixel WebP for normals. The game tints the photographed surfaces and adjusts their repetition and lighting.
+
+The VRoid placeholders follow pixiv's sample terms. They are not CC0. The browser assets preserve skinning and the bind pose, remove unused morph data and maps, and use meshopt geometry compression and WebP color maps up to 512 pixels. The renderer batches compatible skinned sections, reconstructs missing normals, and retextures the hair and tops with palettes based on the original Kael and Mira portraits. Clothing uses a shared cloth normal. Hand joints carry the existing game equipment, and the game drives movement, attacks and guard. The other ten appearances continue using their existing procedural models. The sample avatars are bundled as game assets, not sold or exported by an avatar creator.
+
+Three.js r187's GLTFLoader, SkeletonUtils and BufferGeometryUtils use the included Three.js MIT license. The Meshopt decoder license is in `vendor/MESHOPT-LICENSE.txt`.

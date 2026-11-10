@@ -1,5 +1,5 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-9";
+const CACHE = "astral-empire-aetherbound-v3-10";
 const FILES = [
   "./",
   "./index.html",
@@ -20,6 +20,23 @@ const FILES = [
   "./engine/chunks.mjs",
   "./engine/geodes.mjs",
   "./engine/arsenal.mjs",
+  "./engine/surfaces.mjs",
+  "./engine/avatar-rig.mjs",
+  "./assets/surfaces/ground-color.webp",
+  "./assets/surfaces/ground-normal.webp",
+  "./assets/surfaces/slate-color.webp",
+  "./assets/surfaces/slate-normal.webp",
+  "./assets/surfaces/rock-color.webp",
+  "./assets/surfaces/rock-normal.webp",
+  "./assets/surfaces/alloy-color.webp",
+  "./assets/surfaces/alloy-normal.webp",
+  "./assets/surfaces/cloth-normal.webp",
+  "./assets/characters/kael.glb",
+  "./assets/characters/mira.glb",
+  "./vendor/GLTFLoader.js",
+  "./vendor/BufferGeometryUtils.js",
+  "./vendor/SkeletonUtils.js",
+  "./vendor/meshopt_decoder.module.js",
   "./engine/navigation.mjs",
   "./engine/camera.mjs",
   "./engine/codex.mjs",

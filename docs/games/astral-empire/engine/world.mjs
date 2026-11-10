@@ -7,6 +7,7 @@ import { CameraRig } from "./camera.mjs";
 import { enemySites } from "./frontier.mjs";
 import { CHUNK_SIZE, fieldNoise } from "./chunks.mjs";
 import { GEODE_MATERIALS, geodeStage } from "./geodes.mjs";
+import { surface } from "./surfaces.mjs";
 import { equippedForm } from "./arsenal.mjs";
 const color = (hex) => new T.Color(hex);
 const materials = new Map(),
@@ -115,14 +116,24 @@ export class WorldView {
     this.sun = sun;
     this.scene.add(sun, sun.target);
     this.chunkMeshes = new Map();
-    const groundTexture = this.art.groundTexture();
+    const ground = surface("ground");
+    const groundTexture = ground.map || this.art.groundTexture();
     this.groundMaterial = new T.MeshStandardMaterial({
       vertexColors: true,
       roughness: 0.94,
       map: groundTexture,
-      bumpMap: groundTexture,
+      normalMap: ground.normalMap || null,
+      normalScale: new T.Vector2(0.66, 0.66),
+      bumpMap: ground.normalMap ? null : groundTexture,
       bumpScale: 0.12,
     });
+    if (ground.map)
+      this.groundMaterial.onBeforeCompile = (shader) => {
+        shader.fragmentShader = shader.fragmentShader.replace(
+          "#include <map_fragment>",
+          "#include <map_fragment>\ndiffuseColor.rgb=mix(diffuseColor.rgb,vec3(.72),.27);",
+        );
+      };
     this.art.water();
     this.art.sky();
     this.createSanctuary();
@@ -133,6 +144,9 @@ export class WorldView {
     this.createFeatures();
     this.syncWorld();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
+    this.canvas.dataset.avatarModel = this.character.userData.rig
+      ? "rigged"
+      : "procedural";
     this.scene.add(this.character);
     this.createEnemies();
     this.applyVisualSettings(visuals);
@@ -339,6 +353,9 @@ export class WorldView {
     this.sun.shadow.mapSize.set(preset.shadow || 512, preset.shadow || 512);
     this.art.quality(settings);
     this.canvas.dataset.artStyle = "model";
+    this.canvas.dataset.surfaces = surface("ground").map
+      ? "scanned"
+      : "procedural";
     this.canvas.dataset.quality = settings.quality;
     this.canvas.dataset.shadows = String(!!preset.shadow);
     document.body.classList.toggle("reduced-motion", settings.reducedMotion);
@@ -911,6 +928,9 @@ export class WorldView {
     this.scene.remove(this.character);
     this.releaseObject(this.character);
     this.character = this.avatar(HEROES.find((h) => h.id === this.state.hero));
+    this.canvas.dataset.avatarModel = this.character.userData.rig
+      ? "rigged"
+      : "procedural";
     this.scene.add(this.character);
   }
   nearestNode() {
@@ -1069,6 +1089,8 @@ export class WorldView {
       c.arms[0].rotation.x = -0.42;
     }
     c.userData.facing = p.facing;
+    c.userData.guarding = p.guard;
+    c.userData.weapon = weapon;
     c.userData.cameraYaw = this.yaw;
     this.art.animateAvatar(
       c,
@@ -1235,19 +1257,28 @@ export class WorldView {
       ...geometries.values(),
     ]);
     object.traverse((o) => {
-      if (o.geometry && !o.isSprite && !shared.has(o.geometry))
+      if (o.userData.sharedRigGeometry && o.isSkinnedMesh) o.skeleton.dispose();
+      if (
+        o.geometry &&
+        !o.isSprite &&
+        !o.userData.sharedRigGeometry &&
+        !shared.has(o.geometry)
+      )
         o.geometry.dispose();
       if (o.userData.ownedTexture) {
         o.material.map.dispose();
         this.art.textures.delete(o.material.map);
       }
-      if (
-        o.material &&
-        ![...this.art.materials.values(), ...materials.values()].includes(
-          o.material,
-        )
-      )
-        o.material.dispose();
+      if (o.material)
+        for (const material of Array.isArray(o.material)
+          ? o.material
+          : [o.material])
+          if (
+            ![...this.art.materials.values(), ...materials.values()].includes(
+              material,
+            )
+          )
+            material.dispose();
     });
   }
   dispose() {
@@ -1255,7 +1286,9 @@ export class WorldView {
     const geometrySet = new Set(),
       materialSet = new Set();
     this.scene.traverse((o) => {
-      if (o.geometry && !o.isSprite) geometrySet.add(o.geometry);
+      if (o.userData.sharedRigGeometry && o.isSkinnedMesh) o.skeleton.dispose();
+      if (o.geometry && !o.isSprite && !o.userData.sharedRigGeometry)
+        geometrySet.add(o.geometry);
       if (o.material)
         for (const m of Array.isArray(o.material) ? o.material : [o.material])
           materialSet.add(m);

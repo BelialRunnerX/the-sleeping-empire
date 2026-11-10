@@ -2,6 +2,8 @@
 
 ## Current milestone
 
+Version 3.8 upgrades materials and introduces two retextured, rigged VRoid placeholders. Custom modeling is on hold while a Blender setup is prepared. Open gameplay work includes a portable field camp loop, atmosphere and suit behavior, deeper item bases and more encounter types.
+
 Version 3.7 links source-derived geode growth and alloy recipes to four crystalline materials, fixed item effects, five weapon forms, light and heavy armor, directional shield guard and three item ascension paths. More weapon families, affix tiers and production character meshes remain in the roadmap.
 
 Version 3.6 streams endless heightfield terrain, resource nodes and patrols around the player in all five regions. The camera toggle, grouped menus, reflection and luck effects, and mesh refinement build on 3.5.
