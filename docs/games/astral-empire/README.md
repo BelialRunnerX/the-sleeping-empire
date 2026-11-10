@@ -2,6 +2,14 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.17 - Continental frontier and finer voxel trees
+
+New adventures now start on an irregular continental Bastion with mountain chains, connected river/lake/ocean water, a two-kilometre horizon, and upright swimming/wading. Existing saved worlds retain their original terrain; create a separate New Adventure to explore the new baseline. This is a finite 32.768 km browser continental adaptation, not infinite planets or fluid simulation. Other realms retain their existing terrain.
+
+Trees now stand 6–15 m tall with 0.1875 m cells. Their collision, exact wood-volume harvest and permanent felled state remain coherent. Players retain the 3 m body / 48 microcell scale and 3.16.1 controller mapping. Crouch, weapon switch, fifth ability and build placement are still reserved, not implemented.
+
+Provisional performance: greedy batching reduces geometry, but Moon, Cinder and Orbit currently exceed the old 600k triangle optimization target (approximately813k/703k/628k in the fixed visual fixtures). This release proceeds with explicit owner approval; texture/draw-call/leak gates remain. Physical phone/controller performance is not certified. See `CONTINENTAL_WIP.md` for remaining limits.
+
 ## Version3.16 - Dawnwake introduction and world surfaces
 
 The Journal now offers thirteen ordered introduction quests with visible material caches, gold, cosmetic crystals and XP. Existing claimed quests remain claimed without duplicate payouts; older counters count where supported and the new crop-harvest counter starts honestly at zero. Houses and arena ruins gain original shared albedo/normal/roughness surface maps, using three atlases rather than multiplying texture allocations per object. Controls, terrain edits and permanently felled trees remain compatible.

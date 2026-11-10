@@ -55,9 +55,10 @@ export function createAtlas(options={}) {
   const ids=[iz*n+ix,iz*n+ix+1,(iz+1)*n+ix,(iz+1)*n+ix+1],weights=[(1-u)*(1-v),u*(1-v),(1-u)*v,u*v];
   const interp=a=>ids.reduce((s,i,k)=>s+a[i]*weights[k],0);
   let h=interp(raw),wh=null;
-  const spill=interp(filled),cell=Math.round(gz)*n+Math.round(gx);
+  const cell=Math.round(gz)*n+Math.round(gx);
   // Basin lakes use spill level; narrow rivers use globally shared graph segments.
-  if(c.water&&spill>h+.01)wh=spill;
+  // Dry high corners never tilt or raise a standing lake/ocean plane.
+  if(c.water)wh=standingWaterLevel(raw,filled,ids,weights,h);
   if(c.water){
    let nearest=Infinity,level=0,depth=0,width=0;
    for(let zz=Math.max(0,iz-1);zz<=Math.min(n-1,iz+2);zz++)for(let xx=Math.max(0,ix-1);xx<=Math.min(n-1,ix+2);xx++){
@@ -67,7 +68,7 @@ export function createAtlas(options={}) {
     const f=flow[i]+(flow[p]-flow[i])*t,w=Math.min(step*.45,3+Math.sqrt(f/c.riverThreshold)*1.5);
     if(distance/w<nearest){nearest=distance/w;level=filled[i]+(filled[p]-filled[i])*t;depth=Math.min(c.maxRiverDepth,1+Math.log2(f/c.riverThreshold+1));width=w;}
    }
-   if(nearest<1){const blend=1-smooth(nearest),cut=h*(1-blend)+(level-depth)*blend;if(cut<h)h=cut;if(level>h+.01)wh=level;}
+   if(nearest<1){const blend=1-smooth(nearest),cut=h*(1-blend)+(level-depth)*blend;if(cut<h)h=cut;if(level>h+.01)wh=wh===null?level:Math.min(wh,level);}
   }
   return {height:h,seaLevel:c.sea,water:wh,waterHeight:wh,flow:interp(flow),flowCell:cell,downstreamCell:parent[cell],outletCell:outlet[cell],climate:{continentalness:clamp((interp(raw)-c.sea)/c.peak,-1,1),temperature:null,humidity:null},domain:'atlas',version:VERSION};
  }
@@ -104,3 +105,6 @@ export function createAtlas(options={}) {
 
 
 
+
+// Supported exact basin levels, never interpolation through dry shoreline corners.
+export function standingWaterLevel(raw,filled,ids,weights,bed){let water=null;for(let k=0;k<ids.length;k++){const i=ids[k];if(weights[k]>0&&filled[i]-raw[i]>.01&&filled[i]>bed+.01)water=water===null?filled[i]:Math.min(water,filled[i]);}return water;}
