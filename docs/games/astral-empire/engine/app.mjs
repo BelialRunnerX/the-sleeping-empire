@@ -1,4 +1,5 @@
 import { firearm } from "./firearms.mjs";
+import {harvestKind,loadHarvestTools} from './harvest-visual.mjs';
 import { mainMenuMarkup, menuSettingsMarkup } from "./main-menu.mjs";
 import { updateCombatAssist } from "./combat-assist.mjs";
 import {
@@ -995,6 +996,7 @@ function startGather(target = nearestInteraction()) {
     sim.terrainVolume.commitFrom(candidate);state.resources.stone=candidateState.resources.stone;
     view.voxelTerrain.commitPatch(patch);view.voxelTerrain.sync(p);
     canvas.dataset.terrainPatchMs=(performance.now()-started).toFixed(1);
+    if(result.ok && terrainTool!=='place')view.playHarvestPulse?.('mine');
     notify(result.message);save();return;
   }
   if (target.type === "station") {
@@ -1008,6 +1010,7 @@ function startGather(target = nearestInteraction()) {
   }
   if (target.type === "microvoxel") {
     const result = view.microvoxels.mine(p);
+    if(result.ok)view.playHarvestPulse?.("mine");
     notify(result.message);
     if (result.ok) save();
     return;
@@ -2006,6 +2009,9 @@ function frame(now) {
       if (now - lastSave > 5000) save();
     }
     view.gathering = gathering?.node.kind;
+    if(!playing || panel || document.hidden)view.harvestPulse=null;
+    view.harvestAction = playing && !panel && !document.hidden && gathering
+      ? {kind:harvestKind(gathering.node),x:gathering.node.x,z:gathering.node.z,phase:Math.max(0,Math.min(1,1-gathering.left/gathering.total))} : null;
     view.update(dt, input, now / 1000);
     if (playing && now - lastHud > 100) {
       updateHUD();
@@ -2025,7 +2031,7 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 async function boot() {
-  await Promise.all([loadNative(), loadSurfaces(), loadAvatarRigs(), loadFieldArt()]);
+  await Promise.all([loadNative(), loadSurfaces(), loadAvatarRigs(), loadFieldArt(), loadHarvestTools()]);
   try {
     buildView();
     landing();

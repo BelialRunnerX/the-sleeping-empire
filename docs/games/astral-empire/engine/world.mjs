@@ -1,3 +1,4 @@
+import {applyHarvestVisual} from './harvest-visual.mjs';
 import { TerrainWaterView } from './terrain-water-view.mjs';
 import { HorizonView } from './terrain-horizon.mjs';
 import {sanctuaryTreeClearance} from "./voxel-trees/tree-placement.mjs";
@@ -1223,6 +1224,7 @@ export class WorldView {
     this.scene.add(g);
     this.effects.push({ mesh: g, life: 0.38, max: 0.38, sparks: true });
   }
+  playHarvestPulse(kind){this.harvestPulse={kind,left:1.5,total:1.5};}
   update(dt, input, time) {
     this.canvas.dataset.waterContact=this.sim.player.swimming?"swimming":this.sim.player.wading?"wading":"dry";
     this.waterView?.update(this.sim.player.x,this.sim.player.z);
@@ -1268,6 +1270,12 @@ export class WorldView {
       this.moving,
       this.visuals.reducedMotion,
     );
+    // Visual only: resource edits/rewards remain in app/progression.
+    if(this.harvestPulse){this.harvestPulse.left-=dt;if(this.harvestPulse.left<=0||this.moving||p.guard||c.userData.attack>0)this.harvestPulse=null;}
+    if(this.harvestAction && !this.moving && !p.guard && c.userData.attack<=0)c.rotation.y=Math.atan2(this.harvestAction.x-p.x,this.harvestAction.z-p.z);
+    const pulse=this.harvestPulse;
+    applyHarvestVisual(c, this.visuals.reducedMotion||p.hp<=0||this.moving||p.guard||c.userData.attack>0 ? null :
+      (this.harvestAction || (pulse?{kind:pulse.kind,phase:1-pulse.left/pulse.total}:null)));
     if (p.guard) {
       c.arms[0].rotation.x = -1.19;
       c.arms[0].rotation.z = -0.27;
