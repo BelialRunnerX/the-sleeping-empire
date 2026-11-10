@@ -26,7 +26,7 @@ export function installMobileControls(doc = document, win = window) {
   const key='aetherbound_controls_v1'; let preference='auto';
   try { const value=win.localStorage.getItem(key); if(['auto','touch','desktop'].includes(value)) preference=value; } catch {}
   const bar=doc.createElement('div'); bar.className='device-controls';
-  bar.innerHTML='<button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">Fullscreen</button><details id="control-options"><summary>Controls</summary><label>Input layout<select id="control-scheme"><option value="auto">Auto detect</option><option value="touch">Touch / on-screen</option><option value="desktop">Keyboard / controller</option></select></label><p>Left stick moves. Right stick pans horizontally and zooms vertically. Drag the world to orbit. A connected controller hides touch controls in Auto.</p><p id="fullscreen-help" role="status"></p></details>';
+  bar.innerHTML='<button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">Fullscreen</button><details id="control-options"><summary>Controls</summary><label>Input layout<select id="control-scheme"><option value="auto">Auto detect</option><option value="touch">Touch / on-screen</option><option value="desktop">Keyboard / controller</option></select></label><p>Left stick moves. Right stick rotates horizontally and zooms vertically. Drag the world to orbit. A connected controller hides touch controls in Auto.</p><p id="fullscreen-help" role="status"></p></details>';
   hud.append(bar);
   const options=bar.querySelector('details');
   const fullButton=bar.querySelector('#fullscreen-toggle');
@@ -55,8 +55,8 @@ export function installMobileControls(doc = document, win = window) {
     for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,e=>{const k=held.get(e.pointerId);if(k)emit('keyup',k);held.delete(e.pointerId);});
   }
   for(const kind of ['move','camera']) {
-    const stick=doc.createElement('div');stick.className='touch-stick '+kind;stick.setAttribute('role','group');stick.setAttribute('aria-label',kind==='move'?'Movement joystick':'Camera joystick: horizontal pan, vertical zoom');
-    stick.innerHTML='<span class="stick-label">'+(kind==='move'?'MOVE':'PAN / ZOOM')+'</span><i></i>';hud.append(stick);
+    const stick=doc.createElement('div');stick.className='touch-stick '+kind;stick.setAttribute('role','group');stick.setAttribute('aria-label',kind==='move'?'Movement joystick':'Camera joystick: horizontal orbit, vertical zoom');
+    stick.innerHTML='<span class="stick-label">'+(kind==='move'?'MOVE':'ORBIT / ZOOM')+'</span><i></i>';hud.append(stick);
     const state={pointer:null,x:0,y:0,reset(){this.pointer=null;this.x=this.y=0;stick.querySelector('i').style.transform='translate(-50%,-50%)';if(kind==='move'){for(const k of moveKeys)emit('keyup',k);moveKeys.clear();}}};sticks.push(state);
     const update=e=>{const r=stick.getBoundingClientRect();let x=(e.clientX-r.x-r.width/2)/(r.width*.35),y=(e.clientY-r.y-r.height/2)/(r.height*.35);const length=Math.hypot(x,y);if(length>1){x/=length;y/=length;}state.x=Math.abs(x)>.18?x:0;state.y=Math.abs(y)>.18?y:0;stick.querySelector('i').style.transform=`translate(calc(-50% + ${x*26}px),calc(-50% + ${y*26}px))`;if(kind==='move'){const next=new Set();if(state.x<-.25)next.add('a');if(state.x>.25)next.add('d');if(state.y<-.25)next.add('w');if(state.y>.25)next.add('s');for(const k of moveKeys)if(!next.has(k))emit('keyup',k);for(const k of next)if(!moveKeys.has(k))emit('keydown',k);moveKeys=next;}};
     stick.addEventListener('pointerdown',e=>{if(state.pointer!==null)return;e.preventDefault();state.pointer=e.pointerId;try{stick.setPointerCapture(e.pointerId);}catch{}update(e);});
