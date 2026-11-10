@@ -12,6 +12,7 @@ export function createPlanetSurface({universalSeed,planetId,radiusMetres,sourceP
  if(!Number.isInteger(macroResolution)||macroResolution<2||macroResolution>64)throw Error('Bounded macro resolution2..64');
  const projection=createPlanetProjection({radiusMetres,minAltitudeMetres:seaLevelMetres-reliefMetres,maxAltitudeMetres:seaLevelMetres+reliefMetres});
  const recipeId=JSON.stringify([SURFACE_VERSION,sourcePreset,radiusMetres,reliefMetres,seaLevelMetres,waterPolicy]);
+ const drainageRecipeId=JSON.stringify([recipeId,'tangent-drainage-v1',macroResolution]);
  const scope=JSON.stringify([universalSeed,planetId,recipeId]);
  function noise(tag,d,frequency){
   const p=d.map(x=>x*frequency),cell=p.map(Math.floor),offset=p.map((x,i)=>x-cell[i]);
@@ -40,17 +41,17 @@ export function createPlanetSurface({universalSeed,planetId,radiusMetres,sourceP
   // Integer cube keys provide shared topology; tangent each component produces native geometry.
   const graph=cubeSphereGraph(macroResolution);
   for(const q of graph.nodes)q.dir=normalize(q.cube.map(x=>{const u=x/macroResolution;return Math.abs(u)===1?u:Math.tan(u*Math.PI/4);}));
-  if(waterPolicy!=='ocean-drainage')return macro={status:waterPolicy==='dry'?'dry-world':'endorheic-not-yet-solved',graph,version:SURFACE_VERSION,recipeId};
+  if(waterPolicy!=='ocean-drainage')return macro={status:waterPolicy==='dry'?'dry-world':'endorheic-not-yet-solved',graph,version:SURFACE_VERSION,recipeId,drainageRecipeId};
   const flow=solvePlanetDrainage(graph,d=>sample(d).heightMetres,seaLevelMetres);
   const riverEdges=[];
   if(flow.status==='solved')for(let i=0;i<graph.nodes.length;i++){
    const p=flow.parent[i];
    if(p>=0&&flow.raw[i]>=seaLevelMetres&&flow.catchmentNodes[i]>=8)riverEdges.push({from:i,to:p,waterFromMetres:flow.level[i],waterToMetres:flow.level[p],catchmentNodes:flow.catchmentNodes[i]});
   }
-  return macro={...flow,graph,riverEdges,version:SURFACE_VERSION,recipeId,
+  return macro={...flow,graph,riverEdges,version:SURFACE_VERSION,recipeId,drainageRecipeId,
    statusNote:'Coarse connected drainage graph only. Catchment counts are not equal-area discharge; filled nodes are not rendered lakes. No fine channel carving or local fluid simulation.'};
  }
- return Object.freeze({version:SURFACE_VERSION,recipeId,projection,sample,
+ return Object.freeze({version:SURFACE_VERSION,recipeId,drainageRecipeId,projection,sample,
   sampleFace:(face,u,v)=>sample(direction(face,u,v)),drainage,
   provenance:'Native tangent geometry; adapted seeded continents/ranges. Source water eligibility enforced only for explicitly identified Bastion; other per-world material/hazard/biome composition not implemented.'});
 }

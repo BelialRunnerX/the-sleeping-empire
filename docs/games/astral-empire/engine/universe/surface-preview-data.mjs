@@ -16,5 +16,5 @@ export function generateSurfacePreview(parameters,resolution=32){
   for(let y=0;y<n;y++)for(let x=0;x<n;x++){const a=start+y*(n+1)+x,b=a+1,c=a+n+1,d=c+1;indices.set([a,b,d,a,d,c],k);k+=6;}
  }
  const drainage=field.drainage();
- return {positions,colors,normals,indices,resolution,recipeId:field.recipeId,summary:{minHeight:min,maxHeight:max,landSamples:land,oceanSamples:ocean,drainageStatus:drainage.status,drainageNodes:drainage.graph.nodes.length,riverEdges:drainage.riverEdges?.length||0}};
+ return {positions,colors,normals,indices,resolution,recipeId:field.recipeId,drainageRecipeId:field.drainageRecipeId,summary:{minHeight:min,maxHeight:max,landSamples:land,oceanSamples:ocean,drainageStatus:drainage.status,drainageNodes:drainage.graph.nodes.length,riverEdges:drainage.riverEdges?.length||0}};
 }

@@ -39,3 +39,5 @@ assert.throws(()=>generateSurfacePreview(renderConfig,128));
 assert.throws(()=>generateSurfacePreview({...renderConfig,terrainEligible:false},8));
 assert.throws(()=>generateSurfacePreview({...renderConfig,sourcePreset:'emerald_bastion'},8));
 console.log('Surface preview buffers, determinism, source eligibility and budget PASS');
+
+assert.equal(a.recipeId,b.recipeId);assert.notEqual(a.drainageRecipeId,b.drainageRecipeId);assert.equal(a.drainage().drainageRecipeId,a.drainageRecipeId);
