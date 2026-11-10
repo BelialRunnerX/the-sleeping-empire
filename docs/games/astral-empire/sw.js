@@ -1,6 +1,11 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-36";
+const CACHE = "astral-empire-aetherbound-v3-37";
 const FILES = [
+  "./engine/universe/planet-surface.mjs",
+  "./engine/universe/cube-sphere-graph.mjs",
+  "./engine/universe/surface-preview-data.mjs",
+  "./engine/universe/surface-preview-worker.mjs",
+
   "./engine/universe-ui.mjs",
   "./engine/universe/manifest.mjs",
   "./engine/universe/planet-preview.mjs",
