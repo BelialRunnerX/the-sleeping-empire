@@ -70,6 +70,8 @@ export class Profiles {
         "This save could not be read. Export or restore a backup before continuing.",
       );
     }
+    // Only truly new profiles opt into the continental baseline. Existing saves keep their generator.
+    if (!raw) state.terrainGeneration = {version:2};
     this.active = profile;
     this.storage.setItem(SESSION, id);
     this.save(state);

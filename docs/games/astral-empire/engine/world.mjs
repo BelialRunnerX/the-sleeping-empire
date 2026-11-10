@@ -1215,6 +1215,7 @@ export class WorldView {
     this.effects.push({ mesh: g, life: 0.38, max: 0.38, sparks: true });
   }
   update(dt, input, time) {
+    this.canvas.dataset.waterContact=this.sim.player.swimming?"swimming":this.sim.player.wading?"wading":"dry";
     this.waterView?.update(this.sim.player.x,this.sim.player.z);
     if(this.horizon?.update(this.sim.player.x,this.sim.player.z)){this.scene.fog.near=1100;this.scene.fog.far=1900;this.canvas.dataset.horizonReady='true';this.canvas.dataset.horizonTriangles=String(this.horizon.triangles);}
     this.syncWorld();

@@ -51,7 +51,7 @@ export function createTerrainField(seed,realm,generation=null) {
     return null;
   };
   field.baseHeight=baseHeight;
-  field.generation=continental?{version:2,sourceVersion:continental.sourceVersion,anchor:continental.anchor}:{version:1};
+  field.generation=continental?{version:2,sourceVersion:continental.sourceVersion,anchor:{x:continental.anchor.x,z:continental.anchor.z,height:continental.anchor.height}}:{version:1};
   field.waterHeight=continental?(x,z)=>continental.sample(x,z).waterHeight:()=>null;
   field.landform=continental?.sample||null;
   field.surfaceHeight=(x,z)=>{const base=baseHeight(x,z);if(continental)return Math.floor(base*16+.5)/16;let lo=base-5,hi=base+5;for(let i=0;i<10;i++){const y=(lo+hi)/2;if(field(x,y,z)>0)lo=y;else hi=y;}return Math.floor(((lo+hi)/2)*16+.5)/16;};

@@ -5,7 +5,7 @@ export class VoxelTreeRenderer {
  attach(group,d,{saved,felled=false,environment,species,protectedBoxes}={}){
  if(felled)return()=>{};const id=String(d.id),old=this.entries.get(id);if(old)this.detach(id);
  const kind=species||(this.realm==='frost'?'spruce':this.realm==='cinder'?'emberwood':'oak');
- const input={seed:`${this.seed}:${this.realm}:${id}`,anchorMicro:[Math.round(d.x*4)*4,Math.round(group.position.y*4)*4,Math.round(d.z*4)*4],species:kind,biomeId:`browser:${this.realm}`,sourceFeature:'browser-adaptation:existing-node-placement',environment,protectedBoxes,origin:[d.x,group.position.y,d.z]};
+ const input={renderDetail:'two-tone',seed:`${this.seed}:${this.realm}:${id}`,anchorMicro:[Math.round(d.x*4)*4,Math.round(group.position.y*4)*4,Math.round(d.z*4)*4],species:kind,biomeId:`browser:${this.realm}`,sourceFeature:'browser-adaptation:existing-node-placement',environment,protectedBoxes,origin:[d.x,group.position.y,d.z]};
  const entry={id,group,d,input,saved,fallback:[...group.children],mesh:null,tree:null,deferred:null,failed:false};this.entries.set(id,entry);this.pump();return()=>this.detach(id);}
  update(x,z){this.player={x,z};for(const e of this.entries.values())if(e.deferred&&Math.hypot(e.d.x-x,e.d.z-z)>this.maxDistance*1.3)e.deferred=null;for(const e of this.entries.values())if(e.mesh&&Math.hypot(e.d.x-x,e.d.z-z)>this.maxDistance*1.3){e.group.remove(e.mesh);e.mesh.geometry.dispose();e.mesh=null;e.tree=null;e.fallback.forEach(o=>o.visible=true);}this.pump();}
  allows(e,r){try{return this.canPublish(e,r)===true;}catch(error){this.onError(error);return false;}}

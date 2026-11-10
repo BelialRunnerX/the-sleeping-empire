@@ -1,8 +1,6 @@
 # Continental terrain candidate (unreleased)
 
-The public 3.16 release is unchanged. This working candidate is opt-in through
-`terrainGeneration: {version: 2}` on a test profile. Normal new and existing
-profiles still use version 1. The selected dry sanctuary anchor is persisted;
+Public 3.16.1 remains unchanged. This local candidate selects generator version 2 for new profiles only. Existing saves retain version 1. The selected dry sanctuary anchor is persisted;
 worker identity includes generator and anchor. Sparse voxel edits still apply
 last. Do not reinterpret a populated version-1 profile as version 2.
 
@@ -24,11 +22,11 @@ last. Do not reinterpret a populated version-1 profile as version 2.
 
 ## Not complete / release gates
 - Two-batch near/far water renderer and budgeted 2 km terrain horizon implemented locally; visual/performance acceptance continues. No fluid
-  simulation, dynamic erosion, edited-dam rerouting or swimming claim.
+  simulation, dynamic erosion or edited-dam rerouting. Upright swimming/wading and actual desktop/touch offline replay passed in the candidate.
 - Not infinite continental distribution or spherical planetary generation.
 - Existing ecology/biome display labels are browser adapters, not a new faithful
   Elysium biome or ore distribution implementation.
-- No default-profile rollout, no save reset and no public release yet.
+- New-profile rollout is local only; no existing-save reset and no public release yet.
 - Needs actual mobile/offline persistence, mountain/coast/lake/rivers walkthrough,
   water traversal policy, world streaming/LOD budget and complete regression pass.
 
@@ -39,4 +37,6 @@ fine terrain tiles without page errors; this alone is not visual water acceptanc
 Hydrology worker separately verified all graph outlets, 9,367 connected channel
 samples, continuous domain boundary, deterministic anchors and dry spawn areas.
 
-Larger revision-3 trees are integrated locally with three-microcell (0.1875 m) cells, exact-volume felling and legacy tombstone preservation. The moon visual currently exceeds the unchanged 600k-triangle scene budget; greedy geometry optimization is pending. Do not publish this candidate until that gate and full mobile/offline regression pass.
+Larger revision-3 trees use three-microcell (0.1875 m) cells, exact-volume felling and legacy tombstone preservation. Greedy two-tone batching preserves occupancy and silhouette, collapsing only <=1/255 leaf shade differences. Five-realm visuals pass texture/draw-call/leak gates, but Moon 813,017, Cinder 703,287 and Orbit 627,619 triangles exceed the old 600k optimization target. Elys explicitly authorized a provisional larger-tree release despite that target; the temporary hard gate is 1.2m. This is not a physical-phone performance certification.
+
+Water worker response failures now have bounded retries, stale-token rejection and clear error indicators on recovery. Actual lake/ocean shoreline level correction and final combined browser rerun remain pending.

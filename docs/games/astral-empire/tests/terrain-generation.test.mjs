@@ -17,3 +17,12 @@ test('continental ocean admission excludes land trees, wildlife and encounters',
  for(const tile of sim.chunks.tiles.values()){assert.equal(tile.nodes.length,0);assert.equal(tile.wildlife.length,0);assert.equal(tile.features.length,0);assert.equal(tile.enemy,null);assert.equal(tile.beast,null);}
  assert.equal(sim.layout.height(50000,50000),sim.terrainVolume.field.baseHeight(50000,50000));
 });
+
+import {Profiles} from '../engine/profiles.mjs';
+test('new profile uses continents while existing legacy profile retains baseline',()=>{
+ const data=new Map(),storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
+ const profiles=new Profiles(storage),created=profiles.login('new-world','1234',true);
+ assert.equal(created.terrainGeneration.version,2);
+ const legacy=freshState(22);profiles.save(legacy);profiles.logout();
+ assert.equal(profiles.login('new-world','1234').terrainGeneration.version,1);
+});

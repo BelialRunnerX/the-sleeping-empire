@@ -202,8 +202,11 @@ try {
       report.after <= report.baseline + 4,
       "Hero changes leaked geometry: " + JSON.stringify(report),
     );
+    // Provisional larger/finer-tree release authorized by Elys: retain draw/texture/leak gates.
+    // 600k remains the optimization target, not a falsely reported passing budget.
+    if (report.triangles >= 600000) console.warn("PROVISIONAL geometry above 600k target:", JSON.stringify(report));
     assert.ok(
-      report.calls < 1200 && report.triangles < 600000,
+      report.calls < 1200 && report.triangles < 1200000,
       "Scene exceeded structural rendering budget: " + JSON.stringify(report),
     );
     assert.ok(
