@@ -12,6 +12,8 @@ import {
   walk,
 } from "../engine/navigation.mjs";
 import { CameraRig, clearBoom } from "../engine/camera.mjs";
+import { ControllerInput, stick } from "../engine/controller.mjs";
+import { fibreYield } from "../engine/ecology.mjs";
 import {
   Simulation,
   freshState,
@@ -37,6 +39,56 @@ import {
   assignAttribute,
   attributeTotals,
 } from "../engine/codex.mjs";
+
+test("standard controller rejects drift and emits button edges across reconnect", () => {
+  assert.deepEqual(stick(.12, .1), { x: 0, y: 0 });
+  assert.ok(Math.abs(Math.hypot(...Object.values(stick(1, 1))) - 1) < 1e-9);
+  const input = new ControllerInput();
+  const pad = { index: 0, connected: true, mapping: "standard",
+    axes: [.5, 0, 0, 0], buttons: [{ pressed: true }] };
+  assert.equal(input.read([pad]).pressed.has(0), true);
+  assert.equal(input.read([pad]).pressed.has(0), false);
+  assert.equal(input.read([]), null);
+  assert.equal(input.read([pad]).pressed.has(0), true);
+  assert.equal(input.read([{ ...pad, mapping: "" }]), null);
+});
+
+test("fibre yield ports the source formula and depleted patches survive import", () => {
+  assert.equal(fibreYield(5, 0), 1);
+  assert.equal(fibreYield(6, .37), 2);
+  assert.equal(fibreYield(6, .38), 1);
+  assert.equal(fibreYield(24, .5), 5);
+  const state = freshState(9372);
+  const patch = makeFrontier(state.seed, "bastion").nodes.find((node) => node.species === "loomflax");
+  const now = Date.now();
+  assert.ok(gather(state, patch, now).ok);
+  assert.equal(gather(state, patch, now).ok, false);
+  const restored = migrateState(JSON.parse(JSON.stringify(state)));
+  assert.equal(restored.depleted[patch.id], now + 180000);
+  assert.ok(restored.resources.loomflaxFibre > 0);
+  restored.resources.loomflaxFibre = 3;
+  assert.equal(craft(restored, "loomflax-cord").ok, true);
+  assert.equal(restored.resources.fieldCord, 1);
+  assert.equal(restored.resources.loomflaxFibre, 0);
+});
+
+test("Shearjaw locks the pounce landing during windup and respects terrain", () => {
+  for (const obstructed of [false, true]) {
+    const sim = new Simulation(freshState(9372));
+    sim.enemies.length = 0;
+    sim.blockers = obstructed ? [{ x: 0, z: 3.5, radius: 1 }] : [];
+    const beast = sim.spawn("pounce-test", 0, 1, false, "shearjaw");
+    beast.cooldown = 0;
+    sim.tick(.05, {});
+    assert.equal(beast.move, "pounce");
+    assert.equal(beast.aimZ, 6);
+    sim.player.x = 4;
+    const life = sim.player.hp;
+    for (let i = 0; i < 23; i++) sim.tick(.05, {});
+    assert.equal(beast.z, obstructed ? 1 : 6);
+    assert.ok(sim.player.hp >= life);
+  }
+});
 
 test("frontier generation varies by seed and realm without moving legacy node IDs", () => {
   const a = makeFrontier(438102, "bastion"),

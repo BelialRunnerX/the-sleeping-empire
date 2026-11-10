@@ -3,7 +3,7 @@ import { classFor } from "./codex.mjs";
 import { numeric } from "./native.mjs";
 import { makeFrontier } from "./frontier.mjs";
 import { ChunkWindow } from "./chunks.mjs";
-import { freeSpawn, obstacles, walk } from "./navigation.mjs";
+import { freeSpawn, obstacles, segmentClear, walk } from "./navigation.mjs";
 import {
   clamp,
   stats,
@@ -130,9 +130,9 @@ export class Simulation {
   }
   syncChunkEnemies() {
     const patrols = new Map(
-      [...this.chunks.tiles.values()]
-        .filter((tile) => tile.enemy)
-        .map((tile) => [tile.enemy.id, tile.enemy]),
+      [...this.chunks.tiles.values()].flatMap(({ enemy, beast }) =>
+        [enemy, beast].filter(Boolean).map((entry) => [entry.id, entry]),
+      ),
     );
     const retired = new Set(
       this.enemies.filter((e) => e.streamed && !patrols.has(e.id)),
@@ -696,7 +696,15 @@ export class Simulation {
           } else if (e.move === "storm")
             for (let i = 0; i < 10; i++)
               this.enemyProjectile(e, (i / 10) * Math.PI * 2);
-          else {
+          else if (e.move === "pounce") {
+            if (segmentClear(e.x, e.z, e.aimX, e.aimZ, this.blockers)) {
+              e.x = e.aimX;
+              e.z = e.aimZ;
+              if (Math.hypot(p.x - e.x, p.z - e.z) < 2.2 &&
+                  p.invulnerable <= 0 && p.y < 1.4)
+                this.hurtPlayer(43, "Physical", e.weaken > 0 ? 0.7 : 1, e);
+            }
+          } else {
             const radius = e.move === "eruption" ? 3.5 : e.boss ? 6 : 3.3,
               tx = e.move === "eruption" ? e.aimX : e.x,
               tz = e.move === "eruption" ? e.aimZ : e.z;
@@ -742,7 +750,7 @@ export class Simulation {
           e.aimX = p.x;
           e.aimZ = p.z;
           e.phase = "windup";
-          e.timer = e.move === "eruption" ? 1.25 : e.boss ? 1.4 : 0.8;
+          e.timer = e.move === "pounce" ? 1.05 : e.move === "eruption" ? 1.25 : e.boss ? 1.4 : 0.8;
           e.windupDuration = e.timer;
           e.cooldown = e.boss ? 2.8 : e.archetype === "oracle" ? 3.8 : 2;
           this.emit("windup", { enemy: e });

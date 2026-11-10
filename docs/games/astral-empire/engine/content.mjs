@@ -201,6 +201,16 @@ export const WEAPONS = {
   },
 };
 export const ENEMY_TYPES = {
+  shearjaw: {
+    name: "Shearjaw prowler",
+    armor: 20,
+    life: 190,
+    element: "Physical",
+    resistance: 0.05,
+    range: 6.8,
+    move: "pounce",
+    speed: 4.25,
+  },
   training: {
     name: "Training effigy",
     armor: 30,
@@ -612,6 +622,22 @@ export const PROFESSIONS = [
   },
 ];
 export const RECIPES = [
+  {
+    id: "loomflax-cord", name: "Field cord · Loomflax",
+    cost: { loomflaxFibre: 3 }, result: "fieldCord", count: 1,
+    profession: "fabrication", desc: "Twist three bast fibres into a bowstring.",
+  },
+  {
+    id: "downbloom-cord", name: "Field cord · Downbloom",
+    cost: { downbloomTuft: 4 }, result: "fieldCord", count: 1,
+    profession: "fabrication", desc: "Twist four softer tufts into a bowstring.",
+  },
+  {
+    id: "coilwood-bow", name: "Coilwood field bow", itemName: "Coilwood field bow",
+    type: "weapon", form: "longbow", profession: "fabrication",
+    cost: { fieldCord: 1, timber: 4, cobalt: 2 },
+    desc: "A field-strung bow with a cobalt riser and a three-arrow finisher.",
+  },
   {
     id: "ion-sword",
     name: "Ion-forged longsword",

@@ -36,6 +36,8 @@ import { discover, useFeature } from "./frontier.mjs";
 import { routeTo } from "./navigation.mjs";
 import { loadSurfaces } from "./surfaces.mjs";
 import { loadAvatarRigs } from "./avatar-rig.mjs";
+import { ControllerInput } from "./controller.mjs";
+import { loadFieldArt } from "./field-art.mjs";
 import {
   GEODE_MATERIALS,
   GEODE_STAGES,
@@ -115,6 +117,8 @@ let state = freshState(),
   holdingAttack = false,
   muted = false,
   audio;
+const controller=new ControllerInput();
+let activePad=null, padNavAt=0, padLabel="";
 const tabs = [
   ["inventory", "Equipment"],
   ["skills", "Skill links"],
@@ -229,7 +233,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.8 · Dawnwake Materials</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.9 · Living Biomes</span></footer>`;
 }
 function enter(create) {
   try {
@@ -385,7 +389,7 @@ function updateHUD() {
     $("interact-name").textContent =
       node.kind === "geode"
         ? GEODE_MATERIALS[node.material].name + " geode"
-        : resourceName(node.kind);
+        : node.name || resourceName(node.kind);
     $("interact-detail").textContent = gathering
       ? "Gathering… stay still"
       : node.kind === "geode"
@@ -710,7 +714,7 @@ function constellation() {
   return constellationPanel(state);
 }
 function lifeskills() {
-  return `<div class="card"><h3>Field material guide</h3><div class="grid-2">${Object.entries(
+  return `<div class="card"><h3>Field material guide</h3><p>Loomflax and Downbloom grow near Dawnwake and in wild sectors. Gather their fibres and twist field cord for the Coilwood bow.</p><div class="grid-2">${Object.entries(
     GEODE_MATERIALS,
   )
     .map(
@@ -836,7 +840,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -1584,6 +1588,60 @@ function movement() {
     z: -forward * Math.cos(yaw) - right * Math.sin(yaw),
   };
 }
+function gamepadMenu(pad, now) {
+  if (pad.pressed.has(1) || pad.pressed.has(9)) return closePanel();
+  if (pad.pressed.has(0)) {
+    if ($("panels").contains(document.activeElement)) document.activeElement.click();
+    return;
+  }
+  if(now<padNavAt) return;
+  const previous=pad.held.has(12)||pad.held.has(14)||pad.move.y<-.54;
+  const next=pad.held.has(13)||pad.held.has(15)||pad.move.y>.54;
+  if(!previous&&!next) return;
+  const focusable=[...$("panels").querySelectorAll("button:not(:disabled),select:not(:disabled),input:not(:disabled),[tabindex='0']")]
+    .filter(o=>o.getClientRects().length && !o.hidden);
+  const index=focusable.indexOf(document.activeElement);
+  if (!focusable.length) return;
+  const nextIndex = index < 0 ? (previous ? focusable.length - 1 : 0)
+    : (index + (previous ? -1 : 1) + focusable.length) % focusable.length;
+  focusable[nextIndex].focus();
+  padNavAt=now+150;
+}
+function updateController(now, dt) {
+  let connected;
+  try { connected=navigator.getGamepads?.(); } catch {}
+  const pad=controller.read(connected);
+  activePad=document.hasFocus() && !document.hidden ? pad : null;
+  const label=pad?.id || "";
+  if(label!==padLabel) {
+    padLabel=label;
+    $("controller-status").hidden=!label;
+    $("controller-status").title=label;
+    if(playing && label) notify("Controller connected · A interact · X attack · Menu opens equipment");
+  }
+  if(!activePad || !playing) return;
+  if(panel) { gamepadMenu(pad,now); return; }
+  if (pad.look.x || pad.look.y) {
+    const step = Math.min(dt, .05);
+    view.rig.orbit(-pad.look.x*2.45*step,pad.look.y*1.45*step);
+  }
+  if(pad.pressed.has(9)) return openPanel("inventory");
+  if(pad.pressed.has(12)) return openPanel("frontier");
+  if(pad.pressed.has(14)) return openPanel("skills");
+  if(pad.pressed.has(0)) startGather();
+  if(pad.pressed.has(1)) { cancelTravel(); const move=controllerMovement(); sim.dodge(move.x,move.z); }
+  if(pad.pressed.has(3)) sim.locked=sim.locked ? null : sim.nearest(30);
+  if(pad.pressed.has(11) && sim.player.y===0) sim.player.velocityY=8;
+  if(pad.pressed.has(10)) cameraControl("center");
+  if(pad.pressed.has(13)) { sim.heal(); save(); }
+  for(const [button,skill] of [[5,"lance"],[6,"nova"],[7,"burst"],[15,"dash"]])
+    if(pad.pressed.has(button)) attack(skill);
+}
+function controllerMovement() {
+  if(!activePad) return {x:0,z:0};
+  const right=activePad.move.x, forward=-activePad.move.y, yaw=view.yaw;
+  return {x:right*Math.cos(yaw)-forward*Math.sin(yaw),z:-forward*Math.cos(yaw)-right*Math.sin(yaw)};
+}
 function floating(event) {
   const point = view.project(
     event.x,
@@ -1640,6 +1698,7 @@ function frame(now) {
   const dt = Math.min((now - lastFrame) / 1000 || 0.016, 0.25);
   lastFrame = now;
   if (view) {
+    updateController(now,dt);
     if (playing && now - lastProduction > 1000) {
       const finished = settleProduction(state);
       if (finished) {
@@ -1665,6 +1724,8 @@ function frame(now) {
       lastProduction = now;
     }
     const manual = playing && !panel ? movement() : { x: 0, z: 0 };
+    if(playing && !panel && !(manual.x || manual.z)) Object.assign(manual,controllerMovement());
+    if((manual.x||manual.z) && travel) cancelTravel();
     let input = manual;
     if (playing && !panel) {
       // Advance bounded substeps so low rendering rates do not slow game time.
@@ -1676,7 +1737,7 @@ function frame(now) {
           pz = p.z;
         input = travel && !(manual.x || manual.z) ? routeInput(step) : manual;
         if (panel) break;
-        sim.tick(step, { ...input, guard: keys.has("g") });
+        sim.tick(step, { ...input, guard: keys.has("g") || activePad?.held.has(4) });
         if (travel) {
           travel.stuck =
             Math.hypot(p.x - px, p.z - pz) < 0.001 ? travel.stuck + step : 0;
@@ -1686,7 +1747,7 @@ function frame(now) {
           }
         }
         state.position = { x: p.x, z: p.z };
-        if (holdingAttack) attack("strike");
+        if (holdingAttack || activePad?.held.has(2)) attack("strike");
         if (gathering) {
           if (Math.hypot(p.x - gathering.x, p.z - gathering.z) > 0.2)
             gathering = null;
@@ -1739,7 +1800,7 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 async function boot() {
-  await Promise.all([loadNative(), loadSurfaces(), loadAvatarRigs()]);
+  await Promise.all([loadNative(), loadSurfaces(), loadAvatarRigs(), loadFieldArt()]);
   try {
     buildView();
     landing();

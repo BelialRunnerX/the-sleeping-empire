@@ -1,5 +1,6 @@
 import { numeric } from "./native.mjs";
 import { geodeMaterial } from "./geodes.mjs";
+import { fibrePatch } from "./ecology.mjs";
 
 export const CHUNK_SIZE = 40;
 // Save validation guard for numerical precision, not a terrain or travel gate.
@@ -67,6 +68,11 @@ export function generateChunk(seed, realm, cx, cz) {
   });
   const features = [];
   const frontier = nodes.length === types.length;
+  if (frontier && realm !== "orbit" && fraction(hash, 20, 1) < 0.57)
+    nodes.push(fibrePatch(
+      realm, key, biome > 0.51 ? "loomflax" : "downbloom",
+      cx * CHUNK_SIZE + 18, cz * CHUNK_SIZE + 33,
+    ));
   if (frontier && fraction(hash, 15, 9) < 0.48)
     nodes.push({
       id: realm + "-crystal-" + key,
@@ -109,7 +115,18 @@ export function generateChunk(seed, realm, cx, cz) {
             biome < 0.33 ? "drone" : biome > 0.63 ? "stalker" : "sentinel",
         }
       : null;
-  return { key, cx, cz, nodes, features, enemy };
+  const wildlife = frontier && realm !== "orbit" && fraction(hash, 22, 5) < 0.43
+    ? [{
+        id: realm + "-wildlife-" + key, species: biome > 0.49 ? "fenstag" : "brackhide",
+        x: cx * CHUNK_SIZE + 14, z: cz * CHUNK_SIZE + 18,
+        phase: fraction(hash, 24, 2) * Math.PI * 2,
+      }]
+    : [];
+  const beast = frontier && realm !== "orbit" && fraction(hash, 23, 7) < 0.14
+    ? { id: realm + "-shearjaw-" + key, x: cx * CHUNK_SIZE + 10,
+        z: cz * CHUNK_SIZE + 24, archetype: "shearjaw" }
+    : null;
+  return { key, cx, cz, nodes, features, enemy, wildlife, beast };
 }
 export function savedChunkFeature(id, seed) {
   if (typeof id !== "string") return null;

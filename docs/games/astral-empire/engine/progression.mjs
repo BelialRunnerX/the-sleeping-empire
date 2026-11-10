@@ -11,6 +11,7 @@ import {
 } from "./content.mjs";
 import { numeric } from "./native.mjs";
 import { normalizeExploration } from "./frontier.mjs";
+import { FIBRE_PLANTS, fibreYield } from "./ecology.mjs";
 import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
 import { GEODE_MATERIALS, GEODE_GROWTH_MS, GEODE_FRAMES } from "./geodes.mjs";
 import {
@@ -104,6 +105,9 @@ export function freshState(seed = 438102) {
       stone: 0,
       timber: 0,
       herb: 0,
+      loomflaxFibre: 0,
+      downbloomTuft: 0,
+      fieldCord: 0,
       fish: 0,
       essence: 2,
       potions: 5,
@@ -546,9 +550,10 @@ export function gather(s, node, now = Date.now()) {
   if (!job || s.depleted[node.id] > now)
     return { ok: false, message: "This resource is recovering." };
   const geode = node.kind === "geode" && GEODE_MATERIALS[node.material];
+  const fibre = node.kind === "herb" && FIBRE_PLANTS[node.species];
   const resource = geode
     ? node.material
-    : node.kind === "rock"
+    : fibre ? fibre.resource : node.kind === "rock"
       ? "stone"
       : job.resource;
   if (!resource) return { ok: false, message: "Unknown material." };
@@ -556,8 +561,9 @@ export function gather(s, node, now = Date.now()) {
     st = stats(s),
     tier = numeric.world_tier(s.level, s.deepest);
   const lucky = roll(s.seed, s.statistics.gathers, 1907) < st.luckChance;
+  const yieldRoll = roll(s.seed, s.statistics.gathers, 9);
   const count =
-    numeric.ore_yield(tier, roll(s.seed, s.statistics.gathers, 9)) +
+    (fibre ? fibreYield(tier, yieldRoll) : numeric.ore_yield(tier, yieldRoll)) +
     Math.floor(mastery / 3) +
     Math.floor(st.yield) +
     (st.keystones.includes("artisan") ? 1 : 0) +
@@ -576,7 +582,7 @@ export function gather(s, node, now = Date.now()) {
       "+" +
       count +
       " " +
-      (geode ? geode.name + " shards" : resource) +
+      (geode ? geode.name + " shards" : fibre ? fibre.name + " fibre" : resource) +
       " · " +
       job.name +
       " +20 XP",

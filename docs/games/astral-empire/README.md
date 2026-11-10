@@ -2,6 +2,12 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.9 · Living Biomes
+
+Scanned grass clumps stream around the player. Mineable boulders, cobalt outcrops and geode beds use a simplified scanned mesh. Harvest **Loomflax** and **Downbloom** near Dawnwake or in outer chunks, twist either into **field cord**, then craft the **Coilwood field bow**. Plant depletion and harvested materials save with the profile. Fenstag and Brackhide wander and flee approaching players. Shearjaw prowlers occupy occasional outer sectors and mark a pounce landing before committing.
+
+Connect a browser-recognized controller and press a button to activate it. **PAD** appears next to the realm. Use the left stick to move, the right stick to orbit, **A** to interact, **B** to evade, **X** to attack, **Y** to lock a target, and **LB** to guard. **RB**, **LT**, **RT** and **D-pad Right** cast Lance, Nova, Burst and Dash. **D-pad Up**, **Left** and **Down** open the survey, open skills and use an injector. **Menu** opens gear. In panels, use the D-pad or left stick to move focus, **A** to activate and **B** to close. Left stick click resets the camera and right stick click jumps. Labels use the standard Xbox-style layout.
+
 ## Version 3.8 · Dawnwake Materials
 
 Kael and Mira now use retextured VRoid placeholder rigs. Clothing and hair use portrait-derived colors, and equipped weapons and shields follow the hand joints. The world uses photographed ground, slate, stone and alloy color and normal maps alongside a fabric normal. The asset bundle loads locally and remains available offline. Source and license details are in [assets/ASSETS.md](assets/ASSETS.md).

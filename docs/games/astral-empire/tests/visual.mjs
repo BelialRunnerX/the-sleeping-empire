@@ -60,8 +60,9 @@ try {
   await page.evaluate(async () => {
     const { loadAvatarRigs } = await import("/engine/avatar-rig.mjs");
     const { loadSurfaces } = await import("/engine/surfaces.mjs");
+    const { loadFieldArt } = await import("/engine/field-art.mjs");
     const loaded = (
-      await Promise.all([loadAvatarRigs(), loadSurfaces()])
+      await Promise.all([loadAvatarRigs(), loadSurfaces(), loadFieldArt()])
     ).flat();
     const failed = loaded.filter((r) => r.status === "rejected");
     if (failed.length)
@@ -139,6 +140,9 @@ try {
         view.camera.isPerspectiveCamera &&
         view.nodes.every((n) => n.mesh.children.every((o) => !o.isSprite));
       if (realm === "bastion") {
+        if (!view.field.grass?.count || view.field.animals.size !== 2)
+          throw Error("Outpost grass or wildlife did not load");
+        const grassMatrix = view.field.grass.instanceMatrix.version;
         const startTile = view.chunkMeshes.get("0:0");
         sim.player.x = -2860;
         sim.player.z = 3140;
@@ -147,7 +151,8 @@ try {
           view.chunkMeshes.size !== 49 ||
           view.chunkMeshes.has("0:0") ||
           startTile.terrain.parent ||
-          !view.nodes.some((n) => n.x < -2800)
+          !view.nodes.some((n) => n.x < -2800) ||
+          view.field.grass.instanceMatrix.version === grassMatrix
         )
           throw Error("World did not unload old terrain and load new terrain");
         sim.player.x = 0;
@@ -211,6 +216,18 @@ try {
   }
   const showcase = [
     {
+      file: "living-biomes-fenstag.png",
+      realm: "bastion",
+      x: 13,
+      z: 12,
+      yaw: 1.62,
+      pitch: 0.34,
+      distance: 7.5,
+      hero: "mira",
+      weapon: "coilwood-bow",
+      armor: "scout-weave",
+    },
+    {
       file: "foundry-arsenal.png",
       realm: "bastion",
       x: 0,
@@ -262,6 +279,7 @@ try {
         circuitry: 10,
         herb: 10,
         electrum: 4,
+        fieldCord: 1,
         essence: 4,
       });
       let serial = 1042;

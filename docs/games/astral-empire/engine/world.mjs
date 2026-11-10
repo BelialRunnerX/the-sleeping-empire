@@ -9,6 +9,8 @@ import { CHUNK_SIZE, fieldNoise } from "./chunks.mjs";
 import { GEODE_MATERIALS, geodeStage } from "./geodes.mjs";
 import { surface } from "./surfaces.mjs";
 import { equippedForm } from "./arsenal.mjs";
+import { FIBRE_PLANTS } from "./ecology.mjs";
+import { animateFieldProp, FieldDressing, fieldProp } from "./field-art.mjs";
 const color = (hex) => new T.Color(hex);
 const materials = new Map(),
   geometries = new Map();
@@ -116,6 +118,8 @@ export class WorldView {
     this.sun = sun;
     this.scene.add(sun, sun.target);
     this.chunkMeshes = new Map();
+    this.field = new FieldDressing(this.scene, state, this.height, this.art.palette,
+      (object) => this.releaseObject(object));
     const ground = surface("ground");
     const groundTexture = ground.map || this.art.groundTexture();
     this.groundMaterial = new T.MeshStandardMaterial({
@@ -352,6 +356,7 @@ export class WorldView {
     }
     this.sun.shadow.mapSize.set(preset.shadow || 512, preset.shadow || 512);
     this.art.quality(settings);
+    if (this.field.grass) this.art.grass.count = Math.floor(this.art.grass.count * .36);
     this.canvas.dataset.artStyle = "model";
     this.canvas.dataset.surfaces = surface("ground").map
       ? "scanned"
@@ -367,9 +372,16 @@ export class WorldView {
         y = this.height(d.x, d.z);
       g.position.set(d.x, y, d.z);
       let crystal;
+      const rock = ["rock", "ore", "geode"].includes(d.kind)
+        ? fieldProp("boulder", (d.kind === "rock" ? .89 : .61) * (d.scale || 1))
+        : null;
+      if (rock) {
+        rock.rotation.y = d.x * 1.7 + d.z * .2;
+        g.add(rock);
+      }
       if (d.kind === "geode") {
         const tint = GEODE_MATERIALS[d.material].color;
-        this.art.shape(g, "stone", 0x4c566c, 0, 0.15, 0, 0.93, 0.64, 0.72);
+        if (!rock) this.art.shape(g, "stone", 0x4c566c, 0, 0.15, 0, 0.93, 0.64, 0.72);
         crystal = new T.Group();
         crystal.position.y = 0.41;
         g.add(crystal);
@@ -406,19 +418,13 @@ export class WorldView {
           c.rotation.z = (i - 1.5) * 0.15;
         }
       } else if (d.kind === "rock") {
-        const rock = this.art.shape(
-          g,
-          "stone",
-          0x819199,
-          0,
-          0.41,
-          0,
-          1.36,
-          0.91,
-          1.09,
-        );
-        rock.rotation.set(0.18, d.x, 0.12);
-        this.art.shape(g, "gem", 0xb9bcc1, 0.32, 0.75, 0.12, 0.6, 0.42, 0.64);
+        if (!rock) {
+          const fallback = this.art.shape(
+            g, "stone", 0x819199, 0, 0.41, 0, 1.36, 0.91, 1.09,
+          );
+          fallback.rotation.set(0.18, d.x, 0.12);
+          this.art.shape(g, "gem", 0xb9bcc1, 0.32, 0.75, 0.12, 0.6, 0.42, 0.64);
+        }
       } else if (d.kind === "wreck") {
         const hull = this.art.shape(
           g,
@@ -457,7 +463,10 @@ export class WorldView {
             0.26,
           ).rotation.x = Math.PI / 2;
       } else if (d.kind === "herb") {
-        for (let i = 0; i < 5; i++) {
+        const fibre = FIBRE_PLANTS[d.species];
+        const plant = fibre && fieldProp("fibre-plant", 0.74, fibre.color);
+        if (plant) g.add(plant);
+        else for (let i = 0; i < 5; i++) {
           mesh(
             g,
             "cylinder",
@@ -472,7 +481,7 @@ export class WorldView {
           mesh(
             g,
             "sphere",
-            0xd0b6f2,
+            fibre?.color ?? 0xd0b6f2,
             Math.sin(i) * 0.3,
             0.6,
             Math.cos(i) * 0.3,
@@ -779,6 +788,7 @@ export class WorldView {
     for (const e of this.sim.enemies) {
       if (this.foes.has(e.id)) continue;
       const g = new T.Group();
+      const beast = e.archetype === "shearjaw" ? fieldProp("shearjaw", 1.4, 0xa8c8e0) : null;
       {
         const dark = e.training
             ? 0x92775b
@@ -797,7 +807,8 @@ export class WorldView {
               ? 0xffb080
               : 0xc6a3ed;
         const shape = (...args) => this.art.shape(g, ...args);
-        if (e.archetype === "drone") {
+        if (beast) g.add(beast);
+        else if (e.archetype === "drone") {
           shape("gem", 0x607f92, 0, 1.9, 0, 0.73, 0.43, 0.48);
           shape("gem", 0x9bf5ec, 0, 1.92, 0.36, 0.24, 0.16, 0.15).material =
             this.art.material(0x9bf5ec, 0.8);
@@ -1106,6 +1117,8 @@ export class WorldView {
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
     this.art.skyGroup.position.set(p.x, terrainY, p.z);
     this.art.update(time, this.visuals.reducedMotion);
+    this.field.sync(this.sim.chunks.tiles, p, this.visuals.quality);
+    this.field.update(p, this.sim.blockers, dt, time, this.visuals.reducedMotion);
     this.workstations.update(time, this.visuals.reducedMotion);
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
@@ -1152,13 +1165,15 @@ export class WorldView {
         e.z,
       );
       v.mesh.rotation.y = Math.atan2(p.x - e.x, p.z - e.z);
-      const aimed = e.move === "eruption",
+      if (e.archetype === "shearjaw" && e.hp > 0 && Math.hypot(p.x - e.x, p.z - e.z) < 52)
+        animateFieldProp(v.mesh.children[0], e.phase === "windup" ? "Attack" : e.phase === "chase" ? "Walk" : "Idle", dt);
+      const aimed = e.move === "eruption" || e.move === "pounce",
         tx = aimed ? e.aimX : e.x,
         tz = aimed ? e.aimZ : e.z;
       v.telegraph.position.set(tx, this.height(tx, tz) + 0.08, tz);
       const ranged = e.move === "arrow" || e.move === "volley";
       v.telegraph.visible = e.phase === "windup" && e.hp > 0 && !ranged;
-      v.telegraph.scale.setScalar(aimed ? 3.5 / 3.3 : 1);
+      v.telegraph.scale.setScalar(e.move === "pounce" ? 2.2 / 3.3 : aimed ? 3.5 / 3.3 : 1);
       v.telegraph.material.opacity =
         0.15 + (1 - e.timer / (e.windupDuration || 1)) * 0.45;
       v.aim.visible = e.phase === "windup" && ranged && e.hp > 0;
@@ -1257,6 +1272,11 @@ export class WorldView {
       ...geometries.values(),
     ]);
     object.traverse((o) => {
+      if (o.userData.sharedFieldAsset) {
+        if (o.isSkinnedMesh) o.skeleton.dispose();
+        if (o.userData.ownedFieldMaterial) o.material.dispose();
+        return;
+      }
       if (o.userData.sharedRigGeometry && o.isSkinnedMesh) o.skeleton.dispose();
       if (
         o.geometry &&
@@ -1286,6 +1306,11 @@ export class WorldView {
     const geometrySet = new Set(),
       materialSet = new Set();
     this.scene.traverse((o) => {
+      if (o.userData.sharedFieldAsset) {
+        if (o.isSkinnedMesh) o.skeleton.dispose();
+        if (o.userData.ownedFieldMaterial) materialSet.add(o.material);
+        return;
+      }
       if (o.userData.sharedRigGeometry && o.isSkinnedMesh) o.skeleton.dispose();
       if (o.geometry && !o.isSprite && !o.userData.sharedRigGeometry)
         geometrySet.add(o.geometry);

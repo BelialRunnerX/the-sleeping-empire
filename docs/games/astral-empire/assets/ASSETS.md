@@ -101,3 +101,15 @@ Poly Haven maps use the [CC0 asset license](https://polyhaven.com/license). The 
 The VRoid placeholders follow pixiv's sample terms. They are not CC0. The browser assets preserve skinning and the bind pose, remove unused morph data and maps, and use meshopt geometry compression and WebP color maps up to 512 pixels. The renderer batches compatible skinned sections, reconstructs missing normals, and retextures the hair and tops with palettes based on the original Kael and Mira portraits. Clothing uses a shared cloth normal. Hand joints carry the existing game equipment, and the game drives movement, attacks and guard. The other ten appearances continue using their existing procedural models. The sample avatars are bundled as game assets, not sold or exported by an avatar creator.
 
 Three.js r187's GLTFLoader, SkeletonUtils and BufferGeometryUtils use the included Three.js MIT license. The Meshopt decoder license is in `vendor/MESHOPT-LICENSE.txt`.
+
+## Version 3.9 field placeholders
+
+| File | CC0 source and browser treatment |
+| --- | --- |
+| `field/grass.glb` | Poly Haven [Grass Medium 01](https://polyhaven.com/a/grass_medium_01). One 290-triangle tuft with a 256-pixel diffuse map, instanced around the player. |
+| `field/boulder.glb` | Poly Haven [Boulder 01](https://polyhaven.com/a/boulder_01). A 2,412-triangle proxy of the scan with a 512-pixel diffuse map. Ore and geode silhouettes retain the game's mineral tips. |
+| `field/fibre-plant.glb` | Kenney [Nature Kit](https://kenney.nl/assets/nature-kit), `flower_purpleB.glb`, tinted for the two fibre species. |
+| `field/fenstag.glb`, `field/shearjaw.glb` | Quaternius [Ultimate Animated Animal Pack](https://quaternius.com/packs/ultimateanimatedanimals.html), deer and wolf respectively. Three animations retained per asset. |
+| `field/brackhide.glb` | Quaternius [Farm Animal Pack](https://quaternius.com/packs/farmanimal.html), pig. Three animations retained. |
+
+The Kenney and Quaternius imports were sourced from the credited [Ishtaria asset mirror](https://github.com/Vitexus/ishtaria-client/tree/main/assets). Field GLBs use Meshopt compression and are served with the local game. The game recolors and resizes the imported placeholders.

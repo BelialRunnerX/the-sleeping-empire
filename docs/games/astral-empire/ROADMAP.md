@@ -2,6 +2,8 @@
 
 ## Current milestone
 
+Version 3.9 adds standard-mapped gamepad input, streamed field dressing, a fibre-to-bow recipe chain, two ambient wildlife species and a pouncing prowler. The next ecology steps are cultivated plots with persistent stages, species-specific habitats and behaviors, creature products, and more hostile families and tiers.
+
 Version 3.8 upgrades materials and introduces two retextured, rigged VRoid placeholders. Custom modeling is on hold while a Blender setup is prepared. Open gameplay work includes a portable field camp loop, atmosphere and suit behavior, deeper item bases and more encounter types.
 
 Version 3.7 links source-derived geode growth and alloy recipes to four crystalline materials, fixed item effects, five weapon forms, light and heavy armor, directional shield guard and three item ascension paths. More weapon families, affix tiers and production character meshes remain in the roadmap.

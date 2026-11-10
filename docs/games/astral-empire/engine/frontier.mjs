@@ -1,6 +1,7 @@
 import { numeric } from "./native.mjs";
 import { fieldNoise, savedChunkFeature } from "./chunks.mjs";
 import { localGeodes } from "./geodes.mjs";
+import { fibrePatch } from "./ecology.mjs";
 const realms = ["bastion", "moon", "cinder", "frost", "orbit"];
 const roll = (seed, x, z) =>
   numeric.world_hash(seed | 0, x | 0, z | 0) / 2 ** 32;
@@ -224,6 +225,10 @@ export function makeFrontier(seed, realm) {
       ...nodes.map((n, i) => ({ ...n, id: realm + "-node-" + i })),
       ...scenery,
       ...localGeodes(realm),
+      ...(realm === "orbit" ? [] : [
+        fibrePatch(realm, "dawn-loomflax", "loomflax", 5.4, 9.5),
+        fibrePatch(realm, "dawn-downbloom", "downbloom", -8.5, 12.8),
+      ]),
     ],
     features,
     wilds,

@@ -99,6 +99,22 @@ try {
       await page.locator("#world").getAttribute("data-surfaces"),
       "scanned",
     );
+    await page.evaluate(() => {
+      window.testPad = { index: 0, id: "Test Controller", mapping: "standard",
+        connected: true, axes: [0, 0, 0, 0],
+        buttons: Array.from({ length: 17 }, () => ({ pressed: false, value: 0 })) };
+      navigator.getGamepads = () => [window.testPad];
+    });
+    await page.locator("#controller-status").waitFor({ state: "visible" });
+    await page.evaluate(() => { window.testPad.buttons[9].pressed = true; });
+    await page.getByRole("dialog").waitFor({ state: "visible" });
+    await page.evaluate(() => {
+      window.testPad.buttons[9].pressed = false;
+      window.testPad.buttons[1].pressed = true;
+    });
+    await page.getByRole("dialog").waitFor({ state: "hidden" });
+    await page.evaluate(() => { window.testPad = null; });
+    await page.locator("#controller-status").waitFor({ state: "hidden" });
     await page.keyboard.press("ControlLeft");
     assert.equal(
       await page.locator("#free-look").getAttribute("aria-pressed"),
