@@ -95,7 +95,10 @@ try {
     console.log("Anime title screen rendered");
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
-    await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
+    // Profile creation can finish after the normal action timeout on CI.
+    // Click only once and require the resulting main-menu state.
+    await page.getByRole("button", { name: "NEW ADVENTURE" }).click({ timeout: 60000 });
+    await page.locator('[data-action="menu-enter"]').waitFor({ state: "visible", timeout: 60000 });
     // Initial world/shader construction can exceed the normal action timeout
     // on CI software renderers. Click once, then require the actual Codex UI.
     await page.locator('[data-action="menu-enter"]').click({ timeout: 60000 });
