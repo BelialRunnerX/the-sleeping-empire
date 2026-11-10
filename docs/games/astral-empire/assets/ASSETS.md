@@ -115,3 +115,9 @@ Three.js r187's GLTFLoader, SkeletonUtils and BufferGeometryUtils use the includ
 | `field/brackhide.glb` | Quaternius [Farm Animal Pack](https://quaternius.com/packs/farmanimal.html), pig. Three animations retained. |
 
 The Kenney and Quaternius imports were sourced from the credited [Ishtaria asset mirror](https://github.com/Vitexus/ishtaria-client/tree/main/assets). Field GLBs use Meshopt compression and are served with the local game. The game recolors and resizes the imported placeholders.
+
+## Optional custom female prototype
+
+`characters/custom-female.glb` is the runtime v17 derivative of the project's female correction v14: original project armor/hair work over the licensed pixiv VRoid AvatarSample_A base under the sample terms linked above. It is not wholly original body geometry or CC0. Source authoring files remain outside the game bundle; this is a playable asset, not an avatar export service.
+
+Technical derivative: 122,886 triangles, approximately 6.8 MB; rigid armor is single-bone skinned and batched, with lower-poly hair/armor. Body/Face are not decimated. This is a work-in-progress visual option, not pixel-identical to the high-detail authoring preview. Runtime preserves its authored materials and loads it only when selected. Selection is cosmetic and saves independently of race/class; legacy saves retain their previous appearance. Neutral body is normalized to exactly three blocks excluding held equipment. Existing male model remains unchanged.

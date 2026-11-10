@@ -462,6 +462,7 @@ export class WorldView {
     const { items, equipped } = this.state;
     return this.art.avatar({
       ...hero,
+      rigId: this.state.avatarBody === "female" ? "custom-female" : this.state.avatarBody === "male" ? "kael" : undefined,
       weapon: skillStats(this.state, "strike").weapon,
       form: equippedForm(this.state),
       armorForm: items.find((i) => i.id === equipped.armor)?.form,
@@ -1088,6 +1089,7 @@ export class WorldView {
     this.canvas.dataset.avatarModel = this.character.userData.rig
       ? "rigged"
       : "procedural";
+    this.canvas.dataset.avatarBody = this.character.userData.avatarBody || "legacy";
     this.scene.add(this.character);
   }
   nearestNode() {

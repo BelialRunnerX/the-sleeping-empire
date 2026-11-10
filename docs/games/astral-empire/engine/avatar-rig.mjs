@@ -7,7 +7,9 @@ import { mergeGeometries } from "../vendor/BufferGeometryUtils.js";
 import { surface } from "./surfaces.mjs";
 
 const templates = new Map();
-let loading;
+let loading,customLoading;
+export function loadCustomFemale(){return customLoading??=(async()=>{const {scene}=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(new URL("../assets/characters/custom-female.glb",import.meta.url).href);consolidateSkin(scene);scene.updateMatrixWorld(true);scene.traverse(o=>{if(o.isSkinnedMesh)o.skeleton.update();});const box=new T.Box3().setFromObject(scene,true);if(box.isEmpty()||!joints.every(j=>scene.getObjectByName("J_Bip_"+j)))throw Error("Custom female rig incomplete");templates.set("custom-female",{scene,floor:box.min.y,height:box.max.y-box.min.y,authored:true});})().catch(e=>{customLoading=null;throw e;});}
+
 const joints = [
   "L_UpperArm",
   "R_UpperArm",
@@ -142,7 +144,7 @@ function reskin(source, hero) {
 }
 
 export function applyAvatarRig(root, hero, attachments) {
-  const template = templates.get(hero.id);
+  const template = templates.get(hero.rigId||hero.id);
   if (!template) return;
   const scene = clone(template.scene),
     materialCache = new Map(),
@@ -179,7 +181,7 @@ export function applyAvatarRig(root, hero, attachments) {
     }
     const convert = (source) => {
       if (!materialCache.has(source))
-        materialCache.set(source, reskin(source, hero));
+        materialCache.set(source, template.authored ? source.clone() : reskin(source, hero));
       return materialCache.get(source);
     };
     mesh.material = Array.isArray(mesh.material)
@@ -188,6 +190,7 @@ export function applyAvatarRig(root, hero, attachments) {
   });
   root.add(model);
   root.userData.rig = { bones, model };
+  root.userData.avatarBody = template.authored ? "female" : (hero.rigId==="kael"?"male":"legacy");
   poseAvatarRig(root, 0, false, false, false, 0);
   root.updateMatrixWorld(true);
   for (const [side, list] of [

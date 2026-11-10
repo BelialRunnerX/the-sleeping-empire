@@ -98,6 +98,7 @@ export function freshState(seed = 438102) {
     pity: 0,
     cosmeticShards: 0,
     hero: "kael",
+    avatarBody: null,
     heroes: ["kael", "lumi", "mira", "tess"],
     heroLevels: { kael: 3, lumi: 2, mira: 3, tess: 1 },
     race: null,
@@ -198,6 +199,7 @@ export function migrateState(input) {
     s.level = clamp(Math.floor(s.level), 1, 100);
     for (const id of ["foodUntil", "shieldUntil"])
       s[id] = clamp(finite(input[id]), 0, Date.now() + 900000);
+    s.avatarBody = ["male","female"].includes(input.avatarBody) ? input.avatarBody : null;
     s.hero = HEROES.some((h) => h.id === s.hero) ? s.hero : "kael";
     s.race = RACES.some((r) => r.id === input.race) ? input.race : null;
     s.calling = CLASSES.some((c) => c.id === input.calling)

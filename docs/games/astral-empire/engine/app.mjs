@@ -40,7 +40,7 @@ import { CAMERA_KEY } from "./camera.mjs";
 import { discover, useFeature } from "./frontier.mjs";
 import { routeTo } from "./navigation.mjs";
 import { loadSurfaces } from "./surfaces.mjs";
-import { loadAvatarRigs } from "./avatar-rig.mjs";
+import { loadAvatarRigs, loadCustomFemale } from "./avatar-rig.mjs";
 import { ControllerInput, ControllerBuildHold, controllerActions, controllerMenuDirection, targetInView } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
 import { buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
@@ -230,6 +230,7 @@ function buildView() {
   gathering = null;
   lastDiscovery = 0;
   if (playing) renderBar();
+  if(state.avatarBody==="female"){const expected=view;loadCustomFemale().then(()=>{if(view===expected&&state.avatarBody==="female")view.setHero();}).catch(e=>notify("Female model unavailable; existing appearance shown. "+e.message));}
 }
 function landing() {
   atMainMenu = false;
@@ -842,6 +843,7 @@ function codex() {
   return `<article class="card"><div class="row spread"><h3>Imperial Codex</h3><span class="tag">FIELD RANK ${state.level}</span></div>
   <p>Choose your race and class at base. Your appearance is independent. Each level after 1 grants 3 constellation points and 10 assignable attribute points.</p>
   <div class="grid-2"><label>RACE<select id="codex-race" ${!atBase ? "disabled" : ""}>${options(RACES, r.id)}</select></label><label>CLASS<select id="codex-class" ${!atBase ? "disabled" : ""}>${options(CLASSES, c.id)}</select></label></div>
+  <label>BODY<select id="codex-body"><option value="male" ${state.avatarBody!=="female"?"selected":""}>Male (existing model)</option><option value="female" ${state.avatarBody==="female"?"selected":""}>Female (custom prototype)</option></select></label><p class="small">Appearance only. Female is a downloadable work-in-progress model; race, class and stats are unchanged.</p>
   <p id="codex-preview" class="affix"></p><button class="gold-button" data-action="declare" ${!atBase && !declarationRequired ? "disabled" : ""}>${state.race && state.calling ? "UPDATE FIELD LOADOUT" : "DECLARE CHARACTER"}</button>
   ${!atBase ? '<p class="small">Return to the sanctuary to change your loadout.</p>' : ""}</article>
   <article class="card"><div class="row spread"><h3>Attributes</h3><span class="tag">${remaining} POINTS AVAILABLE</span></div><p>Totals include race base stats, free race and class starter bonuses, automatic growth, and manual assignments.</p>
@@ -1090,7 +1092,7 @@ document.addEventListener("submit", (e) => {
     enter(false);
   }
 });
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
   const n = e.target.closest("button,[data-passive],#interaction");
   if (!n) return;
   if (n.dataset.profile) {
@@ -1345,6 +1347,9 @@ document.addEventListener("click", (e) => {
         !CLASSES.some((v) => v.id === calling)
       )
         return;
+      const body=$("codex-body").value,profile=profiles.active,expected=view;
+      if(body==="female"){n.disabled=true;try{await loadCustomFemale();}catch(error){notify("Female model could not load: "+error.message);n.disabled=false;return;}n.disabled=false;if(view!==expected||profiles.active!==profile||panel!=="codex")return;}
+      state.avatarBody=body==="female"?"female":"male";
       state.race = race;
       state.calling = calling;
       declarationRequired = false;
