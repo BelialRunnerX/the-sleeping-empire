@@ -2,6 +2,15 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.14.2 - Mobile Touch Fix
+
+Touch HUD controls suppress text selection and long-press callouts while forms
+remain editable. Canvas and HUD track the visible viewport, including Safari
+browser chrome and side safe areas. The controls sheet stays within those bounds.
+Fullscreen-unavailable browsers now show explicit Home Screen installation guidance.
+No camera zoom changes or save changes. Device-emulated tests pass; physical
+Safari behavior still needs confirmation.
+
 ## Version 3.14.1 - Mobile Viewport Fix
 
 The canvas now follows its actual CSS and visual viewport bounds when phone

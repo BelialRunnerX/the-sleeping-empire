@@ -56,6 +56,24 @@ await page.setViewportSize({width:844,height:390});
 assert.equal(await page.locator('#touch-pad').isVisible(),true);await check();
 await page.screenshot({path:resolve(root,'.artifacts/mobile-controls-landscape.png')});
 await page.setViewportSize({width:393,height:720});await page.screenshot({path:resolve(root,'.artifacts/mobile-controls.png')});
+// Simulate Safari's reduced visual viewport and landscape notch insets.
+await page.evaluate(()=>{
+Object.defineProperty(visualViewport,'width',{get:()=>740,configurable:true});
+Object.defineProperty(visualViewport,'height',{get:()=>310,configurable:true});
+visualViewport.dispatchEvent(new Event('resize'));
+const hud=document.querySelector('#hud');hud.style.setProperty('--safe-left','59px');hud.style.setProperty('--safe-right','59px');hud.style.setProperty('--safe-bottom','21px');
+});
+await page.setViewportSize({width:844,height:390});
+const visible=await page.evaluate(()=>Object.fromEntries(['#world','#hud','.touch-pad','.touch-actions','.bottom-hud','.device-controls'].map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}]})));
+assert.equal(visible['#world'].width,740);assert.equal(visible['#hud'].height,310);
+for(const s of ['.touch-pad','.touch-actions','.bottom-hud','.device-controls']){assert.ok(visible[s].right<=681&&visible[s].x>=59,`safe inset ${s}: ${JSON.stringify(visible[s])}`);assert.ok(visible[s].bottom<=310,`visible height ${s}`);}
+assert.equal(await page.locator('[data-move="up"]').evaluate(el=>getComputedStyle(el).userSelect),'none');
+assert.equal(await page.locator('[data-move="up"]').evaluate(el=>el.dispatchEvent(new Event('contextmenu',{bubbles:true,cancelable:true}))),false);
+await page.locator('#control-options summary').click();
+await page.evaluate(()=>{Object.defineProperty(document,'fullscreenEnabled',{value:false,configurable:true});Object.defineProperty(document,'webkitFullscreenEnabled',{value:false,configurable:true});document.dispatchEvent(new Event('fullscreenchange'));});
+assert.equal(await page.locator('#fullscreen-toggle').textContent(),'Install fullscreen');
+await page.locator('#fullscreen-toggle').click();assert.match(await page.locator('#fullscreen-help').textContent(),/cannot hide its own bars/);
+await page.locator('.close-controls').click();await page.screenshot({path:resolve(root,'.artifacts/mobile-visible-landscape.png')});
 assert.deepEqual(errors,[]);
 console.log('PASS DPR3 canvas bounds/buffer, no horizontal overflow, control zone separation portrait/landscape, simulated bottom safe area, mobile detection, persisted override, controller auto/manual, fullscreen fallback/rejection, held-input blur');
 } finally {await browser.close();server.close();}

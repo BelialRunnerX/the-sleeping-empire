@@ -9,6 +9,20 @@ export function resolveControlScheme(preference, mobile, gamepad) {
 }
 export function installMobileControls(doc = document, win = window) {
   const hud=doc.querySelector('#hud'); if (!hud) return;
+  // Safari's visible viewport can be smaller than the layout viewport when chrome moves.
+  const viewport=()=>{
+    const v=win.visualViewport, root=doc.documentElement;
+    root.style.setProperty('--view-width',`${v?.width || win.innerWidth}px`);
+    root.style.setProperty('--view-height',`${v?.height || win.innerHeight}px`);
+    root.style.setProperty('--view-left',`${v?.offsetLeft || 0}px`);
+    root.style.setProperty('--view-top',`${v?.offsetTop || 0}px`);
+  };
+  viewport();win.addEventListener('resize',viewport);
+  win.visualViewport?.addEventListener('resize',viewport);
+  win.visualViewport?.addEventListener('scroll',viewport);
+  // Prevent selection/callouts on game controls, never on editable form fields.
+  const editable=e=>e.target.closest?.('input,textarea,select,[contenteditable="true"]');
+  for(const type of ['contextmenu','selectstart'])hud.addEventListener(type,e=>{if(!editable(e))e.preventDefault();});
   const key='aetherbound_controls_v1'; let preference='auto';
   try { const value=win.localStorage.getItem(key); if(['auto','touch','desktop'].includes(value)) preference=value; } catch {}
   const bar=doc.createElement('div'); bar.className='device-controls';
@@ -46,9 +60,13 @@ export function installMobileControls(doc = document, win = window) {
   select.addEventListener('change',()=>{preference=select.value;try{win.localStorage.setItem(key,preference);}catch{}apply();});
   win.addEventListener('gamepadconnected',apply);win.addEventListener('gamepaddisconnected',apply);
   const coarse=win.matchMedia('(pointer: coarse)');coarse.addEventListener?.('change',apply);
-  const sync=()=>{const active=!!(doc.fullscreenElement||doc.webkitFullscreenElement);full.textContent=active?'Exit fullscreen':'Fullscreen';full.setAttribute('aria-label',full.textContent);full.setAttribute('aria-pressed',String(active));};
+  const standalone=()=>win.navigator.standalone===true||win.matchMedia('(display-mode: standalone)').matches;
+  const nativeFullscreen=()=>!!(doc.fullscreenEnabled||doc.webkitFullscreenEnabled);
+  const sync=()=>{const active=!!(doc.fullscreenElement||doc.webkitFullscreenElement);full.textContent=active?'Exit fullscreen':standalone()?'App view':nativeFullscreen()?'Fullscreen':'Install fullscreen';full.setAttribute('aria-label',full.textContent);full.setAttribute('aria-pressed',String(active));};
   full.addEventListener('click',async()=>{
     try {
+      if(standalone()&&!doc.fullscreenElement&&!doc.webkitFullscreenElement){help.textContent='Already running in installed app view. iOS reserves its system gesture area.';options.open=true;return;}
+      if(!nativeFullscreen()){help.textContent='This browser cannot hide its own bars. On iPhone, open this page in Safari, tap Share, then Add to Home Screen (enable Open as Web App if shown). Launch that icon for app view. Your browser may keep its system gesture area.';options.open=true;return;}
       if(doc.fullscreenElement||doc.webkitFullscreenElement) await (doc.exitFullscreen?.()||doc.webkitExitFullscreen?.());
       else if(doc.documentElement.requestFullscreen) await doc.documentElement.requestFullscreen();
       else if(doc.documentElement.webkitRequestFullscreen) await doc.documentElement.webkitRequestFullscreen();

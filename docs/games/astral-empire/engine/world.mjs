@@ -982,8 +982,8 @@ export class WorldView {
   project(x, y, z) {
     const v = new T.Vector3(x, y, z).project(this.camera);
     return {
-      x: ((v.x + 1) / 2) * innerWidth,
-      y: ((-v.y + 1) / 2) * innerHeight,
+      x: ((v.x + 1) / 2) * this.canvas.clientWidth,
+      y: ((-v.y + 1) / 2) * this.canvas.clientHeight,
       visible: v.z > -1 && v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1,
     };
   }

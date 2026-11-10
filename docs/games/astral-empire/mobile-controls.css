@@ -52,3 +52,14 @@ body:has(#panels:not([hidden])) .touch-actions,body:has(#panels:not([hidden])) .
  html[data-controls="touch"] .objective-hud,html[data-controls="touch"] .map-hud {display:none;}
  html[data-controls="touch"] .character-hud {top:calc(52px + env(safe-area-inset-top));}
 }
+/* Do not let WebKit select arrow labels or show a long-press callout. */
+#hud,#hud button,#hud summary,#world {-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;}
+#hud input,#hud textarea,#hud [contenteditable="true"] {-webkit-user-select:text;user-select:text;-webkit-touch-callout:default;}
+#hud button,#hud summary {touch-action:manipulation;}
+#hud .touch-pad button,#hud .touch-actions button {touch-action:none;}
+#world,#hud,#vignette,#world-labels {
+ inset:auto!important;left:var(--view-left,0)!important;top:var(--view-top,0)!important;
+ width:var(--view-width,100vw)!important;height:var(--view-height,100dvh)!important;
+}
+.device-controls details[open] {max-width:calc(var(--view-width,100vw) - max(8px,env(safe-area-inset-left)) - max(8px,env(safe-area-inset-right)) - 8px);max-height:calc(var(--view-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px);}
+html[data-controls="touch"] .device-controls {right:var(--safe-right);}
