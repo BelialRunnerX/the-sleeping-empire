@@ -2,10 +2,10 @@
 export class VoxelTreeRenderer {
  constructor(T,{seed,realm='bastion',maxNear=16,maxDistance=40,onReady=()=>{},canPublish=()=>true,onError=console.warn,workerFactory=()=>new Worker(new URL('./tree-worker.mjs',import.meta.url),{type:'module'})}={}){
  this.T=T;this.seed=seed;this.realm=realm;this.maxNear=maxNear;this.maxDistance=maxDistance;this.onReady=onReady;this.canPublish=canPublish;this.onError=onError;this.entries=new Map();this.serial=0;this.pending=null;this.player={x:0,z:0};this.material=new T.MeshLambertMaterial({vertexColors:true});this.worker=workerFactory();this.worker.onmessage=e=>this.receive(e.data);this.worker.onerror=e=>{this.onError(e);if(this.pending){this.pending.entry.failed=true;this.pending=null;}this.pump();};}
- attach(group,d,{saved,felled=false,environment,species}={}){
+ attach(group,d,{saved,felled=false,environment,species,protectedBoxes}={}){
  if(felled)return()=>{};const id=String(d.id),old=this.entries.get(id);if(old)this.detach(id);
  const kind=species||(this.realm==='frost'?'spruce':this.realm==='cinder'?'emberwood':'oak');
- const input={seed:`${this.seed}:${this.realm}:${id}`,anchorMicro:[Math.round(d.x*4)*4,Math.round(group.position.y*4)*4,Math.round(d.z*4)*4],species:kind,biomeId:`browser:${this.realm}`,sourceFeature:'browser-adaptation:existing-node-placement',environment};
+ const input={seed:`${this.seed}:${this.realm}:${id}`,anchorMicro:[Math.round(d.x*4)*4,Math.round(group.position.y*4)*4,Math.round(d.z*4)*4],species:kind,biomeId:`browser:${this.realm}`,sourceFeature:'browser-adaptation:existing-node-placement',environment,protectedBoxes,origin:[d.x,group.position.y,d.z]};
  const entry={id,group,d,input,saved,fallback:[...group.children],mesh:null,tree:null,deferred:null,failed:false};this.entries.set(id,entry);this.pump();return()=>this.detach(id);}
  update(x,z){this.player={x,z};for(const e of this.entries.values())if(e.deferred&&Math.hypot(e.d.x-x,e.d.z-z)>this.maxDistance*1.3)e.deferred=null;for(const e of this.entries.values())if(e.mesh&&Math.hypot(e.d.x-x,e.d.z-z)>this.maxDistance*1.3){e.group.remove(e.mesh);e.mesh.geometry.dispose();e.mesh=null;e.tree=null;e.fallback.forEach(o=>o.visible=true);}this.pump();}
  allows(e,r){try{return this.canPublish(e,r)===true;}catch(error){this.onError(error);return false;}}
