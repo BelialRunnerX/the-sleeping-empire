@@ -1033,6 +1033,7 @@ export class ArtDirector {
       g.userData.guarding,
       time,
       g.userData.weapon,
+      reduced,
     );
     g.knees.forEach(
       (k, i) =>

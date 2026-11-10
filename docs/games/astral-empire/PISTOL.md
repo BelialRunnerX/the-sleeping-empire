@@ -18,3 +18,8 @@ Merge notes: small hunks in app/world/avatar-rig may overlap male/harvest integr
 
 ## 3.19.1 original model
 The game now mounts the original authored GLB: 9,052 triangles, six shared PBR material batches, no external textures, grip and muzzle sockets. Its natural 0.298m length is scaled 1.2x at the three-block avatar scale. Aiming pose now receives the pistol form and keeps its barrel aligned with character forward. Finger articulation and precise target-height IK remain unfinished. The code model remains only a loading/error fallback. Model asset is cached in the offline shell; no save schema changes.
+
+## Grip and relaxed idle follow-up
+Pistol now uses a palm-relative grip frame with articulated fingers rather than an open hand under a world-fixed gun. At rest the right arm lowers and muzzle points down; firing immediately raises it, holds ready for 0.8 seconds, then eases down. Idle has subtle breathing, asymmetric arms and spinal weight shift; reduced-motion disables idle oscillation. Wrist/finger rest transforms restore when changing weapons. No ballistic, inventory, damage or save format changes.
+
+Verified actual desktop/touch primary, magazine reload and offline save restoration; focused pose tests cover breathing/reduced motion, lowered/aimed barrel, grip and reset. Side-on local gameplay screenshots confirm the lower-ready silhouette. This remains procedural animation, not authored motion capture or full-body target-height IK; exact finger/trigger contact and wrist transitions need further art polish.

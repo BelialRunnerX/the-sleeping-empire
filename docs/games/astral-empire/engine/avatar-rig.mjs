@@ -203,7 +203,11 @@ export function applyAvatarRig(root, hero, attachments) {
       : convert(mesh.material);
   });
   root.add(model);
-  root.userData.rig = { bones, model };
+  const fingers = {};
+  scene.traverse(o => { if (/^J_Bip_[LR]_(Index|Middle|Ring|Little|Thumb)[123]$/.test(o.name)) {
+    o.userData.rest = o.rotation.clone(); fingers[o.name.slice(6)] = o;
+  }});
+  root.userData.rig = { bones, model, fingers };
   root.userData.avatarBody = template.body || (hero.rigId==="kael"?"male":"legacy");
   poseAvatarRig(root, 0, false, false, false, 0);
   root.updateMatrixWorld(true);
@@ -234,42 +238,64 @@ export function poseAvatarRig(
   guarding,
   time,
   weapon,
+  reduced = false,
 ) {
   const rig = root.userData.rig;
   if (!rig) return;
   const { bones } = rig;
+  const dt = Math.min(.1, Math.max(0, time - (rig.lastPoseTime ?? time)));
+  rig.lastPoseTime = time;
+  if (attacking && weapon === 'pistol') rig.aimUntil = time + .8;
+  const aimTarget = weapon === 'pistol' && (attacking || time < (rig.aimUntil || 0)) ? 1 : 0;
+  rig.aimBlend = (rig.aimBlend || 0) + (aimTarget - (rig.aimBlend || 0)) * (1 - Math.exp(-dt * 14));
+  const aim = attacking ? 1 : rig.aimBlend;
+  const breath = reduced || moving ? 0 : Math.sin(time * 1.7);
+  const sway = reduced || moving ? 0 : Math.sin(time * .67);
+  for (const [key,bone] of Object.entries(rig.fingers || {})) {
+    const rest = bone.userData.rest, right = key.startsWith('R_'), grip = right && weapon === 'pistol';
+    const segment = Number(key.at(-1));
+    const curl = key.includes('Thumb') ? (grip ? .3 : .08) : key.includes('Index') && grip ? [0,.24,.4,.25][segment] : (grip ? [0,.95,1.15,.65][segment] : [0,.15,.24,.12][segment]);
+    bone.rotation.set(rest.x,rest.y,rest.z + (right ? -1 : 1) * curl,rest.order);
+  }
   const rotate = (key, x = 0, y = 0, z = 0) => {
     const bone = bones[key],
       rest = bone.userData.rest;
     bone.rotation.set(rest.x + x, rest.y + y, rest.z + z, rest.order);
   };
+  rotate("L_Hand");
+  rotate("R_Hand");
   rotate("L_UpperLeg", stride);
   rotate("R_UpperLeg", -stride);
   rotate("L_LowerLeg", moving ? Math.max(0, -stride) * 0.88 : 0);
   rotate("R_LowerLeg", moving ? Math.max(0, stride) * 0.88 : 0);
   rotate(
     "L_UpperArm",
-    guarding ? -0.92 : attacking && weapon === "bow" ? -0.83 : -stride * 0.45,
+    guarding ? -0.92 : attacking && weapon === "bow" ? -0.83 : -.06 - stride * 0.45 + breath*.015,
     0,
-    1.24,
+    1.32 + sway*.012,
   );
   rotate(
     "R_UpperArm",
-    weapon === "pistol" ? +.95+(attacking?Math.abs(Math.sin(time*32))*.12:0) : attacking ? -0.79 + Math.sin(time * 26) * 0.22 : stride * 0.45,
+    weapon === "pistol" ? .22 + aim*.73 + breath*.015 + (attacking?Math.abs(Math.sin(time*32))*.07:0) : attacking ? -0.79 + Math.sin(time * 26) * 0.22 : .04 + stride * 0.45 + breath*.015,
     0,
-    -1.24,
+    -1.32 + aim*.08,
   );
   rotate("L_LowerArm", guarding ? -0.55 : -0.12);
-  rotate("R_LowerArm", weapon === "pistol" ? +.3 : attacking ? -0.58 : -0.1);
-  rotate("C_Spine", moving ? 0.035 : 0, moving ? stride * 0.095 : 0);
+  rotate("R_LowerArm", weapon === "pistol" ? .25 + aim*.05 : attacking ? -0.58 : -0.1);
+  rotate("C_Spine", moving ? 0.035 : breath*.012, moving ? stride * 0.095 : sway*.014, moving ? 0 : .012 + sway*.008);
   if(weapon === 'pistol'){
     root.updateMatrixWorld(true);
-    const forward=root.getWorldQuaternion(new T.Quaternion());
+    const forward=root.getWorldQuaternion(new T.Quaternion()).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(1,0,0), (1-aim)*.85));
+    // Match the hand to the grip frame, not a world-locked floating weapon.
+    const hand=bones.R_Hand;
+    const handFrame=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(new T.Vector3(0,-1,0),new T.Vector3(0,0,-1),new T.Vector3(1,0,0)));
+    hand.quaternion.copy(hand.parent.getWorldQuaternion(new T.Quaternion()).invert().multiply(forward).multiply(handFrame));
+    root.updateMatrixWorld(true);
     for(const item of root.userData.equipmentAttachments?.right||[]){
       if(item.parent){
         item.quaternion.copy(item.parent.getWorldQuaternion(new T.Quaternion()).invert().multiply(forward));
         const finger=root.getObjectByName('J_Bip_R_Middle1');
-        if(finger){const palm=bones.R_Hand.getWorldPosition(new T.Vector3()).lerp(finger.getWorldPosition(new T.Vector3()),.7);item.position.copy(item.parent.worldToLocal(palm));}
+        if(finger){const palm=bones.R_Hand.getWorldPosition(new T.Vector3()).lerp(finger.getWorldPosition(new T.Vector3()),.8);palm.add(new T.Vector3(0,0,.055).applyQuaternion(forward));item.position.copy(item.parent.worldToLocal(palm));}
       }
     }
   }
