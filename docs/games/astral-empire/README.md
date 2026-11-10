@@ -2,6 +2,12 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.20 - Field tools and creatures
+
+The pistol now rests lowered with a relaxed breathing pose, raises while firing, and uses articulated finger grip. Contact remains approximate rather than full-body IK.
+
+Original axe/pickaxe models now accompany gathering and successful mining, with separate chop/mine/reach poses and interrupted-action gear restoration. The new Lumi deer and ORBI drone replace their placeholders. Deer uses conservative procedural joint walking/fleeing rather than authored animation clips or foot IK; ORBI uses root hover. Harvest poses are not adaptive surface-contact IK. Existing ranges, rewards, inventory and saves remain unchanged.
+
 ## Version 3.19.1 - Original pistol model
 
 The Aethercoil now uses its original six-material GLB (9,052 triangles), mounted at the palm with corrected forward aiming pose. Cached offline; existing crafting, damage, magazines and saves unchanged. Finger articulation and target-height IK remain provisional.

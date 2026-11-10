@@ -1249,7 +1249,7 @@ export class WorldView {
       c.userData.attack > 0
         ? -1.4 + Math.sin(c.userData.attack * 14) * 1.6
         : stride * 0.6;
-    const weapon = skillStats(this.state, "strike").weapon;
+    const weapon = equippedForm(this.state)==="pistol" ? "pistol" : skillStats(this.state, "strike").weapon;
     if (c.userData.attack > 0 && weapon === "bow") {
       c.arms[0].rotation.x = -1.3;
       c.arms[1].rotation.x = -1.1;
