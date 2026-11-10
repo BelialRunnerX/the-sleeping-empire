@@ -2,7 +2,6 @@ import {
   HEROES,
   SKILLS,
   SUPPORTS,
-  PASSIVES,
   PROFESSIONS,
   RECIPES,
   QUESTS,
@@ -26,12 +25,27 @@ import {
   hitBreakdown,
   recruitScout,
   clamp,
+  addXP,
 } from "./simulation.mjs";
 import { loadNative, numeric } from "./native.mjs";
 import { Profiles } from "./profiles.mjs";
-import { WorldView, ground } from "./world.mjs";
+import { WorldView } from "./world.mjs";
 import { readVisualSettings } from "./art.mjs";
-import { loadIllustrations } from "./illustrated.mjs";
+import { CAMERA_KEY } from "./camera.mjs";
+import { discover, useFeature } from "./frontier.mjs";
+import { routeTo } from "./navigation.mjs";
+import {
+  ATTRIBUTES,
+  RACES,
+  CLASSES,
+  originFor,
+  classFor,
+  attributeTotals,
+  attributeBudget,
+  passiveBudget,
+  assignAttribute,
+} from "./codex.mjs";
+import { constellationPanel, mountConstellation } from "./constellation-ui.mjs";
 import {
   STATIONS,
   MATERIAL_NAMES,
@@ -75,8 +89,10 @@ let state = freshState(),
   lastSave = 0,
   lastProduction = 0,
   trackedStation = null,
-  dragging = false,
-  lastPointer = { x: 0, y: 0 },
+  travel = null,
+  combatClick = false,
+  lastDiscovery = 0,
+  declarationRequired = false,
   noticeId = 0,
   holdingAttack = false,
   muted = false,
@@ -88,8 +104,10 @@ const tabs = [
   ["lifeskills", "Lifeskills"],
   ["crafting", "Workshop"],
   ["artisan", "Atelier"],
-  ["heroes", "Heroes"],
+  ["heroes", "Appearances"],
+  ["codex", "Codex"],
   ["journal", "Journal"],
+  ["frontier", "Survey"],
   ["realms", "Waygates"],
   ["settings", "Settings"],
 ];
@@ -139,11 +157,21 @@ function save() {
 function buildView() {
   if (view) view.dispose();
   sim = new Simulation(state);
-  view = new WorldView($("world"), state, sim, visuals);
+  let camera;
+  try {
+    camera = JSON.parse(localStorage.getItem(CAMERA_KEY));
+  } catch {}
+  view = new WorldView($("world"), state, sim, visuals, camera);
+  state.position = { x: sim.player.x, z: sim.player.z };
+  travel = null;
+  gathering = null;
+  lastDiscovery = 0;
   if (playing) renderBar();
 }
 function landing() {
   playing = false;
+  declarationRequired = false;
+  cancelTravel();
   document.body.classList.remove("scenic-view");
   panel = null;
   keys.clear();
@@ -159,7 +187,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.4 · Artisan Awakening</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.5 · The Living Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -171,10 +199,12 @@ function enter(create) {
     $("landing").hidden = true;
     $("hud").hidden = false;
     panel = null;
+    declarationRequired = create && (!state.race || !state.calling);
     renderBar();
     updateHUD();
+    if (!state.race || !state.calling) openPanel("codex");
     notify(
-      "Welcome to Dawnwake. The workshop is west; the Hollowborn lurk north.",
+      "Welcome to Dawnwake. Click terrain to travel, or select the gold survey cache.",
     );
     sound(660);
     save();
@@ -190,7 +220,7 @@ function renderBar() {
           `<button class="skill" data-skill="${s.id}" title="${escape(s.name)} · ${s.cost} mana"><span>${s.icon}</span><small>${s.key}</small><i class="cooldown" id="cd-${s.id}"></i><b class="cooldown-text" id="ct-${s.id}"></b></button>`,
       )
       .join("") +
-    `<button class="skill potion" data-action="potion" title="Restorative draught [F]"><span>♧</span><small id="potion-count">F · ${state.resources.potions}</small><i class="cooldown" id="cd-potion"></i><b class="cooldown-text" id="ct-potion"></b></button>`;
+    `<button class="skill potion" data-action="potion" title="Trauma injector [F]"><span>♧</span><small id="potion-count">F · ${state.resources.potions}</small><i class="cooldown" id="cd-potion"></i><b class="cooldown-text" id="ct-potion"></b></button>`;
 }
 function updateHUD() {
   const p = sim.player,
@@ -203,8 +233,7 @@ function updateHUD() {
   $("hero-glyph").style.backgroundPosition =
     `${(heroIndex % 3) * 50}% ${Math.floor(heroIndex / 3) * (100 / 3)}%`;
   $("hero-glyph").setAttribute("aria-label", hero.name + " portrait");
-  $("class-name").textContent =
-    hero.role.toUpperCase() + " · " + hero.weapon.toUpperCase();
+  $("class-name").textContent = classFor(state).name.toUpperCase();
   $("level").textContent = "LV. " + state.level;
   $("life-fill").style.width = clamp((p.hp / st.life) * 100, 0, 100) + "%";
   $("life-text").textContent = fmt(p.hp) + " / " + fmt(st.life);
@@ -214,12 +243,12 @@ function updateHUD() {
   $("potion-count").textContent = "F · " + state.resources.potions;
   $("realm-name").textContent = REALMS.find((r) => r.id === state.realm).name;
   $("coordinates").textContent = Math.round(p.x) + " , " + Math.round(p.z);
-  $("zone-label").textContent =
-    Math.hypot(p.x, p.z) < 14
-      ? "Dawnwake Sanctuary"
-      : p.z < -35
-        ? "The Hollow Crown"
-        : "Whispering Expanse";
+  $("zone-label").textContent = sim.layout.biome(p.x, p.z);
+  $("mana-text").textContent =
+    fmt(p.mana) +
+    " / " +
+    fmt(st.mana) +
+    (state.shieldUntil > Date.now() ? " · SHIELDED" : "");
   for (const skill of SKILLS) {
     const left = sim.cooldowns[skill.id] || 0,
       full = skillStats(state, skill.id).cooldown;
@@ -288,13 +317,10 @@ function updateHUD() {
     $("objective-text").textContent =
       "Improve your build, master professions, and open new waygates.";
   }
-  const node = view.nearestNode();
-  const station = view.workstations.nearest(sim.player);
-  const useStation =
-    station &&
-    (!node || station.distance < Math.hypot(node.x - p.x, node.z - p.z));
-  $("interaction").hidden = !!panel || (!node && !station);
-  if (useStation) {
+  const nearby = nearestInteraction();
+  $("interaction").hidden = !!panel || !nearby;
+  if (nearby?.type === "station") {
+    const station = nearby;
     $("interact-name").textContent = station.name;
     const production = state.production.stations[station.id];
     $("interact-detail").textContent = production.tier
@@ -306,16 +332,15 @@ function updateHUD() {
         production.completed +
         " ready"
       : "Construction blueprint · E to open Atelier";
-  } else if (node) {
-    const job = PROFESSIONS.find((p) => p.node === node.kind);
-    $("interact-name").textContent =
-      node.kind === "ore"
-        ? "Cobalt outcrop"
-        : node.kind === "tree"
-          ? "Lumenwood tree"
-          : node.kind === "herb"
-            ? "Starleaf cluster"
-            : "Moonfin shallows";
+  } else if (nearby?.type === "feature") {
+    $("interact-name").textContent = nearby.name;
+    $("interact-detail").textContent = featureStatus(nearby);
+  } else if (nearby) {
+    const node = nearby;
+    const job = PROFESSIONS.find(
+      (p) => p.node === (node.kind === "rock" ? "ore" : node.kind),
+    );
+    $("interact-name").textContent = resourceName(node.kind);
     $("interact-detail").textContent = gathering
       ? "Gathering… stay still"
       : job.name + " · Mastery " + professionLevel(state, job.id);
@@ -325,11 +350,77 @@ function updateHUD() {
     : "0%";
   drawMap();
   updateStationLabels();
+  updateFrontierLabels();
+  $("travel-status").textContent = travel
+    ? "Heading to " +
+      (travel.target.name ||
+        (travel.target.type === "node"
+          ? resourceName(travel.target.kind)
+          : "waypoint"))
+    : "";
   $("artisan-ready").textContent =
     Object.values(state.production.stations).reduce(
       (total, s) => total + s.completed,
       0,
     ) || "";
+}
+function resourceName(kind) {
+  return {
+    ore: "Cobalt outcrop",
+    tree: "Lumenwood tree",
+    herb: "Starleaf cluster",
+    fish: "Moonfin shallows",
+    rock: "Mineral boulder",
+    wreck: "Drone wreck",
+  }[kind];
+}
+function featureStatus(f) {
+  const changed = state.exploration.changed.includes(f.id);
+  return f.kind === "beacon"
+    ? changed
+      ? "Synchronized · Return to base"
+      : "Synchronize for telemetry"
+    : f.kind === "rubble"
+      ? changed
+        ? "Cleared"
+        : "Clear for minerals"
+      : changed
+        ? "Opened"
+        : "Open for supplies";
+}
+function updateFrontierLabels() {
+  const root = $("frontier-labels");
+  for (const f of view.features) {
+    let label = root.querySelector(`[data-world-feature="${f.id}"]`);
+    const distance = Math.hypot(sim.player.x - f.x, sim.player.z - f.z);
+    const point = view.project(
+      f.x,
+      view.height(f.x, f.z) + f.height + 0.22,
+      f.z,
+    );
+    const changed = state.exploration.changed.includes(f.id);
+    if (
+      panel ||
+      !point.visible ||
+      distance > 16 ||
+      (changed && f.kind !== "beacon")
+    ) {
+      label?.remove();
+      continue;
+    }
+    if (!label) {
+      label = document.createElement("button");
+      label.className = "frontier-label";
+      label.dataset.worldFeature = f.id;
+      label.textContent =
+        (f.kind === "cache" ? "◇ " : f.kind === "beacon" ? "✧ " : "⬡ ") +
+        f.name;
+      root.append(label);
+    }
+    label.style.left = point.x + "px";
+    label.style.top = point.y + "px";
+    label.title = featureStatus(f);
+  }
 }
 function updateStationLabels() {
   $("station-labels").innerHTML = view.workstations.entries
@@ -341,7 +432,7 @@ function updateStationLabels() {
         (distance > 7 && trackedStation !== def.id && !station.completed)
       )
         return "";
-      const point = view.project(def.x, 3.4, def.z);
+      const point = view.project(def.x, 3.0, def.z);
       if (
         !point.visible ||
         point.x < 0 ||
@@ -350,7 +441,7 @@ function updateStationLabels() {
         point.y > innerHeight
       )
         return "";
-      return `<button class="station-label ${station.completed ? "ready" : ""}" data-panel="artisan" style="left:${point.x}px;top:${point.y}px"><b>${def.icon} ${def.name}</b><small>${station.completed ? station.completed + " ORDERS READY" : station.tier ? "TIER " + station.tier : "BLUEPRINT"} · ${Math.round(distance)}m</small></button>`;
+      return `<button class="station-label ${station.completed ? "ready" : ""}" data-world-station="${def.id}" style="left:${point.x}px;top:${point.y}px"><b>${def.icon} ${def.name}</b><small>${station.completed ? station.completed + " ORDERS READY" : station.tier ? "TIER " + station.tier : "BLUEPRINT"} · ${Math.round(distance)}m</small></button>`;
     })
     .join("");
 }
@@ -379,6 +470,33 @@ function drawMap() {
   c.beginPath();
   c.arc(gx, gz, 20, 0, Math.PI * 2);
   c.fill();
+  if (travel?.points.length) {
+    c.strokeStyle = "#f8d491";
+    c.setLineDash([3, 4]);
+    c.beginPath();
+    c.moveTo(90, 90);
+    for (const point of travel.points) c.lineTo(...at(point.x, point.z));
+    c.stroke();
+    c.setLineDash([]);
+  }
+  for (const f of view.features)
+    if (state.exploration.discovered.includes(f.id)) {
+      const [x, y] = at(f.x, f.z);
+      const changed = state.exploration.changed.includes(f.id);
+      c.fillStyle = changed
+        ? "#8b9394"
+        : f.kind === "cache"
+          ? "#ffd18e"
+          : f.kind === "beacon"
+            ? "#dbb9ff"
+            : "#93d9ed";
+      c.beginPath();
+      c.moveTo(x, y - 4);
+      c.lineTo(x + 4, y);
+      c.lineTo(x, y + 4);
+      c.lineTo(x - 4, y);
+      c.fill();
+    }
   c.fillStyle = "#d5c4fa";
   for (const n of view.nodes)
     if (!state.depleted[n.id] || state.depleted[n.id] < Date.now()) {
@@ -411,6 +529,16 @@ function drawMap() {
       }
     }
   c.translate(90, 90);
+  c.save();
+  c.rotate(-view.yaw);
+  c.fillStyle = "#c4e9ff33";
+  c.beginPath();
+  c.moveTo(0, 0);
+  c.lineTo(-14, -22);
+  c.lineTo(14, -22);
+  c.closePath();
+  c.fill();
+  c.restore();
   c.rotate(-p.facing);
   c.fillStyle = "#fff3d5";
   c.beginPath();
@@ -438,7 +566,7 @@ function statBoxes() {
     ["CRITICAL CHANCE", Math.round(s.crit * 100) + "%"],
     ["CRITICAL MULTIPLIER", Math.round(s.critMultiplier * 100) + "%"],
     ["PENETRATION", Math.round(s.penetration * 100) + "%"],
-    ["PASSIVES", state.passives.length + " / " + (state.level + 3)],
+    ["PASSIVES", state.passives.length + " / " + passiveBudget(state)],
   ]
     .map(
       ([key, v]) =>
@@ -463,7 +591,7 @@ function inventory() {
 }
 function skills() {
   const st = stats(state),
-    hero = HEROES.find((h) => h.id === state.hero);
+    hero = classFor(state);
   const last = sim.lastHit;
   return `<p class="small muted">Weapon discipline: ${hero.weapon.toUpperCase()}. Blade attacks cleave, bows fire arrows, and staves cast bolts. Link two different compatible supports to active skills.</p>
   <div class="card small" id="damage-inspector"><b>Combat breakdown</b><p>Physical hits meet armor. Elemental hits meet resistance, capped at 75%. An enemy resists its own element by an extra 20%. Skill previews below use a target with 30 armor and 20% resistance; critical hits, ailments, echoes and reactions are shown separately.</p>${last ? `<p>Last ${escape(last.source)}${last.echo ? " echo" : " hit"} on ${escape(last.target)}: ${fmt(last.physical)} physical + ${fmt(last.elemental)} ${escape(last.element)} before reaction · ${fmt(last.total)} final damage${last.critical ? " · CRITICAL" : ""}${last.reaction ? " · " + escape(last.reaction) : ""}</p>` : "<p>Strike a foe to inspect your last actual hit.</p>"}</div>
@@ -493,32 +621,18 @@ function skills() {
             .join(
               "",
             )}</div><div class="support-notes">${skill.supports.map((name) => SUPPORTS.find((s) => s.name === name)?.desc).join("<br>") || "No support linked."}</div>`
-        : '<p class="support-notes">The weapon combo is innate. Change heroes to change its mechanics.</p>'
+        : '<p class="support-notes">The weapon combo is innate. Choose a different class at base to change your discipline.</p>'
     }</article>`;
   }).join("")}</div>`;
 }
 function constellation() {
-  return `<div class="row spread"><p class="small muted">Follow connected paths from the center. Click a node to allocate; click an allocated leaf to refund it freely.</p><span class="tag">${state.level + 3 - state.passives.length} POINTS AVAILABLE</span></div><div class="talent-view"><svg viewBox="-360 -350 720 700" role="img" aria-label="Passive constellation">${PASSIVES.filter(
-    (p) => p.parent,
-  )
-    .map((p) => {
-      const parent = PASSIVES.find((v) => v.id === p.parent),
-        active = state.passives.includes(p.id);
-      return `<line x1="${parent.x}" y1="${parent.y}" x2="${p.x}" y2="${p.y}" stroke="${active ? "#d4bd8e" : "#687583"}" opacity="${active ? 1 : 0.4}"/>`;
-    })
-    .join("")}${PASSIVES.map((p) => {
-    const allocated = p.id === "origin" || state.passives.includes(p.id),
-      available = p.parent === "origin" || state.passives.includes(p.parent);
-    return `<g class="talent-node ${allocated ? "allocated" : available ? "available" : ""}" data-passive="${p.id}" role="button" tabindex="0" aria-label="${escape(p.name + ": " + p.desc)}"><title>${escape(p.name + " — " + p.desc)}</title><circle cx="${p.x}" cy="${p.y}" r="${p.id === "origin" ? 24 : p.notable ? 15 : 9}"/><text x="${p.x}" y="${p.y + (p.notable ? 30 : 22)}" text-anchor="middle">${escape(p.name)}</text><text x="${p.x}" y="${p.y + 3}" text-anchor="middle">${p.id === "origin" ? "✧" : p.stat === "keystone" ? "✺" : allocated ? "◆" : ""}</text></g>`;
-  }).join(
-    "",
-  )}</svg></div><div class="talent-info" id="talent-info"><b>Six paths. One constellation.</b><span>30 allocatable nodes and 6 capstone tradeoffs. Hover or focus a node for its effect.</span></div>`;
+  return constellationPanel(state);
 }
 function lifeskills() {
   return `<div class="grid-3">${PROFESSIONS.map((p) => {
     const level = professionLevel(state, p.id),
       xp = state.professions[p.id];
-    return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : "Crafting grants profession experience."}</p></article>`;
+    return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : p.id === "surveying" ? "Discoveries and relay sync grant experience." : "Crafting grants profession experience."}</p></article>`;
   }).join(
     "",
   )}</div><div class="row" style="margin-top:16px"><button class="gold-button" data-panel="crafting">OPEN WORKSHOP →</button><span class="small muted">Resources recover after 3 minutes. Progress saves through logout.</span></div>`;
@@ -539,17 +653,61 @@ function workshop() {
         )}</div><button data-craft="${r.id}" ${!Object.entries(r.cost).every(([k, n]) => state.resources[k] >= n) ? "disabled" : ""}>CRAFT</button></article>`,
   ).join(
     "",
-  )}</div><div class="card" style="margin-top:12px"><h3>Field provisions</h3><p>Food grants +60 maximum life and +35% recovery for 15 minutes. Draughts recover 45% maximum life with a 12-second cooldown.</p><button data-action="eat" ${state.resources.meal < 1 ? "disabled" : ""}>EAT MOONFIN FEAST (${state.resources.meal})</button></div>`;
+  )}</div><div class="card" style="margin-top:12px"><h3>Field supplies</h3><p>Rations grant +60 life and +35% recovery for 15 minutes. Trauma injectors recover 45% life with a 12-second cooldown.</p><button data-action="eat" ${state.resources.meal < 1 ? "disabled" : ""}>USE MOONFIN RATION (${state.resources.meal})</button> <button data-action="shield" ${state.resources.capacitor < 1 ? "disabled" : ""}>DEPLOY CAPACITOR (${state.resources.capacitor})</button></div>`;
 }
 function heroes() {
-  return `<div class="row spread"><p class="small muted">${state.heroes.length}/12 heroes · ${state.crystals} crystals · ${state.tickets} summon tickets · 5★ pity ${state.pity}/40</p><button class="gold-button" data-action="summon" ${state.tickets < 1 && state.crystals < 160 ? "disabled" : ""}>SUMMON · ${state.tickets ? "1 TICKET" : "160 CRYSTALS"}</button></div>
- ${!state.heroes.includes("sora") ? '<div class="card"><h3>Field training: a bow for the frontier</h3><p>Recruit Sora at no cost in the sanctuary to try the bow discipline. This one-time grant is available to existing profiles too.</p><button data-action="training">RECRUIT SORA · FREE</button></div>' : ""}
- <p class="small muted">Switch heroes out of combat. Try every discipline on the training effigy west of the waygate. It gives no kill rewards. Hero traits, elemental identity and weapon movesets change your build.</p>
+  return `<div class="row spread"><p class="small muted">${state.heroes.length}/12 appearances · ${state.crystals} crystals · ${state.tickets} tickets · 5★ pity ${state.pity}/40 · ${state.cosmeticShards} cosmetic shards</p><button class="gold-button" data-action="summon" ${state.tickets < 1 && state.crystals < 160 ? "disabled" : ""}>DRAW APPEARANCE · ${state.tickets ? "1 TICKET" : "160 CRYSTALS"}</button></div>
+ ${!state.heroes.includes("sora") ? '<div class="card"><h3>Free scout outfit</h3><p>Claim the Sora appearance at base.</p><button data-action="training">CLAIM SORA · FREE</button></div>' : ""}
+ <p class="small muted">Appearances change your model and portrait. Your Codex race, class, gear and constellation determine combat and lifeskill stats. Duplicates give cosmetic shards; spend 8 on an appearance of your choice.</p>
  <div class="grid-3">${HEROES.map((h) => {
    const owned = state.heroes.includes(h.id),
      active = state.hero === h.id;
-   return `<article class="card hero-card ${active ? "selected" : ""}"><div class="hero-illustration" role="img" aria-label="${h.name} anime portrait" style="background-position:${(HEROES.indexOf(h) % 3) * 50}% ${Math.floor(HEROES.indexOf(h) / 3) * (100 / 3)}%"><span class="tag">${h.element.toUpperCase()} · ${h.weapon.toUpperCase()}</span></div><div class="hero-card-copy"><h3>${h.name}</h3><p>${h.title} · ${h.role}</p><p>${h.perk}</p><button data-hero="${h.id}" ${!owned || active ? "disabled" : ""}>${active ? "ACTIVE HERO" : owned ? "TAKE THE FIELD" : "NOT RECRUITED"}</button></div></article>`;
+   return `<article class="card hero-card ${active ? "selected" : ""}"><div class="hero-illustration" role="img" aria-label="${h.name} anime portrait" style="background-position:${(HEROES.indexOf(h) % 3) * 50}% ${Math.floor(HEROES.indexOf(h) / 3) * (100 / 3)}%"></div><div class="hero-card-copy"><h3>${h.name}</h3><p>${h.title}</p>${owned ? `<button data-hero="${h.id}" ${active ? "disabled" : ""}>${active ? "EQUIPPED" : "EQUIP APPEARANCE"}</button>` : `<button data-unlock-style="${h.id}" ${state.cosmeticShards < 8 ? "disabled" : ""}>UNLOCK · 8 SHARDS</button>`}</div></article>`;
  }).join("")}</div>`;
+}
+function codex() {
+  const r = originFor(state),
+    c = classFor(state),
+    totals = attributeTotals(state),
+    remaining = attributeBudget(state);
+  const options = (rows, selected) =>
+    rows
+      .map(
+        (o) =>
+          `<option value="${o.id}" ${selected === o.id ? "selected" : ""}>${o.name}</option>`,
+      )
+      .join("");
+  const atBase = Math.hypot(sim.player.x, sim.player.z) < 14 && combatSafe();
+  return `<article class="card"><div class="row spread"><h3>Imperial Codex</h3><span class="tag">FIELD RANK ${state.level}</span></div>
+  <p>Choose your race and class at base. Your appearance is independent. Each level after 1 grants 3 constellation points and 10 assignable attribute points.</p>
+  <div class="grid-2"><label>RACE<select id="codex-race" ${!atBase ? "disabled" : ""}>${options(RACES, r.id)}</select></label><label>CLASS<select id="codex-class" ${!atBase ? "disabled" : ""}>${options(CLASSES, c.id)}</select></label></div>
+  <p id="codex-preview" class="affix"></p><button class="gold-button" data-action="declare" ${!atBase && !declarationRequired ? "disabled" : ""}>${state.race && state.calling ? "UPDATE FIELD LOADOUT" : "DECLARE CHARACTER"}</button>
+  ${!atBase ? '<p class="small">Return to the sanctuary to change your loadout.</p>' : ""}</article>
+  <article class="card"><div class="row spread"><h3>Attributes</h3><span class="tag">${remaining} POINTS AVAILABLE</span></div><p>Totals include race base stats, free race and class starter bonuses, automatic growth, and manual assignments.</p>
+  <div class="attribute-grid">${ATTRIBUTES.map(([id, effect]) => `<div class="attribute-row"><div><b>${id[0].toUpperCase() + id.slice(1)} ${totals[id]}</b><small>${effect} · ${state.attributes[id]} assigned</small></div><button data-attribute="${id}" data-amount="1" ${remaining < 1 ? "disabled" : ""} aria-label="Add one ${id}">+1</button><button data-attribute="${id}" data-amount="5" ${remaining < 5 ? "disabled" : ""} aria-label="Add five ${id}">+5</button></div>`).join("")}</div></article>`;
+}
+function previewCodex() {
+  const r = RACES.find((v) => v.id === $("codex-race")?.value);
+  const c = CLASSES.find((v) => v.id === $("codex-class")?.value);
+  if (!r || !c) return;
+  const growth = (o) =>
+    Object.entries(o.growth)
+      .map(([k, n]) => "+" + n + " " + k)
+      .join(", ");
+  $("codex-preview").textContent =
+    r.trait +
+    " · " +
+    growth(r) +
+    " per level. " +
+    c.trait +
+    " · " +
+    growth(c) +
+    " per level. " +
+    { blade: "Plasma blade", bow: "Rail bow", staff: "Psi projector" }[
+      c.weapon
+    ] +
+    " · " +
+    c.element;
 }
 function journal() {
   return `<div class="grid-2">${QUESTS.map((q) => {
@@ -566,11 +724,32 @@ function journal() {
 function realms() {
   return `<p class="small muted">Waygates open as your account level rises. Each destination has its own terrain palette, resources, and enemy progression.</p><div class="grid-2">${REALMS.map((r) => `<article class="card ${state.realm === r.id ? "selected" : ""}"><h3>${r.name}</h3><p>${r.gravity} g source world · ${r.tier === 0 ? "Frontier sanctuary" : "Requires level " + r.tier * 10}</p><button data-realm="${r.id}" ${state.level < r.tier * 10 || r.id === state.realm ? "disabled" : ""}>${r.id === state.realm ? "CURRENT REALM" : state.level < r.tier * 10 ? "WAYGATE LOCKED" : "TRAVEL"}</button></article>`).join("")}</div>`;
 }
+function survey() {
+  const found = view.features.filter((f) =>
+    state.exploration.discovered.includes(f.id),
+  );
+  const p = sim.player;
+  found.sort(
+    (a, b) =>
+      Math.hypot(a.x - p.x, a.z - p.z) - Math.hypot(b.x - p.x, b.z - p.z),
+  );
+  return `<article class="card"><h3>${view.realm.name} · Field survey</h3><p>${found.length} of ${view.features.length} sites discovered. Explore to chart caches, mineral rubble and relays. The map remembers the sites you find.</p></article>
+  <div class="grid-2">${found
+    .map(
+      (
+        f,
+      ) => `<article class="card"><h3>${f.name}</h3><p>${featureStatus(f)} · ${Math.round(Math.hypot(f.x - p.x, f.z - p.z))}m · ${Math.round(f.x)}, ${Math.round(f.z)}</p>
+    <button data-world-feature="${f.id}" ${state.exploration.changed.includes(f.id) && f.kind !== "beacon" ? "disabled" : ""}>TRAVEL TO SITE</button></article>`,
+    )
+    .join("")}</div>`;
+}
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="render-style">ART STYLE · CHANGE AT SANCTUARY</label><select id="render-style"><option value="illustrated" ${visuals.style !== "model" ? "selected" : ""}>Illustrated anime · isometric 2.5D</option><option value="model" ${visuals.style === "model" ? "selected" : ""}>Procedural 3D prototype</option></select><br><br><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right mouse drag: camera orbit<br>Mouse wheel: camera distance<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: heroes · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
+  if (declarationRequired) id = "codex";
+  cancelTravel();
   gathering = null;
   holdingAttack = false;
   keys.clear();
@@ -578,10 +757,13 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">THE AETHERBOUND CHRONICLE</span><h2>${title}</h2></div><button class="panel-close" data-action="close" aria-label="Close panel">×</button></header><nav class="panel-tabs">${tabs.map(([key, name]) => `<button data-panel="${key}" class="${panel === key ? "active" : ""}">${name}</button>`).join("")}</nav><div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, journal, realms, settings }[id] || inventory)()}</div></section>`;
-  $("panels").querySelector(".panel-close").focus();
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">THE AETHERBOUND CHRONICLE</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header>${declarationRequired ? "" : `<nav class="panel-tabs">${tabs.map(([key, name]) => `<button data-panel="${key}" class="${panel === key ? "active" : ""}">${name}</button>`).join("")}</nav>`}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></section>`;
+  if (id === "passives") mountConstellation($("panels"));
+  if (id === "codex") previewCodex();
+  ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
 }
 function closePanel() {
+  if (declarationRequired) return;
   if ($("panels").contains(document.activeElement))
     document.activeElement.blur();
   panel = null;
@@ -599,33 +781,105 @@ function combatSafe() {
 }
 function attack(id) {
   if (!playing || panel) return;
+  cancelTravel();
   if (sim.attack(id)) {
     gathering = null;
     sound(id === "strike" ? 230 : 520);
   } else if (sim.player.mana < (skillStats(state, id)?.cost || 0))
     notify("Not enough mana.");
 }
-function startGather() {
-  if (!playing || panel) return;
-  const node = view.nearestNode();
-  const station = view.workstations.nearest(sim.player);
+function nearestInteraction() {
+  const p = sim.player;
+  let best = null,
+    nearest = Infinity;
+  for (const target of view.interactables()) {
+    const distance = Math.hypot(target.x - p.x, target.z - p.z);
+    if (
+      distance <= (target.type === "feature" ? 3.4 : 4) &&
+      distance < nearest
+    ) {
+      best = target;
+      nearest = distance;
+    }
+  }
+  return best;
+}
+function startGather(target = nearestInteraction()) {
+  if (!playing || panel || !target) return;
+  cancelTravel();
+  const p = sim.player;
   if (
-    station &&
-    (!node ||
-      station.distance <
-        Math.hypot(node.x - sim.player.x, node.z - sim.player.z))
-  ) {
+    Math.hypot(target.x - p.x, target.z - p.z) >
+    (target.type === "feature" ? 3.4 : 4)
+  )
+    return;
+  if (!combatSafe()) {
+    notify("Clear nearby hostiles before interacting.");
+    return;
+  }
+  if (target.type === "station") {
     openPanel("artisan");
     return;
   }
-  if (!node) return;
-  if (!combatSafe()) {
-    notify("Clear nearby hostiles before gathering.");
+  if (target.type === "feature") {
+    const result = useFeature(state, target, p);
+    if (result.xp) {
+      addXP(state, result.xp);
+      sim.refreshObstacles();
+    }
+    if (result.returnHome) {
+      p.x = 0;
+      p.z = 6;
+      p.y = p.velocityY = 0;
+      view.rig.recenter();
+      state.position = { x: p.x, z: p.z };
+    }
+    notify(result.message);
+    save();
+    sound(630);
     return;
   }
+  const node = target;
+  if (state.depleted[node.id] > Date.now())
+    return notify("This resource is recovering.");
   const total = node.kind === "fish" ? 3 : 1.5;
   gathering = { node, left: total, total, x: sim.player.x, z: sim.player.z };
   sound(300);
+}
+function cancelTravel() {
+  travel = null;
+  view?.markDestination(null);
+}
+function beginTravel(target) {
+  if (!playing || panel || !target) return;
+  gathering = null;
+  cancelTravel();
+  const reach = target.type ? (target.type === "feature" ? 3.15 : 3.7) : 0;
+  const points = routeTo(sim.player, target, sim.blockers, reach);
+  if (!points) return notify("No clear route to that spot.");
+  if (!points.length) return startGather(target);
+  travel = { target, points, stuck: 0 };
+  view.markDestination(points.at(-1));
+}
+function routeInput(dt) {
+  const p = sim.player;
+  while (travel?.points.length) {
+    const point = travel.points[0];
+    const x = point.x - p.x,
+      z = point.z - p.z,
+      d = Math.hypot(x, z);
+    if (d > 0.16) {
+      const scale = Math.min(1 / d, 1 / (dt * 8));
+      return { x: x * scale, z: z * scale };
+    }
+    travel.points.shift();
+  }
+  if (travel) {
+    const target = travel.target;
+    cancelTravel();
+    if (target.type) startGather(target);
+  }
+  return { x: 0, z: 0 };
 }
 function exportSave() {
   save();
@@ -659,7 +913,19 @@ document.addEventListener("click", (e) => {
     return;
   }
   if (!playing) return;
+  if (n.dataset.camera) {
+    cameraControl(n.dataset.camera);
+    return;
+  }
+  if (n.dataset.worldFeature || n.dataset.worldStation) {
+    const id = n.dataset.worldFeature || n.dataset.worldStation;
+    const target = view.interactables().find((x) => x.id === id);
+    if (panel === "frontier") closePanel();
+    beginTravel(target);
+    return;
+  }
   if (action === "dodge") {
+    cancelTravel();
     sim.dodge();
     return;
   }
@@ -686,14 +952,34 @@ document.addEventListener("click", (e) => {
     if (!ok) {
       notify(
         allocated
-          ? "Refund the outer nodes first."
-          : "Connect to this node and earn more passive points.",
+          ? "Refunding that node would disconnect part of your build."
+          : "Connect this node, check its doctrine, and make sure you have a point.",
       );
       return;
     }
     save();
     openPanel("passives");
     sound(700);
+    return;
+  }
+  if (n.dataset.attribute) {
+    if (assignAttribute(state, n.dataset.attribute, Number(n.dataset.amount))) {
+      save();
+      openPanel("codex");
+    }
+    return;
+  }
+  if (n.dataset.unlockStyle) {
+    if (
+      state.cosmeticShards >= 8 &&
+      HEROES.some((h) => h.id === n.dataset.unlockStyle) &&
+      !state.heroes.includes(n.dataset.unlockStyle)
+    ) {
+      state.cosmeticShards -= 8;
+      state.heroes.push(n.dataset.unlockStyle);
+      save();
+      openPanel("heroes");
+    }
     return;
   }
   if (n.dataset.craft) {
@@ -761,7 +1047,7 @@ document.addEventListener("click", (e) => {
   }
   if (n.dataset.hero) {
     if (!combatSafe()) {
-      notify("Leave combat before changing heroes.");
+      notify("Leave combat before changing appearances.");
       return;
     }
     if (state.heroes.includes(n.dataset.hero)) {
@@ -795,6 +1081,34 @@ document.addEventListener("click", (e) => {
     return;
   }
   switch (action) {
+    case "declare": {
+      if (
+        !declarationRequired &&
+        (Math.hypot(sim.player.x, sim.player.z) >= 14 || !combatSafe())
+      )
+        return;
+      const race = $("codex-race").value,
+        calling = $("codex-class").value;
+      if (
+        !RACES.some((v) => v.id === race) ||
+        !CLASSES.some((v) => v.id === calling)
+      )
+        return;
+      state.race = race;
+      state.calling = calling;
+      declarationRequired = false;
+      view.setHero();
+      renderBar();
+      save();
+      closePanel();
+      notify(
+        originFor(state).name +
+          " · " +
+          classFor(state).name +
+          " loadout active",
+      );
+      break;
+    }
     case "close":
       closePanel();
       break;
@@ -811,15 +1125,24 @@ document.addEventListener("click", (e) => {
         openPanel("crafting");
       }
       break;
+    case "shield":
+      if (state.resources.capacitor > 0) {
+        state.resources.capacitor--;
+        state.shieldUntil = Date.now() + 600000;
+        save();
+        notify("Shield capacitor online · 10 minutes");
+        openPanel("crafting");
+      }
+      break;
     case "training": {
       if (Math.hypot(sim.player.x, sim.player.z) >= 14) {
-        notify("Visit the sanctuary to recruit your training scout.");
+        notify("Visit the sanctuary to claim this appearance.");
         break;
       }
       if (recruitScout(state)) {
         save();
         openPanel("heroes");
-        notify("Sora joins your roster. Select her to try travelling arrows.");
+        notify("Sora appearance unlocked.");
       }
       break;
     }
@@ -830,7 +1153,9 @@ document.addEventListener("click", (e) => {
           h.rarity +
             "★ " +
             h.name +
-            (h.duplicate ? " · Duplicate → 2 essences" : " joins your roster"),
+            (h.duplicate
+              ? " · Duplicate → 2 cosmetic shards"
+              : " appearance unlocked"),
         );
         save();
         openPanel("heroes");
@@ -857,19 +1182,7 @@ document.addEventListener("click", (e) => {
 });
 document.addEventListener("change", async (e) => {
   const n = e.target;
-  if (n.id === "render-style") {
-    if (Math.hypot(sim.player.x, sim.player.z) >= 14 || !combatSafe()) {
-      n.value = visuals.style;
-      notify("Change art style inside the sanctuary.");
-      return;
-    }
-    visuals.style = n.value;
-    try {
-      localStorage.setItem("astral_empire_visuals_v1", JSON.stringify(visuals));
-    } catch {}
-    save();
-    buildView();
-  }
+  if (n.id === "codex-race" || n.id === "codex-class") previewCodex();
   if (n.id === "graphics-quality" || n.id === "reduced-motion") {
     visuals.quality = $("graphics-quality").value;
     visuals.reducedMotion = $("reduced-motion").checked;
@@ -903,16 +1216,10 @@ document.addEventListener("change", async (e) => {
     }
   }
 });
-document.addEventListener("pointerover", (e) => {
-  const n = e.target.closest("[data-passive]");
-  if (n && $("talent-info")) {
-    const p = PASSIVES.find((p) => p.id === n.dataset.passive);
-    $("talent-info").textContent = p.name + " · " + p.desc;
-  }
-});
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    closePanel();
+    if (panel) closePanel();
+    else cancelTravel();
     return;
   }
   if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
@@ -931,7 +1238,9 @@ document.addEventListener("keydown", (e) => {
     c: "crafting",
     b: "artisan",
     h: "heroes",
+    u: "codex",
     j: "journal",
+    m: "frontier",
     o: "settings",
   };
   if (shortcuts[k]) {
@@ -941,20 +1250,31 @@ document.addEventListener("keydown", (e) => {
   }
   if (panel) return;
   if (
+    [" ", "arrowup", "arrowdown", "arrowleft", "arrowright", "shift"].includes(
+      k,
+    )
+  )
+    e.preventDefault();
+  keys.add(k);
+  if (e.repeat) return;
+  if (
     [
-      " ",
+      "w",
+      "a",
+      "s",
+      "d",
       "arrowup",
       "arrowdown",
       "arrowleft",
       "arrowright",
       "shift",
-      "tab",
     ].includes(k)
   )
-    e.preventDefault();
-  keys.add(k);
-  if (e.repeat) return;
+    cancelTravel();
   if (k === "shift") sim.dodge(...Object.values(movement()).slice(0, 2));
+  if (k === "r") cameraControl("center");
+  if (k === "z") cameraControl("left");
+  if (k === "x") cameraControl("right");
   if (k === " " && sim.player.y === 0) sim.player.velocityY = 8;
   if (k === "q") sim.locked = sim.locked ? null : sim.nearest(30);
   if (k === "e") startGather();
@@ -966,41 +1286,132 @@ document.addEventListener("keydown", (e) => {
   if (skill) attack(skill);
 });
 document.addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
+const canvas = $("world"),
+  pointers = new Map();
+let cameraSave;
+function saveCamera() {
+  clearTimeout(cameraSave);
+  const goal = { ...view.rig.goal };
+  cameraSave = setTimeout(() => {
+    try {
+      localStorage.setItem(CAMERA_KEY, JSON.stringify(goal));
+    } catch {}
+  }, 180);
+}
+function cameraControl(action) {
+  if (!view || !playing || panel) return;
+  if (action === "center") view.rig.recenter(true);
+  if (action === "left") view.rig.orbit(-Math.PI / 4, 0);
+  if (action === "right") view.rig.orbit(Math.PI / 4, 0);
+  if (action === "near") view.rig.zoom(0.82);
+  if (action === "far") view.rig.zoom(1.22);
+  if (action === "mode") {
+    combatClick = !combatClick;
+    const toggle = $("pointer-mode");
+    toggle.textContent = combatClick ? "⚔ Attack" : "◇ Explore";
+    toggle.setAttribute("aria-pressed", String(combatClick));
+    canvas.classList.toggle("attack-mode", combatClick);
+  }
+  saveCamera();
+}
 addEventListener("blur", () => {
   keys.clear();
+  pointers.clear();
   holdingAttack = false;
-  dragging = false;
+  cancelTravel();
 });
-$("world").addEventListener("contextmenu", (e) => e.preventDefault());
-$("world").addEventListener("pointerdown", (e) => {
-  if (e.button === 2) {
-    dragging = true;
-    lastPointer = { x: e.clientX, y: e.clientY };
-    $("world").setPointerCapture(e.pointerId);
-  } else if (e.button === 0 && playing && !panel) {
+canvas.addEventListener("contextmenu", (e) => e.preventDefault());
+canvas.addEventListener("pointerdown", (e) => {
+  if (!view || !playing || panel) return;
+  const mode =
+    e.pointerType === "touch"
+      ? "touch"
+      : e.button === 1 || (e.button === 2 && e.shiftKey)
+        ? "pan"
+        : e.button === 2
+          ? "orbit"
+          : e.button === 0
+            ? combatClick || e.altKey
+              ? "attack"
+              : "tap"
+            : null;
+  if (!mode) return;
+  pointers.set(e.pointerId, {
+    x: e.clientX,
+    y: e.clientY,
+    sx: e.clientX,
+    sy: e.clientY,
+    mode,
+    moved: false,
+  });
+  canvas.setPointerCapture(e.pointerId);
+  if (mode === "attack") {
     holdingAttack = true;
     attack("strike");
   }
+  if (mode === "pan") e.preventDefault();
 });
-addEventListener("pointerup", () => {
-  dragging = false;
-  holdingAttack = false;
-});
-addEventListener("pointermove", (e) => {
-  if (dragging) {
-    view.yaw -= (e.clientX - lastPointer.x) * 0.006;
-    view.pitch = clamp(
-      view.pitch + (e.clientY - lastPointer.y) * 0.004,
-      -0.1,
-      1,
-    );
-    lastPointer = { x: e.clientX, y: e.clientY };
+canvas.addEventListener("pointermove", (e) => {
+  const p = pointers.get(e.pointerId);
+  if (!p || !view || panel) return;
+  const x = e.clientX,
+    y = e.clientY;
+  const dx = x - p.x,
+    dy = y - p.y;
+  const other =
+    p.mode === "touch" &&
+    [...pointers.values()].find((q) => q !== p && q.mode === "touch");
+  if (other) {
+    const previous = Math.hypot(p.x - other.x, p.y - other.y);
+    const current = Math.hypot(x - other.x, y - other.y);
+    if (previous > 8 && current > 8) {
+      view.rig.zoom(previous / current);
+      const a =
+        Math.atan2(y - other.y, x - other.x) -
+        Math.atan2(p.y - other.y, p.x - other.x);
+      view.rig.orbit(Math.atan2(Math.sin(a), Math.cos(a)), 0);
+    }
+    p.moved = other.moved = true;
+  } else {
+    p.moved ||= Math.hypot(x - p.sx, y - p.sy) > 7;
+    if (p.mode === "pan") {
+      const scale = view.rig.distance / 470;
+      view.rig.translate(-dx * scale, dy * scale);
+    }
+    if (p.mode === "orbit" || (p.mode === "touch" && p.moved))
+      view.rig.orbit(-dx * 0.006, dy * 0.004);
   }
+  p.x = x;
+  p.y = y;
 });
-$("world").addEventListener(
+function endPointer(e) {
+  const p = pointers.get(e.pointerId);
+  if (!p) return;
+  pointers.delete(e.pointerId);
+  if (p.mode === "attack") holdingAttack = false;
+  if (!view || !playing || panel) return;
+  if (
+    e.type === "pointerup" &&
+    !p.moved &&
+    (p.mode === "tap" || p.mode === "touch")
+  ) {
+    if (p.mode === "touch" && combatClick) attack("strike");
+    else beginTravel(view.pick(e.clientX, e.clientY));
+  }
+  if (p.mode === "orbit" || p.mode === "touch") saveCamera();
+}
+for (const type of ["pointerup", "pointercancel", "lostpointercapture"])
+  canvas.addEventListener(type, endPointer);
+canvas.addEventListener(
   "wheel",
   (e) => {
-    view.distance = clamp(view.distance + e.deltaY * 0.008, 3.8, 20);
+    if (!view || !playing || panel) return;
+    view.rig.zoom(
+      Math.exp(
+        clamp(e.deltaY * (e.deltaMode === 1 ? 15 : 1), -800, 800) * 0.0015,
+      ),
+    );
+    saveCamera();
     e.preventDefault();
   },
   { passive: false },
@@ -1008,6 +1419,7 @@ $("world").addEventListener(
 for (const b of $("touch-pad").querySelectorAll("[data-move]")) {
   const key = { up: "w", down: "s", left: "a", right: "d" }[b.dataset.move];
   b.addEventListener("pointerdown", (e) => {
+    cancelTravel();
     keys.add(key);
     b.setPointerCapture(e.pointerId);
   });
@@ -1030,7 +1442,7 @@ function movement() {
 function floating(event) {
   const point = view.project(
     event.x,
-    ground(event.x, event.z, state.realm) + 2.5,
+    view.height(event.x, event.z) + 2.5,
     event.z,
   );
   if (!point.visible) return;
@@ -1054,6 +1466,7 @@ function handleEvents() {
     }
     if (event.type === "hurt") {
       gathering = null;
+      cancelTravel();
       document.getElementById("hit-flash")?.remove();
       const flash = document.createElement("div");
       flash.id = "hit-flash";
@@ -1070,6 +1483,8 @@ function handleEvents() {
       save();
     }
     if (event.type === "death") {
+      cancelTravel();
+      view.rig.recenter();
       notify("The sanctuary restores you. 40 gold was lost.");
       save();
     }
@@ -1103,21 +1518,26 @@ function frame(now) {
           }
       lastProduction = now;
     }
-    const input = playing && !panel ? movement() : { x: 0, z: 0 };
+    const manual = playing && !panel ? movement() : { x: 0, z: 0 };
+    let input = manual;
     if (playing && !panel) {
       // Advance bounded substeps so low rendering rates do not slow game time.
       let remaining = dt;
       while (remaining > 0) {
         const step = Math.min(remaining, 0.05);
-        const previous = { x: sim.player.x, z: sim.player.z };
-        sim.tick(step, input);
         const p = sim.player;
-        if (
-          (Math.abs(p.x - 13) < 3.2 && Math.abs(p.z + 5) < 3.2) ||
-          (Math.abs(p.x + 13) < 3.2 && Math.abs(p.z + 4) < 3.2)
-        ) {
-          p.x = previous.x;
-          p.z = previous.z;
+        const px = p.x,
+          pz = p.z;
+        input = travel && !(manual.x || manual.z) ? routeInput(step) : manual;
+        if (panel) break;
+        sim.tick(step, input);
+        if (travel) {
+          travel.stuck =
+            Math.hypot(p.x - px, p.z - pz) < 0.001 ? travel.stuck + step : 0;
+          if (travel.stuck > 0.65) {
+            cancelTravel();
+            notify("Route blocked. Choose another spot.");
+          }
         }
         state.position = { x: p.x, z: p.z };
         if (holdingAttack) attack("strike");
@@ -1128,6 +1548,7 @@ function frame(now) {
             gathering.left -= step;
             if (gathering.left <= 0) {
               const result = gather(state, gathering.node);
+              if (result.ok && gathering.node.radius) sim.refreshObstacles();
               notify(result.message);
               gathering = null;
               save();
@@ -1138,8 +1559,22 @@ function frame(now) {
         handleEvents();
         remaining -= step;
       }
+      if (now - lastDiscovery > 400) {
+        lastDiscovery = now;
+        const before = sim.blockers.length;
+        sim.refreshObstacles();
+        if (sim.blockers.length !== before && travel)
+          beginTravel(travel.target);
+        const found = discover(state, view.features, sim.player);
+        if (found.length) {
+          state.professions.surveying += found.length * 12;
+          notify("Surveyed · " + found.map((f) => f.name).join(", "));
+          save();
+        }
+      }
       if (now - lastSave > 5000) save();
     }
+    view.gathering = gathering?.node.kind;
     view.update(dt, input, now / 1000);
     if (playing && now - lastHud > 100) {
       updateHUD();
@@ -1152,6 +1587,7 @@ addEventListener("pagehide", save);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     keys.clear();
+    cancelTravel();
     holdingAttack = false;
     save();
   }
@@ -1159,11 +1595,6 @@ document.addEventListener("visibilitychange", () => {
 async function boot() {
   await loadNative();
   try {
-    try {
-      await loadIllustrations();
-    } catch {
-      visuals.style = "model";
-    }
     buildView();
     landing();
     $("loading").hidden = true;

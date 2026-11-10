@@ -85,6 +85,11 @@ try {
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
     await page.locator("#hud").waitFor({ state: "visible" });
+    assert.equal(await page.locator("#codex-race option").count(), 6);
+    assert.equal(await page.locator("#codex-class option").count(), 9);
+    await page.locator("#codex-race").selectOption("veylari");
+    await page.locator("#codex-class").selectOption("marksman");
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
     console.log("Profile entered world");
     await page.waitForFunction(
       () => document.querySelector("#save-state")?.textContent === "Saved",
@@ -93,19 +98,9 @@ try {
     await page.screenshot({ path: resolve(artifacts, "world.png") });
     assert.equal(
       await page.locator("#world").getAttribute("data-art-style"),
-      "illustrated",
-    );
-    await page.keyboard.press("o");
-    await page.locator("#render-style").selectOption("model");
-    assert.equal(
-      await page.locator("#world").getAttribute("data-art-style"),
       "model",
     );
-    await page.locator("#render-style").selectOption("illustrated");
-    assert.equal(
-      await page.locator("#world").getAttribute("data-art-style"),
-      "illustrated",
-    );
+    await page.keyboard.press("o");
     await page.locator("#graphics-quality").selectOption("high");
     assert.equal(
       await page.locator("#world").getAttribute("data-shadows"),
@@ -119,6 +114,11 @@ try {
     await page.mouse.move(1100 - Math.PI / 0.006, 430);
     await page.mouse.up({ button: "right" });
     await page.mouse.wheel(0, -600);
+    await page.waitForFunction(
+      () =>
+        JSON.parse(localStorage.getItem("astral_empire_camera_v1"))?.distance <
+        6,
+    );
     await page.keyboard.press("F8");
     await page.waitForTimeout(500);
     assert.equal(
@@ -129,11 +129,7 @@ try {
     );
     await page.screenshot({ path: resolve(artifacts, "hero-detail.png") });
     await page.keyboard.press("F8");
-    await page.mouse.move(1100 - Math.PI / 0.006, 430);
-    await page.mouse.down({ button: "right" });
-    await page.mouse.move(1100, 430);
-    await page.mouse.up({ button: "right" });
-    await page.mouse.wheel(0, 600);
+    await page.keyboard.press("r");
     await page.keyboard.press("o");
     await page.locator("#graphics-quality").selectOption("low");
     await page.locator("#reduced-motion").check();
@@ -152,7 +148,7 @@ try {
     await page.keyboard.press("h");
     await page.locator(".hero-illustration").first().waitFor();
     await page.screenshot({ path: resolve(artifacts, "anime-roster.png") });
-    await page.getByRole("button", { name: "RECRUIT SORA · FREE" }).click();
+    await page.getByRole("button", { name: "CLAIM SORA · FREE" }).click();
     await page.locator('[data-hero="sora"]').click();
     await page.keyboard.press("Escape");
     await page
@@ -164,9 +160,9 @@ try {
       .first()
       .waitFor({ state: "attached" });
     await page.screenshot({ path: resolve(artifacts, "bow-training.png") });
-    await page.keyboard.press("h");
-    await page.locator('[data-hero="mira"]').click();
-    await page.keyboard.press("Escape");
+    await page.keyboard.press("u");
+    await page.locator("#codex-class").selectOption("psion");
+    await page.getByRole("button", { name: "UPDATE FIELD LOADOUT" }).click();
     await page.locator('[data-skill="strike"][title*="Aether bolt"]').waitFor();
     await page.waitForTimeout(650);
     await page.locator('[data-skill="strike"]').click();
@@ -177,12 +173,45 @@ try {
       /Physical hits meet armor/,
     );
     await page.screenshot({ path: resolve(artifacts, "combat-builds.png") });
-    await page.getByRole("button", { name: "Heroes", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Appearances", exact: true })
+      .click();
     await page.locator('[data-hero="kael"]').click();
     await page.keyboard.press("Escape");
-    // In the 45-degree view, D+S travels along positive world X to the herb.
-    await page.keyboard.down("d");
-    await page.keyboard.down("s");
+    await page.locator('[data-skill="strike"][title*="Aether bolt"]').waitFor();
+    await page.keyboard.press("u");
+    await page.locator("#codex-class").selectOption("enforcer");
+    await page.getByRole("button", { name: "UPDATE FIELD LOADOUT" }).click();
+    const cache = page.locator('[data-world-feature="bastion-cache-0"]');
+    await cache.click();
+    const savedState = () =>
+      JSON.parse(localStorage.getItem("astral_empire_profile_browser-test_v3"));
+    await page.waitForFunction(() =>
+      JSON.parse(
+        localStorage.getItem("astral_empire_profile_browser-test_v3"),
+      )?.exploration.changed.includes("bastion-cache-0"),
+    );
+    const cacheLoot = (await page.evaluate(savedState)).resources.herb;
+    // In the 45-degree view, D+S travels along positive world X.
+    const pressPair = (type, keys) =>
+      page.evaluate(
+        ({ type, keys }) => {
+          for (const key of keys)
+            document.dispatchEvent(
+              new KeyboardEvent(type, { key, bubbles: true }),
+            );
+        },
+        { type, keys },
+      );
+    await pressPair("keydown", ["s", "a"]);
+    await page.waitForFunction(
+      () =>
+        Number(
+          document.querySelector("#coordinates").textContent.split(",")[1],
+        ) >= 5,
+    );
+    await pressPair("keyup", ["s", "a"]);
+    await pressPair("keydown", ["d", "s"]);
     await page.waitForFunction(
       () =>
         Number(
@@ -191,15 +220,14 @@ try {
       null,
       { timeout: 45000 },
     );
-    await page.keyboard.up("d");
-    await page.keyboard.up("s");
+    await pressPair("keyup", ["d", "s"]);
     await page.keyboard.press("e");
     await page.waitForFunction(
-      () =>
+      (herb) =>
         JSON.parse(
           localStorage.getItem("astral_empire_profile_browser-test_v3"),
-        )?.resources.herb > 0,
-      null,
+        )?.resources.herb > herb,
+      cacheLoot,
       { timeout: 45000 },
     );
     const gathered = await page.evaluate(() =>
@@ -209,9 +237,26 @@ try {
       gathered.resources.herb > 0,
       "Actual world gathering should award herbs",
     );
-    await page.keyboard.down("w");
-    await page.waitForTimeout(800);
-    await page.keyboard.up("w");
+    // Earn the first Codex points by crafting from the collected field materials.
+    await page.keyboard.press("c");
+    for (let i = 0; i < 2; i++) {
+      const potion = page.locator('[data-craft="potion"]');
+      if (await potion.isEnabled()) await potion.click();
+    }
+    await page.keyboard.press("Escape");
+    // Test larger trees with a levelled, otherwise unchanged exported profile.
+    await page.keyboard.press("o");
+    const rankFixture = await page.evaluate(savedState);
+    rankFixture.level = Math.max(5, rankFixture.level);
+    await page.locator("#save-file").setInputFiles({
+      name: "ranked-frontier.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(rankFixture)),
+    });
+    await page.locator("#panels").waitFor({ state: "hidden" });
+    await page.keyboard.press("u");
+    await page.getByRole("button", { name: "Add five accuracy" }).click();
+    await page.keyboard.press("Escape");
     await page.keyboard.press("k");
     await page.getByRole("dialog", { name: "Skill links" }).waitFor();
     await page
@@ -222,6 +267,34 @@ try {
       .selectOption("chain");
     await page.keyboard.press("Escape");
     await page.keyboard.press("p");
+    assert.equal(await page.locator(".talent-node").count(), 331);
+    const web = page.locator(".talent-view svg");
+    const box = await web.boundingBox();
+    const initial = await web.getAttribute("viewBox");
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.wheel(0, -400);
+    await page.waitForFunction(
+      (before) =>
+        document.querySelector(".talent-view svg").getAttribute("viewBox") !==
+        before,
+      initial,
+    );
+    const zoomed = await web.getAttribute("viewBox");
+    assert.ok(Number(zoomed.split(" ")[2]) < Number(initial.split(" ")[2]));
+    await page.mouse.move(
+      box.x + box.width / 2 + 50,
+      box.y + box.height / 2 + 30,
+    );
+    await page.mouse.down();
+    await page.mouse.move(
+      box.x + box.width / 2 + 104,
+      box.y + box.height / 2 + 65,
+      { steps: 4 },
+    );
+    await page.mouse.up();
+    assert.notEqual(await web.getAttribute("viewBox"), zoomed);
+    await page.mouse.wheel(0, 400);
+    await page.getByRole("button", { name: "FIT", exact: true }).click();
     await page.locator('[data-passive="blade1"]').click();
     await page
       .locator('.talent-node.allocated[data-passive="blade1"]')
@@ -230,7 +303,7 @@ try {
     await page.getByRole("button", { name: "Workshop", exact: true }).click();
     await page.getByRole("dialog", { name: "Workshop" }).waitFor();
     await page.keyboard.press("Escape");
-    await page.keyboard.down("w");
+    await pressPair("keydown", ["w", "d"]);
     await page.waitForFunction(
       () =>
         Number(
@@ -239,7 +312,7 @@ try {
       null,
       { timeout: 45000 },
     );
-    await page.keyboard.up("w");
+    await pressPair("keyup", ["w", "d"]);
     await page.locator("#target-hud").waitFor({ state: "visible" });
     await page.keyboard.press("q");
     await page.keyboard.press("1");
@@ -262,6 +335,10 @@ try {
     assert.equal(saved.links.lance[1], "chain");
     assert.ok(saved.heroes.includes("sora"));
     assert.ok(saved.passives.includes("blade1"));
+    assert.equal(saved.attributes.accuracy, 5);
+    assert.equal(saved.race, "veylari");
+    assert.equal(saved.calling, "enforcer");
+    assert.ok(saved.exploration.changed.includes("bastion-cache-0"));
     assert.ok(saved.position.z < 6);
     await page.reload();
     await page.locator("#loading").waitFor({ state: "hidden" });

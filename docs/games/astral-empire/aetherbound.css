@@ -10,6 +10,127 @@
   --line: #c8cbb52b;
   --serif: "Cormorant Garamond", Georgia, serif;
 }
+#world {
+  touch-action: none;
+  cursor: crosshair;
+}
+#world.attack-mode {
+  cursor: cell;
+}
+#frontier-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.frontier-label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding: 5px 8px;
+  background: #142638ed;
+  border-color: #ecd1938c;
+  color: #ffe4ad;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.camera-dock {
+  position: absolute;
+  left: 50%;
+  bottom: 138px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid #9eb5d75e;
+  border-radius: 8px;
+  background: #111e30df;
+  white-space: nowrap;
+}
+.camera-dock button {
+  padding: 5px 7px;
+  font-size: 11px;
+  min-width: 25px;
+}
+#travel-status {
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffe6b1;
+  text-shadow: 0 1px 4px #101622;
+  font-size: 12px;
+}
+.constellation-top {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.talent-view svg {
+  touch-action: none;
+  cursor: grab;
+}
+.talent-view svg:active {
+  cursor: grabbing;
+}
+.talent-edge {
+  stroke: #718bab;
+  stroke-opacity: 0.49;
+  stroke-width: 2.4;
+}
+.talent-edge.lit {
+  stroke: #f6d39d;
+  stroke-opacity: 1;
+  stroke-width: 3.2;
+}
+.sector-title {
+  font-size: 21px;
+  fill: #cdd5f3;
+  letter-spacing: 4px;
+  pointer-events: none;
+}
+.talent-node.doctrine circle {
+  stroke: #bf9cf4;
+}
+.talent-node.notable circle {
+  stroke: #85bbdf;
+}
+.talent-node:focus circle {
+  stroke: #fff1b4;
+  stroke-width: 4;
+}
+.talent-node text {
+  pointer-events: none;
+}
+.attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+}
+.attribute-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid var(--line);
+  padding: 6px 0;
+}
+.attribute-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.attribute-row small {
+  display: block;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .camera-dock {
+    bottom: 146px;
+  }
+  .attribute-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .artisan-shortcut {
   position: absolute;
   left: 32px;
@@ -1149,15 +1270,23 @@ select {
   color: var(--muted);
 }
 .talent-view {
-  height: 570px;
+  height: min(52vh, 570px);
   position: relative;
   background: radial-gradient(ellipse, #59577d29, transparent 65%);
-  overflow: auto;
+  overflow: hidden;
 }
 .talent-view svg {
   width: 100%;
   height: 100%;
-  min-width: 650px;
+  min-width: 0;
+}
+.talent-view .circuit-label {
+  display: none;
+  fill: #cde1ed;
+  font-size: 13px;
+}
+.talent-view .detail .circuit-label {
+  display: block;
 }
 .talent-node {
   cursor: pointer;

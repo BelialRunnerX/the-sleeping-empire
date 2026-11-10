@@ -1,5 +1,8 @@
-import { HEROES, ENEMY_TYPES } from "./content.mjs";
+import { ENEMY_TYPES } from "./content.mjs";
+import { classFor } from "./codex.mjs";
 import { numeric } from "./native.mjs";
+import { makeFrontier } from "./frontier.mjs";
+import { freeSpawn, obstacles, walk } from "./navigation.mjs";
 import {
   clamp,
   stats,
@@ -81,9 +84,11 @@ export function reactionFor(a, b) {
 export class Simulation {
   constructor(state) {
     this.state = state;
+    this.layout = makeFrontier(state.seed, state.realm);
+    this.refreshObstacles();
     const st = stats(state);
     this.player = {
-      ...state.position,
+      ...freeSpawn(state.position, this.blockers),
       y: 0,
       facing: Math.PI,
       hp: clamp(Number(state.life) || st.life, 1, st.life),
@@ -104,6 +109,11 @@ export class Simulation {
     this.effectId = 0;
     this.potionCD = 0;
     this.lastHit = null;
+  }
+  refreshObstacles() {
+    this.blockers = obstacles(this.state, this.layout);
+    if (this.player)
+      Object.assign(this.player, freeSpawn(this.player, this.blockers));
   }
   emit(type, data = {}) {
     this.events.push({ type, ...data });
@@ -183,15 +193,18 @@ export class Simulation {
       const travel = target
         ? clamp(Math.hypot(target.x - p.x, target.z - p.z) - 1.6, 0, 7)
         : 7;
-      p.x = clamp(p.x + Math.sin(p.facing) * travel, -140, 140);
-      p.z = clamp(p.z + Math.cos(p.facing) * travel, -140, 140);
+      walk(
+        p,
+        Math.sin(p.facing) * travel,
+        Math.cos(p.facing) * travel,
+        this.blockers,
+      );
       p.invulnerable = 0.5;
     }
     const cast = {
       skill: { ...skill, tags: [...skill.tags] },
       st: stats(this.state),
-      element:
-        skill.element || HEROES.find((h) => h.id === this.state.hero).element,
+      element: skill.element || classFor(this.state).element,
       x: p.x,
       z: p.z,
       facing: p.facing,
@@ -441,7 +454,7 @@ export class Simulation {
           id: "hostile",
           range: 26,
           radius: 0.3,
-          projectileSpeed: e.boss ? 10 : 14,
+          projectileSpeed: e.boss ? 10 : e.archetype === "drone" ? 17 : 14,
         },
         x: e.x,
         z: e.z,
@@ -450,7 +463,9 @@ export class Simulation {
       facing,
       {
         faction: "enemy",
-        damage: (e.boss ? 40 : 24) * (e.weaken > 0 ? 0.7 : 1),
+        damage:
+          (e.boss ? 40 : e.archetype === "drone" ? 17 : 24) *
+          (e.weaken > 0 ? 0.7 : 1),
         element: e.archetype === "archer" ? "Physical" : e.element,
       },
     );
@@ -537,10 +552,9 @@ export class Simulation {
       dz = Math.cos(p.facing) * 3.2;
       p.dodge -= dt;
     } else if (len) p.facing = Math.atan2(dx, dz);
-    p.x = clamp(p.x + dx * speed * dt, -140, 140);
-    p.z = clamp(p.z + dz * speed * dt, -140, 140);
+    walk(p, dx * speed * dt, dz * speed * dt, this.blockers);
     if (p.y > 0 || p.velocityY > 0) {
-      p.velocityY -= 20 * dt;
+      p.velocityY -= (this.state.realm === "orbit" ? 7 : 20) * dt;
       p.y = Math.max(0, p.y + p.velocityY * dt);
     }
     const ready = [];
@@ -605,7 +619,11 @@ export class Simulation {
         if (e.timer <= 0) {
           if (e.move === "arrow")
             this.enemyProjectile(e, Math.atan2(e.aimX - e.x, e.aimZ - e.z));
-          else if (e.move === "storm")
+          else if (e.move === "volley") {
+            const facing = Math.atan2(e.aimX - e.x, e.aimZ - e.z);
+            for (const offset of [-0.23, 0, 0.23])
+              this.enemyProjectile(e, facing + offset);
+          } else if (e.move === "storm")
             for (let i = 0; i < 10; i++)
               this.enemyProjectile(e, (i / 10) * Math.PI * 2);
           else {
@@ -658,8 +676,8 @@ export class Simulation {
           e.cooldown = e.boss ? 2.8 : e.archetype === "oracle" ? 3.8 : 2;
           this.emit("windup", { enemy: e });
         } else if (d > (profile.range > 8 ? 10 : 2)) {
-          e.x += ((p.x - e.x) / d) * dt * profile.speed * slow;
-          e.z += ((p.z - e.z) / d) * dt * profile.speed * slow;
+          const step = (dt * profile.speed * slow) / d;
+          walk(e, (p.x - e.x) * step, (p.z - e.z) * step, this.blockers);
         }
       }
     }

@@ -27,7 +27,6 @@ export async function testArtisanFlow(browser, url, artifacts) {
       "astral_empire_visuals_v1",
       JSON.stringify({
         quality: "low",
-        style: "illustrated",
         reducedMotion: false,
       }),
     ),
@@ -91,7 +90,10 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
     await page.locator("#hud").waitFor();
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
     const fixture = freshState(92714);
+    fixture.race = "imperial";
+    fixture.calling = "enforcer";
     Object.assign(fixture.resources, {
       cobalt: 30,
       stone: 30,

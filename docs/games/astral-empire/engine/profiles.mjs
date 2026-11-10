@@ -62,7 +62,9 @@ export class Profiles {
       raw = this.storage.getItem("astral_empire_v1");
     let state;
     try {
-      state = raw ? migrateState(JSON.parse(raw)) : freshState();
+      state = raw
+        ? migrateState(JSON.parse(raw))
+        : freshState(crypto.getRandomValues(new Uint32Array(1))[0]);
     } catch {
       throw Error(
         "This save could not be read. Export or restore a backup before continuing.",

@@ -85,6 +85,7 @@ test("version 1 heroes, equipment and currencies migrate without consuming sourc
 });
 test("passives require adjacency and leaf refunds preserve connectivity", () => {
   const s = freshState();
+  s.level = 2;
   assert.equal(allocate(s, "blade5"), false);
   assert.equal(allocate(s, "blade1"), true);
   const afterFirst = stats(s).damage;
@@ -178,7 +179,7 @@ test("blade cleaves several targets in front, but cannot hit a rear target", () 
 });
 test("bow and staff use different travel speeds, resource costs and third-hit mechanics", () => {
   const s = freshState();
-  s.hero = "sora";
+  s.calling = "marksman";
   const bow = new Simulation(s);
   assert.ok(bow.attack("strike"));
   assert.equal(bow.projectiles[0].speed, 28);
@@ -188,7 +189,7 @@ test("bow and staff use different travel speeds, resource costs and third-hit me
   bow.cooldowns.strike = 0;
   bow.attack("strike");
   assert.equal(bow.projectiles.length, 5);
-  s.hero = "mira";
+  s.calling = "psion";
   const staff = new Simulation(s);
   staff.attack("strike");
   assert.equal(staff.player.mana, s.mana - 4);

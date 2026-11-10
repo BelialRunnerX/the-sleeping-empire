@@ -38,6 +38,15 @@ const PALETTES = {
     blossom: "#d2dfed",
     water: "#568fba",
   },
+  orbit: {
+    zenith: "#090f2b",
+    horizon: "#343b65",
+    mist: "#4d567b",
+    grass: "#82909c",
+    leaf: "#678fb9",
+    blossom: "#99e5ee",
+    water: "#516fce",
+  },
 };
 export const GRAPHICS = {
   low: {
@@ -68,7 +77,6 @@ export function readVisualSettings(storage, small = false, reduced = false) {
       storage.getItem("astral_empire_visuals_v1") || "{}",
     );
     return {
-      style: saved.style === "model" ? "model" : "illustrated",
       quality: GRAPHICS[saved.quality]
         ? saved.quality
         : small
@@ -81,7 +89,6 @@ export function readVisualSettings(storage, small = false, reduced = false) {
     };
   } catch {
     return {
-      style: "illustrated",
       quality: small ? "low" : "balanced",
       reducedMotion: reduced,
     };
@@ -89,12 +96,13 @@ export function readVisualSettings(storage, small = false, reduced = false) {
 }
 
 export class ArtDirector {
-  constructor(scene, realm, seed, ground, random) {
-    Object.assign(this, { scene, realm, seed, ground, random });
+  constructor(scene, realm, seed, ground, random, structures = []) {
+    Object.assign(this, { scene, realm, seed, ground, random, structures });
     this.palette = PALETTES[realm] || PALETTES.bastion;
     this.materials = new Map();
     this.geometries = new Map();
     this.textures = new Set();
+    this.cameraOccluders = [];
     this.wind = { value: 0 };
     this.ramp = new T.DataTexture(
       new Uint8Array([70, 125, 193, 250]),
@@ -128,11 +136,13 @@ export class ArtDirector {
           ? new T.SphereGeometry(1, 16, 12)
           : kind === "gem"
             ? new T.IcosahedronGeometry(1, 0)
-            : kind === "cone"
-              ? new T.ConeGeometry(1, 1, 8)
-              : kind === "tube"
-                ? new T.CylinderGeometry(1, 1, 1, 12)
-                : new T.BoxGeometry(1, 1, 1),
+            : kind === "crown"
+              ? new T.IcosahedronGeometry(1, 1)
+              : kind === "cone"
+                ? new T.ConeGeometry(1, 1, 8)
+                : kind === "tube"
+                  ? new T.CylinderGeometry(1, 1, 1, 12)
+                  : new T.BoxGeometry(1, 1, 1),
       );
     const m = new T.Mesh(this.geometries.get(kind), this.material(c));
     m.position.set(x, y, z);
@@ -224,14 +234,18 @@ export class ArtDirector {
         uniforms: {
           top: { value: new T.Color(p.zenith) },
           bottom: { value: new T.Color(p.horizon) },
+          orbital: { value: this.realm === "orbit" ? 1 : 0 },
         },
         vertexShader:
           "varying vec3 vSky; void main(){vSky=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
-        fragmentShader: `varying vec3 vSky; uniform vec3 top; uniform vec3 bottom;
+        fragmentShader: `varying vec3 vSky; uniform vec3 top; uniform vec3 bottom; uniform float orbital;
         void main(){float h=normalize(vSky).y; vec3 c=mix(bottom,top,smoothstep(-.04,.25,h));
           float cloud=sin(vSky.x*.028+sin(vSky.z*.035)*2.)*.5+.5;
           cloud*=smoothstep(.03,.17,h)*(1.-smoothstep(.19,.44,h));
-          c=mix(c,vec3(.95,.87,.82),cloud*.27);gl_FragColor=vec4(c,1.);
+          c=mix(c,vec3(.95,.87,.82),cloud*.27*(1.-orbital));
+          vec2 cell=floor(vSky.xz*3.4);float star=fract(sin(dot(cell,vec2(12.9898,78.233)))*43758.5453);
+          c+=orbital*step(.996,star)*smoothstep(.12,.45,h)*.56;
+          gl_FragColor=vec4(c,1.);
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
         }`,
@@ -241,6 +255,22 @@ export class ArtDirector {
     const sun = this.shape(this.scene, "orb", 0xffe9c4, -70, 47, -130, 6, 6, 6);
     sun.material = new T.MeshBasicMaterial({ color: 0xffe7bd });
     sun.castShadow = false;
+    if (this.realm === "orbit") {
+      const planet = this.shape(
+        this.scene,
+        "orb",
+        0x6b9ea7,
+        -58,
+        54,
+        -135,
+        26,
+        26,
+        26,
+      );
+      planet.castShadow = planet.receiveShadow = false;
+      this.ring(this.scene, 29, 0.2, 0xb6c3f8, 54).position.set(-58, 54, -135);
+      return;
+    }
     // Layered ridgelines sit outside the playable region and create a distant horizon.
     for (let layer = 0; layer < 3; layer++)
       for (let i = 0; i < 13; i++) {
@@ -495,6 +525,42 @@ export class ArtDirector {
     g.cape = cape;
     // Gold embroidered crest on the back reads clearly from the play camera.
     const crest = this.shape(g, "gem", gold, 0, 1.53, -0.3, 0.12, 0.22, 0.015);
+    const status = this.shape(
+      g,
+      "box",
+      0x9ae7eb,
+      0,
+      1.77,
+      0.229,
+      0.19,
+      0.024,
+      0.019,
+    );
+    status.material = this.material(0x9ae7eb, 0.74);
+    for (const s of [-1, 1]) {
+      this.shape(
+        g,
+        "gem",
+        0x53637e,
+        s * 0.195,
+        1.47,
+        -0.205,
+        0.096,
+        0.38,
+        0.074,
+      );
+      this.shape(
+        g,
+        "box",
+        0x9ae7eb,
+        s * 0.2,
+        1.49,
+        -0.275,
+        0.022,
+        0.24,
+        0.018,
+      ).material = status.material;
+    }
     this.shape(
       g,
       "gem",
@@ -600,7 +666,11 @@ export class ArtDirector {
     const g = new T.Group();
     g.position.set(x, 0, z);
     this.scene.add(g);
+    this.cameraOccluders.push(g);
     this.shape(g, "box", 0x646e77, 0, 0.2, 0, 5.5, 0.4, 5.5);
+    this.shape(g, "box", 0x2d3b53, 0, 2.75, 2.53, 4.9, 0.48, 0.2);
+    this.shape(g, "box", 0x8ce0dc, 0, 2.78, 2.66, 3.85, 0.045, 0.038).material =
+      this.material(0x8ce0dc, 0.75);
     this.shape(g, "box", wall, 0, 2, 0, 5, 3.7, 5);
     for (const sx of [-2.35, 2.35])
       for (const sz of [-2.35, 2.35])
@@ -647,6 +717,32 @@ export class ArtDirector {
         );
     }
     this.shape(g, "box", 0x4c5362, 1.1, 5.4, -0.9, 0.65, 2, 0.65);
+    const solar = this.shape(
+      g,
+      "box",
+      0x3d5e86,
+      -0.95,
+      5.05,
+      0.44,
+      2.04,
+      0.08,
+      2.45,
+    );
+    solar.rotation.x = 0.55;
+    for (let i = 0; i < 5; i++) {
+      const line = this.shape(
+        g,
+        "box",
+        0x82b7d1,
+        -1.73 + i * 0.4,
+        5.11,
+        0.44,
+        0.025,
+        0.034,
+        2.45,
+      );
+      line.rotation.x = 0.55;
+    }
     const banner = this.shape(
       g,
       "box",
@@ -743,8 +839,6 @@ export class ArtDirector {
     );
     veil.position.set(0, 2.8, -0.06);
     gate.add(veil);
-    // Sanctuary cherry trees frame the gateway without covering the walking lane.
-    for (const s of [-1, 1]) this.tree(s * 8.8, -9.5, 1.15, true);
     for (const s of [-1, 1])
       for (const z of [-5, 4]) {
         const g = new T.Group();
@@ -767,109 +861,7 @@ export class ArtDirector {
         this.shape(g, "cone", 0x526077, 0, 3.05, 0, 0.4, 0.28, 0.4);
       }
   }
-  tree(x, z, scale, blossom = false) {
-    const g = new T.Group();
-    g.position.set(x, this.ground(x, z, this.realm), z);
-    g.scale.setScalar(scale);
-    this.scene.add(g);
-    const trunk = this.shape(g, "tube", 0x665e59, 0, 1.5, 0, 0.18, 3, 0.2);
-    trunk.rotation.z = -0.08;
-    for (let i = 0; i < 3; i++) {
-      const a = i * 2.4;
-      const branch = this.shape(
-        g,
-        "tube",
-        0x665e59,
-        Math.sin(a) * 0.45,
-        2.5,
-        Math.cos(a) * 0.45,
-        0.085,
-        1.9,
-        0.085,
-      );
-      branch.rotation.z = Math.sin(a) * -0.65;
-      branch.rotation.x = Math.cos(a) * 0.65;
-    }
-    for (let i = 0; i < 7; i++) {
-      const a = i * 2.4,
-        tint = new T.Color(
-          blossom ? this.palette.blossom : this.palette.leaf,
-        ).multiplyScalar(0.85 + (i % 3) * 0.13);
-      this.shape(
-        g,
-        "orb",
-        tint.getHex(),
-        Math.sin(a) * 1.1,
-        3.4 + (i % 3) * 0.5,
-        Math.cos(a) * 1.1,
-        1.2,
-        0.8,
-        1.2,
-      );
-    }
-  }
   landscape() {
-    // Instanced foliage limits draw calls while retaining a layered canopy.
-    const trunkGeo = new T.CylinderGeometry(0.17, 0.3, 3.4, 7),
-      leafGeo = new T.IcosahedronGeometry(1, 1);
-    const trunks = new T.InstancedMesh(trunkGeo, this.material(0x655e5a), 130);
-    const leaves = new T.InstancedMesh(
-      leafGeo,
-      this.material(this.palette.leaf),
-      520,
-    );
-    const d = new T.Object3D();
-    let n = 0;
-    for (let i = 0; i < 270 && n < 130; i++) {
-      const x = this.random(this.seed, i, 22) * 220 - 110,
-        z = this.random(this.seed, i, 23) * 220 - 110;
-      if (Math.abs(x) < 8 || Math.hypot(x, z) < 19 || Math.abs(x - 30) < 9)
-        continue;
-      const y = this.ground(x, z, this.realm),
-        s = 0.8 + this.random(1, i, 5) * 0.9;
-      d.position.set(x, y + 1.7 * s, z);
-      d.scale.set(s, s, s);
-      d.rotation.set(0, 0, 0.07);
-      d.updateMatrix();
-      trunks.setMatrixAt(n, d.matrix);
-      for (let j = 0; j < 4; j++) {
-        d.position.set(
-          x + Math.sin(j * 2.4) * s,
-          y + (3.9 + (j % 2) * 0.8) * s,
-          z + Math.cos(j * 2.4) * s,
-        );
-        d.scale.set(1.8 * s, 1.15 * s, 1.8 * s);
-        d.updateMatrix();
-        leaves.setMatrixAt(n * 4 + j, d.matrix);
-        leaves.setColorAt(
-          n * 4 + j,
-          new T.Color().setScalar(0.8 + this.random(i, j, 2) * 0.35),
-        );
-      }
-      n++;
-    }
-    trunks.count = n;
-    leaves.count = n * 4;
-    trunks.castShadow = leaves.castShadow = true;
-    leaves.receiveShadow = true;
-    this.scene.add(trunks, leaves);
-    for (let i = 0; i < 48; i++) {
-      const x = this.random(this.seed, i, 30) * 180 - 90,
-        z = this.random(this.seed, i, 31) * 180 - 90;
-      if (Math.hypot(x, z) < 18 || Math.abs(x) < 4) continue;
-      const rock = this.shape(
-        this.scene,
-        "gem",
-        0x7d8c8c,
-        x,
-        this.ground(x, z, this.realm),
-        z,
-        1.1 + this.random(1, i, 1) * 2,
-        0.8 + this.random(1, i, 2),
-        1.2,
-      );
-      rock.rotation.set(0.2, i, 0.1);
-    }
     // Visible ruins and broken arches around the Warden's arena.
     const ruins = new T.Group();
     ruins.position.set(0, this.ground(0, -49, this.realm), -49);
@@ -884,6 +876,68 @@ export class ArtDirector {
       this.shape(ruins, "tube", 0x68777c, x, 0.3, z, 0.8, 0.5, 0.8);
     }
     this.ring(ruins, 7, 0.045, 0x9588b2, 0.31);
+    // Mesh infrastructure: warm alloy frames and cool status lights.
+    for (const { x, z } of this.structures) {
+      const y = this.ground(x, z),
+        panel = new T.Group();
+      panel.position.set(x, y, z);
+      this.scene.add(panel);
+      this.cameraOccluders.push(panel);
+      this.shape(panel, "tube", 0x354b61, 0, 1.63, 0, 0.18, 3.26, 0.18);
+      this.shape(panel, "box", 0x96b8c4, 0, 0.2, 0, 1.2, 0.4, 1.2);
+      const rack = new T.Group();
+      rack.position.y = 3.25;
+      rack.rotation.x = -0.42;
+      panel.add(rack);
+      this.shape(rack, "box", 0x41516e, 0, 0, 0, 4.55, 0.16, 2.4);
+      for (let i = 0; i < 5; i++)
+        this.shape(
+          rack,
+          "box",
+          0x6391bc,
+          (i - 2) * 0.86,
+          0.1,
+          0,
+          0.79,
+          0.05,
+          2.16,
+        );
+      this.shape(
+        panel,
+        "orb",
+        0xa0fff1,
+        0,
+        3.77,
+        0,
+        0.13,
+        0.13,
+        0.13,
+      ).material = this.material(0xa0fff1, 0.72);
+    }
+    if (this.realm === "orbit") {
+      // Far hull sections and illuminated stripes frame the survey deck.
+      for (let i = 0; i < 12; i++) {
+        const a = (i * Math.PI) / 6;
+        const x = Math.cos(a) * 121,
+          z = Math.sin(a) * 121;
+        const hull = new T.Group();
+        hull.position.set(x, this.ground(x, z) - 0.5, z);
+        hull.rotation.y = -a;
+        this.scene.add(hull);
+        this.shape(hull, "box", 0x44516c, 0, 1.3, 0, 3.2, 2.6, 22);
+        this.shape(
+          hull,
+          "box",
+          0x9fc6e4,
+          -1.6,
+          2.02,
+          0,
+          0.08,
+          0.16,
+          21,
+        ).material = this.material(0x9fc6e4, 0.65);
+      }
+    }
     this.createGrass();
     this.createMotes();
   }
@@ -1030,7 +1084,7 @@ export class ArtDirector {
       this.shape(
         bridge,
         "box",
-        i % 2 ? 0x8b8070 : 0x9f927b,
+        i % 2 ? 0x536c7c : 0x6b8490,
         (i - 8.5) * 0.64,
         0,
         0,

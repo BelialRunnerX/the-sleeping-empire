@@ -1,8 +1,63 @@
 # Astral Empire: Aetherbound
 
-An anime action RPG foundation for The Sleeping Empire. The default presentation is an illustrated isometric 2.5D frontier with connected builds, combat, gathering and crafting. The earlier procedural third-person 3D view remains selectable in Settings at the sanctuary. It is an MMO-style **single-player prototype**, with local profiles and browser saves. Networked multiplayer and cloud accounts are not implemented.
+A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
-## Version 3.4 · Artisan Awakening
+## Version 3.5 · The Living Frontier
+
+- **Full 3D world.** Perspective camera, cel-shaded characters, 3D equipment, vegetation, resource props, drones and workstations. The title and portraits keep their illustrated art. The camera orbits, pans, zooms and shortens around terrain and nearby scenery, then eases back out.
+- **Procedural exploration.** The saved seed determines terrain beyond the outpost, terrain bands, harvestable scenery, wrecks, caches, relays, rubble and patrols. The outpost, bridge, existing gathering IDs and Warden encounter are retained. Five bounded regions include High Orbit at rank 40, with its own presentation, generated layout and lower jump gravity.
+- **Direct interaction.** Click or tap ground, a resource, a workstation or a discovery to approach it. Routes go around solid objects. Manual movement, attacks and damage interrupt travel. Use **E** nearby to interact. Trees, boulders, ore, plants, fishing spots and drone wrecks are harvestable. Gathered nodes recover after three minutes; opened caches and cleared rubble stay changed.
+- **Field survey.** Discover landmarks by approaching them, revisit them via **M**, collect caches and clear rubble. Synchronize a relay for telemetry and survey mastery; use a synchronized relay again to return to your current region's outpost. Rogue survey drones telegraph three-shot electrical volleys.
+- **Imperial Codex.** All six Elysium races and nine classes are selectable at base. Their canonical starting attributes and growth are used with browser-specific traits and weapon disciplines. After level 1, each rank grants **3 constellation points and 10 assignable attribute points**. Race and class each grant a free starter attribute bonus.
+- **Build depth.** A 330-node constellation has 24 circuits, cross-links, notables and exclusive doctrines with stat tradeoffs. Scroll to zoom under the pointer, drag to pan, click to spend or refund, and use Fit to return to the full tree. Refunds must leave your build connected. Old allocations and equipment stay usable.
+- **Cosmetic draws.** Your collected appearances, tickets and pity remain. Class, Codex, passives and equipment govern combat; draws and appearance switches have no gameplay stat or weapon effects. Duplicates grant cosmetic shards only.
+- **Sci-fi lifeskills.** Mineral extraction, xenoforestry, xenobotany, aquaculture, metallurgy, biochemistry and field nutrition retain their existing progression. Systems salvage supplies circuitry; planetary survey supplies telemetry; fabrication combines those with refined materials to produce shield capacitors and Signal Driver Mk I/II conduits. Mk II needs rank 12 and a tier-two laboratory. New contracts track drone salvage and relay synchronization.
+
+## Controls
+
+| Action | Control |
+| --- | --- |
+| Travel or interact | Click/tap the ground or object; E uses the nearest interaction |
+| Manual movement | WASD / arrows; on-screen pad on touchscreens |
+| Camera | Right drag to orbit; middle drag or Shift + right drag to pan; wheel to zoom |
+| Camera shortcuts | R resets; Z/X rotate 45°; on-screen zoom, rotation and reset buttons |
+| Touch camera | Drag to orbit; pinch to zoom; twist to rotate |
+| Basic combo | Skill bar, Alt-click, or toggle Attack to hold the left button |
+| Active skills / target / evade / jump | 1–4 / Q / Shift / Space |
+| Trauma injector | F |
+| Gear / skills / constellation / Codex | I / K / P / U |
+| Lifeskills / workshop / Atelier / appearances | L / C / B / H |
+| Journal / survey / settings | J / M / O |
+| Close panel or stop travel / scenic mode | Esc / F8 |
+
+## Saves and architecture
+
+- Local PINs identify save slots on this browser. Settings supports JSON export and version 1–3 imports. Classic and Aetherbound maintain separate progress after migration.
+- Current saves keep version 3 keys. The seed, original depleted-node IDs, position, gear, appearance collection, atelier orders, Codex choices, attribute assignments, explored sites and permanent world changes persist. An older build that spent more than the new level budget keeps those allocations until its Codex budget catches up.
+- The browser caches its local shell for offline play after a successful online load. Graphics and camera preferences are stored separately from character progress. No cloud authentication, multiplayer, streamed voxel worlds or unrestricted terrain deformation are implemented.
+- The freestanding [C++17 module](native/simulation.cpp) still handles numeric hashing, tier/yield, mitigation and swept projectile checks, with JavaScript fallback. JavaScript owns the game state, new navigation/camera/world rules and WebGL integration. See [ELYSIUM_PORT.md](ELYSIUM_PORT.md), [ARTISAN.md](ARTISAN.md), [VISUALS.md](VISUALS.md) and [ROADMAP.md](ROADMAP.md).
+
+## Development and verification
+
+Serve the game over HTTP (for example, `python -m http.server 8765 --directory docs` from the repository root), then open `http://localhost:8765/games/astral-empire/`.
+
+From this directory:
+
+```sh
+npm ci
+npm test
+npx playwright install chromium
+npm run test:browser
+npm run test:visual
+```
+
+The test suite covers Classic, combat/WASM, save migration, production, procedural exploration, navigation, camera collision, Codex math and constellation connectivity. Browser tests exercise local login, class/appearance separation, cache collection, gathering, crafting, constellation wheel/pan, save restore, mobile layout and offline loading. Visual checks render five realms, test mesh ray picking and check geometry lifetime and structural budgets. Screenshots are written to ignored `.artifacts/`.
+
+Set `BROWSER_EXECUTABLE` to use an installed Chrome. To rebuild the bundled module, use `npm run build:native` with Zig 0.14.1+ or Clang and a WebAssembly linker. GitHub Actions rebuilds and tests the module before running browser and visual checks.
+
+## Earlier releases
+
+### Version 3.4 · Artisan Awakening
 
 Open **Atelier [B]** to construct a foundry, joinery and alchemy laboratory at fixed sanctuary sites. New workstation art, construction previews, progress rings/particles, output badges, map tracking and proximity interaction make production visible in the world. Idle, undamaged targets stay out of the target HUD until combat or explicit targeting.
 
@@ -10,15 +65,15 @@ Reserve inputs for sequential processing queues, collect goods and profession XP
 
 Existing version 3 saves gain the production fields without replacing old progress. See [ARTISAN.md](ARTISAN.md) for recipes, costs, controls, persistence and limitations. Elysium's order-independent two-input matching/count logic is translated to exact browser IDs; recipes, queue scheduling and workstation systems are original adaptations. [ELYSIUM_PORT.md](ELYSIUM_PORT.md) records that boundary.
 
-## Version 3.3 · Illustrated Frontier
+### Version 3.3 · Illustrated Frontier
 
-The default view now uses original AI-generated anime sprite art with an orthographic isometric camera. All twelve heroes have portraits and two full-body sprite poses. Scene depth, terrain, particles and hit detection remain in the existing WebGL/simulation coordinate system, while painted character/scenery cutouts face the camera. Trees, cottages, the portal, forge, resources, ruins and four enemy archetypes use an illustrated prop atlas. A four-surface atlas supplies painterly grass, paths, stone and riverbanks. The HUD and roster show the matching portrait art, and the title has an original illustration.
+Version 3.3 used original AI-generated anime sprite art with an orthographic isometric camera. All twelve heroes have portraits and two full-body sprite poses. Scene depth, terrain, particles and hit detection remain in the existing WebGL/simulation coordinate system, while painted character/scenery cutouts face the camera. Trees, cottages, the portal, forge, resources, ruins and four enemy archetypes use an illustrated prop atlas. A four-surface atlas supplies painterly grass, paths, stone and riverbanks. The HUD and roster show the matching portrait art, and the title has an original illustration.
 
-Movement switches between two poses and adds a small bob; facing mirrors the sprite, and attacks add tilt/recoil with the existing travelling projectiles and impact effects. This is a limited sprite animation treatment, not a full directional animation set. The boss currently enlarges the sentinel illustration. Settings → Art style retains the procedural 3D prototype; switching is restricted to the sanctuary. Device preferences and existing version 3 progress remain compatible. If illustration loading fails, the game falls back to procedural 3D.
+Movement switches between two poses and adds a small bob; facing mirrors the sprite, and attacks add tilt/recoil with the existing travelling projectiles and impact effects. This is a limited sprite animation treatment, not a full directional animation set. The boss currently enlarges the sentinel illustration. At that release the procedural 3D prototype was still a sanctuary setting. Device preferences and existing version 3 progress remain compatible. Version 3.5 retains the title and portraits and uses the 3D world throughout.
 
-See [assets/ASSETS.md](assets/ASSETS.md) for every generated asset's role, provenance and exact prompt. The title illustration is not a gameplay screenshot. All five WebP assets are local, precached for offline play, and total roughly 2.9 MB.
+See [assets/ASSETS.md](assets/ASSETS.md) for every generated asset's role, provenance and exact prompt. The title illustration is not a gameplay screenshot. The files remain in the repository as release art.
 
-## Version 3.2 · Dawnlight
+### Version 3.2 · Dawnlight
 
 A visual pass adds a banded cel-shading ramp, selective character outlines, a warm directional light with camera-following soft shadows, a gradient sky, distant ridgelines, atmospheric fog, and four coordinated realm palettes. Original procedural characters now have layered outfits, shoulder armor, boots, face/eye details, more detailed weapons, articulated knees/elbows and a moving cape. Enemies have masked armor silhouettes; the training effigy is a wooden practice dummy.
 
@@ -26,7 +81,7 @@ The sanctuary gains tiled stone, gold inlays, portal runes and an animated veil,
 
 Settings now offers **Performance**, **Balanced**, and **High fidelity** presets plus **Reduce ambient motion & effects**. These device preferences persist separately from progression. Desktop defaults to Balanced; a first visit below 700px defaults to Performance. The browser's reduced-motion preference supplies the initial setting. **F8** hides/restores the HUD for scenic viewing; the camera and combat stay active. See [VISUALS.md](VISUALS.md) for art ownership, rendering budgets and remaining limitations.
 
-## Version 3.1 · Weapon Disciplines
+### Version 3.1 · Weapon Disciplines
 
 The first combat-depth expansion adds distinct weapon behavior and enemies that ask for different responses:
 
@@ -39,117 +94,8 @@ The first combat-depth expansion adds distinct weapon behavior and enemies that 
 - **Reactions and ailments:** Tide chills movement and windups, Volt shocks for extra damage taken, Void exposes armor, and supported hits ignite. Steam Break weakens attacks; Wildfire burns; Superconduct/Eclipse expose; Starfall restores mana; Zenith heals. Astral Lance carries Astral and Halo Rupture carries Gale, allowing one hero to combine elements.
 - **Enemy identities:** armored sentinels, travelling-arrow archers, oracles that mark a fixed eruption location, and stalkers. The Warden awakens below half life and alternates charged cleaves with radial projectile storms.
 - **Combat breakdown:** the Skills panel shows first-hit physical/elemental previews against a stated reference target and the last actual impact. Critical hits, reaction bonuses and delayed/chain hits are distinguished from the first-hit preview.
-- **Training:** an effigy beside the sanctuary's waygate gives no kill rewards. Heroes → Recruit Sora provides one free scout grant for existing or new profiles so all three disciplines can be tried immediately.
+- **Training:** an effigy beside the sanctuary's waygate gives no kill rewards. The original scout grant now unlocks a cosmetic; classes provide the weapon disciplines in 3.5.
 
 Native WebAssembly ABI 2 adds elemental mitigation and swept projectile/target collision to the C++ core. Existing version 3 saves remain compatible. Projectiles, active enemy ailments, delayed echoes and enemy health are transient combat state; builds and recruitment persist.
 
 Play at `/games/astral-empire/`. The rest of the Living Codex remains unchanged. The original gacha RPG, including its turn-based battles, awakening, forge, dispatches, achievements, and the earlier 2D sandbox, is preserved at [classic.html](classic.html).
-
-## Implemented gameplay
-
-- Third-person WebGL world with a visible animated character, camera-relative movement, orbit/zoom camera, jump, evade, sanctuary, ruins, resource nodes, minimap, enemies, and a named boss.
-- Five active abilities: three-hit melee chain, ranged Astral Lance, radial Halo Rupture, offensive Rift Step, and Seraphic Eclipse. Skills consume mana and use separate cooldowns. Evade consumes stamina and grants brief invulnerability.
-- Enemies chase, telegraph attacks, strike, recover, leash to their home, and respawn. The Sleeping Warden has a wider, slower charged attack and epic loot. Hits no longer cancel attack telegraphs automatically.
-- Eight support modifiers: delayed echo, larger area, life leech, ignite, faster cooldown recovery, execute, piercing, and chaining, plus an unlinked state. Two support slots per active skill; compatibility follows skill tags and duplicate supports are prevented.
-- Thirty allocatable constellation passives across six branches. Six capstones create tradeoffs: attack/spell specialization, mana scaling, armor/life versus movement, critical hits versus normal hits, recovery versus mana, and crafting/yield.
-- Three equipment slots, 13 affix families, magic/rare/epic items, equipment drops, level scaling, tempering up to +20, affix reshaping, and salvage. Equipped items cannot be salvaged.
-- Seven lifeskills: Mining, Forestry, Herbalism, Fishing, Smithing, Alchemy, and Cooking. Gatherers gain resource yield through mastery. Smithing mastery improves crafted base power; alchemy/cooking mastery improves recipe output.
-- Nine equipment/instant-consumable recipes plus five timed workstation processes. Meals improve life and recovery for 15 minutes. Gathering is interruptible by movement or enemy damage.
-- Twelve gacha heroes with different elements, visual weapon styles, and build traits. Summons retain the 40-pull legendary guarantee. Duplicates award crafting essence. Element changes on an enemy trigger extra reaction damage.
-- Seven journal contracts, level experience, gold/crystal rewards, and four selectable realm palettes. Later routes unlock at levels 10, 20, and 30.
-
-This is a first region and a build system foundation. It does not contain Path of Exile's content volume, endgame atlas, multiplayer economy or raids. The default character art is a small illustrated sprite library; complete directional combat animations remain future work. Realm palettes share a region layout and enemy roster; they are not distinct fully authored planets. Flight, caves, building placement, housing, and full planetary physics remain future work.
-
-## Controls
-
-| Action | Control |
-| --- | --- |
-| Move | WASD / arrows |
-| Camera | Right mouse drag; wheel to zoom |
-| Basic combo | Left mouse / hold |
-| Active skills | 1–4 |
-| Evade / jump | Shift / Space |
-| Target lock | Q |
-| Gather nearby node | E; remain still until complete |
-| Healing draught | F |
-| Equipment / skills / constellation | I / K / P |
-| Lifeskills / crafting / heroes / journal | L / C / H / J |
-| Sanctuary Atelier | B; E when a workstation is the nearest interaction |
-| Settings / close panel | O / Escape |
-| Scenic view / restore HUD | F8 |
-
-Phones have movement, evade, jump, interaction, and action buttons. Desktop is the primary play target. Opening the chronicle pauses the solo simulation.
-
-## C++ and browser architecture
-
-The shipped `native/simulation.wasm` is compiled from [native/simulation.cpp](native/simulation.cpp), a freestanding C++17 module. It runs world hashing, Elysium's derived tier and ore-yield formulas, armor/critical calculations, elemental mitigation, and swept projectile collision. The WebAssembly module has no host imports.
-
-JavaScript still owns the entity state machine, movement, input, skills, saves, and rendering integration. This is a C++/WebAssembly + WebGL hybrid, not a claim that the entire game has been rewritten in C++. A JavaScript numeric reference path keeps the game usable if WebAssembly loading fails. Tests compare both paths, including signed/unsigned boundary cases.
-
-| File | Responsibility |
-| --- | --- |
-| `engine/content.mjs` | Skills, support modifiers, heroes, affixes, passive graph, professions, recipes, contracts |
-| `engine/simulation.mjs` | Stable public API re-exporting combat and progression |
-| `engine/combat.mjs` | Weapon movesets, cast snapshots, projectiles, typed damage, reactions, ailments, enemy AI, boss phases |
-| `engine/progression.mjs` | Inventory, crafting, derived stats, migration, skills, quests, and recruitment |
-| `engine/native.mjs` | C++ WebAssembly loading and numeric reference fallback |
-| `engine/world.mjs` | Three.js scene, terrain, camera, lighting/shadows, combat effects, and resource visuals |
-| `engine/art.mjs` | Original procedural art, cel materials, outfits, architecture, landscape, water, foliage, and visual presets |
-| `engine/illustrated.mjs` | Illustrated sprite atlases, two-pose character treatment, painted props/terrain, and shared-world integration |
-| `engine/artisan.mjs` / `engine/artisan-ui.mjs` | Production rules, migration, queues and Atelier panel |
-| `engine/workstations.mjs` | Workstation previews, progress rings, particles and proximity |
-| `engine/profiles.mjs` | Local profiles, isolated saves, migration, and recovery copies |
-| `engine/app.mjs` | HUD, panels, controls, browser loop, and save/export integration |
-
-Three.js 0.187.0 is vendored under `vendor/` with its MIT license. Runtime modules and WebAssembly are served locally; no runtime package CDN is required. Optional Google fonts have system-font fallbacks.
-
-## Persistence and compatibility
-
-- Create a named local profile and PIN, then use Continue to restore it. A local PIN gates save slots on that browser; it is not secure account authentication.
-- Saves use `astral_empire_profile_<id>_v3`; the previous payload is retained under the same key with `_backup` appended.
-- Existing profile names/PINs are recognized. On first entry, version 2 profile saves or the legacy `astral_empire_v1` save are copied into the new schema. Heroes, hero levels, gold, summon currency, tickets, pity, suitable equipment, and frontier material stock are migrated.
-- Legacy payloads are left intact for Classic mode. Classic and Aetherbound then progress independently; there is no bidirectional live sync. Classic terrain coordinates and edits are retained in the Classic save, not translated into 3D geometry.
-- Current realm, player position, life/mana, equipment, passives, skill links, professions, depleted-node recovery timestamps, defeated-enemy timestamps, quests, and consumables persist.
-- Health and mana restore at login. In-progress attacks, enemy health, cooldowns, and gathering channels restart; they are transient encounter state.
-- Save automatically every five seconds, after progression actions, on logout, and when the page hides. Use Settings → Export for a portable JSON backup. Import accepts version 1, 2, or 3.
-- Clearing browser data removes local profiles. Cloud recovery and cross-device sync need an authenticated backend.
-
-The service worker caches the complete local game shell, modules, Three.js, Classic page, and WebAssembly. Game documents use network-first updates. Cache handling is limited to this game directory. First load must be online or locally served.
-
-## Development and verification
-
-Serve this directory with an HTTP server; ES modules and WebAssembly should not be opened with `file://`. For example, from the repository root:
-
-```sh
-python -m http.server 8765 --directory docs
-```
-
-Open `http://localhost:8765/games/astral-empire/`.
-
-From this game directory:
-
-```sh
-npm ci
-npm test
-npx playwright install chromium
-npm run test:browser
-npm run test:visual
-```
-
-`npm test` runs 19 Classic smoke checks, 23 action-RPG/WASM/save checks and 9 production checks. The browser suite uses an isolated test profile and local server, checking WebGL/WASM startup, free scout recruitment, switching disciplines and landing a projectile hit, the damage inspector, movement, actual world harvesting, support changes, passive allocation, workshop access, targeting/skills, logout/login, reload persistence, a 390px mobile layout, and an offline reload. It captures screenshots in ignored `.artifacts/`. It does not establish broad device performance, full balance, accessibility compliance, or multiplayer readiness.
-
-The browser suite also exercises switching between illustrated/3D styles, graphics presets, reduced-motion persistence, orbit/zoom and F8 HUD restoration. The visual suite renders every illustrated realm plus the procedural 3D fallback, cycles all twelve hero appearances and all three presets, checks shader errors and geometry lifetime, and records scene draw/triangle/texture counts. These are structural checks and screenshot review aids, not a hardware frame-rate benchmark or pixel-perfect image comparison.
-
-For an installed Chrome instead of downloaded Chromium, set `BROWSER_EXECUTABLE` to the browser executable path. The GitHub Actions workflow compiles the C++ module, runs rule/compatibility tests, then runs the browser and visual suites.
-
-Rebuild the native module using Zig 0.14.1+ (set `ZIG` to its executable if it is not on PATH):
-
-```sh
-npm run build:native
-```
-
-Alternatively set `CXX=clang++` with a Clang WebAssembly target and `wasm-ld` available. The generated binary is committed so GitHub Pages needs no build process.
-
-See [ELYSIUM_PORT.md](ELYSIUM_PORT.md) for the precise source-port boundary and [ROADMAP.md](ROADMAP.md) for the MMO and build-depth work remaining.
-
-The production browser scenario uses a seeded raw-stock import, then actual station travel, construction, timed queues, cancellation/refunds, reload/collection, upgrades, epic craft/equip, mobile layout and relog persistence. Run just that scenario with `ARTISAN_ONLY=1 npm run test:browser` (set the environment variable using your shell).

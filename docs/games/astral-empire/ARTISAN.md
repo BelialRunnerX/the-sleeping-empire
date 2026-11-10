@@ -50,7 +50,7 @@ Only waiting orders can be cancelled. Their exact inputs return, and later jobs 
 
 ## Presentation
 
-The new original AI-generated workstation atlas provides foundry, joinery and laboratory illustrations. Sites show translucent construction previews, active progress rings, restrained production particles, ready indicators and nearby labels. Reduced motion suppresses particles. Map markers distinguish unbuilt/built/ready sites; tracking highlights a chosen site. The procedural 3D fallback uses geometric workbenches.
+Version 3.5 renders the foundry, joinery and laboratory as 3D machines. Unbuilt stations show holographic markers; running machines show progress rings and sparks, with ready indicators and nearby labels. Reduced motion suppresses particles. Map markers distinguish unbuilt/built/ready sites; tracking highlights a chosen site. The earlier workstation atlas is retained as release art.
 
 Idle, undamaged targets no longer fill the target HUD until combat or explicit targeting. This clears sanctuary views. The artwork is static with procedural activity effects; no new character animation sheets are claimed. See [assets/ASSETS.md](assets/ASSETS.md) for exact prompts and provenance.
 

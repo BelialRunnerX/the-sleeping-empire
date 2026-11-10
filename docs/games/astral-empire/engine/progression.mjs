@@ -5,11 +5,21 @@ import {
   AFFIXES,
   PROFESSIONS,
   RECIPES,
-  PASSIVES,
+  CONSTELLATION,
   QUESTS,
   WEAPONS,
 } from "./content.mjs";
 import { numeric } from "./native.mjs";
+import { normalizeExploration } from "./frontier.mjs";
+import { reachable } from "./constellation.mjs";
+import {
+  applyCodexStats,
+  classFor,
+  CLASSES,
+  RACES,
+  normalizeAttributes,
+  passiveBudget,
+} from "./codex.mjs";
 import {
   freshProduction,
   normalizeProduction,
@@ -65,9 +75,14 @@ export function freshState(seed = 438102) {
     crystals: 2500,
     tickets: 6,
     pity: 0,
+    cosmeticShards: 0,
     hero: "kael",
     heroes: ["kael", "lumi", "mira", "tess"],
     heroLevels: { kael: 3, lumi: 2, mira: 3, tess: 1 },
+    race: null,
+    calling: null,
+    attributes: normalizeAttributes(null, 1),
+    legacyPassiveFloor: 0,
     realm: "bastion",
     position: { x: 0, z: 6 },
     life: 300,
@@ -85,6 +100,9 @@ export function freshState(seed = 438102) {
       plank: 0,
       extract: 0,
       aether: 0,
+      circuitry: 0,
+      telemetry: 0,
+      capacitor: 0,
     },
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
@@ -108,16 +126,20 @@ export function freshState(seed = 438102) {
       bosses: 0,
       processed: 0,
       workstations: 0,
+      salvages: 0,
+      relays: 0,
     },
     production: freshProduction(),
+    exploration: { discovered: [], changed: [] },
     claimed: [],
     deepest: 0,
     foodUntil: 0,
+    shieldUntil: 0,
     lastSaved: 0,
   };
 }
 export function migrateState(input) {
-  const fresh = freshState(finite(input?.seed || input?.sandbox?.seed, 438102));
+  const fresh = freshState(finite(input?.seed ?? input?.sandbox?.seed, 438102));
   if (!input || typeof input !== "object") return fresh;
   if (input.version === 3) {
     const s = { ...fresh, ...input, version: 3 };
@@ -129,11 +151,21 @@ export function migrateState(input) {
       "tickets",
       "pity",
       "deepest",
-      "foodUntil",
     ])
       s[key] = clamp(finite(s[key], fresh[key]), 0, 1e9);
     s.level = clamp(Math.floor(s.level), 1, 100);
+    for (const id of ["foodUntil", "shieldUntil"])
+      s[id] = clamp(finite(input[id]), 0, Date.now() + 900000);
     s.hero = HEROES.some((h) => h.id === s.hero) ? s.hero : "kael";
+    s.race = RACES.some((r) => r.id === input.race) ? input.race : null;
+    s.calling = CLASSES.some((c) => c.id === input.calling)
+      ? input.calling
+      : null;
+    s.cosmeticShards = Math.max(
+      0,
+      Math.min(999999, Math.floor(finite(input.cosmeticShards))),
+    );
+    s.attributes = normalizeAttributes(input.attributes, s.level);
     s.heroes = Array.isArray(s.heroes)
       ? s.heroes.filter((id) => HEROES.some((h) => h.id === id))
       : fresh.heroes;
@@ -182,14 +214,24 @@ export function migrateState(input) {
         s.items.some((i) => i.id === input.equipped?.[slot] && i.slot === slot)
       )
         s.equipped[slot] = input.equipped[slot];
-    s.passives = [];
-    for (const p of PASSIVES)
-      if (
-        input.passives?.includes(p.id) &&
-        (p.parent === "origin" || s.passives.includes(p.parent)) &&
-        s.passives.length < s.level + 3
-      )
-        s.passives.push(p.id);
+    const selected = new Set();
+    for (const id of Array.isArray(input.passives)
+      ? input.passives.slice(0, 330)
+      : []) {
+      const node = CONSTELLATION.byId.get(id);
+      if (id !== "origin" && node && !selected.has(node.opposed))
+        selected.add(id);
+    }
+    const connected = reachable(selected, CONSTELLATION.neighbors);
+    s.legacyPassiveFloor =
+      input.legacyPassiveFloor === undefined
+        ? Math.min(
+            5,
+            s.level + 3,
+            connected.filter((id) => !id.startsWith("web-")).length,
+          )
+        : clamp(Math.floor(finite(input.legacyPassiveFloor)), 0, 5);
+    s.passives = connected.slice(0, passiveBudget(s));
     s.links = {};
     for (const skill of SKILLS) {
       const links = input.links?.[skill.id];
@@ -210,10 +252,14 @@ export function migrateState(input) {
     s.claimed = Array.isArray(input.claimed)
       ? input.claimed.filter((id) => QUESTS.some((q) => q.id === id))
       : [];
-    s.realm = ["bastion", "moon", "cinder", "frost"].includes(input.realm)
+    s.realm = ["bastion", "moon", "cinder", "frost", "orbit"].includes(
+      input.realm,
+    )
       ? input.realm
       : "bastion";
     s.production = normalizeProduction(input.production);
+    s.seed = fresh.seed;
+    s.exploration = normalizeExploration(input.exploration, s.seed);
     return s;
   }
   if (input.version === 1 || input.version === 2) {
@@ -270,31 +316,34 @@ export function migrateState(input) {
   return fresh;
 }
 export function stats(s, now = Date.now()) {
-  const hero = HEROES.find((h) => h.id === s.hero) || HEROES[0],
-    v = {
-      life: 300 + (s.level - 1) * 28,
-      mana: 120,
-      damage: 0.0,
-      attackDamage: 0,
-      spellDamage: 0,
-      elementalDamage: 0,
-      elementalPenetration: 0,
-      resistance: 0,
-      armor: 18,
-      armorRate: 0,
-      crit: 0.08,
-      critMultiplier: 1.6,
-      haste: 0,
-      recovery: 0,
-      penetration: 0,
-      speed: 0,
-      yield: 0,
-      power: 26 + (s.level - 1) * 3,
-      keystones: [],
-    };
-  v[hero.stat] = (v[hero.stat] || 0) + hero.value;
-  for (const p of PASSIVES.filter((p) => s.passives.includes(p.id))) {
+  const v = {
+    life: 300 + (s.level - 1) * 28,
+    mana: 120,
+    damage: 0.0,
+    attackDamage: 0,
+    spellDamage: 0,
+    elementalDamage: 0,
+    elementalPenetration: 0,
+    resistance: 0,
+    armor: 18,
+    armorRate: 0,
+    crit: 0.08,
+    critMultiplier: 1.6,
+    haste: 0,
+    recovery: 0,
+    penetration: 0,
+    speed: 0,
+    yield: 0,
+    fabrication: 0,
+    power: 26 + (s.level - 1) * 3,
+    keystones: [],
+  };
+  applyCodexStats(v, s);
+  for (const id of s.passives) {
+    const p = CONSTELLATION.byId.get(id);
+    if (!p) continue;
     if (p.stat === "keystone") v.keystones.push(p.value);
+    else if (p.mods) for (const [key, value] of p.mods) v[key] += value;
     else v[p.stat] += p.value;
   }
   for (const item of s.items.filter((i) =>
@@ -309,6 +358,10 @@ export function stats(s, now = Date.now()) {
   if (s.foodUntil > now) {
     v.life += 60;
     v.recovery += 0.35;
+  }
+  if (s.shieldUntil > now) {
+    v.resistance += 0.16;
+    v.recovery += 0.3;
   }
   if (v.keystones.includes("iron")) {
     v.life += 90;
@@ -327,7 +380,7 @@ export function stats(s, now = Date.now()) {
 export function skillStats(s, id) {
   const base = SKILLS.find((k) => k.id === id);
   if (!base) return null;
-  const weapon = HEROES.find((h) => h.id === s.hero)?.weapon || "blade";
+  const weapon = classFor(s).weapon;
   const skill =
     id === "strike" ? { ...base, ...WEAPONS[weapon], weapon } : base;
   const v = {
@@ -376,26 +429,30 @@ export function skillStats(s, id) {
   }
   return v;
 }
+export function canAllocate(s, id, selected = new Set(s.passives)) {
+  const p = CONSTELLATION.byId.get(id);
+  return (
+    !!p &&
+    id !== "origin" &&
+    !selected.has(id) &&
+    !selected.has(p.opposed) &&
+    selected.size < passiveBudget(s) &&
+    CONSTELLATION.neighbors
+      .get(id)
+      .some((parent) => parent === "origin" || selected.has(parent))
+  );
+}
 export function allocate(s, id) {
-  const p = PASSIVES.find((p) => p.id === id);
-  if (
-    !p ||
-    id === "origin" ||
-    s.passives.includes(id) ||
-    s.passives.length >= s.level + 3 ||
-    (p.parent !== "origin" && !s.passives.includes(p.parent))
-  )
-    return false;
+  if (!canAllocate(s, id)) return false;
   s.passives.push(id);
   return true;
 }
 export function refund(s, id) {
-  if (
-    !s.passives.includes(id) ||
-    PASSIVES.some((p) => p.parent === id && s.passives.includes(p.id))
-  )
+  if (!s.passives.includes(id)) return false;
+  const left = s.passives.filter((x) => x !== id);
+  if (reachable(new Set(left), CONSTELLATION.neighbors).length !== left.length)
     return false;
-  s.passives = s.passives.filter((x) => x !== id);
+  s.passives = left;
   return true;
 }
 export function addXP(s, amount) {
@@ -412,7 +469,9 @@ export function professionLevel(s, id) {
   return 1 + Math.floor(Math.sqrt((s.professions[id] || 0) / 30));
 }
 export function gather(s, node, now = Date.now()) {
-  const job = PROFESSIONS.find((p) => p.node === node.kind);
+  const job = PROFESSIONS.find(
+    (p) => p.node === (node.kind === "rock" ? "ore" : node.kind),
+  );
   if (!job || s.depleted[node.id] > now)
     return { ok: false, message: "This resource is recovering." };
   const mastery = professionLevel(s, job.id),
@@ -423,15 +482,24 @@ export function gather(s, node, now = Date.now()) {
     Math.floor(mastery / 3) +
     Math.floor(st.yield) +
     (st.keystones.includes("artisan") ? 1 : 0);
-  s.resources[job.resource] = (s.resources[job.resource] || 0) + count;
+  if (node.kind !== "rock")
+    s.resources[job.resource] = (s.resources[job.resource] || 0) + count;
   if (job.id === "mining") s.resources.stone += count;
   s.professions[job.id] += 20;
   s.statistics.gathers++;
+  if (node.kind === "wreck") s.statistics.salvages++;
   s.depleted[node.id] = now + 180000;
   addXP(s, 15);
   return {
     ok: true,
-    message: "+" + count + " " + job.resource + " · " + job.name + " +20 XP",
+    message:
+      "+" +
+      count +
+      " " +
+      (node.kind === "rock" ? "stone" : job.resource) +
+      " · " +
+      job.name +
+      " +20 XP",
   };
 }
 export function craft(s, id, seed = Date.now()) {
@@ -445,6 +513,8 @@ export function craft(s, id, seed = Date.now()) {
       ok: false,
       message: "Visit the recipe's upgraded sanctuary workstation first.",
     };
+  if (recipe?.level && s.level < recipe.level)
+    return { ok: false, message: "Requires field rank " + recipe.level + "." };
   if (
     !recipe ||
     !Object.entries(recipe.cost).every(([k, n]) => s.resources[k] >= n)
@@ -461,7 +531,14 @@ export function craft(s, id, seed = Date.now()) {
     if (recipe.itemName) item.name = recipe.itemName;
     item.base = Math.round(
       item.base *
-        (1 + (professionLevel(s, "smithing") - 1) * 0.03) *
+        (1 +
+          (professionLevel(
+            s,
+            recipe.profession === "fabrication" ? "fabrication" : "smithing",
+          ) -
+            1) *
+            0.03) *
+        (1 + stats(s).fabrication) *
         (recipe.baseBonus || 1),
     );
     if (stats(s).keystones.includes("artisan"))
@@ -529,7 +606,7 @@ export function summon(s, random = Math.random) {
   const hero = pool[Math.floor(random() * pool.length)];
   const duplicate = s.heroes.includes(hero.id);
   if (!duplicate) s.heroes.push(hero.id);
-  else s.resources.essence += 2;
+  else s.cosmeticShards = (s.cosmeticShards || 0) + 2;
   s.pity = rarity === 5 ? 0 : s.pity + 1;
   return { ...hero, rarity, duplicate };
 }

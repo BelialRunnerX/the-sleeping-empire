@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="aetherbound.css" />
   </head>
   <body>
-    <canvas id="world" aria-label="Isometric anime world"></canvas>
+    <canvas id="world" aria-label="Third-person 3D frontier"></canvas>
     <div id="vignette"></div>
     <div id="landing"></div>
     <div id="hud" hidden>
@@ -75,6 +75,42 @@
       </div>
       <div id="world-labels" aria-hidden="true"></div>
       <div id="station-labels"></div>
+      <div id="frontier-labels"></div>
+      <div class="camera-dock" role="group" aria-label="Field camera">
+        <button
+          data-camera="left"
+          aria-label="Rotate camera left"
+          title="Rotate left · Z"
+        >
+          ↶
+        </button>
+        <button
+          data-camera="right"
+          aria-label="Rotate camera right"
+          title="Rotate right · X"
+        >
+          ↷
+        </button>
+        <button data-camera="near" aria-label="Zoom camera in">+</button>
+        <button data-camera="far" aria-label="Zoom camera out">−</button>
+        <button
+          data-camera="center"
+          aria-label="Reset camera"
+          title="Reset camera · R"
+        >
+          ◎
+        </button>
+        <button
+          data-camera="mode"
+          id="pointer-mode"
+          aria-pressed="false"
+          title="Toggle click to attack"
+        >
+          ◇ Explore
+        </button>
+        <button data-panel="frontier" title="Survey · M">Survey</button>
+        <span id="travel-status" role="status"></span>
+      </div>
       <button
         class="artisan-shortcut"
         data-panel="artisan"
@@ -93,15 +129,15 @@
       <footer class="bottom-hud">
         <div class="hero-switch">
           <button data-panel="heroes">
-            <span id="class-name">DUELIST</span><b>Heroes <kbd>H</kbd></b>
+            <span id="class-name">ENFORCER</span><b>Appearances <kbd>H</kbd></b>
           </button>
         </div>
         <div>
           <div class="skillbar" id="skillbar"></div>
           <div class="experience"><i id="xp-fill"></i></div>
           <div class="control-hints">
-            WASD move · Right drag orbit · Shift evade · Space jump · Q target ·
-            E gather · F potion
+            Click to travel · WASD move · Right drag orbit · Wheel zoom · E
+            interact · U Codex
           </div>
         </div>
         <div class="menu-dock">

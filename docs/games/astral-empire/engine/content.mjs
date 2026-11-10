@@ -1,3 +1,4 @@
+import { buildConstellation } from "./constellation.mjs";
 export const HEROES = [
   {
     id: "kael",
@@ -250,6 +251,16 @@ export const ENEMY_TYPES = {
     move: "eruption",
     speed: 2.4,
   },
+  drone: {
+    name: "Rogue survey drone",
+    armor: 37,
+    life: 175,
+    element: "Volt",
+    resistance: 0.18,
+    range: 19,
+    move: "volley",
+    speed: 3.5,
+  },
   warden: {
     name: "The Sleeping Warden",
     armor: 55,
@@ -337,7 +348,7 @@ export const SKILLS = [
     tags: ["spell", "area"],
     physical: 0,
     description:
-      "Unleash a wide celestial burst. Applies your hero’s element to every enemy hit.",
+      "Discharge a wide reactor burst. Applies your class element to every enemy hit.",
   },
 ];
 export const SUPPORTS = [
@@ -517,7 +528,7 @@ export const AFFIXES = [
 export const PROFESSIONS = [
   {
     id: "mining",
-    name: "Mining",
+    name: "Mineral extraction",
     icon: "◆",
     resource: "cobalt",
     node: "ore",
@@ -526,7 +537,7 @@ export const PROFESSIONS = [
   },
   {
     id: "forestry",
-    name: "Forestry",
+    name: "Xenoforestry",
     icon: "♣",
     resource: "timber",
     node: "tree",
@@ -535,7 +546,7 @@ export const PROFESSIONS = [
   },
   {
     id: "herbalism",
-    name: "Herbalism",
+    name: "Xenobotany",
     icon: "❀",
     resource: "herb",
     node: "herb",
@@ -544,7 +555,7 @@ export const PROFESSIONS = [
   },
   {
     id: "fishing",
-    name: "Fishing",
+    name: "Aquaculture",
     icon: "≈",
     resource: "fish",
     node: "fish",
@@ -553,27 +564,81 @@ export const PROFESSIONS = [
   },
   {
     id: "smithing",
-    name: "Smithing",
+    name: "Metallurgy",
     icon: "⚒",
     color: "#edbd7b",
     desc: "Forge, temper, and reshape affixed equipment.",
   },
   {
     id: "alchemy",
-    name: "Alchemy",
+    name: "Biochemistry",
     icon: "♧",
     color: "#e3a6ec",
-    desc: "Brew healing draughts and transmutation essences.",
+    desc: "Compound trauma injectors and reforge catalysts from alien biomass.",
   },
   {
     id: "cooking",
-    name: "Cooking",
+    name: "Field nutrition",
     icon: "♨",
     color: "#ecaa8f",
     desc: "Prepare meals that improve life and recovery for 15 minutes.",
   },
+  {
+    id: "salvage",
+    name: "Systems salvage",
+    node: "wreck",
+    resource: "circuitry",
+    icon: "⬡",
+    desc: "Strip grounded drones for circuitry. Higher mastery increases recovered parts.",
+  },
+  {
+    id: "surveying",
+    name: "Planetary survey",
+    icon: "⌁",
+    desc: "Chart frontier sites and synchronize field relays for telemetry and an extraction route.",
+  },
+  {
+    id: "fabrication",
+    name: "Systems fabrication",
+    icon: "▣",
+    desc: "Turn circuitry, telemetry and refined alloys into field capacitors and upgraded equipment.",
+  },
 ];
 export const RECIPES = [
+  {
+    id: "capacitor",
+    name: "Shield capacitor",
+    profession: "fabrication",
+    cost: { circuitry: 2, cobalt: 1 },
+    result: "capacitor",
+    count: 1,
+    desc: "Deploy for +16% elemental resistance and +30% recovery for 10 minutes.",
+  },
+  {
+    id: "signal-driver",
+    name: "Signal driver Mk I",
+    itemName: "Signal driver Mk I",
+    profession: "fabrication",
+    cost: { circuitry: 3, telemetry: 1, cobalt: 3 },
+    type: "charm",
+    rarity: "rare",
+    baseBonus: 1.12,
+    desc: "An energy conduit built from recovered electronics and calibrated with survey data.",
+  },
+  {
+    id: "signal-driver-mk2",
+    name: "Signal driver Mk II",
+    itemName: "Signal driver Mk II",
+    profession: "fabrication",
+    cost: { circuitry: 7, telemetry: 3, billet: 3, aether: 1 },
+    type: "charm",
+    rarity: "epic",
+    baseBonus: 1.32,
+    station: "alchemy",
+    tier: 2,
+    level: 12,
+    desc: "An epic overclocked conduit with four affixes. Rank 12 and tier-two laboratory required.",
+  },
   {
     id: "aetherblade",
     name: "Aetherbound oathblade",
@@ -665,7 +730,7 @@ export const RECIPES = [
     desc: "Consume for +60 life and +35% recovery for 15 minutes.",
   },
 ];
-export const PASSIVES = [
+const legacyPassives = [
   {
     id: "origin",
     name: "Astral origin",
@@ -743,7 +808,7 @@ for (const b of branches)
   for (let i = 1; i <= 5; i++) {
     const radius = i * 58,
       theta = b.angle + (i % 2 ? 0.07 : -0.07);
-    PASSIVES.push({
+    legacyPassives.push({
       id: b.id + i,
       name:
         i === 5 ? b.keystone : b.name + " " + ["", "I", "II", "III", "IV"][i],
@@ -762,6 +827,8 @@ for (const b of branches)
       notable: i === 3 || i === 5,
     });
   }
+export const CONSTELLATION = buildConstellation(legacyPassives, branches);
+export const PASSIVES = CONSTELLATION.nodes;
 export const QUESTS = [
   {
     id: "atelier-build",
@@ -826,6 +893,24 @@ export const QUESTS = [
     gold: 600,
     crystals: 800,
   },
+  {
+    id: "field-salvage",
+    name: "Recovery protocol",
+    description: "Salvage three drone wrecks for field fabrication.",
+    stat: "salvages",
+    goal: 3,
+    gold: 160,
+    crystals: 100,
+  },
+  {
+    id: "field-survey",
+    name: "Signal in the static",
+    description: "Synchronize two survey relays beyond the outpost.",
+    stat: "relays",
+    goal: 2,
+    gold: 260,
+    crystals: 150,
+  },
 ];
 export const REALMS = [
   {
@@ -859,5 +944,13 @@ export const REALMS = [
     sky: 0x6a82a8,
     tier: 3,
     gravity: 0.38,
+  },
+  {
+    id: "orbit",
+    name: "High Orbit",
+    color: 0x6b7188,
+    sky: 0x11162e,
+    tier: 4,
+    gravity: 0.07,
   },
 ];

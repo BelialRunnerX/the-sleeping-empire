@@ -61,18 +61,10 @@ try {
     const { WorldView } = await import("/engine/world.mjs");
     const { freshState, Simulation } = await import("/engine/simulation.mjs");
     const { HEROES } = await import("/engine/content.mjs");
-    const { loadIllustrations } = await import("/engine/illustrated.mjs");
-    await loadIllustrations();
     window.artTest = { WorldView, freshState, Simulation, HEROES };
   });
-  for (const scene of [
-    ...["bastion", "moon", "cinder", "frost"].map((realm) => ({
-      realm,
-      style: "illustrated",
-    })),
-    { realm: "bastion", style: "model" },
-  ]) {
-    const report = await page.evaluate(async ({ realm, style }) => {
+  for (const realm of ["bastion", "moon", "cinder", "frost", "orbit"]) {
+    const report = await page.evaluate(async (realm) => {
       const { WorldView, freshState, Simulation, HEROES } = window.artTest;
       const state = freshState(9372);
       state.realm = realm;
@@ -80,7 +72,6 @@ try {
         view = new WorldView(document.querySelector("canvas"), state, sim, {
           quality: "high",
           reducedMotion: false,
-          style,
         });
       const render = async () => {
         view.update(0.1, { x: 0, z: 0 }, 12);
@@ -101,26 +92,25 @@ try {
       state.hero = "kael";
       view.setHero();
       for (const quality of ["low", "balanced", "high"]) {
-        view.applyVisualSettings({ quality, reducedMotion: false, style });
+        view.applyVisualSettings({ quality, reducedMotion: false });
         await render();
       }
-      let occlusion = true;
-      if (style === "illustrated") {
-        const tree = view.art.occluders.find(
-          (sprite) => sprite.userData.propIndex === 1,
-        );
-        sim.player.x = tree.position.x - Math.sin(view.yaw) * 1.8;
-        sim.player.z = tree.position.z - Math.cos(view.yaw) * 1.8;
-        for (let i = 0; i < 12; i++) await render();
-        occlusion = tree.material.opacity < 0.8;
-      }
+      const cache = view.features[0];
+      const point = view.project(
+        cache.x,
+        view.height(cache.x, cache.z) + 0.55,
+        cache.z,
+      );
+      const picked =
+        point.visible && view.pick(point.x, point.y)?.id === cache.id;
+      const allMeshes =
+        view.camera.isPerspectiveCamera &&
+        view.nodes.every((n) => n.mesh.children.every((o) => !o.isSprite));
       // A riverbank view exposes animated water, terrain, foliage and the skyline.
       sim.player.x = 20;
       sim.player.z = 7;
       sim.player.facing = -1.2;
-      view.yaw = -0.6;
-      view.pitch = 0.45;
-      view.distance = 13;
+      Object.assign(view.rig.goal, { yaw: -0.6, pitch: 0.45, distance: 13 });
       for (let i = 0; i < 4; i++) await render();
       window.artTest.view = view;
       window.artTest.draw = () => {
@@ -135,9 +125,10 @@ try {
         calls: view.renderer.info.render.calls,
         triangles: view.renderer.info.render.triangles,
         textures: view.renderer.info.memory.textures,
-        occlusion,
+        picked,
+        allMeshes,
       };
-    }, scene);
+    }, realm);
     assert.ok(
       report.after <= report.baseline + 4,
       "Hero changes leaked geometry: " + JSON.stringify(report),
@@ -148,18 +139,12 @@ try {
     );
     assert.ok(report.textures < 16, "Unexpected texture growth");
     assert.equal(
-      report.occlusion,
+      report.picked && report.allMeshes,
       true,
-      "Scenery should fade when it covers the player",
+      "The perspective scene should contain mesh resources and ray-pick the rendered cache",
     );
     await page.screenshot({
-      path: resolve(
-        artifacts,
-        "realm-" +
-          scene.realm +
-          (scene.style === "model" ? "-model" : "") +
-          ".png",
-      ),
+      path: resolve(artifacts, "realm-" + realm + "-model.png"),
       timeout: 60000,
     });
     console.log("Rendered", JSON.stringify(report));
@@ -170,7 +155,7 @@ try {
   }
   assert.deepEqual(errors, []);
   console.log(
-    "Visual checks passed: four realms, twelve hero swaps, all presets, shader compilation, geometry lifetime and scene budgets.",
+    "Visual checks passed: five 3D realms, ray picking, twelve appearance swaps, all presets, shader compilation, geometry lifetime and scene budgets.",
   );
 } finally {
   await browser.close();

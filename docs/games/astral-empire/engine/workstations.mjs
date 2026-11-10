@@ -2,7 +2,7 @@ import * as T from "../vendor/three.module.js";
 import { STATIONS } from "./artisan.mjs";
 
 export class WorkstationView {
-  constructor(scene, state, art, illustrated) {
+  constructor(scene, state, art) {
     this.state = state;
     this.entries = [];
     if (state.realm !== "bastion") return;
@@ -10,22 +10,61 @@ export class WorkstationView {
       const group = new T.Group();
       group.position.set(def.x, 0, def.z);
       scene.add(group);
-      let body;
-      if (illustrated) {
-        body = art.stationSprite(def.cell);
-        group.add(body);
+      const body = new T.Group(),
+        built = new T.Group();
+      group.add(body);
+      body.add(built);
+      const shape = (kind, color, ...args) =>
+        art.shape(built, kind, color, ...args);
+      art.shape(body, "box", 0x69787f, 0, 0.09, 0, 2.55, 0.18, 1.8);
+      shape("box", 0x424e62, 0, 0.62, 0, 1.93, 0.93, 1.31);
+      shape("box", def.color, 0, 1.1, 0, 2.15, 0.13, 1.46);
+      for (const x of [-0.8, 0.8])
+        for (const z of [-0.54, 0.54])
+          shape("box", 0xa39379, x, 0.6, z, 0.14, 0.94, 0.14);
+      if (def.id === "foundry") {
+        shape("tube", 0x6d7380, 0.57, 1.87, -0.38, 0.25, 1.65, 0.25);
+        shape("tube", 0x9e998e, 0.57, 2.68, -0.38, 0.33, 0.13, 0.33);
+        shape("box", 0x262638, -0.26, 0.64, 0.68, 0.78, 0.55, 0.09);
+        shape("box", 0xffac6d, -0.26, 0.58, 0.74, 0.59, 0.21, 0.04).material =
+          art.material(0xffac6d, 0.72);
+        shape("tube", 0x949cac, -0.42, 1.32, 0.12, 0.32, 0.27, 0.25);
+      } else if (def.id === "alchemy") {
+        for (let i = 0; i < 3; i++) {
+          const x = (i - 1) * 0.48,
+            tint = [0xc098e9, 0x99e6bc, 0x8fd7fa][i];
+          shape("orb", tint, x, 1.31, 0.22, 0.16, 0.19, 0.16).material =
+            art.material(tint, 0.38);
+          shape("tube", tint, x, 1.53, 0.22, 0.065, 0.19, 0.065);
+          shape("tube", 0xbda07f, x, 1.65, 0.22, 0.08, 0.065, 0.08);
+        }
+        shape("box", 0xb38daf, 0, 1.45, -0.49, 2.02, 0.11, 0.39);
       } else {
-        body = new T.Group();
-        group.add(body);
-        art.shape(body, "box", 0x556779, 0, 0.5, 0, 2, 1, 1.3);
-        art.shape(body, "box", def.color, 0, 1.05, 0, 2.2, 0.1, 1.5);
-        if (def.id === "foundry")
-          art.shape(body, "tube", 0x6d7380, 0.5, 1.8, -0.3, 0.25, 2, 0.25);
-        else if (def.id === "alchemy")
-          for (const x of [-0.5, 0, 0.5])
-            art.shape(body, "orb", def.color, x, 1.4, 0, 0.16, 0.3, 0.16);
-        else art.shape(body, "box", 0xc4a57b, 0, 1.2, 0, 1.8, 0.2, 0.6);
+        for (let i = 0; i < 3; i++)
+          shape(
+            "box",
+            0xc4a57b,
+            -0.21,
+            1.23 + i * 0.11,
+            0.12,
+            1.37 - i * 0.24,
+            0.1,
+            0.36,
+          );
+        shape("gem", 0x96a8ae, 0.71, 1.47, -0.18, 0.22, 0.32, 0.07);
       }
+      const plan = art.shape(
+        body,
+        "gem",
+        0xb9b3ef,
+        0,
+        0.74,
+        0,
+        0.44,
+        0.57,
+        0.44,
+      );
+      plan.material = art.material(0xb9b3ef, 0.34);
       const ring = new T.Mesh(
         new T.RingGeometry(1.15, 1.3, 64),
         new T.ShaderMaterial({
@@ -71,7 +110,7 @@ export class WorkstationView {
         }),
       );
       group.add(sparks);
-      this.entries.push({ def, group, body, ring, sparks });
+      this.entries.push({ def, group, built, plan, ring, sparks });
     }
   }
   nearest(player) {
@@ -87,14 +126,13 @@ export class WorkstationView {
   }
   update(time, reduced) {
     const now = Date.now();
-    for (const { def, body, ring, sparks } of this.entries) {
+    for (const { def, built, plan, ring, sparks } of this.entries) {
       const station = this.state.production.stations[def.id],
         job = station.jobs[0];
       const busy = !!job && job.start <= now && job.end > now;
-      if (body.isSprite) {
-        body.material.opacity = station.tier ? 1 : 0.32;
-        body.material.alphaTest = station.tier ? 0.25 : 0.06;
-      }
+      built.visible = !!station.tier;
+      plan.visible = !station.tier;
+      plan.rotation.y = reduced ? 0.7 : time * 0.6;
       ring.material.uniforms.running.value = busy ? 1 : 0;
       ring.material.uniforms.ready.value = station.completed ? 1 : 0;
       ring.material.uniforms.progress.value = job

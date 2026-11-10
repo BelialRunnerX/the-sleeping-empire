@@ -2,23 +2,11 @@ import * as T from "../vendor/three.module.js";
 import { hash, roll } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
 import { ArtDirector, GRAPHICS } from "./art.mjs";
-import { IllustratedArt } from "./illustrated.mjs";
 import { WorkstationView } from "./workstations.mjs";
+import { CameraRig } from "./camera.mjs";
+import { enemySites, LIMIT } from "./frontier.mjs";
+import { classFor } from "./codex.mjs";
 const color = (hex) => new T.Color(hex);
-export function ground(x, z, realm = "bastion") {
-  if (Math.hypot(x, z) < 13) return 0;
-  const hill =
-    (Math.sin(x * 0.028) * Math.cos(z * 0.035) * 2 +
-      Math.sin(z * 0.08 + x * 0.02) * 0.7) *
-    Math.min(1, (Math.hypot(x, z) - 13) / 20);
-  const elevation = realm === "moon" ? hill * 0.6 : hill;
-  // Shallow riverbed keeps the water surface above the land. The crossing
-  // shares the visible deck height so characters walk on its planks.
-  if (Math.abs(x - 30) < 5.8 && Math.abs(z - 6) < 1.25) return 0.05;
-  const bank = Math.max(0, Math.min(1, (5.8 - Math.abs(x - 30)) / 1.8));
-  const smoothBank = bank * bank * (3 - 2 * bank);
-  return elevation * (1 - smoothBank) - 0.72 * smoothBank;
-}
 const materials = new Map(),
   geometries = new Map();
 function mat(c, emissive = 0) {
@@ -62,6 +50,7 @@ export class WorldView {
     state,
     sim,
     visuals = { quality: "balanced", reducedMotion: false },
+    cameraPreferences,
   ) {
     this.canvas = canvas;
     this.state = state;
@@ -69,9 +58,15 @@ export class WorldView {
     this.scene = new T.Scene();
     const realm = REALMS.find((r) => r.id === state.realm) || REALMS[0];
     this.realm = realm;
-    this.illustrated = visuals.style !== "model";
-    const Art = this.illustrated ? IllustratedArt : ArtDirector;
-    this.art = new Art(this.scene, state.realm, state.seed, ground, roll);
+    this.height = sim.layout.height;
+    this.art = new ArtDirector(
+      this.scene,
+      state.realm,
+      state.seed,
+      this.height,
+      roll,
+      sim.layout.structures,
+    );
     this.scene.background = color(this.art.palette.mist);
     this.scene.fog = new T.Fog(this.art.palette.mist, 65, 195);
     this.visuals = visuals;
@@ -88,19 +83,25 @@ export class WorldView {
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.04;
-    this.distance = this.illustrated ? 13 : 8.5;
-    this.yaw = this.illustrated ? Math.PI / 4 : 0;
-    this.pitch = this.illustrated ? 0.5 : 0.12;
-    this.camera = this.illustrated
-      ? new T.OrthographicCamera(-20, 20, 12, -12, 0.1, 300)
-      : new T.PerspectiveCamera(52, innerWidth / innerHeight, 0.1, 250);
+    this.rig = new CameraRig(cameraPreferences);
+    this.camera = new T.PerspectiveCamera(
+      49,
+      innerWidth / innerHeight,
+      0.065,
+      280,
+    );
+    this.ray = new T.Raycaster();
+    this.boomRay = new T.Raycaster();
     this.updateFrustum();
     this.nodes = [];
     this.foes = new Map();
     this.projectileMeshes = new Map();
     this.effects = [];
     this.moving = false;
-    this.scene.add(new T.HemisphereLight(0xb9cee9, 0x445b50, 1.65));
+    this.scene.add(new T.HemisphereLight(0xcadbf4, 0x576265, 1.78));
+    const fill = new T.DirectionalLight(0xa3d5fa, 0.58);
+    fill.position.set(14, 13, 20);
+    this.scene.add(fill);
     const sun = new T.DirectionalLight(0xffdfb0, 2.65);
     sun.position.set(-30, 48, -22);
     sun.shadow.camera.left = sun.shadow.camera.bottom = -24;
@@ -112,74 +113,111 @@ export class WorldView {
     this.sun = sun;
     this.scene.add(sun, sun.target);
     this.createTerrain();
-    if (this.illustrated) Object.assign(this, this.art.sanctuary());
-    else {
-      this.createSanctuary();
-      this.art.sanctuary();
-    }
+    this.createSanctuary();
+    this.art.sanctuary();
     this.createScenery();
-    this.workstations = new WorkstationView(
-      this.scene,
-      state,
-      this.art,
-      this.illustrated,
-    );
+    this.workstations = new WorkstationView(this.scene, state, this.art);
     this.createNodes();
+    this.createFeatures();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.scene.add(this.character);
     this.createEnemies();
     this.applyVisualSettings(visuals);
-    this.camera.position.set(0, 7, 16);
+    this.scene.updateMatrixWorld(true);
+    this.updateCamera(0, {});
     this.resize = () => {
       this.updateFrustum();
       this.renderer.setSize(innerWidth, innerHeight);
     };
     addEventListener("resize", this.resize);
   }
+  get yaw() {
+    return this.rig.yaw;
+  }
+  meshClearance(focus, offset) {
+    const direction = new T.Vector3(offset.x, offset.y, offset.z);
+    const length = direction.length();
+    this.boomRay.set(
+      new T.Vector3(focus.x, focus.y, focus.z),
+      direction.normalize(),
+    );
+    this.boomRay.far = length + 0.24;
+    const occluders = this.art.cameraOccluders.filter(
+      (o) =>
+        Math.hypot(o.position.x - focus.x, o.position.z - focus.z) < length + 5,
+    );
+    for (const n of this.nodes)
+      if (
+        n.mesh.visible &&
+        (n.kind === "tree" || n.kind === "rock" || n.kind === "wreck") &&
+        Math.hypot(n.x - focus.x, n.z - focus.z) < length + 4
+      )
+        occluders.push(n.mesh);
+    const hit = this.boomRay.intersectObjects(occluders, true)[0];
+    return hit
+      ? Math.max(0.075, Math.min(1, (hit.distance - 0.36) / length))
+      : 1;
+  }
+  updateCamera(dt, input) {
+    const { focus, eye } = this.rig.update(
+      dt,
+      this.sim.player,
+      input,
+      this.height,
+      this.sim.blockers,
+      this.visuals.reducedMotion,
+      (pivot, offset) => this.meshClearance(pivot, offset),
+    );
+    this.camera.position.set(eye.x, eye.y, eye.z);
+    this.camera.lookAt(focus.x, focus.y, focus.z);
+    this.camera.updateMatrixWorld();
+  }
   updateFrustum() {
-    if (this.illustrated) {
-      const height = this.distance * 0.72,
-        aspect = innerWidth / innerHeight;
-      this.camera.left = -height * aspect;
-      this.camera.right = height * aspect;
-      this.camera.top = height;
-      this.camera.bottom = -height;
-    } else this.camera.aspect = innerWidth / innerHeight;
+    this.camera.aspect = innerWidth / innerHeight;
     this.camera.updateProjectionMatrix();
   }
   createTerrain() {
-    const plane = new T.PlaneGeometry(320, 320, 100, 100);
+    const plane = new T.PlaneGeometry(320, 320, 128, 128);
     plane.rotateX(-Math.PI / 2);
     const positions = plane.attributes.position,
       colors = [];
     for (let i = 0; i < positions.count; i++) {
       const x = positions.getX(i),
         z = positions.getZ(i);
-      positions.setY(i, ground(x, z, this.state.realm) - 0.08);
+      const height = this.height(x, z);
+      positions.setY(i, height - 0.08);
       const c = color(this.realm.color);
       const path = Math.abs(x + Math.sin(z * 0.03) * 3) < 3.7;
       const plaza = Math.hypot(x, z) < 10;
       if (plaza) c.set(0xa2a5a0);
       else if (path) c.set(0xb9b7a0);
-      else
+      else {
+        const patch =
+          0.5 + Math.sin(x * 0.13 + z * 0.062) * Math.cos(z * 0.111) * 0.5;
+        c.lerp(color(this.art.palette.grass), patch * 0.42);
+        c.lerp(color(0xa9a7a2), Math.max(0, height - 2.5) * 0.105);
+        if (this.state.realm === "orbit") {
+          const grid = Math.abs(x % 15) < 2 || Math.abs(z % 15) < 2;
+          c.lerp(color(grid ? 0x8da8bd : 0x3c475f), 0.35);
+        }
         c.multiplyScalar(
           0.88 + roll(this.state.seed, Math.round(x), Math.round(z)) * 0.18,
         );
+      }
       colors.push(c.r, c.g, c.b);
     }
     plane.setAttribute("color", new T.Float32BufferAttribute(colors, 3));
     plane.computeVertexNormals();
     const terrain = new T.Mesh(
       plane,
-      this.illustrated
-        ? this.art.groundMaterial()
-        : new T.MeshStandardMaterial({
-            vertexColors: true,
-            roughness: 1,
-            map: this.art.groundTexture(),
-          }),
+      new T.MeshStandardMaterial({
+        vertexColors: true,
+        roughness: 1,
+        map: this.art.groundTexture(),
+      }),
     );
     terrain.receiveShadow = true;
+    this.terrain = terrain;
     this.scene.add(terrain);
     this.art.water();
     this.art.sky();
@@ -251,7 +289,9 @@ export class WorldView {
     this.art.building(x, z, wall, roof);
   }
   avatar(hero) {
-    return this.art.avatar(hero);
+    return this.art.avatar(
+      hero.id ? { ...hero, weapon: classFor(this.state).weapon } : hero,
+    );
   }
   createScenery() {
     this.art.landscape();
@@ -268,36 +308,18 @@ export class WorldView {
     }
     this.sun.shadow.mapSize.set(preset.shadow || 512, preset.shadow || 512);
     this.art.quality(settings);
-    this.canvas.dataset.artStyle = this.illustrated ? "illustrated" : "model";
+    this.canvas.dataset.artStyle = "model";
     this.canvas.dataset.quality = settings.quality;
     this.canvas.dataset.shadows = String(!!preset.shadow);
     document.body.classList.toggle("reduced-motion", settings.reducedMotion);
   }
   createNodes() {
-    const definitions = [
-      { kind: "ore", x: -7, z: 1 },
-      { kind: "tree", x: -7, z: 7 },
-      { kind: "herb", x: 6, z: 5 },
-      { kind: "fish", x: 25, z: 6 },
-    ];
-    for (let i = 0; i < 50; i++) {
-      let x = roll(this.state.seed, i, 41) * 170 - 85,
-        z = roll(this.state.seed, i, 42) * 170 - 85;
-      if (Math.hypot(x, z) < 15) continue;
-      definitions.push({
-        kind: ["ore", "tree", "herb", "fish"][i % 4],
-        x: i % 4 === 3 ? 25 : x,
-        z,
-      });
-    }
-    definitions.forEach((d, index) => {
-      const id = this.state.realm + "-node-" + index,
+    this.sim.layout.nodes.forEach((d) => {
+      const { id } = d,
         g = new T.Group(),
-        y = ground(d.x, d.z, this.state.realm);
+        y = this.height(d.x, d.z);
       g.position.set(d.x, y, d.z);
-      if (this.illustrated && d.kind !== "fish")
-        g.add(this.art.resource(d.kind));
-      else if (d.kind === "ore") {
+      if (d.kind === "ore") {
         for (let i = 0; i < 4; i++) {
           const c = mesh(
             g,
@@ -312,6 +334,57 @@ export class WorldView {
           );
           c.rotation.z = (i - 1.5) * 0.15;
         }
+      } else if (d.kind === "rock") {
+        const rock = this.art.shape(
+          g,
+          "gem",
+          0x819199,
+          0,
+          0.41,
+          0,
+          1.36,
+          0.91,
+          1.09,
+        );
+        rock.rotation.set(0.18, d.x, 0.12);
+        this.art.shape(g, "gem", 0xb9bcc1, 0.32, 0.75, 0.12, 0.6, 0.42, 0.64);
+      } else if (d.kind === "wreck") {
+        const hull = this.art.shape(
+          g,
+          "box",
+          0x506374,
+          0,
+          0.46,
+          0,
+          2.15,
+          0.64,
+          1.25,
+        );
+        hull.rotation.z = 0.22;
+        this.art.shape(g, "box", 0x9eb8c4, -0.2, 0.74, 0.12, 1.14, 0.18, 0.78);
+        this.art.shape(
+          g,
+          "box",
+          0x7af8ed,
+          -0.2,
+          0.85,
+          0.16,
+          0.78,
+          0.07,
+          0.19,
+        ).material = this.art.material(0x7af8ed, 0.8);
+        for (const x of [-0.82, 0.82])
+          this.art.shape(
+            g,
+            "tube",
+            0x2f394b,
+            x,
+            0.31,
+            -0.11,
+            0.26,
+            0.59,
+            0.26,
+          ).rotation.x = Math.PI / 2;
       } else if (d.kind === "herb") {
         for (let i = 0; i < 5; i++) {
           mesh(
@@ -336,9 +409,32 @@ export class WorldView {
           );
         }
       } else if (d.kind === "tree") {
-        mesh(g, "cylinder", 0x8b7565, 0, 0.7, 0, 0.22, 1.4, 6);
-        const leaf = mesh(g, "sphere", 0x7aa88d, 0, 2.1, 0, 1.3);
-        leaf.scale.y = 1.2;
+        const s = d.scale || 0.78;
+        this.art.shape(
+          g,
+          "tube",
+          0x796458,
+          0,
+          1.62 * s,
+          0,
+          0.31 * s,
+          3.24 * s,
+          0.28 * s,
+        );
+        for (let i = 0; i < 4; i++)
+          this.art.shape(
+            g,
+            "crown",
+            d.blossom || i === 3
+              ? this.art.palette.blossom
+              : this.art.palette.leaf,
+            Math.cos(i * 2.4) * 1.03 * s,
+            (3.16 + i * 0.42) * s,
+            Math.sin(i * 2.4) * 0.91 * s,
+            (1.55 - i * 0.19) * s,
+            0.86 * s,
+            (1.43 - i * 0.18) * s,
+          );
       } else {
         const ring = new T.Mesh(
           new T.TorusGeometry(0.6, 0.03, 4, 24),
@@ -361,23 +457,175 @@ export class WorldView {
       glow.position.y = 0.06;
       g.add(glow);
       this.scene.add(g);
-      this.nodes.push({ ...d, id, mesh: g, glow });
+      this.nodes.push({ ...d, type: "node", mesh: g, glow });
     });
   }
-  createEnemies() {
-    const points = [
-      [1, -18],
-      [-10, -24],
-      [12, -23],
-      [-18, -37],
-      [14, -42],
-      [-6, -55],
-      [24, -60],
-      [-27, -61],
-      [5, -75],
-      [34, -28],
+  createFeatures() {
+    this.features = this.sim.layout.features.map((f) => {
+      const group = new T.Group();
+      group.position.set(f.x, this.height(f.x, f.z), f.z);
+      this.scene.add(group);
+      const shape = (kind, color, ...args) =>
+        this.art.shape(group, kind, color, ...args);
+      let moving;
+      if (f.kind === "cache") {
+        const bronze = 0x9cafc3,
+          wood = 0x344e65;
+        shape("box", wood, 0, 0.37, 0, 1.58, 0.7, 1.12);
+        shape("box", 0x211c33, 0, 0.73, 0, 1.43, 0.06, 0.97);
+        for (const x of [-0.65, 0.65]) {
+          shape("box", bronze, x, 0.42, 0.57, 0.12, 0.65, 0.05);
+          shape("box", bronze, x, 0.42, -0.57, 0.12, 0.65, 0.05);
+        }
+        moving = new T.Group();
+        moving.position.set(0, 0.76, -0.56);
+        group.add(moving);
+        this.art.shape(
+          moving,
+          "box",
+          0x666187,
+          0,
+          0.11,
+          0.56,
+          1.65,
+          0.25,
+          1.15,
+        );
+        for (const x of [-0.65, 0.65])
+          this.art.shape(
+            moving,
+            "box",
+            bronze,
+            x,
+            0.24,
+            0.56,
+            0.14,
+            0.045,
+            1.16,
+          );
+        shape("box", 0x8df0e8, 0, 0.53, 0.61, 0.43, 0.09, 0.06).material =
+          this.art.material(0x8df0e8, 0.8);
+      } else if (f.kind === "beacon") {
+        shape("tube", 0x657384, 0, 0.14, 0, 1.7, 0.28, 1.7);
+        shape("gem", 0x9eafcb, 0, 1.12, 0, 0.59, 1.15, 0.56);
+        for (const x of [-0.62, 0.62]) {
+          shape("box", 0x405b79, x, 1.65, 0, 0.16, 2.48, 0.36);
+          shape("box", 0x8ae1f1, x, 1.62, 0.2, 0.07, 1.53, 0.026).material =
+            this.art.material(0x8ae1f1, 0.63);
+        }
+        this.art.ring(group, 0.6, 0.018, 0xb0d6ff, 2.44);
+        this.art.ring(group, 0.67, 0.024, 0xb0d6ff, 2.69, true);
+        moving = shape("gem", 0xdab6ff, 0, 2.65, 0, 0.44, 0.76, 0.44);
+        moving.material = this.art.material(0xdab6ff, 0.8);
+        this.art.ring(group, 0.94, 0.038, 0xae9ce2, 0.33);
+      } else {
+        for (let i = 0; i < 6; i++) {
+          const a = i * 2.399;
+          const rock = shape(
+            "gem",
+            i % 2 ? 0x657887 : 0x86949b,
+            Math.sin(a) * 0.72,
+            0.32,
+            Math.cos(a) * 0.74,
+            0.67,
+            0.62,
+            0.66,
+          );
+          rock.rotation.set(a, i, 0.5);
+        }
+        shape("gem", 0x87d9eb, 0.2, 0.82, 0.14, 0.24, 0.62, 0.22).material =
+          this.art.material(0x87d9eb, 0.35);
+      }
+      const tint =
+        f.kind === "cache"
+          ? 0xffd28b
+          : f.kind === "beacon"
+            ? 0xd0acff
+            : 0x9cdded;
+      this.art.ring(group, f.radius + 0.22, 0.028, tint, 0.12);
+      return { ...f, type: "feature", mesh: group, moving };
+    });
+    this.waypoint = new T.Group();
+    this.art.ring(this.waypoint, 0.54, 0.045, 0xffdaa0, 0.08);
+    const pin = this.art.shape(
+      this.waypoint,
+      "gem",
+      0xffe9b5,
+      0,
+      0.56,
+      0,
+      0.15,
+      0.32,
+      0.15,
+    );
+    pin.material = this.art.material(0xffdaa0, 0.8);
+    this.waypoint.visible = false;
+    this.scene.add(this.waypoint);
+  }
+  markDestination(point) {
+    this.waypoint.visible = !!point;
+    if (point)
+      this.waypoint.position.set(
+        point.x,
+        this.height(point.x, point.z),
+        point.z,
+      );
+  }
+  interactables() {
+    const now = Date.now();
+    return [
+      ...this.features.filter(
+        (f) =>
+          f.kind === "beacon" || !this.state.exploration.changed.includes(f.id),
+      ),
+      ...this.nodes.filter((n) => !(this.state.depleted[n.id] > now)),
+      ...this.workstations.entries.map(({ def, group }) => ({
+        ...def,
+        type: "station",
+        mesh: group,
+      })),
     ];
-    points.forEach(([x, z], i) =>
+  }
+  pick(clientX, clientY) {
+    const rect = this.canvas.getBoundingClientRect();
+    this.ray.setFromCamera(
+      new T.Vector2(
+        ((clientX - rect.left) / rect.width) * 2 - 1,
+        1 - ((clientY - rect.top) / rect.height) * 2,
+      ),
+      this.camera,
+    );
+    const terrainHit = this.ray.intersectObject(this.terrain, false)[0];
+    const visible = this.interactables().filter(
+      (o) => Math.hypot(o.x - this.sim.player.x, o.z - this.sim.player.z) < 65,
+    );
+    let nearest = terrainHit ? terrainHit.distance + 0.25 : 65,
+      target;
+    for (const object of visible) {
+      const hit = this.ray
+        .intersectObject(object.mesh, true)
+        .find(({ object: mesh }) => {
+          for (let parent = mesh; parent; parent = parent.parent)
+            if (!parent.visible) return false;
+          return true;
+        });
+      if (hit && hit.distance < nearest) {
+        nearest = hit.distance;
+        target = object;
+      }
+    }
+    if (target) return target;
+    if (
+      terrainHit &&
+      terrainHit.distance < 85 &&
+      Math.abs(terrainHit.point.x) <= LIMIT &&
+      Math.abs(terrainHit.point.z) <= LIMIT
+    )
+      return { x: terrainHit.point.x, z: terrainHit.point.z };
+    return null;
+  }
+  createEnemies() {
+    enemySites.forEach(([x, z], i) =>
       this.sim.spawn(
         this.state.realm + "-hollow-" + i,
         x,
@@ -386,11 +634,20 @@ export class WorldView {
         ["stalker", "sentinel", "archer", "oracle"][i % 4],
       ),
     );
+    this.sim.layout.wilds.forEach(({ id, x, z }, i) =>
+      this.sim.spawn(
+        id,
+        x,
+        z,
+        false,
+        ["drone", "sentinel", "oracle", "drone", "stalker"][i % 5],
+      ),
+    );
     this.sim.spawn(this.state.realm + "-warden", 0, -48, true);
     this.sim.spawn(this.state.realm + "-training", -4, -3, false, "training");
     for (const e of this.sim.enemies) {
-      const g = this.illustrated ? this.art.enemy(e) : new T.Group();
-      if (!this.illustrated) {
+      const g = new T.Group();
+      {
         const dark = e.training
             ? 0x92775b
             : e.boss
@@ -408,7 +665,16 @@ export class WorldView {
               ? 0xffb080
               : 0xc6a3ed;
         const shape = (...args) => this.art.shape(g, ...args);
-        if (e.training) {
+        if (e.archetype === "drone") {
+          shape("gem", 0x607f92, 0, 1.9, 0, 0.73, 0.43, 0.48);
+          shape("gem", 0x9bf5ec, 0, 1.92, 0.36, 0.24, 0.16, 0.15).material =
+            this.art.material(0x9bf5ec, 0.8);
+          for (const x of [-0.64, 0.64]) {
+            shape("box", 0x354361, x, 1.77, 0, 0.24, 0.16, 0.71);
+            shape("tube", 0x91add0, x, 1.68, 0, 0.28, 0.13, 0.28);
+            this.art.ring(g, 0.16, 0.027, 0x98eaf9, 1.52).position.x = x;
+          }
+        } else if (e.training) {
           shape("tube", 0x7a624b, 0, 0.9, 0, 0.1, 1.8, 0.1);
           shape("box", 0x8b7152, 0, 1.5, 0, 1.4, 0.16, 0.16);
           shape("orb", 0xb6a17b, 0, 1.3, 0, 0.38, 0.52, 0.26);
@@ -500,7 +766,6 @@ export class WorldView {
           orb.material = mat(0xfbb28b, 0.7);
         }
       }
-      if (this.illustrated && e.boss) g.scale.setScalar(1.7);
       const telegraph = new T.Mesh(
         new T.RingGeometry(0.1, e.boss ? 6 : 3.3, 48),
         new T.MeshBasicMaterial({
@@ -554,18 +819,14 @@ export class WorldView {
     return {
       x: ((v.x + 1) / 2) * innerWidth,
       y: ((-v.y + 1) / 2) * innerHeight,
-      visible: v.z < 1,
+      visible: v.z > -1 && v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1,
     };
   }
   skillFX(event) {
     this.character.userData.attack = 0.35;
     if (event.projectile) return;
     const g = new T.Group();
-    g.position.set(
-      event.x,
-      ground(event.x, event.z, this.state.realm) + 0.3,
-      event.z,
-    );
+    g.position.set(event.x, this.height(event.x, event.z) + 0.3, event.z);
     const c = event.echo
       ? 0x96dfea
       : event.id === "strike"
@@ -632,11 +893,7 @@ export class WorldView {
         Solar: 0xffe4ab,
       }[event.element] || 0xe6eaff;
     const g = new T.Group();
-    g.position.set(
-      event.x,
-      ground(event.x, event.z, this.state.realm) + 1.25,
-      event.z,
-    );
+    g.position.set(event.x, this.height(event.x, event.z) + 1.25, event.z);
     for (let i = 0; i < (event.critical ? 10 : 6); i++) {
       const a = i * 2.399;
       const spark = new T.Mesh(
@@ -668,7 +925,7 @@ export class WorldView {
   update(dt, input, time) {
     const p = this.sim.player,
       c = this.character,
-      terrainY = ground(p.x, p.z, this.state.realm);
+      terrainY = this.height(p.x, p.z);
     c.position.set(p.x, terrainY + p.y, p.z);
     c.rotation.y = p.facing;
     this.moving = !!(input.x || input.z);
@@ -684,13 +941,17 @@ export class WorldView {
       c.userData.attack > 0
         ? -1.4 + Math.sin(c.userData.attack * 14) * 1.6
         : stride * 0.6;
-    const weapon = HEROES.find((h) => h.id === this.state.hero).weapon;
+    const weapon = classFor(this.state).weapon;
     if (c.userData.attack > 0 && weapon === "bow") {
       c.arms[0].rotation.x = -1.3;
       c.arms[1].rotation.x = -1.1;
     }
     if (c.userData.attack > 0 && weapon === "staff")
       c.arms[1].rotation.x = -1.4;
+    if (this.gathering && !this.visuals.reducedMotion) {
+      c.arms[1].rotation.x = -0.68 + Math.sin(time * 9) * 0.5;
+      c.arms[0].rotation.x = -0.42;
+    }
     c.userData.facing = p.facing;
     c.userData.cameraYaw = this.yaw;
     this.art.animateAvatar(
@@ -706,28 +967,7 @@ export class WorldView {
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
     this.sun.target.updateMatrixWorld();
-    const target = new T.Vector3(
-      p.x,
-      terrainY + (this.illustrated ? 0.7 : 1.4),
-      p.z,
-    );
-    if (this.illustrated) this.updateFrustum();
-    const offset = new T.Vector3(
-      Math.sin(this.yaw) * this.distance,
-      this.illustrated
-        ? this.distance * (0.7 + this.pitch * 0.3)
-        : 1.8 + this.pitch * 4,
-      Math.cos(this.yaw) * this.distance,
-    );
-    this.camera.position.lerp(
-      target.clone().add(offset),
-      1 - Math.exp(-9 * dt),
-    );
-    this.camera.lookAt(target);
-    if (this.illustrated) {
-      this.camera.updateMatrixWorld();
-      this.art.fadeOccluders(c, this.camera, dt);
-    }
+    this.updateCamera(dt, input);
     if (this.gateRing)
       this.gateRing.rotation.z += this.visuals.reducedMotion ? 0 : dt * 0.22;
     if (this.gateCrystal)
@@ -735,36 +975,54 @@ export class WorldView {
     this.npc.rotation.y = Math.atan2(p.x - 6, p.z + 1);
     for (const node of this.nodes) {
       node.mesh.visible = !(this.state.depleted[node.id] > Date.now());
+      node.glow.visible = Math.hypot(node.x - p.x, node.z - p.z) < 12;
       node.glow.material.opacity = 0.3 + Math.sin(time * 2) * 0.15;
+    }
+    for (const f of this.features) {
+      const changed = this.state.exploration.changed.includes(f.id);
+      if (f.kind === "rubble") f.mesh.visible = !changed;
+      if (f.kind === "cache")
+        f.moving.rotation.x +=
+          ((changed ? -1.3 : 0) - f.moving.rotation.x) *
+          (this.visuals.reducedMotion ? 1 : 1 - Math.exp(-12 * dt));
+      if (f.kind === "beacon") {
+        f.moving.position.y =
+          2.65 + (changed ? 0.24 : 0) + Math.sin(animationTime * 1.8) * 0.15;
+        f.moving.rotation.y = animationTime * 0.63;
+      }
     }
     for (const e of this.sim.enemies) {
       const v = this.foes.get(e.id);
       v.mesh.visible = e.hp > 0;
       v.mesh.position.set(
         e.x,
-        ground(e.x, e.z, this.state.realm) +
-          (e.boss ? 0 : 0.06 * Math.sin(time * 3)),
+        this.height(e.x, e.z) +
+          (e.boss
+            ? 0
+            : (e.archetype === "drone" ? 0.22 : 0.06) *
+              Math.sin(animationTime * 3)),
         e.z,
       );
       v.mesh.rotation.y = Math.atan2(p.x - e.x, p.z - e.z);
       const aimed = e.move === "eruption",
         tx = aimed ? e.aimX : e.x,
         tz = aimed ? e.aimZ : e.z;
-      v.telegraph.position.set(tx, ground(tx, tz, this.state.realm) + 0.08, tz);
-      v.telegraph.visible =
-        e.phase === "windup" && e.hp > 0 && e.move !== "arrow";
+      v.telegraph.position.set(tx, this.height(tx, tz) + 0.08, tz);
+      const ranged = e.move === "arrow" || e.move === "volley";
+      v.telegraph.visible = e.phase === "windup" && e.hp > 0 && !ranged;
       v.telegraph.scale.setScalar(aimed ? 3.5 / 3.3 : 1);
       v.telegraph.material.opacity =
         0.15 + (1 - e.timer / (e.windupDuration || 1)) * 0.45;
-      v.aim.visible = e.phase === "windup" && e.move === "arrow" && e.hp > 0;
+      v.aim.visible = e.phase === "windup" && ranged && e.hp > 0;
       if (v.aim.visible) {
         const d = Math.hypot(e.aimX - e.x, e.aimZ - e.z);
         v.aim.position.set(
           (e.x + e.aimX) / 2,
-          ground(e.x, e.z, this.state.realm) + 0.1,
+          this.height(e.x, e.z) + 0.1,
           (e.z + e.aimZ) / 2,
         );
         v.aim.scale.z = d;
+        v.aim.scale.x = e.move === "volley" ? 2.4 : 1;
         v.aim.rotation.y = Math.atan2(e.aimX - e.x, e.aimZ - e.z);
       }
       if (e.boss) v.mesh.scale.setScalar(e.enraged ? 1.85 : 1.7);
@@ -808,11 +1066,7 @@ export class WorldView {
         this.projectileMeshes.set(shot.id, g);
         this.scene.add(g);
       }
-      g.position.set(
-        shot.x,
-        ground(shot.x, shot.z, this.state.realm) + 1.35,
-        shot.z,
-      );
+      g.position.set(shot.x, this.height(shot.x, shot.z) + 1.35, shot.z);
       g.rotation.y = Math.atan2(shot.dx, shot.dz);
     }
     for (const [id, g] of this.projectileMeshes)

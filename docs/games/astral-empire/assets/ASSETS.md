@@ -1,5 +1,7 @@
 # Anime artwork provenance and prompts
 
+Version 3.5 uses the title illustration and portraits in menus. The other atlases are retained for previous releases and no longer load in the 3D world.
+
 Created for Astral Empire: Aetherbound on 2026-11-07 using the built-in `image_gen.imagegen` tool. These are AI-generated original project illustrations, not manually painted assets, imported game assets, or Elysium source ports. No specific artist or existing franchise was requested. Original PNG outputs remain in the session's generated-images folder; the game consumes the WebP copies in this directory. Sharp CLI 5.2.0 encoded WebP at quality 90 (portraits, title, ground) or 92 (transparent sprite/prop sheets), preserving alpha. No generation API key or fallback CLI was used.
 
 Atlases use UV/CSS cells at runtime. Alpha-tested sprite materials remove low-alpha background residue. The two poses per hero support simple stepping, bobbing, flipping and attack tilt; they are not a full directional walk/combat animation library. Title art is promotional illustration, not an in-game screenshot. Current world layouts and gameplay remain authored in code.

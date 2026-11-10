@@ -1,10 +1,10 @@
 {
   "name": "astral-empire-aetherbound",
   "private": true,
-  "version": "3.4.0",
+  "version": "3.5.0",
   "type": "module",
   "scripts": {
-    "test": "node tests/smoke.mjs && node --test tests/simulation.test.mjs tests/artisan.test.mjs",
+    "test": "node tests/smoke.mjs && node --test tests/simulation.test.mjs tests/artisan.test.mjs tests/frontier.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "test:visual": "node tests/visual.mjs",
     "build:native": "node native/build.mjs"
