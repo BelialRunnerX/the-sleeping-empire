@@ -96,7 +96,10 @@ try {
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
-    await page.locator('[data-action="menu-enter"]').click();
+    // Initial world/shader construction can exceed the normal action timeout
+    // on CI software renderers. Click once, then require the actual Codex UI.
+    await page.locator('[data-action="menu-enter"]').click({ timeout: 60000 });
+    await page.locator("#codex-race").waitFor({ state: "visible", timeout: 60000 });
     await page.locator("#hud").waitFor({ state: "visible" });
     assert.equal(await page.locator("#codex-race option").count(), 6);
     assert.equal(await page.locator("#codex-class option").count(), 9);
