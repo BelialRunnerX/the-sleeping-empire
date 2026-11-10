@@ -1,0 +1,56 @@
+/* Profile gateway and main menu are separate from the live field HUD. */
+#landing.main-menu { display:block; overflow:auto; padding:max(28px, env(safe-area-inset-top)) max(30px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(30px, env(safe-area-inset-left)); background-image:linear-gradient(100deg,#102c38df 5%,#193c4260 70%,#c4b87b20),url("assets/aetherbound-keyart.webp"); }
+.main-menu-shell { width:min(1120px,100%); margin:auto; min-height:100%; display:flex; flex-direction:column; gap:28px; }
+.main-menu-brand > span,.main-menu-brand > p,.menu-eyebrow { font-size:11px; letter-spacing:.22em; color:#c7e8df; }
+.main-menu-brand h1 { font:500 clamp(46px,6vw,86px)/1 var(--serif); margin:10px 0; color:#fff4da; }
+.main-menu-brand > p { margin:0; color:#edd6aa; }
+.main-menu-layout { display:grid; grid-template-columns:minmax(300px,450px) minmax(220px,310px); justify-content:space-between; align-items:end; gap:30px; flex:1; }
+.menu-glass { background:linear-gradient(125deg,#244a56d9,#14343bdb); border:1px solid #b4e9e67a; border-radius:22px; padding:28px; box-shadow:0 16px 50px #081a2440,inset 0 1px #e4fffa35; backdrop-filter:blur(16px); color:#edf7ef; }
+.menu-glass h2 { font:500 36px/1.12 var(--serif); margin:12px 0; overflow-wrap:anywhere; }
+.menu-glass p { color:#d0e4df; font-size:14px; line-height:1.6; }
+.menu-choices nav { display:grid; gap:10px; margin-top:24px; }
+.main-menu button { min-height:48px; border-radius:10px; border:1px solid #a7d4d754; background:#173943b3; padding:14px 18px; text-align:left; color:#e4f5f3; font:500 15px/1.3 "DM Sans",system-ui,sans-serif; }
+.menu-choices nav button { display:flex; justify-content:space-between; align-items:center; }
+.main-menu .menu-primary { position:relative; display:block; padding-right:44px; background:linear-gradient(110deg,#dbecd5,#9dd8d4); color:#12393e; border-color:#e1f6df; }
+.menu-primary small { display:block; font-size:11px; margin-top:5px; color:#315c60; }
+.menu-primary b { position:absolute; right:18px; top:24px; font-size:22px; }
+.main-menu button:hover { filter:brightness(1.12); }
+.main-menu :focus-visible { outline:3px solid #b6ffff; outline-offset:4px; }
+.menu-level { border-block:1px solid #a5d6d44f; padding:16px 0; margin:22px 0; letter-spacing:.16em; font-size:11px; }
+.menu-level strong { font:36px var(--serif); margin-left:12px; color:#efdbac; }
+.menu-save-note { color:#aff0df; font-size:12px; }
+.menu-glass .menu-fine { font-size:11px; line-height:1.6; color:#b9cfcc; }
+.main-menu-footer { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; color:#c7d9d3; font-size:11px; }
+.menu-settings { width:min(640px,100%); box-sizing:border-box; }
+.menu-setting-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+@media(max-width:700px) { #landing.main-menu { padding:24px max(20px,env(safe-area-inset-right)) 24px max(20px,env(safe-area-inset-left)); } .main-menu-layout { grid-template-columns:1fr; gap:16px; } .main-menu-shell { gap:20px; } .menu-glass { padding:20px; } .menu-chronicle { display:none; } .menu-glass h2 { font-size:30px; } .main-menu-brand h1 { font-size:52px; } }
+@media(max-height:550px) and (min-width:701px) { .main-menu-shell { gap:16px; } .main-menu-brand h1 { font-size:40px; } .main-menu-brand > span { display:none; } .menu-glass { padding:18px; } .menu-choices h2,.menu-choices > p { display:none; } .menu-choices nav { margin-top:12px; gap:6px; } .main-menu button { min-height:44px; padding:10px 16px; } .menu-chronicle { padding:18px; } .main-menu-footer { font-size:10px; } }
+/* Keep the local-profile gateway usable in short landscape viewports too. */
+#landing:not(.main-menu) { overflow:auto; align-items:safe center; }
+@media(max-height:650px) { #landing:not(.main-menu) { align-items:flex-start; padding-top:24px; padding-bottom:80px; } #landing:not(.main-menu) .landing-footer { position:static; margin-top:24px; } #landing:not(.main-menu) { flex-wrap:wrap; } }
+/* Frosted ice-cyan glass follows the approved interface design language. */
+.menu-glass { background:linear-gradient(125deg,#e4f5e7ed,#c1e4e8e6); color:#163b49; border-color:#ecfffa; box-shadow:0 16px 50px #081a2440,inset 0 1px #ffffffb0; }
+.menu-glass p { color:#365c64; }
+.menu-glass .menu-eyebrow { color:#3c6b75; }
+.main-menu .menu-glass button { background:#edf9f470; color:#173f4c; border-color:#6faeb66b; }
+.main-menu .menu-primary { background:linear-gradient(110deg,#28bbd1,#58d7d6); border-color:#e1ffff; color:#073a49; }
+.menu-glass .menu-fine { color:#456873; }
+.menu-save-note { color:#27616b; }
+.menu-level { border-color:#5497a64f; }
+.menu-level strong { color:#234e61; }
+.main-menu :focus-visible { outline-color:#009db8; }
+.menu-settings select { background:#f0faf5; color:#173f4c; }
+.main-menu .menu-glass .menu-primary { background:linear-gradient(110deg,#28bbd1,#58d7d6); color:#073a49; border-color:#e1ffff; }
+/* Cool translucent cyan glass: balanced between pastel and dark neon. */
+#landing.main-menu { background-image:linear-gradient(100deg,#102a4675 0,#143c5020 65%,#13355120),url("assets/solarpunk-menu.png"); }
+.menu-glass { background:linear-gradient(125deg,#d5f2ffd6,#8dc7e8b8); color:#10374d; border:1px solid #e5fbfff0; backdrop-filter:blur(7px) saturate(1.12); box-shadow:0 14px 40px #092a4750,inset 0 1px 0 #ffffffd9,inset 0 -1px 0 #2f85ab5c; }
+.menu-glass p { color:#244b62; }
+.menu-glass .menu-eyebrow,.menu-save-note { color:#245674; }
+.main-menu .menu-glass button { background:#d1f2ff50; color:#103e59; border-color:#f0fbff8a; box-shadow:inset 0 1px #ffffff40; }
+.main-menu .menu-glass .menu-primary { background:linear-gradient(110deg,#48c9e6d9,#88e4f2b8); border-color:#d0fcff; }
+.menu-glass .menu-fine { color:#31576b; }
+.menu-level { border-color:#3780a160; }
+.menu-level strong { color:#164866; }
+.main-menu-brand { text-shadow:0 2px 16px #08284180; }
+/* Center the Beyond the veil menu within the space below the title. */
+.main-menu-layout { align-items:center; }

@@ -1,10 +1,10 @@
 {
   "name": "astral-empire-aetherbound",
   "private": true,
-  "version": "3.14.4",
+  "version": "3.14.5",
   "type": "module",
   "scripts": {
-    "test": "node tests/smoke.mjs && node --test tests/simulation.test.mjs tests/artisan.test.mjs tests/frontier.test.mjs tests/microvoxels.test.mjs tests/geology.test.mjs tests/combat-assist.test.mjs tests/mobile-orbit.test.mjs",
+    "test": "node tests/smoke.mjs && node --test tests/simulation.test.mjs tests/artisan.test.mjs tests/frontier.test.mjs tests/microvoxels.test.mjs tests/geology.test.mjs tests/combat-assist.test.mjs tests/mobile-orbit.test.mjs tests/main-menu.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "test:visual": "node tests/visual.mjs",
     "build:native": "node native/build.mjs"

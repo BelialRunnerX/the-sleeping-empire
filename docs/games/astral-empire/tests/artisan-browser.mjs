@@ -89,6 +89,7 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.locator("#profile-name").fill("Artisan Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
     await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
     const fixture = freshState(92714);
@@ -125,6 +126,7 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.locator("#profile-name").fill("Artisan Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "CONTINUE →" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
     await panel();
     assert.equal((await load()).production.stations.foundry.tier, 1);
@@ -196,6 +198,7 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.locator("#profile-name").fill("Artisan Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "CONTINUE →" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
     saved = await load();
     assert.equal(saved.equipped.armor, item.id);

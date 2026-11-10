@@ -24,6 +24,7 @@ async function run(browser, url, artifacts, mobile) {
     await page.locator("#profile-name").fill("Geology Test");
     await page.locator("#profile-pin").fill("2468");
     await click(page.getByRole("button", { name: label, exact: true }));
+    await click(page.locator('[data-action="menu-enter"]'));
     await page.locator("#hud").waitFor();
   };
   const walk = async (keys, axis, threshold) => {

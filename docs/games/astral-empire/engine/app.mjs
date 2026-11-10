@@ -1,3 +1,4 @@
+import { mainMenuMarkup, menuSettingsMarkup } from "./main-menu.mjs";
 import { updateCombatAssist } from "./combat-assist.mjs";
 import {
   HEROES,
@@ -108,6 +109,7 @@ let state = freshState(),
   sim = new Simulation(state),
   view,
   playing = false,
+  atMainMenu = false,
   panel = null,
   gathering = null,
   lastFrame = 0,
@@ -224,6 +226,8 @@ function buildView() {
   if (playing) renderBar();
 }
 function landing() {
+  atMainMenu = false;
+  $("landing").classList.remove("main-menu");
   playing = false;
   declarationRequired = false;
   cancelTravel();
@@ -234,7 +238,7 @@ function landing() {
   $("hud").hidden = true;
   $("landing").hidden = false;
   $("landing").innerHTML =
-    `<section class="landing-copy"><div class="landing-ornament">✧ &nbsp; THE SLEEPING EMPIRE</div><h1>Aetherbound<em>ASTRAL EMPIRE</em></h1><div class="landing-rule"></div><p>Beyond the veil, a world is waking.<br>Forge your own path through steel, starlight, and the quiet art of living.</p><div class="profile-list">${profiles
+    `<section class="landing-copy">${profiles.active ? '<button data-action="menu-back">← Back to main menu</button>' : ""}<div class="landing-ornament">✧ &nbsp; THE SLEEPING EMPIRE</div><h1>Aetherbound<em>ASTRAL EMPIRE</em></h1><div class="landing-rule"></div><p>Beyond the veil, a world is waking.<br>Forge your own path through steel, starlight, and the quiet art of living.</p><div class="profile-list">${profiles
       .list()
       .map(
         (p) =>
@@ -242,31 +246,63 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.14.4 · Twin Sticks & Targeting</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.14.5 · Solarpunk Interface</span></footer>`;
 }
 function enter(create) {
   try {
     const name = $("profile-name").value,
       pin = $("profile-pin").value;
     state = profiles.login(name, pin, create);
-    playing = true;
-    buildView();
-    $("landing").hidden = true;
-    $("hud").hidden = false;
-    panel = null;
-    declarationRequired = create && (!state.race || !state.calling);
-    renderBar();
-    updateHUD();
-    if (!state.race || !state.calling) openPanel("codex");
-    notify(
-      "Welcome to Dawnwake. Click terrain to travel, or select the gold survey cache.",
-    );
-    sound(660);
-    save();
+    mainMenu();
   } catch (error) {
     $("auth-error").textContent = error.message;
   }
 }
+function mainMenu(settingsPage = false) {
+  if (!profiles.active) return landing();
+  if (playing) save();
+  playing = false;
+  atMainMenu = true;
+  declarationRequired = false;
+  cancelTravel();
+  gathering = null;
+  holdingAttack = false;
+  keys.clear();
+  panel = null;
+  document.body.classList.remove("scenic-view");
+  $("panels").hidden = true;
+  $("hud").hidden = true;
+  $("landing").hidden = false;
+  $("landing").classList.add("main-menu");
+  $("landing").innerHTML = settingsPage
+    ? menuSettingsMarkup(visuals, assist, muted)
+    : mainMenuMarkup(profiles.active, state);
+  $("landing").querySelector("button")?.focus();
+}
+function launchWorld() {
+  if (!atMainMenu || !profiles.active) return;
+  try {
+    buildView();
+    playing = true;
+    atMainMenu = false;
+    $("landing").hidden = true;
+    $("hud").hidden = false;
+    panel = null;
+    declarationRequired = !state.race || !state.calling;
+    renderBar();
+    updateHUD();
+    if (declarationRequired) openPanel("codex");
+    sound(660);
+    save();
+  } catch (error) {
+    playing = false;
+    atMainMenu = true;
+    $("landing").hidden = false;
+    $("hud").hidden = true;
+    notify("Could not enter the world: " + error.message);
+  }
+}
+
 function renderBar() {
   $("skillbar").innerHTML =
     SKILLS.map((base) => skillStats(state, base.id))
@@ -862,7 +898,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. Controller Y unlock pauses reacquisition until Y resumes it. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. Controller Y unlock pauses reacquisition until Y resumes it. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="main-menu">SAVE & MAIN MENU</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -1047,6 +1083,16 @@ document.addEventListener("click", (e) => {
   const action = n.dataset.action;
   if (action === "create") {
     enter(true);
+    return;
+  }
+  if (action === "menu-back") { mainMenu(); return; }
+  if (atMainMenu) {
+    if (action === "menu-enter") launchWorld();
+    if (action === "menu-settings") mainMenu(true);
+    if (action === "menu-new") { landing(); $("profile-name").focus(); }
+    if (action === "menu-signout") { profiles.logout(); landing(); $("profile-name").focus(); }
+    if (action === "menu-mute") { muted = !muted; mainMenu(true); }
+    if (n.dataset.assist) { toggleAssist(n.dataset.assist); mainMenu(true); }
     return;
   }
   if (!playing) return;
@@ -1351,6 +1397,9 @@ document.addEventListener("click", (e) => {
       muted = !muted;
       openPanel("settings");
       break;
+    case "main-menu":
+      mainMenu();
+      break;
     case "logout":
       save();
       profiles.logout();
@@ -1367,7 +1416,7 @@ document.addEventListener("change", async (e) => {
     try {
       localStorage.setItem("astral_empire_visuals_v1", JSON.stringify(visuals));
     } catch {}
-    view.applyVisualSettings(visuals);
+    view?.applyVisualSettings(visuals);
   }
   if (n.dataset.linkSkill) {
     const skill = n.dataset.linkSkill,
@@ -1395,6 +1444,16 @@ document.addEventListener("change", async (e) => {
   }
 });
 document.addEventListener("keydown", (e) => {
+  if (atMainMenu) {
+    if (e.key === "Escape") { mainMenu(); return; }
+    if ((e.key === "ArrowDown" || e.key === "ArrowUp") && e.target.tagName !== "SELECT") {
+      e.preventDefault();
+      const buttons = [...$("landing").querySelectorAll("button, select, input")];
+      const direction = e.key === "ArrowDown" ? 1 : -1;
+      buttons[(buttons.indexOf(document.activeElement) + direction + buttons.length) % buttons.length]?.focus();
+    }
+    return;
+  }
   if (e.code === "ControlLeft" && playing && !panel && !e.repeat) {
     setFreeLook(!freeLook);
     return;
@@ -1711,6 +1770,19 @@ function updateController(now, dt) {
     $("controller-status").title=label;
     if(playing && label) notify("Controller connected · A interact · X attack · Menu opens equipment");
   }
+  if (activePad && atMainMenu) {
+    if (pad.pressed.has(1)) { mainMenu(); return; }
+    if (pad.pressed.has(0)) { if ($("landing").contains(document.activeElement)) document.activeElement.click(); return; }
+    if (now >= padNavAt) {
+      const direction = pad.held.has(12) || pad.move.y < -.54 ? -1 : pad.held.has(13) || pad.move.y > .54 ? 1 : 0;
+      if (direction) {
+        const buttons = [...$("landing").querySelectorAll("button,select,input")];
+        buttons[(buttons.indexOf(document.activeElement) + direction + buttons.length) % buttons.length]?.focus();
+        padNavAt = now + 180;
+      }
+    }
+    return;
+  }
   if(!activePad || !playing) return;
   if(panel) { gamepadMenu(pad,now); return; }
   if (pad.look.x || pad.look.y) {
@@ -1792,8 +1864,8 @@ function handleEvents() {
 function frame(now) {
   const dt = Math.min((now - lastFrame) / 1000 || 0.016, 0.25);
   lastFrame = now;
+  if (view || atMainMenu) updateController(now,dt);
   if (view) {
-    updateController(now,dt);
     if (playing && now - lastProduction > 1000) {
       const finished = settleProduction(state);
       if (finished) {

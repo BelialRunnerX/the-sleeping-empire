@@ -1,0 +1,156 @@
+/* CONCEPT v0.7 soft glass. In-game only: gateway/main-menu own their theme.
+   Source: Sixth Edition pp495,825,1030,1250; approved soft-glass reference.
+   Real health/mana/stamina retained; never relabel mana as oxygen. */
+#hud, #panels {
+  --gold:#087a8e; --ink:#163b49; --muted:#42616c;
+  --line:#356b782a; --panel:#d4edf0f0;
+  --serif:"DM Sans",system-ui,sans-serif;
+  --glass-light:linear-gradient(135deg,#dbf6ffd6,#a9dcebc7);
+  --glass-dark:linear-gradient(135deg,#234e59e8,#173b49e8);
+  --cyan:#48d5e7; --danger:#a42b6d;
+}
+#hud {color:#f0ffff;}
+#hud button {border-radius:10px;}
+#hud :is(button,summary):focus-visible, #panels :is(button,input,select,a):focus-visible {
+  outline:3px solid #087c96;outline-offset:3px;box-shadow:0 0 0 5px #ecffff;
+}
+#hud .world-title b {font-family:var(--serif);font-size:22px;font-weight:650;letter-spacing:.12em;}
+#hud .world-title>a {font-size:30px;color:#c3fbff;}
+#hud .world-title .kicker {font-size:8px;letter-spacing:.18em;color:#b7f0ee;}
+#hud .world-title small {color:#e6f5f5;}
+#hud .top-hud {top:20px;left:22px;right:22px;}
+#hud .realm-status {margin-right:110px;color:#eaffff;}
+#hud :is(.character-hud,.map-hud,.objective-hud,.camera-dock,.menu-dock,#interaction,.notification) {
+  background:var(--glass-dark);border:1px solid #d7ffff80;border-radius:14px;
+  box-shadow:inset 0 1px 0 #f0ffff50,0 5px 20px #092e3730;
+}
+#hud .character-hud {padding:12px;box-sizing:border-box;}
+#hud .character-name span {color:#abf5fc;}
+#hud .portrait-mark {border-radius:9px;clip-path:none;border:1px solid #ddffff80;}
+#hud .meter {border-radius:6px;background:#0e303fcc;border:1px solid #b4eaf13b;overflow:hidden;}
+#hud .meter i {background:linear-gradient(90deg,#26b1c8,#7be8e4);}
+#hud .meter.mana i {background:linear-gradient(90deg,#739ee2,#9cd6fc);}
+#hud .meter span {color:white;text-shadow:0 1px 2px #102a36;}
+#hud .stamina {background:#11303b;border-radius:4px;overflow:hidden;}
+#hud .stamina i {background:#bcebc6;}
+#hud .objective-hud {padding:12px;width:245px;}
+#hud .objective-hud .kicker {color:#a8e7ec;font-size:9px;}
+#hud .objective-hud h3 {font:600 15px/1.4 var(--serif);margin:7px 0;}
+#hud .objective-hud p {color:#d1e8eb;font-size:12px;}
+#hud .objective-hud button {color:#c4f9fc;border-color:#a5e4ef55;}
+#hud .map-hud {padding:6px;overflow:hidden;}
+#hud .map-hud canvas {border-radius:10px;border:0;}
+#hud .map-hud div {padding:7px 4px;background:transparent;}
+#hud .map-hud b {color:#e7ffff;font-size:10px;}
+#hud .map-hud span {color:#b8ebed;}
+#hud .skillbar {padding:5px;background:var(--glass-dark);border:1px solid #c9ffff80;border-radius:14px;}
+#hud .skill {background:#b2e8ed18;border:1px solid #dbffff6b;box-shadow:inset 0 1px 0 #fff3;border-radius:9px;}
+#hud .skill:before {display:none;}
+#hud .skill>span {color:#d5ffff;}
+#hud .skill kbd {color:#f0ffff;}
+#hud .skill:hover {background:#43c1d04d;border-color:#8df6ff;}
+#hud .skill .cooldown {background:#082b3bd9;}
+#hud .experience {background:#0d3544;border-radius:4px;overflow:hidden;}
+#hud .experience>i {background:#55dbe6;}
+#hud .menu-dock {padding:4px;}
+#hud .menu-dock button {color:#c5faff;min-width:44px;}
+#hud .menu-dock small {color:#e4ffff;font-size:9px;}
+#hud :is(.camera-dock button,.touch-actions button,.artisan-shortcut) {background:#204653e8;border-color:#b5e9ee66;color:#e4ffff;}
+#hud #interaction {color:#e8ffff;}
+#hud #interaction small {color:#c0e5e9;}
+#hud #interaction kbd {background:#c9f4f1;color:#163b49;border-radius:8px;}
+#hud .frontier-label {background:#214957ee;border:1px solid #b4f8ff99;color:#e5ffff;border-radius:7px;}
+#hud .device-controls details {background:var(--glass-light);color:#163b49;border:1px solid #ecfffa;border-radius:14px;box-shadow:0 8px 30px #103e4940;}
+#hud .device-controls summary {font-weight:650;}
+#hud .device-controls :is(label,p) {color:#274d59;line-height:1.5;}
+#hud .device-controls :is(button,select) {background:#f1fcfc;color:#163b49;border:1px solid #609da980;}
+#hud .touch-stick {box-shadow:inset 0 0 20px #69d6df20;}
+#hud .touch-stick i {background:linear-gradient(135deg,#c9ffffcc,#55b6c5b0);}
+#hud .stick-label {color:#e8ffff;text-shadow:0 1px 2px #123443;}
+/* Keep transparent gameplay visible; a readable material, not a screen-wide fog. */
+#panels {color:var(--ink);background:#10394138;backdrop-filter:none;padding:20px;box-sizing:border-box;}
+#panels .panel-window {width:min(1120px,100%);max-height:calc(var(--view-height,100dvh) - 40px);background:var(--glass-light);border:1px solid #ecfffa;border-radius:22px;overflow:hidden;box-shadow:inset 0 1px 0 white,0 22px 70px #082b4055;backdrop-filter:blur(16px);}
+#panels .panel-top {padding:17px 22px;border-color:var(--line);background:#f3ffff44;}
+#panels .panel-top h2 {font:650 24px/1.2 var(--serif);letter-spacing:.015em;}
+#panels .panel-top .kicker {font-size:10px;color:#37616d;letter-spacing:.14em;}
+#panels .panel-close {width:44px;height:44px;border-radius:50%;color:#163b49;background:#ffffff52;border:1px solid #5598a544;}
+#panels .menu-layout {min-width:0;}
+#panels .menu-layout .panel-tabs {width:180px;box-sizing:border-box;background:#f2ffff3d;border-color:var(--line);padding:12px;}
+#panels .menu-group {gap:4px;margin-bottom:16px;}
+#panels .menu-group>span {color:#416673;font-size:10px;}
+#panels .panel-tabs button {color:#254b59;font-size:12px;min-height:40px;border-radius:9px;border:1px solid transparent;}
+#panels .panel-tabs button.active {background:linear-gradient(135deg,#28bbd1,#58d7d6);color:#103847;border:1px solid #ddffff;box-shadow:0 2px 7px #288d9f33;font-weight:750;}
+#panels .panel-body {min-width:0;padding:20px;scrollbar-color:#559ba9 #c5e4e7;scrollbar-width:thin;}
+#panels :is(h1,h2,h3,h4) {font-family:var(--serif);color:#163b49;}
+#panels .card {border:1px solid #f0ffffbb;border-radius:13px;background:#f5ffff54;box-shadow:inset 0 1px 0 #fff8;padding:16px;min-width:0;overflow-wrap:anywhere;}
+#panels .card h3 {font-size:18px;line-height:1.35;}
+#panels .card p {font-size:12px;color:var(--muted);}
+#panels .card.selected {border:2px solid #16899e;box-shadow:0 0 0 2px #d9ffff;}
+#panels :is(button,input,select,textarea) {font-family:inherit;color:#163b49;border:1px solid #7aaab480;border-radius:8px;background:#f6ffffc7;}
+#panels button {min-height:36px;font-size:12px;}
+#panels button:hover:not(:disabled) {background:#d9faff;border-color:#258fa3;}
+#panels button:disabled {color:#627c84;background:#d2e1e4;opacity:.75;cursor:not-allowed;}
+#panels :is(input,select,textarea) {font-size:16px;max-width:100%;}
+#panels .stat-box {border-radius:10px;background:#f5ffff55;border-color:#f0ffffaa;}
+#panels .stat-box small {font-size:10px;color:#456771;}
+#panels .stat-box b {font:650 23px var(--serif);}
+#panels :is(.small,.support-notes,.affix) {font-size:12px;line-height:1.65;}
+#panels .affix {color:#6a4584;}
+#panels .rare {color:#743b92;} #panels .epic {color:#81500a;} #panels .magic {color:#175c8b;}
+#panels .tag {color:#225b6b;border-color:#5f99a677;background:#eefcff66;border-radius:6px;font-size:10px;}
+#panels .resource-line span {color:#294e5c;background:#f1ffff77;border-color:#6a9ca64a;border-radius:7px;font-size:11px;}
+#panels .support-row label {font-size:11px;}
+#panels .talent-view {background:radial-gradient(ellipse,#224859,#102b39);border-radius:14px;border:1px solid #e5ffff;}
+#panels .talent-info {background:#efffff77;color:#274d5b;border-radius:10px;font-size:12px;}
+#panels .quest-progress {background:#35657030;}
+#panels .quest-progress i {background:#159bae;}
+@media(min-width:1000px) {
+ html:not([data-controls="touch"]) #hud .character-hud {top:auto;bottom:22px;left:22px;width:255px;}
+ html:not([data-controls="touch"]) #hud .character-info {width:180px;}
+ html:not([data-controls="touch"]) #hud .portrait-mark {width:36px;height:48px;}
+ html:not([data-controls="touch"]) #hud .objective-hud {top:104px;left:22px;}
+ html:not([data-controls="touch"]) #hud .map-hud {top:84px;right:22px;}
+ html:not([data-controls="touch"]) #hud .bottom-hud {left:300px;right:22px;bottom:22px;}
+ html:not([data-controls="touch"]) #hud .hero-switch {display:none;}
+ html:not([data-controls="touch"]) #hud .bottom-hud>div:nth-child(2) {margin:auto;}
+ html:not([data-controls="touch"]) #hud .camera-dock {bottom:135px;}
+}
+@media(max-width:700px),(max-height:500px) {
+ #panels {padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left));}
+ #panels .panel-window {max-height:calc(var(--view-height,100dvh) - max(6px,env(safe-area-inset-top)) - max(6px,env(safe-area-inset-bottom)));border-radius:14px;}
+ #panels .panel-top {padding:7px 12px;}
+ #panels .panel-top h2 {font-size:19px;}
+ #panels .menu-layout {flex-direction:column;}
+ #panels .menu-layout .panel-tabs {display:flex;width:100%;padding:5px 8px;gap:12px;max-height:60px;border-right:0;border-bottom:1px solid var(--line);}
+ #panels .menu-group {display:flex;margin:0;gap:3px;align-items:center;}
+ #panels .menu-group>span {display:none;}
+ #panels .panel-tabs button {min-height:44px;padding:6px 12px;}
+ #panels .panel-body {padding:12px;}
+ #panels :is(.grid-2,.grid-3) {grid-template-columns:1fr;}
+ #panels .stat-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ #panels .card {padding:12px;}
+ #panels button {min-height:44px;}
+ #panels .talent-view {height:48dvh;min-height:180px;}
+ html[data-controls="touch"] #hud .character-hud {padding:6px;}
+ html[data-controls="touch"] #hud .character-info {min-width:0;}
+ html[data-controls="touch"] #hud .objective-hud {padding:7px;width:200px;}
+ html[data-controls="touch"] #hud .skillbar {padding:3px;border-radius:10px;}
+ html[data-controls="touch"] #hud .map-hud {padding:3px;}
+ html[data-controls="touch"] #hud .map-hud b {font-size:8px;}
+ html[data-controls="touch"] #hud .touch-actions button {font-size:10px;}
+}
+@media(prefers-reduced-transparency:reduce) {
+ #hud {--glass-dark:#204854;} #panels,#hud .device-controls {--glass-light:#d4edf0;}
+ #panels .panel-window {backdrop-filter:none;}
+}
+
+#panels .glass-disclosure {border:1px solid #eaffffb0;background:#e9fbff30;border-radius:10px;margin-bottom:12px;}
+#panels .glass-disclosure summary {cursor:pointer;padding:13px;font-size:13px;font-weight:650;}
+#panels .glass-disclosure>.stat-grid {padding:12px;margin:0;}
+#panels .glass-disclosure>.resource-line {padding:0 12px 12px;margin:0;}
+#panels .inventory-search {display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;margin:16px 0 8px;font-weight:650;}
+#panels .inventory-search input {flex:1;min-width:170px;padding:10px;}
+#panels summary:focus-visible {outline:3px solid #087c96;outline-offset:-3px;border-radius:10px;}
+#panels .card[hidden] {display:none;}
+/* Preserve tested touch control geometry: glass chrome must not add box height. */
+html[data-controls="touch"] #hud .skillbar {padding:0;border:0;outline:1px solid #c9ffff80;}

@@ -13,6 +13,7 @@ export async function testMicrovoxelFlow(browser, url, artifacts) {
     await page.locator("#profile-name").fill("Micro Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: label, exact: true }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
   };
   const assertFine = async () => {

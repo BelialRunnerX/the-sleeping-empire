@@ -235,3 +235,22 @@ The first combat-depth expansion adds distinct weapon behavior and enemies that 
 Native WebAssembly ABI 2 adds elemental mitigation and swept projectile/target collision to the C++ core. Existing version 3 saves remain compatible. Projectiles, active enemy ailments, delayed echoes and enemy health are transient combat state; builds and recruitment persist.
 
 Play at `/games/astral-empire/`. The rest of the Living Codex remains unchanged. The original gacha RPG, including its turn-based battles, awakening, forge, dispatches, achievements, and the earlier 2D sandbox, is preserved at [classic.html](classic.html).
+## Main menu flow
+
+The existing title screen remains the **local profile/load gateway**. Successful
+Continue or New Adventure opens a separate main menu; the world starts only when
+you choose Enter the frontier / Continue adventure. New adventure from this menu
+returns to profile creation and cannot overwrite an existing named profile. Back
+to main menu cancels that detour. Switch profile signs out without deleting saves.
+
+Menu settings expose visual quality, reduced motion, auto-target/auto-fire and
+sound before loading the world. In-game Settings offers Save & Main Menu.
+Keyboard Tab/Enter and menu Up/Down work; controller D-pad/left stick and A select,
+B returns from settings. Local PINs and saves are browser-local, not cloud accounts.
+
+Verification: `node --test tests/main-menu.test.mjs` and
+`node tests/main-menu-browser.mjs` (set BROWSER_EXECUTABLE to installed Chrome if
+Playwright Chromium is unavailable). The focused browser test covers desktop,
+portrait touch and landscape touch, safe new-profile cancellation/duplicate-name
+rejection, pre-world settings, explicit entry and save preservation across logout.
+Physical iOS Safari and a physical controller are not certified by emulation.

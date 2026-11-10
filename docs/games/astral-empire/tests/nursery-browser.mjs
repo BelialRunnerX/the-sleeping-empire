@@ -37,6 +37,7 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     await page.locator("#profile-name").fill("Nursery Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: label }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
   };
   try {
@@ -137,6 +138,7 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     await page.getByRole("button", { name: "Equipment", exact: true }).click();
     await page.locator(`[data-item="${charm.id}"][data-item-action="equip"]`).click();
     assert.equal((await load()).equipped.charm, charm.id);
+    await page.getByText("Character statistics", {exact:true}).click();
     await page.getByText("FIBRE FORTUNE", { exact: true }).waitFor();
     await page.reload();
     await login("CONTINUE →");

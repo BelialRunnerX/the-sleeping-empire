@@ -17,7 +17,7 @@ const errors=[];
 const page=await browser.newPage({viewport:{width:393,height:720},isMobile:true,hasTouch:true,deviceScaleFactor:3,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
 page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
 await page.waitForFunction(()=>document.documentElement.dataset.controls==='touch');
-await page.locator('#profile-name').fill('Mobile Test');await page.locator('#profile-pin').fill('2468');await page.getByRole('button',{name:'NEW ADVENTURE',exact:true}).click();await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
+await page.locator('#profile-name').fill('Mobile Test');await page.locator('#profile-pin').fill('2468');await page.getByRole('button',{name:'NEW ADVENTURE',exact:true}).click();await page.locator('[data-action="menu-enter"]').click();await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
 await page.locator('#hud').waitFor();
 await page.evaluate(()=>{
 window.stickEvents=[];document.addEventListener('keydown',e=>stickEvents.push('down:'+e.key));document.addEventListener('keyup',e=>stickEvents.push('up:'+e.key));document.addEventListener('aether-touch-camera',e=>stickEvents.push('camera'));
@@ -46,6 +46,7 @@ await page.reload();await page.waitForFunction(()=>document.documentElement.data
 await page.locator('#profile-name').fill('Mobile Test');
 await page.locator('#profile-pin').fill('2468');
 await page.locator('#login-form button[type=submit]').click();
+await page.locator('[data-action="menu-enter"]').click();
 await page.locator('#hud').waitFor({state:'visible'});
 await page.locator('#control-options summary').click();await page.locator('#control-scheme').selectOption('auto');await page.locator('#control-options summary').click();assert.equal(await page.locator('.touch-stick.move').isVisible(),true);
 await page.evaluate(()=>{Object.defineProperty(navigator,'getGamepads',{value:()=>[{connected:true}],configurable:true});window.dispatchEvent(new Event('gamepadconnected'));});assert.equal(await page.locator('.touch-stick.move').isVisible(),false);

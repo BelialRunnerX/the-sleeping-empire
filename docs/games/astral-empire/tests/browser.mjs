@@ -96,6 +96,7 @@ try {
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor({ state: "visible" });
     assert.equal(await page.locator("#codex-race option").count(), 6);
     assert.equal(await page.locator("#codex-class option").count(), 9);
@@ -373,6 +374,7 @@ try {
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "CONTINUE →" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor({ state: "visible" });
     const saved = await page.evaluate(() =>
       JSON.parse(localStorage.getItem("astral_empire_profile_browser-test_v3")),
@@ -401,6 +403,7 @@ try {
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "CONTINUE →" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor({ state: "visible" });
     await page.setViewportSize({ width: 390, height: 844 });
     await page.waitForTimeout(150);
@@ -428,6 +431,7 @@ try {
     await page.locator("#profile-name").fill("Browser Test");
     await page.locator("#profile-pin").fill("2468");
     await page.getByRole("button", { name: "CONTINUE →" }).click();
+    await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor({ state: "visible" });
     await page.context().setOffline(false);
     assert.deepEqual(errors, []);
