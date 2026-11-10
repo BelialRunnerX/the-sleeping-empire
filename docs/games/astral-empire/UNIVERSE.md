@@ -27,3 +27,12 @@ Mesh generation and the bounded 16-resolution tangent cube graph run in a dedica
 Drainage statistics describe a coarse acyclic connected graph. Candidate edges are not fine carved rivers, filled nodes are not rendered lakes, and this is not a local fluid simulation. No terrain save, existing planetary seed, inventory, or movement/collision system is replaced. Landing needs a local tangent frame, coherent collision/material sampling, stable edit ownership and tested near/far LOD transitions before activation.
 
 Drainage identity additionally includes its graph recipe and macro resolution, independently of the stable relief recipe. During LOD regeneration the resident mesh is retained but readiness is false until the latest worker job publishes its completed resolution.
+
+## 3.24 bounded river inspection
+The local river close-up is a separate `planetary-macro-carving-v1` study, not the existing fine-relief recipe or playable geography. It uses a deterministic 640 m camera-relative patch, at most 64 x 64 cells, and a hard 32,768 total triangle ceiling. Terrain and water sample the same coarse channel field; water shorelines are clipped from sampled signed depth and remain grid approximations. No vertical exaggeration is applied.
+
+Only an unflooded reach whose raw endpoint heights match solved stages is selected. Testing found that flooded transition edges can put their river stage above adjacent terrain; those reaches are excluded rather than concealed or advertised as solved lakes. If no suitable reach exists, the worker reports that limitation. Flooded basin transitions, detailed catchments, collision, sparse edited terrain, travel and physical fluid simulation remain pending.
+
+Small source-scale planets use explicitly reduced channel width/depth in the independent carving recipe. Replacement and Close terminate workers, dispose geometry/materials and lose the old WebGL context. All dependencies are in the offline manifest. No profile data or terrain seed is written by the study.
+
+Verification: river-preview.test.mjs checks deterministic typed arrays, finite coordinates, indices, mesh ceilings, radius extremes and source eligibility. river-preview-browser.mjs checks actual Chrome desktop/touch render, worker termination and context disposal. The full Universe flow additionally exercises cached offline river loading. Release validation also passed the full gameplay browser suite and exact terrain/resource/equipment/identity preservation checks on desktop and touch.

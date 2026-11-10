@@ -1,6 +1,10 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-37";
+const CACHE = "astral-empire-aetherbound-v3-38";
 const FILES = [
+  './engine/universe/planet-carving.mjs',
+  './engine/universe/river-preview.mjs',
+  './engine/universe/river-preview-data.mjs',
+  './engine/universe/river-preview-worker.mjs',
   "./engine/universe/planet-surface.mjs",
   "./engine/universe/cube-sphere-graph.mjs",
   "./engine/universe/surface-preview-data.mjs",
@@ -212,3 +216,4 @@ self.addEventListener("fetch", (event) => {
     ),
   );
 });
+
