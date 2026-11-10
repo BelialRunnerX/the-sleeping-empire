@@ -50,16 +50,21 @@ export async function testArtisanFlow(browser, url, artifacts) {
     }, keys);
     try {
       await page.waitForFunction(
-        ({ axis, threshold, direction }) => {
+        ({ axis, threshold, direction, keys }) => {
           const position = document
             .querySelector("#coordinates")
             .textContent.split(",")
             .map(Number);
-          return direction > 0
+          const reached = direction > 0
             ? position[axis] >= threshold
             : position[axis] <= threshold;
+          // Stop in the same browser task that observes arrival. A later CDP
+          // round trip can leave keys held across slow software-rendered frames.
+          if (reached) for (const key of keys)
+            document.dispatchEvent(new KeyboardEvent("keyup", { key, bubbles: true }));
+          return reached;
         },
-        { axis, threshold, direction },
+        { axis, threshold, direction, keys },
         { timeout: 45000 },
       );
     } finally {
