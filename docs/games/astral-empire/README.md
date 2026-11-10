@@ -2,6 +2,12 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version3.16 - Dawnwake introduction and world surfaces
+
+The Journal now offers thirteen ordered introduction quests with visible material caches, gold, cosmetic crystals and XP. Existing claimed quests remain claimed without duplicate payouts; older counters count where supported and the new crop-harvest counter starts honestly at zero. Houses and arena ruins gain original shared albedo/normal/roughness surface maps, using three atlases rather than multiplying texture allocations per object. Controls, terrain edits and permanently felled trees remain compatible.
+
+See `INTRO_QUEST.md` and `WORLD_SURFACES.md` for scope, provenance and verification.
+
 ## Version 3.15 - Living Voxel Frontier
 
 - Deterministic streamed voxel ground now includes the settlement surface; foundations remain protected from editing. The Terrain menu provides a survey jump and tools for whole-block mining, 1/16-metre carving and stone placement beyond the protected foundation region.

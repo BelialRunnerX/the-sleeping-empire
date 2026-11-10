@@ -1,3 +1,4 @@
+import {createWorldSurfaceKit,applyBuildingSurfaces,applyRelicSurfaces} from "./world-surfaces.mjs";
 import * as T from "../vendor/three.module.js";
 import { surface } from "./surfaces.mjs";
 import { applyAvatarRig, poseAvatarRig } from "./avatar-rig.mjs";
@@ -205,6 +206,9 @@ export class ArtDirector {
     Object.assign(this, { scene, realm, seed, ground, random, structures });
     this.palette = PALETTES[realm] || PALETTES.bastion;
     this.materials = new Map();
+    this.worldSurfaces=createWorldSurfaceKit(T);
+    this.surfaceBindings=0;
+    for(const [name,material] of this.worldSurfaces.materials){material.userData.worldSurfaceKit=true;this.materials.set("world-surface:"+name,material);}
     this.geometries = new Map();
     this.textures = new Set();
     this.cameraOccluders = [];
@@ -1126,6 +1130,7 @@ export class ArtDirector {
     );
     banner.position.x = -2.5;
     this.shape(g, "gem", 0xe7c889, -2.5, 2.2, 2.69, 0.15, 0.26, 0.02);
+    this.surfaceBindings+=applyBuildingSurfaces(g,this.worldSurfaces,{wallColor:wall,roofColor:roof}).bound;
   }
   sanctuary() {
     const floor = new T.Mesh(
@@ -1247,6 +1252,7 @@ export class ArtDirector {
       this.shape(ruins, "box", 0xb0b5ae, x, 4.3, z, 1.4, 0.3, 1.4);
       this.shape(ruins, "tube", 0x68777c, x, 0.3, z, 0.8, 0.5, 0.8);
     }
+    this.surfaceBindings+=applyRelicSurfaces(ruins,this.worldSurfaces).bound;
     this.ring(ruins, 7, 0.045, 0x9588b2, 0.31);
     // Mesh infrastructure: warm alloy frames and cool status lights.
     for (const { x, z } of this.structures) {
@@ -1478,6 +1484,7 @@ export class ArtDirector {
     this.wind.value = reduced ? 0 : time;
   }
   dispose() {
+    this.worldSurfaces.dispose();
     for (const texture of this.textures) texture.dispose();
   }
 }

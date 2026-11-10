@@ -157,6 +157,7 @@ export class WorldView {
     this.createSanctuary();
     this.art.sanctuary();
     this.createScenery();
+    canvas.dataset.worldSurfaces=String(this.art.surfaceBindings);
     this.workstations = new WorkstationView(this.scene, state, this.art);
     this.coreDrill = state.realm === "bastion" ? createCoreDrillView(this.scene, this.art, this.height) : null;
     this.nursery = state.realm === "bastion"
@@ -1466,7 +1467,7 @@ export class WorldView {
         geometrySet.add(o.geometry);
       if (o.material)
         for (const m of Array.isArray(o.material) ? o.material : [o.material])
-          materialSet.add(m);
+          if(!m.userData.worldSurfaceKit)materialSet.add(m);
     });
     for (const g of geometrySet) g.dispose();
     for (const m of materialSet) m.dispose();

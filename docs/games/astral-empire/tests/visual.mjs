@@ -14,7 +14,7 @@ const server = createServer(async (req, res) => {
     res
       .writeHead(200, { "content-type": "text/html" })
       .end(
-        '<!doctype html><style>body{margin:0;overflow:hidden}canvas{display:block}</style><canvas id="scene"></canvas>',
+        '<!doctype html><style>body{margin:0;overflow:hidden}canvas{display:block;width:100vw;height:100vh}</style><canvas id="scene"></canvas>',
       );
     return;
   }
