@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {horizonMesh,HorizonJob}from'../engine/terrain-horizon.mjs';
+const field={surfaceHeight:(x,z)=>x*.1+z*.05};
+function finish(g){let n;do{n=g.next();}while(!n.done);return n.value;}
+test('horizon has upward exterior winding and exact aligned fine boundaries',()=>{const m=finish(horizonMesh(field,0,0,{radius:3,fineRadius:1}));for(let i=0;i<m.normals.length;i+=3)assert(m.normals[i+1]>0);for(let i=0;i<m.positions.length;i+=3)assert(Math.abs(m.positions[i+1]-(field.surfaceHeight(m.positions[i],m.positions[i+2])-.08))<1e-5);const edge=new Set();for(let i=0;i<m.positions.length;i+=3)if(m.positions[i]===80&&m.positions[i+2]>=0&&m.positions[i+2]<=40)edge.add(m.positions[i+2]);assert.deepEqual([...edge].sort((a,b)=>a-b),[0,8,16,24,32,40]);});
+test('budgeted horizon completion and cancellation',()=>{const job=new HorizonJob(field,-4,0,{radius:3,fineRadius:1});let result;for(let i=0;i<100&&!result;i++)result=job.advance(.1);assert(result?.triangles>0);assert(job.done);const c=new HorizonJob(field,0,0);c.cancel();assert.equal(c.advance(),null);});

@@ -20,7 +20,7 @@ export class TerrainRenderer {
     this.queue=this.queue.filter(j=>j.token.key!==record.key);
     const blocks={};for(const [key,entry] of Object.entries(this.volume.data.blocks)){const p=parseTerrainBlockKey(key);if(p&&p.every((n,i)=>n>=record.bounds.min[i]-1&&n<record.bounds.max[i]+1))blocks[key]={fill:entry.fill,cells:{...entry.cells}};}
     const store={version:1,realms:{[this.state.realm]:{blocks}}};
-    this.queue.push({token,seed:this.state.seed,realm:this.state.realm,store,bounds:{min:[...record.bounds.min],max:[...record.bounds.max]},bands:record.bands.map(b=>({min:[...b.min],max:[...b.max]})),refined});this.pump();
+    this.queue.push({token,seed:this.state.seed,realm:this.state.realm,generation:this.volume.field.generation,store,bounds:{min:[...record.bounds.min],max:[...record.bounds.max]},bands:record.bands.map(b=>({min:[...b.min],max:[...b.max]})),refined});this.pump();
   }
   pump(){if(this.busy||!this.worker||this.disposed)return;while(this.queue.length){const job=this.queue.shift();if(!this.ledger.current(job.token))continue;this.busy=true;this.worker.postMessage(job);break;}}
   publish(result) {

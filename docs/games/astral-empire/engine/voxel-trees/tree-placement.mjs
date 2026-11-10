@@ -1,19 +1,20 @@
 import {generateTree} from './voxel-trees.mjs';
 export function intersectsProtectedWood(tree,origin,boxes=[]){
- for(const c of tree.cells){if(!c.materialId.endsWith('_log'))continue;const x=origin[0]+c.x/4,y=origin[1]+c.y/4,z=origin[2]+c.z/4;
-  for(const b of boxes)if(x<b.max[0]&&x+.25>b.min[0]&&y<b.max[1]&&y+.25>b.min[1]&&z<b.max[2]&&z+.25>b.min[2])return true;
+ const size=(tree.cellMicro||4)/16;
+ for(const c of tree.cells){if(!c.materialId.endsWith('_log'))continue;const x=origin[0]+c.x*size,y=origin[1]+c.y*size,z=origin[2]+c.z*size;
+  for(const b of boxes)if(x<b.max[0]&&x+size>b.min[0]&&y<b.max[1]&&y+size>b.min[1]&&z<b.max[2]&&z+size>b.min[2])return true;
  }return false;
 }
 export function generatePlacedTree(input){
  const boxes=input.protectedBoxes||[],origin=input.origin||input.anchorMicro.map(n=>n/16);
  let last;
- for(let attempt=0;attempt<32;attempt++){
+ for(let attempt=0;attempt<8;attempt++){
   const tree=last=generateTree({...input,seed:attempt?`${input.seed}:corridor-v1:${attempt}`:input.seed});
   if(!intersectsProtectedWood(tree,origin,boxes))return tree;
  }
  // Rare fallback is real data pruning, not disabled collision or an unharvestable proxy.
  // Keep the root-connected woody component, then only its connected leaf canopy.
- const wood=new Map(last.cells.filter(c=>c.materialId.endsWith('_log')&&!intersectsProtectedWood({cells:[c]},origin,boxes)).map(c=>[c.key,c]));
+ const wood=new Map(last.cells.filter(c=>c.materialId.endsWith('_log')&&!intersectsProtectedWood({...last,cells:[c]},origin,boxes)).map(c=>[c.key,c]));
  const root=[...wood.values()].sort((a,b)=>(Math.abs(a.x)+a.y+Math.abs(a.z))-(Math.abs(b.x)+b.y+Math.abs(b.z)))[0];
  if(!root)throw Error('Authored root intersects protected access; no tree admitted.');
  const neighbors=c=>[[c.x-1,c.y,c.z],[c.x+1,c.y,c.z],[c.x,c.y-1,c.z],[c.x,c.y+1,c.z],[c.x,c.y,c.z-1],[c.x,c.y,c.z+1]].map(p=>p.join(','));

@@ -1,3 +1,5 @@
+import { TerrainWaterView } from './terrain-water-view.mjs';
+import { HorizonView } from './terrain-horizon.mjs';
 import {sanctuaryTreeClearance} from "./voxel-trees/tree-placement.mjs";
 import {createCoarseHeightSampler,buildSurfaceSeams} from "./terrain-seams.mjs";
 import {parseTerrainBlockKey} from "./terrain-volume.mjs";
@@ -153,7 +155,8 @@ export class WorldView {
           "#include <map_fragment>\ndiffuseColor.rgb=mix(diffuseColor.rgb,vec3(.72),.27);",
         );
       };
-    this.art.water();
+    if(this.sim.terrainVolume.field.generation.version!==2)this.art.water();
+    else {this.waterView=new TerrainWaterView(T,this.scene,state,this.sim.terrainVolume,canvas);this.horizon=new HorizonView(T,this.scene,this.sim.terrainVolume.field,this.groundMaterial,terrainProfile(state.realm).surface);this.camera.far=2600;this.camera.updateProjectionMatrix();}
     this.art.sky();
     this.createSanctuary();
     this.art.sanctuary();
@@ -1212,6 +1215,8 @@ export class WorldView {
     this.effects.push({ mesh: g, life: 0.38, max: 0.38, sparks: true });
   }
   update(dt, input, time) {
+    this.waterView?.update(this.sim.player.x,this.sim.player.z);
+    if(this.horizon?.update(this.sim.player.x,this.sim.player.z)){this.scene.fog.near=1100;this.scene.fog.far=1900;this.canvas.dataset.horizonReady='true';this.canvas.dataset.horizonTriangles=String(this.horizon.triangles);}
     this.syncWorld();
     const p = this.sim.player,
       c = this.character,
@@ -1450,6 +1455,8 @@ export class WorldView {
   }
   dispose() {
     this.sim.treeOccupied=null;this.sim.isVoxelTree=null;this.sim.terrainReady=null;
+    this.waterView?.dispose();
+    this.horizon?.dispose();
     this.voxelTrees?.dispose();
     this.microvoxels?.dispose();
     this.voxelTerrain?.dispose();

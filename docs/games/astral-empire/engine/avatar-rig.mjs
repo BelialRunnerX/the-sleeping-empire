@@ -1,3 +1,4 @@
+import { PLAYER_HEIGHT } from './world-scale.mjs';
 import * as T from "../vendor/three.module.js";
 import { GLTFLoader } from "../vendor/GLTFLoader.js";
 import { MeshoptDecoder } from "../vendor/meshopt_decoder.module.js";
@@ -147,10 +148,10 @@ export function applyAvatarRig(root, hero, attachments) {
     materialCache = new Map(),
     skins = new Map();
   const model = new T.Group();
-  const scale = 2.64 / template.height;
+  const scale = PLAYER_HEIGHT / template.height;
   model.rotation.y = Math.PI; // VRM 0.x faces negative Z.
   model.scale.setScalar(scale);
-  model.position.y = -template.floor * scale - 0.055;
+  model.position.y = -template.floor * scale;
   model.add(scene);
   const bones = Object.fromEntries(
     joints.map((key) => [key, scene.getObjectByName("J_Bip_" + key)]),
@@ -244,4 +245,9 @@ export function poseAvatarRig(
   rotate("L_LowerArm", guarding ? -0.55 : -0.12);
   rotate("R_LowerArm", attacking ? -0.58 : -0.1);
   rotate("C_Spine", moving ? 0.035 : 0, moving ? stride * 0.095 : 0);
+}
+export function measureAvatarBody(root){
+ const gear=new Set([...(root.userData.equipmentAttachments?.left||[]),...(root.userData.equipmentAttachments?.right||[])]),box=new T.Box3();root.updateMatrixWorld(true);root.traverse(o=>o.skeleton?.update());
+ root.traverse(o=>{if(!o.isMesh)return;for(let p=o;p;p=p.parent)if(!p.visible||gear.has(p))return;box.union(new T.Box3().setFromObject(o,true));});
+ return {height:box.max.y-box.min.y,floor:box.min.y,top:box.max.y};
 }

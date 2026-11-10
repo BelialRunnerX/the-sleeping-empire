@@ -1,3 +1,4 @@
+import {waterContact,applyWaterBuoyancy} from './water-traversal.mjs';
 import { TerrainVolume } from "./terrain-volume.mjs";
 import { createTerrainField, isVoxelFrontier } from "./terrain-field.mjs";
 import { findTerrainSpawn, moveInTerrain } from "./terrain-collision.mjs";
@@ -90,9 +91,11 @@ export class Simulation {
   constructor(state) {
     this.state = state;
     this.layout = makeFrontier(state.seed, state.realm);
-    this.terrainVolume = new TerrainVolume(state.terrain, state.realm, createTerrainField(state.seed, state.realm));
+    this.terrainVolume = new TerrainVolume(state.terrain, state.realm, createTerrainField(state.seed, state.realm,state.terrainGeneration));
+    if(this.terrainVolume.field.generation.version===2){state.terrainGeneration=this.terrainVolume.field.generation;this.layout.height=this.terrainVolume.field.baseHeight;}
     this.chunks = new ChunkWindow(state.seed, state.realm);
     this.chunks.update(state.position.x, state.position.z);
+    this.filterTerrainSpawns();
     this.refreshObstacles();
     const st = stats(state);
     this.player = {
@@ -127,9 +130,11 @@ export class Simulation {
   movePlayer(dx,dz,dt) {
     const p=this.player;
     if(!Number.isFinite(p.terrainY))p.terrainY=findTerrainSpawn(this.terrainVolume,p.x,p.z,this.layout.height(p.x,p.z));
+    const contact=waterContact(this.terrainVolume.field,p);if(contact.swimming){dx*=.55;dz*=.55;}
     const foot=p.terrainY+p.y;
     const nearby=this.blockers.filter(o=>{if(this.isVoxelTree?.(o.id))return false;const r=(o.half||o.radius||1)+2;if(Math.abs(o.x-p.x)>r+Math.abs(dx)||Math.abs(o.z-p.z)>r+Math.abs(dz))return false;const base=this.groundHeight(o.x,o.z);return foot+3>base&&foot<base+(o.height||3);});
     moveInTerrain({occupied:(min,max)=>this.terrainVolume.occupied(min,max)||!!this.treeOccupied?.(min,max)},p,dx,dz,dt,(x,z)=>!blocked(x,z,nearby),this.state.realm === "orbit" ? 7 : 26,(x,y,z)=>!this.terrainReady||this.terrainReady(x,y,z));
+    applyWaterBuoyancy(this.terrainVolume,p,dt,(x,y,z)=>!this.terrainReady||this.terrainReady(x,y,z));
   }
   groundHeight(x,z) {
     const key=Math.floor(x*2)+':'+Math.floor(z*2)+':'+this.terrainVolume.revision;
@@ -155,8 +160,24 @@ export class Simulation {
     if (this.player)
       Object.assign(this.player, freeSpawn(this.player, this.blockers));
   }
+  filterTerrainSpawns() {
+    if(this.terrainVolume.field.generation.version!==2)return;
+    const admitted=o=>{
+      if(!o)return false;
+      const wet=this.terrainVolume.field.waterHeight(o.x,o.z);
+      return o.kind==='fish'?wet!==null:wet===null;
+    };
+    this.layout.nodes=this.layout.nodes.filter(admitted);
+    for(const tile of this.chunks.tiles.values()){
+      tile.nodes=tile.nodes.filter(admitted);
+      tile.features=tile.features.filter(admitted);
+      tile.wildlife=tile.wildlife.filter(admitted);
+      for(const key of ['enemy','beast'])if(tile[key]&&!admitted(tile[key]))tile[key]=null;
+    }
+  }
   syncChunks() {
     if (!this.chunks.update(this.player.x, this.player.z)) return;
+    this.filterTerrainSpawns();
     this.refreshObstacles();
     this.syncChunkEnemies();
   }

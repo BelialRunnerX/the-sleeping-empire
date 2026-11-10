@@ -3,9 +3,9 @@ import { createTerrainField } from './terrain-field.mjs';
 import { meshAdaptiveTerrain, surfaceRefinements } from './terrain-adaptive.mjs';
 let identity='',field;
 self.onmessage=({data})=>{
-  const {token,seed,realm,store,bounds,bands=[bounds],refined}=data;
+  const {token,seed,realm,generation,store,bounds,bands=[bounds],refined}=data;
   try {
-    const key=seed+':'+realm;if(identity!==key){field=createTerrainField(seed,realm);identity=key;}
+    const key=seed+':'+realm+':'+JSON.stringify(generation);if(identity!==key){field=createTerrainField(seed,realm,generation);identity=key;}
     const volume=new TerrainVolume(store,realm,field,{cacheBlocks:2048}),start=performance.now();
     const fine=[...new Set([...refined,...bands.flatMap(b=>surfaceRefinements(volume,b))])];
     const parts=bands.map(b=>meshAdaptiveTerrain(volume,b,fine)),size=parts.reduce((n,m)=>n+m.positions.length,0),positions=new Float32Array(size),normals=new Float32Array(size);let offset=0;

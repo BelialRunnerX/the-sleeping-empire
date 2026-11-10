@@ -1,6 +1,17 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-25";
+const CACHE = "astral-empire-aetherbound-v3-26";
 const FILES = [
+  "./engine/voxel-trees/voxel-trees-v2.mjs",
+  "./engine/voxel-trees/voxel-trees-detailed-core.mjs",
+  "./engine/water-traversal.mjs",
+  "./engine/terrain-water-view.mjs",
+  "./engine/terrain-water-worker.mjs",
+  "./engine/terrain-water-mesh.mjs",
+  "./engine/world-scale.mjs",
+  "./engine/terrain-horizon.mjs",
+  "./engine/mountain-hydrology.mjs",
+  "./engine/continental-terrain.mjs",
+  "./engine/terrain-generation.mjs",
   "./engine/voxel-trees/tree-ecology.mjs",
   "./engine/voxel-trees/tree-gameplay.mjs",
   "./engine/voxel-trees/tree-interaction.mjs",

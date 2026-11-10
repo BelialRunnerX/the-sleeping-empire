@@ -1,3 +1,4 @@
+import { normalizeTerrainGeneration } from './terrain-generation.mjs';
 import { normalizeTreeLedger, fellGameTree } from "./voxel-trees/tree-gameplay.mjs";
 import {
   HEROES,
@@ -141,6 +142,7 @@ export function freshState(seed = 438102) {
     nursery: normalizeNursery(),
     microvoxels: normalizeMicrovoxels(),
     terrain: normalizeTerrainDeltas(),
+    terrainGeneration: {version:1},
     geology: normalizeGeology(null, seed),
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
@@ -328,6 +330,7 @@ export function migrateState(input) {
     s.nursery = normalizeNursery(input.nursery);
     s.microvoxels = normalizeMicrovoxels(input.microvoxels);
     s.terrain = normalizeTerrainDeltas(input.terrain);
+    s.terrainGeneration = normalizeTerrainGeneration(input.terrainGeneration);
     s.geology = normalizeGeology(input.geology, fresh.seed);
     s.seed = fresh.seed;
     s.exploration = normalizeExploration(input.exploration, s.seed);

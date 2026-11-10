@@ -1,4 +1,5 @@
-export const VOXEL_BODY={width:.6,height:3,step:.55,gravity:26};
+import { PLAYER_HEIGHT } from './world-scale.mjs';
+export const VOXEL_BODY={width:.6,height:PLAYER_HEIGHT,step:.55,gravity:26};
 const collides=(volume,x,y,z)=>volume.occupied([x-.3,y+.000001,z-.3],[x+.3,y+3,z+.3]);
 export function findTerrainSpawn(volume,x,z,nearY) {
   for(let y=Math.ceil((nearY+8)*16)/16;y>=nearY-48;y-=1/16)
