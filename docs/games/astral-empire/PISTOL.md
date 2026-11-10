@@ -12,6 +12,6 @@ User direction: finite magazine, infinite reserve, hitscan, good damage and norm
 ## Verification
 175 Node unit tests passed including four new firearm tests: magazine/reload/save state, temper/reforge/ascension, immediate nearest hit and cover, ray boundaries/clamping. Syntax checks passed.
 
-Browser harness: `PLAYWRIGHT_MODULE` optionally points at an already installed Playwright module; then `node tests/pistol-browser.mjs`. Initial run reached actual live local UI and exposed initial auto-fire in test setup, now disabled via normal saved preference. Subsequent final runs were interrupted by execution policy blocking unrelated Visual Studio telemetry. Final browser/visual signoff is NOT claimed; integrator must run it before publication. Full smoke/native/browser aggregate not signed off here. No publication performed.
+Focused browser verification now passes desktop and touch-emulated landscape: real primary input consumes a round, a normal skill does not, ammo-button reload returns twelve rounds, and a service-worker offline reload preserves the equipped pistol and magazine. Actual screenshots inspected. The initial focused run exposed an ammo overlay intercepting the camera-mode control; ammo is now in the character HUD. Full legacy browser/visual verification is run separately at integration. Physical devices are not certified.
 
 Merge notes: small hunks in app/world/avatar-rig may overlap male/harvest integration; keep newer male loader and harvest pose logic. Add firearms.mjs to offline shell and bump cache/version centrally when releasing.

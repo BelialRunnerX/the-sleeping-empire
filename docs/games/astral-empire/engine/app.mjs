@@ -254,7 +254,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.18.1 · Editable Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.19.0 · Editable Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -341,7 +341,7 @@ function updateHUD() {
   $("stamina-fill").style.width = p.stamina + "%";
   $("xp-fill").style.width = (state.xp / (state.level * 100)) * 100 + "%";
   let ammo=document.getElementById("pistol-ammo");
-  if(!ammo){ammo=document.createElement("button");ammo.id="pistol-ammo";ammo.dataset.action="reload-pistol";ammo.style.cssText="position:fixed;left:50%;bottom:19%;transform:translateX(-50%);z-index:25;padding:8px 12px;min-height:44px;font-size:13px";$("hud").append(ammo);}
+  if(!ammo){ammo=document.createElement("button");ammo.id="pistol-ammo";ammo.dataset.action="reload-pistol";ammo.style.cssText="display:block;width:100%;padding:6px 4px;min-height:44px;font-size:10px;margin-top:5px";document.querySelector(".character-info").append(ammo);}
   const gun=firearm(state);ammo.hidden=!gun||!!panel;
   if(gun){ammo.textContent=gun.item.reloadLeft>0?"RELOADING "+gun.item.reloadLeft.toFixed(1)+"s":gun.item.rounds+" / "+gun.magazine+" · ∞ · RELOAD (V)";ammo.disabled=gun.item.reloadLeft>0||gun.item.rounds===gun.magazine;}
   $("potion-count").textContent = "F · " + state.resources.potions;
