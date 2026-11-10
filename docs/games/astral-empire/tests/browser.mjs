@@ -108,7 +108,9 @@ try {
     assert.equal(await page.locator("#codex-class option").count(), 9);
     await page.locator("#codex-race").selectOption("veylari");
     await page.locator("#codex-class").selectOption("marksman");
-    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();await page.locator('#panels').waitFor({state:'hidden'});
+    // First declaration swaps the rig and compiles its shaders on slow CI.
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click({ timeout: 60000 });
+    await page.locator('#panels').waitFor({ state: 'hidden', timeout: 60000 });
     console.log("Profile entered world");
     assert.equal(
       await page.locator("#world").getAttribute("data-avatar-model"),
