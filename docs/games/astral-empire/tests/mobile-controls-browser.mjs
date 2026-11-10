@@ -20,17 +20,19 @@ await page.waitForFunction(()=>document.documentElement.dataset.controls==='touc
 await page.locator('#profile-name').fill('Mobile Test');await page.locator('#profile-pin').fill('2468');await page.getByRole('button',{name:'NEW ADVENTURE',exact:true}).click();await page.locator('[data-action="menu-enter"]').click();await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
 await page.locator('#hud').waitFor();
 await page.evaluate(()=>{
-window.stickEvents=[];document.addEventListener('keydown',e=>stickEvents.push('down:'+e.key));document.addEventListener('keyup',e=>stickEvents.push('up:'+e.key));document.addEventListener('aether-touch-camera',e=>stickEvents.push('camera'));
-for(const [selector,id] of [['.touch-stick.move',21],['.touch-stick.camera',22]]){const el=document.querySelector(selector),r=el.getBoundingClientRect();el.dispatchEvent(new PointerEvent('pointerdown',{pointerId:id,clientX:r.x+r.width*.8,clientY:r.y+r.height*.2,bubbles:true,cancelable:true}));}
+window.stickEvents=[];document.addEventListener('keydown',e=>stickEvents.push('down:'+e.key));document.addEventListener('keyup',e=>stickEvents.push('up:'+e.key));document.addEventListener('aether-touch-primary',e=>stickEvents.push(e.detail.held?'primary-down':'primary-up'));
+for(const [selector,id] of [['.touch-stick.move',21],['.touch-primary-actions [data-touch-key="__primary"]',22]]){const el=document.querySelector(selector),r=el.getBoundingClientRect();el.dispatchEvent(new PointerEvent('pointerdown',{pointerId:id,clientX:r.x+r.width*.8,clientY:r.y+r.height*.2,bubbles:true,cancelable:true}));}
 });
-await page.waitForFunction(()=>window.stickEvents.includes('camera'));
+await page.waitForFunction(()=>window.stickEvents.includes('primary-down'));
 assert.ok((await page.evaluate(()=>window.stickEvents)).includes('down:w'));
 await page.locator('.touch-stick.move').dispatchEvent('pointercancel',{pointerId:21});
 assert.ok((await page.evaluate(()=>window.stickEvents)).includes('up:w'));
 await page.evaluate(()=>window.dispatchEvent(new Event('blur')));
-const cameraCount=await page.evaluate(()=>stickEvents.filter(x=>x==='camera').length);
+assert.ok((await page.evaluate(()=>window.stickEvents)).includes('primary-up'));
+assert.equal(await page.locator('.touch-stick.camera').count(),0);
+const cameraCount=await page.evaluate(()=>stickEvents.filter(x=>x==='primary-down').length);
 await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
-assert.equal(await page.evaluate(()=>stickEvents.filter(x=>x==='camera').length),cameraCount);
+assert.equal(await page.evaluate(()=>stickEvents.filter(x=>x==='primary-down').length),cameraCount);
 
 const render=await page.evaluate(()=>{const c=document.querySelector('#world'),gl=c.getContext('webgl2');return {w:c.width,h:c.height,cw:c.clientWidth,ch:c.clientHeight,dw:gl.drawingBufferWidth,dh:gl.drawingBufferHeight};});
 assert.ok(render.w>=render.cw&&render.h>=render.ch);assert.equal(render.w,render.dw);assert.equal(render.h,render.dh);
@@ -61,12 +63,12 @@ assert.equal(await page.locator('#fullscreen-toggle').getAttribute('aria-pressed
 await page.evaluate(()=>{Object.defineProperty(document,'fullscreenElement',{value:null,configurable:true});document.dispatchEvent(new Event('fullscreenchange'));});
 const check=async()=>{
 await page.evaluate(()=>document.querySelector('#hud').style.setProperty('--safe-bottom','34px'));
-const boxes=await page.evaluate(()=>{const sels=['#world','.touch-stick.move','.touch-actions','.bottom-hud','.character-hud','.device-controls'];return {width:innerWidth,height:innerHeight,scroll:document.documentElement.scrollWidth,boxes:Object.fromEntries(sels.map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,width:r.width,height:r.height}]}))};});
+const boxes=await page.evaluate(()=>{const sels=['#world','.touch-stick.move','.touch-actions','.touch-primary-actions','.bottom-hud','.character-hud','.device-controls'];return {width:innerWidth,height:innerHeight,scroll:document.documentElement.scrollWidth,boxes:Object.fromEntries(sels.map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,width:r.width,height:r.height}]}))};});
 assert.ok(boxes.scroll<=boxes.width,'no horizontal page overflow');
 assert.equal(Math.round(boxes.boxes['#world'].width),boxes.width);assert.equal(Math.round(boxes.boxes['#world'].height),boxes.height);
 for(const [s,r] of Object.entries(boxes.boxes)){assert.ok(r.x>=0&&r.y>=0&&r.x+r.width<=boxes.width+1&&r.y+r.height<=boxes.height+1,`bounds ${s} ${JSON.stringify(r)}`);}
 const overlap=(a,b)=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;
-for(const [a,b] of [['.touch-stick.move','.bottom-hud'],['.touch-actions','.bottom-hud'],['.character-hud','.device-controls']])assert.equal(overlap(boxes.boxes[a],boxes.boxes[b]),false,`${a} overlaps ${b}`);
+for(const [a,b] of [['.touch-stick.move','.bottom-hud'],['.touch-actions','.touch-primary-actions','.bottom-hud'],['.character-hud','.device-controls'],['.touch-primary-actions','.bottom-hud']])assert.equal(overlap(boxes.boxes[a],boxes.boxes[b]),false,`${a} overlaps ${b}`);
 };await check();
 await page.setViewportSize({width:607,height:279});
 assert.equal(await page.locator('.touch-stick.move').isVisible(),true);await check();
@@ -80,9 +82,9 @@ visualViewport.dispatchEvent(new Event('resize'));
 const hud=document.querySelector('#hud');hud.style.setProperty('--safe-left','59px');hud.style.setProperty('--safe-right','59px');hud.style.setProperty('--safe-bottom','21px');
 });
 await page.setViewportSize({width:607,height:279});
-const visible=await page.evaluate(()=>Object.fromEntries(['#world','#hud','.touch-stick.move','.touch-actions','.bottom-hud','.device-controls'].map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}]})));
+const visible=await page.evaluate(()=>Object.fromEntries(['#world','#hud','.touch-stick.move','.touch-actions','.touch-primary-actions','.bottom-hud','.device-controls'].map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}]})));
 assert.equal(visible['#world'].width,560);assert.equal(visible['#hud'].height,260);
-for(const s of ['.touch-stick.move','.touch-actions','.bottom-hud','.device-controls']){assert.ok(visible[s].right<=501&&visible[s].x>=59,`safe inset ${s}: ${JSON.stringify(visible[s])}`);assert.ok(visible[s].bottom<=260,`visible height ${s}`);}
+for(const s of ['.touch-stick.move','.touch-actions','.touch-primary-actions','.bottom-hud','.device-controls']){assert.ok(visible[s].right<=501&&visible[s].x>=59,`safe inset ${s}: ${JSON.stringify(visible[s])}`);assert.ok(visible[s].bottom<=260,`visible height ${s}`);}
 assert.equal(await page.locator('.touch-stick.move').evaluate(el=>getComputedStyle(el).userSelect),'none');
 assert.equal(await page.locator('.touch-stick.move').evaluate(el=>el.dispatchEvent(new Event('contextmenu',{bubbles:true,cancelable:true}))),false);
 await page.locator('#control-options summary').click();

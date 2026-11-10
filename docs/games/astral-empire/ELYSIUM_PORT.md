@@ -2,7 +2,7 @@
 
 Source inspected: `BelialRunnerX/Elysium-mono` at `c0ebd4692c4e95964149a119bd5fff7a4f9d4ea4`. Target integration began at `BelialRunnerX/the-sleeping-empire` commit `4df7ea51c22793af0e25ebbb86c866f15f04d6f4`; unrelated later story changes were preserved before the game commit.
 
-Elysium-mono is a **Java/NeoForge Minecraft module collection**. There was no native C++ engine in the inspected source. Aetherbound's C++ module is newly authored for the browser adaptation; it does not imply that Minecraft or NeoForge were compiled into this game.
+Elysium-mono is a **Java/NeoForge Minecraft module collection**. There was no native C++ engine in the inspected source. The browser game's C++ module is newly authored for the browser adaptation; it does not imply that Minecraft or NeoForge were compiled into this game.
 
 ## Direct rule ports
 
@@ -57,10 +57,10 @@ claim of an asynchronous worker implementation.
 - The Elysium flora registry supplies Loomflax and Downbloom. Wild browser patches yield fibre and seeds and recover in three minutes. Source wild plants provide seeds for cultivation. The nursery converts growth to wall-clock time with two construction tiers. Minecraft block growth, farmland, bonemeal and Emberwood fuel remain separate; the Fortune adaptation is documented above. The field cord, Coilwood bow and Xenotwill jacket use browser materials and XP.
 - `FaunaRules.java` supplies Fenstag and Brackhide identities, roles and target silhouette heights. Their wandering and avoidance are browser behavior. `BeastRules.java` supplies the Shearjaw prowler identity. Browser hit points, pounce timing, terrain checks, damage and rewards are original tuning. Creature art comes from CC0 packs.
 
-- `elysium-space/.../world/SpaceWorld.java` provides the names and gravity metadata for Emerald Bastion, Pale Moon, Cinderveil, Frostfall, and High Orbit. Classic retains all five in its 2D sandbox. Aetherbound offers all five destinations. High Orbit uses lower jump gravity tuned for browser combat; listed source gravity values are metadata.
+- `elysium-space/.../world/SpaceWorld.java` provides the names and gravity metadata for Emerald Bastion, Pale Moon, Cinderveil, Frostfall, and High Orbit. Classic retains all five in its 2D sandbox. the Elysium browser game offers all five destinations. High Orbit uses lower jump gravity tuned for browser combat; listed source gravity values are metadata.
 - World hazards and air classifications are visible in Classic, but no oxygen/thermal/radiological simulation has been ported.
-- `elysium-space/.../world/SpaceTiers.java` was inspected. The original ranks High Orbit/Pale Moon as Ascent, Cinderveil as Summit, Frostfall as Pinnacle, and Emerald Bastion as Apotheosis. Aetherbound deliberately uses Emerald Bastion as the starter sanctuary (tier zero), then unlocks other realms at 10/20/30/40. These gates are a browser gameplay adaptation, not the original route table.
-- `elysium-ores/.../rules/CordonMaterials.java` informs material identities such as cobalt, null amethyst, and ember slag. Classic uses several directly as resources; Aetherbound currently gathers cobalt plus browser-specific timber, starleaf, and moonfin.
+- `elysium-space/.../world/SpaceTiers.java` was inspected. The original ranks High Orbit/Pale Moon as Ascent, Cinderveil as Summit, Frostfall as Pinnacle, and Emerald Bastion as Apotheosis. the Elysium browser game deliberately uses Emerald Bastion as the starter sanctuary (tier zero), then unlocks other realms at 10/20/30/40. These gates are a browser gameplay adaptation, not the original route table.
+- `elysium-ores/.../rules/CordonMaterials.java` informs material identities such as cobalt, null amethyst, and ember slag. Classic uses several directly as resources; the Elysium browser game currently gathers cobalt plus browser-specific timber, starleaf, and moonfin.
 - `elysium-foundry/.../recipe/AlloyRecipe.java` supplies the matching/count logic above. Version 3.4 uses it for two-input processing. Classic's Alloy Smelter remains cosmetic progression. The browser's material recipes, wall-clock queues, output trays, station costs/upgrades and profession rewards are newly authored; neither mode runs Elysium's block entity, power/share network or Minecraft-tick inventory processing. Equipment recipes may have more than two inputs.
 - The six race and nine class IDs, numbers and starter bonuses above are direct data translations. Browser traits are gameplay adaptations; NeoForge event hooks, race-specific mechanics and original class passives are not executed. The 330-node constellation is a new graph using the Codex point budget, not a copy of the Ledger Web layout, doctrines or costs. Cosmetics are independent of stats.
 
@@ -74,13 +74,13 @@ Version 3.5 adds seeded heights, resource placement, caches, rubble, relays and 
 
 Version 3.4 adds the original local production scheduler, sanctuary construction/upgrades, offline catch-up, input reservation/refunds, output collection, new epic equipment and illustrated workstation activity. The narrow matching/count port is independently identified above. It does not imply a complete foundry-system port or new native C++ exports. See [ARTISAN.md](ARTISAN.md) for the exact implemented loop.
 
-The procedural 3D terrain, stylized character/environment meshes, animation, camera, combat state machine, enemy AI, damage/armor formula, skills/supports, constellation graph, affixed equipment, mastery progression, gathering channels, crafting recipes, minimap, UI, local profiles, versioned saves, and migration are Aetherbound implementations. Elysium inspired their sandbox role; they are not source ports.
+The procedural 3D terrain, stylized character/environment meshes, animation, camera, combat state machine, enemy AI, damage/armor formula, skills/supports, constellation graph, affixed equipment, mastery progression, gathering channels, crafting recipes, minimap, UI, local profiles, versioned saves, and migration are the Elysium browser game implementations. Elysium inspired their sandbox role; they are not source ports.
 
 The C++ world hash, damage, elemental mitigation and swept-collision exports are new code. Entity simulation and persistence still run in JavaScript. Native ABI 2 covers six numeric operations. The 3.1 weapon disciplines, projectile chains/echoes, timed reactions and enemy archetypes are browser-native additions, not Elysium source ports. Version 3.2's cel shading, shadows, code-authored character/environment art, procedural textures, foliage/water shaders and graphics controls are also original browser work. No Minecraft textures, models, lighting engine or native C++ rendering system was ported.
 
 ## Not ported
 
-Version 3.3's isometric camera, sprite rendering, two-pose animation treatment and AI-generated portrait/scenery/ground/title assets are new Aetherbound work. None were extracted from Elysium or Minecraft. The numeric C++ ABI and source-formula port boundary are unchanged.
+Version 3.3's isometric camera, sprite rendering, two-pose animation treatment and AI-generated portrait/scenery/ground/title assets are new the Elysium browser game work. None were extracted from Elysium or Minecraft. The numeric C++ ABI and source-formula port boundary are unchanged.
 
 Remaining Minecraft systems include chunk formats and saves, block states, terrain lighting, fluids, rooms, oxygen distributors, suits, hazard mitigation, station generation, native waygates, dimensions, network payloads, biome generation, entity AI, contracts/archive logic, claims, vehicles, logistics, industry, automation, research, enchanting, emberwood fuel, trinkets, and dungeon generation.
 
@@ -88,7 +88,7 @@ The corresponding Java/NeoForge files should be translated by behavior and teste
 
 ## Preservation boundary
 
-The former game remains available as `classic.html`, and its 19 regression checks still run against that page. New Aetherbound saves use version 3 keys; earlier saves remain intact. Migration imports suitable hero/equipment/material data into the action RPG. Old tile edits are not claimed to become 3D terrain changes.
+The former game remains available as `classic.html`, and its 19 regression checks still run against that page. New the Elysium browser game saves use version 3 keys; earlier saves remain intact. Migration imports suitable hero/equipment/material data into the action RPG. Old tile edits are not claimed to become 3D terrain changes.
 
 The project remains a static game subpage. No root-site lore/navigation changes, remote account service, multiplayer server, paid infrastructure, or real-money system were introduced.
 

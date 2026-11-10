@@ -1,6 +1,10 @@
-# Astral Empire: Aetherbound
+# Astral Empire: Elysium
 
-A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
+A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
+
+## Branding and compatibility
+
+The game is now **Elysium** (formerly Aetherbound). Existing URLs, saved profiles, internal event names and file paths remain stable; no save migration or reset is required. The Sleeping Empire canon and the named Aetherbound oathblade item are unchanged.
 
 ## Version 3.17 - Continental frontier and finer voxel trees
 
@@ -122,7 +126,7 @@ for combining these bonuses. Non-fibre gathering is unchanged.
 
 The multiplier formula is ported from Elysium's `FloraRules.fortuned`; applying it
 after browser-specific bonuses, the charm recipe and Prospector synergy are
-Aetherbound adaptations, not claims of Minecraft enchantment compatibility.
+Elysium adaptations, not claims of Minecraft enchantment compatibility.
 
 ## Version 3.10 · Dawnwake Hydroponics
 
@@ -188,7 +192,7 @@ Retribution reflects a separate hit based on incoming damage before the defender
 
 ## Saves and architecture
 
-- Local PINs identify save slots on this browser. Settings supports JSON export and version 1–3 imports. Classic and Aetherbound maintain separate progress after migration.
+- Local PINs identify save slots on this browser. Settings supports JSON export and version 1–3 imports. Classic and Elysium maintain separate progress after migration.
 - Current saves keep version 3 keys. The seed, original depleted-node IDs, position, gear, appearance collection, atelier orders, Codex choices, attribute assignments, explored sites and permanent world changes persist. An older build that spent more than the new level budget keeps those allocations until its Codex budget catches up.
 - The browser caches its local shell for offline play after a successful online load. Graphics and camera preferences are stored separately from character progress. Profiles and progress are local to the browser. Chunk terrain uses heightfields, with harvestable props and persistent discoveries.
 - The freestanding [C++17 module](native/simulation.cpp) still handles numeric hashing, tier/yield, mitigation and swept projectile checks, with JavaScript fallback. JavaScript owns the game state, new navigation/camera/world rules and WebGL integration. See [ELYSIUM_PORT.md](ELYSIUM_PORT.md), [ARTISAN.md](ARTISAN.md), [VISUALS.md](VISUALS.md) and [ROADMAP.md](ROADMAP.md).

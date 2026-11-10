@@ -26,7 +26,7 @@ export function installMobileControls(doc = document, win = window) {
   const key='aetherbound_controls_v1'; let preference='auto';
   try { const value=win.localStorage.getItem(key); if(['auto','touch','desktop'].includes(value)) preference=value; } catch {}
   const bar=doc.createElement('div'); bar.className='device-controls';
-  bar.innerHTML='<button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">Fullscreen</button><details id="control-options"><summary>Controls</summary><label>Input layout<select id="control-scheme"><option value="auto">Auto detect</option><option value="touch">Touch / on-screen</option><option value="desktop">Keyboard / controller</option></select></label><p>Left stick moves. Right stick rotates horizontally and zooms vertically. Drag the world to orbit. A connected controller hides touch controls in Auto.</p><p id="fullscreen-help" role="status"></p></details>';
+  bar.innerHTML='<button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">Fullscreen</button><details id="control-options"><summary>Controls</summary><label>Input layout<select id="control-scheme"><option value="auto">Auto detect</option><option value="touch">Touch / on-screen</option><option value="desktop">Keyboard / controller</option></select></label><p>Left stick moves. Right buttons interact and hold primary attack. Drag the world to orbit; pinch to zoom. A connected controller hides touch controls in Auto.</p><p id="fullscreen-help" role="status"></p></details>';
   hud.append(bar);
   const options=bar.querySelector('details');
   const fullButton=bar.querySelector('#fullscreen-toggle');
@@ -46,15 +46,18 @@ export function installMobileControls(doc = document, win = window) {
   const actions=doc.createElement('div');actions.className='touch-actions';
   actions.innerHTML='<button type="button" data-touch-key="e">Interact</button><button type="button" data-touch-key="q">Target</button><button type="button" data-touch-key="g">Guard</button><button type="button" data-touch-key=" ">Jump</button><button type="button" data-touch-key="Shift">Dodge</button>';
   hud.append(actions);
+  const rightActions=doc.createElement('div');rightActions.className='touch-primary-actions';
+  rightActions.append(actions.querySelector('[data-touch-key="e"]'));
+  const primary=doc.createElement('button');primary.type='button';primary.dataset.touchKey='__primary';primary.textContent='LMB';primary.setAttribute('aria-label','Hold primary attack');rightActions.append(primary);hud.append(rightActions);
   const sticks=[];let moveKeys=new Set();
   const held=new Map();
-  const emit=(type,k)=>doc.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true}));
+  const emit=(type,k)=>k==='__primary'?doc.dispatchEvent(new win.CustomEvent('aether-touch-primary',{detail:{held:type==='keydown'}})):doc.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true}));
   const release=()=>{for(const stick of sticks)stick.reset();for(const k of moveKeys)emit('keyup',k);moveKeys.clear();for(const k of held.values())emit('keyup',k);held.clear();for(const k of ['w','a','s','d'])emit('keyup',k);};
-  for(const button of actions.querySelectorAll('button')) {
+  for(const button of [...actions.querySelectorAll('button'),...rightActions.querySelectorAll('button')]) {
     button.addEventListener('pointerdown',e=>{e.preventDefault();const k=button.dataset.touchKey;held.set(e.pointerId,k);emit('keydown',k);if(button.hasPointerCapture?.(e.pointerId)===false){try{button.setPointerCapture(e.pointerId);}catch{}}});
     for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,e=>{const k=held.get(e.pointerId);if(k)emit('keyup',k);held.delete(e.pointerId);});
   }
-  for(const kind of ['move','camera']) {
+  for(const kind of ['move']) {
     const stick=doc.createElement('div');stick.className='touch-stick '+kind;stick.setAttribute('role','group');stick.setAttribute('aria-label',kind==='move'?'Movement joystick':'Camera joystick: horizontal orbit, vertical zoom');
     stick.innerHTML='<span class="stick-label">'+(kind==='move'?'MOVE':'ORBIT / ZOOM')+'</span><i></i>';hud.append(stick);
     const state={pointer:null,x:0,y:0,reset(){this.pointer=null;this.x=this.y=0;stick.querySelector('i').style.transform='translate(-50%,-50%)';if(kind==='move'){for(const k of moveKeys)emit('keyup',k);moveKeys.clear();}}};sticks.push(state);
@@ -63,7 +66,6 @@ export function installMobileControls(doc = document, win = window) {
     stick.addEventListener('pointermove',e=>{if(state.pointer===e.pointerId){e.preventDefault();update(e);}});
     for(const type of ['pointerup','pointercancel','lostpointercapture'])stick.addEventListener(type,e=>{if(state.pointer===e.pointerId)state.reset();});
   }
-  let last=0;const tick=t=>{const dt=Math.min((t-last)/1000,.05);last=t;const camera=sticks[1];if(camera.pointer!==null&&(camera.x||camera.y))doc.dispatchEvent(new win.CustomEvent('aether-touch-camera',{detail:{x:camera.x,y:camera.y,dt}}));win.requestAnimationFrame(tick);};win.requestAnimationFrame(tick);
   options.addEventListener('toggle',()=>{if(options.open)release();});
   const pads=()=>{try{return [...(win.navigator.getGamepads?.()||[])].some(p=>p?.connected);}catch{return false;}};
   const apply=()=>{release();const scheme=resolveControlScheme(preference,detectMobile(win),pads());doc.documentElement.dataset.controls=scheme;

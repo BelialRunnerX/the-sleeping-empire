@@ -1,3 +1,5 @@
+> Current game branding: **Elysium**. Historical generation prompts below retain the former Aetherbound title for provenance.
+
 # Anime artwork provenance and prompts
 
 Version 3.5 uses the title illustration and portraits in menus. The other atlases are retained for previous releases and no longer load in the 3D world.

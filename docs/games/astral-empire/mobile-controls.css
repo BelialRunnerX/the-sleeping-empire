@@ -107,3 +107,7 @@ body:has(#panels:not([hidden])) .touch-stick {visibility:hidden;}
  html[data-controls="touch"] .skillbar {grid-template-columns:repeat(6,minmax(30px,1fr));}
  html[data-controls="touch"] .touch-actions {bottom:calc(48px + var(--safe-bottom));}
 }
+.touch-primary-actions {display:none;}
+html[data-controls="touch"] .touch-primary-actions {display:grid;grid-template-rows:repeat(2,44px);gap:4px;position:absolute;right:var(--safe-right);bottom:var(--safe-bottom);width:88px;pointer-events:auto;}
+.touch-primary-actions button {font-size:12px;padding:6px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;}
+body:has(#panels:not([hidden])) .touch-primary-actions {visibility:hidden;}

@@ -128,6 +128,7 @@ let state = freshState(),
   declarationRequired = false,
   noticeId = 0,
   holdingAttack = false,
+  touchPrimaryHeld = false,
   muted = false,
   audio;
 const controller=new ControllerInput();
@@ -243,7 +244,7 @@ function landing() {
   $("hud").hidden = true;
   $("landing").hidden = false;
   $("landing").innerHTML =
-    `<section class="landing-copy">${profiles.active ? '<button data-action="menu-back">← Back to main menu</button>' : ""}<div class="landing-ornament">✧ &nbsp; THE SLEEPING EMPIRE</div><h1>Aetherbound<em>ASTRAL EMPIRE</em></h1><div class="landing-rule"></div><p>Beyond the veil, a world is waking.<br>Forge your own path through steel, starlight, and the quiet art of living.</p><div class="profile-list">${profiles
+    `<section class="landing-copy">${profiles.active ? '<button data-action="menu-back">← Back to main menu</button>' : ""}<div class="landing-ornament">✧ &nbsp; THE SLEEPING EMPIRE</div><h1>Elysium<em>ASTRAL EMPIRE</em></h1><div class="landing-rule"></div><p>Beyond the veil, a world is waking.<br>Forge your own path through steel, starlight, and the quiet art of living.</p><div class="profile-list">${profiles
       .list()
       .map(
         (p) =>
@@ -272,6 +273,7 @@ function mainMenu(settingsPage = false) {
   cancelTravel();
   gathering = null;
   holdingAttack = false;
+  touchPrimaryHeld = false;
   keys.clear();
   panel = null;
   document.body.classList.remove("scenic-view");
@@ -907,12 +909,13 @@ function openPanel(id) {
   cancelTravel();
   gathering = null;
   holdingAttack = false;
+  touchPrimaryHeld = false;
   keys.clear();
   panel = id;
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Elysium"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
   ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
@@ -1577,6 +1580,10 @@ function saveCamera() {
     } catch {}
   }, 180);
 }
+document.addEventListener('aether-touch-primary',e=>{
+  touchPrimaryHeld=!!e.detail.held && playing && !panel && !document.querySelector('#control-options')?.open;
+  if(touchPrimaryHeld)attack('strike');
+});
 document.addEventListener('aether-touch-camera',e=>{
   if(!view||!playing||panel)return;
   const {x,y,dt}=e.detail;
@@ -1635,6 +1642,7 @@ addEventListener("blur", () => {
   keys.clear();
   pointers.clear();
   holdingAttack = false;
+  touchPrimaryHeld = false;
   cancelTravel();
 });
 canvas.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -1947,7 +1955,7 @@ function frame(now) {
           }
         }
         state.position = { x: p.x, z: p.z };
-        if (holdingAttack || activePad?.held.has(7)) attack("strike");
+        if (holdingAttack || touchPrimaryHeld || activePad?.held.has(7)) attack("strike");
         const primary=skillStats(state,"strike");
         if(updateCombatAssist(sim,{autoTarget:assist.autoTarget && (activePad ? !controllerTargetSuppressed : document.documentElement.dataset.controls!=="touch"),selectTarget:()=>targetInView(sim,view.yaw),autoFire:assist.autoFire,range:primary.range||primary.radius,enabled:inputFocused&&!document.hidden&&!panel&&!gathering})){sound(230);}
         canvas.dataset.autoTarget=String(assist.autoTarget);canvas.dataset.autoFire=String(assist.autoFire);canvas.dataset.lockedTarget=sim.locked?.id||"";
@@ -1999,6 +2007,7 @@ document.addEventListener("visibilitychange", () => {
     keys.clear();
     cancelTravel();
     holdingAttack = false;
+  touchPrimaryHeld = false;
     save();
   }
 });

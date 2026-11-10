@@ -1,4 +1,4 @@
-# Aetherbound: toward a deep third-person anime MMO
+# Elysium: toward a deep third-person anime MMO
 
 ## Current milestone
 
@@ -11,7 +11,7 @@ surrounding heightfield has not been replaced by microvoxels.
 Version 3.11 compounds cultivation, refining, crafted equipment, Prospector
 ascension, mastery, constellation yield and Luck through a source-derived Fortune
 multiplier. Preserve these interactions when expanding encounter difficulty.
-Existing Aetherbound features remain unless they obstruct a genuine port.
+Existing Elysium features remain unless they obstruct a genuine port.
 Future dependencies include original world generation, ore distribution and base
 Minecraft-material equivalents wherever the source expects engine-provided data;
 these are not implemented by the Fortune milestone.

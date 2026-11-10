@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';import vm from 'node:vm';
+const s=readFileSync(new URL('../engine/app.mjs',import.meta.url),'utf8').replace(/\r/g,'');
+const body=s.match(/document.addEventListener\('aether-touch-primary',e=>\{([\s\S]*?)\n\}\);/)[1];
+const calls=[],ctx={touchPrimaryHeld:false,playing:true,panel:null,document:{querySelector:()=>({open:false})},attack:id=>calls.push(id)};vm.createContext(ctx);
+const emit=held=>vm.runInContext(`(function(e){${body}})({detail:{held:${held}}})`,ctx);
+emit(true);assert.equal(ctx.touchPrimaryHeld,true);assert.deepEqual(calls,['strike']);emit(false);assert.equal(ctx.touchPrimaryHeld,false);
+ctx.panel='inventory';emit(true);assert.equal(ctx.touchPrimaryHeld,false);ctx.panel=null;ctx.playing=false;emit(true);assert.equal(ctx.touchPrimaryHeld,false);assert.equal(calls.length,1);
+assert.match(s,/holdingAttack \|\| touchPrimaryHeld \|\| activePad\?\.held.has\(7\)/);
+assert.doesNotMatch(s,/if \(p.mode === "attack"\) holdingAttack = false;\n  touchPrimaryHeld = false/);
+console.log('PASS touch primary uses normal strike, holding loop, release, panel/logout gate, independent canvas-pointer release');
