@@ -1,3 +1,5 @@
+import {universePanel,mountUniversePanel} from './universe-ui.mjs';
+let disposeUniverse=null;
 import { firearm } from "./firearms.mjs";
 import {harvestKind,loadHarvestTools} from './harvest-visual.mjs';
 import { mainMenuMarkup, menuSettingsMarkup } from "./main-menu.mjs";
@@ -149,12 +151,13 @@ const tabs = [
   ["codex", "Codex"],
   ["journal", "Journal"],
   ["frontier", "Survey"],
+  ["universe", "Universe"],
   ["realms", "Waygates"],
   ["settings", "Settings"],
 ];
 const menuGroups = [
   ["Character", ["codex", "inventory", "skills", "passives", "heroes"]],
-  ["Fieldwork", ["frontier", "terrain", "journal", "realms"]],
+  ["Fieldwork", ["frontier", "universe", "terrain", "journal", "realms"]],
   ["Industry", ["lifeskills", "crafting", "artisan", "nursery", "geology"]],
   ["Game", ["settings"]],
 ];
@@ -241,6 +244,7 @@ function landing() {
   declarationRequired = false;
   cancelTravel();
   document.body.classList.remove("scenic-view");
+  disposeUniverse?.();disposeUniverse=null;
   panel = null;
   keys.clear();
   $("panels").hidden = true;
@@ -255,7 +259,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.20.0 · Editable Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.21.0 · Editable Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -278,6 +282,7 @@ function mainMenu(settingsPage = false) {
   holdingAttack = false;
   touchPrimaryHeld = false;
   keys.clear();
+  disposeUniverse?.();disposeUniverse=null;
   panel = null;
   document.body.classList.remove("scenic-view");
   $("panels").hidden = true;
@@ -297,7 +302,8 @@ function launchWorld() {
     atMainMenu = false;
     $("landing").hidden = true;
     $("hud").hidden = false;
-    panel = null;
+    disposeUniverse?.();disposeUniverse=null;
+  panel = null;
     declarationRequired = !state.race || !state.calling;
     renderBar();
     updateHUD();
@@ -919,11 +925,13 @@ function openPanel(id) {
   holdingAttack = false;
   touchPrimaryHeld = false;
   keys.clear();
+  disposeUniverse?.();disposeUniverse=null;
   panel = id;
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Elysium"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Elysium"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, universe: () => universePanel(state.universe), settings }[id] || inventory)()}</div></div></section>`;
+  if (id === "universe") disposeUniverse=mountUniversePanel($("panels"),state.universe);
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
   ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
@@ -932,6 +940,7 @@ function closePanel() {
   if (declarationRequired) return;
   if ($("panels").contains(document.activeElement))
     document.activeElement.blur();
+  disposeUniverse?.();disposeUniverse=null;
   panel = null;
   $("panels").hidden = true;
   keys.clear();

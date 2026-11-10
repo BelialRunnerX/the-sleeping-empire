@@ -1,3 +1,4 @@
+import {universeManifest} from './universe/manifest.mjs';
 import { normalizeTerrainGeneration } from './terrain-generation.mjs';
 import { normalizeTreeLedger, fellGameTree } from "./voxel-trees/tree-gameplay.mjs";
 import {
@@ -90,6 +91,7 @@ export function freshState(seed = 438102) {
   return {
     version: 3,
     seed,
+    universe: universeManifest(null,seed),
     level: 1,
     xp: 0,
     gold: 1600,
@@ -186,6 +188,7 @@ export function migrateState(input) {
   if (!input || typeof input !== "object") return fresh;
   if (input.version === 3) {
     const s = { ...fresh, ...input, version: 3 };
+    s.universe=universeManifest(input.universe,fresh.seed);
     for (const key of [
       "level",
       "xp",

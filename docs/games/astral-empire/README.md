@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.21 - Universal hierarchy survey
+
+Fieldwork now includes Universe: a bounded read-only scan of deterministic systems and their planets, using the profile seed, exact coarse-cell addresses and independent resource/hazard metadata. Existing worlds and saves are untouched. This is the first hierarchy service and inspector, not planet travel or completed cube-sphere terrain. See UNIVERSE.md.
+
 ## Version 3.20 - Field tools and creatures
 
 The pistol now rests lowered with a relaxed breathing pose, raises while firing, and uses articulated finger grip. Contact remains approximate rather than full-body IK.

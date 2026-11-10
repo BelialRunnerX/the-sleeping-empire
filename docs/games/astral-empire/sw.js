@@ -1,6 +1,11 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-34";
+const CACHE = "astral-empire-aetherbound-v3-35";
 const FILES = [
+  "./engine/universe-ui.mjs",
+  "./engine/universe/manifest.mjs",
+  "./engine/universe/universe-survey.mjs",
+  "./engine/universe/galaxy-fields.mjs",
+  "./engine/universe/planet-environment.mjs",
   "./engine/pistol-model.mjs",
   "./assets/items/aethercoil-pistol.glb",
   "./engine/firearms.mjs",
