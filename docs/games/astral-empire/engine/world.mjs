@@ -1,3 +1,4 @@
+import {sanctuaryTreeClearance} from "./voxel-trees/tree-placement.mjs";
 import {createCoarseHeightSampler,buildSurfaceSeams} from "./terrain-seams.mjs";
 import {parseTerrainBlockKey} from "./terrain-volume.mjs";
 import { treeEcology } from "./voxel-trees/tree-ecology.mjs";
@@ -181,6 +182,7 @@ export class WorldView {
     },onReady:()=>{this.canvas.dataset.voxelTrees=String([...this.voxelTrees.entries.values()].filter(e=>e.mesh).length);}});
     this.sim.treeOccupied=(min,max)=>treeBoxCollision(this.voxelTrees.entries,this.state.trees,min,max);
     this.sim.isVoxelTree=id=>!!this.voxelTrees.entries.get(String(id))?.mesh;
+    this.treeClearance=sanctuaryTreeClearance(this.sim.terrainVolume.field);
     this.voxelTrees.player={x:this.sim.player.x,z:this.sim.player.z};
     this.coreNodes = this.createNodes();
     this.createFeatures();
@@ -660,7 +662,7 @@ export class WorldView {
         g.add(ring);
         mesh(g, "sphere", 0xbde8ee, 0, 0.3, 0, 0.1);
       }
-      if(d.kind === "tree") this.voxelTrees.attach(g,d,{...treeEcology(this.state.seed,this.state.realm,d.x,d.z),felled:!!this.state.trees?.felled[d.id]});
+      if(d.kind === "tree") this.voxelTrees.attach(g,d,{...treeEcology(this.state.seed,this.state.realm,d.x,d.z),protectedBoxes:Math.max(Math.abs(d.x),Math.abs(d.z))<40?this.treeClearance:undefined,felled:!!this.state.trees?.felled[d.id]});
       const glow = new T.Mesh(
         new T.RingGeometry(0.8, 0.85, 24),
         new T.MeshBasicMaterial({

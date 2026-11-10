@@ -8,6 +8,10 @@ The Journal now offers thirteen ordered introduction quests with visible materia
 
 See `INTRO_QUEST.md` and `WORLD_SURFACES.md` for scope, provenance and verification.
 
+## Version3.15.1 - Sanctuary access correction
+
+The CI travel failure was a real generated acacia branch obstructing the Foundry-to-Alchemy route (seed92714), not a short timeout. Authored sanctuary trees now select a deterministic variant whose actual woody cells clear explicit access corridors and full player headroom. Rare exhausted variants retain only connected, safe voxel growth rather than turning collision off. Wild tree identities and previously felled-tree saves are preserved. Regression tests reproduce the original obstruction and verify real swept player movement across the corrected route.
+
 ## Version 3.15 - Living Voxel Frontier
 
 - Deterministic streamed voxel ground now includes the settlement surface; foundations remain protected from editing. The Terrain menu provides a survey jump and tools for whole-block mining, 1/16-metre carving and stone placement beyond the protected foundation region.
