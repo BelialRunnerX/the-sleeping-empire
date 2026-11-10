@@ -35,6 +35,21 @@ import { CAMERA_KEY } from "./camera.mjs";
 import { discover, useFeature } from "./frontier.mjs";
 import { routeTo } from "./navigation.mjs";
 import {
+  GEODE_MATERIALS,
+  GEODE_STAGES,
+  GEODE_FRAMES,
+  geodeStage,
+} from "./geodes.mjs";
+import {
+  WEAPON_FORMS,
+  ARMOR_FORMS,
+  ASCENSION_PATHS,
+  ascensionTier,
+  ascensionCost,
+  equipmentPower,
+  equippedForm,
+} from "./arsenal.mjs";
+import {
   ATTRIBUTES,
   RACES,
   CLASSES,
@@ -212,7 +227,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.6 · Beyond the Rim</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.7 · Foundry Ascension</span></footer>`;
 }
 function enter(create) {
   try {
@@ -365,10 +380,17 @@ function updateHUD() {
     const job = PROFESSIONS.find(
       (p) => p.node === (node.kind === "rock" ? "ore" : node.kind),
     );
-    $("interact-name").textContent = resourceName(node.kind);
+    $("interact-name").textContent =
+      node.kind === "geode"
+        ? GEODE_MATERIALS[node.material].name + " geode"
+        : resourceName(node.kind);
     $("interact-detail").textContent = gathering
       ? "Gathering… stay still"
-      : job.name + " · Mastery " + professionLevel(state, job.id);
+      : node.kind === "geode"
+        ? GEODE_STAGES[geodeStage(state.depleted[node.id])] +
+          " · " +
+          GEODE_MATERIALS[node.material].purpose
+        : job.name + " · Mastery " + professionLevel(state, job.id);
   }
   $("gather-progress").style.width = gathering
     ? (1 - gathering.left / gathering.total) * 100 + "%"
@@ -396,6 +418,7 @@ function resourceName(kind) {
     herb: "Starleaf cluster",
     fish: "Moonfin shallows",
     rock: "Mineral boulder",
+    geode: "Crystal cluster",
     wreck: "Drone wreck",
   }[kind];
 }
@@ -601,6 +624,35 @@ function statBoxes() {
     )
     .join("")}</div>`;
 }
+function itemUpgradeControls(item) {
+  const cost = ascensionCost(item),
+    tier = ascensionTier(item),
+    frame = GEODE_FRAMES[item.frame];
+  const form = WEAPON_FORMS[item.form] || ARMOR_FORMS[item.form];
+  const possible =
+    cost &&
+    item.quality >= cost.temper &&
+    state.gold >= cost.gold &&
+    Object.entries(cost.resources).every(
+      ([key, n]) => state.resources[key] >= n,
+    );
+  const branches = item.ascensionPath
+    ? [item.ascensionPath]
+    : Object.keys(ASCENSION_PATHS);
+  return `<div class="item-provenance"><small>${form?.name || "Standard base"} · ASCENSION ${tier}/3${tier ? " · " + ASCENSION_PATHS[item.ascensionPath].name : ""}</small>
+  ${frame ? `<div class="affix">${frame.label} · ${frame.description}</div>` : ""}
+  ${form?.description ? `<div class="affix">${form.description}</div>` : ""}
+  ${
+    cost
+      ? `<p class="small">Next tier · Temper +${cost.temper} · ${cost.gold} gold · ${Object.entries(
+          cost.resources,
+        )
+          .map(([key, n]) => n + " " + MATERIAL_NAMES[key])
+          .join(", ")}</p>
+    <div class="item-actions">${branches.map((path) => `<button data-item="${item.id}" data-item-action="ascend-${path}" title="${ASCENSION_PATHS[path].description}" ${possible ? "" : "disabled"}>ASCEND · ${ASCENSION_PATHS[path].name}</button>`).join("")}</div>`
+      : "<p class='small'>Ascension complete</p>"
+  }</div>`;
+}
 function inventory() {
   return (
     statBoxes() +
@@ -611,7 +663,7 @@ function inventory() {
       .join("")}</div><div class="grid-3">${state.items
       .map((i) => {
         const equipped = state.equipped[i.slot] === i.id;
-        return `<article class="card ${equipped ? "selected" : ""}"><div class="row spread"><span class="tag ${i.rarity}">${i.rarity.toUpperCase()} ${i.slot.toUpperCase()}</span><span class="small muted">ILVL ${i.level}</span></div><h3 class="${i.rarity}" style="margin-top:12px">${escape(i.name)} ${i.quality ? "+" + i.quality : ""}</h3><p>${Math.round(i.base * (1 + i.quality * 0.04))} base ${i.slot === "weapon" ? "hit power" : i.slot === "armor" ? "armor" : "mana"}</p>${i.affixes.map((a) => `<div class="affix">+${a.value < 1 ? Math.round(a.value * 100) + "%" : Math.round(a.value)} ${escape(a.stat.replace(/([A-Z])/g, " $1").toLowerCase())}</div>`).join("")}<div class="item-actions"><button data-item="${i.id}" data-item-action="equip" ${equipped ? "disabled" : ""}>${equipped ? "EQUIPPED" : "EQUIP"}</button><button data-item="${i.id}" data-item-action="temper" ${state.resources.cobalt < 2 || state.gold < 50 || i.quality >= 20 ? "disabled" : ""}>TEMPER · 2 cobalt + 50g</button><button data-item="${i.id}" data-item-action="reroll" ${!state.resources.essence ? "disabled" : ""}>RESHAPE · 1 essence</button><button data-item="${i.id}" data-item-action="salvage" ${equipped ? "disabled" : ""}>SALVAGE</button></div></article>`;
+        return `<article class="card ${equipped ? "selected" : ""}"><div class="row spread"><span class="tag ${i.rarity}">${i.rarity.toUpperCase()} ${i.slot.toUpperCase()}</span><span class="small muted">ILVL ${i.level}</span></div><h3 class="${i.rarity}" style="margin-top:12px">${escape(i.name)} ${i.quality ? "+" + i.quality : ""}</h3><p>${Math.round(equipmentPower(i))} base ${i.slot === "weapon" ? "hit power" : i.slot === "armor" ? "armor" : i.slot === "offhand" ? "shield strength" : "mana"}</p>${itemUpgradeControls(i)}${i.affixes.map((a) => `<div class="affix">+${a.value < 1 ? Math.round(a.value * 100) + "%" : Math.round(a.value)} ${escape(a.stat.replace(/([A-Z])/g, " $1").toLowerCase())}</div>`).join("")}<div class="item-actions"><button data-item="${i.id}" data-item-action="equip" ${equipped ? "disabled" : ""}>${equipped ? "EQUIPPED" : "EQUIP"}</button><button data-item="${i.id}" data-item-action="temper" ${state.resources.cobalt < 2 || state.gold < 50 || i.quality >= 20 ? "disabled" : ""}>TEMPER · 2 cobalt + 50g</button><button data-item="${i.id}" data-item-action="reroll" ${!state.resources.essence ? "disabled" : ""}>RESHAPE · 1 essence</button><button data-item="${i.id}" data-item-action="salvage" ${equipped ? "disabled" : ""}>SALVAGE</button></div></article>`;
       })
       .join("")}</div>`
   );
@@ -620,7 +672,7 @@ function skills() {
   const st = stats(state),
     hero = classFor(state);
   const last = sim.lastHit;
-  return `<p class="small muted">Weapon discipline: ${hero.weapon.toUpperCase()}. Blade attacks cleave, bows fire arrows, and staves cast bolts. Link two different compatible supports to active skills.</p>
+  return `<p class="small muted">Weapon discipline: ${WEAPON_FORMS[equippedForm(state)]?.name || skillStats(state, "strike").weapon.toUpperCase()}. Weapon form sets your basic attack. Class sets the element and innate bonuses. Link two different compatible supports to active skills.</p>
   <div class="card small" id="damage-inspector"><b>Combat breakdown</b><p>Physical hits meet armor. Elemental hits meet resistance, capped at 75%. An enemy resists its own element by an extra 20%. Skill previews below use a target with 30 armor and 20% resistance; critical hits, ailments, echoes and reactions are shown separately.</p>${last ? `<p>Last ${escape(last.source)}${last.echo ? " echo" : " hit"} on ${escape(last.target)}: ${fmt(last.physical)} physical + ${fmt(last.elemental)} ${escape(last.element)} before reaction · ${fmt(last.total)} final damage${last.critical ? " · CRITICAL" : ""}${last.reaction ? " · " + escape(last.reaction) : ""}</p>` : "<p>Strike a foe to inspect your last actual hit.</p>"}</div>
   <div class="grid-2" style="margin-top:12px">${SKILLS.map((base) => {
     const skill = skillStats(state, base.id),
@@ -648,7 +700,7 @@ function skills() {
             .join(
               "",
             )}</div><div class="support-notes">${skill.supports.map((name) => SUPPORTS.find((s) => s.name === name)?.desc).join("<br>") || "No support linked."}</div>`
-        : '<p class="support-notes">The weapon combo is innate. Choose a different class at base to change your discipline.</p>'
+        : '<p class="support-notes">The weapon combo is innate. Equip another weapon form to change it. Your class supplies the default discipline.</p>'
     }</article>`;
   }).join("")}</div>`;
 }
@@ -656,11 +708,22 @@ function constellation() {
   return constellationPanel(state);
 }
 function lifeskills() {
-  return `<div class="grid-3">${PROFESSIONS.map((p) => {
-    const level = professionLevel(state, p.id),
-      xp = state.professions[p.id];
-    return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : p.id === "surveying" ? "Discoveries and relay sync grant experience." : "Crafting grants profession experience."}</p></article>`;
-  }).join(
+  return `<div class="card"><h3>Field material guide</h3><div class="grid-2">${Object.entries(
+    GEODE_MATERIALS,
+  )
+    .map(
+      ([id, m]) =>
+        `<p><b>${m.name} · ${state.resources[id]}</b><br>${m.region} · ${m.purpose}</p>`,
+    )
+    .join(
+      "",
+    )}</div><p>Small, medium and large buds mature into harvestable clusters. Growth continues while away.</p></div><div class="grid-3">${PROFESSIONS.map(
+    (p) => {
+      const level = professionLevel(state, p.id),
+        xp = state.professions[p.id];
+      return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : p.id === "surveying" ? "Discoveries and relay sync grant experience." : "Crafting grants profession experience."}</p></article>`;
+    },
+  ).join(
     "",
   )}</div><div class="row" style="margin-top:16px"><button class="gold-button" data-panel="crafting">OPEN WORKSHOP →</button><span class="small muted">Resources recover after 3 minutes. Progress saves through logout.</span></div>`;
 }
@@ -771,7 +834,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -869,8 +932,15 @@ function startGather(target = nearestInteraction()) {
   }
   const node = target;
   if (state.depleted[node.id] > Date.now())
-    return notify("This resource is recovering.");
-  const total = node.kind === "fish" ? 3 : 1.5;
+    return notify(
+      node.kind === "geode"
+        ? GEODE_STAGES[geodeStage(state.depleted[node.id])] +
+            " · Matures in " +
+            Math.ceil((state.depleted[node.id] - Date.now()) / 1000) +
+            "s"
+        : "This resource is recovering.",
+    );
+  const total = node.kind === "fish" ? 3 : node.kind === "geode" ? 2.4 : 1.5;
   gathering = { node, left: total, total, x: sim.player.x, z: sim.player.z };
   sound(300);
 }
@@ -1066,8 +1136,16 @@ document.addEventListener("click", (e) => {
   }
   if (n.dataset.item) {
     const ok = alterItem(state, n.dataset.item, n.dataset.itemAction);
-    notify(ok ? "Equipment updated." : "That equipment change is unavailable.");
+    notify(
+      ok
+        ? "Equipment updated."
+        : "Check the required temper, gold and materials.",
+    );
     if (ok) {
+      if (n.dataset.itemAction === "equip") {
+        view.setHero();
+        renderBar();
+      }
       save();
       openPanel("inventory");
     }
@@ -1529,7 +1607,7 @@ function handleEvents() {
       floating(event);
       view.impactFX(event);
     }
-    if (event.type === "reflection") floating(event);
+    if (event.type === "reflection" || event.type === "guard") floating(event);
     if (event.type === "hurt") {
       gathering = null;
       cancelTravel();
@@ -1596,7 +1674,7 @@ function frame(now) {
           pz = p.z;
         input = travel && !(manual.x || manual.z) ? routeInput(step) : manual;
         if (panel) break;
-        sim.tick(step, input);
+        sim.tick(step, { ...input, guard: keys.has("g") });
         if (travel) {
           travel.stuck =
             Math.hypot(p.x - px, p.z - pz) < 0.001 ? travel.stuck + step : 0;

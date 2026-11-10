@@ -1,4 +1,5 @@
 import { numeric } from "./native.mjs";
+import { geodeMaterial } from "./geodes.mjs";
 
 export const CHUNK_SIZE = 40;
 // Save validation guard for numerical precision, not a terrain or travel gate.
@@ -65,7 +66,18 @@ export function generateChunk(seed, realm, cx, cz) {
     ];
   });
   const features = [];
-  if (nodes.length === types.length && fraction(hash, 8, 3) < 0.24) {
+  const frontier = nodes.length === types.length;
+  if (frontier && fraction(hash, 15, 9) < 0.48)
+    nodes.push({
+      id: realm + "-crystal-" + key,
+      kind: "geode",
+      material: geodeMaterial(realm, Math.floor(fraction(hash, 16, 9) * 3)),
+      x: cx * CHUNK_SIZE + 6,
+      z: cz * CHUNK_SIZE + 33,
+      radius: 0.76,
+      height: 1.8,
+    });
+  if (frontier && fraction(hash, 8, 3) < 0.24) {
     const kind =
       fraction(hash, 9, 7) < 0.13
         ? "beacon"
@@ -88,7 +100,7 @@ export function generateChunk(seed, realm, cx, cz) {
     });
   }
   const enemy =
-    nodes.length === types.length && fraction(hash, 14, 3) < 0.36
+    frontier && fraction(hash, 14, 3) < 0.36
       ? {
           id: realm + "-patrol-" + key,
           x: cx * CHUNK_SIZE + 28,

@@ -59,9 +59,18 @@ try {
   await page.goto("http://127.0.0.1:" + server.address().port);
   await page.evaluate(async () => {
     const { WorldView } = await import("/engine/world.mjs");
-    const { freshState, Simulation } = await import("/engine/simulation.mjs");
+    const { freshState, Simulation, craft, alterItem } = await import(
+      "/engine/simulation.mjs"
+    );
     const { HEROES } = await import("/engine/content.mjs");
-    window.artTest = { WorldView, freshState, Simulation, HEROES };
+    window.artTest = {
+      WorldView,
+      freshState,
+      Simulation,
+      HEROES,
+      craft,
+      alterItem,
+    };
   });
   for (const realm of ["bastion", "moon", "cinder", "frost", "orbit"]) {
     const report = await page.evaluate(async (realm) => {
@@ -173,6 +182,89 @@ try {
       cancelAnimationFrame(window.artTest.frame);
       window.artTest.view.dispose();
     });
+  }
+  const showcase = [
+    {
+      file: "foundry-arsenal.png",
+      realm: "bastion",
+      x: 0,
+      z: 6,
+      yaw: 2.66,
+      pitch: 0.21,
+      distance: 4.95,
+      hero: "kael",
+      weapon: "piercer-spear",
+      armor: "siege-plate",
+    },
+    {
+      file: "foundry-crystals.png",
+      realm: "frost",
+      x: -12.3,
+      z: 12.5,
+      yaw: 1.72,
+      pitch: 0.39,
+      distance: 6.5,
+      hero: "mira",
+      weapon: "railbow",
+      armor: "scout-weave",
+    },
+    {
+      file: "foundry-expedition.png",
+      realm: "orbit",
+      x: -2860,
+      z: 3140,
+      yaw: 0.16,
+      pitch: 0.11,
+      distance: 10.9,
+      hero: "mira",
+      weapon: "psi-projector",
+      armor: "scout-weave",
+    },
+  ];
+  for (const shot of showcase) {
+    await page.evaluate(async (shot) => {
+      const { WorldView, freshState, Simulation, craft, alterItem } =
+        window.artTest;
+      const state = freshState(9372);
+      state.realm = shot.realm;
+      state.hero = shot.hero;
+      state.position = { x: shot.x, z: shot.z };
+      Object.assign(state.resources, {
+        cobalt: 30,
+        stone: 30,
+        timber: 30,
+        circuitry: 10,
+        herb: 10,
+        electrum: 4,
+        essence: 4,
+      });
+      let serial = 1042;
+      for (const recipe of [shot.weapon, shot.armor, "kinetic-shield"]) {
+        if (!craft(state, recipe, serial++).ok)
+          throw Error("Invalid gear visual fixture");
+        alterItem(state, state.items.at(-1).id, "equip");
+      }
+      const sim = new Simulation(state);
+      sim.player.facing = shot.yaw + 0.22;
+      const view = new WorldView(
+        document.querySelector("canvas"),
+        state,
+        sim,
+        { quality: "high", reducedMotion: false },
+        shot,
+      );
+      window.artTest.view = view;
+      for (let i = 0; i < 5; i++) {
+        view.update(0.1, { x: 0, z: 0 }, 12 + i * 0.1);
+        view.renderer.getContext().finish();
+        await new Promise(requestAnimationFrame);
+      }
+    }, shot);
+    await page.screenshot({
+      path: resolve(artifacts, shot.file),
+      timeout: 60000,
+    });
+    await page.evaluate(() => window.artTest.view.dispose());
   }
   assert.deepEqual(errors, []);
   console.log(

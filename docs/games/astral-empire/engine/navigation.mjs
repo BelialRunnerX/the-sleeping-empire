@@ -12,7 +12,9 @@ export function obstacles(state, layout, tiles = []) {
       (f) => f.kind !== "rubble" || !state.exploration.changed.includes(f.id),
     ),
     ...[...layout.nodes, ...streamed.flatMap((tile) => tile.nodes)].filter(
-      (n) => n.radius && !(state.depleted[n.id] > Date.now()),
+      (n) =>
+        n.radius &&
+        (n.kind === "geode" || !(state.depleted[n.id] > Date.now())),
     ),
   ];
 }

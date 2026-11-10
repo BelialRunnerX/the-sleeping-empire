@@ -144,6 +144,26 @@ function bevelPanel() {
   mesh.translate(0, 0, -0.41);
   return mesh;
 }
+function shieldPlate() {
+  const outline = new T.Shape();
+  outline.moveTo(-0.46, 0.39);
+  outline.lineTo(-0.29, 0.47);
+  outline.lineTo(0.29, 0.47);
+  outline.lineTo(0.46, 0.39);
+  outline.lineTo(0.38, -0.17);
+  outline.quadraticCurveTo(0.29, -0.32, 0, -0.51);
+  outline.quadraticCurveTo(-0.29, -0.32, -0.38, -0.17);
+  outline.closePath();
+  const geometry = new T.ExtrudeGeometry(outline, {
+    depth: 0.42,
+    bevelSize: 0.047,
+    bevelThickness: 0.08,
+    bevelSegments: 3,
+    curveSegments: 8,
+  });
+  geometry.translate(0, 0, -0.21);
+  return geometry;
+}
 function sculptedFace() {
   const geometry = new T.SphereGeometry(1, 32, 24);
   const vertices = geometry.attributes.position;
@@ -213,25 +233,27 @@ export class ArtDirector {
     if (!this.geometries.has(kind))
       this.geometries.set(
         kind,
-        kind === "hair-lock"
-          ? sculptedLock()
-          : kind === "face"
-            ? sculptedFace()
-            : kind === "panel"
-              ? bevelPanel()
-              : kind === "orb"
-                ? new T.SphereGeometry(1, 20, 14)
-                : kind === "gem"
-                  ? new T.IcosahedronGeometry(1, 0)
-                  : kind === "crown"
-                    ? naturalForm(2, true)
-                    : kind === "stone"
-                      ? naturalForm(1, false)
-                      : kind === "cone"
-                        ? new T.ConeGeometry(1, 1, 8)
-                        : kind === "tube"
-                          ? new T.CylinderGeometry(1, 1, 1, 12)
-                          : new T.BoxGeometry(1, 1, 1),
+        kind === "shield"
+          ? shieldPlate()
+          : kind === "hair-lock"
+            ? sculptedLock()
+            : kind === "face"
+              ? sculptedFace()
+              : kind === "panel"
+                ? bevelPanel()
+                : kind === "orb"
+                  ? new T.SphereGeometry(1, 20, 14)
+                  : kind === "gem"
+                    ? new T.IcosahedronGeometry(1, 0)
+                    : kind === "crown"
+                      ? naturalForm(2, true)
+                      : kind === "stone"
+                        ? naturalForm(1, false)
+                        : kind === "cone"
+                          ? new T.ConeGeometry(1, 1, 8)
+                          : kind === "tube"
+                            ? new T.CylinderGeometry(1, 1, 1, 12)
+                            : new T.BoxGeometry(1, 1, 1),
       );
     const m = new T.Mesh(this.geometries.get(kind), this.material(c));
     m.position.set(x, y, z);
@@ -353,17 +375,37 @@ export class ArtDirector {
         "orb",
         0x6b9ea7,
         -58,
-        54,
+        38,
         -135,
         26,
         26,
         26,
       );
       planet.castShadow = planet.receiveShadow = false;
+      planet.material = new T.ShaderMaterial({
+        fog: false,
+        vertexShader:
+          "varying vec3 direction;void main(){direction=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
+        fragmentShader: `varying vec3 direction;
+          void main(){
+            vec3 n=normalize(direction);
+            float longitude=atan(n.z,n.x);
+            float ribbon=sin(n.y*44.+sin(longitude*3.+n.y*13.)*.52);
+            float clouds=smoothstep(.28,.84,ribbon*.45+sin(n.y*63.-longitude*7.)*.23+.36);
+            float contour=sin(n.x*9.+n.y*18.+sin(n.z*20.)*1.6)*sin(n.y*17.+n.z*9.);
+            vec3 surface=mix(vec3(.055,.24,.31),vec3(.28,.48,.43),smoothstep(.06,.44,contour));
+            surface=mix(surface,vec3(.62,.77,.83),clouds*.66);
+            float sun=smoothstep(-.11,.77,dot(n,normalize(vec3(-.58,.56,.57))));
+            float rim=pow(1.-max(0.,dot(n,vec3(.37,-.21,.9))),3.);
+            gl_FragColor=vec4(surface*(.105+.895*sun)+vec3(.08,.33,.52)*rim*.62,1.);
+            #include <tonemapping_fragment>
+            #include <colorspace_fragment>
+          }`,
+      });
       this.skyGroup.add(planet);
-      this.ring(this.skyGroup, 29, 0.2, 0xb6c3f8, 54).position.set(
+      this.ring(this.skyGroup, 29, 0.2, 0xb6c3f8, 38).position.set(
         -58,
-        54,
+        38,
         -135,
       );
       return;
@@ -535,7 +577,7 @@ export class ArtDirector {
         2.285,
         0.254,
         0.081,
-        0.058,
+        0.044,
         0.018,
       );
       this.shape(
@@ -546,7 +588,7 @@ export class ArtDirector {
         2.282,
         0.272,
         0.037,
-        0.051,
+        0.037,
         0.009,
       );
       this.shape(
@@ -557,7 +599,7 @@ export class ArtDirector {
         2.286,
         0.281,
         0.016,
-        0.033,
+        0.027,
         0.004,
       );
       this.shape(
@@ -610,6 +652,7 @@ export class ArtDirector {
       this.shape(g, "gem", gold, s * 0.203, 1.99, 0.22, 0.037, 0.07, 0.022);
     }
     this.shape(g, "orb", 0xd8a292, 0, 2.15, 0.249, 0.034, 0.009, 0.007);
+    this.shape(g, "gem", 0xf5cbb5, 0, 2.239, 0.277, 0.025, 0.041, 0.027);
     this.shape(g, "gem", gold, 0, 1.89, 0.23, 0.07, 0.1, 0.04);
     if (longHair) {
       const pony = this.shape(
@@ -743,7 +786,43 @@ export class ArtDirector {
     const weapon = new T.Group();
     g.elbows[1].add(weapon);
     weapon.position.y = -0.35;
-    if (hero.weapon === "staff") {
+    if (hero.form === "spear") {
+      weapon.rotation.z = -0.22;
+      this.shape(weapon, "tube", 0x43536c, 0, 0.39, 0.05, 0.052, 2.19, 0.052);
+      const blade = this.shape(
+        weapon,
+        "gem",
+        0xa3d6ef,
+        0,
+        1.57,
+        0.05,
+        0.152,
+        0.42,
+        0.055,
+      );
+      blade.material = this.material(0xa3d6ef, 0.26);
+      for (const y of [-0.61, -0.26, 0.05, 0.49, 0.92, 1.21])
+        this.shape(weapon, "tube", gold, 0, y, 0.05, 0.067, 0.085, 0.067);
+    } else if (hero.form === "daggers") {
+      for (let i = 0; i < 2; i++) {
+        const mount = new T.Group();
+        mount.position.y = -0.35;
+        g.elbows[i].add(mount);
+        this.shape(mount, "tube", dark, 0, 0.08, 0.04, 0.043, 0.22, 0.044);
+        this.shape(mount, "panel", gold, 0, -0.04, 0.04, 0.22, 0.055, 0.094);
+        this.shape(
+          mount,
+          "gem",
+          0xcfe1f0,
+          0,
+          -0.32,
+          0.04,
+          0.105,
+          0.31,
+          0.033,
+        ).rotation.z = i ? 0.17 : -0.17;
+      }
+    } else if (hero.weapon === "staff") {
       this.shape(weapon, "tube", 0x737e97, 0, 0.1, 0, 0.029, 1.8, 0.029);
       for (const y of [-0.6, -0.2, 0.4, 0.8])
         this.shape(weapon, "tube", gold, 0, y, 0, 0.043, 0.06, 0.043);
@@ -775,6 +854,21 @@ export class ArtDirector {
       );
       string.rotation.z = bow.rotation.z;
       weapon.add(string);
+      if (hero.form === "longbow") {
+        this.shape(weapon, "panel", 0x536784, 0, 0, 0.05, 0.21, 0.22, 0.2);
+        for (const sign of [-1, 1])
+          this.shape(
+            weapon,
+            "panel",
+            0x94d9ec,
+            sign * 0.31,
+            0.08,
+            0.02,
+            0.39,
+            0.07,
+            0.12,
+          ).rotation.z = sign * 0.54;
+      }
     } else {
       const blade = this.shape(
         weapon,
@@ -802,6 +896,63 @@ export class ArtDirector {
       this.shape(weapon, "box", gold, 0, 0.04, 0.06, 0.43, 0.07, 0.1);
       this.shape(weapon, "tube", dark, 0, 0.18, 0.06, 0.045, 0.23, 0.045);
       this.shape(weapon, "gem", hair, 0, 0.34, 0.06, 0.07, 0.09, 0.06);
+    }
+    if (hero.shield) {
+      const shield = new T.Group();
+      shield.position.set(0, -0.22, 0.17);
+      g.elbows[0].add(shield);
+      this.shape(shield, "shield", 0x35425c, 0, -0.04, 0, 0.79, 1.0, 0.18);
+      this.shape(shield, "shield", 0xc4a97d, 0, -0.04, 0.051, 0.74, 0.93, 0.14);
+      this.shape(shield, "shield", 0x67849e, 0, -0.04, 0.083, 0.64, 0.82, 0.12);
+      this.shape(
+        shield,
+        "gem",
+        0xa7edf6,
+        0,
+        -0.02,
+        0.13,
+        0.14,
+        0.19,
+        0.048,
+      ).material = this.material(0xa7edf6, 0.65);
+      for (const x of [-0.22, 0.22])
+        for (const y of [-0.26, 0.18])
+          this.shape(shield, "orb", gold, x, y, 0.12, 0.034, 0.034, 0.024);
+      for (const sign of [-1, 1]) {
+        const trace = this.shape(
+          shield,
+          "panel",
+          0x91ecf1,
+          sign * 0.18,
+          -0.16,
+          0.128,
+          0.025,
+          0.23,
+          0.02,
+        );
+        trace.rotation.z = sign * -0.53;
+        trace.material = this.material(0x91ecf1, 0.64);
+      }
+    }
+    if (hero.armorForm === "heavy") {
+      this.shape(g, "panel", 0x79899d, 0, 1.6, 0.207, 0.55, 0.5, 0.137);
+      this.shape(g, "gem", gold, 0, 1.62, 0.288, 0.12, 0.22, 0.026);
+      for (const arm of g.arms)
+        this.shape(arm, "panel", 0x899db3, 0, 0.02, 0.04, 0.38, 0.17, 0.44);
+    }
+    if (hero.armorForm === "light") {
+      const sash = this.shape(
+        g,
+        "panel",
+        0x6eaeb1,
+        0,
+        1.62,
+        0.224,
+        0.07,
+        0.62,
+        0.041,
+      );
+      sash.rotation.z = 0.46;
     }
     g.userData = { attack: 0, crest };
     return g;

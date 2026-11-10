@@ -1,5 +1,6 @@
 import { numeric } from "./native.mjs";
 import { fieldNoise, savedChunkFeature } from "./chunks.mjs";
+import { localGeodes } from "./geodes.mjs";
 const realms = ["bastion", "moon", "cinder", "frost", "orbit"];
 const roll = (seed, x, z) =>
   numeric.world_hash(seed | 0, x | 0, z | 0) / 2 ** 32;
@@ -222,6 +223,7 @@ export function makeFrontier(seed, realm) {
     nodes: [
       ...nodes.map((n, i) => ({ ...n, id: realm + "-node-" + i })),
       ...scenery,
+      ...localGeodes(realm),
     ],
     features,
     wilds,

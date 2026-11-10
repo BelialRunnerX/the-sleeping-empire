@@ -15,6 +15,8 @@ Elysium-mono is a **Java/NeoForge Minecraft module collection**. There was no na
 | `ElysiumCharacter.java::POINTS_PER_LEVEL`, `ElysiumRaces.java`, `ElysiumClasses.java` | `engine/codex.mjs` | 10 assignable attribute points per gained level, all six race base tables and race/class growth tables, and both free +3 starter attribute bonuses. |
 | `ElysiumStats.java`, `ElysiumShares.java`, `ElysiumCombatHandler.java`, `ElysiumRaces.java::SanctionedAnswer` | `engine/codex.mjs`, `engine/combat.mjs` | Retribution uses `value / (value + 225)`. Imperial's level share combines independently. Reflection responds to the incoming blow before defender armor, and resolves once without crits, reactions, leech or recursive reflection. |
 | `ElysiumStats.java::luckChance`, `ElysiumLootHandler.java` | `engine/codex.mjs`, `engine/progression.mjs` | Luck uses `value / (value + 175)` for an independent material roll. The browser uses one extra gathered unit and adds a quarter of that chance as a separate crit opportunity. Vanilla loot and multi-crit handling are separate systems. |
+| `GeodeRules.java::CHAIN` | `engine/geodes.mjs` | Small, medium and large buds mature into a harvestable cluster. The browser uses wall time and four source materials instead of Minecraft random ticks and the full catalogue. |
+| `elysium-foundry/.../recipe/electrum_alloy.json` and `signal_alloy_alloy.json` | `engine/artisan.mjs` | Electrum uses one gold and one silver ingot (160 ticks / 8 s). Signal alloy uses one electrum and two redstone (220 ticks / 11 s). Browser tiers and queue speed are separate. |
 
 ## Adapted data and concepts
 
@@ -26,6 +28,8 @@ Elysium-mono is a **Java/NeoForge Minecraft module collection**. There was no na
 - The six race and nine class IDs, numbers and starter bonuses above are direct data translations. Browser traits are gameplay adaptations; NeoForge event hooks, race-specific mechanics and original class passives are not executed. The 330-node constellation is a new graph using the Codex point budget, not a copy of the Ledger Web layout, doctrines or costs. Cosmetics are independent of stats.
 
 ## Newly implemented browser systems
+
+Version 3.7 adds shard refining, the material guide, original weapon and armor profiles, directional shield guard, item effects, and three ascension branches. These browser rules are separate from Elysium item stats and durability.
 
 Version 3.6 adds an original deterministic 40-meter heightfield chunk generator and streams terrain, resources and patrols. Minecraft chunk and block formats are still separate.
 

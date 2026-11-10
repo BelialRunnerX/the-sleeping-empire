@@ -1,12 +1,13 @@
 import * as T from "../vendor/three.module.js";
-import { hash, roll } from "./simulation.mjs";
+import { hash, roll, skillStats } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
 import { ArtDirector, GRAPHICS } from "./art.mjs";
 import { WorkstationView } from "./workstations.mjs";
 import { CameraRig } from "./camera.mjs";
 import { enemySites } from "./frontier.mjs";
 import { CHUNK_SIZE, fieldNoise } from "./chunks.mjs";
-import { classFor } from "./codex.mjs";
+import { GEODE_MATERIALS, geodeStage } from "./geodes.mjs";
+import { equippedForm } from "./arsenal.mjs";
 const color = (hex) => new T.Color(hex);
 const materials = new Map(),
   geometries = new Map();
@@ -312,9 +313,15 @@ export class WorldView {
     this.art.building(x, z, wall, roof);
   }
   avatar(hero) {
-    return this.art.avatar(
-      hero.id ? { ...hero, weapon: classFor(this.state).weapon } : hero,
-    );
+    if (!hero.id) return this.art.avatar(hero);
+    const { items, equipped } = this.state;
+    return this.art.avatar({
+      ...hero,
+      weapon: skillStats(this.state, "strike").weapon,
+      form: equippedForm(this.state),
+      armorForm: items.find((i) => i.id === equipped.armor)?.form,
+      shield: items.some((i) => i.id === equipped.offhand),
+    });
   }
   createScenery() {
     this.art.landscape();
@@ -342,7 +349,31 @@ export class WorldView {
         g = new T.Group(),
         y = this.height(d.x, d.z);
       g.position.set(d.x, y, d.z);
-      if (d.kind === "ore") {
+      let crystal;
+      if (d.kind === "geode") {
+        const tint = GEODE_MATERIALS[d.material].color;
+        this.art.shape(g, "stone", 0x4c566c, 0, 0.15, 0, 0.93, 0.64, 0.72);
+        crystal = new T.Group();
+        crystal.position.y = 0.41;
+        g.add(crystal);
+        for (let i = 0; i < 7; i++) {
+          const a = i * 2.399,
+            h = i === 0 ? 1.22 : 0.57 + (i % 3) * 0.16;
+          const shard = this.art.shape(
+            crystal,
+            "gem",
+            tint,
+            Math.sin(a) * i * 0.066,
+            h * 0.48,
+            Math.cos(a) * i * 0.07,
+            0.16,
+            h,
+            0.21,
+          );
+          shard.rotation.z = Math.cos(a) * 0.33;
+          shard.material = this.art.material(tint, 0.22);
+        }
+      } else if (d.kind === "ore") {
         for (let i = 0; i < 4; i++) {
           const c = mesh(
             g,
@@ -494,7 +525,7 @@ export class WorldView {
       glow.position.y = 0.06;
       g.add(glow);
       this.scene.add(g);
-      return { ...d, type: "node", mesh: g, glow };
+      return { ...d, type: "node", mesh: g, glow, crystal };
     });
   }
   buildFeatures(definitions) {
@@ -652,7 +683,9 @@ export class WorldView {
         (f) =>
           f.kind === "beacon" || !this.state.exploration.changed.includes(f.id),
       ),
-      ...this.nodes.filter((n) => !(this.state.depleted[n.id] > now)),
+      ...this.nodes.filter(
+        (n) => n.kind === "geode" || !(this.state.depleted[n.id] > now),
+      ),
       ...this.workstations.entries.map(({ def, group }) => ({
         ...def,
         type: "station",
@@ -1024,7 +1057,7 @@ export class WorldView {
       c.userData.attack > 0
         ? -1.4 + Math.sin(c.userData.attack * 14) * 1.6
         : stride * 0.6;
-    const weapon = classFor(this.state).weapon;
+    const weapon = skillStats(this.state, "strike").weapon;
     if (c.userData.attack > 0 && weapon === "bow") {
       c.arms[0].rotation.x = -1.3;
       c.arms[1].rotation.x = -1.1;
@@ -1044,6 +1077,10 @@ export class WorldView {
       this.moving,
       this.visuals.reducedMotion,
     );
+    if (p.guard) {
+      c.arms[0].rotation.x = -1.19;
+      c.arms[0].rotation.z = -0.27;
+    } else c.arms[0].rotation.z = 0;
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
     this.art.skyGroup.position.set(p.x, terrainY, p.z);
     this.art.update(time, this.visuals.reducedMotion);
@@ -1058,7 +1095,12 @@ export class WorldView {
       this.gateCrystal.position.y = 2.8 + Math.sin(animationTime) * 0.14;
     this.npc.rotation.y = Math.atan2(p.x - 6, p.z + 1);
     for (const node of this.nodes) {
-      node.mesh.visible = !(this.state.depleted[node.id] > Date.now());
+      node.mesh.visible =
+        node.kind === "geode" || !(this.state.depleted[node.id] > Date.now());
+      if (node.crystal)
+        node.crystal.scale.setScalar(
+          [0.24, 0.44, 0.72, 1][geodeStage(this.state.depleted[node.id])],
+        );
       node.glow.visible = Math.hypot(node.x - p.x, node.z - p.z) < 12;
       node.glow.material.opacity = 0.3 + Math.sin(time * 2) * 0.15;
     }

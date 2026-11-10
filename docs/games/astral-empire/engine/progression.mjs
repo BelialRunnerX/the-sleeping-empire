@@ -12,6 +12,16 @@ import {
 import { numeric } from "./native.mjs";
 import { normalizeExploration } from "./frontier.mjs";
 import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
+import { GEODE_MATERIALS, GEODE_GROWTH_MS, GEODE_FRAMES } from "./geodes.mjs";
+import {
+  WEAPON_FORMS,
+  ARMOR_FORMS,
+  ASCENSION_PATHS,
+  ascensionTier,
+  ascensionCost,
+  equippedForm,
+  equipmentPower,
+} from "./arsenal.mjs";
 import { reachable } from "./constellation.mjs";
 import {
   applyCodexStats,
@@ -36,6 +46,7 @@ export function makeItem(seed, level = 1, slot = "weapon", rarity = "rare") {
     weapon: ["Oathblade", 18],
     armor: ["Warden mantle", 25],
     charm: ["Astral conduit", 12],
+    offhand: ["Kinetic shield", 13],
   };
   const [name, power] = bases[slot] || bases.weapon;
   const pool = [...AFFIXES],
@@ -104,6 +115,14 @@ export function freshState(seed = 438102) {
       circuitry: 0,
       telemetry: 0,
       capacitor: 0,
+      goldShard: 0,
+      silverShard: 0,
+      redstone: 0,
+      rimeShard: 0,
+      goldIngot: 0,
+      silverIngot: 0,
+      electrum: 0,
+      signalAlloy: 0,
     },
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
@@ -200,13 +219,29 @@ export function migrateState(input) {
     };
     s.items = Array.isArray(input.items)
       ? input.items
-          .filter((i) => i && ["weapon", "armor", "charm"].includes(i.slot))
+          .filter(
+            (i) =>
+              i && ["weapon", "armor", "charm", "offhand"].includes(i.slot),
+          )
           .slice(0, 200)
           .map((i) => ({
             ...i,
             name: String(i.name || "Relic").slice(0, 60),
             base: clamp(finite(i.base, 10), 1, 500),
             quality: clamp(finite(i.quality), 0, 20),
+            frame: Object.hasOwn(GEODE_FRAMES, i.frame) ? i.frame : null,
+            form: Object.hasOwn(
+              i.slot === "weapon" ? WEAPON_FORMS : ARMOR_FORMS,
+              i.form,
+            )
+              ? i.form
+              : null,
+            ascension: Object.hasOwn(ASCENSION_PATHS, i.ascensionPath)
+              ? ascensionTier(i)
+              : 0,
+            ascensionPath: Object.hasOwn(ASCENSION_PATHS, i.ascensionPath)
+              ? i.ascensionPath
+              : null,
             affixes: (Array.isArray(i.affixes) ? i.affixes : [])
               .filter((a) => AFFIXES.some((d) => d.id === a?.id))
               .slice(0, 4)
@@ -218,7 +253,7 @@ export function migrateState(input) {
           }))
       : fresh.items;
     s.equipped = {};
-    for (const slot of ["weapon", "armor", "charm"])
+    for (const slot of ["weapon", "armor", "charm", "offhand"])
       if (
         s.items.some((i) => i.id === input.equipped?.[slot] && i.slot === slot)
       )
@@ -344,6 +379,7 @@ export function stats(s, now = Date.now()) {
     speed: 0,
     yield: 0,
     fabrication: 0,
+    shield: 0,
     power: 26 + (s.level - 1) * 3,
     keystones: [],
   };
@@ -358,11 +394,34 @@ export function stats(s, now = Date.now()) {
   for (const item of s.items.filter((i) =>
     Object.values(s.equipped).includes(i.id),
   )) {
-    const base = item.base * (1 + item.quality * 0.04);
+    const base = equipmentPower(item);
     if (item.slot === "weapon") v.power += base;
     if (item.slot === "armor") v.armor += base;
     if (item.slot === "charm") v.mana += base;
-    for (const a of item.affixes) v[a.stat] = (v[a.stat] || 0) + a.value;
+    if (item.slot === "offhand") v.shield = base;
+    const tier = ascensionTier(item);
+    for (const a of item.affixes)
+      v[a.stat] = (v[a.stat] || 0) + a.value * (1 + tier * 0.07);
+    const armor = ARMOR_FORMS[item.form];
+    if (armor?.speed) v.speed += armor.speed;
+    if (armor?.haste) v.haste += armor.haste;
+    if (armor?.armorRate) v.armorRate += armor.armorRate;
+    if (item.ascensionPath === "force") {
+      v.attackDamage += tier * 0.06;
+      v.spellDamage += tier * 0.06;
+    }
+    if (item.ascensionPath === "guard") {
+      v.armorRate += tier * 0.08;
+      v.resistance += tier * 0.02;
+    }
+    if (item.ascensionPath === "harvest")
+      v.luckChance = 1 - (1 - v.luckChance) * (1 - tier * 0.04);
+    const frame = GEODE_FRAMES[item.frame];
+    if (frame?.luck) v.luckChance = 1 - (1 - v.luckChance) * (1 - frame.luck);
+    if (frame?.reflect)
+      v.reflection = 1 - (1 - v.reflection) * (1 - frame.reflect);
+    if (frame?.resistance) v.resistance += frame.resistance;
+    if (frame?.recovery) v.recovery += frame.recovery;
   }
   if (s.foodUntil > now) {
     v.life += 60;
@@ -389,9 +448,12 @@ export function stats(s, now = Date.now()) {
 export function skillStats(s, id) {
   const base = SKILLS.find((k) => k.id === id);
   if (!base) return null;
-  const weapon = classFor(s).weapon;
+  const form = WEAPON_FORMS[equippedForm(s)],
+    weapon = form?.style || classFor(s).weapon;
   const skill =
-    id === "strike" ? { ...base, ...WEAPONS[weapon], weapon } : base;
+    id === "strike"
+      ? { ...base, ...WEAPONS[weapon], ...form?.strike, weapon }
+      : base;
   const v = {
     ...skill,
     supports: [],
@@ -483,6 +545,13 @@ export function gather(s, node, now = Date.now()) {
   );
   if (!job || s.depleted[node.id] > now)
     return { ok: false, message: "This resource is recovering." };
+  const geode = node.kind === "geode" && GEODE_MATERIALS[node.material];
+  const resource = geode
+    ? node.material
+    : node.kind === "rock"
+      ? "stone"
+      : job.resource;
+  if (!resource) return { ok: false, message: "Unknown material." };
   const mastery = professionLevel(s, job.id),
     st = stats(s),
     tier = numeric.world_tier(s.level, s.deepest);
@@ -492,14 +561,14 @@ export function gather(s, node, now = Date.now()) {
     Math.floor(mastery / 3) +
     Math.floor(st.yield) +
     (st.keystones.includes("artisan") ? 1 : 0) +
-    (lucky ? 1 : 0);
-  if (node.kind !== "rock")
-    s.resources[job.resource] = (s.resources[job.resource] || 0) + count;
-  if (job.id === "mining") s.resources.stone += count;
+    (lucky ? 1 : 0) +
+    (geode ? 1 : 0);
+  s.resources[resource] = (s.resources[resource] || 0) + count;
+  if (node.kind === "ore") s.resources.stone += count;
   s.professions[job.id] += 20;
   s.statistics.gathers++;
   if (node.kind === "wreck") s.statistics.salvages++;
-  s.depleted[node.id] = now + 180000;
+  s.depleted[node.id] = now + (geode ? GEODE_GROWTH_MS : 180000);
   addXP(s, 15);
   return {
     ok: true,
@@ -507,7 +576,7 @@ export function gather(s, node, now = Date.now()) {
       "+" +
       count +
       " " +
-      (node.kind === "rock" ? "stone" : job.resource) +
+      (geode ? geode.name + " shards" : resource) +
       " · " +
       job.name +
       " +20 XP",
@@ -540,6 +609,8 @@ export function craft(s, id, seed = Date.now()) {
   if (recipe.type) {
     const item = makeItem(seed, s.level, recipe.type, recipe.rarity || "rare");
     if (recipe.itemName) item.name = recipe.itemName;
+    if (recipe.frame) item.frame = recipe.frame;
+    if (recipe.form) item.form = recipe.form;
     item.base = Math.round(
       item.base *
         (1 +
@@ -566,6 +637,25 @@ export function craft(s, id, seed = Date.now()) {
 export function alterItem(s, id, action, seed = Date.now()) {
   const i = s.items.find((v) => v.id === id);
   if (!i) return false;
+  if (typeof action === "string" && action.startsWith("ascend-")) {
+    const path = action.slice(7),
+      cost = ascensionCost(i);
+    if (
+      !Object.hasOwn(ASCENSION_PATHS, path) ||
+      (i.ascensionPath && i.ascensionPath !== path) ||
+      !cost ||
+      i.quality < cost.temper ||
+      s.gold < cost.gold ||
+      !Object.entries(cost.resources).every(([key, n]) => s.resources[key] >= n)
+    )
+      return false;
+    s.gold -= cost.gold;
+    for (const [key, n] of Object.entries(cost.resources))
+      s.resources[key] -= n;
+    i.ascension = ascensionTier(i) + 1;
+    i.ascensionPath = path;
+    return true;
+  }
   if (action === "equip") {
     s.equipped[i.slot] = i.id;
     return true;

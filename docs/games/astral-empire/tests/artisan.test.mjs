@@ -31,7 +31,7 @@ function supplied() {
 }
 
 test("Elysium two-slot matching preserves either order and exact consumption counts", () => {
-  const r = PROCESS_RECIPES[0];
+  const r = PROCESS_RECIPES.find((recipe) => recipe.id === "billet");
   assert.deepEqual(
     matchAlloy(r, { id: "cobalt", count: 8 }, { id: "stone", count: 7 }),
     { left: 2, right: 1 },

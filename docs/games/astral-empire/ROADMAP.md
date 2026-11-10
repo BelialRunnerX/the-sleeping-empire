@@ -2,6 +2,8 @@
 
 ## Current milestone
 
+Version 3.7 links source-derived geode growth and alloy recipes to four crystalline materials, fixed item effects, five weapon forms, light and heavy armor, directional shield guard and three item ascension paths. More weapon families, affix tiers and production character meshes remain in the roadmap.
+
 Version 3.6 streams endless heightfield terrain, resource nodes and patrols around the player in all five regions. The camera toggle, grouped menus, reflection and luck effects, and mesh refinement build on 3.5.
 
 Version 3.5 was a playable solo milestone: full 3D, five seeded regions, camera collision, direct navigation, harvestable scenery, discoveries, field fabrication, six races and nine classes, 330 constellation nodes, and cosmetic draws. Progress is local. The original C++ WebAssembly numeric core is unchanged; Elysium Codex numbers and point rules are translated in JavaScript.
@@ -19,7 +21,7 @@ Prioritize repeatable depth in the next releases: distinct item bases and tiers 
 
 ## 2. Lifeskills as an equipment economy
 
-- Introduce item bases, implicit properties, prefix/suffix pools, affix tiers, crafting benches, deterministic and random crafting currencies, sockets, quality types, durability, and material provenance.
+- Extend the current equipment bases and implicit properties with prefix/suffix pools, affix tiers, crafting benches, deterministic and random crafting currencies, sockets, quality types, durability, and material provenance.
 - Expand mining into veins/depth/ore grades; add forestry regrowth, plant seasons, fishing timing/locations/bait, farming, processing, cooking buffs, alchemy effects, and equipment specialization.
 - Extend the implemented two-input matching, paid queues and output trays with the remaining Elysium recipe catalogue, power/share rules and inventory networks. Expand fixed sanctuary build sites into validated free-placement camps/housing with collision and permissions.
 - Add production chains, profession quests, tools, mastery specializations, storage, worker assignments, logistics, and simulation while regions are unloaded.

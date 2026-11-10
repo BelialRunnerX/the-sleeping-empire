@@ -2,6 +2,16 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.7 · Foundry Ascension
+
+Crystallography adds gold, silver, redstone and rime geodes. After harvesting, a visible small bud grows through medium and large stages into a mature cluster. Growth continues offline. The Lifeskills material guide lists where to find each material and what to make with it.
+
+Refine shards at the Foundry, combine gold and silver into electrum, then combine electrum and redstone into signal alloy. These feed survey optics, the reflective signal alloy carapace and a frost-resistant Rime Shunt, each with a fixed inherent effect in addition to random affixes.
+
+Forge a longsword, twin daggers, spear, railbow or psi projector. The equipped weapon form changes the basic attack's reach, cadence and behavior. Choose light or heavy armor, and equip a shield independently in the offhand. Hold **G** to block a frontal hit for 12 stamina.
+
+Temper gear, reshape its random affixes, and ascend it along **Force**, **Aegis**, or **Prospector**. Each of the three ascension tiers boosts base power and affix strength. Tiers require temper +4, +8, and +12, plus gold and alloy. Ascension keeps the original rolls and specializes the item. Reshaping keeps its form, inherent effect, temper, and ascension.
+
 ## Version 3.6 · Beyond the Rim
 
 Each of the five realms streams deterministic 40-meter terrain chunks as you move. A 7×7 window keeps geometry, patrols and harvestable props bounded. Beyond the original outpost region you can find new terrain, mineral belts, trees, salvage and occasional expedition caches or relays. Returning regenerates the same sites, while local saves retain the seed, distant position, depletion, opened caches and synced relays.

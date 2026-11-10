@@ -2,6 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { makeFrontier, discover, useFeature } from "../engine/frontier.mjs";
 import { CHUNK_SIZE, ChunkWindow, generateChunk } from "../engine/chunks.mjs";
+import { geodeStage } from "../engine/geodes.mjs";
+import { PROCESS_RECIPES, processCost } from "../engine/artisan.mjs";
 import {
   blocked,
   routeTo,
@@ -18,6 +20,7 @@ import {
   skillStats,
   gather,
   craft,
+  alterItem,
   allocate,
   refund,
   summon,
@@ -95,6 +98,57 @@ test("signed chunks stream in a fixed window and keep identity and changes after
   stream.update(0, 0);
   stream.update(s.position.x, s.position.z);
   assert.deepEqual(stream.tiles.get(tile.key), tile);
+});
+test("geodes mature across saves and source alloy counts lead to permanent gear upgrades", () => {
+  const s = freshState(61);
+  const node = makeFrontier(s.seed, s.realm).nodes.find(
+    (n) => n.kind === "geode",
+  );
+  const time = Date.now();
+  assert.ok(gather(s, node, time).ok);
+  assert.ok(s.resources.goldShard >= 2);
+  assert.deepEqual(
+    [0, 60000, 120000, 180000].map((t) =>
+      geodeStage(s.depleted[node.id], time + t),
+    ),
+    [0, 1, 2, 3],
+  );
+  assert.equal(gather(migrateState(s), node, time + 120000).ok, false);
+  assert.deepEqual(
+    processCost(PROCESS_RECIPES.find((r) => r.id === "electrum")),
+    { goldIngot: 1, silverIngot: 1 },
+  );
+  assert.deepEqual(
+    processCost(PROCESS_RECIPES.find((r) => r.id === "signal-alloy")),
+    { electrum: 1, redstone: 2 },
+  );
+  Object.assign(s.resources, {
+    cobalt: 40,
+    stone: 12,
+    timber: 20,
+    electrum: 3,
+    signalAlloy: 3,
+  });
+  assert.ok(craft(s, "piercer-spear", 17).ok);
+  const spear = s.items.at(-1);
+  assert.ok(alterItem(s, spear.id, "equip"));
+  assert.equal(skillStats(s, "strike").name, "Lance thrust");
+  assert.equal(alterItem(s, spear.id, "ascend-force"), false);
+  for (let i = 0; i < 4; i++) assert.ok(alterItem(s, spear.id, "temper"));
+  assert.ok(alterItem(s, spear.id, "ascend-force"));
+  const loaded = migrateState(s);
+  assert.equal(loaded.items.at(-1).ascension, 1);
+  assert.equal(loaded.items.at(-1).ascensionPath, "force");
+  assert.equal(skillStats(loaded, "strike").range, 6.3);
+  assert.ok(craft(s, "kinetic-shield", 18).ok);
+  assert.ok(alterItem(s, s.items.at(-1).id, "equip"));
+  const sim = new Simulation(s);
+  const foe = sim.spawn("guard-test", 0, 2);
+  sim.player.guard = true;
+  const hp = sim.player.hp;
+  sim.hurtPlayer(40, "Volt", 1, foe);
+  assert.equal(sim.player.stamina, 88);
+  assert.ok(hp - sim.player.hp < 22);
 });
 test("Retribution reflects a separate hit, and Luck affects both gathers and crits", () => {
   const s = freshState(18);

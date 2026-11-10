@@ -95,9 +95,10 @@ export async function testArtisanFlow(browser, url, artifacts) {
     fixture.race = "imperial";
     fixture.calling = "enforcer";
     Object.assign(fixture.resources, {
-      cobalt: 30,
+      cobalt: 60,
       stone: 30,
-      timber: 30,
+      timber: 50,
+      electrum: 2,
       herb: 30,
       fish: 30,
     });
@@ -161,6 +162,23 @@ export async function testArtisanFlow(browser, url, artifacts) {
       .locator(`[data-item="${item.id}"][data-item-action="equip"]`)
       .click();
     assert.equal((await load()).equipped.armor, item.id);
+    await page.getByRole("button", { name: "Workshop", exact: true }).click();
+    await page.locator('[data-craft="piercer-spear"]').click();
+    const spear = (await load()).items.at(-1);
+    await page.locator('[data-craft="kinetic-shield"]').click();
+    const shield = (await load()).items.at(-1);
+    await page.getByRole("button", { name: "Equipment", exact: true }).click();
+    const spearAction = (action) =>
+      page.locator(`[data-item="${spear.id}"][data-item-action="${action}"]`);
+    for (let i = 0; i < 4; i++) await spearAction("temper").click();
+    await spearAction("ascend-force").click();
+    await spearAction("equip").click();
+    await page
+      .locator(`[data-item="${shield.id}"][data-item-action="equip"]`)
+      .click();
+    await page.screenshot({
+      path: resolve(artifacts, "foundry-ascension-menu.png"),
+    });
     await close();
     await page.screenshot({ path: resolve(artifacts, "atelier-world.png") });
     await panel();
@@ -181,6 +199,8 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.locator("#hud").waitFor();
     saved = await load();
     assert.equal(saved.equipped.armor, item.id);
+    assert.equal(saved.equipped.offhand, shield.id);
+    assert.equal(saved.items.find((i) => i.id === spear.id).ascension, 1);
     assert.equal(saved.production.stations.foundry.tier, 2);
     assert.ok(saved.statistics.processed >= 5);
     assert.deepEqual(errors, []);

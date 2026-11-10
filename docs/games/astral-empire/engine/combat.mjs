@@ -476,8 +476,23 @@ export class Simulation {
         element === "Physical"
           ? numeric.resolve_damage(base * weaken, 0, 1, st.armor, 0, 0, 1)
           : numeric.element_damage(base * weaken, st.resistance, 0);
-    this.player.hp -= amount;
-    this.emit("hurt", { amount: Math.round(amount), element });
+    const p = this.player;
+    const direction = source ? Math.atan2(source.x - p.x, source.z - p.z) : 0;
+    const guarding =
+      p.guard &&
+      st.shield > 0 &&
+      p.stamina >= 12 &&
+      source &&
+      Math.cos(direction - p.facing) > 0.38;
+    const incoming = guarding
+      ? amount * (1 - Math.min(0.76, 0.5 + st.shield / 300))
+      : amount;
+    if (guarding) {
+      p.stamina -= 12;
+      this.emit("guard", { x: p.x, z: p.z, text: "GUARD" });
+    }
+    p.hp -= incoming;
+    this.emit("hurt", { amount: Math.round(incoming), element });
     const reflected = base * weaken * st.reflection;
     if (source?.hp > 0 && reflected >= 0.1) {
       // Apply a separate thorns hit. It cannot crit, trigger reactions, leech
@@ -584,6 +599,7 @@ export class Simulation {
     this.potionCD = Math.max(0, this.potionCD - dt);
     p.invulnerable = Math.max(0, p.invulnerable - dt);
     p.stamina = Math.min(100, p.stamina + 19 * dt);
+    p.guard = !!input.guard && p.dodge <= 0 && st.shield > 0;
     p.mana = Math.min(st.mana, p.mana + 8 * (1 + st.recovery) * dt);
     p.hp = Math.min(
       st.life,
@@ -600,7 +616,7 @@ export class Simulation {
       dx /= len;
       dz /= len;
     }
-    const speed = 6.2 * (1 + st.speed);
+    const speed = 6.2 * (1 + st.speed) * (p.guard ? 0.66 : 1);
     if (p.dodge > 0) {
       dx = Math.sin(p.facing) * 3.2;
       dz = Math.cos(p.facing) * 3.2;
