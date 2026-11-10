@@ -1,0 +1,43 @@
+/* Input capability, not viewport width, selects the touch layout. */
+html, body { height: 100%; height: 100dvh; overscroll-behavior: none; }
+.device-controls { position: absolute; top: calc(64px + env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); display:flex; gap:6px; align-items:flex-start; pointer-events:auto; z-index:30; }
+.device-controls button, .device-controls summary { min-height:44px; padding:10px; font-size:12px; }
+.device-controls details { background:#142638ed; border:1px solid #8bd7e766; border-radius:8px; }
+.device-controls summary { cursor:pointer; }
+.device-controls details[open] { width:min(280px,75vw); }
+.device-controls label, .device-controls p { display:block; margin:10px; font-size:12px; }
+.device-controls select { display:block; width:100%; min-height:44px; }
+.touch-actions { display:none; }
+html[data-controls="desktop"] .touch-pad { display:none !important; }
+html[data-controls="touch"] .touch-pad { display:grid; position:absolute; bottom:calc(20px + env(safe-area-inset-bottom)); left:max(10px,env(safe-area-inset-left)); grid-template-columns:repeat(3,44px); grid-template-rows:repeat(2,44px); gap:3px; }
+html[data-controls="touch"] .touch-pad button { min-width:44px; min-height:44px; padding:0; touch-action:none; }
+html[data-controls="touch"] .touch-pad button:nth-child(1) {grid-column:2;grid-row:1;}
+html[data-controls="touch"] .touch-pad button:nth-child(2) {grid-column:1;grid-row:2;}
+html[data-controls="touch"] .touch-pad button:nth-child(3) {grid-column:2;grid-row:2;}
+html[data-controls="touch"] .touch-pad button:nth-child(4) {grid-column:3;grid-row:2;}
+html[data-controls="touch"] .touch-pad button:nth-child(5) {grid-column:1;grid-row:1;}
+html[data-controls="touch"] .touch-pad button:nth-child(6) {grid-column:3;grid-row:1;}
+html[data-controls="touch"] .touch-actions { display:flex;position:absolute;right:max(10px,env(safe-area-inset-right));bottom:calc(145px + env(safe-area-inset-bottom));gap:4px; }
+.touch-actions button {min-width:44px;min-height:44px;touch-action:none;padding:8px;font-size:11px;}
+html[data-controls="touch"] .bottom-hud {bottom:env(safe-area-inset-bottom);}
+html[data-controls="touch"] .control-hints {display:none;}
+body:has(#panels:not([hidden])) .touch-actions, body:has(#panels:not([hidden])) .touch-pad {visibility:hidden;}
+@media(max-width:760px) { html[data-controls="touch"] .skillbar {margin-left:150px;} html[data-controls="touch"] .skill {min-width:40px;width:40px;} .panel-window {max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px);} }
+@media(max-height:500px) { .device-controls {top:max(8px,env(safe-area-inset-top));right:max(140px,env(safe-area-inset-right));} }
+html[data-controls="touch"] .touch-actions {bottom:calc(120px + env(safe-area-inset-bottom));}
+html[data-controls="touch"] .camera-dock {bottom:calc(180px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px);flex-wrap:wrap;}
+html[data-controls="touch"] .camera-dock button {min-height:44px;min-width:36px;}
+@media(max-width:760px) {
+  html[data-controls="touch"] .bottom-hud > div:nth-child(2) {width:calc(100% - 148px);}
+  html[data-controls="touch"] .skillbar {margin-left:0;justify-content:flex-start;overflow-x:auto;padding-bottom:4px;}
+  html[data-controls="touch"] .skill {flex-shrink:0;min-height:44px;}
+  html[data-controls="touch"] .menu-dock button {min-width:44px;min-height:44px;}
+  html[data-controls="touch"] .atelier-launch {bottom:240px;}
+}
+html[data-controls="touch"] .camera-dock {width:calc(100vw - 24px);max-width:460px;box-sizing:border-box;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;}
+html[data-controls="touch"] .camera-dock button {flex-shrink:0;}
+html[data-controls="touch"] .artisan-shortcut {bottom:calc(240px + env(safe-area-inset-bottom));min-height:44px;}
+@media(max-height:500px) {
+  html[data-controls="touch"] .artisan-shortcut {bottom:calc(120px + env(safe-area-inset-bottom));}
+  html[data-controls="touch"] .quest-hud {display:none;}
+}

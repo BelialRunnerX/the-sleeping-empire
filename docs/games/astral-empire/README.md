@@ -2,6 +2,21 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.14 - Mobile Field Controls
+
+Phones and tablets now default to the on-screen movement/action layout. Use
+**Controls** to override Auto with Touch or Keyboard/controller; the preference
+persists. A connected controller hides touch controls only in Auto mode.
+
+The **Fullscreen** button requests browser fullscreen after your tap. Browsers
+that cannot do element fullscreen, including some iOS configurations, show
+Home Screen installation guidance instead. Interact, Target and hold Guard
+have dedicated touch buttons alongside the existing movement/skill controls.
+Safe-area spacing and larger tap targets help on narrow displays.
+
+No save changes. Tests cover emulated touch and mocked controller/fullscreen
+states, not physical-device certification.
+
 ## Version 3.13 - Core Materials
 
 Use **Industry > Core drilling** or approach the new Dawnwake rig at **x-1, z22**.

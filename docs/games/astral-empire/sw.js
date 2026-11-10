@@ -1,10 +1,12 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-15";
+const CACHE = "astral-empire-aetherbound-v3-16";
 const FILES = [
   "./",
   "./index.html",
   "./classic.html",
   "./aetherbound.css",
+  "./mobile-controls.css",
+  "./engine/mobile-controls.mjs",
   "./manifest.webmanifest",
   "./icon.svg",
   "./engine/app.mjs",
