@@ -1,0 +1,3 @@
+# Original Elysium item assets
+
+`aethercoil-pistol.glb`: original project-authored sci-fi sidearm, created for this game using its shared Elysium material palette. Not a third-party downloaded model or a claim of exact reference matching. Six PBR material batches, 9,052 triangles, 627,188 bytes; UV0, no external images. Natural metres:0.071 wide,0.236 high,0.298 long; glTF +Y up,+Z barrel forward; Grip origin and Muzzle socket. SHA256:B93BBF32FD37118629529BE71EBFD282EED88D8CE028841040576D1851149522. Editable Blender source and generator retained in project art workspace. Runtime scale1.2; pose/hand articulation remains provisional.

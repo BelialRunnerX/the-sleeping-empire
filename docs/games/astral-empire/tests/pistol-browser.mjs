@@ -6,6 +6,7 @@ await page.locator('#profile-name').fill('Pistol Test');await page.locator('#pro
 await click(page.locator('[data-action="menu-enter"]'));await click(page.locator('[data-action="declare"]'));await page.locator('#panels').waitFor({state:'hidden'});
 const fixture=await page.evaluate(async()=>{const {freshState,craft,alterItem}=await import('./engine/simulation.mjs');const s=freshState(123);s.race='imperial';s.calling='enforcer';s.avatarBody='male';Object.assign(s.resources,{cobalt:100,circuitry:10});if(!craft(s,'aethercoil-pistol',111).ok)throw Error('fixture craft failed');alterItem(s,s.items.at(-1).id,'equip');return s;});await page.keyboard.press('o');await page.locator('#save-file').setInputFiles({name:'pistol-fixture.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(fixture))});await page.locator('#panels').waitFor({state:'hidden'});
 await page.locator('#pistol-ammo').waitFor({state:'visible'});
+await page.waitForFunction(()=>document.querySelector('#world').dataset.weaponModel==='detailed-pistol');
 await page.keyboard.press('1'); // A skill should not consume magazine.
 assert.match(await page.locator('#pistol-ammo').innerText(),/12 \/ 12/);
 // Use real mouse primary attack via Attack mode, or real mobile LMB button.

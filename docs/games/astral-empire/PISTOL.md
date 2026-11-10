@@ -15,3 +15,6 @@ User direction: finite magazine, infinite reserve, hitscan, good damage and norm
 Focused browser verification now passes desktop and touch-emulated landscape: real primary input consumes a round, a normal skill does not, ammo-button reload returns twelve rounds, and a service-worker offline reload preserves the equipped pistol and magazine. Actual screenshots inspected. The initial focused run exposed an ammo overlay intercepting the camera-mode control; ammo is now in the character HUD. Full legacy browser/visual verification is run separately at integration. Physical devices are not certified.
 
 Merge notes: small hunks in app/world/avatar-rig may overlap male/harvest integration; keep newer male loader and harvest pose logic. Add firearms.mjs to offline shell and bump cache/version centrally when releasing.
+
+## 3.19.1 original model
+The game now mounts the original authored GLB: 9,052 triangles, six shared PBR material batches, no external textures, grip and muzzle sockets. Its natural 0.298m length is scaled 1.2x at the three-block avatar scale. Aiming pose now receives the pistol form and keeps its barrel aligned with character forward. Finger articulation and precise target-height IK remain unfinished. The code model remains only a loading/error fallback. Model asset is cached in the offline shell; no save schema changes.

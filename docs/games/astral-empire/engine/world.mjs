@@ -460,7 +460,7 @@ export class WorldView {
   avatar(hero) {
     if (!hero.id) return this.art.avatar(hero);
     const { items, equipped } = this.state;
-    return this.art.avatar({
+    const avatar=this.art.avatar({
       ...hero,
       rigId: this.state.avatarBody === "female" ? "custom-female" : this.state.avatarBody === "male" ? "custom-male" : undefined,
       weapon: skillStats(this.state, "strike").weapon,
@@ -468,6 +468,8 @@ export class WorldView {
       armorForm: items.find((i) => i.id === equipped.armor)?.form,
       shield: items.some((i) => i.id === equipped.offhand),
     });
+    this.canvas.dataset.weaponModel=avatar.getObjectByName("Aethercoil detailed pistol")?"detailed-pistol":"procedural";
+    return avatar;
   }
   createScenery() {
     this.art.landscape();

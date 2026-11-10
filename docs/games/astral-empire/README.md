@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.19.1 - Original pistol model
+
+The Aethercoil now uses its original six-material GLB (9,052 triangles), mounted at the palm with corrected forward aiming pose. Cached offline; existing crafting, damage, magazines and saves unchanged. Finger articulation and target-height IK remain provisional.
+
 ## Version 3.19 - Craftable Aethercoil pistol
 
 Craft and equip the pistol using four cobalt and one circuitry. It has a 12-round magazine, infinite reserve, automatic reload when empty, and manual reload with V or its ammo button. Hitscan respects range and cover; tempering, reforging and ascension remain available. The current weapon mesh is a provisional code-authored model, not the detailed asset. Existing saves and both custom bodies are retained.

@@ -1,3 +1,4 @@
+import {loadPistolModel} from './pistol-model.mjs';
 import { PLAYER_HEIGHT } from './world-scale.mjs';
 import * as T from "../vendor/three.module.js";
 import { GLTFLoader } from "../vendor/GLTFLoader.js";
@@ -88,7 +89,7 @@ function consolidateSkin(scene) {
 export function loadAvatarRigs() {
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   return (loading ??= Promise.allSettled(
-    ["kael", "mira"].map(async (id) => {
+    [loadPistolModel(), ...["kael", "mira"].map(async (id) => {
       const { scene } = await loader.loadAsync(
         new URL("../assets/characters/" + id + ".glb", import.meta.url).href,
       );
@@ -105,7 +106,7 @@ export function loadAvatarRigs() {
         floor: box.min.y,
         height: box.max.y - box.min.y,
       });
-    }),
+    })],
   ));
 }
 function reskin(source, hero) {
@@ -254,13 +255,25 @@ export function poseAvatarRig(
   );
   rotate(
     "R_UpperArm",
-    weapon === "pistol" ? -.95-(attacking?Math.abs(Math.sin(time*32))*.12:0) : attacking ? -0.79 + Math.sin(time * 26) * 0.22 : stride * 0.45,
+    weapon === "pistol" ? +.95+(attacking?Math.abs(Math.sin(time*32))*.12:0) : attacking ? -0.79 + Math.sin(time * 26) * 0.22 : stride * 0.45,
     0,
     -1.24,
   );
   rotate("L_LowerArm", guarding ? -0.55 : -0.12);
-  rotate("R_LowerArm", weapon === "pistol" ? -.3 : attacking ? -0.58 : -0.1);
+  rotate("R_LowerArm", weapon === "pistol" ? +.3 : attacking ? -0.58 : -0.1);
   rotate("C_Spine", moving ? 0.035 : 0, moving ? stride * 0.095 : 0);
+  if(weapon === 'pistol'){
+    root.updateMatrixWorld(true);
+    const forward=root.getWorldQuaternion(new T.Quaternion());
+    for(const item of root.userData.equipmentAttachments?.right||[]){
+      if(item.parent){
+        item.quaternion.copy(item.parent.getWorldQuaternion(new T.Quaternion()).invert().multiply(forward));
+        const finger=root.getObjectByName('J_Bip_R_Middle1');
+        if(finger){const palm=bones.R_Hand.getWorldPosition(new T.Vector3()).lerp(finger.getWorldPosition(new T.Vector3()),.7);item.position.copy(item.parent.worldToLocal(palm));}
+      }
+    }
+  }
+
 }
 export function measureAvatarBody(root){
  const gear=new Set([...(root.userData.equipmentAttachments?.left||[]),...(root.userData.equipmentAttachments?.right||[])]),box=new T.Box3();root.updateMatrixWorld(true);root.traverse(o=>o.skeleton?.update());
