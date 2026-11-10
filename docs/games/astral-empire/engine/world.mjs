@@ -4,7 +4,8 @@ import { HEROES, REALMS } from "./content.mjs";
 import { ArtDirector, GRAPHICS } from "./art.mjs";
 import { WorkstationView } from "./workstations.mjs";
 import { CameraRig } from "./camera.mjs";
-import { enemySites, LIMIT } from "./frontier.mjs";
+import { enemySites } from "./frontier.mjs";
+import { CHUNK_SIZE, fieldNoise } from "./chunks.mjs";
 import { classFor } from "./codex.mjs";
 const color = (hex) => new T.Color(hex);
 const materials = new Map(),
@@ -68,7 +69,7 @@ export class WorldView {
       sim.layout.structures,
     );
     this.scene.background = color(this.art.palette.mist);
-    this.scene.fog = new T.Fog(this.art.palette.mist, 65, 195);
+    this.scene.fog = new T.Fog(this.art.palette.mist, 46, 98);
     this.visuals = visuals;
     this.renderer = new T.WebGLRenderer({
       canvas,
@@ -112,13 +113,24 @@ export class WorldView {
     sun.shadow.normalBias = 0.16;
     this.sun = sun;
     this.scene.add(sun, sun.target);
-    this.createTerrain();
+    this.chunkMeshes = new Map();
+    const groundTexture = this.art.groundTexture();
+    this.groundMaterial = new T.MeshStandardMaterial({
+      vertexColors: true,
+      roughness: 0.94,
+      map: groundTexture,
+      bumpMap: groundTexture,
+      bumpScale: 0.12,
+    });
+    this.art.water();
+    this.art.sky();
     this.createSanctuary();
     this.art.sanctuary();
     this.createScenery();
     this.workstations = new WorkstationView(this.scene, state, this.art);
-    this.createNodes();
+    this.coreNodes = this.createNodes();
     this.createFeatures();
+    this.syncWorld();
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.scene.add(this.character);
     this.createEnemies();
@@ -176,18 +188,29 @@ export class WorldView {
     this.camera.aspect = innerWidth / innerHeight;
     this.camera.updateProjectionMatrix();
   }
-  createTerrain() {
-    const plane = new T.PlaneGeometry(320, 320, 128, 128);
+  createTerrain(tile) {
+    const plane = new T.PlaneGeometry(CHUNK_SIZE, CHUNK_SIZE, 16, 16);
     plane.rotateX(-Math.PI / 2);
+    const originX = (tile.cx + 0.5) * CHUNK_SIZE,
+      originZ = (tile.cz + 0.5) * CHUNK_SIZE;
     const positions = plane.attributes.position,
+      normals = plane.attributes.normal,
       colors = [];
     for (let i = 0; i < positions.count; i++) {
-      const x = positions.getX(i),
-        z = positions.getZ(i);
+      const x = positions.getX(i) + originX,
+        z = positions.getZ(i) + originZ;
       const height = this.height(x, z);
+      plane.attributes.uv.setXY(i, x / 320, -z / 320);
       positions.setY(i, height - 0.08);
       const c = color(this.realm.color);
-      const path = Math.abs(x + Math.sin(z * 0.03) * 3) < 3.7;
+      const slope = new T.Vector3(
+        this.height(x - 0.5, z) - this.height(x + 0.5, z),
+        1,
+        this.height(x, z - 0.5) - this.height(x, z + 0.5),
+      ).normalize();
+      normals.setXYZ(i, slope.x, slope.y, slope.z);
+      const path =
+        Math.hypot(x, z) < 118 && Math.abs(x + Math.sin(z * 0.03) * 3) < 3.7;
       const plaza = Math.hypot(x, z) < 10;
       if (plaza) c.set(0xa2a5a0);
       else if (path) c.set(0xb9b7a0);
@@ -196,6 +219,15 @@ export class WorldView {
           0.5 + Math.sin(x * 0.13 + z * 0.062) * Math.cos(z * 0.111) * 0.5;
         c.lerp(color(this.art.palette.grass), patch * 0.42);
         c.lerp(color(0xa9a7a2), Math.max(0, height - 2.5) * 0.105);
+        if (Math.hypot(x, z) > 110) {
+          const blend = Math.min(1, (Math.hypot(x, z) - 110) / 60);
+          const geology = fieldNoise(this.state.seed, x, z, 155);
+          c.lerp(
+            color(geology < 0.33 ? 0xa49288 : this.art.palette.leaf),
+            blend * 0.32,
+          );
+          c.lerp(color(0x898d9a), Math.max(0, 1 - slope.y) * 0.9 * blend);
+        }
         if (this.state.realm === "orbit") {
           const grid = Math.abs(x % 15) < 2 || Math.abs(z % 15) < 2;
           c.lerp(color(grid ? 0x8da8bd : 0x3c475f), 0.35);
@@ -207,20 +239,11 @@ export class WorldView {
       colors.push(c.r, c.g, c.b);
     }
     plane.setAttribute("color", new T.Float32BufferAttribute(colors, 3));
-    plane.computeVertexNormals();
-    const terrain = new T.Mesh(
-      plane,
-      new T.MeshStandardMaterial({
-        vertexColors: true,
-        roughness: 1,
-        map: this.art.groundTexture(),
-      }),
-    );
+    const terrain = new T.Mesh(plane, this.groundMaterial);
     terrain.receiveShadow = true;
-    this.terrain = terrain;
+    terrain.position.set(originX, 0, originZ);
     this.scene.add(terrain);
-    this.art.water();
-    this.art.sky();
+    return terrain;
   }
   createSanctuary() {
     const plaza = new T.Group();
@@ -313,8 +336,8 @@ export class WorldView {
     this.canvas.dataset.shadows = String(!!preset.shadow);
     document.body.classList.toggle("reduced-motion", settings.reducedMotion);
   }
-  createNodes() {
-    this.sim.layout.nodes.forEach((d) => {
+  createNodes(definitions = this.sim.layout.nodes) {
+    return definitions.map((d) => {
       const { id } = d,
         g = new T.Group(),
         y = this.height(d.x, d.z);
@@ -337,7 +360,7 @@ export class WorldView {
       } else if (d.kind === "rock") {
         const rock = this.art.shape(
           g,
-          "gem",
+          "stone",
           0x819199,
           0,
           0.41,
@@ -351,7 +374,7 @@ export class WorldView {
       } else if (d.kind === "wreck") {
         const hull = this.art.shape(
           g,
-          "box",
+          "panel",
           0x506374,
           0,
           0.46,
@@ -421,6 +444,20 @@ export class WorldView {
           3.24 * s,
           0.28 * s,
         );
+        for (let j = 0; j < 2; j++) {
+          const branch = this.art.shape(
+            g,
+            "tube",
+            0x6b544c,
+            (j ? 0.42 : -0.39) * s,
+            2.59 * s,
+            0.12 * s,
+            0.15 * s,
+            1.7 * s,
+            0.13 * s,
+          );
+          branch.rotation.z = j ? -0.55 : 0.6;
+        }
         for (let i = 0; i < 4; i++)
           this.art.shape(
             g,
@@ -457,11 +494,11 @@ export class WorldView {
       glow.position.y = 0.06;
       g.add(glow);
       this.scene.add(g);
-      this.nodes.push({ ...d, type: "node", mesh: g, glow });
+      return { ...d, type: "node", mesh: g, glow };
     });
   }
-  createFeatures() {
-    this.features = this.sim.layout.features.map((f) => {
+  buildFeatures(definitions) {
+    return definitions.map((f) => {
       const group = new T.Group();
       group.position.set(f.x, this.height(f.x, f.z), f.z);
       this.scene.add(group);
@@ -471,7 +508,7 @@ export class WorldView {
       if (f.kind === "cache") {
         const bronze = 0x9cafc3,
           wood = 0x344e65;
-        shape("box", wood, 0, 0.37, 0, 1.58, 0.7, 1.12);
+        shape("panel", wood, 0, 0.37, 0, 1.58, 0.7, 1.12);
         shape("box", 0x211c33, 0, 0.73, 0, 1.43, 0.06, 0.97);
         for (const x of [-0.65, 0.65]) {
           shape("box", bronze, x, 0.42, 0.57, 0.12, 0.65, 0.05);
@@ -545,6 +582,9 @@ export class WorldView {
       this.art.ring(group, f.radius + 0.22, 0.028, tint, 0.12);
       return { ...f, type: "feature", mesh: group, moving };
     });
+  }
+  createFeatures() {
+    this.coreFeatures = this.buildFeatures(this.sim.layout.features);
     this.waypoint = new T.Group();
     this.art.ring(this.waypoint, 0.54, 0.045, 0xffdaa0, 0.08);
     const pin = this.art.shape(
@@ -561,6 +601,40 @@ export class WorldView {
     pin.material = this.art.material(0xffdaa0, 0.8);
     this.waypoint.visible = false;
     this.scene.add(this.waypoint);
+  }
+  syncWorld() {
+    this.sim.syncChunks();
+    const tiles = this.sim.chunks.tiles;
+    if (this.visibleTiles === tiles) return;
+    this.visibleTiles = tiles;
+    for (const [key, record] of this.chunkMeshes)
+      if (!tiles.has(key)) {
+        this.scene.remove(record.terrain);
+        record.terrain.geometry.dispose();
+        for (const object of [...record.nodes, ...record.features]) {
+          this.scene.remove(object.mesh);
+          this.releaseObject(object.mesh);
+        }
+        this.chunkMeshes.delete(key);
+      }
+    for (const [key, tile] of tiles)
+      if (!this.chunkMeshes.has(key))
+        this.chunkMeshes.set(key, {
+          terrain: this.createTerrain(tile),
+          nodes: this.createNodes(tile.nodes),
+          features: this.buildFeatures(tile.features),
+        });
+    this.nodes = [
+      ...this.coreNodes,
+      ...Array.from(this.chunkMeshes.values()).flatMap((c) => c.nodes),
+    ];
+    this.features = [
+      ...this.coreFeatures,
+      ...Array.from(this.chunkMeshes.values()).flatMap((c) => c.features),
+    ];
+    this.terrainTiles = Array.from(this.chunkMeshes.values(), (c) => c.terrain);
+    this.syncEnemyMeshes();
+    this.scene.updateMatrixWorld(true);
   }
   markDestination(point) {
     this.waypoint.visible = !!point;
@@ -595,7 +669,7 @@ export class WorldView {
       ),
       this.camera,
     );
-    const terrainHit = this.ray.intersectObject(this.terrain, false)[0];
+    const terrainHit = this.ray.intersectObjects(this.terrainTiles, false)[0];
     const visible = this.interactables().filter(
       (o) => Math.hypot(o.x - this.sim.player.x, o.z - this.sim.player.z) < 65,
     );
@@ -615,12 +689,7 @@ export class WorldView {
       }
     }
     if (target) return target;
-    if (
-      terrainHit &&
-      terrainHit.distance < 85 &&
-      Math.abs(terrainHit.point.x) <= LIMIT &&
-      Math.abs(terrainHit.point.z) <= LIMIT
-    )
+    if (terrainHit && terrainHit.distance < 85)
       return { x: terrainHit.point.x, z: terrainHit.point.z };
     return null;
   }
@@ -645,7 +714,20 @@ export class WorldView {
     );
     this.sim.spawn(this.state.realm + "-warden", 0, -48, true);
     this.sim.spawn(this.state.realm + "-training", -4, -3, false, "training");
+    this.syncEnemyMeshes();
+  }
+  syncEnemyMeshes() {
+    const active = new Set(this.sim.enemies.map((e) => e.id));
+    for (const [id, parts] of this.foes)
+      if (!active.has(id)) {
+        for (const object of Object.values(parts)) {
+          this.scene.remove(object);
+          this.releaseObject(object);
+        }
+        this.foes.delete(id);
+      }
     for (const e of this.sim.enemies) {
+      if (this.foes.has(e.id)) continue;
       const g = new T.Group();
       {
         const dark = e.training
@@ -923,6 +1005,7 @@ export class WorldView {
     this.effects.push({ mesh: g, life: 0.38, max: 0.38, sparks: true });
   }
   update(dt, input, time) {
+    this.syncWorld();
     const p = this.sim.player,
       c = this.character,
       terrainY = this.height(p.x, p.z);
@@ -962,6 +1045,7 @@ export class WorldView {
       this.visuals.reducedMotion,
     );
     c.rotation.z = p.dodge > 0 ? 0.22 : 0;
+    this.art.skyGroup.position.set(p.x, terrainY, p.z);
     this.art.update(time, this.visuals.reducedMotion);
     this.workstations.update(time, this.visuals.reducedMotion);
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
@@ -1104,7 +1188,10 @@ export class WorldView {
   }
   releaseObject(object) {
     // Retire unique avatar geometry while keeping shared art materials alive.
-    const shared = new Set(this.art.geometries.values());
+    const shared = new Set([
+      ...this.art.geometries.values(),
+      ...geometries.values(),
+    ]);
     object.traverse((o) => {
       if (o.geometry && !o.isSprite && !shared.has(o.geometry))
         o.geometry.dispose();
@@ -1112,7 +1199,12 @@ export class WorldView {
         o.material.map.dispose();
         this.art.textures.delete(o.material.map);
       }
-      if (o.material && ![...this.art.materials.values()].includes(o.material))
+      if (
+        o.material &&
+        ![...this.art.materials.values(), ...materials.values()].includes(
+          o.material,
+        )
+      )
         o.material.dispose();
     });
   }

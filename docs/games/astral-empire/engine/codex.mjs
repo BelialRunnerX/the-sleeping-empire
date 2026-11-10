@@ -7,10 +7,10 @@ export const ATTRIBUTES = [
   ["agility", "Movement speed"],
   ["accuracy", "Critical chance"],
   ["reflexes", "Skill cooldown recovery"],
-  ["retribution", "Critical damage"],
+  ["retribution", "Reflect a share of incoming damage"],
   ["intellect", "Spell damage"],
   ["willpower", "Maximum energy"],
-  ["luck", "Resource yield"],
+  ["luck", "Extra resource roll and critical chance"],
   ["presence", "Crafted equipment power"],
 ];
 const race = (id, name, base, growth, trait, bonus) => ({
@@ -27,8 +27,8 @@ export const RACES = [
     "Imperial",
     [4, 4, 3, 4, 3, 3, 3, 5, 3, 3, 3, 6],
     { retribution: 1, presence: 1, vitality: 1 },
-    "Sanctioned Answer · +5% critical damage",
-    { critMultiplier: 0.05 },
+    "Sanctioned Answer · Additional reflection scales with level",
+    {},
   ),
   race(
     "druun",
@@ -238,12 +238,17 @@ export function applyCodexStats(v, s) {
   v.resistance += share(a.resilience, 100) * 0.4;
   v.power += a.strength * 0.7;
   v.speed += share(a.agility, 100) * 0.4;
-  v.crit += share(a.accuracy, 100) * 0.38;
+  v.crit = 1 - (1 - v.crit) * (1 - share(a.accuracy, 800 / 4));
   v.haste += share(a.reflexes, 110) * 0.45;
-  v.critMultiplier += share(a.retribution, 105) * 0.7;
+  v.reflection = share(a.retribution, 900 / 4);
+  if (originFor(s).id === "imperial")
+    v.reflection = 1 - (1 - v.reflection) * (1 - share(s.level, 100));
   v.spellDamage += a.intellect * 0.008;
   v.mana += a.willpower * 1.5;
-  v.yield += share(a.luck, 80) * 2.2;
+  v.luckChance = share(a.luck, 700 / 4);
+  // Browser build: Luck adds an independent crit opportunity at a quarter of
+  // its resource chance. Elysium's normal combat crit source is Accuracy.
+  v.crit = 1 - (1 - v.crit) * (1 - v.luckChance * 0.25);
   v.fabrication += share(a.presence, 110) * 0.22;
   for (const bonus of [originFor(s).bonus, classFor(s).bonus])
     for (const [key, value] of Object.entries(bonus)) v[key] += value;

@@ -11,6 +11,7 @@ import {
 } from "./content.mjs";
 import { numeric } from "./native.mjs";
 import { normalizeExploration } from "./frontier.mjs";
+import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
 import { reachable } from "./constellation.mjs";
 import {
   applyCodexStats,
@@ -186,8 +187,16 @@ export function migrateState(input) {
     s.life = clamp(finite(input.life, 300), 1, 1e6);
     s.mana = clamp(finite(input.mana, 120), 0, 1e6);
     s.position = {
-      x: clamp(finite(input.position?.x), -140, 140),
-      z: clamp(finite(input.position?.z, 6), -140, 140),
+      x: clamp(
+        finite(input.position?.x),
+        -SAVE_COORDINATE_LIMIT,
+        SAVE_COORDINATE_LIMIT,
+      ),
+      z: clamp(
+        finite(input.position?.z, 6),
+        -SAVE_COORDINATE_LIMIT,
+        SAVE_COORDINATE_LIMIT,
+      ),
     };
     s.items = Array.isArray(input.items)
       ? input.items
@@ -477,11 +486,13 @@ export function gather(s, node, now = Date.now()) {
   const mastery = professionLevel(s, job.id),
     st = stats(s),
     tier = numeric.world_tier(s.level, s.deepest);
-  let count =
+  const lucky = roll(s.seed, s.statistics.gathers, 1907) < st.luckChance;
+  const count =
     numeric.ore_yield(tier, roll(s.seed, s.statistics.gathers, 9)) +
     Math.floor(mastery / 3) +
     Math.floor(st.yield) +
-    (st.keystones.includes("artisan") ? 1 : 0);
+    (st.keystones.includes("artisan") ? 1 : 0) +
+    (lucky ? 1 : 0);
   if (node.kind !== "rock")
     s.resources[job.resource] = (s.resources[job.resource] || 0) + count;
   if (job.id === "mining") s.resources.stone += count;

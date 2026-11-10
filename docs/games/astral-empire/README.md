@@ -2,6 +2,14 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.6 · Beyond the Rim
+
+Each of the five realms streams deterministic 40-meter terrain chunks as you move. A 7×7 window keeps geometry, patrols and harvestable props bounded. Beyond the original outpost region you can find new terrain, mineral belts, trees, salvage and occasional expedition caches or relays. Returning regenerates the same sites, while local saves retain the seed, distant position, depletion, opened caches and synced relays.
+
+Press **Left Ctrl** to toggle continuous orbit, just like holding the right mouse button. **Esc**, opening a menu or leaving the window releases it. The menus group Character, Fieldwork, Industry and Game pages. The mesh pass uses the original anime portraits as reference for layered hair, face proportions, collars and alloy details. Procedural foliage, rocks, panels and terrain shading also gained detail.
+
+Retribution reflects a separate hit based on incoming damage before the defender's armor. Luck adds a material roll and contributes to critical chance. The [source audit](ELYSIUM_PORT.md) distinguishes the Elysium formulas from the browser-specific crit rule.
+
 ## Version 3.5 · The Living Frontier
 
 - **Full 3D world.** Perspective camera, cel-shaded characters, 3D equipment, vegetation, resource props, drones and workstations. The title and portraits keep their illustrated art. The camera orbits, pans, zooms and shortens around terrain and nearby scenery, then eases back out.
@@ -19,7 +27,7 @@ A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Ae
 | --- | --- |
 | Travel or interact | Click/tap the ground or object; E uses the nearest interaction |
 | Manual movement | WASD / arrows; on-screen pad on touchscreens |
-| Camera | Right drag to orbit; middle drag or Shift + right drag to pan; wheel to zoom |
+| Camera | Right drag to orbit; Left Ctrl toggles continuous orbit; middle drag or Shift + right drag to pan; wheel to zoom |
 | Camera shortcuts | R resets; Z/X rotate 45°; on-screen zoom, rotation and reset buttons |
 | Touch camera | Drag to orbit; pinch to zoom; twist to rotate |
 | Basic combo | Skill bar, Alt-click, or toggle Attack to hold the left button |
@@ -34,7 +42,7 @@ A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Ae
 
 - Local PINs identify save slots on this browser. Settings supports JSON export and version 1–3 imports. Classic and Aetherbound maintain separate progress after migration.
 - Current saves keep version 3 keys. The seed, original depleted-node IDs, position, gear, appearance collection, atelier orders, Codex choices, attribute assignments, explored sites and permanent world changes persist. An older build that spent more than the new level budget keeps those allocations until its Codex budget catches up.
-- The browser caches its local shell for offline play after a successful online load. Graphics and camera preferences are stored separately from character progress. No cloud authentication, multiplayer, streamed voxel worlds or unrestricted terrain deformation are implemented.
+- The browser caches its local shell for offline play after a successful online load. Graphics and camera preferences are stored separately from character progress. Profiles and progress are local to the browser. Chunk terrain uses heightfields, with harvestable props and persistent discoveries.
 - The freestanding [C++17 module](native/simulation.cpp) still handles numeric hashing, tier/yield, mitigation and swept projectile checks, with JavaScript fallback. JavaScript owns the game state, new navigation/camera/world rules and WebGL integration. See [ELYSIUM_PORT.md](ELYSIUM_PORT.md), [ARTISAN.md](ARTISAN.md), [VISUALS.md](VISUALS.md) and [ROADMAP.md](ROADMAP.md).
 
 ## Development and verification

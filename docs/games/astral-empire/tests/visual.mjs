@@ -106,6 +106,27 @@ try {
       const allMeshes =
         view.camera.isPerspectiveCamera &&
         view.nodes.every((n) => n.mesh.children.every((o) => !o.isSprite));
+      if (realm === "bastion") {
+        const startTile = view.chunkMeshes.get("0:0");
+        sim.player.x = -2860;
+        sim.player.z = 3140;
+        await render();
+        if (
+          view.chunkMeshes.size !== 49 ||
+          view.chunkMeshes.has("0:0") ||
+          startTile.terrain.parent ||
+          !view.nodes.some((n) => n.x < -2800)
+        )
+          throw Error("World did not unload old terrain and load new terrain");
+        sim.player.x = 0;
+        sim.player.z = 6;
+        await render();
+        if (
+          view.chunkMeshes.size !== 49 ||
+          view.chunkMeshes.get("0:0") === startTile
+        )
+          throw Error("World did not reconstruct the starting area");
+      }
       // A riverbank view exposes animated water, terrain, foliage and the skyline.
       sim.player.x = 20;
       sim.player.z = 7;

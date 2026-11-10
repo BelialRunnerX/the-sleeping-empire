@@ -17,8 +17,8 @@ export class WorkstationView {
       const shape = (kind, color, ...args) =>
         art.shape(built, kind, color, ...args);
       art.shape(body, "box", 0x69787f, 0, 0.09, 0, 2.55, 0.18, 1.8);
-      shape("box", 0x424e62, 0, 0.62, 0, 1.93, 0.93, 1.31);
-      shape("box", def.color, 0, 1.1, 0, 2.15, 0.13, 1.46);
+      shape("panel", 0x424e62, 0, 0.62, 0, 1.93, 0.93, 1.31);
+      shape("panel", def.color, 0, 1.1, 0, 2.15, 0.13, 1.46);
       for (const x of [-0.8, 0.8])
         for (const z of [-0.54, 0.54])
           shape("box", 0xa39379, x, 0.6, z, 0.14, 0.94, 0.14);

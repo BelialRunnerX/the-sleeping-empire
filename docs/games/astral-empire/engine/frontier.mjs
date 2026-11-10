@@ -1,6 +1,5 @@
 import { numeric } from "./native.mjs";
-
-export const LIMIT = 140;
+import { fieldNoise, savedChunkFeature } from "./chunks.mjs";
 const realms = ["bastion", "moon", "cinder", "frost", "orbit"];
 const roll = (seed, x, z) =>
   numeric.world_hash(seed | 0, x | 0, z | 0) / 2 ** 32;
@@ -58,9 +57,18 @@ export function terrainFor(seed, realm) {
       smooth((r - 22) / 32) *
       smooth((Math.hypot(x, z + 48) - 11) / 14);
     if (Math.abs(x - 30) < 5.8 && Math.abs(z - 6) < 1.25) return 0.05;
-    const bank = smooth((5.8 - Math.abs(x - 30)) / 1.8);
+    const bank =
+      smooth((5.8 - Math.abs(x - 30)) / 1.8) *
+      (1 - smooth((Math.abs(z + 10) - 114) / 20));
+    const relief =
+      r < 110
+        ? 0
+        : smooth((r - 110) / 76) *
+          ((fieldNoise(key, x, z, 220) - 0.45) * 38 +
+            (fieldNoise(key ^ 0x5123, x, z, 72) - 0.5) * 11);
     return (
-      ((realm === "moon" ? hill * 0.6 : hill) + wild) * (1 - bank) - 0.72 * bank
+      ((realm === "moon" ? hill * 0.6 : hill) + wild + relief) * (1 - bank) -
+      0.72 * bank
     );
   };
 }
@@ -230,7 +238,11 @@ export function normalizeExploration(raw, seed) {
   );
   const list = (value) =>
     Array.isArray(value)
-      ? [...new Set(value.slice(0, 320).filter((id) => valid.has(id)))]
+      ? [
+          ...new Set(
+            value.filter((id) => valid.has(id) || savedChunkFeature(id, seed)),
+          ),
+        ]
       : [];
   return { discovered: list(raw?.discovered), changed: list(raw?.changed) };
 }

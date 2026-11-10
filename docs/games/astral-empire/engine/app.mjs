@@ -91,6 +91,7 @@ let state = freshState(),
   trackedStation = null,
   travel = null,
   combatClick = false,
+  freeLook = false,
   lastDiscovery = 0,
   declarationRequired = false,
   noticeId = 0,
@@ -111,6 +112,25 @@ const tabs = [
   ["realms", "Waygates"],
   ["settings", "Settings"],
 ];
+const menuGroups = [
+  ["Character", ["codex", "inventory", "skills", "passives", "heroes"]],
+  ["Fieldwork", ["frontier", "journal", "realms"]],
+  ["Industry", ["lifeskills", "crafting", "artisan"]],
+  ["Game", ["settings"]],
+];
+function menuNavigation(active) {
+  return `<nav class="panel-tabs" aria-label="Game menus">${menuGroups
+    .map(
+      ([name, ids]) =>
+        `<div class="menu-group"><span>${name}</span>${ids
+          .map(
+            (id) =>
+              `<button data-panel="${id}" ${id === active ? 'class="active" aria-current="page"' : ""}>${tabs.find((tab) => tab[0] === id)[1]}</button>`,
+          )
+          .join("")}</div>`,
+    )
+    .join("")}</nav>`;
+}
 function notify(message) {
   const node = document.createElement("div");
   node.className = "notification";
@@ -144,6 +164,11 @@ function save() {
   if (!playing) return;
   try {
     settleProduction(state);
+    const time = Date.now();
+    for (const id of Object.keys(state.depleted))
+      if (state.depleted[id] <= time) delete state.depleted[id];
+    for (const id of Object.keys(state.defeated))
+      if (state.defeated[id] <= time) delete state.defeated[id];
     profiles.save(state);
     $("save-state").textContent = "Saved";
     lastSave = performance.now();
@@ -187,7 +212,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.5 · The Living Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.6 · Beyond the Rim</span></footer>`;
 }
 function enter(create) {
   try {
@@ -563,6 +588,8 @@ function statBoxes() {
     ["SPELL INCREASE", Math.round((s.damage + s.spellDamage) * 100) + "%"],
     ["ELEMENTAL INCREASE", Math.round(s.elementalDamage * 100) + "%"],
     ["ELEMENTAL RESISTANCE", Math.round(s.resistance * 100) + "%"],
+    ["DAMAGE REFLECTION", (s.reflection * 100).toFixed(1) + "%"],
+    ["LUCK · EXTRA MATERIAL", (s.luckChance * 100).toFixed(1) + "%"],
     ["CRITICAL CHANCE", Math.round(s.crit * 100) + "%"],
     ["CRITICAL MULTIPLIER", Math.round(s.critMultiplier * 100) + "%"],
     ["PENETRATION", Math.round(s.penetration * 100) + "%"],
@@ -733,7 +760,7 @@ function survey() {
     (a, b) =>
       Math.hypot(a.x - p.x, a.z - p.z) - Math.hypot(b.x - p.x, b.z - p.z),
   );
-  return `<article class="card"><h3>${view.realm.name} · Field survey</h3><p>${found.length} of ${view.features.length} sites discovered. Explore to chart caches, mineral rubble and relays. The map remembers the sites you find.</p></article>
+  return `<article class="card"><h3>${view.realm.name} · Field survey</h3><p>${found.length} of ${view.features.length} nearby sites charted. Explore to chart caches, mineral rubble and relays. The map remembers the sites you find.</p></article>
   <div class="grid-2">${found
     .map(
       (
@@ -744,11 +771,12 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Tap on touchscreens · M: field survey<br>Shift: evade · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
   if (declarationRequired) id = "codex";
+  setFreeLook(false);
   cancelTravel();
   gathering = null;
   holdingAttack = false;
@@ -757,7 +785,7 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">THE AETHERBOUND CHRONICLE</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header>${declarationRequired ? "" : `<nav class="panel-tabs">${tabs.map(([key, name]) => `<button data-panel="${key}" class="${panel === key ? "active" : ""}">${name}</button>`).join("")}</nav>`}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
   ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
@@ -1217,12 +1245,18 @@ document.addEventListener("change", async (e) => {
   }
 });
 document.addEventListener("keydown", (e) => {
+  if (e.code === "ControlLeft" && playing && !panel && !e.repeat) {
+    setFreeLook(!freeLook);
+    return;
+  }
   if (e.key === "Escape") {
+    setFreeLook(false);
     if (panel) closePanel();
     else cancelTravel();
     return;
   }
   if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.ctrlKey || e.metaKey) return;
   if (e.key === "F8" && playing) {
     e.preventDefault();
     document.body.classList.toggle("scenic-view");
@@ -1289,6 +1323,7 @@ document.addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
 const canvas = $("world"),
   pointers = new Map();
 let cameraSave;
+let capturedLook = false;
 function saveCamera() {
   clearTimeout(cameraSave);
   const goal = { ...view.rig.goal };
@@ -1305,6 +1340,7 @@ function cameraControl(action) {
   if (action === "right") view.rig.orbit(Math.PI / 4, 0);
   if (action === "near") view.rig.zoom(0.82);
   if (action === "far") view.rig.zoom(1.22);
+  if (action === "look") setFreeLook(!freeLook);
   if (action === "mode") {
     combatClick = !combatClick;
     const toggle = $("pointer-mode");
@@ -1314,7 +1350,36 @@ function cameraControl(action) {
   }
   saveCamera();
 }
+function setFreeLook(enabled) {
+  if (freeLook === enabled) return;
+  freeLook = enabled;
+  $("free-look").setAttribute("aria-pressed", String(enabled));
+  if (enabled) {
+    // When pointer lock is unavailable (some embeds), canvas movement still
+    // supplies relative deltas until the pointer leaves the game.
+    try {
+      canvas.requestPointerLock?.()?.catch?.(() => {});
+    } catch {}
+  } else {
+    if (document.pointerLockElement === canvas) document.exitPointerLock();
+    if (view) saveCamera();
+  }
+}
+document.addEventListener("pointerlockchange", () => {
+  if (document.pointerLockElement === canvas) {
+    capturedLook = true;
+    if (!freeLook) document.exitPointerLock();
+  } else if (capturedLook) {
+    capturedLook = false;
+    setFreeLook(false);
+  }
+});
+canvas.addEventListener("mousemove", (e) => {
+  if (!freeLook || !playing || panel || pointers.size) return;
+  view.rig.orbit(-e.movementX * 0.006, e.movementY * 0.004);
+});
 addEventListener("blur", () => {
+  setFreeLook(false);
   keys.clear();
   pointers.clear();
   holdingAttack = false;
@@ -1464,6 +1529,7 @@ function handleEvents() {
       floating(event);
       view.impactFX(event);
     }
+    if (event.type === "reflection") floating(event);
     if (event.type === "hurt") {
       gathering = null;
       cancelTravel();

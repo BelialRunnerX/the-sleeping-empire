@@ -350,7 +350,8 @@ test("malformed imports are constrained and unknown gear affixes are discarded",
   s.position = { x: Infinity, z: -9999 };
   const loaded = migrateState(s);
   assert.equal(loaded.level, 1);
-  assert.equal(loaded.position.z, -140);
+  assert.equal(loaded.position.x, 0);
+  assert.equal(loaded.position.z, -9999);
   assert.equal(loaded.items[0].affixes.length, 0);
 });
 test("profile isolation, PIN validation, reload, and legacy preservation", () => {

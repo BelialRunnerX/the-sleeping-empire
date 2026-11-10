@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { makeFrontier, discover, useFeature } from "../engine/frontier.mjs";
+import { CHUNK_SIZE, ChunkWindow, generateChunk } from "../engine/chunks.mjs";
 import {
   blocked,
   routeTo,
@@ -63,6 +64,63 @@ test("frontier generation varies by seed and realm without moving legacy node ID
     assert.ok(Math.abs(f.x - 30) >= 9 && Math.hypot(f.x, f.z) >= 24);
     assert.ok(a.nodes.every((n) => Math.hypot(n.x - f.x, n.z - f.z) > 4));
   }
+});
+test("signed chunks stream in a fixed window and keep identity and changes after travel", () => {
+  const s = freshState(438102);
+  const sim = new Simulation(s);
+  const initial = sim.chunks.tiles.get("0:0");
+  assert.equal(sim.chunks.tiles.size, 49);
+  let discovery;
+  for (let i = -80; i < -4 && !discovery; i++)
+    discovery = generateChunk(s.seed, s.realm, i, 77).features[0];
+  assert.ok(discovery);
+  sim.player.x = discovery.x;
+  sim.player.z = discovery.z;
+  sim.syncChunks();
+  assert.equal(sim.chunks.tiles.size, 49);
+  assert.ok(!sim.chunks.tiles.has(initial.key));
+  assert.ok(sim.enemies.some((e) => e.streamed));
+  useFeature(s, discovery, discovery);
+  s.position = { x: discovery.x, z: discovery.z };
+  const restored = migrateState(s);
+  assert.deepEqual(restored.position, s.position);
+  assert.ok(restored.exploration.changed.includes(discovery.id));
+  const stream = new ChunkWindow(s.seed, s.realm);
+  stream.update(s.position.x, s.position.z);
+  const tile = stream.tiles.get(
+    Math.floor(discovery.x / CHUNK_SIZE) +
+      ":" +
+      Math.floor(discovery.z / CHUNK_SIZE),
+  );
+  stream.update(0, 0);
+  stream.update(s.position.x, s.position.z);
+  assert.deepEqual(stream.tiles.get(tile.key), tile);
+});
+test("Retribution reflects a separate hit, and Luck affects both gathers and crits", () => {
+  const s = freshState(18);
+  s.race = "druun";
+  s.level = 40;
+  const ordinary = stats(s);
+  assert.ok(assignAttribute(s, "retribution", 225));
+  assert.equal(stats(s).critMultiplier, ordinary.critMultiplier);
+  assert.equal(stats(s).armor, ordinary.armor);
+  assert.ok(stats(s).reflection > 0.5);
+  const sim = new Simulation(s);
+  const attacker = sim.spawn("attacker", 0, 9);
+  attacker.armor = 0;
+  const before = attacker.hp;
+  sim.hurtPlayer(40, "Physical", 1, attacker);
+  assert.ok(Math.abs(before - attacker.hp - 40 * stats(s).reflection) < 0.001);
+  assert.equal(sim.events.filter((e) => e.type === "reflection").length, 1);
+  const lucky = structuredClone(s);
+  assert.ok(assignAttribute(lucky, "luck", 160));
+  assert.ok(stats(lucky).crit > stats(s).crit);
+  assert.ok(stats(lucky).luckChance > stats(s).luckChance);
+  for (let i = 0; i < 20; i++) {
+    gather(s, { id: "base" + i, kind: "ore" }, 0);
+    gather(lucky, { id: "lucky" + i, kind: "ore" }, 0);
+  }
+  assert.ok(lucky.resources.cobalt > s.resources.cobalt);
 });
 test("cache, rubble and relay rewards are single-use and reload with the same layout", () => {
   const s = freshState(88),
@@ -170,22 +228,22 @@ test("survey drones telegraph three aimed Volt shots and Orbit changes jump phys
   const ground = new Simulation(freshState());
   const drone = ground.spawn("rogue-drone", 0, -4, false, "drone");
   drone.cooldown = 0;
-  ground.tick(.05);
+  ground.tick(0.05);
   assert.equal(drone.phase, "windup");
   assert.equal(drone.move, "volley");
   assert.equal(ground.projectiles.length, 0);
-  for (let i = 0; i < 17; i++) ground.tick(.05);
-  const shots = ground.projectiles.filter(p => p.faction === "enemy");
+  for (let i = 0; i < 17; i++) ground.tick(0.05);
+  const shots = ground.projectiles.filter((p) => p.faction === "enemy");
   assert.equal(shots.length, 3);
-  assert.ok(shots.every(p => p.element === "Volt"));
-  assert.equal(new Set(shots.map(p => p.x)).size, 3);
+  assert.ok(shots.every((p) => p.element === "Volt"));
+  assert.equal(new Set(shots.map((p) => p.x)).size, 3);
   const state = freshState();
   state.realm = "orbit";
   const orbit = new Simulation(state);
   ground.player.velocityY = orbit.player.velocityY = 8;
   for (let i = 0; i < 15; i++) {
-    ground.tick(.05);
-    orbit.tick(.05);
+    ground.tick(0.05);
+    orbit.tick(0.05);
   }
   assert.ok(orbit.player.y > ground.player.y + 2);
 });

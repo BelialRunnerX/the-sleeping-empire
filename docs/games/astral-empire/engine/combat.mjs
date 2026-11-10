@@ -2,6 +2,7 @@ import { ENEMY_TYPES } from "./content.mjs";
 import { classFor } from "./codex.mjs";
 import { numeric } from "./native.mjs";
 import { makeFrontier } from "./frontier.mjs";
+import { ChunkWindow } from "./chunks.mjs";
 import { freeSpawn, obstacles, walk } from "./navigation.mjs";
 import {
   clamp,
@@ -85,6 +86,8 @@ export class Simulation {
   constructor(state) {
     this.state = state;
     this.layout = makeFrontier(state.seed, state.realm);
+    this.chunks = new ChunkWindow(state.seed, state.realm);
+    this.chunks.update(state.position.x, state.position.z);
     this.refreshObstacles();
     const st = stats(state);
     this.player = {
@@ -109,11 +112,39 @@ export class Simulation {
     this.effectId = 0;
     this.potionCD = 0;
     this.lastHit = null;
+    this.syncChunkEnemies();
   }
   refreshObstacles() {
-    this.blockers = obstacles(this.state, this.layout);
+    this.blockers = obstacles(
+      this.state,
+      this.layout,
+      this.chunks.tiles.values(),
+    );
     if (this.player)
       Object.assign(this.player, freeSpawn(this.player, this.blockers));
+  }
+  syncChunks() {
+    if (!this.chunks.update(this.player.x, this.player.z)) return;
+    this.refreshObstacles();
+    this.syncChunkEnemies();
+  }
+  syncChunkEnemies() {
+    const patrols = new Map(
+      [...this.chunks.tiles.values()]
+        .filter((tile) => tile.enemy)
+        .map((tile) => [tile.enemy.id, tile.enemy]),
+    );
+    const retired = new Set(
+      this.enemies.filter((e) => e.streamed && !patrols.has(e.id)),
+    );
+    this.enemies = this.enemies.filter((e) => !retired.has(e));
+    this.projectiles = this.projectiles.filter(
+      (shot) => !retired.has(shot.source),
+    );
+    if (retired.has(this.locked)) this.locked = null;
+    for (const e of this.enemies) patrols.delete(e.id);
+    for (const { id, x, z, archetype } of patrols.values())
+      this.spawn(id, x, z, false, archetype).streamed = true;
   }
   emit(type, data = {}) {
     this.events.push({ type, ...data });
@@ -383,7 +414,8 @@ export class Simulation {
           0.55 + shot.radius,
         );
         if (t >= 0 && p.y < 1.4) {
-          if (p.invulnerable <= 0) this.hurtPlayer(shot.damage, shot.element);
+          if (p.invulnerable <= 0)
+            this.hurtPlayer(shot.damage, shot.element, 1, shot.source);
           shot.remaining = 0;
         }
       } else {
@@ -438,7 +470,7 @@ export class Simulation {
     }
     this.projectiles = this.projectiles.filter((s) => s.remaining > 0);
   }
-  hurtPlayer(base, element = "Physical", weaken = 1) {
+  hurtPlayer(base, element = "Physical", weaken = 1, source) {
     const st = stats(this.state),
       amount =
         element === "Physical"
@@ -446,6 +478,27 @@ export class Simulation {
           : numeric.element_damage(base * weaken, st.resistance, 0);
     this.player.hp -= amount;
     this.emit("hurt", { amount: Math.round(amount), element });
+    const reflected = base * weaken * st.reflection;
+    if (source?.hp > 0 && reflected >= 0.1) {
+      // Apply a separate thorns hit. It cannot crit, trigger reactions, leech
+      // or call the reflection pipeline again.
+      const damage = numeric.resolve_damage(
+        reflected,
+        0,
+        1,
+        source.armor,
+        0,
+        0,
+        1,
+      );
+      source.hp -= damage;
+      this.emit("reflection", {
+        x: source.x,
+        z: source.z,
+        text: "↶ " + Math.round(damage),
+      });
+      if (source.hp <= 0) this.kill(source);
+    }
   }
   enemyProjectile(e, facing) {
     this.launch(
@@ -463,6 +516,7 @@ export class Simulation {
       facing,
       {
         faction: "enemy",
+        source: e,
         damage:
           (e.boss ? 40 : e.archetype === "drone" ? 17 : 24) *
           (e.weaken > 0 ? 0.7 : 1),
@@ -639,6 +693,7 @@ export class Simulation {
                 e.boss ? 75 : e.move === "eruption" ? 34 : 24,
                 e.move === "eruption" ? "Flame" : "Physical",
                 e.weaken > 0 ? 0.7 : 1,
+                e,
               );
           }
           e.phase = "recover";
@@ -692,6 +747,7 @@ export class Simulation {
       this.emit("death");
       for (const e of this.enemies) e.phase = "idle";
     }
+    this.syncChunks();
     this.state.position = { x: p.x, z: p.z };
     this.state.life = p.hp;
     this.state.mana = p.mana;

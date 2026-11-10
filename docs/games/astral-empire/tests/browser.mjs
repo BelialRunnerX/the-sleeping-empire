@@ -91,6 +91,16 @@ try {
     await page.locator("#codex-class").selectOption("marksman");
     await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
     console.log("Profile entered world");
+    await page.keyboard.press("ControlLeft");
+    assert.equal(
+      await page.locator("#free-look").getAttribute("aria-pressed"),
+      "true",
+    );
+    await page.keyboard.press("ControlLeft");
+    assert.equal(
+      await page.locator("#free-look").getAttribute("aria-pressed"),
+      "false",
+    );
     await page.waitForFunction(
       () => document.querySelector("#save-state")?.textContent === "Saved",
     );

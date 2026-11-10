@@ -2,7 +2,9 @@
 
 ## Current milestone
 
-Version 3.5 is a playable solo milestone: full 3D, five finite seeded regions, camera collision, direct navigation, harvestable scenery, discoveries, field fabrication, six races and nine classes, 330 constellation nodes, and cosmetic draws. Progress is local. The original C++ WebAssembly numeric core is unchanged; Elysium Codex numbers and point rules are translated in JavaScript.
+Version 3.6 streams endless heightfield terrain, resource nodes and patrols around the player in all five regions. The camera toggle, grouped menus, reflection and luck effects, and mesh refinement build on 3.5.
+
+Version 3.5 was a playable solo milestone: full 3D, five seeded regions, camera collision, direct navigation, harvestable scenery, discoveries, field fabrication, six races and nine classes, 330 constellation nodes, and cosmetic draws. Progress is local. The original C++ WebAssembly numeric core is unchanged; Elysium Codex numbers and point rules are translated in JavaScript.
 
 Prioritize repeatable depth in the next releases: distinct item bases and tiers with visible effects, enemy behaviors and elites that counter different builds, biome-specific materials and encounters, and a new level with a reason to return. Ship each as a playable loop with a save and browser regression.
 
@@ -25,8 +27,8 @@ Prioritize repeatable depth in the next releases: distinct item bases and tiers 
 
 ## 3. World and presentation
 
-- Replace placeholder procedural meshes with original rigged anime characters, authored outfits, weapon animations, facial expression, effects, and sound/music assets with recorded licenses.
-- Build distinct biome and resource tables atop seeded elevation and prop placement. Extend existing collision and navigation with streamed chunks, caves, vertical traversal, weather, day/night, world events, and dungeons.
+- Build production rigged anime characters from the portrait references, authored outfits, weapon animations, facial expression, effects, and sound/music assets with recorded licenses.
+- Build distinct biome and resource tables atop seeded elevation and prop placement. Extend existing collision and navigation with terrain detail levels, caves, vertical traversal, weather, day/night, world events, and dungeons.
 - Translate Elysium air/hazard/suit behavior into readable browser survival mechanics. Extend High Orbit’s lowered jump gravity into consistent per-world physics with hazard, suit and atmosphere systems.
 - Add resource/build change sets that can migrate from local saves to authoritative world records.
 - Establish performance budgets and visual/accessibility/device tests, including touch camera controls, key remapping, reduced motion, larger text, colorblind telegraphs, and controller support.

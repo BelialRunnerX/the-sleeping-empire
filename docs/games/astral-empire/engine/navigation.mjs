@@ -1,27 +1,27 @@
-import { cottages, LIMIT } from "./frontier.mjs";
+import { cottages } from "./frontier.mjs";
 
-export function obstacles(state, layout) {
+export function obstacles(state, layout, tiles = []) {
+  const streamed = [...tiles];
   return [
     ...cottages,
     ...layout.structures,
-    ...layout.features.filter(
+    ...[
+      ...layout.features,
+      ...streamed.flatMap((tile) => tile.features),
+    ].filter(
       (f) => f.kind !== "rubble" || !state.exploration.changed.includes(f.id),
     ),
-    ...layout.nodes.filter(
+    ...[...layout.nodes, ...streamed.flatMap((tile) => tile.nodes)].filter(
       (n) => n.radius && !(state.depleted[n.id] > Date.now()),
     ),
   ];
 }
 export function blocked(x, z, blockers, padding = 0.32) {
-  return (
-    Math.abs(x) > LIMIT ||
-    Math.abs(z) > LIMIT ||
-    blockers.some((o) =>
-      o.half
-        ? Math.abs(x - o.x) < o.half + padding &&
-          Math.abs(z - o.z) < o.half + padding
-        : (x - o.x) ** 2 + (z - o.z) ** 2 < (o.radius + padding) ** 2,
-    )
+  return blockers.some((o) =>
+    o.half
+      ? Math.abs(x - o.x) < o.half + padding &&
+        Math.abs(z - o.z) < o.half + padding
+      : (x - o.x) ** 2 + (z - o.z) ** 2 < (o.radius + padding) ** 2,
   );
 }
 export function segmentClear(x, z, tx, tz, blockers) {

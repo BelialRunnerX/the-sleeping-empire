@@ -95,6 +95,87 @@ export function readVisualSettings(storage, small = false, reduced = false) {
   }
 }
 
+function sculptedLock() {
+  const vertices = [],
+    faces = [],
+    sides = 8,
+    segments = 15;
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    const width = Math.max(
+      0.012,
+      Math.pow(1 - t, 0.73) * (0.55 + 0.65 * Math.sin(t * Math.PI)),
+    );
+    for (let j = 0; j < sides; j++) {
+      const angle = (j / sides) * Math.PI * 2;
+      vertices.push(
+        0.44 * t * t + Math.cos(angle) * width,
+        -t,
+        Math.sin(t * Math.PI * 0.85) * 0.32 + Math.sin(angle) * width * 0.56,
+      );
+    }
+  }
+  for (let i = 0; i < segments; i++)
+    for (let j = 0; j < sides; j++) {
+      const a = i * sides + j,
+        b = i * sides + ((j + 1) % sides);
+      faces.push(a, b, a + sides, b, b + sides, a + sides);
+    }
+  const geometry = new T.BufferGeometry();
+  geometry.setAttribute("position", new T.Float32BufferAttribute(vertices, 3));
+  geometry.setIndex(faces);
+  geometry.computeVertexNormals();
+  return geometry;
+}
+function bevelPanel() {
+  const profile = new T.Shape();
+  profile.moveTo(-0.41, -0.41);
+  profile.lineTo(0.41, -0.41);
+  profile.lineTo(0.41, 0.41);
+  profile.lineTo(-0.41, 0.41);
+  profile.closePath();
+  const mesh = new T.ExtrudeGeometry(profile, {
+    depth: 0.82,
+    bevelEnabled: true,
+    bevelSegments: 2,
+    bevelSize: 0.09,
+    bevelThickness: 0.09,
+  });
+  mesh.translate(0, 0, -0.41);
+  return mesh;
+}
+function sculptedFace() {
+  const geometry = new T.SphereGeometry(1, 32, 24);
+  const vertices = geometry.attributes.position;
+  for (let i = 0; i < vertices.count; i++) {
+    const y = vertices.getY(i),
+      jaw = T.MathUtils.smoothstep(y, -1, -0.11);
+    vertices.setX(i, vertices.getX(i) * (0.67 + 0.33 * jaw));
+    if (vertices.getZ(i) > 0)
+      vertices.setZ(i, vertices.getZ(i) * (1 + 0.06 * Math.sin(y * 2.8)));
+  }
+  geometry.computeVertexNormals();
+  return geometry;
+}
+function naturalForm(detail, canopy) {
+  const geometry = new T.IcosahedronGeometry(1, detail);
+  const p = geometry.attributes.position;
+  for (let i = 0; i < p.count; i++) {
+    const x = p.getX(i),
+      y = p.getY(i),
+      z = p.getZ(i);
+    const variation =
+      1 + 0.13 * Math.sin(x * 11 + y * 8 + z * 5) * Math.sin(z * 10 - y * 7);
+    p.setXYZ(
+      i,
+      x * variation,
+      (canopy ? y : Math.max(-0.5, y)) * variation,
+      z * variation,
+    );
+  }
+  geometry.computeVertexNormals();
+  return geometry;
+}
 export class ArtDirector {
   constructor(scene, realm, seed, ground, random, structures = []) {
     Object.assign(this, { scene, realm, seed, ground, random, structures });
@@ -132,17 +213,25 @@ export class ArtDirector {
     if (!this.geometries.has(kind))
       this.geometries.set(
         kind,
-        kind === "orb"
-          ? new T.SphereGeometry(1, 16, 12)
-          : kind === "gem"
-            ? new T.IcosahedronGeometry(1, 0)
-            : kind === "crown"
-              ? new T.IcosahedronGeometry(1, 1)
-              : kind === "cone"
-                ? new T.ConeGeometry(1, 1, 8)
-                : kind === "tube"
-                  ? new T.CylinderGeometry(1, 1, 1, 12)
-                  : new T.BoxGeometry(1, 1, 1),
+        kind === "hair-lock"
+          ? sculptedLock()
+          : kind === "face"
+            ? sculptedFace()
+            : kind === "panel"
+              ? bevelPanel()
+              : kind === "orb"
+                ? new T.SphereGeometry(1, 20, 14)
+                : kind === "gem"
+                  ? new T.IcosahedronGeometry(1, 0)
+                  : kind === "crown"
+                    ? naturalForm(2, true)
+                    : kind === "stone"
+                      ? naturalForm(1, false)
+                      : kind === "cone"
+                        ? new T.ConeGeometry(1, 1, 8)
+                        : kind === "tube"
+                          ? new T.CylinderGeometry(1, 1, 1, 12)
+                          : new T.BoxGeometry(1, 1, 1),
       );
     const m = new T.Mesh(this.geometries.get(kind), this.material(c));
     m.position.set(x, y, z);
@@ -251,10 +340,13 @@ export class ArtDirector {
         }`,
       }),
     );
-    this.scene.add(sky);
+    this.skyGroup = new T.Group();
+    this.scene.add(this.skyGroup);
+    this.skyGroup.add(sky);
     const sun = this.shape(this.scene, "orb", 0xffe9c4, -70, 47, -130, 6, 6, 6);
     sun.material = new T.MeshBasicMaterial({ color: 0xffe7bd });
     sun.castShadow = false;
+    this.skyGroup.add(sun);
     if (this.realm === "orbit") {
       const planet = this.shape(
         this.scene,
@@ -268,44 +360,14 @@ export class ArtDirector {
         26,
       );
       planet.castShadow = planet.receiveShadow = false;
-      this.ring(this.scene, 29, 0.2, 0xb6c3f8, 54).position.set(-58, 54, -135);
+      this.skyGroup.add(planet);
+      this.ring(this.skyGroup, 29, 0.2, 0xb6c3f8, 54).position.set(
+        -58,
+        54,
+        -135,
+      );
       return;
     }
-    // Layered ridgelines sit outside the playable region and create a distant horizon.
-    for (let layer = 0; layer < 3; layer++)
-      for (let i = 0; i < 13; i++) {
-        const a = (i / 13) * Math.PI * 2,
-          radius = 145 + layer * 20;
-        const peak = this.shape(
-          this.scene,
-          "cone",
-          [0x71868e, 0x8897a0, 0xa5acb5][layer],
-          Math.sin(a) * radius,
-          4 + layer * 3,
-          Math.cos(a) * radius,
-          18 + this.random(8, i, 3) * 12,
-          35 + this.random(8, i, 4) * 35,
-          18 + this.random(8, i, 5) * 15,
-        );
-        const ridge = new T.ConeGeometry(1, 1, 12, 5);
-        const vertices = ridge.attributes.position;
-        for (let v = 0; v < vertices.count; v++) {
-          const x = vertices.getX(v),
-            y = vertices.getY(v),
-            z = vertices.getZ(v);
-          const noise = Math.sin(x * 17 + z * 13 + y * 33 + i) * 0.16;
-          vertices.setXYZ(
-            v,
-            x * (1 + noise),
-            y + Math.sin(x * 9 + z * 11 + i) * 0.04 * (0.5 - y),
-            z * (1 + noise),
-          );
-        }
-        ridge.computeVertexNormals();
-        peak.geometry = ridge;
-        peak.rotation.y = i * 2.4;
-        peak.castShadow = false;
-      }
   }
   avatar(hero) {
     const g = new T.Group(),
@@ -401,39 +463,69 @@ export class ArtDirector {
     this.shape(g, "tube", 0x343445, 0, 1.23, 0, 0.32, 0.12, 0.22);
     this.shape(g, "gem", gold, 0, 1.23, 0.24, 0.1, 0.1, 0.04);
     this.shape(g, "tube", skin, 0, 2.03, 0, 0.1, 0.2, 0.1);
-    const head = this.shape(g, "orb", skin, 0, 2.28, 0.015, 0.285, 0.34, 0.26);
+    const headStart = g.children.length;
+    const head = this.shape(g, "face", skin, 0, 2.28, 0.015, 0.285, 0.34, 0.26);
     this.outline(head, 1.02);
     // Hair cap, overlapping swept locks, side strands and a rear tied section.
     const cap = this.shape(g, "orb", hair, 0, 2.44, -0.055, 0.31, 0.24, 0.29);
     this.outline(cap);
-    for (let i = 0; i < 9; i++) {
+    const longHair = [
+      "lumi",
+      "mira",
+      "celeste",
+      "clarissa",
+      "aurelia",
+      "vexa",
+      "sora",
+    ].includes(hero.id);
+    const highlight = new T.Color(hair)
+      .lerp(new T.Color(0xffe9d9), 0.19)
+      .getHex();
+    const lowlight = new T.Color(hair).multiplyScalar(0.68).getHex();
+    for (let i = 0; i < 12; i++) {
       const lock = this.shape(
         g,
-        "cone",
-        hair,
-        (i - 4) * 0.055,
-        2.4 + Math.abs(i - 4) * 0.008,
-        0.23,
-        0.065,
-        0.29 + (i % 3) * 0.03,
-        0.07,
+        "hair-lock",
+        i % 4 === 0 ? highlight : i % 4 === 1 ? lowlight : hair,
+        (i - 5.5) * 0.043,
+        2.63 - Math.abs(i - 5.5) * 0.012,
+        0.14 + (i % 3) * 0.032,
+        0.057,
+        0.26 + (i % 4) * 0.048,
+        0.13,
       );
-      lock.rotation.z = Math.PI + (i - 4) * -0.075;
-      lock.rotation.x = -0.2;
+      lock.rotation.z = (i - 5) * 0.15 + 0.21;
+      lock.rotation.x = -0.22;
+    }
+    for (let i = 0; i < 8; i++) {
+      const angle = 0.95 + (i * Math.PI) / 5.7;
+      const layer = this.shape(
+        g,
+        "hair-lock",
+        i % 3 === 0 ? highlight : i % 3 === 1 ? lowlight : hair,
+        Math.sin(angle) * 0.22,
+        2.56,
+        Math.cos(angle) * 0.23,
+        0.083,
+        (longHair ? 0.61 : 0.31) + (i % 3) * 0.063,
+        0.12,
+      );
+      layer.rotation.y = angle;
+      layer.rotation.z = 0.16 * Math.sin(angle);
     }
     for (const s of [-1, 1]) {
       const strand = this.shape(
         g,
-        "cone",
+        "hair-lock",
         hair,
         s * 0.27,
-        2.24,
+        2.49,
         -0.02,
         0.09,
-        0.43,
+        longHair ? 0.66 : 0.37,
         0.12,
       );
-      strand.rotation.z = Math.PI + s * 0.12;
+      strand.rotation.z = s * 0.22;
       // Almond-shaped eyes, iris, pupil, upper lash and specular glint.
       this.shape(
         g,
@@ -449,7 +541,7 @@ export class ArtDirector {
       this.shape(
         g,
         "orb",
-        hero.weapon === "staff" ? 0x8e69bd : 0x4196a7,
+        longHair ? new T.Color(hair).multiplyScalar(0.63).getHex() : 0x4196a7,
         s * 0.108,
         2.282,
         0.272,
@@ -491,10 +583,35 @@ export class ArtDirector {
         0.018,
       );
       lash.rotation.z = s * -0.08;
+      const brow = this.shape(
+        g,
+        "panel",
+        lowlight,
+        s * 0.109,
+        2.371,
+        0.25,
+        0.126,
+        0.021,
+        0.019,
+      );
+      brow.rotation.z = s * 0.16;
+      const collar = this.shape(
+        g,
+        "panel",
+        coat,
+        s * 0.19,
+        1.99,
+        0.15,
+        0.13,
+        0.24,
+        0.12,
+      );
+      collar.rotation.z = s * -0.24;
+      this.shape(g, "gem", gold, s * 0.203, 1.99, 0.22, 0.037, 0.07, 0.022);
     }
     this.shape(g, "orb", 0xd8a292, 0, 2.15, 0.249, 0.034, 0.009, 0.007);
     this.shape(g, "gem", gold, 0, 1.89, 0.23, 0.07, 0.1, 0.04);
-    if (hero.weapon !== "blade") {
+    if (longHair) {
       const pony = this.shape(
         g,
         "orb",
@@ -508,6 +625,57 @@ export class ArtDirector {
       );
       pony.rotation.x = -0.2;
       this.shape(g, "tube", gold, 0.1, 2.38, -0.3, 0.19, 0.05, 0.16);
+    }
+    const portraitRig = new T.Group();
+    portraitRig.position.y = 2.02;
+    const features = g.children
+      .slice(headStart)
+      .filter((o) => o.position.y >= 2.02);
+    g.add(portraitRig);
+    for (const part of features) {
+      portraitRig.add(part);
+      part.position.y -= 2.02;
+    }
+    portraitRig.scale.set(0.83, 0.9, 0.87);
+    g.scale.y = 1.06;
+    for (const sign of [-1, 1]) {
+      for (let i = 0; i < 3; i++) {
+        const stitch = this.shape(
+          g,
+          "gem",
+          gold,
+          sign * (0.2 + i * 0.016),
+          1.33 + i * 0.105,
+          0.235,
+          0.023,
+          0.068,
+          0.019,
+        );
+        stitch.rotation.z = sign * (0.5 + i * 0.19);
+      }
+      const guard = this.shape(
+        g.arms[sign > 0 ? 1 : 0],
+        "panel",
+        0x758495,
+        sign * 0.05,
+        -0.035,
+        0.11,
+        0.29,
+        0.09,
+        0.24,
+      );
+      guard.rotation.z = sign * 0.28;
+      this.shape(
+        g.knees[sign > 0 ? 1 : 0],
+        "panel",
+        0x505966,
+        0,
+        -0.26,
+        0.092,
+        0.151,
+        0.29,
+        0.085,
+      );
     }
     const capeGeometry = new T.PlaneGeometry(0.72, 0.99, 6, 10);
     const cape = new T.Mesh(

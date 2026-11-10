@@ -13,8 +13,8 @@ Elysium-mono is a **Java/NeoForge Minecraft module collection**. There was no na
 | `elysium-foundry/src/main/java/com/elysium/foundry/recipe/AlloyRecipe.java` | `engine/artisan.mjs::matchAlloy` | Two-input matching in either order and corresponding consumption counts; Ingredient predicates narrowed to exact browser material IDs |
 | `ElysiumTreeRules.java` / `ElysiumTreeState.java::earned` | `engine/codex.mjs::earnedPassives` | 3 points for each level gained starting at level 2. Browser has a legacy allocation floor and free connected refunds. |
 | `ElysiumCharacter.java::POINTS_PER_LEVEL`, `ElysiumRaces.java`, `ElysiumClasses.java` | `engine/codex.mjs` | 10 assignable attribute points per gained level, all six race base tables and race/class growth tables, and both free +3 starter attribute bonuses. |
-
-Parity tests instantiate the compiled C++ WebAssembly module and check the reference implementation across tier boundaries and rolls. The game calls these native exports when WebAssembly is available. Browser-specific mastery and artisan bonuses are added after the Elysium yield rule.
+| `ElysiumStats.java`, `ElysiumShares.java`, `ElysiumCombatHandler.java`, `ElysiumRaces.java::SanctionedAnswer` | `engine/codex.mjs`, `engine/combat.mjs` | Retribution uses `value / (value + 225)`. Imperial's level share combines independently. Reflection responds to the incoming blow before defender armor, and resolves once without crits, reactions, leech or recursive reflection. |
+| `ElysiumStats.java::luckChance`, `ElysiumLootHandler.java` | `engine/codex.mjs`, `engine/progression.mjs` | Luck uses `value / (value + 175)` for an independent material roll. The browser uses one extra gathered unit and adds a quarter of that chance as a separate crit opportunity. Vanilla loot and multi-crit handling are separate systems. |
 
 ## Adapted data and concepts
 
@@ -26,6 +26,8 @@ Parity tests instantiate the compiled C++ WebAssembly module and check the refer
 - The six race and nine class IDs, numbers and starter bonuses above are direct data translations. Browser traits are gameplay adaptations; NeoForge event hooks, race-specific mechanics and original class passives are not executed. The 330-node constellation is a new graph using the Codex point budget, not a copy of the Ledger Web layout, doctrines or costs. Cosmetics are independent of stats.
 
 ## Newly implemented browser systems
+
+Version 3.6 adds an original deterministic 40-meter heightfield chunk generator and streams terrain, resources and patrols. Minecraft chunk and block formats are still separate.
 
 Version 3.5 adds seeded heights, resource placement, caches, rubble, relays and patrols; obstacle-aware travel; perspective camera collision; harvestable 3D scenery; and the salvage, survey and fabrication loops. These systems and the added High Orbit scene are original browser work, with no Minecraft chunk, block or fluid simulation.
 
