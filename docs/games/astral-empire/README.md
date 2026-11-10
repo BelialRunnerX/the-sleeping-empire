@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.17.1 - Elysium and mobile interaction
+
+Visible game branding is Elysium. Touch layout retains the left movement stick and replaces the right stick with Interact and held-primary (LMB) buttons. Camera drag/pinch remains available. The local profile login uses the sci-fi solarpunk background and supports visible-viewport/keyboard scrolling on small screens. Keyboard/controller bindings remain unchanged.
+
 ## Branding and compatibility
 
 The game is now **Elysium** (formerly Aetherbound). Existing URLs, saved profiles, internal event names and file paths remain stable; no save migration or reset is required. The Sleeping Empire canon and the named Aetherbound oathblade item are unchanged.

@@ -12,3 +12,16 @@ function enhance(){
  dialog.querySelector('.panel-top').insertBefore(select,dialog.querySelector('.panel-close'));
 }
 new MutationObserver(enhance).observe(root,{childList:true,subtree:true});enhance();
+// A focused login field remains reachable when Safari opens the keyboard.
+const login=document.querySelector('#landing');
+function fitLogin(){
+ if(!login||login.classList.contains('main-menu'))return;
+ const focused=login.contains(document.activeElement)&&document.activeElement.matches('input,textarea');
+ const height=window.visualViewport?.height||innerHeight;
+ login.dataset.keyboard=String(height<innerHeight*.8||(focused&&height<440));
+ if(focused)requestAnimationFrame(()=>document.activeElement.scrollIntoView({block:'nearest',inline:'nearest'}));
+}
+document.addEventListener('focusin',fitLogin);
+document.addEventListener('focusout',()=>setTimeout(fitLogin,0));
+window.visualViewport?.addEventListener('resize',fitLogin);
+window.addEventListener('resize',fitLogin);
