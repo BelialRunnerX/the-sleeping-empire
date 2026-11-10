@@ -186,7 +186,32 @@ try {
     await page.keyboard.press("F8");
     await page.keyboard.press("r");
     await page.keyboard.press("o");
+    await page.evaluate(() => {
+      const q = window.__qualityTransition = { start: performance.now(), frames: [], longTasks: [] };
+      q.observer = new PerformanceObserver(list => {
+        for (const entry of list.getEntries()) q.longTasks.push({ start: entry.startTime, duration: entry.duration });
+      });
+      q.observer.observe({ type: "longtask", buffered: false });
+    });
     await page.locator("#graphics-quality").selectOption("low");
+    // Changing shadow/pixel settings invalidates GPU programs. Require the applied
+    // preset and two subsequent animation-frame observations before the next input.
+    await page.waitForFunction(() => {
+      const canvas = document.querySelector("#world"), q = window.__qualityTransition;
+      if (canvas.dataset.quality !== "low" || canvas.dataset.shadows !== "false") return false;
+      if (!q.pending) {
+        q.pending = true;
+        requestAnimationFrame(() => {
+          q.frames.push(performance.now());
+          requestAnimationFrame(() => q.frames.push(performance.now()));
+        });
+      }
+      return q.frames.length === 2;
+    }, null, { timeout: 60000 });
+    console.log("Quality transition readiness", await page.evaluate(() => {
+      const q = window.__qualityTransition; q.observer.disconnect();
+      return { elapsedMs: performance.now() - q.start, frameMs: q.frames.map(t => t - q.start), longTasks: q.longTasks };
+    }));
     await page.locator("#reduced-motion").check();
     assert.equal(
       await page.locator("#world").getAttribute("data-shadows"),
