@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {TerrainPublishLedger as Ledger} from '../engine/terrain-ledger.mjs';
+const visible=l=>l.snapshot().map(x=>x.key);
+function setup(){const l=new Ledger();let p=l.request('P',0,1);l.publish(p,'coarse');const kids=Array.from({length:8},(_,i)=>'C'+i);const jobs=kids.map(k=>l.request(k,0,0));l.replace('P',kids);return {l,kids,jobs,p};}
+test('coarse is visible at first load and throughout incomplete refinement',()=>{const {l,jobs}=setup();assert.deepEqual(visible(l),['P']);for(const j of jobs.slice(0,7)){assert.equal(l.publish(j,j.key),true);assert.deepEqual(visible(l),['P']);}l.publish(jobs[7],'last');assert.deepEqual(visible(l),jobs.map(j=>j.key));});
+test('varied completion orders yield same committed coverage',()=>{for(let rotation=0;rotation<8;rotation++){const {l,jobs}=setup();const order=jobs.slice(rotation).concat(jobs.slice(0,rotation)).reverse();order.forEach(j=>l.publish(j,j.key));assert.deepEqual(visible(l),jobs.map(j=>j.key));}});
+test('superseded revisions cannot publish or complete replacement',()=>{const {l,jobs}=setup();const newer=l.request('C0',1,0);assert.equal(l.publish(jobs[0],'stale'),false);jobs.slice(1).forEach(j=>l.publish(j,'mesh'));assert.deepEqual(visible(l),['P']);l.publish(newer,'edited');assert.equal(l.snapshot().find(x=>x.key==='C0').payload,'edited');});
+test('unload/reload same key and revision still rejects old jobs',()=>{const l=new Ledger();const old=l.request('A',2,-4);l.unload('A');const fresh=l.request('A',2,-4);assert.equal(l.publish(old,'bad'),false);assert.deepEqual(visible(l),[]);assert.equal(l.publish(fresh,'good'),true);});
+test('unloading staged child cancels refinement and preserves fallback',()=>{const {l,jobs}=setup();l.publish(jobs[0],'mesh');l.unload('C1');jobs.forEach(j=>assert.equal(l.publish(j,'late'),false));assert.deepEqual(visible(l),['P']);});
+test('unloading parent cancels staged results and rejects completion',()=>{const {l,jobs,p}=setup();l.unload('P');assert.equal(l.publish(p,'old'),false);jobs.forEach(j=>assert.equal(l.publish(j,'late'),false));assert.deepEqual(visible(l),[]);});
+test('edit rebuild keeps previous resident mesh until valid replacement arrives',()=>{const l=new Ledger();const a=l.request('A',0,0);l.publish(a,'old');const b=l.request('A',1,0);assert.equal(l.snapshot()[0].payload,'old');assert.equal(l.publish(a,'stale'),false);l.publish(b,'new');assert.equal(l.snapshot()[0].payload,'new');});
+test('rejects malformed and incomplete coverage contracts',()=>{const l=new Ledger();assert.throws(()=>l.request('A',NaN,0));const a=l.request('A',0,1);l.publish(a,'a');assert.throws(()=>l.replace('A',['B']));l.request('B',0,0);assert.throws(()=>l.replace('A',['B','B']));assert.throws(()=>l.replace('missing',['B']));});
+
+test('worker structured-clone tokens accepted, mismatched lod rejected',()=>{const l=new Ledger();const a=l.request('A',0,-4);assert.equal(l.publish({...a,lod:0},'bad'),false);assert.equal(l.publish(structuredClone(a),'good'),true);assert.equal(l.ready('A'),true);});

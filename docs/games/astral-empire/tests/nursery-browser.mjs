@@ -28,11 +28,16 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     Date.now = () =>
       realNow() + Number(localStorage.getItem("nursery-test-time"));
   });
+  const openPanel = async (id, label) => {
+    const nav = page.locator(".mobile-panel-nav");
+    if (await nav.isVisible()) await nav.selectOption(id);
+    else await page.getByRole("button", { name: label, exact: true }).click();
+  };
   const key = "astral_empire_profile_nursery-test_v3";
   const load = () =>
     page.evaluate((key) => JSON.parse(localStorage.getItem(key)), key);
   const openNursery = () =>
-    page.getByRole("button", { name: "Hydroponics", exact: true }).click();
+    openPanel("nursery", "Hydroponics");
   const login = async (label) => {
     await page.locator("#profile-name").fill("Nursery Test");
     await page.locator("#profile-pin").fill("2468");
@@ -96,7 +101,7 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     assert.equal(planted.plots.length, 4);
     assert.equal(planted.plots[0].tier, 1);
     await page.locator('[data-plant-crop="loomflax"][data-bed="2"]').click();
-    await page.locator("[data-panel=settings]").last().click();
+    await openPanel("settings", "Settings");
     await page.getByRole("button", { name: "SAVE & LOG OUT" }).click();
     await page.evaluate(() =>
       localStorage.setItem("nursery-test-time", "211000"),
@@ -131,11 +136,11 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     assert.ok(after.resources.loomflaxFibre >= before + 2);
     assert.equal(await page.locator('[data-harvest-crop]').count(), 0);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
-    await page.locator('[data-panel="crafting"]').click();
+    await openPanel("crafting", "Workshop");
     await page.locator('[data-craft="cultivator-lattice"]').click();
     const charm = (await load()).items.find(item => item.frame === "cultivator");
     assert.ok(charm);
-    await page.getByRole("button", { name: "Equipment", exact: true }).click();
+    await openPanel("inventory", "Equipment");
     await page.locator(`[data-item="${charm.id}"][data-item-action="equip"]`).click();
     assert.equal((await load()).equipped.charm, charm.id);
     await page.getByText("Character statistics", {exact:true}).click();

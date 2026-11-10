@@ -2,6 +2,16 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.15 - Living Voxel Frontier
+
+- Deterministic streamed voxel ground now includes the settlement surface; foundations remain protected from editing. The Terrain menu provides a survey jump and tools for whole-block mining, 1/16-metre carving and stone placement beyond the protected foundation region.
+- Exact native density/noise/cave scalar functions are adapted to the browser's existing planar landscape. This is not full native planet, climate, ore or Minecraft world-generation parity.
+- Sparse terrain edits persist, exact fractional stone rewards cannot be mined twice, and edit geometry/collision/resources swap together. Fine terrain joins the distant surface with exterior edge strips; underground motion waits for visible depth bands rather than colliding with invisible floors.
+- Nearby procedural voxel trees vary by seeded habitat, use real woody-cell body collision, and can be permanently felled for volume-derived timber plus separately reported harvesting bonuses. Distant old tree proxies and far edited-terrain approximation remain temporary LOD limitations. Trees do not yet fall physically or regrow.
+- Every mobile menu scales to the visible viewport and offers a compact selector. Existing profiles remain compatible; no reset is required.
+
+See `TERRAIN_WIP.md` for the honest implementation boundary, performance measurements and test evidence. Physical iOS/Safari performance is not claimed from desktop touch emulation.
+
 ## Version 3.14.2 - Mobile Touch Fix
 
 Touch HUD controls suppress text selection and long-press callouts while forms

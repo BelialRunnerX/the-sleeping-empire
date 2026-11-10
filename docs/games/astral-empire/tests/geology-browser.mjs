@@ -17,6 +17,11 @@ async function run(browser, url, artifacts, mobile) {
     const now = Date.now.bind(Date);
     Date.now = () => now() + Number(localStorage.getItem("geology-test-time"));
   });
+  const openPanel = async (id, label) => {
+    const nav = page.locator(".mobile-panel-nav");
+    if (await nav.isVisible()) await nav.selectOption(id);
+    else await page.getByRole("button", { name: label, exact: true }).click();
+  };
   const key = "astral_empire_profile_geology-test_v3";
   const load = () => page.evaluate(k => JSON.parse(localStorage.getItem(k)), key);
   const click = locator => mobile ? locator.tap() : locator.click();
@@ -49,7 +54,7 @@ async function run(browser, url, artifacts, mobile) {
     await page.locator("#save-file").setInputFiles({name:"geology-fixture.json", mimeType:"application/json", buffer:Buffer.from(JSON.stringify(fixture))});
     await page.locator("#panels").waitFor({state:"hidden"});
     await page.keyboard.press("l");
-    await click(page.getByRole("button", {name:"Core drilling", exact:true}));
+    await openPanel("geology", "Core drilling");
     await click(page.getByRole("button", {name:"TRAVEL TO CORE DRILL", exact:true}));
     await page.getByRole("dialog", {name:"Core drilling", exact:true}).waitFor();
     await click(page.locator("[data-build-core]"));
@@ -58,7 +63,7 @@ async function run(browser, url, artifacts, mobile) {
     await click(page.getByRole("button", {name:"Close panel", exact:true}));
     await page.screenshot({path:resolve(artifacts, `core-drill-${mobile ? "mobile" : "desktop"}-world.png`)});
     await page.keyboard.press("l");
-    await click(page.getByRole("button", {name:"Core drilling", exact:true}));
+    await openPanel("geology", "Core drilling");
     assert.equal(await page.locator("[data-build-core]").count(), 0);
     for (let n=0;n<2;n++) {
       await page.waitForFunction(() => !document.querySelector("[data-extract-core]").disabled);
@@ -93,12 +98,12 @@ async function run(browser, url, artifacts, mobile) {
     await click(page.locator('[data-collect-station="foundry"]'));
     assert.equal((await load()).resources[COBALT_INGOT], 2);
     assert.deepEqual((await load()).geology.mined, mined);
-    await click(page.getByRole("button", {name:"Workshop", exact:true}));
+    await openPanel("crafting", "Workshop");
     await click(page.locator('[data-craft="cobalt-assay-lens"]'));
     const crafted = await load(), armor = crafted.items.find(item => item.frame === "assay");
     assert.ok(armor);
     assert.equal(crafted.resources[COBALT_INGOT], 0);
-    await click(page.getByRole("button", {name:"Equipment", exact:true}));
+    await openPanel("inventory", "Equipment");
     await click(page.locator(`[data-item="${armor.id}"][data-item-action="equip"]`));
     await page.reload();
     await login("CONTINUE →");

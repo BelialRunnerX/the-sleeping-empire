@@ -44,6 +44,8 @@ import { ControllerInput } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
 import { buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
 import { geologyPanel, updateGeologyPanel } from "./geology-ui.mjs";
+import { terrainPanel, useTerrainTool } from "./terrain-tools.mjs";
+import { findTerrainSpawn } from "./terrain-collision.mjs";
 import { buildNursery, cropReadyAt, plantCrop } from "./nursery.mjs";
 import { nurseryPanel, updateNurseryPanel } from "./nursery-ui.mjs";
 import {
@@ -105,6 +107,7 @@ const visuals = readVisualSettings(
   innerWidth < 700,
   matchMedia("(prefers-reduced-motion: reduce)").matches,
 );
+let terrainTool = "off";
 let state = freshState(),
   sim = new Simulation(state),
   view,
@@ -131,6 +134,7 @@ let activePad=null, padNavAt=0, padLabel="";
 const tabs = [
   ["nursery", "Hydroponics"],
   ["geology", "Core drilling"],
+  ["terrain", "Terrain tools"],
   ["inventory", "Equipment"],
   ["skills", "Skill links"],
   ["passives", "Constellation"],
@@ -146,7 +150,7 @@ const tabs = [
 ];
 const menuGroups = [
   ["Character", ["codex", "inventory", "skills", "passives", "heroes"]],
-  ["Fieldwork", ["frontier", "journal", "realms"]],
+  ["Fieldwork", ["frontier", "terrain", "journal", "realms"]],
   ["Industry", ["lifeskills", "crafting", "artisan", "nursery", "geology"]],
   ["Game", ["settings"]],
 ];
@@ -246,7 +250,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.14.5 · Solarpunk Interface</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.15 · Editable Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -410,7 +414,10 @@ function updateHUD() {
   }
   const nearby = nearestInteraction();
   $("interaction").hidden = !!panel || !nearby;
-  if (nearby?.type === "geology") {
+  if (nearby?.type === "terrain") {
+    $("interact-name").textContent = nearby.name;
+    $("interact-detail").textContent = "Aim camera at ground · E / Interact";
+  } else if (nearby?.type === "geology") {
     $("interact-name").textContent = "Dawnwake core drill";
     $("interact-detail").textContent = "Finite source-derived cobalt deposits";
   } else if (nearby?.type === "microvoxel") {
@@ -912,7 +919,7 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
   ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
@@ -931,6 +938,7 @@ function combatSafe() {
       e.hp > 0 &&
       !e.training &&
       e.phase !== "idle" &&
+      sim.combatVisible(e,sim.player) &&
       Math.hypot(e.x - sim.player.x, e.z - sim.player.z) < 18,
   );
 }
@@ -945,6 +953,7 @@ function attack(id) {
 }
 function nearestInteraction() {
   const p = sim.player;
+  if (terrainTool !== "off") return {type:"terrain",name:"Terrain " + terrainTool,x:p.x,z:p.z};
   let best = null,
     nearest = Infinity;
   for (const target of view.interactables()) {
@@ -971,6 +980,19 @@ function startGather(target = nearestInteraction()) {
   if (!combatSafe()) {
     notify("Clear nearby hostiles before interacting.");
     return;
+  }
+  if (target.type === "terrain") {
+    if (!view.voxelTerrain?.covered(p.x,p.z)) return notify("Move beyond160m and wait for the frontier ground to load.");
+    const e=view.camera.matrixWorld.elements;
+    const candidate=sim.terrainVolume.fork(),candidateState={...state,terrain:candidate.store,resources:{...state.resources}};
+    const result=useTerrainTool(candidateState,candidate,p,terrainTool,[-e[8],-e[9],-e[10]]);
+    if(!result.ok){notify(result.message);return;}
+    const started=performance.now(),patch=view.voxelTerrain.preparePatch(candidate,result.block);
+    if(!patch){notify("Nearby terrain is still preparing. No resources changed.");return;}
+    sim.terrainVolume.commitFrom(candidate);state.resources.stone=candidateState.resources.stone;
+    view.voxelTerrain.commitPatch(patch);view.voxelTerrain.sync(p);
+    canvas.dataset.terrainPatchMs=(performance.now()-started).toFixed(1);
+    notify(result.message);save();return;
   }
   if (target.type === "station") {
     openPanel("artisan");
@@ -1120,6 +1142,15 @@ document.addEventListener("click", (e) => {
   if (n.dataset.panel) {
     openPanel(n.dataset.panel);
     return;
+  }
+  if (n.dataset.terrainMode) {
+    terrainTool=n.dataset.terrainMode;closePanel();notify(terrainTool === "off" ? "Terrain tools put away." : "Terrain tool equipped. Aim camera and use Interact.");return;
+  }
+  if (n.hasAttribute("data-terrain-deploy")) {
+    if(!combatSafe())return;
+    const p=sim.player;p.x=170;p.z=10;p.y=0;p.velocityY=0;sim.syncChunks();
+    p.terrainY=findTerrainSpawn(sim.terrainVolume,p.x,p.z,sim.layout.height(p.x,p.z));
+    state.position={x:p.x,z:p.z,y:p.terrainY};closePanel();view.rig.recenter();save();return;
   }
   if (n.hasAttribute("data-build-core") || n.hasAttribute("data-extract-core") || n.dataset.coreField) {
     if (panel !== "geology" || !combatSafe()) return;

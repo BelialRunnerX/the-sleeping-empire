@@ -1,3 +1,7 @@
+import { TerrainVolume } from "./terrain-volume.mjs";
+import { createTerrainField, isVoxelFrontier } from "./terrain-field.mjs";
+import { findTerrainSpawn, moveInTerrain } from "./terrain-collision.mjs";
+import { blocked } from "./navigation.mjs";
 import { ENEMY_TYPES } from "./content.mjs";
 import { classFor } from "./codex.mjs";
 import { numeric } from "./native.mjs";
@@ -86,6 +90,7 @@ export class Simulation {
   constructor(state) {
     this.state = state;
     this.layout = makeFrontier(state.seed, state.realm);
+    this.terrainVolume = new TerrainVolume(state.terrain, state.realm, createTerrainField(state.seed, state.realm));
     this.chunks = new ChunkWindow(state.seed, state.realm);
     this.chunks.update(state.position.x, state.position.z);
     this.refreshObstacles();
@@ -101,6 +106,11 @@ export class Simulation {
       dodge: 0,
       velocityY: 0,
     };
+    {
+      const {x,z}=this.player,y=state.position.y;
+      this.player.terrainY = Number.isFinite(y) && !this.terrainVolume.occupied([x-.3,y+.000001,z-.3],[x+.3,y+3,z+.3]) ? y : findTerrainSpawn(this.terrainVolume,x,z,this.layout.height(x,z));
+    }
+    this.supportCache = new Map();
     this.enemies = [];
     this.projectiles = [];
     this.pendingCasts = [];
@@ -113,6 +123,28 @@ export class Simulation {
     this.potionCD = 0;
     this.lastHit = null;
     this.syncChunkEnemies();
+  }
+  movePlayer(dx,dz,dt) {
+    const p=this.player;
+    if(!Number.isFinite(p.terrainY))p.terrainY=findTerrainSpawn(this.terrainVolume,p.x,p.z,this.layout.height(p.x,p.z));
+    const foot=p.terrainY+p.y;
+    const nearby=this.blockers.filter(o=>{if(this.isVoxelTree?.(o.id))return false;const r=(o.half||o.radius||1)+2;if(Math.abs(o.x-p.x)>r+Math.abs(dx)||Math.abs(o.z-p.z)>r+Math.abs(dz))return false;const base=this.groundHeight(o.x,o.z);return foot+3>base&&foot<base+(o.height||3);});
+    moveInTerrain({occupied:(min,max)=>this.terrainVolume.occupied(min,max)||!!this.treeOccupied?.(min,max)},p,dx,dz,dt,(x,z)=>!blocked(x,z,nearby),this.state.realm === "orbit" ? 7 : 26,(x,y,z)=>!this.terrainReady||this.terrainReady(x,y,z));
+  }
+  groundHeight(x,z) {
+    const key=Math.floor(x*2)+':'+Math.floor(z*2)+':'+this.terrainVolume.revision;
+    if(!this.supportCache.has(key)){
+      const base=this.layout.height(x,z),hit=this.terrainVolume.ray([x,base+8,z],[0,-1,0],80);
+      if(this.supportCache.size>=2048)this.supportCache.clear();
+      this.supportCache.set(key,hit?(hit.cell[1]+1)/16:base);
+    }return this.supportCache.get(key);
+  }
+  combatVisible(a,b) {
+    if(!a||!b||(!isVoxelFrontier(a.x,a.z)&&!isVoxelFrontier(b.x,b.z)))return true;
+    const height=o=>Number.isFinite(o.worldY)?o.worldY:o===this.player?(o.terrainY??this.layout.height(o.x,o.z))+o.y:this.groundHeight(o.x,o.z);
+    const ay=height(a),by=height(b);if(Math.abs(ay-by)>4)return false;
+    const origin=[a.x,ay+1.5,a.z],delta=[b.x-a.x,by-ay,b.z-a.z],distance=Math.hypot(...delta);
+    return distance<.01||!this.terrainVolume.ray(origin,delta,Math.max(0,distance-.15));
   }
   refreshObstacles() {
     this.blockers = obstacles(
@@ -192,7 +224,7 @@ export class Simulation {
     let found = null,
       best = range;
     for (const e of this.enemies)
-      if (e.hp > 0 && !excluded.has(e.id)) {
+      if (e.hp > 0 && !excluded.has(e.id) && this.combatVisible(origin,e)) {
         const d = Math.hypot(e.x - origin.x, e.z - origin.z);
         if (d < best) {
           found = e;
@@ -224,12 +256,7 @@ export class Simulation {
       const travel = target
         ? clamp(Math.hypot(target.x - p.x, target.z - p.z) - 1.6, 0, 7)
         : 7;
-      walk(
-        p,
-        Math.sin(p.facing) * travel,
-        Math.cos(p.facing) * travel,
-        this.blockers,
-      );
+      this.movePlayer(Math.sin(p.facing)*travel,Math.cos(p.facing)*travel,0);
       p.invulnerable = 0.5;
     }
     const cast = {
@@ -238,6 +265,7 @@ export class Simulation {
       element: skill.element || classFor(this.state).element,
       x: p.x,
       z: p.z,
+      worldY: (p.terrainY ?? this.layout.height(p.x,p.z)) + p.y,
       facing: p.facing,
       combo: this.combo,
       targetId: target?.id,
@@ -330,7 +358,7 @@ export class Simulation {
     });
   }
   hitEnemy(e, cast, factor = 1) {
-    if (e.hp <= 0) return;
+    if (e.hp <= 0 || !this.combatVisible(cast,e)) return;
     const { skill, st, element } = cast,
       critical = Math.random() < st.crit;
     const breakdown = hitBreakdown(skill, st, e, element, critical, factor),
@@ -471,6 +499,7 @@ export class Simulation {
     this.projectiles = this.projectiles.filter((s) => s.remaining > 0);
   }
   hurtPlayer(base, element = "Physical", weaken = 1, source) {
+    if(source && !this.combatVisible(source,this.player))return;
     const st = stats(this.state),
       amount =
         element === "Physical"
@@ -622,11 +651,7 @@ export class Simulation {
       dz = Math.cos(p.facing) * 3.2;
       p.dodge -= dt;
     } else if (len) p.facing = Math.atan2(dx, dz);
-    walk(p, dx * speed * dt, dz * speed * dt, this.blockers);
-    if (p.y > 0 || p.velocityY > 0) {
-      p.velocityY -= (this.state.realm === "orbit" ? 7 : 20) * dt;
-      p.y = Math.max(0, p.y + p.velocityY * dt);
-    }
+    this.movePlayer(dx*speed*dt,dz*speed*dt,dt);
     const ready = [];
     this.pendingCasts = this.pendingCasts.filter((c) => {
       c.delay -= dt;
@@ -765,6 +790,7 @@ export class Simulation {
       p.mana = st.mana;
       p.x = 0;
       p.z = 6;
+      p.terrainY=undefined;p.y=0;p.velocityY=0;
       this.state.gold = Math.max(0, this.state.gold - 40);
       this.projectiles = [];
       this.pendingCasts = [];
@@ -772,7 +798,7 @@ export class Simulation {
       for (const e of this.enemies) e.phase = "idle";
     }
     this.syncChunks();
-    this.state.position = { x: p.x, z: p.z };
+    this.state.position = { x: p.x, z: p.z, ...(Number.isFinite(p.terrainY) ? {y:p.terrainY+p.y} : {}) };
     this.state.life = p.hp;
     this.state.mana = p.mana;
   }

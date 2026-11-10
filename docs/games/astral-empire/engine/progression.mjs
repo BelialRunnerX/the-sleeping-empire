@@ -1,3 +1,4 @@
+import { normalizeTreeLedger, fellGameTree } from "./voxel-trees/tree-gameplay.mjs";
 import {
   HEROES,
   SKILLS,
@@ -14,6 +15,7 @@ import { normalizeExploration } from "./frontier.mjs";
 import { FIBRE_PLANTS, fibreYield, fortuned } from "./ecology.mjs";
 import { cropReadyAt, nearNursery, normalizeNursery } from "./nursery.mjs";
 import { normalizeGeology, preserveCanonicalResources, RAW_COBALT, COBALT_INGOT } from "./geology-field.mjs";
+import { normalizeTerrainDeltas } from "./terrain-volume.mjs";
 import { normalizeMicrovoxels } from "./microvoxels.mjs";
 import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
 import { GEODE_MATERIALS, GEODE_GROWTH_MS } from "./geodes.mjs";
@@ -138,6 +140,7 @@ export function freshState(seed = 438102) {
     },
     nursery: normalizeNursery(),
     microvoxels: normalizeMicrovoxels(),
+    terrain: normalizeTerrainDeltas(),
     geology: normalizeGeology(null, seed),
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
@@ -152,6 +155,7 @@ export function freshState(seed = 438102) {
       dash: ["leech", "none"],
       burst: ["ignite", "none"],
     },
+    trees: normalizeTreeLedger(),
     depleted: {},
     defeated: {},
     statistics: {
@@ -233,6 +237,7 @@ export function migrateState(input) {
         SAVE_COORDINATE_LIMIT,
       ),
     };
+    if (Number.isFinite(input.position?.y)) s.position.y = clamp(input.position.y, -512, 512);
     s.items = Array.isArray(input.items)
       ? input.items
           .filter(
@@ -301,6 +306,7 @@ export function migrateState(input) {
             .map((id) => (SUPPORTS.some((v) => v.id === id) ? id : "none"))
         : ["none", "none"];
     }
+    s.trees = normalizeTreeLedger(input.trees);
     s.depleted =
       input.depleted && typeof input.depleted === "object"
         ? input.depleted
@@ -320,6 +326,7 @@ export function migrateState(input) {
     s.production = normalizeProduction(input.production);
     s.nursery = normalizeNursery(input.nursery);
     s.microvoxels = normalizeMicrovoxels(input.microvoxels);
+    s.terrain = normalizeTerrainDeltas(input.terrain);
     s.geology = normalizeGeology(input.geology, fresh.seed);
     s.seed = fresh.seed;
     s.exploration = normalizeExploration(input.exploration, s.seed);
@@ -604,6 +611,11 @@ export function gather(s, node, now = Date.now()) {
       : job.resource;
   if (!resource) return { ok: false, message: "Unknown material." };
   const yieldInfo = gatherYield(s, job.id, !!fibre);
+  if(node.voxelManaged){
+    const result=fellGameTree(s,node,yieldInfo.mastery+yieldInfo.equipment+yieldInfo.artisan+yieldInfo.luck);
+    if(result.ok){s.professions[job.id]+=20;s.statistics.gathers++;addXP(s,15);}
+    return result;
+  }
   const count = yieldInfo.total + (geode ? 1 : 0);
   s.resources[resource] = (s.resources[resource] || 0) + count;
   if (fibre) s.resources[fibre.seed] += 2;

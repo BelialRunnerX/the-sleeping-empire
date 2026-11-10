@@ -19,7 +19,7 @@ export function obstacles(state, layout, tiles = []) {
     ),
     ...[...layout.nodes, ...streamed.flatMap((tile) => tile.nodes)].filter(
       (n) =>
-        n.radius &&
+        n.radius && !state.trees?.felled[n.id] &&
         (n.kind === "geode" || !(state.depleted[n.id] > Date.now())),
     ),
   ];

@@ -114,6 +114,14 @@ try {
       state.hero = "kael";
       view.setHero();
       await render();
+      // Tree meshes stream asynchronously. Settle them before measuring hero
+      // ownership so arriving world geometry cannot masquerade as an avatar leak.
+      const settleDeadline = performance.now() + 30000;
+      while ((view.voxelTrees?.pending || view.voxelTerrain?.busy || view.voxelTerrain?.queue.length) && performance.now() < settleDeadline) await render();
+      if (view.voxelTrees?.pending || view.voxelTerrain?.busy || view.voxelTerrain?.queue.length) throw Error("World geometry did not settle before avatar lifetime check");
+      await render();
+      const terrainBaseline = view.voxelTerrain?.meshes.length || 0;
+      const treeBaseline = [...(view.voxelTrees?.entries.values() || [])].filter(e => e.mesh).length;
       const baseline = view.renderer.info.memory.geometries;
       // Switching every hero must retire unique capes/weapon geometry.
       for (const hero of HEROES) {
@@ -122,6 +130,9 @@ try {
         await render();
       }
       const after = view.renderer.info.memory.geometries;
+      if ((view.voxelTerrain?.meshes.length || 0) !== terrainBaseline) throw Error("Terrain residency changed during avatar lifetime check");
+      const treeAfter = [...(view.voxelTrees?.entries.values() || [])].filter(e => e.mesh).length;
+      if (treeAfter !== treeBaseline) throw Error("Tree residency changed during avatar lifetime check");
       state.hero = "kael";
       view.setHero();
       for (const quality of ["low", "balanced", "high"]) {

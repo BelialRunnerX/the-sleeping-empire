@@ -1,3 +1,10 @@
+import {createCoarseHeightSampler,buildSurfaceSeams} from "./terrain-seams.mjs";
+import {parseTerrainBlockKey} from "./terrain-volume.mjs";
+import { treeEcology } from "./voxel-trees/tree-ecology.mjs";
+import { treeBoxCollision } from "./voxel-trees/tree-gameplay.mjs";
+import { VoxelTreeRenderer } from "./voxel-trees/tree-renderer.mjs";
+import { terrainProfile } from "./terrain-profiles.mjs";
+import { isVoxelFrontier } from "./terrain-field.mjs";
 import * as T from "../vendor/three.module.js";
 import { hash, roll, skillStats } from "./simulation.mjs";
 import { HEROES, REALMS } from "./content.mjs";
@@ -12,6 +19,8 @@ import { equippedForm } from "./arsenal.mjs";
 import { FIBRE_PLANTS } from "./ecology.mjs";
 import { animateFieldProp, FieldDressing, fieldProp } from "./field-art.mjs";
 import { createCoreDrillView } from "./geology-ui.mjs";
+import { subtractAABBUnion } from "./terrain-clip.mjs";
+import { TerrainRenderer } from "./terrain-view.mjs";
 import { createNurseryView } from "./nursery-view.mjs";
 import { createMicrovoxelView } from "./microvoxel-view.mjs";
 const color = (hex) => new T.Color(hex);
@@ -67,6 +76,7 @@ export class WorldView {
     const realm = REALMS.find((r) => r.id === state.realm) || REALMS[0];
     this.realm = realm;
     this.height = sim.layout.height;
+    this.farHeightCache=new Map();
     this.art = new ArtDirector(
       this.scene,
       state.realm,
@@ -76,7 +86,7 @@ export class WorldView {
       sim.layout.structures,
     );
     this.scene.background = color(this.art.palette.mist);
-    this.scene.fog = new T.Fog(this.art.palette.mist, 46, 98);
+    this.scene.fog = new T.Fog(this.art.palette.mist, 85, 165);
     this.visuals = visuals;
     this.renderer = new T.WebGLRenderer({
       canvas,
@@ -121,6 +131,7 @@ export class WorldView {
     this.sun = sun;
     this.scene.add(sun, sun.target);
     this.chunkMeshes = new Map();
+    this.farTerrain=new Map();
     this.field = new FieldDressing(this.scene, state, this.height, this.art.palette,
       (object) => this.releaseObject(object));
     const ground = surface("ground");
@@ -157,9 +168,31 @@ export class WorldView {
       canvas.dataset.microCoarseVisible = "false";
       canvas.dataset.microQuads = "0";
     }
+    this.voxelTrees = new VoxelTreeRenderer(T,{seed:this.state.seed,realm:this.state.realm,maxNear:12,maxDistance:40,canPublish:(entry,result)=>{
+      const t=result.tree;
+      if(!entry.publishCollision){
+        const bounds={min:new T.Vector3(...t.bounds.min.map((v,i)=>(v-t.anchorMicro[i])/16)),max:new T.Vector3(...t.bounds.max.map((v,i)=>(v-t.anchorMicro[i])/16))};
+        entry.publishCollision={...entry,tree:t,mesh:{geometry:{boundingBox:bounds}}};
+      }
+      const proxy=entry.publishCollision;
+      const p=this.sim.player,y=(p.terrainY??this.height(p.x,p.z))+(p.y||0);
+      return !treeBoxCollision(new Map([[entry.id,proxy]]),this.state.trees,[p.x-.3,y+.000001,p.z-.3],[p.x+.3,y+3,p.z+.3]);
+    },onReady:()=>{this.canvas.dataset.voxelTrees=String([...this.voxelTrees.entries.values()].filter(e=>e.mesh).length);}});
+    this.sim.treeOccupied=(min,max)=>treeBoxCollision(this.voxelTrees.entries,this.state.trees,min,max);
+    this.sim.isVoxelTree=id=>!!this.voxelTrees.entries.get(String(id))?.mesh;
+    this.voxelTrees.player={x:this.sim.player.x,z:this.sim.player.z};
     this.coreNodes = this.createNodes();
     this.createFeatures();
     this.syncWorld();
+    this.voxelTerrain = new TerrainRenderer(this.scene, state, sim.terrainVolume, canvas, (key,refreshOnly) => this.maskTerrain(key,refreshOnly), this.groundMaterial);
+    this.sim.terrainReady=(x,y,z)=>{
+      // Coarse surface remains a safe visual fallback; underground needs a published volume band.
+      if(y>=this.sim.terrainVolume.field.surfaceHeight(x,z)-.5)return true;
+      for(const tx of new Set([Math.floor((x-.3)/8),Math.floor((x+.3)/8)]))for(const tz of new Set([Math.floor((z-.3)/8),Math.floor((z+.3)/8)])){
+        const r=this.voxelTerrain.records.get(tx+':'+tz);
+        if(!r?.mesh||!r.residentBands?.some(b=>y-1/16>=b.min[1]&&y+3<=b.max[1]))return false;
+      }return true;
+    };
     this.character = this.avatar(HEROES.find((h) => h.id === state.hero));
     this.canvas.dataset.avatarModel = this.character.userData.rig
       ? "rigged"
@@ -200,6 +233,7 @@ export class WorldView {
         Math.hypot(n.x - focus.x, n.z - focus.z) < length + 4
       )
         occluders.push(n.mesh);
+    occluders.push(...(this.voxelTerrain?.meshes || []));
     const hit = this.boomRay.intersectObjects(occluders, true)[0];
     return hit
       ? Math.max(0.075, Math.min(1, (hit.distance - 0.36) / length))
@@ -210,7 +244,7 @@ export class WorldView {
       dt,
       this.sim.player,
       input,
-      this.height,
+      (x,z) => this.sim.player.terrainY ?? this.height(x,z),
       this.sim.blockers,
       this.visuals.reducedMotion,
       (pivot, offset) => this.meshClearance(pivot, offset),
@@ -223,8 +257,15 @@ export class WorldView {
     this.camera.aspect = (this.canvas.clientWidth || innerWidth) / (this.canvas.clientHeight || innerHeight);
     this.camera.updateProjectionMatrix();
   }
+  fallbackHeight(x,z) {
+    if(!isVoxelFrontier(x,z))return this.height(x,z);
+    const span=8,gx=Math.floor(x/span),gz=Math.floor(z/span),tx=x/span-gx,tz=z/span-gz;
+    const at=(a,b)=>{const key=a+':'+b;if(!this.farHeightCache.has(key)){if(this.farHeightCache.size>=4096)this.farHeightCache.clear();this.farHeightCache.set(key,this.sim.terrainVolume.field.surfaceHeight(a*span,b*span));}return this.farHeightCache.get(key);};
+    const a=at(gx,gz)*(1-tx)+at(gx+1,gz)*tx,b=at(gx,gz+1)*(1-tx)+at(gx+1,gz+1)*tx;return a*(1-tz)+b*tz;
+  }
   createTerrain(tile) {
-    const plane = new T.PlaneGeometry(CHUNK_SIZE, CHUNK_SIZE, 16, 16);
+    const segments=tile.distant?10:20;
+    const plane = new T.PlaneGeometry(CHUNK_SIZE, CHUNK_SIZE, segments, segments);
     plane.rotateX(-Math.PI / 2);
     const originX = (tile.cx + 0.5) * CHUNK_SIZE,
       originZ = (tile.cz + 0.5) * CHUNK_SIZE;
@@ -234,7 +275,7 @@ export class WorldView {
     for (let i = 0; i < positions.count; i++) {
       const x = positions.getX(i) + originX,
         z = positions.getZ(i) + originZ;
-      const height = this.height(x, z);
+      const height = this.fallbackHeight(x, z);
       plane.attributes.uv.setXY(i, x / 320, -z / 320);
       positions.setY(i, height - 0.08);
       const c = color(this.realm.color);
@@ -271,14 +312,78 @@ export class WorldView {
           0.88 + roll(this.state.seed, Math.round(x), Math.round(z)) * 0.18,
         );
       }
+      const frontierBlend=Math.max(0,Math.min(1,(Math.max(Math.abs(x),Math.abs(z))-112)/48));
+      if(frontierBlend)c.lerp(color(terrainProfile(this.state.realm).surface),frontierBlend*frontierBlend*(3-2*frontierBlend));
       colors.push(c.r, c.g, c.b);
     }
     plane.setAttribute("color", new T.Float32BufferAttribute(colors, 3));
+    plane.userData.fullIndex = Array.from(plane.index.array);
     const terrain = new T.Mesh(plane, this.groundMaterial);
     terrain.receiveShadow = true;
+    // Retain immutable original coarse triangles, never clip already clipped data.
+    terrain.userData.coarseSource = {
+      index:Array.from(plane.index.array),
+      position:Array.from(plane.attributes.position.array),
+      normal:Array.from(plane.attributes.normal.array),
+      color:Array.from(plane.attributes.color.array),
+      uv:Array.from(plane.attributes.uv.array)
+    };
     terrain.position.set(originX, 0, originZ);
     this.scene.add(terrain);
     return terrain;
+  }
+  maskTerrain(changedKey=null,refreshOnly=false) {
+    if(!this.voxelTerrain)return;
+    const changed=changedKey?.split(':').map(n=>Math.floor(Number(n)*8/CHUNK_SIZE)).join(':');
+    const touched=[];if(changed){const [cx,cz]=changed.split(':').map(Number);for(let z=-1;z<=1;z++)for(let x=-1;x<=1;x++){const r=this.chunkMeshes.get((cx+x)+':'+(cz+z));if(r)touched.push(r);}}
+    const records=refreshOnly?[]:changed?touched:this.chunkMeshes.values();
+    for(const record of records){
+      const mesh=record.terrain,source=mesh.userData.coarseSource;
+      if(!source)throw new Error('Missing immutable coarse geometry');
+      const ox=mesh.position.x,oz=mesh.position.z,half=CHUNK_SIZE/2;
+      const boxes=[...this.voxelTerrain.records.values()].filter(r=>r.mesh).map(r=>{
+        const [x,z]=r.key.split(':').map(Number);
+        return {min:[x*8,-1e6,z*8],max:[x*8+8,1e6,z*8+8]};
+      }).filter(b=>b.max[0]>ox-half&&b.min[0]<ox+half&&b.max[2]>oz-half&&b.min[2]<oz+half);
+      const signature=boxes.map(b=>b.min[0]+':'+b.min[2]).sort().join('|');
+      if(mesh.userData.coarseCoverage===signature)continue;
+      const triangles=[];
+      for(let i=0;i<source.index.length;i+=3){const triangle=[];for(let k=0;k<3;k++){
+        const v=source.index[i+k],p=v*3,u=v*2;
+        triangle.push([source.position[p]+ox,source.position[p+1],source.position[p+2]+oz,
+          ...source.normal.slice(p,p+3),...source.color.slice(p,p+3),...source.uv.slice(u,u+2)]);
+      }triangles.push(triangle);}
+      const clipped=subtractAABBUnion(triangles,boxes),positions=[],normals=[],colors=[],uv=[];
+      for(const triangle of clipped)for(const v of triangle){positions.push(v[0]-ox,v[1],v[2]-oz);normals.push(...v.slice(3,6));colors.push(...v.slice(6,9));uv.push(...v.slice(9,11));}
+      const geometry=new T.BufferGeometry();
+      geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));
+      geometry.setAttribute('normal',new T.Float32BufferAttribute(normals,3));
+      geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));
+      geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+      geometry.computeBoundingSphere();const old=mesh.geometry;mesh.geometry=geometry;old.dispose();mesh.userData.coarseCoverage=signature;
+    }
+    this.refreshTerrainSeams();
+    this.terrainTiles=[...Array.from(this.chunkMeshes.values(),r=>r.terrain),...this.voxelTerrain.meshes,...(this.terrainSeams?[this.terrainSeams]:[])];
+  }
+  refreshTerrainSeams() {
+    const sampler=(x,z)=>{
+      const cx=Math.floor(x/CHUNK_SIZE),cz=Math.floor(z/CHUNK_SIZE);
+      for(const dx of [0,-1])for(const dz of [0,-1]){
+        const mesh=this.chunkMeshes.get((cx+dx)+':'+(cz+dz))?.terrain;if(!mesh)continue;
+        const sample=mesh.userData.coarseSampler||(mesh.userData.coarseSampler=createCoarseHeightSampler(mesh.userData.coarseSource,mesh.position.x,mesh.position.z));
+        const y=sample(x,z);if(y!==null)return y;
+      }return null;
+    };
+    const edited=new Map();for(const key of Object.keys(this.sim.terrainVolume.data.blocks)){const p=parseTerrainBlockKey(key);if(p){const k=p[0]+':'+p[2];if(!edited.has(k))edited.set(k,[]);edited.get(k).push(p[1]);}}
+    const allow=(x,y,z,axis,side,minY,maxY)=>{
+      if(Math.abs(y-this.sim.terrainVolume.field.baseHeight(x,z))>5)return false;
+      for(const bx of [Math.floor(x-1/16),Math.floor(x+1/16)])for(const bz of [Math.floor(z-1/16),Math.floor(z+1/16)])for(const by of edited.get(bx+':'+bz)||[])if(by+1>minY-1/16&&by<maxY+1/16)return false;
+      return true;
+    };
+    const data=buildSurfaceSeams(this.voxelTerrain.records,sampler,allow),mesh=this.voxelTerrain.makeMesh(data);
+    if(!this.seamMaterial){this.seamMaterial=this.voxelTerrain.material.clone();this.seamMaterial.onBeforeCompile=this.voxelTerrain.material.onBeforeCompile;this.seamMaterial.side=T.DoubleSide;}
+    mesh.material=this.seamMaterial;this.scene.add(mesh);const old=this.terrainSeams;this.terrainSeams=mesh;if(old){this.scene.remove(old);old.geometry.dispose();}
+    this.canvas.dataset.terrainSeamSkipped=String(data.skipped);this.canvas.dataset.terrainSeamSegments=String(data.segments);this.canvas.dataset.terrainSeamGap=data.maxGap.toFixed(4);
   }
   createSanctuary() {
     const plaza = new T.Group();
@@ -385,7 +490,7 @@ export class WorldView {
     return definitions.map((d) => {
       const { id } = d,
         g = new T.Group(),
-        y = this.height(d.x, d.z);
+        y = d.kind === "tree" ? this.sim.terrainVolume.field.surfaceHeight(d.x,d.z) : this.sim.groundHeight(d.x, d.z);
       g.position.set(d.x, y, d.z);
       let crystal;
       const rock = ["rock", "ore", "geode"].includes(d.kind)
@@ -554,6 +659,7 @@ export class WorldView {
         g.add(ring);
         mesh(g, "sphere", 0xbde8ee, 0, 0.3, 0, 0.1);
       }
+      if(d.kind === "tree") this.voxelTrees.attach(g,d,{...treeEcology(this.state.seed,this.state.realm,d.x,d.z),felled:!!this.state.trees?.felled[d.id]});
       const glow = new T.Mesh(
         new T.RingGeometry(0.8, 0.85, 24),
         new T.MeshBasicMaterial({
@@ -567,7 +673,9 @@ export class WorldView {
       glow.position.y = 0.06;
       g.add(glow);
       this.scene.add(g);
-      return { ...d, type: "node", mesh: g, glow, crystal };
+      const node={ ...d, type: "node", mesh: g, glow, crystal,voxelManaged:d.kind==="tree" };
+      if(d.kind==="tree")Object.defineProperty(node,"voxelTree",{get:()=>this.voxelTrees.entries.get(String(id))?.tree});
+      return node;
     });
   }
   buildFeatures(definitions) {
@@ -685,6 +793,7 @@ export class WorldView {
         this.scene.remove(record.terrain);
         record.terrain.geometry.dispose();
         for (const object of [...record.nodes, ...record.features]) {
+          if(object.kind === "tree") this.voxelTrees.detach(object.id);
           this.scene.remove(object.mesh);
           this.releaseObject(object.mesh);
         }
@@ -697,6 +806,9 @@ export class WorldView {
           nodes: this.createNodes(tile.nodes),
           features: this.buildFeatures(tile.features),
         });
+    const farWanted=new Set(),cx=Math.floor(this.sim.player.x/CHUNK_SIZE),cz=Math.floor(this.sim.player.z/CHUNK_SIZE);
+    for(let dz=-5;dz<=5;dz++)for(let dx=-5;dx<=5;dx++){const key=(cx+dx)+':'+(cz+dz);if(tiles.has(key))continue;farWanted.add(key);if(!this.farTerrain.has(key))this.farTerrain.set(key,this.createTerrain({cx:cx+dx,cz:cz+dz,distant:true}));}
+    for(const [key,mesh] of this.farTerrain)if(!farWanted.has(key)){this.scene.remove(mesh);mesh.geometry.dispose();this.farTerrain.delete(key);}
     this.nodes = [
       ...this.coreNodes,
       ...Array.from(this.chunkMeshes.values()).flatMap((c) => c.nodes),
@@ -706,6 +818,7 @@ export class WorldView {
       ...Array.from(this.chunkMeshes.values()).flatMap((c) => c.features),
     ];
     this.terrainTiles = Array.from(this.chunkMeshes.values(), (c) => c.terrain);
+    this.maskTerrain();
     this.syncEnemyMeshes();
     this.scene.updateMatrixWorld(true);
   }
@@ -729,7 +842,7 @@ export class WorldView {
           f.kind === "beacon" || !this.state.exploration.changed.includes(f.id),
       ),
       ...this.nodes.filter(
-        (n) => n.kind === "geode" || !(this.state.depleted[n.id] > now),
+        (n) => !this.state.trees?.felled[n.id] && (n.kind === "geode" || !(this.state.depleted[n.id] > now)),
       ),
       ...this.workstations.entries.map(({ def, group }) => ({
         ...def,
@@ -975,7 +1088,7 @@ export class WorldView {
     let nearest = null,
       distance = 4;
     for (const node of this.nodes) {
-      if (this.state.depleted[node.id] > Date.now()) continue;
+      if (this.state.depleted[node.id] > Date.now() || this.state.trees?.felled[node.id]) continue;
       const d = Math.hypot(
         node.x - this.sim.player.x,
         node.z - this.sim.player.z,
@@ -1099,7 +1212,7 @@ export class WorldView {
     this.syncWorld();
     const p = this.sim.player,
       c = this.character,
-      terrainY = this.height(p.x, p.z);
+      terrainY = p.terrainY ?? this.height(p.x, p.z);
     c.position.set(p.x, terrainY + p.y, p.z);
     c.rotation.y = p.facing;
     this.moving = !!(input.x || input.z);
@@ -1148,6 +1261,9 @@ export class WorldView {
     this.field.update(p, this.sim.blockers, dt, time, this.visuals.reducedMotion);
     this.workstations.update(time, this.visuals.reducedMotion);
     this.nursery?.update(this.state.nursery, Date.now());
+    this.voxelTerrain?.sync(p);
+    this.voxelTrees?.update(p.x,p.z);
+    for(const entry of this.voxelTrees.entries.values())if(!entry.mesh&&!entry.deferred)entry.publishCollision=null;
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
     this.sun.target.updateMatrixWorld();
@@ -1159,7 +1275,7 @@ export class WorldView {
     this.npc.rotation.y = Math.atan2(p.x - 6, p.z + 1);
     for (const node of this.nodes) {
       node.mesh.visible =
-        node.kind === "geode" || !(this.state.depleted[node.id] > Date.now());
+        (node.kind === "geode" || !(this.state.depleted[node.id] > Date.now())) && !this.state.trees?.felled[node.id];
       if (node.crystal)
         node.crystal.scale.setScalar(
           [0.24, 0.44, 0.72, 1][geodeStage(this.state.depleted[node.id])],
@@ -1185,7 +1301,7 @@ export class WorldView {
       v.mesh.visible = e.hp > 0;
       v.mesh.position.set(
         e.x,
-        this.height(e.x, e.z) +
+        this.sim.groundHeight(e.x, e.z) +
           (e.boss
             ? 0
             : (e.archetype === "drone" ? 0.22 : 0.06) *
@@ -1209,7 +1325,7 @@ export class WorldView {
         const d = Math.hypot(e.aimX - e.x, e.aimZ - e.z);
         v.aim.position.set(
           (e.x + e.aimX) / 2,
-          this.height(e.x, e.z) + 0.1,
+          this.sim.groundHeight(e.x, e.z) + 0.1,
           (e.z + e.aimZ) / 2,
         );
         v.aim.scale.z = d;
@@ -1330,7 +1446,10 @@ export class WorldView {
     });
   }
   dispose() {
+    this.sim.treeOccupied=null;this.sim.isVoxelTree=null;this.sim.terrainReady=null;
+    this.voxelTrees?.dispose();
     this.microvoxels?.dispose();
+    this.voxelTerrain?.dispose();
     removeEventListener("resize", this.resize);
     this.viewportObserver?.disconnect();
     globalThis.visualViewport?.removeEventListener("resize", this.resize);
