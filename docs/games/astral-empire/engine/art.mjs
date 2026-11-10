@@ -830,7 +830,15 @@ export class ArtDirector {
     g.elbows[1].add(weapon);
     attachments.right.push(weapon);
     weapon.position.y = -0.35;
-    if (hero.form === "spear") {
+    if (hero.form === "pistol") {
+      // Provisional authored sidearm until the separate detailed pistol asset is available.
+      weapon.name="Aethercoil pistol prototype";
+      this.shape(weapon,"box",0x263b49,0,-.03,.03,.11,.24,.13);
+      this.shape(weapon,"box",0xc4d7d9,0,.09,.17,.17,.12,.42);
+      this.shape(weapon,"box",0x263b49,0,.09,.39,.12,.10,.04);
+      this.shape(weapon,"box",0x85f4f2,0,.105,.22,.18,.025,.25).material=this.material(0x85f4f2,.7);
+      this.shape(weapon,"box",gold,0,.17,.06,.045,.035,.05);
+    } else if (hero.form === "spear") {
       weapon.rotation.z = -0.22;
       this.shape(weapon, "tube", 0x43536c, 0, 0.39, 0.05, 0.052, 2.19, 0.052);
       const blade = this.shape(

@@ -1,3 +1,4 @@
+import { firearm } from "./firearms.mjs";
 import { mainMenuMarkup, menuSettingsMarkup } from "./main-menu.mjs";
 import { updateCombatAssist } from "./combat-assist.mjs";
 import {
@@ -339,6 +340,10 @@ function updateHUD() {
   $("mana-fill").style.width = (p.mana / st.mana) * 100 + "%";
   $("stamina-fill").style.width = p.stamina + "%";
   $("xp-fill").style.width = (state.xp / (state.level * 100)) * 100 + "%";
+  let ammo=document.getElementById("pistol-ammo");
+  if(!ammo){ammo=document.createElement("button");ammo.id="pistol-ammo";ammo.dataset.action="reload-pistol";ammo.style.cssText="position:fixed;left:50%;bottom:19%;transform:translateX(-50%);z-index:25;padding:8px 12px;min-height:44px;font-size:13px";$("hud").append(ammo);}
+  const gun=firearm(state);ammo.hidden=!gun||!!panel;
+  if(gun){ammo.textContent=gun.item.reloadLeft>0?"RELOADING "+gun.item.reloadLeft.toFixed(1)+"s":gun.item.rounds+" / "+gun.magazine+" · ∞ · RELOAD (V)";ammo.disabled=gun.item.reloadLeft>0||gun.item.rounds===gun.magazine;}
   $("potion-count").textContent = "F · " + state.resources.potions;
   $("realm-name").textContent = REALMS.find((r) => r.id === state.realm).name;
   $("coordinates").textContent = Math.round(p.x) + " , " + Math.round(p.z);
@@ -1128,6 +1133,7 @@ document.addEventListener("click", async (e) => {
     beginTravel(target);
     return;
   }
+  if (action === "reload-pistol" && !panel && !gathering) { sim.reload(); return; }
   if (action === "dodge") {
     cancelTravel();
     sim.dodge();
@@ -1524,6 +1530,7 @@ document.addEventListener("keydown", (e) => {
     return;
   }
   if (panel) return;
+  if(k==="v"&&!e.repeat&&!gathering){sim.reload();return;}
   if (
     [" ", "arrowup", "arrowdown", "arrowleft", "arrowright", "shift"].includes(
       k,
@@ -1874,6 +1881,7 @@ function floating(event) {
 function handleEvents() {
   for (const event of sim.events.splice(0)) {
     if (event.type === "skill") view.skillFX(event);
+    if (event.type === "hitscan") view.hitscanFX(event);
     if (event.type === "damage" || event.type === "reaction") {
       floating(event);
       view.impactFX(event);

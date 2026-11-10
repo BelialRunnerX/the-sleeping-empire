@@ -254,12 +254,12 @@ export function poseAvatarRig(
   );
   rotate(
     "R_UpperArm",
-    attacking ? -0.79 + Math.sin(time * 26) * 0.22 : stride * 0.45,
+    weapon === "pistol" ? -.95-(attacking?Math.abs(Math.sin(time*32))*.12:0) : attacking ? -0.79 + Math.sin(time * 26) * 0.22 : stride * 0.45,
     0,
     -1.24,
   );
   rotate("L_LowerArm", guarding ? -0.55 : -0.12);
-  rotate("R_LowerArm", attacking ? -0.58 : -0.1);
+  rotate("R_LowerArm", weapon === "pistol" ? -.3 : attacking ? -0.58 : -0.1);
   rotate("C_Spine", moving ? 0.035 : 0, moving ? stride * 0.095 : 0);
 }
 export function measureAvatarBody(root){

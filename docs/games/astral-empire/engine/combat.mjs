@@ -1,3 +1,4 @@
+import { firearm, startReload, tickReload, consumeRound, raySphere } from "./firearms.mjs";
 import {waterContact,applyWaterBuoyancy} from './water-traversal.mjs';
 import { TerrainVolume } from "./terrain-volume.mjs";
 import { createTerrainField, isVoxelFrontier } from "./terrain-field.mjs";
@@ -259,6 +260,7 @@ export class Simulation {
       p = this.player;
     if (!skill || this.cooldowns[id] > 0 || p.mana < skill.cost || p.hp <= 0)
       return false;
+    if (skill.hitscan && !consumeRound(this.state)) return false;
     p.mana -= skill.cost;
     this.cooldowns[id] = skill.cooldown;
     const locked =
@@ -296,6 +298,24 @@ export class Simulation {
       this.pendingCasts.push({ ...cast, delay: 0.35, factor: 0.6, echo: true });
     return true;
   }
+  reload() { return this.player.hp>0 && startReload(this.state); }
+  resolveHitscan(cast) {
+    const origin=[cast.x,cast.worldY+1.5,cast.z],range=cast.skill.range;
+    const target=this.enemies.find(e=>e.id===cast.targetId&&e.hp>0);
+    const dy=target?(this.groundHeight(target.x,target.z)+1.2-origin[1]):0;
+    const horizontal=target?Math.hypot(target.x-cast.x,target.z-cast.z):range;
+    const length=Math.hypot(horizontal,dy)||1;
+    const dir=[Math.sin(cast.facing)*horizontal/length,dy/length,Math.cos(cast.facing)*horizontal/length];
+    let nearest=range,hit=null;
+    const terrain=this.terrainVolume.ray(origin,dir,range);
+    if(terrain)nearest=Math.min(nearest,terrain.distance??Math.hypot(...terrain.cell.map((v,i)=>(v+.5)/16-origin[i])));
+    // Existing world obstacles are conservative opaque cover; no shots through homes/rocks.
+    for(let d=.15;d<nearest;d+=.15){const x=origin[0]+dir[0]*d,y=origin[1]+dir[1]*d,z=origin[2]+dir[2]*d;
+      if(this.blockers.some(o=>{const base=this.groundHeight(o.x,o.z);return y>=base&&y<=base+(o.height||3)&&blocked(x,z,[o],0);})){nearest=d;break;}}
+    for(const e of this.enemies){if(e.hp<=0)continue;const d=raySphere(origin,dir,[e.x,this.groundHeight(e.x,e.z)+1.2,e.z],e.radius||.65,nearest);if(d!==null&&d<nearest){nearest=d;hit=e;}}
+    if(hit)this.hitEnemy(hit,cast,cast.factor??1);
+    this.emit("hitscan",{origin,end:origin.map((v,i)=>v+dir[i]*nearest),hit:!!hit});
+  }
   resolveCast(cast) {
     const { skill } = cast,
       factor = cast.factor ?? 1;
@@ -307,9 +327,10 @@ export class Simulation {
       facing: cast.facing,
       radius: skill.radius,
       echo: !!cast.echo,
-      projectile: skill.tags.includes("projectile"),
+      projectile: skill.hitscan || skill.tags.includes("projectile"),
       element: cast.element,
     });
+    if (skill.hitscan) { this.resolveHitscan(cast); return; }
     if (skill.tags.includes("projectile")) {
       const fan =
         skill.id === "strike" && skill.weapon === "bow" && cast.combo === 2
@@ -641,6 +662,7 @@ export class Simulation {
   tick(dt, input = {}) {
     dt = clamp(dt, 0, 0.05);
     this.clock += dt;
+    if(this.player.hp>0)tickReload(this.state,dt);
     const p = this.player,
       st = stats(this.state);
     for (const k of Object.keys(this.cooldowns))

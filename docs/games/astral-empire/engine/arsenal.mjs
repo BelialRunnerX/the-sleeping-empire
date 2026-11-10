@@ -1,4 +1,6 @@
 export const WEAPON_FORMS = {
+  pistol: { name: "Aethercoil pistol", style: "pistol", magazine: 12, reload: 1.35,
+    strike: { name: "Aethercoil shot", range: 30, power: 1.15, cooldown: 0.25 } },
   sword: {
     name: "Longsword",
     style: "blade",

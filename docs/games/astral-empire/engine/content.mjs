@@ -158,6 +158,9 @@ export const HEROES = [
   },
 ];
 export const WEAPONS = {
+  pistol: { name: "Aethercoil shot", icon: "✦", cost: 0, cooldown: .25, power: 1.15,
+    range: 30, radius: .2, physical: .8, hitscan: true, tags: ["attack", "ranged"],
+    description: "Instant single-target shot. 12-round magazine, infinite reserve; automatic 1.35-second reload on empty. Press V or the ammo button for an early reload." },
   blade: {
     name: "Crescent cut",
     icon: "✧",
@@ -622,6 +625,9 @@ export const PROFESSIONS = [
   },
 ];
 export const RECIPES = [
+  { id: "aethercoil-pistol", name: "Aethercoil pistol", itemName: "Aethercoil pistol",
+    type: "weapon", form: "pistol", profession: "fabrication", cost: { cobalt: 4, circuitry: 1 },
+    desc: "12-round hitscan sidearm. Infinite reserve, timed reload, tempering, reforging and ascension." },
   { id: "cobalt-assay-lens", name: "Cobalt assay lens", itemName: "Cobalt assay lens", type: "armor", form: "light", frame: "assay", profession: "fabrication", level: 4, cost: { "elysiumores:cobalt_ingot": 2, fieldCord: 2, circuitry: 1 }, desc: "Survey harness: +1 gathering yield before Fortune. Stacks with a Cultivator charm." },
   {
     id: "loomflax-cord", name: "Field cord · Loomflax",

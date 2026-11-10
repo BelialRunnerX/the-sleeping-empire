@@ -1116,6 +1116,11 @@ export class WorldView {
       visible: v.z > -1 && v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1,
     };
   }
+  hitscanFX(event) {
+    const geometry=new T.BufferGeometry().setFromPoints([new T.Vector3(...event.origin),new T.Vector3(...event.end)]);
+    const line=new T.Line(geometry,new T.LineBasicMaterial({color:0x8af5ff,transparent:true,opacity:.85}));
+    const group=new T.Group();group.add(line);this.scene.add(group);this.effects.push({mesh:group,life:.09,max:.09});
+  }
   skillFX(event) {
     this.character.userData.attack = 0.35;
     if (event.projectile) return;
