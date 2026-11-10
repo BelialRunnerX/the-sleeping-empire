@@ -1,3 +1,4 @@
+import { PLAYER_HEIGHT } from './world-scale.mjs';
 import {createWorldSurfaceKit,applyBuildingSurfaces,applyRelicSurfaces} from "./world-surfaces.mjs";
 import * as T from "../vendor/three.module.js";
 import { surface } from "./surfaces.mjs";
@@ -721,7 +722,7 @@ export class ArtDirector {
       part.position.y -= 2.02;
     }
     portraitRig.scale.set(0.83, 0.9, 0.87);
-    g.scale.y = 1.06;
+    g.scale.y = 1; // Canonical three-block standing height, no hidden parent stretch.
     for (const sign of [-1, 1]) {
       for (let i = 0; i < 3; i++) {
         const stitch = this.shape(
@@ -999,8 +1000,15 @@ export class ArtDirector {
       );
       sash.rotation.z = 0.46;
     }
-    g.userData = { attack: 0, crest };
+    g.userData = { attack: 0, crest, equipmentAttachments: attachments };
     applyAvatarRig(g, hero, attachments);
+    if(!g.userData.rig){
+      // Normalize the procedural fallback body, excluding held gear from height.
+      const gear=new Set([...attachments.left,...attachments.right]),box=new T.Box3();
+      g.updateMatrixWorld(true);g.traverse(o=>{if(!o.isMesh)return;for(let p=o;p;p=p.parent)if(gear.has(p))return;box.union(new T.Box3().setFromObject(o,true));});
+      if(!box.isEmpty()){const body=new T.Group(),scale=PLAYER_HEIGHT/(box.max.y-box.min.y);for(const child of [...g.children])body.add(child);body.scale.setScalar(scale);body.position.y=-box.min.y*scale;g.add(body);g.userData.scaledBody=body;}
+    }
+    g.userData.heightBlocks=3;g.userData.heightMicro=48;
     return g;
   }
   animateAvatar(g, stride, time, moving, reduced) {
@@ -1488,3 +1496,4 @@ export class ArtDirector {
     for (const texture of this.textures) texture.dispose();
   }
 }
+
