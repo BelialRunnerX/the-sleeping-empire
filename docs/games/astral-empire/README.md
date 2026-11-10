@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.18 - Optional custom female appearance
+
+Character declaration now offers Male (the existing model) or Female (the custom work-in-progress prototype). This is cosmetic only: no race/class/stat changes. Old profiles keep their old appearances until explicitly changed. The female asset loads on selection, is cached for offline reuse, and is normalized to the same three-block body height. It adds approximately 123k triangles and16 textures when loaded; its lower-poly armor/hair derivative is not identical to the authoring preview. Physical-device performance remains unverified. The new male prototype is not substituted yet.
+
 ## Version 3.17.1 - Elysium and mobile interaction
 
 Visible game branding is Elysium. Touch layout retains the left movement stick and replaces the right stick with Interact and held-primary (LMB) buttons. Camera drag/pinch remains available. The local profile login uses the sci-fi solarpunk background and supports visible-viewport/keyboard scrolling on small screens. Keyboard/controller bindings remain unchanged.
