@@ -24,6 +24,7 @@ import {
   craft,
   alterItem,
   claimQuest,
+  questStatus,
   summon,
   Simulation,
   hitBreakdown,
@@ -394,19 +395,16 @@ function updateHUD() {
             : "Q · LOCK TARGET") +
       (ailments.length ? " / " + ailments.join(" · ") : "");
   }
-  const objective = QUESTS.find((q) => !state.claimed.includes(q.id));
+  const objective = QUESTS.find((q) => { const status = questStatus(state, q); return status.unlocked && !status.claimed; });
   if (objective) {
-    const progress =
-      objective.stat === "passives"
-        ? state.passives.length
-        : state.statistics[objective.stat];
+    const progress = questStatus(state, objective).value;
     $("objective-title").textContent = objective.name;
     $("objective-text").textContent =
       objective.description +
       " " +
       Math.min(progress, objective.goal) +
       " / " +
-      objective.goal;
+      objective.goal + (questStatus(state, objective).ready ? " · Open Journal to claim supplies." : "");
   } else {
     $("objective-title").textContent = "Beyond the horizon";
     $("objective-text").textContent =
@@ -871,16 +869,11 @@ function previewCodex() {
     c.element;
 }
 function journal() {
-  return `<div class="grid-2">${QUESTS.map((q) => {
-    const value =
-        q.stat === "passives"
-          ? state.passives.length
-          : state.statistics[q.stat],
-      claimed = state.claimed.includes(q.id);
-    return `<article class="card"><h3>${q.name}</h3><p>${q.description}</p><div class="quest-progress"><i style="width:${Math.min(value / q.goal, 1) * 100}%"></i></div><div class="row spread"><span class="small">${Math.min(value, q.goal)} / ${q.goal}</span><span class="tag">${q.gold} GOLD · ${q.crystals} CRYSTALS</span></div><button data-quest="${q.id}" ${value < q.goal || claimed ? "disabled" : ""}>${claimed ? "CLAIMED" : "CLAIM REWARD"}</button></article>`;
-  }).join(
-    "",
-  )}</div><p class="small muted">Follow the pale path north to find the Sleeping Warden. Its large charged strike can be evaded; attack while it recovers.</p>`;
+  return `<p class="small muted">Dawnwake expedition · 13 steps. Earlier actions count before a step unlocks. Claim each cache to open the next step. Rewards are once per profile.</p><div class="grid-2">${QUESTS.map((q, index) => {
+    const { value, claimed, unlocked, ready } = questStatus(state, q);
+    const supplies = Object.entries(q.resources || {}).map(([key, count]) => `${count} ${key.replace(/([A-Z])/g, " $1").toLowerCase()}`).join(" · ");
+    return `<article class="card"><span class="tag">STEP ${index + 1} / ${QUESTS.length} · ${claimed ? "CLAIMED" : ready ? "READY" : unlocked ? "ACTIVE" : "LOCKED"}</span><h3>${q.name}</h3><p>${q.description}</p><p class="small">${q.hint || ""}</p><div class="quest-progress"><i style="width:${Math.min(value / q.goal, 1) * 100}%"></i></div><p>${Math.min(value, q.goal)} / ${q.goal}</p><p class="small">${q.gold} gold · ${q.crystals} cosmetic crystals · ${q.xp || 0} XP<br>${supplies}</p>${!unlocked && !claimed ? `<p class="small muted">Claim “${QUESTS.find(v => v.id === q.needs[0])?.name}” first.</p>` : ""}<button data-quest="${q.id}" ${!ready ? "disabled" : ""}>${claimed ? "CLAIMED" : ready ? "CLAIM SUPPLY CACHE" : unlocked ? "IN PROGRESS" : "LOCKED"}</button></article>`;
+  }).join("")}</div>`;
 }
 function realms() {
   return `<p class="small muted">Waygates open as your account level rises. Each destination has its own terrain palette, resources, and enemy progression.</p><div class="grid-2">${REALMS.map((r) => `<article class="card ${state.realm === r.id ? "selected" : ""}"><h3>${r.name}</h3><p>${r.gravity} g source world · ${r.tier === 0 ? "Frontier sanctuary" : "Requires level " + r.tier * 10}</p><button data-realm="${r.id}" ${state.level < r.tier * 10 || r.id === state.realm ? "disabled" : ""}>${r.id === state.realm ? "CURRENT REALM" : state.level < r.tier * 10 ? "WAYGATE LOCKED" : "TRAVEL"}</button></article>`).join("")}</div>`;

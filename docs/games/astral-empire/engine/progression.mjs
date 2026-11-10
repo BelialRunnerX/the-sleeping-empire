@@ -161,6 +161,7 @@ export function freshState(seed = 438102) {
     statistics: {
       kills: 0,
       gathers: 0,
+      cropHarvests: 0,
       crafts: 0,
       bosses: 0,
       processed: 0,
@@ -589,6 +590,7 @@ export function harvestCrop(s, index, now = Date.now()) {
   const yieldInfo = gatherYield(s, "herbalism", true), count = yieldInfo.total;
   const seeds = fortuned(1, yieldInfo.fortune, roll(s.seed, s.statistics.gathers, 1919));
   s.nursery.plots[index] = null;
+  s.statistics.cropHarvests = (s.statistics.cropHarvests || 0) + 1;
   s.resources[fibre.resource] += count;
   s.resources[fibre.seed] += seeds;
   s.professions.herbalism += 20;
@@ -738,13 +740,25 @@ export function alterItem(s, id, action, seed = Date.now()) {
   }
   return false;
 }
+export function questStatus(s, q) {
+  const raw = q.stat === "passives" ? s.passives.length
+    : q.stat === "discoveries" ? new Set(s.exploration?.discovered || []).size
+    : q.stat === "nursery" ? s.nursery?.tier : s.statistics[q.stat];
+  const value = Math.max(0, Number.isFinite(raw) ? raw : 0);
+  const claimed = s.claimed.includes(q.id);
+  const unlocked = (q.needs || []).every(id => s.claimed.includes(id));
+  return { value, claimed, unlocked, ready: !claimed && unlocked && value >= q.goal };
+}
 export function claimQuest(s, id) {
-  const q = QUESTS.find((q) => q.id === id),
-    value = q?.stat === "passives" ? s.passives.length : s.statistics[q?.stat];
-  if (!q || s.claimed.includes(id) || value < q.goal) return false;
+  const q = QUESTS.find(q => q.id === id);
+  if (!q || !questStatus(s, q).ready) return false;
+  // Mark first: a repeat click or migrated claimed ID cannot award twice.
   s.claimed.push(id);
   s.gold += q.gold;
   s.crystals += q.crystals;
+  for (const [key, count] of Object.entries(q.resources || {}))
+    s.resources[key] = (s.resources[key] || 0) + count;
+  addXP(s, q.xp || 0);
   return true;
 }
 export function summon(s, random = Math.random) {

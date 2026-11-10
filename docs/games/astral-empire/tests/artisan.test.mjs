@@ -62,6 +62,9 @@ test("construction is paid once and requires the actual sanctuary site", () => {
   assert.equal(s.resources.timber, 98);
   assert.equal(buildStation(s, "foundry").ok, false);
   assert.equal(s.statistics.workstations, 1);
+  assert.equal(claimQuest(s, "atelier-build"), false); // prerequisite reward not yet claimed
+  s.statistics.gathers = 5;
+  assert.equal(claimQuest(s, "gather"), true);
   assert.equal(claimQuest(s, "atelier-build"), true);
   assert.equal(claimQuest(s, "atelier-build"), false);
   s.realm = "moon";

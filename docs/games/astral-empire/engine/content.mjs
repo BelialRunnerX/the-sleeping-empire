@@ -1007,86 +1007,243 @@ export const CONSTELLATION = buildConstellation(legacyPassives, branches);
 export const PASSIVES = CONSTELLATION.nodes;
 export const QUESTS = [
   {
-    id: "atelier-build",
-    name: "An artisan's foothold",
-    description: "Construct one sanctuary workstation.",
-    stat: "workstations",
-    goal: 1,
-    gold: 150,
-    crystals: 80,
+    "id": "gather",
+    "name": "A foothold in the wilds",
+    "description": "Gather 5 resource nodes.",
+    "stat": "gathers",
+    "goal": 5,
+    "gold": 350,
+    "crystals": 160,
+    "xp": 80,
+    "resources": {
+      "timber": 4,
+      "stone": 4,
+      "cobalt": 2
+    },
+    "hint": "Approach trees, rock and ore near Dawnwake and Interact. These supplies help build your first station.",
+    "needs": []
   },
   {
-    id: "atelier-orders",
-    name: "From wilds to workshop",
-    description: "Collect five processed orders.",
-    stat: "processed",
-    goal: 5,
-    gold: 300,
-    crystals: 160,
+    "id": "atelier-build",
+    "name": "An artisan’s foothold",
+    "description": "Construct one sanctuary workstation.",
+    "stat": "workstations",
+    "goal": 1,
+    "gold": 450,
+    "crystals": 100,
+    "xp": 100,
+    "resources": {
+      "timber": 8,
+      "cobalt": 6,
+      "herb": 4
+    },
+    "hint": "Industry lists stations. Joinery at (-8, -6) needs 2 timber and 1 stone. Stand nearby to build.",
+    "needs": [
+      "gather"
+    ]
   },
   {
-    id: "gather",
-    name: "A foothold in the wilds",
-    description: "Gather 5 resource nodes.",
-    stat: "gathers",
-    goal: 5,
-    gold: 120,
-    crystals: 160,
+    "id": "atelier-orders",
+    "name": "From wilds to workshop",
+    "description": "Collect five completed processing orders.",
+    "stat": "processed",
+    "goal": 5,
+    "gold": 600,
+    "crystals": 160,
+    "xp": 120,
+    "resources": {
+      "plank": 4,
+      "billet": 4,
+      "extract": 2
+    },
+    "hint": "Queue recipes at a built station, wait, then collect output. Only collected orders count.",
+    "needs": [
+      "atelier-build"
+    ]
   },
   {
-    id: "hunt",
-    name: "Silence the hollow",
-    description: "Defeat 5 Hollowborn.",
-    stat: "kills",
-    goal: 5,
-    gold: 180,
-    crystals: 200,
+    "id": "forge",
+    "name": "An oath, reforged",
+    "description": "Craft your first item or consumable.",
+    "stat": "crafts",
+    "goal": 1,
+    "gold": 500,
+    "crystals": 160,
+    "xp": 120,
+    "resources": {
+      "potions": 5,
+      "fieldCord": 4
+    },
+    "hint": "Open Crafting and choose an affordable recipe. Some equipment requires a nearby built station.",
+    "needs": [
+      "atelier-orders"
+    ]
   },
   {
-    id: "forge",
-    name: "An oath, reforged",
-    description: "Craft your first item or consumable.",
-    stat: "crafts",
-    goal: 1,
-    gold: 120,
-    crystals: 160,
+    "id": "intro-discover",
+    "name": "Read the frontier",
+    "description": "Discover three distinct frontier landmarks.",
+    "stat": "discoveries",
+    "goal": 3,
+    "gold": 600,
+    "crystals": 200,
+    "xp": 150,
+    "resources": {
+      "herb": 6,
+      "circuitry": 3
+    },
+    "hint": "Explore beyond Dawnwake. Survey locates caches, rubble and relays. Distinct discoveries count once.",
+    "needs": [
+      "forge"
+    ]
   },
   {
-    id: "mastery",
-    name: "The shape of a soul",
-    description: "Allocate 5 constellation passives.",
-    stat: "passives",
-    goal: 5,
-    gold: 180,
-    crystals: 240,
+    "id": "field-salvage",
+    "name": "Recovery protocol",
+    "description": "Salvage three drone wrecks.",
+    "stat": "salvages",
+    "goal": 3,
+    "gold": 650,
+    "crystals": 150,
+    "xp": 150,
+    "resources": {
+      "circuitry": 5,
+      "timber": 4,
+      "stone": 4
+    },
+    "hint": "Approach wrecks beyond the sanctuary and Interact to recover electronics.",
+    "needs": [
+      "intro-discover"
+    ]
   },
   {
-    id: "warden",
-    name: "The sleeping warden",
-    description: "Defeat the named guardian north of the sanctuary.",
-    stat: "bosses",
-    goal: 1,
-    gold: 600,
-    crystals: 800,
+    "id": "field-survey",
+    "name": "Signal in the static",
+    "description": "Synchronize two survey relays.",
+    "stat": "relays",
+    "goal": 2,
+    "gold": 750,
+    "crystals": 200,
+    "xp": 180,
+    "resources": {
+      "telemetry": 3,
+      "cobalt": 4
+    },
+    "hint": "Find relays through Survey, approach and synchronize. Synchronized relays can return you to base.",
+    "needs": [
+      "field-salvage"
+    ]
   },
   {
-    id: "field-salvage",
-    name: "Recovery protocol",
-    description: "Salvage three drone wrecks for field fabrication.",
-    stat: "salvages",
-    goal: 3,
-    gold: 160,
-    crystals: 100,
+    "id": "intro-nursery",
+    "name": "A living foothold",
+    "description": "Build Dawnwake hydroponics.",
+    "stat": "nursery",
+    "goal": 1,
+    "gold": 600,
+    "crystals": 160,
+    "xp": 120,
+    "resources": {
+      "loomflaxSeed": 4,
+      "downbloomSeed": 4
+    },
+    "hint": "Build at (-3.6, 10.5) with 2 stone, 2 timber and 1 cobalt. Plant seeds in its two beds.",
+    "needs": [
+      "field-survey"
+    ]
   },
   {
-    id: "field-survey",
-    name: "Signal in the static",
-    description: "Synchronize two survey relays beyond the outpost.",
-    stat: "relays",
-    goal: 2,
-    gold: 260,
-    crystals: 150,
+    "id": "intro-harvest",
+    "name": "What we leave growing",
+    "description": "Harvest two mature nursery crops.",
+    "stat": "cropHarvests",
+    "goal": 2,
+    "gold": 800,
+    "crystals": 200,
+    "xp": 180,
+    "resources": {
+      "fieldCord": 6,
+      "billet": 4,
+      "plank": 4
+    },
+    "hint": "Plant both beds and return after about 3.5 minutes. Growth continues offline. Wild gathering does not count.",
+    "needs": [
+      "intro-nursery"
+    ]
   },
+  {
+    "id": "hunt",
+    "name": "Silence the hollow",
+    "description": "Defeat 5 Hollowborn.",
+    "stat": "kills",
+    "goal": 5,
+    "gold": 750,
+    "crystals": 200,
+    "xp": 180,
+    "resources": {
+      "potions": 6,
+      "essence": 3
+    },
+    "hint": "Prepare equipment and potions; fight beyond the sanctuary. Lock targets to auto-attack and evade charged strikes.",
+    "needs": [
+      "intro-harvest"
+    ]
+  },
+  {
+    "id": "mastery",
+    "name": "The shape of a soul",
+    "description": "Allocate 5 constellation passives.",
+    "stat": "passives",
+    "goal": 5,
+    "gold": 800,
+    "crystals": 240,
+    "xp": 180,
+    "resources": {
+      "essence": 4
+    },
+    "hint": "Spend earned constellation points along connected paths. Choose bonuses that compound with equipment.",
+    "needs": [
+      "hunt"
+    ]
+  },
+  {
+    "id": "intro-workshop",
+    "name": "A sanctuary that provides",
+    "description": "Construct all three sanctuary workstations.",
+    "stat": "workstations",
+    "goal": 3,
+    "gold": 1000,
+    "crystals": 300,
+    "xp": 220,
+    "resources": {
+      "billet": 8,
+      "plank": 8,
+      "extract": 6
+    },
+    "hint": "Finish the joinery, foundry and laboratory. Their processes support equipment and recovery.",
+    "needs": [
+      "mastery"
+    ]
+  },
+  {
+    "id": "warden",
+    "name": "The sleeping warden",
+    "description": "Defeat the named guardian north of the sanctuary.",
+    "stat": "bosses",
+    "goal": 1,
+    "gold": 2000,
+    "crystals": 800,
+    "xp": 350,
+    "resources": {
+      "aether": 3,
+      "essence": 6,
+      "potions": 10
+    },
+    "hint": "Follow the pale path north. Evade its charged strike and punish recovery. The final cache funds your next expedition.",
+    "needs": [
+      "intro-workshop"
+    ]
+  }
 ];
 export const REALMS = [
   {
