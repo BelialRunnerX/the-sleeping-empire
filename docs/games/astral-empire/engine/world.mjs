@@ -462,7 +462,7 @@ export class WorldView {
     const { items, equipped } = this.state;
     return this.art.avatar({
       ...hero,
-      rigId: this.state.avatarBody === "female" ? "custom-female" : this.state.avatarBody === "male" ? "kael" : undefined,
+      rigId: this.state.avatarBody === "female" ? "custom-female" : this.state.avatarBody === "male" ? "custom-male" : undefined,
       weapon: skillStats(this.state, "strike").weapon,
       form: equippedForm(this.state),
       armorForm: items.find((i) => i.id === equipped.armor)?.form,

@@ -40,7 +40,7 @@ import { CAMERA_KEY } from "./camera.mjs";
 import { discover, useFeature } from "./frontier.mjs";
 import { routeTo } from "./navigation.mjs";
 import { loadSurfaces } from "./surfaces.mjs";
-import { loadAvatarRigs, loadCustomFemale } from "./avatar-rig.mjs";
+import { loadAvatarRigs, loadCustomBody } from "./avatar-rig.mjs";
 import { ControllerInput, ControllerBuildHold, controllerActions, controllerMenuDirection, targetInView } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
 import { buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
@@ -230,7 +230,7 @@ function buildView() {
   gathering = null;
   lastDiscovery = 0;
   if (playing) renderBar();
-  if(state.avatarBody==="female"){const expected=view;loadCustomFemale().then(()=>{if(view===expected&&state.avatarBody==="female")view.setHero();}).catch(e=>notify("Female model unavailable; existing appearance shown. "+e.message));}
+  if(state.avatarBody){const expected=view,body=state.avatarBody;loadCustomBody(body).then(()=>{if(view===expected&&state.avatarBody===body)view.setHero();}).catch(e=>notify("Selected model unavailable; fallback appearance shown. "+e.message));}
 }
 function landing() {
   atMainMenu = false;
@@ -253,7 +253,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.18.0 · Editable Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.18.1 · Editable Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -843,7 +843,7 @@ function codex() {
   return `<article class="card"><div class="row spread"><h3>Imperial Codex</h3><span class="tag">FIELD RANK ${state.level}</span></div>
   <p>Choose your race and class at base. Your appearance is independent. Each level after 1 grants 3 constellation points and 10 assignable attribute points.</p>
   <div class="grid-2"><label>RACE<select id="codex-race" ${!atBase ? "disabled" : ""}>${options(RACES, r.id)}</select></label><label>CLASS<select id="codex-class" ${!atBase ? "disabled" : ""}>${options(CLASSES, c.id)}</select></label></div>
-  <label>BODY<select id="codex-body"><option value="male" ${state.avatarBody!=="female"?"selected":""}>Male (existing model)</option><option value="female" ${state.avatarBody==="female"?"selected":""}>Female (custom prototype)</option></select></label><p class="small">Appearance only. Female is a downloadable work-in-progress model; race, class and stats are unchanged.</p>
+  <label>BODY<select id="codex-body"><option value="male" ${state.avatarBody!=="female"?"selected":""}>Male (custom model)</option><option value="female" ${state.avatarBody==="female"?"selected":""}>Female (custom prototype)</option></select></label><p class="small">Appearance only. Custom models download on selection; race, class and stats are unchanged.</p>
   <p id="codex-preview" class="affix"></p><button class="gold-button" data-action="declare" ${!atBase && !declarationRequired ? "disabled" : ""}>${state.race && state.calling ? "UPDATE FIELD LOADOUT" : "DECLARE CHARACTER"}</button>
   ${!atBase ? '<p class="small">Return to the sanctuary to change your loadout.</p>' : ""}</article>
   <article class="card"><div class="row spread"><h3>Attributes</h3><span class="tag">${remaining} POINTS AVAILABLE</span></div><p>Totals include race base stats, free race and class starter bonuses, automatic growth, and manual assignments.</p>
@@ -1348,7 +1348,7 @@ document.addEventListener("click", async (e) => {
       )
         return;
       const body=$("codex-body").value,profile=profiles.active,expected=view;
-      if(body==="female"){n.disabled=true;try{await loadCustomFemale();}catch(error){notify("Female model could not load: "+error.message);n.disabled=false;return;}n.disabled=false;if(view!==expected||profiles.active!==profile||panel!=="codex")return;}
+      if(["male","female"].includes(body)){n.disabled=true;try{await loadCustomBody(body);}catch(error){notify("Selected model could not load: "+error.message);n.disabled=false;return;}n.disabled=false;if(view!==expected||profiles.active!==profile||panel!=="codex"||$("codex-body")?.value!==body||!n.isConnected)return;}
       state.avatarBody=body==="female"?"female":"male";
       state.race = race;
       state.calling = calling;

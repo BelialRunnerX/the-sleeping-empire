@@ -1,7 +1,7 @@
 {
   "name": "astral-empire-aetherbound",
   "private": true,
-  "version": "3.18.0",
+  "version": "3.18.1",
   "type": "module",
   "scripts": {
     "test": "node tests/smoke.mjs && node tests/native-density.test.mjs && node --test tests/controller-v2.test.mjs tests/simulation.test.mjs tests/artisan.test.mjs tests/frontier.test.mjs tests/microvoxels.test.mjs tests/geology.test.mjs tests/combat-assist.test.mjs tests/mobile-orbit.test.mjs tests/main-menu.test.mjs tests/terrain-volume.test.mjs tests/terrain-ledger.test.mjs tests/terrain-interval.test.mjs tests/terrain-clip.test.mjs tests/terrain-clip-ownership.test.mjs tests/terrain-patch.test.mjs tests/terrain-seams.test.mjs tests/terrain-publication.test.mjs tests/voxel-tree-gameplay.test.mjs tests/voxel-tree-renderer.test.mjs tests/tree-corridor.test.mjs tests/intro-quest.test.mjs tests/world-surfaces.test.mjs tests/terrain-generation.test.mjs tests/continental-field.test.mjs tests/continental-terrain.test.mjs tests/terrain-horizon.test.mjs tests/water-traversal.test.mjs tests/terrain-water-view.test.mjs tests/hydrology-shoreline.test.mjs tests/mobile-primary.test.mjs tests/avatar-choice.test.mjs",
@@ -9,7 +9,8 @@
     "test:visual": "node tests/visual.mjs",
     "build:native": "node native/build.mjs",
     "test:continental": "node tests/continental-browser.mjs",
-    "test:female": "node tests/female-scale-browser.mjs && node tests/female-avatar-browser.mjs"
+    "test:female": "node tests/female-scale-browser.mjs && node tests/female-avatar-browser.mjs",
+    "test:male": "node tests/male-scale-browser.mjs && node tests/male-avatar-browser.mjs"
   },
   "devDependencies": {
     "playwright": "1.65.0"
