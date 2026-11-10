@@ -1261,7 +1261,7 @@ export class WorldView {
     }
     c.userData.facing = p.facing;
     c.userData.guarding = p.guard;
-    c.userData.weapon = weapon;
+    c.userData.weapon = (this.harvestAction || this.harvestPulse) && c.userData.attack<=0 ? "unarmed" : weapon;
     c.userData.cameraYaw = this.yaw;
     this.art.animateAvatar(
       c,
