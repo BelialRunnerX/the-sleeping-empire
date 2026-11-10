@@ -8,10 +8,11 @@ const rig=new CameraRig();
 const run=(x,y)=>vm.runInNewContext(`(function(){${handler}})()`,{view:{rig},playing:true,panel:null,e:{detail:{x,y,dt:.05}}});
 const home={...rig.goal};run(-1,0);assert.ok(rig.goal.yaw<home.yaw);assert.deepEqual(rig.pan,{x:0,z:0});assert.equal(rig.goal.distance,home.distance);
 run(1,0);assert.ok(Math.abs(rig.goal.yaw-home.yaw)<1e-9);run(0,-1);assert.ok(rig.goal.distance<home.distance);run(0,1);assert.ok(Math.abs(rig.goal.distance-home.distance)<1e-9);assert.deepEqual(CAMERA_HOME,home);
-const controller=source.match(/if\(pad.pressed.has\(3\)\) \{([\s\S]*?)\n  \}/)[1];
-const enemy={id:'enemy'},context={sim:{locked:enemy,nearest:()=>enemy},controllerTargetSuppressed:false,notify:()=>{}};vm.createContext(context);vm.runInContext(controller,context);assert.equal(context.sim.locked,null);assert.equal(context.controllerTargetSuppressed,true);vm.runInContext(controller,context);assert.equal(context.sim.locked,enemy);assert.equal(context.controllerTargetSuppressed,false);
-assert.match(source,/activePad \? !controllerTargetSuppressed : document.documentElement.dataset.controls!=="touch"/);
-console.log('PASS actual CameraRig left/right yaw, zero pan, vertical zoom, unchanged defaults; controller Y unlock suppression/resume');
+const enemy={id:'enemy'};
+assert.match(source,/action==='autoTarget'\) toggleAssist\('autoTarget'\)/);
+assert.match(source,/view.rig.orbit\(pad.look.x\*2.45\*step,0\)/);
+assert.match(source,/view.rig.zoom\(Math.exp\(pad.look.y\*1.45\*step\)\)/);
+console.log('PASS actual CameraRig mobile orbit/zoom; controller uses same direction and R3 shared Q toggle');
 
 const end=source.match(/function endPointer\(e\) \{([\s\S]*?)\n\}\nfor \(const type/)[1];
 const selected={type:'node',x:3,z:0},calls=[];

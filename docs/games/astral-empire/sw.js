@@ -1,5 +1,5 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-26";
+const CACHE = "astral-empire-aetherbound-v3-27";
 const FILES = [
   "./engine/voxel-trees/voxel-trees-v2.mjs",
   "./engine/voxel-trees/voxel-trees-detailed-core.mjs",

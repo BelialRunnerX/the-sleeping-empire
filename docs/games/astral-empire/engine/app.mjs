@@ -41,7 +41,7 @@ import { discover, useFeature } from "./frontier.mjs";
 import { routeTo } from "./navigation.mjs";
 import { loadSurfaces } from "./surfaces.mjs";
 import { loadAvatarRigs } from "./avatar-rig.mjs";
-import { ControllerInput } from "./controller.mjs";
+import { ControllerInput, ControllerBuildHold, controllerActions, controllerMenuDirection, targetInView } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
 import { buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
 import { geologyPanel, updateGeologyPanel } from "./geology-ui.mjs";
@@ -251,7 +251,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.16 · Editable Frontier</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.16.1 · Editable Frontier</span></footer>`;
 }
 function enter(create) {
   try {
@@ -898,7 +898,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. Controller Y unlock pauses reacquisition until Y resumes it. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Press a button to connect. Left stick move · Right stick orbit · A interact · B evade · X attack · Y target · LB guard · Menu gear. In menus, D-pad selects, A activates and B closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="main-menu">SAVE & MAIN MENU</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. R3 toggles auto target like Q and initially picks a visible foe ahead of the camera. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Standard Xbox layout: left stick moves; right stick rotates left/right and zooms up/down. RT basic attack; X interact; A jump; R3 auto target (Q); Start menus. D-pad: Up ability 1, Right ability 2, Down ability 3, Left ability 4. Tap B crouch, Y weapon switch and LB+RB F5 are reserved and inactive until implemented. Hold B for build placement (not yet available in this build). In menus, D-pad or left stick navigates, A selects, B/Start closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="main-menu">SAVE & MAIN MENU</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -1559,7 +1559,7 @@ const canvas = $("world"),
 const ASSIST_KEY="astral_empire_combat_assist_v1";
 let assist={autoTarget:true,autoFire:true}, inputFocused=true, controllerTargetSuppressed=false;
 try {const stored=JSON.parse(localStorage.getItem(ASSIST_KEY));for(const key of ['autoTarget','autoFire'])if(typeof stored?.[key]==='boolean')assist[key]=stored[key];}catch{}
-function toggleAssist(key){assist[key]=!assist[key];if(key==='autoTarget')controllerTargetSuppressed=false;if(key==='autoTarget'&&!assist[key])sim.locked=null;try{localStorage.setItem(ASSIST_KEY,JSON.stringify(assist));}catch{}notify(`${key==='autoTarget'?'Auto target (Q)':'Auto fire (T)'}: ${assist[key]?'ON':'OFF'}`);}
+function toggleAssist(key){assist[key]=!assist[key];if(key==='autoTarget')controllerTargetSuppressed=false;if(key==='autoTarget')sim.locked=assist[key]?targetInView(sim,view?.yaw||0):null;try{localStorage.setItem(ASSIST_KEY,JSON.stringify(assist));}catch{}notify(`${key==='autoTarget'?'Auto target (Q)':'Auto fire (T)'}: ${assist[key]?'ON':'OFF'}`);}
 addEventListener('focus',()=>{inputFocused=true;});
 const activeTouchPointers=new Set();
 // Capture UI and canvas contacts together so a second finger, including a
@@ -1770,8 +1770,8 @@ function gamepadMenu(pad, now) {
     return;
   }
   if(now<padNavAt) return;
-  const previous=pad.held.has(12)||pad.held.has(14)||pad.move.y<-.54;
-  const next=pad.held.has(13)||pad.held.has(15)||pad.move.y>.54;
+  const direction=controllerMenuDirection(pad);
+  const previous=direction<0, next=direction>0;
   if(!previous&&!next) return;
   const focusable=[...$("panels").querySelectorAll("button:not(:disabled),select:not(:disabled),input:not(:disabled),[tabindex='0']")]
     .filter(o=>o.getClientRects().length && !o.hidden);
@@ -1782,23 +1782,31 @@ function gamepadMenu(pad, now) {
   focusable[nextIndex].focus();
   padNavAt=now+150;
 }
+const controllerBuildHold=new ControllerBuildHold();
 function updateController(now, dt) {
   let connected;
   try { connected=navigator.getGamepads?.(); } catch {}
   const pad=controller.read(connected);
   activePad=document.hasFocus() && !document.hidden ? pad : null;
+  const buildRequested=controllerBuildHold.update(activePad,now,!!activePad&&playing&&!panel&&!atMainMenu&&!pad.pressed.has(9));
+  if(buildRequested) {
+    // Construction integration can preventDefault after opening its real menu.
+    const event=new CustomEvent('aetherbound-build-toggle',{cancelable:true});
+    if(window.dispatchEvent(event))notify('Build placement is not available in this build yet.');
+    return;
+  }
   const label=pad?.id || "";
   if(label!==padLabel) {
     padLabel=label;
     $("controller-status").hidden=!label;
     $("controller-status").title=label;
-    if(playing && label) notify("Controller connected · A interact · X attack · Menu opens equipment");
+    if(playing && label) notify("Controller connected: X interact, RT attack, Start menus");
   }
   if (activePad && atMainMenu) {
     if (pad.pressed.has(1)) { mainMenu(); return; }
     if (pad.pressed.has(0)) { if ($("landing").contains(document.activeElement)) document.activeElement.click(); return; }
     if (now >= padNavAt) {
-      const direction = pad.held.has(12) || pad.move.y < -.54 ? -1 : pad.held.has(13) || pad.move.y > .54 ? 1 : 0;
+      const direction = controllerMenuDirection(pad);
       if (direction) {
         const buttons = [...$("landing").querySelectorAll("button,select,input")];
         buttons[(buttons.indexOf(document.activeElement) + direction + buttons.length) % buttons.length]?.focus();
@@ -1809,24 +1817,23 @@ function updateController(now, dt) {
   }
   if(!activePad || !playing) return;
   if(panel) { gamepadMenu(pad,now); return; }
+  const actions=controllerActions(pad);
+  if(actions.includes('menu')) return openPanel('inventory');
   if (pad.look.x || pad.look.y) {
     const step = Math.min(dt, .05);
-    view.rig.orbit(-pad.look.x*2.45*step,pad.look.y*1.45*step);
+    view.rig.orbit(pad.look.x*2.45*step,0);
+    view.rig.zoom(Math.exp(pad.look.y*1.45*step));
+    saveCamera();
   }
-  if(pad.pressed.has(9)) return openPanel("inventory");
-  if(pad.pressed.has(12)) return openPanel("frontier");
-  if(pad.pressed.has(14)) return openPanel("skills");
-  if(pad.pressed.has(0)) startGather();
-  if(pad.pressed.has(1)) { cancelTravel(); const move=controllerMovement(); sim.dodge(move.x,move.z); }
-  if(pad.pressed.has(3)) {
-    if(sim.locked){sim.locked=null;controllerTargetSuppressed=true;notify("Target unlocked; controller auto target paused. Press Y to resume.");}
-    else {controllerTargetSuppressed=false;sim.locked=sim.nearest(30);notify("Controller targeting resumed");}
+  for(const action of actions) {
+    if(action==='interact') startGather();
+    else if(action==='jump') { if(sim.player.y===0) sim.player.velocityY=8; }
+    else if(action==='autoTarget') toggleAssist('autoTarget');
+    else attack(action);
   }
-  if(pad.pressed.has(11) && sim.player.y===0) sim.player.velocityY=8;
-  if(pad.pressed.has(10)) cameraControl("center");
-  if(pad.pressed.has(13)) { sim.heal(); save(); }
-  for(const [button,skill] of [[5,"lance"],[6,"nova"],[7,"burst"],[15,"dash"]])
-    if(pad.pressed.has(button)) attack(skill);
+  // B crouch, Y weapon switch and LB+RB F5 are intentionally inactive
+  // until their underlying gameplay features exist.
+
 }
 function controllerMovement() {
   if(!activePad) return {x:0,z:0};
@@ -1930,7 +1937,7 @@ function frame(now) {
           pz = p.z;
         input = travel && !(manual.x || manual.z) ? routeInput(step) : manual;
         if (panel) break;
-        sim.tick(step, { ...input, guard: keys.has("g") || activePad?.held.has(4) });
+        sim.tick(step, { ...input, guard: keys.has("g") });
         if (travel) {
           travel.stuck =
             Math.hypot(p.x - px, p.z - pz) < 0.001 ? travel.stuck + step : 0;
@@ -1940,9 +1947,9 @@ function frame(now) {
           }
         }
         state.position = { x: p.x, z: p.z };
-        if (holdingAttack || activePad?.held.has(2)) attack("strike");
+        if (holdingAttack || activePad?.held.has(7)) attack("strike");
         const primary=skillStats(state,"strike");
-        if(updateCombatAssist(sim,{autoTarget:assist.autoTarget && (activePad ? !controllerTargetSuppressed : document.documentElement.dataset.controls!=="touch"),autoFire:assist.autoFire,range:primary.range||primary.radius,enabled:inputFocused&&!document.hidden&&!panel&&!gathering})){sound(230);}
+        if(updateCombatAssist(sim,{autoTarget:assist.autoTarget && (activePad ? !controllerTargetSuppressed : document.documentElement.dataset.controls!=="touch"),selectTarget:()=>targetInView(sim,view.yaw),autoFire:assist.autoFire,range:primary.range||primary.radius,enabled:inputFocused&&!document.hidden&&!panel&&!gathering})){sound(230);}
         canvas.dataset.autoTarget=String(assist.autoTarget);canvas.dataset.autoFire=String(assist.autoFire);canvas.dataset.lockedTarget=sim.locked?.id||"";
         if (gathering) {
           if (Math.hypot(p.x - gathering.x, p.z - gathering.z) > 0.2)
