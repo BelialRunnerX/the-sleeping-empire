@@ -17,6 +17,7 @@ import {
   refund,
   professionLevel,
   gather,
+  harvestCrop,
   craft,
   alterItem,
   claimQuest,
@@ -38,15 +39,17 @@ import { loadSurfaces } from "./surfaces.mjs";
 import { loadAvatarRigs } from "./avatar-rig.mjs";
 import { ControllerInput } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
+import { buildNursery, cropReadyAt, plantCrop } from "./nursery.mjs";
+import { nurseryPanel, updateNurseryPanel } from "./nursery-ui.mjs";
 import {
   GEODE_MATERIALS,
   GEODE_STAGES,
-  GEODE_FRAMES,
   geodeStage,
 } from "./geodes.mjs";
 import {
   WEAPON_FORMS,
   ARMOR_FORMS,
+  ITEM_FRAMES,
   ASCENSION_PATHS,
   ascensionTier,
   ascensionCost,
@@ -120,6 +123,7 @@ let state = freshState(),
 const controller=new ControllerInput();
 let activePad=null, padNavAt=0, padLabel="";
 const tabs = [
+  ["nursery", "Hydroponics"],
   ["inventory", "Equipment"],
   ["skills", "Skill links"],
   ["passives", "Constellation"],
@@ -136,7 +140,7 @@ const tabs = [
 const menuGroups = [
   ["Character", ["codex", "inventory", "skills", "passives", "heroes"]],
   ["Fieldwork", ["frontier", "journal", "realms"]],
-  ["Industry", ["lifeskills", "crafting", "artisan"]],
+  ["Industry", ["lifeskills", "crafting", "artisan", "nursery"]],
   ["Game", ["settings"]],
 ];
 function menuNavigation(active) {
@@ -233,7 +237,7 @@ function landing() {
       )
       .join(
         "",
-      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.9 · Living Biomes</span></footer>`;
+      )}</div><form id="login-form"><div class="auth-fields"><label>COMMANDER NAME<input id="profile-name" maxlength="24" autocomplete="username" placeholder="Your name" required></label><label>LOCAL PIN<input id="profile-pin" type="password" minlength="4" maxlength="12" autocomplete="current-password" placeholder="4–12 characters" required></label></div><div class="auth-actions"><button class="gold-button" type="submit">CONTINUE →</button><button type="button" data-action="create">NEW ADVENTURE</button></div><div class="auth-error" id="auth-error" role="alert"></div></form><p class="local-note">Single-player frontier · Local profiles and automatic saves.<br>Export your progress to carry it to another browser.</p></section><div class="realm-badge"><span>CHAPTER I · THE EMERALD FRONTIER</span><b>A world waiting to be lived in.</b></div><footer class="landing-footer"><a href="../../">← Living Codex</a><a href="classic.html">Classic gacha RPG</a><span>V3.12 · Microvoxel Field Trial</span></footer>`;
 }
 function enter(create) {
   try {
@@ -365,7 +369,16 @@ function updateHUD() {
   }
   const nearby = nearestInteraction();
   $("interaction").hidden = !!panel || !nearby;
-  if (nearby?.type === "station") {
+  if (nearby?.type === "microvoxel") {
+    $("interact-name").textContent = nearby.name;
+    $("interact-detail").textContent = "E / Interact: carve one 6.25 cm cell";
+  } else if (nearby?.type === "nursery") {
+    $("interact-name").textContent = nearby.name;
+    const ready = state.nursery.plots.filter((crop) => crop && cropReadyAt(crop) <= Date.now()).length;
+    $("interact-detail").textContent = state.nursery.tier
+      ? state.nursery.plots.length + " beds · " + ready + " ready"
+      : "Construction blueprint · E to inspect";
+  } else if (nearby?.type === "station") {
     const station = nearby;
     $("interact-name").textContent = station.name;
     const production = state.production.stations[station.id];
@@ -619,6 +632,7 @@ function statBoxes() {
     ["ELEMENTAL RESISTANCE", Math.round(s.resistance * 100) + "%"],
     ["DAMAGE REFLECTION", (s.reflection * 100).toFixed(1) + "%"],
     ["LUCK · EXTRA MATERIAL", (s.luckChance * 100).toFixed(1) + "%"],
+    ["FIBRE FORTUNE", s.fortune + " · fibre + cultivated seeds"],
     ["CRITICAL CHANCE", Math.round(s.crit * 100) + "%"],
     ["CRITICAL MULTIPLIER", Math.round(s.critMultiplier * 100) + "%"],
     ["PENETRATION", Math.round(s.penetration * 100) + "%"],
@@ -633,7 +647,7 @@ function statBoxes() {
 function itemUpgradeControls(item) {
   const cost = ascensionCost(item),
     tier = ascensionTier(item),
-    frame = GEODE_FRAMES[item.frame];
+    frame = ITEM_FRAMES[item.frame];
   const form = WEAPON_FORMS[item.form] || ARMOR_FORMS[item.form];
   const possible =
     cost &&
@@ -714,7 +728,7 @@ function constellation() {
   return constellationPanel(state);
 }
 function lifeskills() {
-  return `<div class="card"><h3>Field material guide</h3><p>Loomflax and Downbloom grow near Dawnwake and in wild sectors. Gather their fibres and twist field cord for the Coilwood bow.</p><div class="grid-2">${Object.entries(
+  return `<div class="card"><h3>Field material guide</h3><p>Loomflax and Downbloom grow near Dawnwake and in wild sectors. Gather their fibres and seeds, then grow more in the Dawnwake nursery.</p><div class="grid-2">${Object.entries(
     GEODE_MATERIALS,
   )
     .map(
@@ -854,7 +868,7 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Aetherbound"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), heroes, codex, journal, realms, frontier: survey, settings }[id] || inventory)()}</div></div></section>`;
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
   ($("panels").querySelector(".panel-close") || $("codex-race"))?.focus();
@@ -916,6 +930,16 @@ function startGather(target = nearestInteraction()) {
   }
   if (target.type === "station") {
     openPanel("artisan");
+    return;
+  }
+  if (target.type === "nursery") {
+    openPanel("nursery");
+    return;
+  }
+  if (target.type === "microvoxel") {
+    const result = view.microvoxels.mine(p);
+    notify(result.message);
+    if (result.ok) save();
     return;
   }
   if (target.type === "feature") {
@@ -1024,7 +1048,7 @@ document.addEventListener("click", (e) => {
   if (n.dataset.worldFeature || n.dataset.worldStation) {
     const id = n.dataset.worldFeature || n.dataset.worldStation;
     const target = view.interactables().find((x) => x.id === id);
-    if (panel === "frontier") closePanel();
+    if (panel === "frontier" || panel === "nursery") closePanel();
     beginTravel(target);
     return;
   }
@@ -1039,6 +1063,25 @@ document.addEventListener("click", (e) => {
   }
   if (n.dataset.panel) {
     openPanel(n.dataset.panel);
+    return;
+  }
+  if (n.hasAttribute("data-build-nursery") || n.dataset.plantCrop || n.hasAttribute("data-harvest-crop")) {
+    if (panel !== "nursery" || !combatSafe()) return;
+    let result;
+    if (n.hasAttribute("data-build-nursery")) {
+      const ok = buildNursery(state);
+      if (ok) sim.refreshObstacles();
+      result = { ok, message: ok ? "Hydroponic beds ready." : "Visit the nursery with the required materials." };
+    } else if (n.dataset.plantCrop) {
+      const ok = plantCrop(state, Number(n.dataset.bed), n.dataset.plantCrop);
+      result = { ok, message: ok ? "Seed planted." : "A free bed and a seed are required." };
+    } else result = harvestCrop(state, Number(n.dataset.harvestCrop));
+    notify(result.message);
+    if (result.ok) {
+      save();
+      openPanel("nursery");
+      sound(520);
+    }
     return;
   }
   if (n.dataset.skill) {
@@ -1705,6 +1748,7 @@ function frame(now) {
         save();
         if (panel === "artisan") openPanel("artisan");
       }
+      if (panel === "nursery") updateNurseryPanel($("panels"), state);
       if (panel === "artisan")
         for (const station of Object.values(state.production.stations))
           for (const job of station.jobs) {

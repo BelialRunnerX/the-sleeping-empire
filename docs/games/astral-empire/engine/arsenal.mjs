@@ -74,6 +74,34 @@ export const ARMOR_FORMS = {
     description: "Hold G to block frontal attacks while you have stamina",
   },
 };
+export const ITEM_FRAMES = {
+  cultivator: {
+    label: "Fortune harvest lattice",
+    description: "Fibre Fortune 1; each Prospector ascension adds 1 Fortune. Multiplies the complete fibre yield and independently rolls cultivated seed returns.",
+    fortune: 1,
+  },
+  electrum: {
+    label: "Prospector optics",
+    description: "+8 percentage points of independent material luck",
+    luck: 0.08,
+  },
+  signal: {
+    label: "Feedback lining",
+    description: "Reflect an additional independent 10% of each blow",
+    reflect: 0.1,
+  },
+  rime: {
+    label: "Cryogenic dampers",
+    description: "+12% elemental resistance and +8% recovery",
+    resistance: 0.12,
+    recovery: 0.08,
+  },
+  xenotwill: {
+    label: "Field harvest mesh",
+    description: "+6 percentage points of independent material luck",
+    luck: 0.06,
+  },
+};
 export const ASCENSION_PATHS = {
   force: {
     name: "Force",

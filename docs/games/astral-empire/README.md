@@ -2,6 +2,51 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Aetherbound](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Aetherbound uses browser profiles and automatic local saves.
 
+## Version 3.12 · Microvoxel Field Trial
+
+A rounded microvoxel outcrop sits south of Dawnwake at **x0, z14**. Approach
+and press **E** (or the existing Interact control) to carve one **6.25 cm** cell
+along the ray from your position toward the outcrop. Move around it to expose
+different cells. Each cell recovers exactly **1/4096 stone**; 4096 recovered cells
+produce one ordinary stone resource. Sparse changes survive saves and reloads.
+
+The outcrop's fine surface is generated on first load, before any edit. A coarse
+fallback is retired only after the fine mesh is published. The first integration
+uses greedy exposed-face meshes with halo sampling, integer microcell traversal,
+occupancy-based horizontal collision and stable 32-block persistence addressing.
+It is a **bounded field trial**, not a claim that the whole world is microvoxel
+terrain. The surrounding terrain remains the existing heightfield; whole-block
+tools, placement, full 3D player collision, planet-scale streaming and asynchronous
+mesh jobs are future integration work. Current mesh rebuilds are synchronous.
+
+Existing saves migrate with an untouched outcrop. No save reset is required.
+
+## Version 3.11 · Cultivator Fortune
+
+Craft the rank-six **Cultivator lattice** charm from field cord, Downbloom,
+electrum and circuitry. Equipping it grants **Fortune 1** for wild and cultivated
+fibre. Each Prospector ascension on the lattice adds another Fortune level,
+alongside the existing material Luck benefit. The character sheet shows Fortune;
+harvest messages show the fibre subtotal and rolled multiplier.
+
+The harvest order is world-tier yield, then profession mastery, equipment yield,
+Artisan and the independent Luck unit, then Fortune multiplying that **entire
+subtotal**. Cultivated seed return gets its own independent Fortune roll; wild
+patches retain two seeds. Seeds and fibre can therefore expand cultivation and
+feed crafting/refinement back into stronger equipment. Equipment is sampled when
+harvesting, not when planting. There is no extra global Fortune cap or reduction
+for combining these bonuses. Non-fibre gathering is unchanged.
+
+The multiplier formula is ported from Elysium's `FloraRules.fortuned`; applying it
+after browser-specific bonuses, the charm recipe and Prospector synergy are
+Aetherbound adaptations, not claims of Minecraft enchantment compatibility.
+
+## Version 3.10 · Dawnwake Hydroponics
+
+Gather wild **Loomflax** and **Downbloom** for fibre and two seeds per patch. Open **Industry → Hydroponics** and travel to the Dawnwake blueprint to build two beds. Sow a seed, follow eight visible stages, then collect fibre and one seed to replant. A crop takes **3m 30s** in the basic rack and matures while the game is closed.
+
+Craft billets and planks in the Atelier and salvage circuitry to install the nutrient array. It adds two beds and reduces growth time for new plantings to **2m 20s**. At rank 4, use field cord, Downbloom and circuitry to craft the light **Xenotwill field jacket**, with an independent 6% chance at an extra gathered material.
+
 ## Version 3.9 · Living Biomes
 
 Scanned grass clumps stream around the player. Mineable boulders, cobalt outcrops and geode beds use a simplified scanned mesh. Harvest **Loomflax** and **Downbloom** near Dawnwake or in outer chunks, twist either into **field cord**, then craft the **Coilwood field bow**. Plant depletion and harvested materials save with the profile. Fenstag and Brackhide wander and flee approaching players. Shearjaw prowlers occupy occasional outer sectors and mark a pounce landing before committing.
@@ -82,6 +127,14 @@ npm run test:visual
 The test suite covers Classic, combat/WASM, save migration, production, procedural exploration, navigation, camera collision, Codex math and constellation connectivity. Browser tests exercise local login, class/appearance separation, cache collection, gathering, crafting, constellation wheel/pan, save restore, mobile layout and offline loading. Visual checks render five realms, test mesh ray picking and check geometry lifetime and structural budgets. Screenshots are written to ignored `.artifacts/`.
 
 Set `BROWSER_EXECUTABLE` to use an installed Chrome. To rebuild the bundled module, use `npm run build:native` with Zig 0.14.1+ or Clang and a WebAssembly linker. GitHub Actions rebuilds and tests the module before running browser and visual checks.
+
+For a focused hydroponics check, run `tests/browser.mjs` with `NURSERY_ONLY=1`.
+This exercises desktop and mobile viewports, wild-seed gathering, construction,
+panel close/reopen, the two planting speeds, a service-worker-cached offline reload,
+and collection without duplicate harvest controls. Simulation tests cover every
+growth-stage boundary, clock rollback, legacy saves without nursery data, and
+failed actions without resource loss. Offline growth uses the device clock; this
+local single-player save system is not a server-authoritative anti-cheat service.
 
 ## Earlier releases
 

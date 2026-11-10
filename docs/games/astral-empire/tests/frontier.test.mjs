@@ -13,7 +13,8 @@ import {
 } from "../engine/navigation.mjs";
 import { CameraRig, clearBoom } from "../engine/camera.mjs";
 import { ControllerInput, stick } from "../engine/controller.mjs";
-import { fibreYield } from "../engine/ecology.mjs";
+import { fibreYield, fortuned } from "../engine/ecology.mjs";
+import { buildNursery, cropReadyAt, cropStage, NURSERY, normalizeNursery, plantCrop } from "../engine/nursery.mjs";
 import {
   Simulation,
   freshState,
@@ -21,6 +22,8 @@ import {
   stats,
   skillStats,
   gather,
+  gatherYield,
+  harvestCrop,
   craft,
   alterItem,
   allocate,
@@ -66,10 +69,152 @@ test("fibre yield ports the source formula and depleted patches survive import",
   const restored = migrateState(JSON.parse(JSON.stringify(state)));
   assert.equal(restored.depleted[patch.id], now + 180000);
   assert.ok(restored.resources.loomflaxFibre > 0);
+  assert.equal(restored.resources.loomflaxSeed, 2);
   restored.resources.loomflaxFibre = 3;
   assert.equal(craft(restored, "loomflax-cord").ok, true);
   assert.equal(restored.resources.fieldCord, 1);
   assert.equal(restored.resources.loomflaxFibre, 0);
+});
+
+test("hydroponic construction, offline growth and harvest are bounded and persistent", () => {
+  const state = freshState(9372), now = Date.now() - 300_000;
+  Object.assign(state.resources, {
+    stone: 2, timber: 2, cobalt: 1, billet: 2, plank: 2, circuitry: 2,
+    loomflaxSeed: 1, downbloomSeed: 1,
+  });
+  assert.equal(buildNursery(state), false);
+  state.position = { x: NURSERY.x - 3, z: NURSERY.z };
+  assert.equal(buildNursery(state), true);
+  assert.equal(state.resources.cobalt, 0);
+  assert.equal(plantCrop(state, 0, "loomflax", now), true);
+  assert.equal(plantCrop(state, 0, "downbloom", now), false);
+  assert.equal(plantCrop(state, 2, "downbloom", now), false);
+  assert.equal(state.resources.downbloomSeed, 1);
+  assert.equal(buildNursery(state), true);
+  assert.equal(buildNursery(state), false);
+  assert.equal(state.resources.billet, 0);
+  assert.equal(plantCrop(state, 2, "downbloom", now), true);
+  const restored = migrateState(JSON.parse(JSON.stringify(state)));
+  assert.deepEqual(restored.nursery, state.nursery);
+  assert.equal(cropReadyAt(restored.nursery.plots[0]), now + 210_000);
+  assert.equal(cropReadyAt(restored.nursery.plots[2]), now + 140_000);
+  assert.equal(cropStage(restored.nursery.plots[0], now + 60_000), 2);
+  assert.equal(harvestCrop(restored, 0, now + 209_999).ok, false);
+  restored.realm = "moon";
+  assert.equal(harvestCrop(restored, 0, now + 210_000).ok, false);
+  restored.realm = "bastion";
+  assert.equal(harvestCrop(restored, 0, now + 210_000).ok, true);
+  assert.equal(harvestCrop(restored, 0, now + 210_000).ok, false);
+  assert.equal(restored.resources.loomflaxSeed, 1);
+  assert.equal(restored.professions.herbalism, 20);
+  assert.ok(restored.resources.loomflaxFibre > 0);
+  Object.assign(restored.resources, { fieldCord: 2, downbloomTuft: 2, circuitry: 1 });
+  assert.equal(craft(restored, "xenotwill-jacket").ok, false);
+  restored.level = 4;
+  assert.equal(craft(restored, "xenotwill-jacket", 9217).ok, true);
+  assert.equal(restored.resources.fieldCord, 0);
+  assert.ok(alterItem(restored, restored.items.at(-1).id, "equip"));
+  const equipped = migrateState(JSON.parse(JSON.stringify(restored)));
+  assert.equal(equipped.items.at(-1).frame, "xenotwill");
+  assert.ok(stats(equipped).luckChance >= .06 - 1e-9);
+  assert.deepEqual(normalizeNursery({ tier: 1, plots: [
+    { species: "constructor", tier: 1, plantedAt: 1 },
+    { species: "loomflax", tier: 2, plantedAt: 1 },
+  ] }), { tier: 1, plots: [null, null] });
+});
+
+test("nursery stage boundaries, clock rollback and legacy saves stay bounded", () => {
+  for (const tier of [1, 2]) {
+    const interval = tier === 1 ? 30_000 : 20_000;
+    const crop = { species: "loomflax", tier, plantedAt: 1000 };
+    assert.equal(cropStage(crop, 0), 0);
+    for (let stage = 0; stage < 8; stage++) {
+      assert.equal(cropStage(crop, 1000 + stage * interval), stage);
+      if (stage) assert.equal(cropStage(crop, 999 + stage * interval), stage - 1);
+    }
+    assert.equal(cropStage(crop, Number.MAX_SAFE_INTEGER), 7);
+  }
+  const legacy = freshState();
+  delete legacy.nursery;
+  assert.deepEqual(migrateState(legacy).nursery, { tier: 0, plots: [] });
+  assert.deepEqual(normalizeNursery({ tier: 3, plots: [] }), { tier: 0, plots: [] });
+  const rolledBack = normalizeNursery({ tier: 1, plots: [
+    { species: "loomflax", tier: 1, plantedAt: 50_000 },
+  ] }, 1000);
+  assert.equal(rolledBack.plots[0].plantedAt, 1000);
+  assert.equal(cropStage(rolledBack.plots[0], 1000), 0);
+});
+
+test("failed nursery actions cannot spend resources or change a save", () => {
+  const state = freshState();
+  state.position = { x: NURSERY.x - 3, z: NURSERY.z };
+  const before = structuredClone(state);
+  assert.equal(buildNursery(state), false);
+  assert.deepEqual(state, before);
+  state.nursery = { tier: 1, plots: [null, null] };
+  const empty = structuredClone(state);
+  for (const index of [-1, 2, .5, NaN]) {
+    assert.equal(plantCrop(state, index, "loomflax"), false);
+    assert.equal(harvestCrop(state, index).ok, false);
+  }
+  assert.equal(plantCrop(state, 0, "loomflax"), false);
+  assert.equal(buildNursery(state), false);
+  assert.deepEqual(state, empty);
+});
+
+test("Fortune ports the source multiplier and amplifies the complete harvest build", () => {
+  assert.equal(fortuned(7, 0, .99), 7);
+  assert.equal(fortuned(7, -1, .99), 7);
+  assert.equal(fortuned(-1, 4, .99), 0);
+  assert.equal(fortuned(7, 1, 2 / 3 - .000001), 7);
+  assert.equal(fortuned(7, 1, 2 / 3), 14);
+  assert.deepEqual([0, .4, .6, .8].map(r => fortuned(3, 3, r)), [3, 6, 9, 12]);
+  const s = freshState(9372);
+  s.level = 6;
+  Object.assign(s.resources, { fieldCord: 4, downbloomTuft: 4, electrum: 1, circuitry: 2 });
+  assert.ok(craft(s, "cultivator-lattice", 777).ok);
+  const item = s.items.at(-1);
+  assert.equal(stats(s).fortune, 0);
+  assert.ok(alterItem(s, item.id, "equip"));
+  assert.equal(stats(s).fortune, 1);
+  item.ascensionPath = "harvest"; item.ascension = 3;
+  assert.equal(stats(s).fortune, 4);
+  s.professions.herbalism = 3000;
+  for (let n = 0; n < 20; n++) {
+    s.statistics.gathers = n;
+    const y = gatherYield(s, "herbalism", true);
+    assert.equal(y.total, (y.base + y.mastery + y.equipment + y.artisan + y.luck) * y.multiplier);
+    assert.deepEqual(gatherYield(migrateState(structuredClone(s)), "herbalism", true), y);
+    assert.equal(gatherYield(s, "mining", false).multiplier, 1);
+  }
+});
+
+test("cultivated Fortune rolls fibre and seeds independently at harvest time", () => {
+  const s = freshState(9372);
+  s.position = { x: NURSERY.x - 3, z: NURSERY.z };
+  s.level = 6;
+  Object.assign(s.resources, { fieldCord: 4, downbloomTuft: 4, electrum: 1, circuitry: 2 });
+  assert.ok(craft(s, "cultivator-lattice", 777).ok);
+  const item = s.items.at(-1);
+  s.nursery = { tier: 1, plots: [{ species: "loomflax", tier: 1, plantedAt: 1 }, null] };
+  assert.ok(alterItem(s, item.id, "equip"));
+  let fibreOnly = false, seedsOnly = false;
+  for (let n = 0; n < 100; n++) {
+    const sample = structuredClone(s); sample.statistics.gathers = n;
+    const result = harvestCrop(sample, 0, 300000);
+    assert.ok(result.ok);
+    assert.ok(result.seeds >= 1 && result.seeds <= 2);
+    fibreOnly ||= result.yield.multiplier > 1 && result.seeds === 1;
+    seedsOnly ||= result.yield.multiplier === 1 && result.seeds > 1;
+    const after = structuredClone(sample);
+    assert.equal(harvestCrop(sample, 0, 300000).ok, false);
+    assert.deepEqual(sample, after);
+  }
+  assert.ok(fibreOnly && seedsOnly);
+  s.equipped.charm = null;
+  const result = harvestCrop(s, 0, 300000);
+  assert.equal(result.yield.fortune, 0);
+  assert.equal(result.seeds, 1);
 });
 
 test("Shearjaw locks the pounce landing during windup and respects terrain", () => {

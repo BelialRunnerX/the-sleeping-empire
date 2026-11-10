@@ -2,7 +2,23 @@
 
 ## Current milestone
 
-Version 3.9 adds standard-mapped gamepad input, streamed field dressing, a fibre-to-bow recipe chain, two ambient wildlife species and a pouncing prowler. The next ecology steps are cultivated plots with persistent stages, species-specific habitats and behaviors, creature products, and more hostile families and tiers.
+Version 3.12 starts native-resolution integration with a bounded editable outcrop,
+first-load fine visibility and sparse persistence. Next: generalize terrain
+sampling and chunked rendering, preserve coarse coverage during asynchronous
+replacement, add whole-block/placement tools and full 3D player collision. The
+surrounding heightfield has not been replaced by microvoxels.
+
+Version 3.11 compounds cultivation, refining, crafted equipment, Prospector
+ascension, mastery, constellation yield and Luck through a source-derived Fortune
+multiplier. Preserve these interactions when expanding encounter difficulty.
+Existing Aetherbound features remain unless they obstruct a genuine port.
+Future dependencies include original world generation, ore distribution and base
+Minecraft-material equivalents wherever the source expects engine-provided data;
+these are not implemented by the Fortune milestone.
+
+Version 3.10 adds renewable seed cultivation with persistent crop stages, construction and a tier-two upgrade tied to salvage and the Atelier. It adds a harvesting-focused light armor base. Further ecology work includes species-specific habitats and behaviors, creature products, and more hostile families and tiers.
+
+Version 3.9 adds standard-mapped gamepad input, streamed field dressing, a fibre-to-bow recipe chain, two ambient wildlife species and a pouncing prowler.
 
 Version 3.8 upgrades materials and introduces two retextured, rigged VRoid placeholders. Custom modeling is on hold while a Blender setup is prepared. Open gameplay work includes a portable field camp loop, atmosphere and suit behavior, deeper item bases and more encounter types.
 

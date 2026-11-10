@@ -1,8 +1,12 @@
 import { cottages } from "./frontier.mjs";
+import { NURSERY } from "./nursery.mjs";
+import { OUTCROP, boxOccupied } from "./microvoxels.mjs";
 
 export function obstacles(state, layout, tiles = []) {
   const streamed = [...tiles];
   return [
+    ...(state.realm === "bastion" ? [{ ...OUTCROP, microStore: state.microvoxels }] : []),
+    ...(state.realm === "bastion" && state.nursery?.tier ? [NURSERY] : []),
     ...cottages,
     ...layout.structures,
     ...[
@@ -20,7 +24,9 @@ export function obstacles(state, layout, tiles = []) {
 }
 export function blocked(x, z, blockers, padding = 0.32) {
   return blockers.some((o) =>
-    o.half
+    o.microStore
+      ? Math.abs(x - o.x) < 2 + padding && Math.abs(z - o.z) < 2 + padding && boxOccupied(o.microStore, [x - padding, 0, z - padding], [x + padding, 1.7, z + padding])
+      : o.half
       ? Math.abs(x - o.x) < o.half + padding &&
         Math.abs(z - o.z) < o.half + padding
       : (x - o.x) ** 2 + (z - o.z) ** 2 < (o.radius + padding) ** 2,

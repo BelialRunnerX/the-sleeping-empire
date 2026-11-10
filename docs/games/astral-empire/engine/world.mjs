@@ -11,6 +11,8 @@ import { surface } from "./surfaces.mjs";
 import { equippedForm } from "./arsenal.mjs";
 import { FIBRE_PLANTS } from "./ecology.mjs";
 import { animateFieldProp, FieldDressing, fieldProp } from "./field-art.mjs";
+import { createNurseryView } from "./nursery-view.mjs";
+import { createMicrovoxelView } from "./microvoxel-view.mjs";
 const color = (hex) => new T.Color(hex);
 const materials = new Map(),
   geometries = new Map();
@@ -144,6 +146,15 @@ export class WorldView {
     this.art.sanctuary();
     this.createScenery();
     this.workstations = new WorkstationView(this.scene, state, this.art);
+    this.nursery = state.realm === "bastion"
+      ? createNurseryView(this.scene, this.art, this.height) : null;
+    this.microvoxels = state.realm === "bastion"
+      ? createMicrovoxelView(this.scene, state, this.height, canvas) : null;
+    if (!this.microvoxels) {
+      canvas.dataset.microFineReady = "false";
+      canvas.dataset.microCoarseVisible = "false";
+      canvas.dataset.microQuads = "0";
+    }
     this.coreNodes = this.createNodes();
     this.createFeatures();
     this.syncWorld();
@@ -705,6 +716,8 @@ export class WorldView {
   interactables() {
     const now = Date.now();
     return [
+      ...(this.nursery ? [this.nursery.target] : []),
+      ...(this.microvoxels ? [this.microvoxels.target] : []),
       ...this.features.filter(
         (f) =>
           f.kind === "beacon" || !this.state.exploration.changed.includes(f.id),
@@ -1120,6 +1133,7 @@ export class WorldView {
     this.field.sync(this.sim.chunks.tiles, p, this.visuals.quality);
     this.field.update(p, this.sim.blockers, dt, time, this.visuals.reducedMotion);
     this.workstations.update(time, this.visuals.reducedMotion);
+    this.nursery?.update(this.state.nursery, Date.now());
     this.sun.position.set(p.x - 30, terrainY + 48, p.z - 22);
     this.sun.target.position.set(p.x, terrainY, p.z);
     this.sun.target.updateMatrixWorld();
@@ -1302,6 +1316,7 @@ export class WorldView {
     });
   }
   dispose() {
+    this.microvoxels?.dispose();
     removeEventListener("resize", this.resize);
     const geometrySet = new Set(),
       materialSet = new Set();

@@ -1,6 +1,6 @@
 export const FIBRE_PLANTS = {
-  loomflax: { name: "Loomflax", resource: "loomflaxFibre", color: 0x8fd3e4 },
-  downbloom: { name: "Downbloom", resource: "downbloomTuft", color: 0xffc1e8 },
+  loomflax: { name: "Loomflax", seed: "loomflaxSeed", resource: "loomflaxFibre", color: 0x8fd3e4 },
+  downbloom: { name: "Downbloom", seed: "downbloomSeed", resource: "downbloomTuft", color: 0xffc1e8 },
 };
 
 export function fibreYield(tier, roll) {
@@ -8,6 +8,13 @@ export function fibreYield(tier, roll) {
   return (
     1 + (roll < worldTier / (worldTier + 10) ? Math.floor(worldTier / 6) : 0)
   );
+}
+
+// Pure port of FloraRules.fortuned; callers supply a roll in [0, 1).
+export function fortuned(amount, fortune, roll) {
+  if (fortune <= 0 || amount <= 0) return Math.max(0, amount);
+  const multiplier = Math.floor(roll * (fortune + 2));
+  return amount * Math.max(1, Math.min(multiplier, fortune + 1));
 }
 
 export function fibrePatch(realm, id, species, x, z) {

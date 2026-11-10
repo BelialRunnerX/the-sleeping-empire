@@ -11,12 +11,15 @@ import {
 } from "./content.mjs";
 import { numeric } from "./native.mjs";
 import { normalizeExploration } from "./frontier.mjs";
-import { FIBRE_PLANTS, fibreYield } from "./ecology.mjs";
+import { FIBRE_PLANTS, fibreYield, fortuned } from "./ecology.mjs";
+import { cropReadyAt, nearNursery, normalizeNursery } from "./nursery.mjs";
+import { normalizeMicrovoxels } from "./microvoxels.mjs";
 import { SAVE_COORDINATE_LIMIT } from "./chunks.mjs";
-import { GEODE_MATERIALS, GEODE_GROWTH_MS, GEODE_FRAMES } from "./geodes.mjs";
+import { GEODE_MATERIALS, GEODE_GROWTH_MS } from "./geodes.mjs";
 import {
   WEAPON_FORMS,
   ARMOR_FORMS,
+  ITEM_FRAMES,
   ASCENSION_PATHS,
   ascensionTier,
   ascensionCost,
@@ -107,6 +110,8 @@ export function freshState(seed = 438102) {
       herb: 0,
       loomflaxFibre: 0,
       downbloomTuft: 0,
+      loomflaxSeed: 0,
+      downbloomSeed: 0,
       fieldCord: 0,
       fish: 0,
       essence: 2,
@@ -128,6 +133,8 @@ export function freshState(seed = 438102) {
       electrum: 0,
       signalAlloy: 0,
     },
+    nursery: normalizeNursery(),
+    microvoxels: normalizeMicrovoxels(),
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
       makeItem(seed, 1, "weapon", "magic"),
@@ -233,7 +240,7 @@ export function migrateState(input) {
             name: String(i.name || "Relic").slice(0, 60),
             base: clamp(finite(i.base, 10), 1, 500),
             quality: clamp(finite(i.quality), 0, 20),
-            frame: Object.hasOwn(GEODE_FRAMES, i.frame) ? i.frame : null,
+            frame: Object.hasOwn(ITEM_FRAMES, i.frame) ? i.frame : null,
             form: Object.hasOwn(
               i.slot === "weapon" ? WEAPON_FORMS : ARMOR_FORMS,
               i.form,
@@ -306,6 +313,8 @@ export function migrateState(input) {
       ? input.realm
       : "bastion";
     s.production = normalizeProduction(input.production);
+    s.nursery = normalizeNursery(input.nursery);
+    s.microvoxels = normalizeMicrovoxels(input.microvoxels);
     s.seed = fresh.seed;
     s.exploration = normalizeExploration(input.exploration, s.seed);
     return s;
@@ -382,6 +391,7 @@ export function stats(s, now = Date.now()) {
     penetration: 0,
     speed: 0,
     yield: 0,
+    fortune: 0,
     fabrication: 0,
     shield: 0,
     power: 26 + (s.level - 1) * 3,
@@ -420,7 +430,8 @@ export function stats(s, now = Date.now()) {
     }
     if (item.ascensionPath === "harvest")
       v.luckChance = 1 - (1 - v.luckChance) * (1 - tier * 0.04);
-    const frame = GEODE_FRAMES[item.frame];
+    const frame = ITEM_FRAMES[item.frame];
+    if (frame?.fortune) v.fortune += frame.fortune + (item.ascensionPath === "harvest" ? tier : 0);
     if (frame?.luck) v.luckChance = 1 - (1 - v.luckChance) * (1 - frame.luck);
     if (frame?.reflect)
       v.reflection = 1 - (1 - v.reflection) * (1 - frame.reflect);
@@ -543,6 +554,34 @@ export function addXP(s, amount) {
 export function professionLevel(s, id) {
   return 1 + Math.floor(Math.sqrt((s.professions[id] || 0) / 30));
 }
+export function gatherYield(s, profession, isFibre) {
+  const st = stats(s), tier = numeric.world_tier(s.level, s.deepest);
+  const lucky = roll(s.seed, s.statistics.gathers, 1907) < st.luckChance;
+  const yieldRoll = roll(s.seed, s.statistics.gathers, 9);
+  const base = isFibre ? fibreYield(tier, yieldRoll) : numeric.ore_yield(tier, yieldRoll);
+  const mastery = Math.floor(professionLevel(s, profession) / 3);
+  const equipment = Math.floor(st.yield), artisan = st.keystones.includes("artisan") ? 1 : 0;
+  const subtotal = base + mastery + equipment + artisan + (lucky ? 1 : 0);
+  // Browser stacking order intentionally lets Fortune amplify the entire build.
+  const fortune = isFibre ? Math.floor(st.fortune) : 0;
+  const multiplier = fortuned(1, fortune, roll(s.seed, s.statistics.gathers, 1913));
+  return { base, mastery, equipment, artisan, luck: lucky ? 1 : 0, subtotal, fortune, multiplier, total: subtotal * multiplier };
+}
+export function harvestCrop(s, index, now = Date.now()) {
+  const crop = s.nursery.plots[index];
+  if (!nearNursery(s) || !Number.isInteger(index) || !crop || now < cropReadyAt(crop))
+    return { ok: false, message: "Visit the nursery and choose a mature crop." };
+  const fibre = FIBRE_PLANTS[crop.species];
+  const yieldInfo = gatherYield(s, "herbalism", true), count = yieldInfo.total;
+  const seeds = fortuned(1, yieldInfo.fortune, roll(s.seed, s.statistics.gathers, 1919));
+  s.nursery.plots[index] = null;
+  s.resources[fibre.resource] += count;
+  s.resources[fibre.seed] += seeds;
+  s.professions.herbalism += 20;
+  s.statistics.gathers++;
+  addXP(s, 15);
+  return { ok: true, yield: yieldInfo, seeds, message: "+" + count + " " + fibre.name + " fibre (" + yieldInfo.subtotal + " × " + yieldInfo.multiplier + " Fortune) · +" + seeds + " seed · Xenobotany +20 XP" };
+}
 export function gather(s, node, now = Date.now()) {
   const job = PROFESSIONS.find(
     (p) => p.node === (node.kind === "rock" ? "ore" : node.kind),
@@ -557,19 +596,10 @@ export function gather(s, node, now = Date.now()) {
       ? "stone"
       : job.resource;
   if (!resource) return { ok: false, message: "Unknown material." };
-  const mastery = professionLevel(s, job.id),
-    st = stats(s),
-    tier = numeric.world_tier(s.level, s.deepest);
-  const lucky = roll(s.seed, s.statistics.gathers, 1907) < st.luckChance;
-  const yieldRoll = roll(s.seed, s.statistics.gathers, 9);
-  const count =
-    (fibre ? fibreYield(tier, yieldRoll) : numeric.ore_yield(tier, yieldRoll)) +
-    Math.floor(mastery / 3) +
-    Math.floor(st.yield) +
-    (st.keystones.includes("artisan") ? 1 : 0) +
-    (lucky ? 1 : 0) +
-    (geode ? 1 : 0);
+  const yieldInfo = gatherYield(s, job.id, !!fibre);
+  const count = yieldInfo.total + (geode ? 1 : 0);
   s.resources[resource] = (s.resources[resource] || 0) + count;
+  if (fibre) s.resources[fibre.seed] += 2;
   if (node.kind === "ore") s.resources.stone += count;
   s.professions[job.id] += 20;
   s.statistics.gathers++;
@@ -583,7 +613,7 @@ export function gather(s, node, now = Date.now()) {
       count +
       " " +
       (geode ? geode.name + " shards" : fibre ? fibre.name + " fibre" : resource) +
-      " · " +
+      (fibre ? " (" + yieldInfo.subtotal + " × " + yieldInfo.multiplier + " Fortune) · +2 seeds · " : " · ") +
       job.name +
       " +20 XP",
   };

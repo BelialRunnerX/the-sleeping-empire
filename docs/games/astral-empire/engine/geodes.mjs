@@ -69,21 +69,3 @@ export function localGeodes(realm) {
     height: 1.8,
   }));
 }
-export const GEODE_FRAMES = {
-  electrum: {
-    label: "Prospector optics",
-    description: "+8 percentage points of independent material luck",
-    luck: 0.08,
-  },
-  signal: {
-    label: "Feedback lining",
-    description: "Reflect an additional independent 10% of each blow",
-    reflect: 0.1,
-  },
-  rime: {
-    label: "Cryogenic dampers",
-    description: "+12% elemental resistance and +8% recovery",
-    resistance: 0.12,
-    recovery: 0.08,
-  },
-};
