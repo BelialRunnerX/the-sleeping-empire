@@ -1348,7 +1348,7 @@ document.addEventListener("click", async (e) => {
       )
         return;
       const body=$("codex-body").value,profile=profiles.active,expected=view;
-      if(["male","female"].includes(body)){n.disabled=true;try{await loadCustomBody(body);}catch(error){notify("Selected model could not load: "+error.message);n.disabled=false;return;}n.disabled=false;if(view!==expected||profiles.active!==profile||panel!=="codex"||$("codex-body")?.value!==body||!n.isConnected)return;}
+      if(["male","female"].includes(body)){const label=n.textContent;n.disabled=true;n.textContent="Loading model…";try{await loadCustomBody(body);}catch(error){notify("Selected model could not load: "+error.message);n.disabled=false;n.textContent=label;return;}n.disabled=false;n.textContent=label;if(view!==expected||profiles.active!==profile||panel!=="codex"||$("codex-body")?.value!==body||!n.isConnected)return;}
       state.avatarBody=body==="female"?"female":"male";
       state.race = race;
       state.calling = calling;

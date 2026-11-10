@@ -4,7 +4,7 @@ A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play El
 
 ## Version 3.18.1 - Custom male model
 
-Male body selection now uses the completed project male v36 design via its losslessly batched v37 runtime export: 39,584 triangles, about4.17MB,23 material batches, no earrings. Female remains selectable, both normalize to3blocks, and appearance selections/old saves remain compatible. Authored material appearance is retained. Coat cloth simulation is not implemented; skin/animation checks are bounded, not exhaustive armor collision certification. The lore landing and codex also receive their separately tested cyan-glass/solarpunk restyle.
+Male body selection now uses the completed project male v36 design via its losslessly batched v38 runtime export: 39,584 triangles, about4.17MB,23 material batches, no earrings. Female remains selectable, both normalize to3blocks, and appearance selections/old saves remain compatible. Authored material appearance is retained. Coat cloth simulation is not implemented; skin/animation checks are bounded, not exhaustive armor collision certification. The lore landing and codex also receive their separately tested cyan-glass/solarpunk restyle.
 
 ## Version 3.18 - Optional custom female appearance
 
@@ -298,3 +298,5 @@ Playwright Chromium is unavailable). The focused browser test covers desktop,
 portrait touch and landscape touch, safe new-profile cancellation/duplicate-name
 rejection, pre-world settings, explicit entry and save preservation across logout.
 Physical iOS Safari and a physical controller are not certified by emulation.
+
+Male v38 also corrects opaque skin/mouth/eye-white export flags; geometry and texture content are unchanged. Transparent face sorting no longer exposes the inner mouth through the skin.

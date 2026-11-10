@@ -96,7 +96,7 @@ export async function testArtisanFlow(browser, url, artifacts) {
     await page.getByRole("button", { name: "NEW ADVENTURE" }).click();
     await page.locator('[data-action="menu-enter"]').click();
     await page.locator("#hud").waitFor();
-    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();await page.locator('#panels').waitFor({state:'hidden'});
     const fixture = freshState(92714);
     fixture.race = "imperial";
     fixture.calling = "enforcer";

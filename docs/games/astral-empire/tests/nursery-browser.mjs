@@ -48,7 +48,7 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
   try {
     await page.goto(url);
     await login("NEW ADVENTURE");
-    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();await page.locator('#panels').waitFor({state:'hidden'});
     const fixture = freshState(9372);
     fixture.race = "imperial";
     fixture.calling = "enforcer";

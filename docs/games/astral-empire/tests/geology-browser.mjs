@@ -43,7 +43,7 @@ async function run(browser, url, artifacts, mobile) {
   try {
     await page.goto(url);
     await login("NEW ADVENTURE");
-    await click(page.getByRole("button", { name: "DECLARE CHARACTER", exact: true }));
+    await click(page.getByRole("button", { name: "DECLARE CHARACTER", exact: true }));await page.locator('#panels').waitFor({state:'hidden'});
     // Only initial legacy construction stock is seeded. Canonical raw/ingots
     // must be obtained through the live drill and Foundry UI.
     const fixture = freshState(9372);

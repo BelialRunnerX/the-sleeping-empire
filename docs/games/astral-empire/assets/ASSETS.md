@@ -124,4 +124,6 @@ Technical derivative: 122,886 triangles, approximately 6.8 MB; rigid armor is si
 
 ## Custom male runtime
 
-`characters/custom-male.glb` is male v37: lossless rigid-bone skinning/material batching of the project's completed v36 design over licensed VRoid AvatarSample_C. It retains39,584 triangles and authored materials,23 texture/image inputs, approximately4.17MB. Not CC0; the same VRoidPreset A-Z sample terms linked above apply. No earrings. Neutral assembled height1.747045 author units is normalized at runtime to3blocks. Existing source models remain for legacy appearance compatibility; selecting Male now loads this new model. There is no cloth simulation or blanket collision-certification claim.
+`characters/custom-male.glb` is male v38: lossless rigid-bone skinning/material batching of the project's completed v36 design over licensed VRoid AvatarSample_C. It retains39,584 triangles and authored materials,23 texture/image inputs, approximately4.17MB. Not CC0; the same VRoidPreset A-Z sample terms linked above apply. No earrings. Neutral assembled height1.747045 author units is normalized at runtime to3blocks. Existing source models remain for legacy appearance compatibility; selecting Male now loads this new model. There is no cloth simulation or blanket collision-certification claim.
+
+Male v38 also corrects opaque skin/mouth/eye-white export flags; geometry and texture content are unchanged. Transparent face sorting no longer exposes the inner mouth through the skin.

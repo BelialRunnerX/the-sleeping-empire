@@ -38,7 +38,7 @@ try {
   assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),saved);
   await page.locator('[data-action="menu-back"]').click();
   await page.locator('[data-action="menu-enter"]').click();
-  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
+  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();await page.locator('#panels').waitFor({state:'hidden'});
   await page.evaluate(() => document.dispatchEvent(new KeyboardEvent("keydown", { key: "o", bubbles: true })));
   await page.locator('[data-action="main-menu"]').click();
   await page.locator('[data-action="menu-enter"]').waitFor();

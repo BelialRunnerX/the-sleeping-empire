@@ -79,7 +79,7 @@ try {
  await page.locator('#profile-name').fill('Glass review'); await page.locator('#profile-pin').fill('2468');
  await page.getByRole('button',{name:'NEW ADVENTURE'}).click();
  await page.locator('[data-action="menu-enter"]').click();
- await page.getByRole('button',{name:'DECLARE CHARACTER'}).click();
+ await page.getByRole('button',{name:'DECLARE CHARACTER'}).click();await page.locator('#panels').waitFor({state:'hidden'});
  await page.waitForTimeout(1000);
  await page.screenshot({path:resolve(artifacts,'hud-desktop.png')});
  await page.keyboard.press('i'); await page.getByRole('dialog').waitFor({state:'visible'});

@@ -18,7 +18,7 @@ try {
   const key='astral_empire_profile_quest-test_v3';
   await page.evaluate(k=>{const s=JSON.parse(localStorage.getItem(k));s.statistics.gathers=5;localStorage.setItem(k,JSON.stringify(s));},key);
   await page.reload();await page.locator('#profile-name').fill('Quest Test');await page.locator('#profile-pin').fill('2468');await page.locator('#login-form button[type=submit]').click();await page.locator('[data-action="menu-enter"]').click();
-  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
+  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();await page.locator('#panels').waitFor({state:'hidden'});
   await page.evaluate(()=>document.dispatchEvent(new KeyboardEvent('keydown',{key:'j',bubbles:true})));
   await page.locator('[data-quest="gather"]').waitFor();
   assert.equal(await page.locator('[data-quest="gather"]').isEnabled(),true);

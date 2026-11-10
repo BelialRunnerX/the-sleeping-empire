@@ -19,7 +19,7 @@ try {
   await page.waitForTimeout(500); await page.screenshot({path:`.artifacts/gui-menu-${size.width}.png`});
   await page.locator('[data-action="menu-enter"]').click();
   await page.screenshot({path:`.artifacts/gui-codex-${size.width}.png`});
-  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();
+  await page.getByRole('button',{name:'DECLARE CHARACTER',exact:true}).click();await page.locator('#panels').waitFor({state:'hidden'});
   await page.evaluate(()=>document.dispatchEvent(new KeyboardEvent('keydown',{key:'i',bubbles:true})));
   for(const id of ['inventory','skills','passives','lifeskills','crafting','artisan','nursery','geology','heroes','codex','journal','realms','frontier','settings']){
    await page.locator('.mobile-panel-nav').selectOption(id);await page.waitForTimeout(80);

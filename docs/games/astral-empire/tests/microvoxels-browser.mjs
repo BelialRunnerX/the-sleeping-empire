@@ -24,7 +24,7 @@ export async function testMicrovoxelFlow(browser, url, artifacts) {
   try {
     await page.goto(url);
     await login("NEW ADVENTURE");
-    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();
+    await page.getByRole("button", { name: "DECLARE CHARACTER" }).click();await page.locator('#panels').waitFor({state:'hidden'});
     await assertFine(); // No interaction or edits needed to create fine geometry.
     await page.screenshot({ path: resolve(artifacts, "microvoxel-fresh-default-camera.png") });
     const fixture = freshState(9372);
