@@ -94,3 +94,37 @@ Application decisions:
 5. Run merging may trade extra triangles for lower rebuild latency. Benchmark edits
    as well as static triangles before replacing greedy meshing. Creator headline
    FPS cannot predict this browser engine's performance.
+
+## Genuine vertex pulling experiment
+
+Run `node tests/vertex-pulling-benchmark.mjs` with Playwright available. An optional
+`PLAYWRIGHT_MODULE` module URL supports an already-installed local dependency;
+`BROWSER_EXECUTABLE` selects Chrome. This is not imported by the game.
+
+This WebGL2 experiment uses `gl_VertexID` and `texelFetch` to reconstruct triangle
+vertices from three RGBA32F records per quad (origin and two edge vectors). It is
+actual vertex pulling, not an indexed mesh or instanced vertex attributes. The
+baseline uses ordinary position/normal buffers. Both shaders use identical simple
+lighting and projection, depth testing and backface culling. Pixel readback checks
+parity. GPU measurements use EXT_disjoint_timer_query_webgl2, discard disjoint or
+unavailable queries, and report CPU submission separately.
+
+On AMD Radeon 780M / ANGLE D3D11, the 820-quad fixture produced zero differing pixel
+bytes and no GL errors. Position/normal input fell from 118,080 to 39,360 bytes.
+Initial GPU samples were about 0.015–0.016 ms baseline and 0.014 ms pulled. This
+small synthetic fixture is not evidence of a whole-game speedup. It excludes atlas
+sampling, shadows, PBR lighting, edits, multiple materials, AO and mobile devices.
+
+The bundled Three renderer already requires WebGL2. Production adoption would need
+an explicit capability check (vertex texture support/limits, shader compilation),
+a conventional-buffer fallback, terrain material and custom shadow/depth variants,
+correct culling bounds and raycasts, and retained CPU geometry or a revised patcher.
+The current terrain patch path reads CPU position/normal arrays, so pulling does
+not automatically eliminate CPU mesh memory. Pack normals/UVs from face orientation
+only where existing visual/material contracts allow it. Measure upload cost and
+large-view GPU time before choosing the default.
+
+For a future native renderer, storage-buffer pulling and indirect multi-draw may
+be suitable behind backend capability checks. The current native module is a
+simulation/WASM helper, not a native graphics backend, so that path is not currently
+implemented or benchmarked here.
