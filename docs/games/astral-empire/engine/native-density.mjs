@@ -26,20 +26,33 @@ export class Noise{
  if(packed===undefined){packed=0;for(let k=0;k<8;k++)packed|=this.gradientIndex(x+(k&1),y+((k>>1)&1),z+((k>>2)&1))<<(4*k);if(this.cells.size>=4096)this.cells.clear();this.cells.set(key,packed);}
  this.lastX=x;this.lastY=y;this.lastZ=z;this.lastCell=packed;return packed;
  }
- sample([x,y,z]){const ix=Math.floor(x),iy=Math.floor(y),iz=Math.floor(z),tx=x-ix,ty=y-iy,tz=z-iz,ux=smooth(tx),uy=smooth(ty),uz=smooth(tz);
+ sample([x,y,z]){return this.sample3(x,y,z);}
+ // Scalar entry points avoid temporary coordinate arrays in octave and density loops.
+ sample3(x,y,z){const ix=Math.floor(x),iy=Math.floor(y),iz=Math.floor(z),tx=x-ix,ty=y-iy,tz=z-iz,ux=smooth(tx),uy=smooth(ty),uz=smooth(tz);
  const packed=this.cell(ix,iy,iz);
  const c000=this.gradientValue((packed >>> 0) & 15,tx,ty,tz),c100=this.gradientValue((packed >>> 4) & 15,tx-1,ty,tz),c010=this.gradientValue((packed >>> 8) & 15,tx,ty-1,tz),c110=this.gradientValue((packed >>> 12) & 15,tx-1,ty-1,tz),c001=this.gradientValue((packed >>> 16) & 15,tx,ty,tz-1),c101=this.gradientValue((packed >>> 20) & 15,tx-1,ty,tz-1),c011=this.gradientValue((packed >>> 24) & 15,tx,ty-1,tz-1),c111=this.gradientValue((packed >>> 28) & 15,tx-1,ty-1,tz-1);
  return lerp(lerp(lerp(c000,c100,ux),lerp(c010,c110,ux),uy),lerp(lerp(c001,c101,ux),lerp(c011,c111,ux),uy),uz);}
- fbm(p,octaves,lacunarity=2,gain=.5){let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){sum+=this.sample(p.map(n=>n*freq))*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm:0;}
- ridged(p,octaves,lacunarity=2,gain=.5){let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){const n=1-Math.abs(this.sample(p.map(n=>n*freq)));sum+=n*n*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm*2-1:0;}
+ fbm(p,octaves,lacunarity=2,gain=.5){if(Array.isArray(p)&&this.sample===nativeSample)return this.fbm3(p[0],p[1],p[2],octaves,lacunarity,gain);let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){sum+=this.sample(p.map(n=>n*freq))*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm:0;}
+ fbm3(x,y,z,octaves,lacunarity=2,gain=.5){let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){sum+=this.sample3(x*freq,y*freq,z*freq)*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm:0;}
+ ridged(p,octaves,lacunarity=2,gain=.5){if(Array.isArray(p)&&this.sample===nativeSample)return this.ridged3(p[0],p[1],p[2],octaves,lacunarity,gain);let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){const n=1-Math.abs(this.sample(p.map(n=>n*freq)));sum+=n*n*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm*2-1:0;}
+ ridged3(x,y,z,octaves,lacunarity=2,gain=.5){let sum=0,amp=1,norm=0,freq=1;for(let i=0;i<octaves;i++){const n=1-Math.abs(this.sample3(x*freq,y*freq,z*freq));sum+=n*n*amp;norm+=amp;amp*=gain;freq*=lacunarity;}return norm>0?sum/norm*2-1:0;}
 }
 export class DensitySlice{
  constructor(seed,radius){this.radius=radius;for(const name of ['large','small','caveA','caveB','chamber','fissure'])this[name]=new Noise(mix(U(BigInt(seed))^labelHash(name)));}
  volumePos(dir,alt){return dir.map(n=>n*(this.radius+alt));}
- density(dir,alt,base,squash){const fp=this.volumePos(dir,alt);let d=(base-alt)/squash;const near=clamp(1-Math.abs(base-alt)/40,0,1);if(near>0){d+=this.large.fbm(fp.map(n=>n/180),3)*2.2*near;d+=this.small.fbm(fp.map(n=>n/45),2)*.9*near;}if(alt< -440)d+=(-440-alt)*.06;return d;}
- caveCarve(dir,alt,surfaceHint){if(alt>140||alt< -498)return 0;const under=surfaceHint-alt;if(under<8)return 0;const near=under<24,fp=this.volumePos(dir,alt),widen=1+clamp(-alt/420,0,1)*.45,r=.042*widen,r2=r*r;
+ density(dir,alt,base,squash){if(!Array.isArray(dir)||this.volumePos!==nativeVolumePos||!scalarNoise(this.large)||!scalarNoise(this.small))return genericDensity.call(this,dir,alt,base,squash);const radius=this.radius+alt,x=dir[0]*radius,y=dir[1]*radius,z=dir[2]*radius;let d=(base-alt)/squash;const near=clamp(1-Math.abs(base-alt)/40,0,1);if(near>0){d+=this.large.fbm3(x/180,y/180,z/180,3)*2.2*near;d+=this.small.fbm3(x/45,y/45,z/45,2)*.9*near;}if(alt< -440)d+=(-440-alt)*.06;return d;}
+ caveCarve(dir,alt,surfaceHint){if(!Array.isArray(dir)||this.volumePos!==nativeVolumePos||!scalarNoise(this.caveA)||!scalarNoise(this.caveB)||!scalarNoise(this.chamber)||!scalarNoise(this.fissure))return genericCaveCarve.call(this,dir,alt,surfaceHint);if(alt>140||alt< -498)return 0;const under=surfaceHint-alt;if(under<8)return 0;const near=under<24,radius=this.radius+alt,x=dir[0]*radius,y=dir[1]*radius,z=dir[2]*radius,widen=1+clamp(-alt/420,0,1)*.45,r=.042*widen,r2=r*r;
+ if(!near){const a=this.caveA.fbm3(x/78,y/78,z/78,3);if(a*a<r2){const b=this.caveB.fbm3(x/78,y/78,z/78,3);if(a*a+b*b<r2)return 1;}}
+ const bias=clamp(1-Math.abs(alt+210)/260,0,1);if(!near&&bias>0){const ch=this.chamber.fbm3(x/165,y/165,z/165,3);if(ch>.50-.12*bias)return 1;}
+ if(alt> -200){const f=this.fissure.fbm3(x/62,(y*.14)/62,z/62,2);if(Math.abs(f)<(near?.0022:.020))return 1;}return 0;}
+ solidAt(dir,alt,base,squash){const reach=3.4*squash;if(alt>base+reach)return false;if(alt<base-reach)return this.caveCarve(dir,alt,base)<=0;if(this.density(dir,alt,base,squash)<=0)return false;return this.caveCarve(dir,alt,base)<=0;}
+}
+
+// Preserve existing typed-array rounding and customized public-method dispatch.
+const nativeSample=Noise.prototype.sample,nativeFbm=Noise.prototype.fbm,nativeVolumePos=DensitySlice.prototype.volumePos;
+const scalarNoise=noise=>noise.fbm===nativeFbm&&noise.sample===nativeSample;
+function genericDensity(dir,alt,base,squash){const fp=this.volumePos(dir,alt);let d=(base-alt)/squash;const near=clamp(1-Math.abs(base-alt)/40,0,1);if(near>0){d+=this.large.fbm(fp.map(n=>n/180),3)*2.2*near;d+=this.small.fbm(fp.map(n=>n/45),2)*.9*near;}if(alt< -440)d+=(-440-alt)*.06;return d;}
+function genericCaveCarve(dir,alt,surfaceHint){if(alt>140||alt< -498)return 0;const under=surfaceHint-alt;if(under<8)return 0;const near=under<24,fp=this.volumePos(dir,alt),widen=1+clamp(-alt/420,0,1)*.45,r=.042*widen,r2=r*r;
  if(!near){const a=this.caveA.fbm(fp.map(n=>n/78),3);if(a*a<r2){const b=this.caveB.fbm(fp.map(n=>n/78),3);if(a*a+b*b<r2)return 1;}}
  const bias=clamp(1-Math.abs(alt+210)/260,0,1);if(!near&&bias>0){const ch=this.chamber.fbm(fp.map(n=>n/165),3);if(ch>.50-.12*bias)return 1;}
  if(alt> -200){const sq=[fp[0],fp[1]*.14,fp[2]],f=this.fissure.fbm(sq.map(n=>n/62),2);if(Math.abs(f)<(near?.0022:.020))return 1;}return 0;}
- solidAt(dir,alt,base,squash){const reach=3.4*squash;if(alt>base+reach)return false;if(alt<base-reach)return this.caveCarve(dir,alt,base)<=0;if(this.density(dir,alt,base,squash)<=0)return false;return this.caveCarve(dir,alt,base)<=0;}
-}
