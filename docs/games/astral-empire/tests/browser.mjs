@@ -212,7 +212,27 @@ try {
       const q = window.__qualityTransition; q.observer.disconnect();
       return { elapsedMs: performance.now() - q.start, frameMs: q.frames.map(t => t - q.start), longTasks: q.longTasks };
     }));
-    await page.locator("#reduced-motion").check();
+    // A motion-only change must not reset the WebGL drawing buffer. Track the
+  // native canvas setters, not just CSS dimensions or the setting label.
+  await page.evaluate(() => {
+    const canvas = document.querySelector('#world');
+    window.__motionBufferWrites = 0;
+    for (const name of ['width', 'height']) {
+      const descriptor = Object.getOwnPropertyDescriptor(HTMLCanvasElement.prototype, name);
+      Object.defineProperty(canvas, name, {
+        configurable: true,
+        get() { return descriptor.get.call(this); },
+        set(value) { window.__motionBufferWrites++; descriptor.set.call(this, value); },
+      });
+    }
+  });
+  await page.locator("#reduced-motion").check();
+  assert.equal(await page.evaluate(() => {
+    const canvas = document.querySelector('#world');
+    delete canvas.width;
+    delete canvas.height;
+    return window.__motionBufferWrites;
+  }), 0, 'Reduced motion must preserve the current drawing buffer');
     assert.equal(
       await page.locator("#world").getAttribute("data-shadows"),
       "false",

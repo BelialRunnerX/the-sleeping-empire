@@ -1,3 +1,4 @@
+import { syncRendererSize } from "./renderer-sizing.mjs";
 import {applyHarvestVisual} from './harvest-visual.mjs';
 import { TerrainWaterView } from './terrain-water-view.mjs';
 import { HorizonView } from './terrain-horizon.mjs';
@@ -211,7 +212,8 @@ export class WorldView {
     this.updateCamera(0, {});
     this.resize = () => {
       this.updateFrustum();
-      this.renderer.setSize(this.canvas.clientWidth || innerWidth, this.canvas.clientHeight || innerHeight, false);
+      syncRendererSize(this.renderer, this.canvas.clientWidth || innerWidth,
+        this.canvas.clientHeight || innerHeight, this.renderer.getPixelRatio());
     };
     addEventListener("resize", this.resize);
     this.viewportObserver = new ResizeObserver(this.resize);
@@ -478,8 +480,8 @@ export class WorldView {
   applyVisualSettings(settings) {
     this.visuals = { ...settings };
     const preset = GRAPHICS[settings.quality] || GRAPHICS.balanced;
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, preset.pixelRatio));
-    this.renderer.setSize(this.canvas.clientWidth || innerWidth, this.canvas.clientHeight || innerHeight, false);
+    syncRendererSize(this.renderer, this.canvas.clientWidth || innerWidth,
+      this.canvas.clientHeight || innerHeight, Math.min(devicePixelRatio, preset.pixelRatio));
     this.renderer.shadowMap.enabled = this.sun.castShadow = !!preset.shadow;
     if (this.sun.shadow.mapSize.x !== preset.shadow && this.sun.shadow.map) {
       this.sun.shadow.map.dispose();
