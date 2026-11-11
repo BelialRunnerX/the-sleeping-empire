@@ -38,6 +38,9 @@ jobs:
       - name: Test the playable browser loop
         working-directory: docs/games/astral-empire
         run: npm run test:browser
+      - name: Verify legacy offline cache upgrades
+        working-directory: docs/games/astral-empire
+        run: npm run test:cache
       - name: Render realms and check visual resource budgets
         working-directory: docs/games/astral-empire
         run: npm run test:visual

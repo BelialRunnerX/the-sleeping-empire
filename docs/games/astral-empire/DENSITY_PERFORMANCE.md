@@ -35,4 +35,3 @@ kernel time). Observed trial ranges: legacy 19.326–26.116 ms, scalar 14.512–
 ms. These are noisy local microbenchmarks, not gameplay, frame-time, or FPS
 measurements. Integrated pipeline timing and broader suite results are tracked
 separately from this isolated kernel batch.
-

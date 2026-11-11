@@ -2,6 +2,23 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Version 3.25 - Final legacy web update
+
+This browser edition is now the preserved legacy version. New game development
+continues in Unreal Engine. The existing URL, local profiles, exported saves and
+playable features remain supported by this snapshot; Unreal save import is not
+implemented or promised by this release.
+
+This update adds exact terrain sampling/refinement optimizations and allocation
+reductions without changing generated terrain, saved edits, inventory or gameplay
+rules. It retains the already-published field tools, placeable workstations,
+careers/skill training, and Settings responsiveness fixes.
+
+Storage crates are not included because the requested original model has not
+been bound and verified. The contextual build-mode and global-coordinate browser
+prototypes remain separate Unreal reference work. Vertex pulling remains a
+benchmark, not the live renderer. See [release scope and verification](RELEASE_3_25.md).
+
 ## Settings responsiveness
 
 The dense game-world presentation is suspended while the Settings modal is open, matching its already-paused gameplay. Menu/controller input and production timers remain active. Quality changes are shown on the first world frame after closing Settings. This avoids submitting expensive hidden world frames behind controls; normal gameplay rendering and quality settings are unchanged.

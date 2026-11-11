@@ -1,5 +1,5 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-41";
+const CACHE = "astral-empire-aetherbound-v3-43-legacy";
 const FILES = [
   "./engine/universe/field-program.mjs",
   "./engine/mastery.mjs",
