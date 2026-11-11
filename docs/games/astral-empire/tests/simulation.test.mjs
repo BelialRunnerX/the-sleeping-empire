@@ -1,3 +1,4 @@
+import { provideCraftStation } from "./crafting-fixture.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -128,6 +129,7 @@ test("crafting pays exact inputs and grants affixed equipment", () => {
   s.resources.cobalt = 5;
   s.resources.timber = 3;
   const before = s.items.length;
+  provideCraftStation(s);
   assert.ok(craft(s, "blade", 123).ok);
   assert.equal(s.resources.cobalt, 0);
   assert.equal(s.items.length, before + 1);

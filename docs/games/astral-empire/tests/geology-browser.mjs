@@ -49,6 +49,8 @@ async function run(browser, url, artifacts, mobile) {
     const fixture = freshState(9372);
     fixture.race = "imperial"; fixture.calling = "enforcer"; fixture.level = 4;
     fixture.position = { x: -1, z: 17 };
+    // A saved joinery supplies the new nearby-equipment requirement; construction is tested by the Artisan flow.
+    fixture.production.stations["placed-250"]={kind:"joinery",realm:"bastion",x:-7,z:7,tier:1,jobs:[],output:{},xp:{},completed:0};
     Object.assign(fixture.resources, { stone: 5, cobalt: 4, timber: 8, fieldCord: 2, circuitry: 1 });
     await page.keyboard.press("o");
     await page.locator("#save-file").setInputFiles({name:"geology-fixture.json", mimeType:"application/json", buffer:Buffer.from(JSON.stringify(fixture))});
@@ -84,7 +86,9 @@ async function run(browser, url, artifacts, mobile) {
     await walk(["a","w"], 0, -10);
     await walk(["w","d"], 1, 7);
     await page.keyboard.press("b");
-    await click(page.locator('[data-build-station="foundry"]'));
+    await click(page.locator('[data-place-station="foundry"]'));
+    const foundryId=Object.keys((await load()).production.stations).find(id=>id.startsWith("placed-")&&id!=="placed-250");
+    await openPanel("artisan", "Atelier");
     const beforeQueue = await load();
     await click(page.locator('[data-process="source-cobalt-ingot"][data-quantity="1"]'));
     await click(page.locator('[data-process="source-cobalt-ingot"][data-quantity="1"]'));
@@ -95,10 +99,12 @@ async function run(browser, url, artifacts, mobile) {
     await page.reload();
     await login("CONTINUE →");
     await page.keyboard.press("b");
-    await click(page.locator('[data-collect-station="foundry"]'));
+    await openPanel("artisan", "Atelier");
+    await click(page.locator(`[data-collect-station="${foundryId}"]`));
     assert.equal((await load()).resources[COBALT_INGOT], 2);
     assert.deepEqual((await load()).geology.mined, mined);
     await openPanel("crafting", "Workshop");
+    await click(page.locator("summary").filter({hasText:"Advanced equipment"}));
     await click(page.locator('[data-craft="cobalt-assay-lens"]'));
     const crafted = await load(), armor = crafted.items.find(item => item.frame === "assay");
     assert.ok(armor);

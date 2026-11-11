@@ -1,3 +1,4 @@
+import { professionProgress, skillTraining, trainSkill } from "./mastery.mjs";
 import {universePanel,mountUniversePanel} from './universe-ui.mjs';
 let disposeUniverse=null;
 import { firearm } from "./firearms.mjs";
@@ -47,7 +48,7 @@ import { loadSurfaces } from "./surfaces.mjs";
 import { loadAvatarRigs, loadCustomBody } from "./avatar-rig.mjs";
 import { ControllerInput, ControllerBuildHold, controllerActions, controllerMenuDirection, targetInView } from "./controller.mjs";
 import { loadFieldArt } from "./field-art.mjs";
-import { buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
+import { adoptCoreFields, buildCoreDrill, extractCore, shiftCoreField } from "./geology-field.mjs";
 import { geologyPanel, updateGeologyPanel } from "./geology-ui.mjs";
 import { terrainPanel, useTerrainTool } from "./terrain-tools.mjs";
 import { findTerrainSpawn } from "./terrain-collision.mjs";
@@ -81,7 +82,7 @@ import {
 } from "./codex.mjs";
 import { constellationPanel, mountConstellation } from "./constellation-ui.mjs";
 import {
-  STATIONS,
+  STATIONS, stationDefinitions, stationDefinition, nearbyStation, recipeStation, placeStation,
   MATERIAL_NAMES,
   settleProduction,
   buildStation,
@@ -146,6 +147,7 @@ const tabs = [
   ["passives", "Constellation"],
   ["lifeskills", "Lifeskills"],
   ["crafting", "Workshop"],
+  ["build", "Build"],
   ["artisan", "Atelier"],
   ["heroes", "Appearances"],
   ["codex", "Codex"],
@@ -158,7 +160,7 @@ const tabs = [
 const menuGroups = [
   ["Character", ["codex", "inventory", "skills", "passives", "heroes"]],
   ["Fieldwork", ["frontier", "universe", "terrain", "journal", "realms"]],
-  ["Industry", ["lifeskills", "crafting", "artisan", "nursery", "geology"]],
+  ["Industry", ["build", "lifeskills", "crafting", "artisan", "nursery", "geology"]],
   ["Game", ["settings"]],
 ];
 function menuNavigation(active) {
@@ -563,7 +565,7 @@ function updateStationLabels() {
         (distance > 7 && trackedStation !== def.id && !station.completed)
       )
         return "";
-      const point = view.project(def.x, 3.0, def.z);
+      const point = view.project(def.x, sim.groundHeight(def.x,def.z) + 3.0, def.z);
       if (
         !point.visible ||
         point.x < 0 ||
@@ -642,8 +644,7 @@ function drawMap() {
       c.arc(x, y, e.boss ? 4 : 2, 0, Math.PI * 2);
       c.fill();
     }
-  if (state.realm === "bastion")
-    for (const def of STATIONS) {
+  for (const def of stationDefinitions(state).filter(d => d.realm === state.realm)) {
       const [x, y] = at(def.x, def.z),
         station = state.production.stations[def.id];
       c.fillStyle = station.completed
@@ -759,6 +760,7 @@ function skills() {
   return `<p class="small muted">Weapon discipline: ${WEAPON_FORMS[equippedForm(state)]?.name || skillStats(state, "strike").weapon.toUpperCase()}. Weapon form sets your basic attack. Class sets the element and innate bonuses. Link two different compatible supports to active skills.</p>
   <div class="card small" id="damage-inspector"><b>Combat breakdown</b><p>Physical hits meet armor. Elemental hits meet resistance, capped at 75%. An enemy resists its own element by an extra 20%. Skill previews below use a target with 30 armor and 20% resistance; critical hits, ailments, echoes and reactions are shown separately.</p>${last ? `<p>Last ${escape(last.source)}${last.echo ? " echo" : " hit"} on ${escape(last.target)}: ${fmt(last.physical)} physical + ${fmt(last.elemental)} ${escape(last.element)} before reaction · ${fmt(last.total)} final damage${last.critical ? " · CRITICAL" : ""}${last.reaction ? " · " + escape(last.reaction) : ""}</p>` : "<p>Strike a foe to inspect your last actual hit.</p>"}</div>
   <div class="grid-2" style="margin-top:12px">${SKILLS.map((base) => {
+    const training = skillTraining(state, base.id);
     const skill = skillStats(state, base.id),
       element = skill.element || hero.element,
       preview = hitBreakdown(
@@ -785,7 +787,7 @@ function skills() {
               "",
             )}</div><div class="support-notes">${skill.supports.map((name) => SUPPORTS.find((s) => s.name === name)?.desc).join("<br>") || "No support linked."}</div>`
         : '<p class="support-notes">The weapon combo is innate. Equip another weapon form to change it. Your class supplies the default discipline.</p>'
-    }</article>`;
+    }${training.valid ? `<div class="card small"><b>Training rank ${training.rank}/5</b><p>+${training.rank * 4}% skill damage; ${training.rank * 2}% shorter cooldown. These bonuses are included in the preview above.</p><button data-train-skill="${skill.id}" ${training.canTrain ? "" : "disabled"}>${training.maxed ? "FULLY TRAINED" : `TRAIN RANK ${training.nextRank} · ${training.gold} GOLD`}</button><p>${training.maxed || state.level < training.requiredLevel ? training.reason : `Character level ${training.requiredLevel} unlocked. ${training.reason}`}</p></div>` : ""}</article>`;
   }).join("")}</div>`;
 }
 function constellation() {
@@ -803,31 +805,36 @@ function lifeskills() {
       "",
     )}</div><p>Small, medium and large buds mature into harvestable clusters. Growth continues while away.</p></div><div class="grid-3">${PROFESSIONS.map(
     (p) => {
-      const level = professionLevel(state, p.id),
-        xp = state.professions[p.id];
-      return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : p.id === "surveying" ? "Discoveries and relay sync grant experience." : "Crafting grants profession experience."}</p></article>`;
+      const progress = professionProgress(state, p.id);
+      const level = progress.level, xp = progress.xp;
+      return `<article class="card"><div class="icon">${p.icon}</div><div class="row spread"><h3>${p.name}</h3><span class="tag">MASTERY ${level}</span></div><p>${p.desc}</p><div class="quest-progress"><i style="width:${clamp(((xp - 30 * (level - 1) ** 2) / (30 * level ** 2 - 30 * (level - 1) ** 2)) * 100, 0, 100)}%"></i></div><p>${fmt(xp)} lifetime XP · ${p.node ? "Each 3 mastery levels adds one resource per gather." : p.id === "surveying" ? "Discoveries and relay sync grant experience." : "Crafting grants profession experience."}</p><p>${progress.remaining} XP to mastery ${level + 1}.</p><p class="affix">Career milestones: ${progress.reward?.label || "None"} at each milestone (stacks up to 3 times).</p><div class="row">${progress.milestones.map(m => `<span class="tag">${m.unlocked ? "✓" : "Locked"} M${m.level} · ${m.xp} XP</span>`).join("")}</div><p class="small muted">${progress.earned}/3 bonuses active automatically, alongside equipment and the passive web.</p></article>`;
     },
   ).join(
     "",
   )}</div><div class="row" style="margin-top:16px"><button class="gold-button" data-panel="crafting">OPEN WORKSHOP →</button><span class="small muted">Resources recover after 3 minutes. Progress saves through logout.</span></div>`;
 }
+let buildOffset = {x:0,z:3};
+function buildPosition() {return {x:Math.round((state.position.x+buildOffset.x)*2)/2,z:Math.round((state.position.z+buildOffset.z)*2)/2};}
+function buildSiteError(pos) {
+  const d=Math.hypot(pos.x-state.position.x,pos.z-state.position.z);
+  if(d<2 || d>6)return "Choose a site two to six metres from you.";
+  const samples=[[-1.3,-.9],[-1.3,.9],[1.3,-.9],[1.3,.9],[0,0]].map(([x,z])=>({x:pos.x+x,z:pos.z+z}));
+  if(samples.some(p=>sim.terrainVolume.field.waterHeight(p.x,p.z)!==null))return "Choose dry ground, not water.";
+  const heights=samples.map(p=>sim.groundHeight(p.x,p.z));
+  if(Math.max(...heights)-Math.min(...heights)>.65)return "This slope is too steep. Choose flatter ground.";
+  if(sim.blockers.some(o=>Math.hypot(pos.x-o.x,pos.z-o.z)<(o.half || o.radius || 1)+1.6))return "This footprint overlaps a structure, tree or resource. Choose a clear site.";
+  if(sim.enemies.some(e=>e.hp>0&&Math.hypot(pos.x-e.x,pos.z-e.z)<2))return "An enemy is occupying that site.";
+  return "";
+}
+function buildPanel() {
+  const pos=buildPosition(),error=buildSiteError(pos);
+  const plan=`<svg viewBox="-7 -7 14 14" width="210" height="210" role="img" aria-label="Local construction plan, north is up" style="background:#102d37;border:1px solid #4c9fa9;float:right;margin:8px"><defs><pattern id="build-grid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 L 0 0 0 1" fill="none" stroke="#32515a" stroke-width=".03"/></pattern></defs><rect x="-7" y="-7" width="14" height="14" fill="url(#build-grid)"/><circle r="6" fill="none" stroke="#65919a" stroke-width=".05"/>${stationDefinitions(state).filter(d=>d.realm===state.realm&&Math.hypot(d.x-state.position.x,d.z-state.position.z)<8).map(d=>`<rect x="${d.x-state.position.x-1.3}" y="${d.z-state.position.z-.9}" width="2.6" height="1.8" fill="#759a9b"/>`).join("")}<circle r=".3" fill="#f4ddad"/><rect x="${pos.x-state.position.x-1.3}" y="${pos.z-state.position.z-.9}" width="2.6" height="1.8" fill="${error?"#ab5050":"#32c9ca"}" fill-opacity=".65" stroke="white" stroke-width=".07"/><text x="0" y="-6.3" text-anchor="middle" fill="white" font-size=".6">N</text></svg>`;
+  return `<article class="card">${plan}<h3>Build where you settle</h3><p>Construction consumes the listed materials and saves the workstation in this realm. Walk to any clear, dry site, then position the footprint within six metres. No spawn-only restriction.</p><p>Site: <b>${pos.x.toFixed(1)}, ${pos.z.toFixed(1)}</b> · ${escape(state.realm)} · ${Math.hypot(buildOffset.x,buildOffset.z).toFixed(1)}m from you</p><div class="row"><button data-build-nudge="north">NORTH −Z</button><button data-build-nudge="south">SOUTH +Z</button><button data-build-nudge="west">WEST −X</button><button data-build-nudge="east">EAST +X</button><button data-build-nudge="reset">RESET</button></div><p class="small">Each adjustment moves half a metre. ${error || "Clear construction site."}</p></article><div class="grid-3">${STATIONS.map(d=>`<article class="card"><h3>${d.name}</h3><p>${d.desc}</p><p>${Object.entries(d.cost).map(([id,count])=>`${MATERIAL_NAMES[id]||id}: ${state.resources[id]||0}/${count}`).join(" · ")}</p><button data-place-station="${d.id}" ${error || !Object.entries(d.cost).every(([id,n])=>state.resources[id]>=n)?"disabled":""}>CRAFT & PLACE HERE</button></article>`).join("")}</div><button data-panel="artisan">MANAGE BUILT WORKSTATIONS</button>`;
+}
 function workshop() {
-  return `<div class="card atelier-link"><h3>From raw materials to masterworks</h3><p>Build workstations, queue processing and collect refined materials in the sanctuary Atelier.</p><button data-panel="artisan">OPEN ATELIER · B →</button></div><div class="resource-line">${Object.entries(
-    state.resources,
-  )
-    .map(([key, n]) => `<span>${MATERIAL_NAMES[key] || key} <b>${n}</b></span>`)
-    .join("")}</div><div class="grid-3">${RECIPES.map(
-    (r) =>
-      `<article class="card"><span class="tag">${r.profession.toUpperCase()} · MASTERY ${professionLevel(state, r.profession)}</span><h3 style="margin-top:12px">${r.name}</h3><p>${r.desc}</p><div class="resource-line">${Object.entries(
-        r.cost,
-      )
-        .map(([k, n]) => `<span>${k} ${state.resources[k]}/${n}</span>`)
-        .join(
-          "",
-        )}</div><button data-craft="${r.id}" ${!Object.entries(r.cost).every(([k, n]) => state.resources[k] >= n) ? "disabled" : ""}>CRAFT</button></article>`,
-  ).join(
-    "",
-  )}</div><div class="card" style="margin-top:12px"><h3>Field supplies</h3><p>Rations grant +60 life and +35% recovery for 15 minutes. Trauma injectors recover 45% life with a 12-second cooldown.</p><button data-action="eat" ${state.resources.meal < 1 ? "disabled" : ""}>USE MOONFIN RATION (${state.resources.meal})</button> <button data-action="shield" ${state.resources.capacitor < 1 ? "disabled" : ""}>DEPLOY CAPACITOR (${state.resources.capacitor})</button></div>`;
+  const card=r=>{const req=recipeStation(r),ready=!req||!!nearbyStation(state,req.kind,req.tier);return `<article class="card"><span class="tag">${req ? req.kind.toUpperCase()+" · TIER "+req.tier : "PERSONAL · NO STATION"}</span><h3>${r.name}</h3><p>${r.desc}</p><div class="resource-line">${Object.entries(r.cost).map(([k,n])=>`<span>${MATERIAL_NAMES[k]||k} ${state.resources[k]||0}/${n}</span>`).join("")}</div><button data-craft="${r.id}" ${!ready||!Object.entries(r.cost).every(([k,n])=>state.resources[k]>=n)?"disabled":""}>${ready?"CRAFT":"APPROACH REQUIRED STATION"}</button></article>`;};
+  const basic=RECIPES.filter(r=>!recipeStation(r)),advanced=RECIPES.filter(r=>recipeStation(r));
+  return `<article class="card"><h3>Personal crafting</h3><p>Make simple field supplies by hand wherever you are. Equipment and refined processing use built workstations within four metres.</p><button data-panel="build">BUILD WORKSTATION</button> <button data-panel="artisan">PROCESS MATERIALS</button></article><div class="grid-3">${basic.map(card).join("")}</div><details><summary>Advanced equipment · workstation recipes (${advanced.length})</summary><div class="grid-3">${advanced.map(card).join("")}</div></details><div class="card"><h3>Field supplies</h3><button data-action="eat" ${state.resources.meal<1?"disabled":""}>USE RATION (${state.resources.meal})</button> <button data-action="shield" ${state.resources.capacitor<1?"disabled":""}>DEPLOY CAPACITOR (${state.resources.capacitor})</button></div>`;
 }
 function heroes() {
   return `<div class="row spread"><p class="small muted">${state.heroes.length}/12 appearances · ${state.crystals} crystals · ${state.tickets} tickets · 5★ pity ${state.pity}/40 · ${state.cosmeticShards} cosmetic shards</p><button class="gold-button" data-action="summon" ${state.tickets < 1 && state.crystals < 160 ? "disabled" : ""}>DRAW APPEARANCE · ${state.tickets ? "1 TICKET" : "160 CRYSTALS"}</button></div>
@@ -914,7 +921,7 @@ function survey() {
     .join("")}</div>`;
 }
 function settings() {
-  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. R3 toggles auto target like Q and initially picks a visible foe ahead of the camera. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Standard Xbox layout: left stick moves; right stick rotates left/right and zooms up/down. RT basic attack; X interact; A jump; R3 auto target (Q); Start menus. D-pad: Up ability 1, Right ability 2, Down ability 3, Left ability 4. Tap B crouch, Y weapon switch and LB+RB F5 are reserved and inactive until implemented. Hold B for build placement (not yet available in this build). In menus, D-pad or left stick navigates, A selects, B/Start closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="main-menu">SAVE & MAIN MENU</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
+  return `<div class="grid-2"><article class="card"><h3>${escape(profiles.active?.name)}’s chronicle</h3><p>Automatic saves every five seconds and after progression changes. Your previous save is retained as a local recovery copy.</p><button data-action="export">EXPORT SAVE</button> <button data-action="import">IMPORT BACKUP</button><input id="save-file" type="file" accept="application/json,.json" hidden><p class="small">Profile login and saves are stored on this device. Cloud accounts and multiplayer servers are not connected.</p></article><article class="card"><h3>Field settings</h3><p><button data-assist="autoTarget">AUTO TARGET (Q): ${assist.autoTarget ? "ON" : "OFF"}</button> <button data-assist="autoFire">AUTO FIRE (T): ${assist.autoFire ? "ON" : "OFF"}</button></p><p>Keyboard/controller auto target selects a nearby foe. R3 toggles auto target like Q and initially picks a visible foe ahead of the camera. Auto fire uses your normal primary range and cooldown. Touch: tap a foe to lock; tap empty ground to move.</p><div class="graphics-settings"><label for="graphics-quality">VISUAL QUALITY</label><select id="graphics-quality"><option value="low" ${visuals.quality === "low" ? "selected" : ""}>Performance · no shadows</option><option value="balanced" ${visuals.quality === "balanced" ? "selected" : ""}>Balanced · soft shadows</option><option value="high" ${visuals.quality === "high" ? "selected" : ""}>High fidelity · dense foliage</option></select><label class="check-setting"><input id="reduced-motion" type="checkbox" ${visuals.reducedMotion ? "checked" : ""}> Reduce ambient motion & effects</label><p class="small">F8 hides the interface for scenic viewing. Press again to restore it. Camera and combat remain active.</p></div><p>Simulation: ${numeric.backend}<br>Right drag or Left Ctrl: orbit · Middle drag: pan · Wheel: zoom · R: reset<br>Click terrain or objects to travel · Touch joystick moves · M: field survey<br>Shift: evade · G: hold shield · Space: jump<br>I: gear · K: skills · P: passives · L: lifeskills<br>C: crafting · H: appearances · U: Codex · J: journal · Esc: close</p><h3>Controller</h3><p>Standard Xbox layout: left stick moves; right stick rotates left/right and zooms up/down. RT basic attack; X interact; A jump; R3 auto target (Q); Start menus. D-pad: Up ability 1, Right ability 2, Down ability 3, Left ability 4. Tap B crouch, Y weapon switch and LB+RB F5 are reserved and inactive until implemented. Hold B for the Build menu. Keyboard B and the Industry > Build menu work too. In menus, D-pad or left stick navigates, A selects, B/Start closes.</p><button data-action="mute">${muted ? "ENABLE" : "MUTE"} SOUND</button> <button data-action="main-menu">SAVE & MAIN MENU</button> <button data-action="logout">SAVE & LOG OUT</button><p><a href="classic.html">Open Classic gacha RPG →</a></p></article></div>`;
 }
 function openPanel(id) {
   if (!playing) return;
@@ -930,7 +937,7 @@ function openPanel(id) {
   $("panels").hidden = false;
   const title = tabs.find((t) => t[0] === id)?.[1] || "Chronicle";
   $("panels").innerHTML =
-    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Elysium"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, universe: () => universePanel(state.universe), settings }[id] || inventory)()}</div></div></section>`;
+    `<section class="panel-window" role="dialog" aria-modal="true" aria-label="${title}"><header class="panel-top"><div><span class="kicker">${menuGroups.find(([, ids]) => ids.includes(id))?.[0] || "Elysium"}</span><h2>${title}</h2></div>${declarationRequired ? "" : '<button class="panel-close" data-action="close" aria-label="Close panel">×</button>'}</header><div class="menu-layout">${declarationRequired ? "" : menuNavigation(id)}<div class="panel-body">${({ inventory, skills, passives: constellation, lifeskills, crafting: workshop, build: buildPanel, artisan: () => artisanPanel(state), nursery: () => nurseryPanel(state), geology: () => geologyPanel(state), terrain: () => terrainPanel(state), heroes, codex, journal, realms, frontier: survey, universe: () => universePanel(state.universe), settings }[id] || inventory)()}</div></div></section>`;
   if (id === "universe") disposeUniverse=mountUniversePanel($("panels"),state.universe);
   if (id === "passives") mountConstellation($("panels"));
   if (id === "codex") previewCodex();
@@ -1133,6 +1140,21 @@ document.addEventListener("click", async (e) => {
     return;
   }
   if (!playing) return;
+  if(n.dataset.buildNudge) {
+    const key=n.dataset.buildNudge;
+    if(key==="reset")buildOffset={x:0,z:3};
+    else {const delta={north:[0,-.5],south:[0,.5],west:[-.5,0],east:[.5,0]}[key];if(delta){buildOffset.x=Math.max(-6,Math.min(6,buildOffset.x+delta[0]));buildOffset.z=Math.max(-6,Math.min(6,buildOffset.z+delta[1]));}}
+    openPanel("build");return;
+  }
+  if(n.dataset.placeStation) {
+    if(!combatSafe()){notify("Leave combat before building.");return;}
+    state.position={x:sim.player.x,z:sim.player.z};
+    const pos=buildPosition(),error=buildSiteError(pos);
+    if(error){notify(error);return;}
+    const result=placeStation(state,n.dataset.placeStation,pos);notify(result.message);
+    if(result.ok){save();view.refreshWorkstations();sound(620);}
+    openPanel("build");return;
+  }
   if(n.dataset.assist){toggleAssist(n.dataset.assist);openPanel("settings");return;}
   if (n.dataset.camera) {
     cameraControl(n.dataset.camera);
@@ -1168,10 +1190,11 @@ document.addEventListener("click", async (e) => {
     p.terrainY=findTerrainSpawn(sim.terrainVolume,p.x,p.z,sim.layout.height(p.x,p.z));
     state.position={x:p.x,z:p.z,y:p.terrainY};closePanel();view.rig.recenter();save();return;
   }
-  if (n.hasAttribute("data-build-core") || n.hasAttribute("data-extract-core") || n.dataset.coreField) {
+  if (n.hasAttribute("data-adopt-core-fields") || n.hasAttribute("data-build-core") || n.hasAttribute("data-extract-core") || n.dataset.coreField) {
     if (panel !== "geology" || !combatSafe()) return;
     let ok = false;
-    if (n.hasAttribute("data-build-core")) ok = buildCoreDrill(state);
+    if (n.hasAttribute("data-adopt-core-fields")) ok = adoptCoreFields(state);
+    else if (n.hasAttribute("data-build-core")) ok = buildCoreDrill(state);
     else if (n.dataset.coreField) ok = shiftCoreField(state, Number(n.dataset.coreField));
     else {
       const amount = gatherYield(state, "mining", false).total;
@@ -1245,6 +1268,12 @@ document.addEventListener("click", async (e) => {
     }
     return;
   }
+  if (n.dataset.trainSkill) {
+    const result = trainSkill(state, n.dataset.trainSkill);
+    notify(result.message);
+    if (result.ok) { save(); openPanel("skills"); }
+    return;
+  }
   if (n.dataset.craft) {
     const result = craft(state, n.dataset.craft);
     notify(result.message);
@@ -1260,7 +1289,7 @@ document.addEventListener("click", async (e) => {
     closePanel();
     notify(
       "Tracking " +
-        STATIONS.find((d) => d.id === trackedStation).name +
+        stationDefinition(state, trackedStation).name +
         ". Follow the gold marker on your map.",
     );
     return;
@@ -1285,6 +1314,7 @@ document.addEventListener("click", async (e) => {
               state,
               n.dataset.process,
               Number(n.dataset.quantity),
+              Date.now(), n.dataset.processStation,
             )
           : n.dataset.collectStation
             ? collectProduction(state, n.dataset.collectStation)
@@ -1529,7 +1559,7 @@ document.addEventListener("keydown", (e) => {
     p: "passives",
     l: "lifeskills",
     c: "crafting",
-    b: "artisan",
+    b: "build",
     h: "heroes",
     u: "codex",
     j: "journal",
@@ -1822,9 +1852,7 @@ function updateController(now, dt) {
   activePad=document.hasFocus() && !document.hidden ? pad : null;
   const buildRequested=controllerBuildHold.update(activePad,now,!!activePad&&playing&&!panel&&!atMainMenu&&!pad.pressed.has(9));
   if(buildRequested) {
-    // Construction integration can preventDefault after opening its real menu.
-    const event=new CustomEvent('aetherbound-build-toggle',{cancelable:true});
-    if(window.dispatchEvent(event))notify('Build placement is not available in this build yet.');
+    openPanel("build");
     return;
   }
   const label=pad?.id || "";

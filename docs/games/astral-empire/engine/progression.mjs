@@ -1,3 +1,4 @@
+import { applyProfessionMastery, normalizeSkillTraining, skillTraining } from "./mastery.mjs";
 import {universeManifest} from './universe/manifest.mjs';
 import { normalizeTerrainGeneration } from './terrain-generation.mjs';
 import { normalizeTreeLedger, fellGameTree } from "./voxel-trees/tree-gameplay.mjs";
@@ -43,7 +44,7 @@ import {
 import {
   freshProduction,
   normalizeProduction,
-  nearStation,
+  nearStation, nearbyStation, recipeStation,
 } from "./artisan.mjs";
 export const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const finite = (v, fallback = 0) =>
@@ -147,6 +148,7 @@ export function freshState(seed = 438102) {
     terrain: normalizeTerrainDeltas(),
     terrainGeneration: {version:1},
     geology: normalizeGeology(null, seed),
+    skillTraining: normalizeSkillTraining(null),
     professions: Object.fromEntries(PROFESSIONS.map((p) => [p.id, 0])),
     items: [
       makeItem(seed, 1, "weapon", "magic"),
@@ -224,6 +226,7 @@ export function migrateState(input) {
     s.professions = { ...fresh.professions };
     for (const k of Object.keys(fresh.professions))
       s.professions[k] = clamp(finite(input.professions?.[k]), 0, 1e8);
+    s.skillTraining = normalizeSkillTraining(input.skillTraining, s.level);
     s.statistics = { ...fresh.statistics };
     for (const key of Object.keys(s.statistics))
       s.statistics[key] = clamp(
@@ -420,6 +423,7 @@ export function stats(s, now = Date.now()) {
     keystones: [],
   };
   applyCodexStats(v, s);
+  applyProfessionMastery(v, s);
   for (const id of s.passives) {
     const p = CONSTELLATION.byId.get(id);
     if (!p) continue;
@@ -505,6 +509,10 @@ export function skillStats(s, id) {
     pierce: skill.pierce || 0,
     chain: 0,
   };
+  const training = skillTraining(s, id);
+  v.trainingRank = training.rank;
+  v.damage *= training.damage;
+  v.cooldown *= training.cooldown;
   const used = new Set();
   for (const name of id === "strike" ? [] : s.links[id] || []) {
     const mod = SUPPORTS.find((m) => m.id === name);
@@ -649,15 +657,9 @@ export function gather(s, node, now = Date.now()) {
 }
 export function craft(s, id, seed = Date.now()) {
   const recipe = RECIPES.find((r) => r.id === id);
-  if (
-    recipe?.station &&
-    (!nearStation(s, recipe.station) ||
-      (s.production?.stations[recipe.station]?.tier || 0) < recipe.tier)
-  )
-    return {
-      ok: false,
-      message: "Visit the recipe's upgraded sanctuary workstation first.",
-    };
+  const required = recipe && recipeStation(recipe);
+  if (required && !nearbyStation(s, required.kind, required.tier))
+    return {ok:false,message:"Visit a nearby " + required.kind + " workstation (tier " + required.tier + ") first."};
   if (recipe?.level && s.level < recipe.level)
     return { ok: false, message: "Requires field rank " + recipe.level + "." };
   if (

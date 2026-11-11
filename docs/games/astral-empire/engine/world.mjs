@@ -164,7 +164,7 @@ export class WorldView {
     this.art.sanctuary();
     this.createScenery();
     canvas.dataset.worldSurfaces=String(this.art.surfaceBindings);
-    this.workstations = new WorkstationView(this.scene, state, this.art);
+    this.workstations = new WorkstationView(this.scene, state, this.art, (x,z) => this.sim.groundHeight(x,z));
     this.coreDrill = state.realm === "bastion" ? createCoreDrillView(this.scene, this.art, this.height) : null;
     this.nursery = state.realm === "bastion"
       ? createNurseryView(this.scene, this.art, this.height) : null;
@@ -862,6 +862,11 @@ export class WorldView {
         mesh: group,
       })),
     ];
+  }
+  refreshWorkstations() {
+    const added = new WorkstationView(this.scene, this.state, this.art, (x,z) => this.sim.groundHeight(x,z), new Set(this.workstations.entries.map(e => e.def.id)));
+    this.workstations.entries.push(...added.entries);
+    this.sim.refreshObstacles();
   }
   pickEnemy(clientX, clientY) {
     const rect=this.canvas.getBoundingClientRect();

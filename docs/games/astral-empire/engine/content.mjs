@@ -1032,7 +1032,7 @@ export const QUESTS = [
   {
     "id": "atelier-build",
     "name": "An artisan’s foothold",
-    "description": "Construct one sanctuary workstation.",
+    "description": "Craft and place one workstation using Build.",
     "stat": "workstations",
     "goal": 1,
     "gold": 450,
@@ -1043,7 +1043,7 @@ export const QUESTS = [
       "cobalt": 6,
       "herb": 4
     },
-    "hint": "Industry lists stations. Joinery at (-8, -6) needs 2 timber and 1 stone. Stand nearby to build.",
+    "hint": "Industry > Build lets you place a joinery on clear ground for 2 timber and 1 stone.",
     "needs": [
       "gather"
     ]
@@ -1215,7 +1215,7 @@ export const QUESTS = [
   {
     "id": "intro-workshop",
     "name": "A sanctuary that provides",
-    "description": "Construct all three sanctuary workstations.",
+    "description": "Construct three workstations where you settle.",
     "stat": "workstations",
     "goal": 3,
     "gold": 1000,

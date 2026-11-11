@@ -217,12 +217,14 @@ export function freshProduction() {
 export function normalizeProduction(input, now = Date.now()) {
   const p = freshProduction();
   p.lastTick = Math.min(integer(input?.lastTick, 1e14), now);
-  for (const def of STATIONS) {
-    const raw = input?.stations?.[def.id],
-      target = p.stations[def.id];
+  const definitions = [...STATIONS, ...Object.entries(input?.stations || {}).filter(([id, raw]) => /^placed-[0-9]+$/.test(id) && STATIONS.some(d => d.id === raw?.kind) && typeof raw.realm === "string" && /^[a-z0-9-]{1,40}$/.test(raw.realm) && Number.isFinite(raw.x) && Number.isFinite(raw.z) && Math.abs(raw.x) <= 1e7 && Math.abs(raw.z) <= 1e7).slice(0, 256).map(([id, raw]) => ({...STATIONS.find(d => d.id === raw.kind), id, kind: raw.kind}))];
+  for (const def of definitions) {
+    const raw = input?.stations?.[def.id];
+    if (def.kind) p.stations[def.id] = {tier:0, jobs:[], output:{}, xp:{}, completed:0, kind:def.kind, realm:raw.realm, x:raw.x, z:raw.z};
+    const target = p.stations[def.id];
     target.tier = integer(raw?.tier, 3);
     if (!target.tier) continue;
-    for (const recipe of PROCESS_RECIPES.filter((r) => r.station === def.id)) {
+    for (const recipe of PROCESS_RECIPES.filter((r) => r.station === (def.kind || def.id))) {
       target.output[recipe.output.id] = integer(
         raw?.output?.[recipe.output.id],
         1e6,
@@ -237,7 +239,7 @@ export function normalizeProduction(input, now = Date.now()) {
     )) {
       const recipe = PROCESS_RECIPES.find(
         (r) =>
-          r.id === job?.recipe && r.station === def.id && r.tier <= target.tier,
+          r.id === job?.recipe && r.station === (def.kind || def.id) && r.tier <= target.tier,
       );
       if (!recipe) continue;
       const duration = Math.round(
@@ -256,11 +258,50 @@ export function normalizeProduction(input, now = Date.now()) {
   }
   return p;
 }
+// Legacy fixed stations remain valid only for old saves/compatibility. New builds are instances.
+export function stationDefinitions(s) {
+  return Object.entries(s.production?.stations || {}).filter(([, station]) => station.tier > 0).flatMap(([id, station]) => {
+    const base = STATIONS.find(d => d.id === (station.kind || id));
+    return base ? [{...base, id, kind:base.id, realm:station.realm || "bastion", x:station.x ?? base.x, z:station.z ?? base.z}] : [];
+  });
+}
+export function stationDefinition(s, id) {
+  return stationDefinitions(s).find(d => d.id === id) || STATIONS.find(d => d.id === id);
+}
+export function nearbyStation(s, kind, tier = 1) {
+  return stationDefinitions(s).filter(d => d.kind === kind && s.production.stations[d.id].tier >= tier && s.realm === d.realm && Math.hypot(s.position.x-d.x,s.position.z-d.z)<=4)
+    .sort((a,b) => Math.hypot(s.position.x-a.x,s.position.z-a.z)-Math.hypot(s.position.x-b.x,s.position.z-b.z))[0] || null;
+}
+export function recipeStation(recipe) {
+  if (recipe.station) return {kind:recipe.station, tier:recipe.tier || 1};
+  // Hand-made cord, field bow and basic consumables stay in the small personal menu.
+  if (!recipe.type || recipe.id === "coilwood-bow") return null;
+  return {kind:recipe.type === "armor" && recipe.form !== "heavy" ? "joinery" : "foundry", tier:1};
+}
+export function placeStation(s, kind, position) {
+  const def = STATIONS.find(d => d.id === kind);
+  if (!def || !s.production || !position || !Number.isFinite(position.x) || !Number.isFinite(position.z) || Math.abs(position.x)>1e7 || Math.abs(position.z)>1e7)
+    return {ok:false, message:"Choose a valid construction site."};
+  if (Math.hypot(position.x-s.position.x, position.z-s.position.z)>6)
+    return {ok:false,message:"Place your workstation within six metres."};
+  const placed = stationDefinitions(s);
+  if (placed.length >= 256) return {ok:false,message:"This save has reached its 256-workstation limit."};
+  if (placed.some(d => d.realm === s.realm && Math.hypot(d.x-position.x,d.z-position.z)<3))
+    return {ok:false,message:"Leave three metres between workstations."};
+  if (!moneyCost(s,def.cost)) return {ok:false,message:"Gather the construction materials first."};
+  let serial=1;
+  while (s.production.stations[`placed-${serial}`]) serial++;
+  const id=`placed-${serial}`;
+  pay(s,def.cost);
+  s.production.stations[id]={kind, realm:s.realm, x:position.x, z:position.z, tier:1,jobs:[],output:{},xp:{},completed:0};
+  s.statistics.workstations=(s.statistics.workstations || 0)+1;
+  return {ok:true,id,message:def.name+" built here. Its location and production are saved."};
+}
 export function nearStation(s, id) {
-  const def = STATIONS.find((d) => d.id === id);
+  const def = stationDefinition(s, id);
   return (
     !!def &&
-    s.realm === "bastion" &&
+    s.realm === (def.realm || "bastion") &&
     Math.hypot((s.position?.x || 0) - def.x, (s.position?.z || 0) - def.z) <= 4
   );
 }
@@ -296,8 +337,7 @@ export function settleProduction(s, now = Date.now()) {
   now = Math.max(integer(now, 1e14), p.lastTick);
   p.lastTick = now;
   let completed = 0;
-  for (const def of STATIONS) {
-    const station = p.stations[def.id];
+  for (const station of Object.values(p.stations)) {
     while (station.jobs.length && station.jobs[0].end <= now) {
       const job = station.jobs.shift(),
         recipe = PROCESS_RECIPES.find((r) => r.id === job.recipe);
@@ -312,15 +352,16 @@ export function settleProduction(s, now = Date.now()) {
   }
   return completed;
 }
-export function enqueueProcessing(s, id, quantity = 1, now = Date.now()) {
+export function enqueueProcessing(s, id, quantity = 1, now = Date.now(), stationId = null) {
   settleProduction(s, now);
   const recipe = PROCESS_RECIPES.find((r) => r.id === id),
-    station = s.production?.stations[recipe?.station];
+    selected = stationId ? stationDefinitions(s).find(d => d.id === stationId && d.kind === recipe?.station) : nearbyStation(s, recipe?.station, recipe?.tier),
+    station = s.production?.stations[selected?.id];
   if (
     !recipe ||
     !station ||
     station.tier < recipe.tier ||
-    !nearStation(s, recipe.station)
+    !nearStation(s, selected?.id)
   )
     return {
       ok: false,

@@ -6,6 +6,24 @@ import * as T from '../vendor/three.module.js';
 import { TerrainPublishLedger } from './terrain-ledger.mjs';
 import { parseTerrainBlockKey } from './terrain-volume.mjs';
 const TILE=8;
+// Renderer-local, disposable index. Persistence remains the original sparse store.
+class TerrainEditIndex {
+  constructor(entries) {
+    this.tiles=new Map();let order=0;
+    for(const [key,value] of entries){const p=parseTerrainBlockKey(key);if(!p)continue;
+      const tile=Math.floor(p[0]/TILE)+':'+Math.floor(p[2]/TILE);
+      if(!this.tiles.has(tile))this.tiles.set(tile,[]);
+      this.tiles.get(tile).push({key,p,value,order:order++});
+    }
+  }
+  inTiles(keys){return [...keys].flatMap(key=>this.tiles.get(key)||[]).sort((a,b)=>a.order-b.order);}
+  within(bounds){
+    const keys=[];
+    for(let z=Math.floor((bounds.min[2]-1)/TILE);z<=Math.floor(bounds.max[2]/TILE);z++)
+      for(let x=Math.floor((bounds.min[0]-1)/TILE);x<=Math.floor(bounds.max[0]/TILE);x++)keys.push(x+':'+z);
+    return this.inTiles(keys).filter(({p})=>p.every((n,i)=>n>=bounds.min[i]-1&&n<bounds.max[i]+1));
+  }
+}
 export class TerrainRenderer {
   constructor(scene,state,volume,canvas,onCoverage,groundMaterial) {
     Object.assign(this,{scene,state,volume,canvas,onCoverage});this.profile=terrainProfile(state.realm);this.surfaceColor=new T.Color(this.profile.surface);this.stoneColor=new T.Color(this.profile.stone);this.ledger=new TerrainPublishLedger();this.records=new Map();this.queue=[];this.busy=false;this.disposed=false;this.serial=0;
@@ -13,12 +31,20 @@ export class TerrainRenderer {
     if(groundMaterial)this.material.onBeforeCompile=groundMaterial.onBeforeCompile;
     try {this.worker=new Worker(new URL('./terrain-worker.mjs',import.meta.url),{type:'module'});this.worker.onmessage=e=>this.publish(e.data);this.worker.onerror=()=>{canvas.dataset.terrainError='worker';this.busy=false;};}catch{canvas.dataset.terrainError='unsupported';}
   }
+  editIndexes(){
+    const v=this.volume,c=this.editCache;
+    if(!c||c.revision!==v.revision||c.data!==v.data||c.blocks!==v.data.blocks||c.changes!==v.changes){
+      this.editCache={revision:v.revision,data:v.data,blocks:v.data.blocks,changes:v.changes,
+        edits:new TerrainEditIndex(Object.entries(v.data.blocks)),revisions:new TerrainEditIndex(v.changes)};
+    }
+    return this.editCache;
+  }
   covered(x,z){return !!this.records.get(Math.floor(x/TILE)+':'+Math.floor(z/TILE))?.mesh;}
   request(record,refined,signature) {
     record.signature=signature;record.pendingResult=null;
     const token=this.ledger.request(record.key,++this.serial,refined.length?1:0);record.token=token;
     this.queue=this.queue.filter(j=>j.token.key!==record.key);
-    const blocks={};for(const [key,entry] of Object.entries(this.volume.data.blocks)){const p=parseTerrainBlockKey(key);if(p&&p.every((n,i)=>n>=record.bounds.min[i]-1&&n<record.bounds.max[i]+1))blocks[key]={fill:entry.fill,cells:{...entry.cells}};}
+    const blocks={};for(const {key,value:entry} of this.editIndexes().edits.within(record.bounds))blocks[key]={fill:entry.fill,cells:{...entry.cells}};
     const store={version:1,realms:{[this.state.realm]:{blocks}}};
     this.queue.push({token,seed:this.state.seed,realm:this.state.realm,generation:this.volume.field.generation,store,bounds:{min:[...record.bounds.min],max:[...record.bounds.max]},bands:record.bands.map(b=>({min:[...b.min],max:[...b.max]})),refined});this.pump();
   }
@@ -32,8 +58,7 @@ export class TerrainRenderer {
   }
   publicationDependencies(record) {
     const deps=new Set(),[tx,tz]=record.key.split(':').map(Number);
-    for(const key of Object.keys(this.volume.data.blocks)){
-      const p=parseTerrainBlockKey(key);if(!p||Math.floor(p[0]/TILE)!==tx||Math.floor(p[2]/TILE)!==tz)continue;
+    for(const {p} of this.editIndexes().edits.inTiles([record.key])){
       const x=p[0]-tx*TILE,z=p[2]-tz*TILE;
       if(x===0)deps.add((tx-1)+':'+tz);if(x===TILE-1)deps.add((tx+1)+':'+tz);
       if(z===0)deps.add(tx+':'+(tz-1));if(z===TILE-1)deps.add(tx+':'+(tz+1));
@@ -83,7 +108,14 @@ export class TerrainRenderer {
   }
   sync(player) {
     if(this.disposed)return;
-    const cx=Math.floor(player.x/TILE),cz=Math.floor(player.z/TILE),wanted=new Set(),candidates=[];
+    const cx=Math.floor(player.x/TILE),cz=Math.floor(player.z/TILE);
+    const playerFoot=(player.terrainY??this.volume.field.baseHeight(player.x,player.z))+(player.y??0);
+    const plan={cx,cz,band:Math.floor(playerFoot/8),revision:this.volume.revision,data:this.volume.data,blocks:this.volume.data.blocks,changes:this.volume.changes,field:this.volume.field};
+    const previous=this.lastPlan;
+    // Meshing requests depend on quantized coverage and terrain revisions, not
+    // each sub-tile movement. Pending publication still progresses every frame.
+    if(previous&&Object.keys(plan).every(key=>Object.is(plan[key],previous[key]))){this.drainPublications();return;}
+    const wanted=new Set(),candidates=[];
     for(let dz=-1;dz<=1;dz++)for(let dx=-1;dx<=1;dx++){
       const x=(cx+dx)*TILE,z=(cz+dz)*TILE;
       const key=(cx+dx)+':'+(cz+dz);wanted.add(key);candidates.push({key,x,z,d:dx*dx+dz*dz});
@@ -91,8 +123,7 @@ export class TerrainRenderer {
     // Keep edited blocks and their six face-neighbours inside the fine union.
     // Never hide an edited cave opening behind a generic surface seam curtain.
     const baseWanted=new Set(wanted);
-    for(const key of Object.keys(this.volume.data.blocks)){
-      const b=parseTerrainBlockKey(key);if(!b||!baseWanted.has(Math.floor(b[0]/8)+':'+Math.floor(b[2]/8)))continue;
+    for(const {p:b} of this.editIndexes().edits.inTiles(baseWanted)){
       for(const tx of [Math.floor((b[0]-1)/8),Math.floor((b[0]+1)/8)])for(const tz of [Math.floor((b[2]-1)/8),Math.floor((b[2]+1)/8)]){
         const key=tx+':'+tz;if(wanted.has(key))continue;wanted.add(key);candidates.push({key,x:tx*8,z:tz*8,d:(tx-cx)**2+(tz-cz)**2});
       }
@@ -101,15 +132,15 @@ export class TerrainRenderer {
     for(const c of candidates.sort((a,b)=>a.d-b.d)){
       let r=this.records.get(c.key);
       if(!r){const h=[this.volume.field.baseHeight(c.x,c.z),this.volume.field.baseHeight(c.x+8,c.z),this.volume.field.baseHeight(c.x,c.z+8),this.volume.field.baseHeight(c.x+8,c.z+8)];r={key:c.key,surfaceMin:Math.min(...h),surfaceMax:Math.max(...h)};this.records.set(c.key,r);}
-      const playerFoot=(player.terrainY??this.volume.field.baseHeight(player.x,player.z))+(player.y??0);
       r.bands=terrainBands(c.x,c.z,r.surfaceMin,r.surfaceMax,playerFoot);
       r.bounds={min:[c.x,r.bands[0].min[1],c.z],max:[c.x+8,r.bands.at(-1).max[1],c.z+8]};
       const fine=new Set();
-      for(const key of Object.keys(this.volume.data.blocks)){const p=parseTerrainBlockKey(key);if(p&&p.every((n,i)=>n>=r.bounds.min[i]-1&&n<r.bounds.max[i]+1))fine.add(p.join(':'));}
-      let localRevision=0;for(const [key,revision] of this.volume.changes){const p=parseTerrainBlockKey(key);if(p&&p.every((n,i)=>n>=r.bounds.min[i]-1&&n<r.bounds.max[i]+1))localRevision=Math.max(localRevision,revision);}
+      for(const {p} of this.editIndexes().edits.within(r.bounds))fine.add(p.join(':'));
+      let localRevision=0;for(const {value:revision} of this.editIndexes().revisions.within(r.bounds))localRevision=Math.max(localRevision,revision);
       const refined=[...fine].sort(),signature=refined.join('|')+':'+localRevision+':'+r.bands.map(b=>b.min[1]+','+b.max[1]).join(';');
       if(r.signature!==signature)this.request(r,refined,signature);
     }
+    this.lastPlan=plan;
     this.drainPublications();
   }
   get meshes(){return [...this.records.values()].flatMap(r=>r.mesh?[r.mesh]:[]);}

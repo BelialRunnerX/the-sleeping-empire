@@ -1,14 +1,13 @@
 import * as T from "../vendor/three.module.js";
-import { STATIONS } from "./artisan.mjs";
+import { stationDefinitions } from "./artisan.mjs";
 
 export class WorkstationView {
-  constructor(scene, state, art) {
+  constructor(scene, state, art, groundHeight = () => 0, existing = new Set()) {
     this.state = state;
     this.entries = [];
-    if (state.realm !== "bastion") return;
-    for (const def of STATIONS) {
+    for (const def of stationDefinitions(state).filter(d => d.realm === state.realm && !existing.has(d.id))) {
       const group = new T.Group();
-      group.position.set(def.x, 0, def.z);
+      group.position.set(def.x, groundHeight(def.x, def.z), def.z);
       scene.add(group);
       const body = new T.Group(),
         built = new T.Group();
@@ -22,14 +21,14 @@ export class WorkstationView {
       for (const x of [-0.8, 0.8])
         for (const z of [-0.54, 0.54])
           shape("box", 0xa39379, x, 0.6, z, 0.14, 0.94, 0.14);
-      if (def.id === "foundry") {
+      if (def.kind === "foundry") {
         shape("tube", 0x6d7380, 0.57, 1.87, -0.38, 0.25, 1.65, 0.25);
         shape("tube", 0x9e998e, 0.57, 2.68, -0.38, 0.33, 0.13, 0.33);
         shape("box", 0x262638, -0.26, 0.64, 0.68, 0.78, 0.55, 0.09);
         shape("box", 0xffac6d, -0.26, 0.58, 0.74, 0.59, 0.21, 0.04).material =
           art.material(0xffac6d, 0.72);
         shape("tube", 0x949cac, -0.42, 1.32, 0.12, 0.32, 0.27, 0.25);
-      } else if (def.id === "alchemy") {
+      } else if (def.kind === "alchemy") {
         for (let i = 0; i < 3; i++) {
           const x = (i - 1) * 0.48,
             tint = [0xc098e9, 0x99e6bc, 0x8fd7fa][i];

@@ -53,6 +53,8 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     fixture.race = "imperial";
     fixture.calling = "enforcer";
     fixture.level = 6;
+    // Saved foundry beside the nursery supplies the nearby advanced-crafting requirement.
+    fixture.production.stations["placed-250"]={kind:"foundry",realm:"bastion",x:-2,z:13,tier:1,jobs:[],output:{},xp:{},completed:0};
     fixture.position = { x: 5.4, z: 9.1 };
     Object.assign(fixture.resources, {
       stone: 2,
@@ -137,6 +139,7 @@ async function runNurseryFlow(browser, url, artifacts, mobile) {
     assert.equal(await page.locator('[data-harvest-crop]').count(), 0);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
     await openPanel("crafting", "Workshop");
+    await page.locator("summary").filter({hasText:"Advanced equipment"}).click();
     await page.locator('[data-craft="cultivator-lattice"]').click();
     const charm = (await load()).items.find(item => item.frame === "cultivator");
     assert.ok(charm);

@@ -1,3 +1,17 @@
+## Placeable workstation update
+
+Workstations are no longer unbuilt fixed spawn sites. Open **Build** (keyboard B, controller hold B, or the HUD Build button), choose a clear dry footprint within 2–6 world units, and craft/place a foundry, joinery or laboratory directly from raw resources. Adjust the local plan in half-unit steps. Construction is rejected on water, steep slopes, overlapping props/resources, occupied enemy sites or combat. Built machines block navigation and stand on sampled terrain height. Adding one does not recreate the world or reset enemies.
+
+Any current playable realm supports construction; several stations of the same type can be built. Each instance retains its realm, X/Z position, tier, paid job queue, output and XP in the existing version-three save. Up to 256 built stations per save bounds storage and scene cost. Unbuilt legacy markers no longer appear, but built legacy sanctuary stations and their paid work remain intact. Unknown/malformed placements are rejected on import.
+
+The Workshop starts with a compact personal-crafting section (cord, field bow, consumables); advanced equipment is in a collapsed section and requires the correct built workstation within four units. Light armor uses joinery; metal weapons, firearms and other equipment use foundry unless the recipe explicitly specifies another station/tier. Processing UI addresses each instance separately. Existing production timing, upgrading, cancellation and collection rules remain below.
+
+This slice implements the three existing production stations, not storage crates, walls/floors/roofs, new specialist benches, or relocation/dismantling. Nursery and core drill migration remain follow-on machine work.
+
+---
+
+The pre-update implementation notes below describe the original sanctuary layout. The placement update above supersedes fixed-site restrictions; production mechanics still apply.
+
 # Artisan Awakening: the implemented production loop
 
 Version 3.4 connects gathering, fixed sanctuary construction, timed processing, profession XP and refined equipment. Open **Atelier [B]**, track a site, then walk within four world units. E opens the Atelier when the workstation is closer than a gatherable node. Construction, queue changes, collection and upgrades require proximity in Emerald Bastion; the interface blocks their use during combat.

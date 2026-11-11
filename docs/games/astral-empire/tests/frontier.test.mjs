@@ -1,3 +1,4 @@
+import { provideCraftStation } from "./crafting-fixture.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { makeFrontier, discover, useFeature } from "../engine/frontier.mjs";
@@ -111,6 +112,7 @@ test("hydroponic construction, offline growth and harvest are bounded and persis
   Object.assign(restored.resources, { fieldCord: 2, downbloomTuft: 2, circuitry: 1 });
   assert.equal(craft(restored, "xenotwill-jacket").ok, false);
   restored.level = 4;
+  provideCraftStation(restored,"joinery");
   assert.equal(craft(restored, "xenotwill-jacket", 9217).ok, true);
   assert.equal(restored.resources.fieldCord, 0);
   assert.ok(alterItem(restored, restored.items.at(-1).id, "equip"));
@@ -172,6 +174,7 @@ test("Fortune ports the source multiplier and amplifies the complete harvest bui
   const s = freshState(9372);
   s.level = 6;
   Object.assign(s.resources, { fieldCord: 4, downbloomTuft: 4, electrum: 1, circuitry: 2 });
+  provideCraftStation(s);
   assert.ok(craft(s, "cultivator-lattice", 777).ok);
   const item = s.items.at(-1);
   assert.equal(stats(s).fortune, 0);
@@ -194,6 +197,7 @@ test("cultivated Fortune rolls fibre and seeds independently at harvest time", (
   s.position = { x: NURSERY.x - 3, z: NURSERY.z };
   s.level = 6;
   Object.assign(s.resources, { fieldCord: 4, downbloomTuft: 4, electrum: 1, circuitry: 2 });
+  provideCraftStation(s);
   assert.ok(craft(s, "cultivator-lattice", 777).ok);
   const item = s.items.at(-1);
   s.nursery = { tier: 1, plots: [{ species: "loomflax", tier: 1, plantedAt: 1 }, null] };
@@ -326,6 +330,7 @@ test("geodes mature across saves and source alloy counts lead to permanent gear 
     electrum: 3,
     signalAlloy: 3,
   });
+  provideCraftStation(s);
   assert.ok(craft(s, "piercer-spear", 17).ok);
   const spear = s.items.at(-1);
   assert.ok(alterItem(s, spear.id, "equip"));
