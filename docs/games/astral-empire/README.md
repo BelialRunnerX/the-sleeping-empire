@@ -2,6 +2,10 @@
 
 A solo third-person 3D sci-fi anime action RPG for The Sleeping Empire. [Play Elysium](https://belialrunnerx.github.io/the-sleeping-empire/games/astral-empire/) or open the original [Classic gacha RPG](classic.html). Elysium uses browser profiles and automatic local saves.
 
+## Settings responsiveness
+
+The dense game-world presentation is suspended while the Settings modal is open, matching its already-paused gameplay. Menu/controller input and production timers remain active. Quality changes are shown on the first world frame after closing Settings. This avoids submitting expensive hidden world frames behind controls; normal gameplay rendering and quality settings are unchanged.
+
 ## Version 3.24 - Bounded river inspection
 
 The Universe inspector adds an unsaved 640 m coarse river close-up with sampled terrain and water, capped at 32,768 triangles. This is a non-playable prototype, not finished rivers, lakes, landings or current-world terrain. Flooded transition reaches are explicitly excluded while their above-bank stage issue remains unresolved. Existing profiles, resources and edited terrain remain unchanged. Desktop/touch, cancellation, offline and save-preservation browser checks passed.

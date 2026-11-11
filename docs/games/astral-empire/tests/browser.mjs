@@ -156,12 +156,29 @@ try {
       "model",
     );
     await page.keyboard.press("o");
+    await page.evaluate(async () => {
+      const { WorldView } = await import('./engine/world.mjs');
+      const update = WorldView.prototype.update;
+      window.__settingsFrames = 0;
+      window.__restoreSettingsProbe = () => { WorldView.prototype.update = update; };
+      WorldView.prototype.update = function (...args) {
+        window.__settingsFrames++;
+        return update.apply(this, args);
+      };
+    });
     await page.locator("#graphics-quality").selectOption("high");
+    await page.waitForFunction(() => document.querySelector('#world').dataset.renderSuspended === 'true');
+    const pausedFrames = await page.evaluate(() => window.__settingsFrames);
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    assert.equal(await page.evaluate(() => window.__settingsFrames), pausedFrames,
+      'Settings must not keep submitting the paused world');
     assert.equal(
       await page.locator("#world").getAttribute("data-shadows"),
       "true",
     );
     await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.querySelector('#world').dataset.renderSuspended === 'false' && window.__settingsFrames > 0);
+    await page.evaluate(() => { window.__restoreSettingsProbe(); delete window.__restoreSettingsProbe; });
     // Orbit and zoom through real camera controls, then restore the
     // initial heading before movement checks. F8 must hide and restore the HUD.
     await page.mouse.move(1100, 430);

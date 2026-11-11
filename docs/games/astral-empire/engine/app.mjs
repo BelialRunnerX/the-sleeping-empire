@@ -2021,7 +2021,12 @@ function frame(now) {
     if(!playing || panel || document.hidden)view.harvestPulse=null;
     view.harvestAction = playing && !panel && !document.hidden && gathering
       ? {kind:harvestKind(gathering.node),x:gathering.node.x,z:gathering.node.z,phase:Math.max(0,Math.min(1,1-gathering.left/gathering.total))} : null;
-    view.update(dt, input, now / 1000);
+    // Gameplay is already paused by Settings. Do not submit its dense world
+    // behind the modal: software GPUs can block the input queue compiling or
+    // drawing quality changes. Settings/controller/production UI stays live;
+    // the current preset is presented on the first frame after closing.
+    canvas.dataset.renderSuspended = String(panel === "settings");
+    if (panel !== "settings") view.update(dt, input, now / 1000);
     if (playing && now - lastHud > 100) {
       updateHUD();
       lastHud = now;

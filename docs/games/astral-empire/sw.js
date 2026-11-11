@@ -1,5 +1,5 @@
 /* Scope-local offline shell. HTML pages use network-first to receive updates. */
-const CACHE = "astral-empire-aetherbound-v3-39";
+const CACHE = "astral-empire-aetherbound-v3-40";
 const FILES = [
   "./engine/renderer-sizing.mjs",
   './engine/universe/planet-carving.mjs',
