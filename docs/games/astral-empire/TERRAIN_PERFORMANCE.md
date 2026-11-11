@@ -48,3 +48,49 @@ negative coordinates, transactional commits, removed edits and dictionary reload
 remeshing, mesh upload, draw calls, shadows and GPU time are separate costs. No claim
 is made that every submitted triangle is directly visible: frustum culling cannot
 by itself prove occlusion, and shadow passes can need offscreen geometry.
+
+## Pipeline profiling and external optimization references
+
+`node tests/terrain-pipeline-benchmark.mjs` separates refinement classification,
+its block-generation/cache-access subset, and adaptive meshing. `--scan` retains
+the prior 4,096-cell classification scan for comparison. These are cold CPU runs,
+not GPU timing or whole-game FPS. Instrumentation adds some measurement overhead.
+Seed 9372 legacy baseline, 8x16x8 tiles on StarStation:
+
+- Settlement x=0: classification approximately 42 ms before, 5 ms after; block data
+  itself about 5 ms; meshing about 2.4 ms. Mesh unchanged at one quad.
+- Frontier x=168: classification about 685 ms (648 ms in block data) in the initial
+  baseline run; meshing about 76 ms. After the shortcut, cold generation timing
+  varied enough that no whole-tile speedup is claimed. Mesh stays 2,215 quads.
+
+The implemented shortcut reuses TerrainVolume's exact uniform-page classification.
+No density values, material keys, seams, AO, geometry or storage format change.
+Tests compare refinement lists and mesh bytes, including edits, reverting edits,
+transactional commits, full/empty and mixed fields. GPU profiling remains separate
+and was not completed by this Node benchmark.
+
+References reviewed:
+- Tantan video: https://youtu.be/qnGoGq7DWMc and its public demo:
+  https://github.com/TanTanDev/binary_greedy_mesher_demo
+- Tantan generation video: https://youtu.be/ru_oz09Zo-s
+  (YouTube's fetched page did not expose its description/transcript; specific
+  implementation details from that video are not treated as verified.)
+- Vercidium: https://youtu.be/40JzyaOYJeY and public source:
+  https://github.com/vercidium-patreon/meshing/blob/main/ChunkMeshActual.cs
+- Run-merging tradeoff: https://vercidium.com/blog/voxel-world-optimisations/
+
+Application decisions:
+1. Binary occupancy/face masks are a candidate after generation cost is addressed.
+   The current engine already removes covered faces and greedily merges occupancy.
+   Packed masks must still respect neighboring data and every material/AO merge key.
+2. 32-cubed meshing jobs can be independent of persistence chunks. Do not change
+   save coordinates to imitate a demo; compare job latency and draw-call count.
+3. Exact cached field/column results are preferable first. Upsampling noise changes
+   the scalar field and can close narrow caves or rivers, so it requires a versioned
+   generation design and fidelity tests rather than a silent optimization.
+4. RLE may reduce storage but scattered edits can split runs and make random reads
+   expensive. Keep sparse deltas and dense working pages until an edit benchmark
+   demonstrates a net gain. No compression conversion is included here.
+5. Run merging may trade extra triangles for lower rebuild latency. Benchmark edits
+   as well as static triangles before replacing greedy meshing. Creator headline
+   FPS cannot predict this browser engine's performance.

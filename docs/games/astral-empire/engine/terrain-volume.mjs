@@ -87,6 +87,10 @@ export class TerrainVolume {
     if(this.collisionCache.size>=this.cacheBlocks)this.collisionCache.delete(this.collisionCache.keys().next().value);
     this.collisionCache.set(key,data);return data;
   }
+  blockIsUniform(block) {
+    const data=this.blockData(block);
+    return data===EMPTY_BLOCK||data===FULL_BLOCK;
+  }
   occupied(min,max) {
     const lo=min.map(n=>Math.floor(n*16)),hi=max.map(n=>Math.ceil(n*16)-1),b0=lo.map(n=>Math.floor(n/16)),b1=hi.map(n=>Math.floor(n/16));
     for(let bz=b0[2];bz<=b1[2];bz++)for(let by=b0[1];by<=b1[1];by++)for(let bx=b0[0];bx<=b1[0];bx++){
