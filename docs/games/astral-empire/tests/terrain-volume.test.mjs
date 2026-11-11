@@ -48,3 +48,20 @@ test('falling pauses at resident visibility boundary then resumes without invisi
  const velocity=p.velocityY;for(let i=0;i<5;i++)moveInTerrain(v,p,0,0,.05,()=>true,26,ready);assert.equal(p.terrainY+p.y,held);assert.equal(p.velocityY,velocity);
  floor=-50;for(let i=0;i<80;i++)moveInTerrain(v,p,0,0,.05,()=>true,26,ready);assert.ok(Math.abs(p.terrainY+p.y+40)<.001);assert.equal(p.y,0);
 });
+
+test('uniform page collision skips empty pages but honors degenerate microcell ranges',()=>{
+ const full=new TerrainVolume(normalizeTerrainDeltas(),'bastion',()=>1),empty=new TerrainVolume(normalizeTerrainDeltas(),'bastion',()=>-1);
+ for(const [min,max] of [[[0,0,0],[2,2,2]],[[-1.1,-2.3,-3.4],[-.1,-.2,-.3]]]){assert.equal(full.occupied(min,max),true);assert.equal(empty.occupied(min,max),false);}
+ for(const axis of [0,1,2]){const min=[1,1,1],max=[2,2,2];min[axis]=1.0625;max[axis]=1.0625;assert.equal(full.occupied(min,max),false);max[axis]=1;assert.equal(full.occupied(min,max),false);}
+ full.set([16,16,16],0);assert.equal(full.occupied([1,1,1],[1.0625,1.0625,1.0625]),false);assert.equal(full.occupied([1,1,1],[1.125,1.125,1.125]),true);
+});
+
+test('whole-block fills reuse exact implicit pages without scalar sampling and preserve rewards',()=>{
+ let calls=0;const field=()=>{calls++;return 1;};field.uniformBlock=()=>1;
+ const v=new TerrainVolume(normalizeTerrainDeltas(),'bastion',field);
+ assert.equal(v.fillBlock([-1,-1,-1],1),0);assert.equal(v.revision,0);assert.equal(calls,0);
+ assert.equal(v.fillBlock([-1,-1,-1],0),4096);assert.equal(calls,0);assert.equal(v.fillBlock([-1,-1,-1],0),0);
+ v.set([-1,-1,-1],1);assert.equal(v.fillBlock([-1,-1,-1],0),1);assert.equal(v.fillBlock([-1,-1,-1],1),4096);
+ const saved=normalizeTerrainDeltas(JSON.parse(JSON.stringify(v.store))),reload=new TerrainVolume(saved,'bastion',field);
+ assert.equal(reload.fillBlock([-1,-1,-1],1),0);assert.equal(reload.fillBlock([-1,-1,-1],0),4096);
+});

@@ -68,10 +68,13 @@ export class TerrainVolume {
   }
   fillBlock(block,value) {
     if(!block.every(Number.isSafeInteger)||![0,1].includes(value))return 0;
+    const key=terrainBlockKey(block),data=this.blockData(block);
+    // Reuse the exact page, including sparse edits, instead of re-addressing all
+    // 4096 cells. Uniform pages also make whole-block reward counting constant.
     let changed=0;
-    for(let z=0;z<16;z++)for(let y=0;y<16;y++)for(let x=0;x<16;x++)
-      if(this.material([block[0]*16+x,block[1]*16+y,block[2]*16+z])!==value)changed++;
-    if(changed){this.data.blocks[terrainBlockKey(block)]={fill:value,cells:{}};this.collisionCache.delete(terrainBlockKey(block));this.uniformCache.delete(terrainBlockKey(block));this.revision++;this.changes.set(terrainBlockKey(block),this.revision);}
+    if(data===EMPTY_BLOCK||data===FULL_BLOCK)changed=data[0]===value?0:4096;
+    else for(let i=0;i<data.length;i++)if(data[i]!==value)changed++;
+    if(changed){this.data.blocks[key]={fill:value,cells:{}};this.collisionCache.delete(key);this.uniformCache.delete(key);this.revision++;this.changes.set(key,this.revision);}
     return changed;
   }
   blockData(block) {
@@ -81,6 +84,7 @@ export class TerrainVolume {
     if(!edit&&this.field.uniformBlock){const uniform=this.field.uniformBlock(block);if(uniform===0||uniform===1){if(this.uniformCache.size>=4096)this.uniformCache.delete(this.uniformCache.keys().next().value);this.uniformCache.set(key,uniform);return uniform?FULL_BLOCK:EMPTY_BLOCK;}}
     const data=new Uint8Array(4096);
     if(edit?.fill!==null&&edit?.fill!==undefined)data.fill(edit.fill);
+    else if(this.field.fillBlock)this.field.fillBlock(block,data);
     else for(let z=0;z<16;z++)for(let y=0;y<16;y++)for(let x=0;x<16;x++)data[x+16*(y+16*z)]=this.field(block[0]+(x+.5)/16,block[1]+(y+.5)/16,block[2]+(z+.5)/16)>0?1:0;
     if(edit)for(const [index,value] of Object.entries(edit.cells))data[index]=value;
     if(data.every(n=>n===data[0])){if(this.uniformCache.size>=4096)this.uniformCache.delete(this.uniformCache.keys().next().value);this.uniformCache.set(key,data[0]);return data[0]?FULL_BLOCK:EMPTY_BLOCK;}
@@ -93,8 +97,11 @@ export class TerrainVolume {
   }
   occupied(min,max) {
     const lo=min.map(n=>Math.floor(n*16)),hi=max.map(n=>Math.ceil(n*16)-1),b0=lo.map(n=>Math.floor(n/16)),b1=hi.map(n=>Math.floor(n/16));
+    if(lo.some((n,i)=>n>hi[i]))return false;
     for(let bz=b0[2];bz<=b1[2];bz++)for(let by=b0[1];by<=b1[1];by++)for(let bx=b0[0];bx<=b1[0];bx++){
       const data=this.blockData([bx,by,bz]);
+      if(data===EMPTY_BLOCK)continue;
+      if(data===FULL_BLOCK)return true;
       for(let z=Math.max(0,lo[2]-bz*16);z<=Math.min(15,hi[2]-bz*16);z++)for(let y=Math.max(0,lo[1]-by*16);y<=Math.min(15,hi[1]-by*16);y++)for(let x=Math.max(0,lo[0]-bx*16);x<=Math.min(15,hi[0]-bx*16);x++)if(data[x+16*(y+16*z)])return true;
     }return false;
   }

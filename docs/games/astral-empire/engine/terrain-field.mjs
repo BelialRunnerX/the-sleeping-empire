@@ -9,11 +9,14 @@ import { terrainFor } from './frontier.mjs';
 // native density/noise/cave arithmetic itself is fixture-verified unchanged.
 export const VOLUME_EDGE=160;
 export const isVoxelFrontier=(x,z)=>Math.max(Math.abs(x),Math.abs(z))>=VOLUME_EDGE;
-export function createTerrainField(seed,realm,generation=null) {
+export function createTerrainField(seed,realm,generation=null,{batchBlocks=true}={}) {
   const profile=terrainProfile(realm),legacyHeight=terrainFor(seed,realm),continental=generation?.version===2&&realm==='bastion'?createContinentalTerrain(seed,legacyHeight,generation.sourceVersion==='continental-drainage-v2'?generation.anchor:null):null,baseHeight=continental?.height||legacyHeight,kernel=new DensitySlice(seed,profile.radius),columns=new Map();
-  const field=(x,y,z)=>{
+  const columnAt=(x,z)=>{
     const key=x+':'+z;let column=columns.get(key);
     if(!column){const distance=Math.max(Math.abs(x),Math.abs(z)),len=Math.hypot(x,profile.radius,z);column={base:baseHeight(x,z),distance,blend:Math.min(1,(distance-VOLUME_EDGE)/32),dir:[x/len,profile.radius/len,z/len]};if(columns.size>=65536)columns.clear();columns.set(key,column);}
+    return column;
+  };
+  const sampleColumn=(column,y)=>{
     const {base,distance,blend,dir}=column;
     // Hydrology owns the surface zero crossing. Native caves remain below the
     // soil layer; surface noise must not dam the solved river/lake outlets.
@@ -24,6 +27,17 @@ export function createTerrainField(seed,realm,generation=null) {
     if(y<base-3.4*squash)return blend===1&&kernel.caveCarve(dir,y,base)>0?-1:1;
     const d=(base-y)*(1-blend)+kernel.density(dir,y,base,squash)*blend;
     return d>0&&!(blend===1&&kernel.caveCarve(dir,y,base)>0)?1:-1;
+  };
+  const field=(x,y,z)=>sampleColumn(columnAt(x,z),y);
+  // Exact 16-cubed sampling: resolve each horizontal dependency once, then
+  // evaluate its sixteen altitudes without per-cell string keys or Map lookups.
+  // The scalar path remains the fallback/oracle; neither values nor layout change.
+  if(batchBlocks)field.fillBlock=([bx,by,bz],data)=>{
+    for(let z=0;z<16;z++)for(let x=0;x<16;x++){
+      const column=columnAt(bx+(x+.5)/16,bz+(z+.5)/16);
+      for(let y=0;y<16;y++)data[x+16*(y+16*z)]=sampleColumn(column,by+(y+.5)/16)>0?1:0;
+    }
+    return data;
   };
   // Exact per-microcolumn bounds for guarantees already enforced by field.
   // Unknown cave-bearing blocks return null, never guessed uniform.
