@@ -296,12 +296,18 @@ try {
         fieldCord: 1,
         essence: 4,
       });
+      const { provideCraftStation } = await import("./tests/crafting-fixture.mjs");
+      const { recipeStation } = await import("./engine/artisan.mjs");
+      const { RECIPES } = await import("./engine/content.mjs");
       let serial = 1042;
       for (const recipe of [shot.weapon, shot.armor, "kinetic-shield"]) {
+        const required = recipeStation(RECIPES.find(r => r.id === recipe));
+        if (required) provideCraftStation(state, required.kind);
         if (!craft(state, recipe, serial++).ok)
           throw Error("Invalid gear visual fixture");
         alterItem(state, state.items.at(-1).id, "equip");
       }
+      delete state.production.stations["placed-250"];
       const sim = new Simulation(state);
       sim.player.facing = shot.yaw + 0.22;
       const view = new WorldView(
