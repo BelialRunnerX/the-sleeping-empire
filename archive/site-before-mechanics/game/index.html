@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#17272d" />
+    <meta
+      name="description"
+      content="Astral Empire: Elysium. A third-person anime action RPG with linked skills, character builds, lifeskills, crafting, and persistent exploration."
+    />
+    <title>Astral Empire · Elysium</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="aetherbound.css" />
+    <link rel="stylesheet" href="mobile-controls.css" />
+    <link rel="stylesheet" href="main-menu.css" />
+    <link rel="stylesheet" href="hud-theme.css" />
+    <link rel="stylesheet" href="mobile-gui.css" />
+  </head>
+  <body>
+    <canvas id="world" aria-label="Third-person 3D frontier"></canvas>
+    <div id="vignette"></div>
+    <div id="landing"></div>
+    <div id="hud" hidden>
+      <header class="top-hud">
+        <div class="world-title">
+          <a href="../../" aria-label="Return to the Sleeping Empire">✧</a>
+          <div>
+            <span class="kicker">ASTRAL EMPIRE</span><b>Elysium</b
+            ><small id="realm-name">Emerald Bastion</small>
+          </div>
+        </div>
+        <div class="realm-status">
+          <span id="controller-status" class="tag" hidden>PAD</span>
+          <span class="online-dot"></span> SOLO FRONTIER
+          <span class="sep">/</span> <span id="save-state">Saved</span
+          ><button data-panel="settings" aria-label="Open settings">☷</button>
+        </div>
+      </header>
+      <section class="character-hud">
+        <div class="portrait-mark" id="hero-glyph">K</div>
+        <div class="character-info">
+          <div class="character-name">
+            <b id="hero-name">Kael</b><span id="level">LV. 1</span>
+          </div>
+          <div class="meter life">
+            <i id="life-fill"></i><span id="life-text"></span>
+          </div>
+          <div class="meter mana">
+            <i id="mana-fill"></i><span id="mana-text"></span>
+          </div>
+          <div class="stamina"><i id="stamina-fill"></i></div>
+        </div>
+      </section>
+      <section class="objective-hud">
+        <span class="kicker">FRONTIER JOURNAL</span>
+        <h3 id="objective-title">A foothold in the wilds</h3>
+        <p id="objective-text">Gather resources around the sanctuary.</p>
+        <button data-panel="journal">View journal <span>J</span></button>
+      </section>
+      <section class="map-hud">
+        <canvas
+          id="minimap"
+          width="180"
+          height="180"
+          aria-label="Local map"
+        ></canvas>
+        <div>
+          <b id="zone-label">Dawnwake Sanctuary</b
+          ><span id="coordinates">0, 6</span>
+        </div>
+      </section>
+      <div id="target-hud" hidden>
+        <span id="target-name"></span>
+        <div class="meter"><i id="target-life"></i></div>
+        <small id="target-intent"></small>
+      </div>
+      <div id="world-labels" aria-hidden="true"></div>
+      <div id="station-labels"></div>
+      <div id="frontier-labels"></div>
+      <div class="camera-dock" role="group" aria-label="Field camera">
+        <button
+          id="free-look"
+          data-camera="look"
+          aria-pressed="false"
+          title="Toggle orbit · Left Ctrl"
+        >
+          Look
+        </button>
+        <button
+          data-camera="left"
+          aria-label="Rotate camera left"
+          title="Rotate left · Z"
+        >
+          ↶
+        </button>
+        <button
+          data-camera="right"
+          aria-label="Rotate camera right"
+          title="Rotate right · X"
+        >
+          ↷
+        </button>
+        <button data-camera="near" aria-label="Zoom camera in">+</button>
+        <button data-camera="far" aria-label="Zoom camera out">−</button>
+        <button
+          data-camera="center"
+          aria-label="Reset camera"
+          title="Reset camera · R"
+        >
+          ◎
+        </button>
+        <button
+          data-camera="mode"
+          id="pointer-mode"
+          aria-pressed="false"
+          title="Toggle click to attack"
+        >
+          ◇ Explore
+        </button>
+        <button data-panel="frontier" title="Survey · M">Survey</button>
+        <span id="travel-status" role="status"></span>
+      </div>
+      <button
+        class="artisan-shortcut"
+        data-panel="build"
+        title="Build [B]"
+      >
+        ⚒ Build <kbd>B</kbd><span id="artisan-ready"></span>
+      </button>
+      <div id="interaction" hidden>
+        <kbd>E</kbd>
+        <div>
+          <b id="interact-name"></b><small id="interact-detail"></small>
+        </div>
+        <div id="gather-progress"></div>
+      </div>
+      <div id="notifications" role="status" aria-live="polite"></div>
+      <footer class="bottom-hud">
+        <div class="hero-switch">
+          <button data-panel="heroes">
+            <span id="class-name">ENFORCER</span><b>Appearances <kbd>H</kbd></b>
+          </button>
+        </div>
+        <div>
+          <div class="skillbar" id="skillbar"></div>
+          <div class="experience"><i id="xp-fill"></i></div>
+          <div class="control-hints">
+            Click to travel · WASD move · Right drag orbit · Wheel zoom · E
+            interact · U Codex
+          </div>
+        </div>
+        <div class="menu-dock">
+          <button data-panel="inventory" title="Equipment [I]">
+            ♜<small>GEAR</small></button
+          ><button data-panel="skills" title="Skill links [K]">
+            ✧<small>SKILLS</small></button
+          ><button data-panel="passives" title="Constellation [P]">
+            ✺<small>BUILD</small></button
+          ><button data-panel="lifeskills" title="Lifeskills [L]">
+            ♣<small>LIFE</small>
+          </button>
+        </div>
+      </footer>
+      <div class="touch-pad" id="touch-pad">
+        <button data-move="up" aria-label="Move forward">↑</button
+        ><button data-move="left" aria-label="Move left">←</button
+        ><button data-move="down" aria-label="Move backward">↓</button
+        ><button data-move="right" aria-label="Move right">→</button
+        ><button data-action="dodge" aria-label="Evade">↯</button
+        ><button data-action="jump" aria-label="Jump">⇡</button>
+      </div>
+    </div>
+    <div id="panels" hidden></div>
+    <div id="loading">
+      <div class="loading-star">✧</div>
+      <b>Awakening the frontier</b><span>Loading world systems…</span>
+    </div>
+    <script type="module" src="engine/app.mjs"></script>
+    <script type="module" src="engine/mobile-controls.mjs"></script>
+    <script type="module" src="engine/hud-panels.mjs"></script>
+    <script type="module" src="engine/mobile-gui.mjs"></script>
+  </body>
+</html>
