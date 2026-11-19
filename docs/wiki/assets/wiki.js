@@ -6,7 +6,7 @@
  const nav=document.getElementById('navigation'),theme=document.getElementById('theme-toggle');
  let rowsPromise;
  const setTheme=dark=>{document.documentElement.dataset.theme=dark?'dark':'light';theme.textContent=dark?'Light':'Dark';theme.setAttribute('aria-label',dark?'Use light theme':'Use dark theme');};
- try{setTheme(localStorage.getItem('elysiumWikiTheme')==='dark');}catch{setTheme(false);}
+ try{setTheme(localStorage.getItem('elysiumWikiTheme')!=='light');}catch{setTheme(true);}
  theme.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('elysiumWikiTheme',dark?'dark':'light');}catch{}});
  if(matchMedia('(max-width:720px)').matches)nav.open=false;
  nav.addEventListener('click',e=>{if(e.target.closest('a')&&matchMedia('(max-width:720px)').matches)nav.open=false;});
