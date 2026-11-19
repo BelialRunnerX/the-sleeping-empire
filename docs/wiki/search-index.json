@@ -1,392 +1,392 @@
 [
   {
-    "title": "Elysium",
+    "title": "Start here",
     "url": "wiki/articles/overview.html",
-    "summary": "A mechanics reference for Elysium, a sci-fi solarpunk voxel action RPG with survival, crafting, automation and colony systems.",
-    "text": "This edition describes the native development snapshot, with a separate label for design goals and browser reference material. It is not a claim that every system is available in a released Windows build. The native game and the older browser adaptation are different implementations; their saves, controls and formulas must not be mixed. Explore and mine a destructible world, turn resources into useful equipment and machines, fight hostile encounters, and build a base that supports further exploration. Durable progression, loot and ordinary world simulation have different save boundaries. Native snapshot means the cited native source documents describe implemented behavior. Native adaptation means a bounded implementation differs from donor rules or uses provisional balancing. Planned means a design intention, not a playable promise. Every article identifies its source and limitations. Start with Mining and tools, Crafting and industry, or Combat. For progression, read Loot and equipment and Health and survival. Before reusing a save in an older build, read Saving and compatibility."
+    "summary": "Choose your next goal: gather resources, build a workshop, survive a fight or prepare a safe return.",
+    "text": "Gather stone, logs and accessible ores. Make a furnace, turn ore into ingots, then work toward powered production. Keep room in your pack for the trip home.  A small workshop supports your next expedition. Add machines as you need their outputs, then connect power, storage and conveyors rather than collecting idle equipment.  Check health, suit air and inventory space. Mark a home waypoint for navigation and a separate camp if you want a possible return point after death. "
   },
   {
-    "title": "Mining and tools",
+    "title": "Mining and better tools",
     "url": "wiki/articles/mining.html",
-    "summary": "Mining uses tool suitability, material requirements and exact voxel volume. The permanent iron-head upgrade improves the existing pick without introducing a second tool inventory.",
-    "text": "The native resolution uses one-metre blocks divided into 16 cells per edge: 4,096 micro-volume units per full block. Fractional block resources are not interchangeable with rounded whole-item counts. Field assembly can combine fractions across slots and preserves leftovers. In the documented native controls, hold ordinary iron ingots in the hotbar, open the bag and press a fresh R to consume three ingots. Pick tier remains 2; speed changes from 4 to 6. The cutter already supports tier 3, so this is a speed improvement, not a new ore-tier unlock. Preferred-tool stone time changes from 0.30 to 0.20 seconds; iron changes from 0.375 to 0.25 seconds. Minimum mining durations still apply to small subvoxels. The closed upgrade command privately stages the three-ingot payment and capability, and publishes only after a confirmed checkpoint. This capability is not a portable tool item, material-parts crafting system or durability model. Existing partial player mining resets after a committed upgrade; queued crew jobs retain their captured required duration."
+    "summary": "Gather exact amounts of material and upgrade your pick to finish familiar mining jobs faster.",
+    "text": "A one-metre block contains 4,096 micro-volume units, arranged 16 per edge. Small mined pieces still count: field assembly combines fractions across slots and preserves the remainder.  Collect three ordinary iron ingots. Select iron ingots in the hotbar, open the bag and press R once. A successful upgrade spends three ingots and raises pick speed from 4 to 6; pick tier stays 2. Gather at least three ordinary iron ingots. Select the iron ingots in a hotbar slot, then open the bag. Press R once; check that the upgrade succeeds and three ingots are spent. Preferred-tool stone takes 0.20 seconds instead of 0.30; iron takes 0.25 instead of 0.375. Small subvoxels still have minimum mining times. The cutter already supports tier 3, so the iron head does not unlock a new ore tier.  Start a fresh mining action after upgrading. Existing crew jobs keep the duration recorded when they were queued. The upgrade is permanent, not a separate tool item to equip or trade. "
   },
   {
-    "title": "Combat and progression",
+    "title": "Fight and level up",
     "url": "wiki/articles/combat.html",
-    "summary": "Native basic attacks share one durable encounter owner for damage, death, XP and reward proofs.",
-    "text": "The native pulse is a provisional physical basic weapon, not a mana-powered Astral lance. Documented Adventure controls are held LMB for pulses, MMB for bash, and held RMB for directional guard. Guard suppresses new shots and bash; already-launched pulses can still finish. Base pulse speed is 24 metres per simulated second, maximum travel is 24 metres and base fire interval is 0.20 seconds. Swept collision checks edited voxel geometry, including thin walls and carved openings. Launch damage is captured; changing equipment or gaining a level does not rewrite a shot in flight. Native physical damage is round_once((12 + 3 × (level − 1) + equippedPower) × (1 + damage + attackDamage)). The donor level term is retained, but native base 12 remains. Each new attack reads current usable progression; no accumulating saved buff is added. A valid level-and-gear combination may exceed the native damage bound. Attacks become unavailable rather than silently clamping or corrupting the world. Equipment management and valid defense remain accessible. Unknown persistence outcomes are different: those stop play and require reload."
+    "summary": "Use pulses at range, bash up close and face incoming attacks to guard.",
+    "text": "In Adventure controls, hold LMB to fire pulses, press MMB to bash and hold RMB for directional guard. Face the threat while guarding. Guard blocks new shots and bash, but shots already in flight continue.  A basic pulse travels at 24 metres per simulated second for up to 24 metres, with a base firing interval of 0.20 seconds. Walls can stop shots; carved openings can let them through. Equipment changes do not change shots already fired.  Each level after the first adds 3 power to the native base of 12. Physical damage rounds once after (12 + 3 × (level − 1) + equippedPower) × (1 + damage + attackDamage). New attacks use your current level and equipped bonuses.  The documented build can disable attacks when a valid level-and-gear combination exceeds its damage limit. Unequip excessive bonuses to recover; defense and equipment management remain available. A planned correction will cap valid excessive damage instead. That correction is not part of these instructions. "
   },
   {
-    "title": "Abilities and supports",
+    "title": "Use abilities and supports",
     "url": "wiki/articles/abilities.html",
-    "summary": "Radial pulse and persistent support choices are bounded native adaptations, not the complete canonical spell system.",
-    "text": "X casts a physical radial attack with base radius 7 metres, cooldown 7 seconds and damage multiplier 1.8. At most the nearest 12 living contacts are selected before line-of-sight filtering. Blocked selections do not expand to more distant targets. No mana, elemental split or invulnerability is added. Damage, radius and duration are captured when accepted. Haste follows cooldown / (1 + haste). Changing gear or support does not rescale a running timer. An accepted empty or fully blocked cast still spends its cooldown. A radial cast is not one atomic multi-target transaction. Confirmed earlier hits remain committed if a later target fails; the remaining plan stops. The cast is never automatically replayed. Only confirmed hits should be interpreted as successful damage. The documented bag N action selects None, Swift or Cascade for the next radial cast; Cascade raises the captured maximum radius to 10.15 metres. Shift+N selects pulse support, including Pierce. Pierce retains up to three distinct target opportunities with 85% captured per-hit damage. It does not add the donor mana cost or full spell parity."
+    "summary": "Clear nearby enemies with a radial pulse, or change how your next pulse attack behaves.",
+    "text": "Press X. The base cast has a 7-metre radius, 7-second cooldown and 1.8 damage multiplier. It selects at most the nearest 12 living targets, then checks line of sight. A wall can block a selected target without letting a farther one take its place.  In the bag, N selects None, Swift or Cascade for radial pulse. Cascade expands the maximum radius to 10.15 metres. Shift+N selects pulse support: Pierce offers up to three distinct targets at 85% per-hit damage.  An accepted cast spends its cooldown even if it hits nothing. Haste uses cooldown / (1 + haste). Changing gear or support affects the next cast, not a timer already running. These physical abilities do not cost mana or grant invulnerability.  Earlier confirmed hits can remain when a later hit fails. Do not expect every target to be hit together or the whole cast to retry. If play stops because a save outcome is uncertain, reload before continuing. "
   },
   {
-    "title": "Loot and equipment",
+    "title": "Collect and equip loot",
     "url": "wiki/articles/loot.html",
-    "summary": "Canonical unique loot lives in the ordinary pack. Equipped selections reference those same instances rather than a second bag.",
-    "text": "Eligible future native kills persist a regular 30% loot roll alongside death and XP. P resolves a pending reward into the pack or records a no-drop result. This does not imply a persistent physical corpse. A full pack leaves the exact reward pending without rerolling. Unique gear cannot stack, trade or move into machines. The native pack has 36 slots. The registry retains at most 1,000 lifetime instances, including retired tombstones, and 4,096 claims. These are finite limits, not an infinite stash. R toggles the selected unique item’s equipped state. The documented bag Delete confirmation requires two distinct presses within five seconds. Discard gives no salvage reward, removes the sole pack reference and keeps immutable claim/item history to prevent replay resurrection. The item preserves its exact generated name, base and affixes. Only supported native effects are active; stored data is not proof that every canonical mechanic is implemented. Equipped life, physical combat projection and haste have separate scoped implementations."
+    "summary": "Claim rewards into your pack, compare their effects and equip the pieces that suit your build.",
+    "text": "After an eligible kill, press P to resolve its pending reward. Regular eligible kills have a 30% loot roll. A full pack leaves the same reward pending: make space and try again, rather than expecting a reroll. There need not be a physical corpse to loot. After an eligible kill, press P to claim the pending result. If the pack is full, make space before trying the same claim again. Select the received unique item in the bag and press R to equip it. Select a unique item in the bag and press R to toggle its equipped state. Equipped pieces stay in the same 36-slot pack. Unique gear does not stack and cannot be traded or put into machines.  Press Delete twice within five seconds to confirm discarding the selected unique item. Discard gives no salvage and cannot be undone by claiming the reward again. Only supported native affixes affect play; other generated affixes remain stored on the item.  The save retains up to 1,000 lifetime unique instances, including discarded pieces, and 4,096 claims. Discarding frees a pack slot, not a lifetime instance slot. "
   },
   {
-    "title": "Health and survival",
+    "title": "Stay alive",
     "url": "wiki/articles/survival.html",
-    "summary": "Health capacity, environmental protection and breathable rooms are separate mechanics.",
-    "text": "Native maximum health is 100 + the sum of equipped canonical life, with one final binary32 conversion. Increasing capacity does not heal or revive; lowering capacity clamps current health downward. Air and the existing regeneration delay are preserved during equipment changes. The native factory can manufacture the existing sealed helmet, hazard suit and sealed leggings. These are ordinary environmental gear, not unique-loot instances. A newly equipped complete suit does not receive free air; breathable conditions refill it under existing rules. Replacing a damaged worn piece is refused until it is repaired. This prevents turning damaged equipment into a pristine type-only inventory item. Empty-slot and valid pristine replacements retain their existing behavior. Health remains binary32. Very large canonical values lose fine damage/regeneration precision; this is documented rather than hidden behind an arbitrary saturation cap. Older binaries that assume maximum health 100 are not safe downgrade targets for high-health saves."
+    "summary": "Manage health, suit condition and air separately. A larger health bar is not a refill.",
+    "text": "Maximum health is 100 plus equipped life. Equipping more life increases capacity without healing or reviving you. Removing life can lower current health to the new maximum; it does not refill air or reset the regeneration delay.  Manufacture and equip the sealed helmet, hazard suit and sealed leggings. A newly completed suit starts without free air. Let it refill in breathable conditions before relying on it elsewhere.  Repair a damaged worn piece before replacing it. An empty slot or a pristine piece can accept a valid replacement. This rule prevents damaged gear from becoming pristine simply by moving through the pack.  At extremely large life values, small health changes lose precision. Keep backups and do not open high-health saves in older builds that assume a maximum of 100. "
   },
   {
-    "title": "Crafting and industry",
+    "title": "Build your first workshop",
     "url": "wiki/articles/crafting.html",
-    "summary": "Field assembly bootstraps the native factory chain. Processing then depends on machines, fuel, power and reserved inputs.",
-    "text": "The provisional native costs are: Furnace, 8 stone + 2 logs; Alloy Crucible, 8 stone + 4 iron ingots; Fabricator, 4 iron + 2 copper + 2 steel ingots. These are closure adaptations, not claimed canonical Sixth Edition recipes. Coal fuels the furnace; current starter tools can harvest coal, copper and iron. Furnace processing provides ingots and carbon. The crucible needs power to produce steel, and the fabricator needs power to manufacture more machines and components. Assembly totals exact integer micro-volume units across slots. It privately consumes inputs before checking final output capacity, so a freed slot may receive the kit. Missing materials or insufficient space leave the live pack unchanged. Unique gear is never a recipe input. Machine production uses paid/reserved inputs and active progress, not a free preview output. Kits place existing machine owners. Recovery requires the machine’s applicable empty/idle/fuel/energy conditions and inventory capacity; it must not duplicate outputs or manufacture free fuel."
+    "summary": "Start with field assembly, then use fuel and power to turn raw materials into better machines.",
+    "text": "Gather 8 stone and 2 logs for a Furnace. An Alloy Crucible costs 8 stone and 4 iron ingots. A Fabricator costs 4 iron, 2 copper and 2 steel ingots. These are the current provisional recipes.  Mine coal, copper and iron with starter tools. Fuel the furnace with coal to process ingots and carbon. Supply power to a crucible for steel, then to a fabricator for components and more machine kits. Gather coal and starter-accessible copper and iron ores. Fuel the furnace with coal and process the required materials. Power an Alloy Crucible to make steel, then power a Fabricator for further components. Assembly combines fractional blocks across slots and keeps leftovers. It checks output space after consuming inputs, so a slot emptied by the recipe can hold the new kit. Missing materials or insufficient space leave the pack unchanged. Unique gear is never consumed.  A running batch has already reserved its inputs. Wait for output rather than treating a preview as a finished item. Before recovering a machine, satisfy its empty, idle, fuel and energy conditions and leave room for its kit. "
   },
   {
-    "title": "Power and logistics",
+    "title": "Connect power and storage",
     "url": "wiki/articles/logistics.html",
-    "summary": "Conveyors, storage, loaders and batteries connect existing machine owners. They do not create a separate inventory authority.",
-    "text": "A powered fabricator makes a Network Storage kit from 1 Machine Casing, 2 Control Circuits and 2 Copper Wire in 6 seconds. These costs are provisional. Automated same-network access requires enabled, powered storage; manual deposit and withdrawal can remain available offline. Workshops consume local inputs before network storage. Output stays local when it fits and spills only when local capacity is insufficient. This proximity-network abstraction is distinct from physical conveyor motion. Battery kits are placed empty. Existing generation charges them; capacity is 60 and charge/discharge rate 15 in the documented solver. Residual energy is not erased merely because it cannot meet a full tick’s demand. Recovery refuses positive charge. The documented Shift+H Build action transfers an entire disabled battery’s charge into a disabled empty nearby battery. It copies the exact stored value, then empties the source, rather than adding/rounding partial charges. This is a live action; only a subsequent ordinary save persists it. Extractor output can feed a belt, but the endpoint is output-only: belts cannot deposit into it. Mining requires power; enabled buffered output can drain without power. Cargo Loader kits connect existing belt and storage behavior. These local-host operations are not remote access control or WAN replay protection."
+    "summary": "Keep production supplied, move finished goods and store surplus energy.",
+    "text": "Use a powered fabricator with 1 Machine Casing, 2 Control Circuits and 2 Copper Wire. The provisional recipe takes 6 seconds. Enable and power storage for automatic same-network access; manual access can remain available offline.  Workshops use local inputs first, then network storage. Outputs stay local if there is room and spill to the network when there is not. This network access is separate from goods moving on physical conveyors.  New batteries are empty. Generation charges them; capacity is 60 and charge/discharge rate is 15. To recover a charged battery, first disable it and a nearby empty battery, then use Shift+H in Build mode to transfer its whole charge. Recovery refuses a battery with positive charge.  An enabled extractor can drain buffered output to a belt even without power, but mining itself needs power. Belts cannot feed items into an extractor. Cargo Loaders connect belts and storage. Save after changing live stock or battery charge. "
   },
   {
-    "title": "Shelters and atmosphere",
+    "title": "Make a breathable shelter",
     "url": "wiki/articles/shelters.html",
-    "summary": "An Atmosphere Unit works only under its power, room and filter-charge conditions. A visible enclosure is not by itself proof of breathability.",
-    "text": "Effective filtering duration is the smaller of valid tick duration and remaining filter seconds. Pressure and oxygen are credited only for time actually paid by charge. A nearly empty filter no longer grants an entire tick of unpaid operation. At most one cartridge loads at the start of a tick. When partial charge expires, the rest of that tick is idle; another cartridge may load next tick. Disabled/unpowered hold and breach venting behavior are unchanged. The current classification retains a cell-centre room model. It is not proof of finest-subvoxel airtightness. Programmatic portal test fixtures are not evidence that a full player-sized doorway loop is delivered in this snapshot. A camp position can be geometrically valid yet unbreathable or otherwise dangerous. Ordinary simulation saves record advanced live state; failed saves do not roll the simulation back to its previous oxygen or fuel value."
+    "summary": "Check the Atmosphere Unit, its power supply and filter charge before trusting a room.",
+    "text": "The unit needs power, a recognized sealed room and filter charge. A visible roof alone does not establish breathability. Watch pressure and oxygen rather than assuming the enclosure is safe.  Filtering lasts only as long as the remaining charge. At most one cartridge loads at the start of a simulation tick; if charge runs out partway through, filtering waits until a later tick. Disabled or unpowered units do not provide normal filtering, and a breach vents the room.  The current room check uses cell centres, not every finest subvoxel. Small visual gaps and carved shapes may not behave as a fully detailed airtight model. A complete player-sized doorway loop is not established by this guide.  A valid camp has safe standing geometry, not guaranteed air, temperature or freedom from enemies. Save regularly; a failed ordinary save does not restore the air or filter charge used since the last successful save. "
   },
   {
-    "title": "Crew work",
+    "title": "Give the crew useful work",
     "url": "wiki/articles/crew.html",
-    "summary": "Crew mining and construction use stable job identities, bounded queues and fresh physical reach checks.",
-    "text": "The documented Shift+J action designates a bounded 3×3 plane at the aimed whole voxel. Existing active targets and repeated candidates are suppressed. Queued, skipped and refused counts are distinct; this is not an atomic batch or an immediate resource reward. Navigation arrival and authoritative probe/commit use the shared physical reach policy. Upper walls and roofs may be worked from a safe supported position when body clearance, distance and line of sight allow it. Worker movement, a new obstruction or a changed target can invalidate a pending action. The full work-record capacity is 2,048. Explicit maintenance can archive completed/cancelled details into a separate finite ledger of up to 8,192 identities. Queued/running jobs and reservations are not discarded to make room. Archival permanently removes full terminal specification/target detail while retaining identity and outcome. The first committed archive writes work format v2, which older binaries cannot load. This needs explicit confirmation, not an automatic background purge."
+    "summary": "Designate a small job area, give workers access and check the result before expanding.",
+    "text": "Aim at a whole voxel and press Shift+J to designate a 3×3 plane. Read the queued, skipped and refused counts. Existing active targets are skipped; designation does not immediately grant materials.  Provide a supported standing place, body clearance and an unobstructed approach. Workers can reach upper walls and roofs from suitable positions. A moved worker, new obstruction or changed target can stop a pending action before it spends materials.  The save holds 2,048 full work records. Explicit maintenance can archive completed or cancelled details into a ledger with up to 8,192 identities. It does not discard queued or running work to free space.  Back up the save and read the warning. Archiving permanently removes completed-job details while retaining outcomes and identities. The first archive upgrades work data to a format older builds cannot load. "
   },
   {
-    "title": "Exploration and recovery",
+    "title": "Find your way home",
     "url": "wiki/articles/exploration.html",
-    "summary": "The home waypoint guides travel; the separate camp anchor can influence death recovery. Neither is a general teleport system.",
-    "text": "F6 marks one home waypoint under the documented grounded safety checks. It provides direction, horizontal range and relative height on the same face. It is guidance only, not a respawn or transport command. F9 marks a separate native camp; Shift+F9 clears it. Marking requires a living player, known support and a clear dry body volume outside gated modes/panels. Marking does not heal, grant equipment, reset cooldowns or move the character. After death, the saved exact feet position is used only if current same-face geometry still validates. Obstructed or invalid camps fall back to the existing origin-grounding behavior. No downward search silently moves the camp. Geometry validity does not guarantee safe atmosphere, temperature or enemies. The native dash is a bounded collision-checked movement adaptation. It does not add invulnerability, damage or a paid mana resource. It preserves the existing vertical-motion policy; movement and landing behavior must not be mistaken for a new combat authority."
+    "summary": "Use a waypoint for navigation and a separate camp for a possible return after death.",
+    "text": "Stand on safe ground and press F6. The home waypoint shows direction, horizontal range and relative height on the same face. It does not teleport you or set your respawn point.  While alive on known, clear, dry ground, press F9. Shift+F9 clears the camp. Marking it does not move or heal you, grant equipment or reset cooldowns. Close gated panels and leave incompatible modes before marking. Find known, dry ground with room to stand. Close incompatible panels or modes and press F9 while alive. Check the location’s air and nearby threats; geometry alone does not make it safe. After death, the camp is used only if its exact standing position still passes same-face geometry checks. If it is obstructed or invalid, recovery falls back to the existing origin-grounding behavior. Check air and nearby threats yourself.  Dash respects collisions but does not grant invulnerability or deal damage. It does not cost mana. Do not treat dashing as protection from a dangerous landing. "
   },
   {
-    "title": "Saving and compatibility",
+    "title": "Save and protect your progress",
     "url": "wiki/articles/saving.html",
-    "summary": "Native saves distinguish committed transactions, known failure and uncertain outcomes. This distinction is part of the mechanics, not just an implementation detail.",
-    "text": "Committed means the command’s verified publication completed. NotCommitted means that transaction did not publish its candidate. Unknown means the outcome cannot safely be determined in the current session: gameplay and further saves stop until reload. No automatic retry should duplicate a reward. Machines, movement and many live interactions advance before an ordinary snapshot. A known failed ordinary save leaves that advanced live state in memory and the earlier disk snapshot intact. It does not roll the whole world back. Transactional crafting, gear changes and selected configuration commands have narrower private-publication boundaries. Reading an old save in a current build does not promise that an old build can read every new save. Retired work v2, retired loot metadata, newer item IDs and life-derived health have explicit compatibility limits. Keep recoverable backups and use a compatible build. Stable IDs and local exclusive ownership are foundations, not a completed network game. These source notes do not claim authenticated remote commands, actor ACLs, replication, anti-rollback protection or WAN duplicate suppression. Cross-network multiplayer remains a separate validation and implementation task."
+    "summary": "Keep a recoverable backup, watch save results and use a compatible build.",
+    "text": "A confirmed save records the changes covered by that operation. Save after ordinary movement, production and live transfers if you want those changes to survive a restart.  A known failure can leave the current world running with unsaved changes while the previous disk save remains intact. It does not undo time, production or fuel use. Transactional purchases and gear changes instead wait for confirmation before taking effect.  Stop and reload when the game reports an uncertain save outcome. Do not repeatedly retry a reward or overwrite the uncertain save. Gameplay and further saving are deliberately halted in this situation.  Keep a recoverable backup. New work archives, retired loot, item types and life-derived health may not work in older versions. Native and browser saves are not interchangeable. Cross-network multiplayer is not established by these local save rules. "
   },
   {
-    "title": "Design goals and open work",
+    "title": "What lies ahead",
     "url": "wiki/articles/roadmap.html",
-    "summary": "Design intent is kept separate from the implemented native snapshot.",
-    "text": "Elysium’s direction combines voxel exploration, action-RPG combat and loot, industry and an optional living-colony layer in a sci-fi solarpunk setting. A design resemblance to another game does not mean its systems are already reproduced here. Full canonical spells and mana, a complete armor/accessory-slot layout, trading and a broader economy, transport between planets, comprehensive NPC schedules and cross-network multiplayer must not be inferred from the narrower implemented mechanics documented here. Specific implementation notes define what a snapshot actually does. Donor rules explain provenance, and roadmap documents describe intent. When they differ, this wiki labels the adaptation instead of quietly treating all three as the same system. The earlier browser adaptation is preserved separately. Its Java/NeoForge source ports, browser-only progression, controls and local saves are not interchangeable with native C++ behavior. It is intentionally excluded from this wiki’s default navigation and search corpus."
-  },
-  {
-    "title": "Combat: choosing an action",
-    "url": "wiki/articles/combat-primer.html",
-    "summary": "The native combat kit combines a physical pulse, close bash, directional guard, a horizontal dash and a radial attack.",
-    "text": "Adventure controls attack enemies; Build controls mine and place matter. The documented keyboard and mouse bindings are LMB pulse, MMB bash, RMB guard, Z dash and X radial. These are baseline bindings, not a promise that every controller or menu version uses identical shortcuts. Guard prevents starting new pulses or bash attacks. Shots already in flight can still hit. Walls matter: combat checks current edited terrain rather than waiting for the visible mesh to catch up. A small opening may admit a point projectile but still be too narrow for your body. The basic pulse and radial are physical adaptations. They do not currently spend mana or ammunition, apply elemental statuses, grant invulnerability, or establish the complete class and spell system."
-  },
-  {
-    "title": "Basic pulse and projectile timing",
-    "url": "wiki/articles/pulse-weapon.html",
-    "summary": "The pulse is the repeatable ranged foundation of the native combat slice.",
-    "text": "A pulse travels at 24 metres per simulated second, up to 24 metres. Its base firing interval is 0.20 seconds. Haste can shorten the interval. Holding fire does not accumulate a catch-up burst after a slow frame. The flight checks the earliest living target along its swept segment. Both the contact point and target torso must be visible. An occluded target stops the shot rather than allowing it to pass through the wall to a farther enemy. Damage and cadence are captured when the shot launches. Equipping another weapon or gaining a level changes future shots, not a projectile already travelling. Entering Build or dying clears player flights; menus pause their simulation."
-  },
-  {
-    "title": "Pierce: trading damage for targets",
-    "url": "wiki/articles/piercing-support.html",
-    "summary": "Pierce is a saved support for the basic pulse, independent of the radial support selection.",
-    "text": "Pierce reduces per-target damage to 85% before rounding and permits up to three distinct target opportunities per shot. None keeps the ordinary single-target pulse. The documented native bag shortcut is Shift+N. Targets are encountered in flight order. Each target can be attempted only once by that shot. A wall or occluded selected target ends the remaining flight. Pierce does not ignore terrain or revisit the same enemy. Pierce is useful when enemies line up; None avoids the damage tradeoff when you need one target down quickly. This is a practical interpretation of the current rules, not a claim of mathematically optimal damage in every encounter."
-  },
-  {
-    "title": "Radial pulse and support choices",
-    "url": "wiki/articles/radial-pulse.html",
-    "summary": "Radial pulse trades a longer cooldown for a burst against nearby visible enemies.",
-    "text": "X uses a 7-metre radius, 7-second base cooldown and 1.8 times projected physical attack damage, rounded once. It selects at most the nearest 12 living enemies before checking visibility. Blocked selections do not invite more distant enemies into the plan. The bag N action cycles None, Swift and Cascade. Swift multiplies damage by 0.85 and cooldown by 0.75. Cascade multiplies damage by 0.85 and radius by 1.45, giving 10.15 metres. Haste then shortens the cooldown. These are mutually exclusive choices, not stacked links. An accepted empty or entirely blocked cast still spends its cooldown. The brief ring shows the accepted cast position and radius, not a shield or expanding wave. Changing support cannot alter an already-running cooldown or ring. At physical damage 12, None projects 22 damage, 7 metres and 7 seconds. Swift projects 18 damage, 7 metres and 5.25 seconds. Cascade projects 18 damage, 10.15 metres and 7 seconds, before any haste."
-  },
-  {
-    "title": "Dash, guard and avoiding damage",
-    "url": "wiki/articles/dash-and-guard.html",
-    "summary": "Movement and directional defense complement armor; they do not replace terrain awareness.",
-    "text": "Z moves horizontally in the movement direction, or flattened camera-forward when stationary. Maximum travel is 8 metres with a 4-second base cooldown. The full body must fit along the route. Partial clear travel spends the full cooldown; a fully blocked request does not. Dash has no damage, mana cost or invulnerability window. It preserves vertical motion, and landing damage is resolved before dash eligibility. A fatal landing cannot be undone by pressing dash. Holding guard suppresses new basic shots and bash. Guard uses incoming direction; it is not an all-direction shield. Already-launched enemy bolts remain dangerous after their shooter dies."
-  },
-  {
-    "title": "Melee and ranged hostile behavior",
-    "url": "wiki/articles/hostile-behavior.html",
-    "summary": "Current native enemies include close attackers and a provisional ranged roaming role.",
-    "text": "Ranged enemies lock aim at the start of a 0.8-second windup, then fire a point bolt at 10 metres per second, with 24-metre travel and base damage 8. Recovery lasts 2 seconds. Moving after the aim locks can avoid the shot; the telegraph is not a guaranteed hit. Obstruction can cancel a windup. A launched bolt can survive its shooter, while killing or unloading an enemy before launch prevents that pending bolt. Enemy health and deaths persist; movement, windups and flights are reconstructed or cleared on reload. The movement is a bounded direct approach, not a complete terrain pathfinding or tactical cover system. Starter encounters remain melee; not every roaming encounter receives the ranged role. These provisional behaviors do not represent all designed enemy species or bosses."
-  },
-  {
-    "title": "Experience and level-based power",
-    "url": "wiki/articles/experience-and-levels.html",
-    "summary": "Native eligible hostile kills award durable experience and increase future attack power as levels rise.",
-    "text": "A regular eligible native hostile kill awards 35 XP. A saved death cannot be killed again for another reward by reloading. This is the implemented combat reward policy, not a promise that every peaceful activity awards character XP. Projected physical damage is rounded once from (12 + 3 × (level − 1) + equipped power) × (1 + damage bonus + attack-damage bonus). Native level-one base power remains 12. Higher level affects new attacks, not existing projectiles. Very large valid gear and level combinations can exceed the supported attack range. Those attacks become unavailable rather than silently reduced. Equipment management remains available so the combination can be changed. This limit is not a soft-cap build system. The wider reference includes attributes, passive allocations, profession experience, origins and callings. Their presence in reference or donor code must not be confused with a complete native progression menu or all these rewards being active. The requested correctness direction is to let otherwise valid attacks resolve at the safe maximum damage rather than become unavailable when their calculated damage exceeds the bound. This saturation behavior remains planned pending verification; it is not claimed as behavior of the documented native snapshot."
-  },
-  {
-    "title": "Loot rolls, pending rewards and inventory space",
-    "url": "wiki/articles/loot-rolls.html",
-    "summary": "Unique rewards are fixed by the eligible kill, then claimed into the ordinary pack.",
-    "text": "The current regular native kill policy uses a 30% drop roll. The documented P action resolves one pending reward. A full pack leaves the same reward pending; making room does not reroll its item or affixes. Regular generated items use the Oathblade weapon, Warden mantle armor and Astral conduit charm families. The saved kill sequence determines the family; regular rewards are rare items with three distinct affixes. A fourth-affix epic boss path exists in the source generator but is not a current native boss reward feature. Pending loot is not proof of a persistent physical corpse you can revisit or share. Unique gear stays in the player pack and cannot be stacked, traded, or deposited into machines in this slice."
-  },
-  {
-    "title": "Affixes: active effects and stored rolls",
-    "url": "wiki/articles/gear-affix-guide.html",
-    "summary": "An item can preserve an affix without the current combat slice applying its effect. Check the active effect indicator rather than assuming every label works.",
-    "text": "Equipped power, general damage, attack damage, armor, haste and life have native effects. Power and damage terms improve outgoing physical attacks; armor reduces supported incoming physical hits; haste shortens supported action intervals; life increases maximum health. Spell damage, elemental damage, resistance, elemental penetration, critical chance, mana, recovery and penetration remain stored item data without the complete corresponding native combat systems. A large roll in one of these fields is not an active benefit in the current slice. The generator chooses distinct affixes and scales their starting ranges by 1 + 0.035 × (item level − 1), rounding the result to thousandths. This is item generation, not a guarantee that all displayed percentage-like values are currently applied. The broader requested design calls for many rarity grades and contextual enemy loot. Do not interpret the current rare/epic source terms as a completed common-to-SSR economy, luck system, or full enemy-specific table."
-  },
-  {
-    "title": "Armor, haste and maximum health",
-    "url": "wiki/articles/armor-haste-life.html",
-    "summary": "These three active defensive and timing effects solve different problems.",
-    "text": "For supported incoming physical damage d, the armor expression is d × (1 − armor / (armor + 8d + 1)), followed by the existing directional guard path. Armor is not a claim of elemental resistance, immunity, or environmental sealing. Supported cooldowns use base interval / (1 + haste). Pulse, bash, dash and radial projection use their applicable haste rules. Each action captures its interval; swapping gear does not rescale a timer already in progress. Native maximum health is 100 plus equipped canonical life. Equipping more life keeps current health unchanged; removing it may clamp current health down to the smaller maximum. A cap increase does not revive a dead character. Extremely large health values use finite-precision arithmetic, so very small damage or healing can stop changing the displayed total. This documented limitation is not an intended invulnerability perk. Older builds may not safely understand saves with health above their old limits."
-  },
-  {
-    "title": "Building around the current combat kit",
-    "url": "wiki/articles/build-archetypes.html",
-    "summary": "These are rule-based starting points for experimentation, not locked classes or promised optimal builds.",
-    "text": "Use the ordinary pulse support when its full per-target damage matters. Prioritize active power and physical damage terms; haste creates more frequent opportunities. A promising spell or critical roll does not help if its effect is still inactive. Pierce favors lines of targets, while Cascade expands radial reach at a damage cost. Swift trades some radial damage for shorter downtime. Cover can block either plan; arrange the fight instead of treating an area indicator as wall-piercing damage. Life offers a larger health buffer and armor reduces supported physical hits. Environmental survival still needs an intact sealed suit and air; neither a Warden mantle name nor a large life roll supplies oxygen. Dash offers repositioning, not invulnerability. The design reference describes passive-driven builds, elements, runes and ascension. These are a separate expansion track, not hidden options unlocked by the current three supports."
-  },
-  {
-    "title": "Pack management and unique-item retirement",
-    "url": "wiki/articles/inventory-and-discard.html",
-    "summary": "Ordinary resources and unique gear share a 36-slot pack but follow different rules.",
-    "text": "Backpack items can be moved or swapped into accessible hotbar slots. Operations respect complete item identity and capacity; fractional resources can merge only within their stack limit. A focused detail is not necessarily the held item used by a hotbar action. Equipping a unique item references that same item in the pack. It does not create a duplicate in a separate equipment bag. The current canonical system equips one weapon, armor and charm family, not every jewelry slot shown in long-term concepts. The baseline bag action requires two Delete presses within five seconds for the same selected unique item. Selection changes or competing actions cancel confirmation. Discard removes and unequips it with no salvage reward; there is no undo or reroll. Discard frees pack space but does not erase the item’s historical identity. The current system has a finite lifetime record limit, so discarding is not an unlimited collection-reset trick."
-  },
-  {
-    "title": "Environmental suits and protective layers",
-    "url": "wiki/articles/suit-layers.html",
-    "summary": "Environmental equipment is separate from unique combat loot.",
-    "text": "The environmental loadout has head, torso and leg positions in under and over layers. The under-layer forms the seal; outer armor does not make an incomplete under-suit airtight. Thermal, radiation and impact protection can draw from both layers. A complete functioning under-suit can use its carried air. A broken seal means the tank is not a usable breathing supply. Outer protection is worn before the suit beneath it where applicable, and corrosion attacks exposed layers. A damaged worn piece must be repaired before replacing it with an ordinary packed piece. This prevents returning damaged worn equipment to inventory as a falsely pristine item. It is a temporary condition-storage constraint, not a salvage recipe."
-  },
-  {
-    "title": "Breathing, hazards and recovery",
-    "url": "wiki/articles/oxygen-and-survival.html",
-    "summary": "A safe expedition depends on the environment, suit condition, carried air and health, not one combined defense score.",
-    "text": "Breathable surroundings can refill suit supply under the current survival rules. Manufacturing or equipping a suit does not grant free air. If only part of a simulation step is covered by remaining suit air, the remaining time is treated as unsupported breathing time. Thermal exposure, radiation, corrosion, immersion and lava are distinct environmental inputs. Ordinary regeneration waits after damage rather than healing freely through every hazard. A health-cap increase from gear is not an instant heal. A roof that looks plausible is not enough to promise a breathable room. Room detection, power, filter supply and atmosphere determine whether the current system provides shelter and air. Current room detection is not a finest-subvoxel airtightness guarantee."
-  },
-  {
-    "title": "Home guidance versus a recovery camp",
-    "url": "wiki/articles/camp-and-home.html",
-    "summary": "Home and camp are intentionally separate: one guides travel, the other can select a recovery position.",
-    "text": "F6 marks a grounded, clear position as home; Shift+F6 clears it. Home gives return direction and height information. It does not teleport you or change the respawn point. Guidance across a different planet face must not be read as a straight local route. F9 marks a separate native camp; Shift+F9 clears it. Marking requires a clear, dry, supported body position and active gameplay controls. It does not heal, repair equipment, award items or reset combat progress. Recovery uses the exact camp only if its current same-face geometry remains safe for the body. If it is obstructed or invalid, the existing default recovery path is used. A geometrically valid camp does not promise oxygen, good weather, or freedom from enemies."
-  },
-  {
-    "title": "Mining whole blocks and subvoxels",
-    "url": "wiki/articles/mining-and-microblocks.html",
-    "summary": "Fine terrain edits preserve material quantities rather than treating every small chip as a whole block.",
-    "text": "The native block model supports 16 subdivisions along each axis: 4,096 subvoxels in a whole block. Resource fractions can be retained and combined. Whole-cell crew jobs and fine player carving are not interchangeable commands. Mining checks the current material, tool capability and available output space. A preview does not guarantee a later hit if the cell changes. Repeating a completed removal must not generate the same stock again. Procedural tree collision and fine harvesting are a separate current development slice from the retained native baseline. Do not assume that every plant model is a harvestable resource, or that cosmetic groundcover represents inventory matter."
-  },
-  {
-    "title": "Iron-head pick upgrade",
-    "url": "wiki/articles/iron-pick-upgrade.html",
-    "summary": "A small permanent upgrade improves mining speed without opening a new material tier.",
-    "text": "Hold ordinary iron ingots in the hotbar, open the native bag and use a fresh R action on the visible iron detail. The upgrade consumes exactly three ingots. A backpack focus alone is not the held source. The pick remains tier 2 while speed increases from 4 to 6. Preferred-tool stone time changes from 0.30 to 0.20 seconds; iron from 0.375 to 0.25 seconds. Minimum durations mean very small chips do not always gain the full one-third reduction. Other starter tools are unchanged, including the cutter’s existing tier-3 capability. This is not a portable tool part, durability system, refundable swap or new ore unlock. Existing queued crew jobs retain the duration captured when they were prepared."
-  },
-  {
-    "title": "From stone and logs to a powered workshop",
-    "url": "wiki/articles/starter-production-route.html",
-    "summary": "The current starter route uses a small hand-assembly catalogue to reach station-based industry.",
-    "text": "Field Assembly makes a Furnace kit for 8 stone and 2 logs. Coal fuels furnace processing. Obtain ore, fuel and storage space before treating the kit as a source of ingots. An Alloy Crucible kit costs 8 stone and 4 iron ingots. Its steel processing needs power. A Fabricator kit costs 4 iron ingots, 2 copper ingots and 2 steel ingots and also needs power to manufacture components and more kits. The three hand-assembled kits are provisional native bootstrap recipes. They do not let you create processed ingots by hand or bypass station fuel and electricity. Later machine kits use powered component recipes. Assembly consumes exact fractional material units across stacks, then checks whether the result fits. A slot emptied by payment can hold the result. Missing materials or insufficient final capacity must leave the pack unchanged."
-  },
-  {
-    "title": "Workshop recipes, queues and blocked production",
-    "url": "wiki/articles/workshop-queues.html",
-    "summary": "A recipe preview is a plan; production requires paid materials, usable capacity and its station conditions.",
-    "text": "Baseline machine controls use Y/Shift+Y to select a recipe, U/Shift+U to queue one or ten batches, T/Shift+T to deposit or withdraw, and Alt for whole-stack transfer where supported. Check the current control screen if using a newer interface. An active batch can reserve inputs while its progress continues. Replacing or clearing the queued future work is not permission to recreate already-paid inputs or duplicate a finished batch. Check enabled state, actual power or fuel, ingredients, active reservations and destination capacity. A powered machine cannot produce with missing inputs, and a full destination can prevent a transfer even when a recipe is complete. Ordinary factory actions become live before the next save. A failed save does not automatically undo everything that ran since the previous checkpoint. Reload returns to the saved world; do not treat every machine click as a separately saved transaction."
-  },
-  {
-    "title": "Machine families and production roles",
-    "url": "wiki/articles/factory-components.html",
-    "summary": "Stations turn gathered resources into components that support tools, survival and automation.",
-    "text": "The Furnace handles fuel-dependent smelting and related outputs; the Alloy Crucible supports alloys such as steel; the Crusher produces aggregates; the Chemical Vat supports chemical products such as sealant; the Refinery exposes ore/concentrate processing; the Fabricator makes components and equipment. Crusher aggregate and furnace carbon feed sealant production, which in turn supports repair kits and composite panels. These branches make environmental suits and further construction possible; they are not independent free-output menus. Machine placement represents a real simulated machine, but the baseline often uses schematic footprint markers rather than full solid machine art. A schematic does not by itself establish a collision body or an animated production line."
-  },
-  {
-    "title": "Provisional machine kit reference",
-    "url": "wiki/articles/machine-kit-recipes.html",
-    "summary": "These powered Fabricator recipes describe the native milestone, not universal design-document costs.",
-    "text": "Crusher: 1 casing + 2 steel ingots, 6 seconds. Chemical Vat: 1 casing + 2 copper ingots, 6 seconds. Refinery: 2 casings + 1 control circuit, 8 seconds. Conveyor: 1 steel frame + 2 copper wire, 3 seconds. Sorter: 1 steel frame + 1 control circuit, 4 seconds. Network Storage: 1 casing + 2 control circuits + 2 copper wire, 6 seconds. Battery Bank: 1 casing + 2 copper ingots + 2 control circuits, 6 seconds. Extractor and Cargo Loader each use 1 casing + 1 actuator + 1 control circuit over 8 seconds. A placed battery starts empty. Older builds may not understand new kits or queued recipes. Keep a backup and avoid downgrading a world after using newer production content. Exact recipes are deliberately labeled provisional rather than presented as immutable lore."
-  },
-  {
-    "title": "Manufacturing a renewable under-suit",
-    "url": "wiki/articles/manufacturing-suits.html",
-    "summary": "The Fabricator can replenish the ordinary equipment used for environmental survival.",
-    "text": "The provisional recipe consumes 2 composite panels, 1 sealant and 1 copper wire, producing one Sealed Helmet in 6 seconds. The Hazard Suit consumes 4 composite panels, 2 sealant and 1 steel frame over 8 seconds. Sealed Leggings consume 2 composite panels, 1 sealant and 1 steel frame over 6 seconds. Withdraw the gear, move it to a usable held slot and equip it. A manufactured piece is pristine but does not refill carried air. Repair damaged worn equipment before replacement and arrange breathable conditions for replenishment."
-  },
-  {
-    "title": "Power demand, priorities and brownouts",
-    "url": "wiki/articles/power-and-brownouts.html",
-    "summary": "Power is a rate; batteries hold energy. A running network must balance both.",
-    "text": "Life support and defense have higher priority than ordinary industrial loads. Network Storage and Cargo Loaders draw industrial power, default demand 4 and priority 4, rather than remaining magically powered with no generation. Current loads are admitted for a full simulation step or shed. A nearly empty battery may have a positive residual that cannot meet the entire step’s demand. That energy is retained rather than erased or treated as free power. Only the portion of a step covered by available fuel contributes generation. Long steps do not create energy from a tiny remaining fuel charge. This is not a promise that every possible split of time produces identical scheduling decisions."
-  },
-  {
-    "title": "Batteries: charging, transferring and recovering",
-    "url": "wiki/articles/battery-recovery.html",
-    "summary": "Recovery must preserve energy instead of hiding a charged battery inside an ordinary empty kit.",
-    "text": "The current battery holds 60 energy units and charges or discharges at up to 15 power units. Placement begins at zero charge; generation must fill it. Disable both batteries. The documented Build action Shift+H transfers the nearest charged battery’s entire charge into a nearby disabled empty battery on the same face. Partial combination is not supported. Then move near the emptied source and use ordinary H recovery. A nonempty receiver refuses the transfer. Any positive source charge, however small, prevents packing it as an empty kit. Full inventory, stored cargo, fuel or production state can also prevent recovery under the machine’s rules."
-  },
-  {
-    "title": "Network Storage, conveyors and sorters",
-    "url": "wiki/articles/storage-and-routing.html",
-    "summary": "Network access and belt routes are different ways to move real stored resources.",
-    "text": "Workshops use local ingredients first, then enabled, powered storage on the same network. Finished output stays local when it fits and spills into storage only if local capacity is insufficient. This is not a world-wide shared stash. Manual deposits and withdrawals can work while storage is offline. Network Storage has 64 stack slots. Its inspector reports actual enabled/powered flags and occupied capacity rather than promising that another nearby transfer action will choose it. Place conveyor segments from source toward sink. An empty sorter passes all item types; a retained sample filters the route. The sample is real inventory, not a free filter token. Route arrows describe endpoints and current state, not individually moving item meshes."
-  },
-  {
-    "title": "Cargo Loaders and conserving delivery",
-    "url": "wiki/articles/cargo-loaders.html",
-    "summary": "A Cargo Loader bridges belt routing and powered same-network storage.",
-    "text": "For the selected item type, local stock is preferred before eligible remote storage. A receiving loader uses its local buffer first and spills remotely only when local insertion cannot accept the item. If the destination cannot receive cargo, the source must keep it. Connected remote stock is not deleted just because an empty loader is recovered. Sorting samples, local buffers and remote inventories remain separate. Automated loader behavior requires its industrial power conditions, while manual access remains available offline. Existing lane transfer budgets may carry over from an unpowered interval, so the first powered tick should not be read as a universal two-items-per-tick promise."
-  },
-  {
-    "title": "Automated extraction and output belts",
-    "url": "wiki/articles/automated-extraction.html",
-    "summary": "An Extractor is deliberately more conservative than a player carving mixed microgeometry.",
-    "text": "Current extraction certifies untouched, homogeneous natural whole-cell material on the finest lattice. Edited, carved or mixed cells are refused rather than credited as a full block. Power, placement, protection and output capacity are checked again before the removal. An enabled Extractor can export already-buffered output to a correctly directed belt even during a power outage. Producing new extracted stock still needs power. Belts cannot deposit material into the Extractor. Disable and empty the Extractor before recovery. Unpaid scan progress can be discarded, but stored resources, charge or paid production cannot be silently thrown away. Replacing a recovered machine creates a new identity, so an old pending mining action cannot affect the replacement."
-  },
-  {
-    "title": "Rooms, filters and breathable shelter",
-    "url": "wiki/articles/rooms-and-filtering.html",
-    "summary": "A powered Atmosphere Unit needs a detected room and paid filter time to change its atmosphere.",
-    "text": "A residual charge covers only its remaining duration. If 0.01 seconds remain, a larger step does not receive a whole step of free filtering. Pressure and oxygen changes correspond to paid time. The current rule loads at most one cartridge at the start of a step when needed. It is not an unlimited automatic refill loop. Disabled or unpowered units do not provide their normal filtering effect. Do not equate a visual enclosure with a certified breathable room, or expect every subvoxel hole to be modeled by room sealing. The retained milestone does not provide a complete player-facing doorway placement/use/recovery system."
-  },
-  {
-    "title": "Crew mining and construction designations",
-    "url": "wiki/articles/crew-designations.html",
-    "summary": "Designations ask citizens to perform work; they do not instantly alter the terrain.",
-    "text": "The native crew controls include J mining, K construction, Shift+J planar mining areas and Shift+K planar construction areas, with up to nine candidates. The chosen building material is captured. Partial acceptance is possible when some candidates are invalid. A worker must reach a clear supported stance and see the target within 2.8 metres of its body center. Construction pays the actual material when work completes. A designation is not an upfront material reservation, free wall or teleport instruction. No route, obstruction, body overlap, insufficient stock or unsuitable target can block completion. Upper walls and roofs may be reachable, but there is no automatic scaffolding or guarantee every 3×3 area will finish."
-  },
-  {
-    "title": "Completed work and history maintenance",
-    "url": "wiki/articles/work-history.html",
-    "summary": "Finished and cancelled jobs retain history until you deliberately archive details.",
-    "text": "Job identity prevents a completed task from being accidentally replayed as new output after reload. Current limits distinguish full job records from a finite archive of retired identities. In an owned native world, bag F7 opens a paused confirmation. Enter archives up to 64 terminal jobs; Escape or timeout cancels. Queued or running work is not selected. Archiving gives no resources or XP. Archived jobs lose detailed specification and target records while retaining identity and final outcome. The first archive changes compatibility: older builds cannot load that work format. This is not unlimited storage and cannot reconstruct history removed from an externally restored older backup."
-  },
-  {
-    "title": "Life skills, professions and practice",
-    "url": "wiki/articles/life-skills.html",
-    "summary": "The reference envisions practical professions that connect character development with settlement work.",
-    "text": "The Sixth Edition describes extraction and construction, metallurgy and fabrication, utilities and maintenance, agriculture and food, medicine, knowledge, administration and social work, combat, and art and culture. The design calls for learning by practice with diminishing returns and support from mentorship, guilds, libraries and drills. Injury, stress and tools can reduce effective performance without erasing learned rank. A profession label is not intended to forbid every other kind of work. Do not assume every action in the native milestone already awards profession XP or unlocks these institutions. Current mining, crafting and crew loops are a foundation; the full profession progression and its player-facing feedback remain separate work."
-  },
-  {
-    "title": "Sockets, reforging and ascension",
-    "url": "wiki/articles/sockets-reforging-ascension.html",
-    "summary": "Advanced item customization belongs to the wider design and donor systems, not the current native equipment loop.",
-    "text": "The reference separates immediate inventory crafting, ordinary fabrication, powered processing and item-preserving workstations. Socketing, reforging and ascension are meant to act on existing items rather than replace them with unrelated copies. The cited Sixth Edition section describes tier-derived sockets, a 1.75× aligned rune/item element bonus and no duplicate rune ID on one item. These are historical design rules, not verified current native socket counts or a usable station recipe. The current native loop supports claiming, equipping and explicitly discarding unique gear. Discard is not salvage, and a stored affix is not an enchantment interface. No complete native socket/reforge/ascension workflow is established here."
-  },
-  {
-    "title": "From work crews to a settlement society",
-    "url": "wiki/articles/colony-institutions.html",
-    "summary": "The long-term colony design goes beyond a set of workers completing mining orders.",
-    "text": "The reference describes public halls, shrines, guildhalls, libraries, hospitals, memorials, assemblies and barracks. They are intended to use actual people, supplies, rooms and obligations rather than function because a sign labels a room. Hospitals need diagnosis, treatment, recovery supplies and reservable beds. Memorials and archives preserve authorship, ownership, cultural associations and important events. These are design directions, not current native menu features. Current crew mining/construction and persistent work history do not demonstrate full citizen relationships, daily schedules, institutional staffing, justice or medical treatment. Those systems must not be advertised as completed on the strength of a work-order demo."
-  },
-  {
-    "title": "Economy, trade routes and social consequences",
-    "url": "wiki/articles/economy-and-trade.html",
-    "summary": "The reference connects production with commerce, institutions and political attention.",
-    "text": "Markets are meant to respond to supply and demand; caravans carry manifests along routes; contracts track objectives and deadlines. Trade changes ownership and relationships rather than merely deleting goods for an arbitrary reward. Weather, threats and political suspicion can affect routes. The reference’s economy is entangled with diplomacy and local consequences. This is broader than the native Cargo Loader and must not be confused with automated interplanetary trading already being available. Unique native gear cannot currently be traded or moved into machines. Local storage and belts are industrial logistics, not a completed player market, auction house or shop-management system."
-  },
-  {
-    "title": "Planets, biomes and material identity",
-    "url": "wiki/articles/planetary-worlds.html",
-    "summary": "World variety is meant to change survival and construction decisions, not just terrain color.",
-    "text": "The Sixth Edition describes planet classes, temperate biomes, bounded fluids and gas behavior, and distinct hazard/build identities. It expects materially different exploration decisions across worlds. The native implementation uses deterministic planetary terrain and local editable matter. Existing world tests and a generated scene do not prove seamless travel across every face or a complete interplanetary game loop. Original plant meshes, cosmetic groundcover and procedural trees are different systems. A visual plant does not automatically have harvest yields, growth, ecological behavior or simulation collision."
-  },
-  {
-    "title": "Flora, fauna and contextual resources",
-    "url": "wiki/articles/ecology-and-harvest.html",
-    "summary": "The broader direction calls for ecosystems with useful differences, not recolored decoration.",
-    "text": "Terrain material, harvestable procedural matter and decorative original plant assets should be described separately. A rooted visual model is not evidence of crop growth, renewable harvest cycles, predator-prey simulation or a full creature loot table. The design reference calls for crops, livestock, kitchens and fertilizer loops, with named or owned animals retaining meaningful identity. These systems are a future expansion of the world simulation rather than guaranteed features of the documented native snapshot. Use current interaction feedback to determine what can be gathered. Do not plan a survival route around decorative plants or assume a tree will regrow, fall physically, seal a room, or feed an industrial extractor unless that behavior is explicitly supported."
-  },
-  {
-    "title": "Travel, outposts and returning to a world",
-    "url": "wiki/articles/travel-and-outposts.html",
-    "summary": "The intended travel system connects durable sites rather than generating unrelated disposable minigames.",
-    "text": "The Sixth Edition includes ship modules, cargo and a travel-state sequence. The intended outcome is that travel retains manifests and identities and returns to preserved local consequences. Current home guidance and camp recovery help exploration on the local world. They are not ship flight, interplanetary teleportation or a shared multiplayer respawn service. Do not assume a closed application or unloaded distant base continues all industry, sieges or citizens indefinitely. Offline progression and synchronized travel are explicit design questions, not established consequences of persistent saves."
-  },
-  {
-    "title": "Multiplayer and network expectations",
-    "url": "wiki/articles/multiplayer-status.html",
-    "summary": "Local persistence, Network Storage and a menu connected to game data do not by themselves constitute multiplayer.",
-    "text": "It is a base-local industrial inventory connection. It does not connect another player over the internet, authenticate a remote builder or grant access to someone else’s pack. Shared claims, political suspicion, permission to build or trade, offline base progress and synchronized travel need explicit multiplayer rules. The reference calls out these choices rather than treating them as presentation details. WAN play, remote command ownership, replication and physical-controller compatibility require their own evidence. This wiki’s local native mechanics should not be interpreted as a statement that separate-network co-op is available."
-  },
-  {
-    "title": "Saving, version compatibility and safe recovery",
-    "url": "wiki/articles/save-compatibility.html",
-    "summary": "Persistent progress is valuable only when the game can interpret it consistently.",
-    "text": "Back up a world before adopting new item, recipe or history features. A new version reading an older save does not mean an older version can safely read the new save. Work-history archival and newer equipment/recipes carry explicit downgrade cautions. Some actions, such as unique-item equipment or a camp configuration, confirm a saved change as part of the action. Ordinary factory production and resource transfers may advance live state before the next world save. Do not assume every successful interaction is already on disk. If the game cannot determine whether a durable change completed, it stops further mutation and saving until reload. This avoids overwriting the result with guessed state. Reopening the world, not blindly repeating a reward action, is the safe recovery path. Restoring an older whole-world backup can remove history that the newer file held. Persistence safeguards do not magically reconstruct deleted backups or provide online anti-cheat."
+    "summary": "Preview the wider Elysium design without mistaking future systems for current controls.",
+    "text": "The intended game brings voxel exploration, action-RPG combat, loot and industry together with an optional living-colony layer in a sci-fi solarpunk universe.  Full spells and mana, expanded armor and accessory slots, trading, a broader economy, interplanetary transport, comprehensive NPC schedules and cross-network multiplayer remain separate goals rather than instructions you can follow here.  The early vehicle direction is one fixed-design amphibious rover with oversized tires that act like pontoons on water, plus one fixed starter spacecraft. Later designs are intended to be modular and player-buildable. These are planned features, not available vehicles promised by this guide. "
   },
   {
     "title": "How to read mechanics status",
     "url": "wiki/articles/mechanics-status-guide.html",
-    "summary": "This guide separates implemented native behavior from the larger design so players can plan without mistaking ambition for a release promise.",
-    "text": "Native snapshot means the rule is supported by the documented native snapshot’s source and verification. It is not a guarantee that every download, platform, menu revision or controller binding has the same completed integration. Provisional numbers may change. Design reference describes what the source documents or explicitly identified donor mechanics specify. Planned marks a desired direction or missing player-facing integration. Neither label means you can use the feature in the current game. Keyboard bindings describe the baseline native interaction. The original-menu and Windows handoff work is a separate integration track. Blank item slots should remain blank rather than showing invented equipment; existing controls and actual item ownership take precedence over concept art."
+    "summary": "Start with pages marked How to play for usable mechanics. Reference and Planned pages describe wider ideas or future work.",
+    "text": "Rules and keyboard controls in this pack describe the documented documented version. Check your build’s control screen when its interface differs. Provisional values can change.  Reference is a preview drawn from the design documents or a named earlier version. Planned is requested future work. Neither label means a feature is available to use. Setting pages describe the world and its background.  A blank equipment slot is empty, not missing an imagined item. Concept layouts may show more slots than the current equipment system supports; use the actual item and control feedback. "
   },
   {
-    "title": "Ground vehicles: rovers, crawlers and mining rigs",
-    "url": "wiki/articles/vehicles.html",
-    "summary": "Ground vehicles are part of the design reference, not drivable features in the current documented native snapshot.",
-    "text": "The scout rover is designed for fast survey with light cargo. Terrain vulnerability is an intended tradeoff: speed does not mean every slope or obstacle becomes irrelevant. The cargo crawler is a slow bulk hauler. Roads and bridges are intended to make routes more useful, connecting surface extraction to a base or landing pad rather than replacing all local logistics with instant transfers. The mining rig is a power-hungry mobile drill or extractor. The reference connects its activity to political suspicion. This is not the same as the current stationary Extractor kit, and its driving, deployment and upkeep are not current playtest features. No current player driving controls, build recipe or vehicle acquisition route are established by the current documented native snapshot. Any historical prototype must be identified by its own version rather than presented as an available vehicle in this build."
+    "title": "Breathing, hazards and recovery",
+    "url": "wiki/articles/oxygen-and-survival.html",
+    "summary": "Before leaving breathable surroundings, check your seal, carried air and health. Combat defense alone will not keep you breathing.",
+    "text": "Breathable surroundings can replenish suit air. Crafting or equipping a suit does not fill it. When the tank runs out partway through an interval, the remaining time counts as unprotected breathing.  Heat or cold, radiation, corrosion, immersion and lava affect survival separately. Regeneration waits after damage; it is not continuous protection from hazards. Equipping more maximum health does not heal you.  A useful shelter needs a detected room, power, filter supply and suitable atmosphere. A convincing-looking enclosure is not enough, and tiny subvoxel holes are not a reliable airtightness test. "
   },
   {
-    "title": "Modular ships and expedition preparation",
-    "url": "wiki/articles/modular-ships.html",
-    "summary": "The ship design emphasizes expedition preparation, cargo and route choice rather than promising a completed dogfighting simulation.",
-    "text": "The reference lists Warp Drive I–IV, Pulse Engine, Atmospheric Thrusters and Vector Jets. It describes discrete jump-range tiers and planning limits from fuel, cargo and handling. These are design entries, not selectable native ship upgrades today. Fuel Tanks, Cargo Racks, Survey Scanners, Deep Scanners and Atmosphere Samplers serve exploration. Hull Plating, Thermal Shields, Radiation Baffles, Autopilot, a Navigation Core and Emergency Beacon support protection and travel. Autopilot is framed as assistance, not permission to ignore every hazard. Proposed modules include Docking Collars, Drone Bays, Habitation Pods, a Small Refinery and Smuggler Hold. The reference describes inefficient field processing and a cargo-efficiency tradeoff for reduced inspection exposure. These are planned interactions, not a current smuggling economy. Continuous orbit-to-surface travel without a loading screen is a design goal. It has not been established by the current local world, home marker, camp recovery or movement fixtures."
+    "title": "Home guidance versus a recovery camp",
+    "url": "wiki/articles/camp-and-home.html",
+    "summary": "Use home for directions and camp for recovery after death. They are separate markers.",
+    "text": "Stand grounded in a clear position and press F6; Shift+F6 clears it. Follow its direction and height guidance to return. Home does not teleport you or set recovery. Guidance from another planet face is not a straight local route.  Setting camp does not heal, repair gear or reset combat progress. Shift+F9 clears it. Return to active gameplay controls. Stand in a clear, dry, supported position. Press F9 to mark the recovery camp. After death, the game rechecks the exact camp position on the same face. If blocked or invalid, it uses default recovery. A clear camp can still lack oxygen or contain hostile weather and enemies. "
   },
   {
-    "title": "Early vehicles: amphibious rover and starter spacecraft",
-    "url": "wiki/articles/early-vehicle-direction.html",
-    "summary": "The first vehicle direction pairs one fixed starter rover with one fixed starter spacecraft, before later modular construction.",
-    "text": "The starter rover is intended to have oversized tires and act like a pontoon boat on water. It is one amphibious vehicle, not a separate rover and boat. Its first design is fixed. A basic pilotable spacecraft is the other fixed-design starting vehicle. Later vehicle designs are intended to become fully modular and player-buildable. This is requested development direction, not a delivered or playable feature. No completed acquisition recipe, release date or inclusion in the current documented native snapshot is claimed."
+    "title": "Mining whole blocks and subvoxels",
+    "url": "wiki/articles/mining-and-microblocks.html",
+    "summary": "Gather only what you remove. Fine carving produces fractions of a block, which can be combined for crafting.",
+    "text": "A whole block contains 16 × 16 × 16 subvoxels: 4,096 in total. Keep fractional resources rather than treating each chip as a whole block. Crew whole-cell work is different from fine player carving.  Check the target material, tool capability and pack space. A preview can become invalid if the target changes. An already-removed piece cannot provide more stock.  Not every visible plant is harvestable. Decorative groundcover is not inventory matter. Tree collision and fine harvesting are outside this version; follow the interaction feedback for your build. "
+  },
+  {
+    "title": "Pack management and unique-item retirement",
+    "url": "wiki/articles/inventory-and-discard.html",
+    "summary": "Your pack has 36 slots. Put an item in a usable hotbar slot before trying an action that uses the held item.",
+    "text": "Move or swap backpack items into hotbar slots. Fractional resources merge only up to their stack limit. Opening an item detail does not necessarily make that item your held selection.  Equipped unique gear remains the same item in your pack. The current equipment families are weapon, armor and charm; concept jewelry slots do not add usable equipment positions.  Discard also unequips the item, awards no salvage and cannot be undone or rerolled. Select the unique item you intend to remove in the bag. Press Delete once. Press Delete again within five seconds without changing selection or taking a competing action. Discard frees a pack slot but retains the item in lifetime history. That history is finite; discarding does not reset the collection limit. "
+  },
+  {
+    "title": "From stone and logs to a powered workshop",
+    "url": "wiki/articles/starter-production-route.html",
+    "summary": "Start with a Furnace, smelt your first ingots, then build powered stations for steel and components.",
+    "text": "The kit costs 8 stone and 2 logs. Coal fuels processing; gather ore and leave room for ingots. Open the bag with Tab, then press M for Field Assembly. Use Left/Right to choose the Furnace; press Enter once to assemble one kit. M returns to the bag; Tab closes it. Place the kit, supply ore and coal, then use the station controls to process them. An Alloy Crucible kit costs 8 stone and 4 iron ingots and needs power to make steel. A Fabricator kit costs 4 iron ingots, 2 copper ingots and 2 steel ingots. Power it to make components and further kits.  Field Assembly offers only these three starter kits. It does not produce ingots or bypass fuel and electricity. Use station recipes for later machines. These starter costs are provisional.  Check total materials and the space remaining after payment. Fractions across stacks count toward whole costs, and an emptied ingredient slot can hold the kit. Missing materials or insufficient final space leave your pack unchanged. "
+  },
+  {
+    "title": "Workshop recipes, queues and blocked production",
+    "url": "wiki/articles/workshop-queues.html",
+    "summary": "Supply a station, choose its recipe and queue batches. If work stalls, check inputs, power or fuel, and output space.",
+    "text": "Alt transfers whole stacks where supported. Use the controls for the station you intend to operate. Deposit ingredients with T and provide the station’s fuel or power. Select a recipe with Y/Shift+Y. Queue one batch with U or ten with Shift+U. When output is ready, withdraw with Shift+T. An active batch may already hold its ingredients while the progress bar advances. Clearing future queued work does not restore those paid ingredients or duplicate a finished batch.  Check that the station is enabled, has power or fuel, has the required inputs, and has somewhere to put output. Ingredients reserved by active work are not spare stock. A full destination can block transfer even after production finishes.  Factory work and ordinary transfers can occur before the next world save. A failed save does not rewind the running factory; reloading returns to the last saved state. "
+  },
+  {
+    "title": "Iron-head pick upgrade",
+    "url": "wiki/articles/iron-pick-upgrade.html",
+    "summary": "Spend three iron ingots to mine faster with the starter pick. This improves speed, not the materials it can break.",
+    "text": "The permanent upgrade costs exactly three ordinary iron ingots. A backpack focus alone is not your held source. Put ordinary iron ingots in a hotbar slot and hold that stack. Open the native bag and show the held iron detail. Press R afresh to buy the upgrade. Pick tier stays 2 and speed rises from 4 to 6. Preferred-tool stone takes 0.20 seconds instead of 0.30; iron takes 0.25 instead of 0.375. Minimum durations limit the improvement on very small chips.  Other starter tools, including the tier-3 cutter, stay unchanged. The upgrade is not a removable part or refundable swap and does not add durability or ore access. Already-prepared crew jobs keep their original duration. "
+  },
+  {
+    "title": "Machine families and production roles",
+    "url": "wiki/articles/factory-components.html",
+    "summary": "Follow component chains to expand your workshop instead of treating each machine as a separate source of free materials.",
+    "text": "Use the Furnace for fuel-dependent smelting, the Alloy Crucible for alloys such as steel, the Crusher for aggregates, the Chemical Vat for chemicals such as sealant, the Refinery for ore/concentrate processing, and the Fabricator for components and equipment.  Crusher aggregate and furnace carbon feed sealant production. Sealant then supports repair kits and composite panels, opening environmental suits and further construction.  Some stations appear as schematic footprint markers rather than solid machine models. The marker identifies a simulated machine, but is not a promise of a physical collision body or animated assembly line. "
+  },
+  {
+    "title": "Provisional machine kit reference",
+    "url": "wiki/articles/machine-kit-recipes.html",
+    "summary": "Use a powered Fabricator for these machine kits. Costs are provisional for this snapshot.",
+    "text": "Crusher: 1 casing + 2 steel ingots, 6 seconds. Chemical Vat: 1 casing + 2 copper ingots, 6 seconds. Refinery: 2 casings + 1 control circuit, 8 seconds.  Conveyor: 1 steel frame + 2 copper wire, 3 seconds. Sorter: 1 steel frame + 1 control circuit, 4 seconds. Network Storage: 1 casing + 2 control circuits + 2 copper wire, 6 seconds.  Battery Bank: 1 casing + 2 copper ingots + 2 control circuits, 6 seconds. Extractor and Cargo Loader each require 1 casing + 1 actuator + 1 control circuit, 8 seconds. Newly placed batteries are empty.  Back up your world before changing builds. Older versions may not understand these kits or queued recipes; avoid downgrading after using them. "
+  },
+  {
+    "title": "Manufacturing a renewable under-suit",
+    "url": "wiki/articles/manufacturing-suits.html",
+    "summary": "Make replacement environmental equipment at a powered Fabricator, then arrange breathable air before setting out.",
+    "text": "2 composite panels + 1 sealant + 1 copper wire → 1 Sealed Helmet in 6 seconds.  Hazard Suit: 4 composite panels + 2 sealant + 1 steel frame, 8 seconds. Sealed Leggings: 2 composite panels + 1 sealant + 1 steel frame, 6 seconds. These recipes are provisional.  Withdraw the gear, move it to a usable held slot and equip it. Repair a damaged worn piece before replacing it. New gear is pristine, but does not refill carried air; replenish in breathable conditions. "
+  },
+  {
+    "title": "Environmental suits and protective layers",
+    "url": "wiki/articles/suit-layers.html",
+    "summary": "Build a complete under-suit for a seal, then add outer protection. Environmental equipment is separate from unique combat loot.",
+    "text": "Head, torso and legs each have under and over layers. The under-layer makes the seal; outer armor cannot seal an incomplete suit. Both layers can contribute thermal, radiation and impact protection.  A complete functioning under-suit can use carried air. A broken seal cannot. Applicable wear reaches outer protection before the suit beneath it, while corrosion attacks exposed layers.  Repair a damaged worn piece before swapping in ordinary packed equipment. This prevents a damaged piece from returning to the pack as pristine gear. Replacement is not a salvage operation. "
+  },
+  {
+    "title": "Power demand, priorities and brownouts",
+    "url": "wiki/articles/power-and-brownouts.html",
+    "summary": "Keep enough generation and stored energy for your active loads. A connected machine can still be unpowered.",
+    "text": "Life support and defense take priority over ordinary industry. Network Storage and Cargo Loaders use industrial power with default demand 4 and priority 4.  A load must be funded for a whole simulation step. A battery can retain a small positive charge yet fail to power that step; the leftover energy is kept.  A generator supplies energy only for the time its fuel covers. A tiny residual does not fund a full long interval. Scheduling can differ with the length of simulation steps. "
+  },
+  {
+    "title": "Batteries: charging, transferring and recovering",
+    "url": "wiki/articles/battery-recovery.html",
+    "summary": "Empty a battery before packing it away. Move its charge into another battery rather than losing the stored energy.",
+    "text": "A Battery Bank stores 60 energy units and charges or discharges at up to 15 power units. A newly placed bank starts empty.  Shift+H transfers the whole charge in Build mode; H recovers the empty kit. Partial combination is not supported. Disable the charged source and a nearby empty receiving battery on the same face. Stand near the source and press Shift+H to transfer its entire charge. Move near the now-empty source and press H to recover it. The receiver must be empty. Any positive source charge prevents recovery as an empty kit. Also check pack space, stored cargo, fuel and unfinished production. "
+  },
+  {
+    "title": "Network Storage, conveyors and sorters",
+    "url": "wiki/articles/storage-and-routing.html",
+    "summary": "Use Network Storage to supply nearby industry and belts to connect directed routes.",
+    "text": "Workshops consume local ingredients first, then enabled, powered storage on the same network. Finished goods stay local if they fit; otherwise they can spill to storage. This is not a world-wide stash.  Manual deposits and withdrawals work offline. Network Storage holds 64 stacks. Read its enabled/powered flags and occupied capacity; a nearby quick-transfer action may select a different machine.  Place conveyors from source toward sink. An empty sorter passes every item type; leave a real sample in it to filter the route. Arrows show routing and state, not individual moving item models. "
+  },
+  {
+    "title": "Cargo Loaders and conserving delivery",
+    "url": "wiki/articles/cargo-loaders.html",
+    "summary": "Use Cargo Loaders to bridge belts and powered storage on the same network.",
+    "text": "For a selected item type, the loader draws local stock before eligible remote storage. A receiving loader fills its local buffer first, then spills remotely if the local insertion will not fit.  If the sink is full, the source keeps its cargo. Recovering an empty loader does not remove connected remote stock. Sorter samples, buffers and remote storage remain separate inventories.  Automatic loading needs industrial power; manual access remains available offline. A lane can retain transfer budget while unpowered, so its first powered interval may move more than a simple two-items-per-tick expectation. "
+  },
+  {
+    "title": "Automated extraction and output belts",
+    "url": "wiki/articles/automated-extraction.html",
+    "summary": "Use an Extractor for untouched, uniform natural cells. Use player mining for carved or mixed terrain.",
+    "text": "Check power, placement, protection and output space. The entire natural cell must be homogeneous at subvoxel resolution. Edited, carved or mixed cells are refused rather than counted as whole blocks.  Connect a belt outward from an enabled Extractor. Stored output can drain during an outage, but producing more still requires power. An Extractor is an output-only belt endpoint: belts cannot fill it.  Disable and empty it first. Recovery may discard unpaid scan progress, not stored resources, charge or paid production. A replacement is a new machine and cannot inherit an old pending mining action. "
+  },
+  {
+    "title": "Rooms, filters and breathable shelter",
+    "url": "wiki/articles/rooms-and-filtering.html",
+    "summary": "A powered Atmosphere Unit needs a detected room and filter supply. Check the resulting atmosphere before relying on it for breathing.",
+    "text": "Charge is spent by duration. With 0.01 seconds left, the unit filters for only 0.01 seconds before that supply ends; pressure and oxygen changes follow the time paid for.  At most one cartridge loads at the start of a step when needed. Disabled or unpowered units do not filter normally. A long interval does not consume unlimited cartridges to keep running.  A visual enclosure is not proof of breathable shelter. Room sealing does not reliably model every subvoxel hole, and this version has no complete doorway placement, use and recovery loop. "
+  },
+  {
+    "title": "Crew mining and construction designations",
+    "url": "wiki/articles/crew-designations.html",
+    "summary": "Mark work for citizens, then give them a reachable target and enough material. Designations do not build or mine instantly.",
+    "text": "An area covers up to nine planar candidates and can accept some cells while refusing others. Construction remembers your selected material. For construction, choose the building material first. Use J for a mining target or K for a construction target. Use Shift+J or Shift+K instead to designate the corresponding planar area. The worker needs a clear supported position with line of sight within 2.8 metres of its body center. Building consumes actual material on completion, not when you mark the area.  Check the route, obstructions, body overlap, stock and target. Upper walls and roofs can be reachable, but citizens do not create scaffolding automatically. A 3×3 designation is not a guarantee that all nine jobs can finish. "
+  },
+  {
+    "title": "Completed work and history maintenance",
+    "url": "wiki/articles/work-history.html",
+    "summary": "Archive completed or cancelled jobs when you need room in work history. Keep a backup: archiving permanently removes their detailed records.",
+    "text": "History prevents finished work from producing the same output again after reload. Both full records and archived identities have finite limits.  The confirmation pauses the game. Only finished or cancelled jobs are eligible; it awards no items or XP. In an owned native world, open the bag and press F7. Read the permanent detail-loss and compatibility warning. Press Enter to archive up to 64 terminal jobs, or Escape to cancel. Leaving it to time out also cancels. Archived jobs keep identity and final outcome, but lose detailed targets and specifications. The first archive makes work history unreadable by older builds. It is not unlimited storage, and restoring an older backup cannot restore newer history. "
+  },
+  {
+    "title": "Combat: choosing an action",
+    "url": "wiki/articles/combat-primer.html",
+    "summary": "Switch to Adventure controls for combat. Start with ranged pulses, keep room to move, and use guard or dash when enemies close in.",
+    "text": "LMB fires the pulse; MMB bashes; RMB guards; Z dashes; X uses radial pulse. Build controls instead mine and place matter.  Release guard before starting a pulse or bash. Shots already in flight can still hit. Walls block attacks, including freshly edited terrain. A gap large enough for a projectile may still be too small to walk through.  Pulse and radial attacks cost no mana or ammunition. They do not apply elemental statuses or make you invulnerable. Use positioning rather than expecting an immunity window. "
+  },
+  {
+    "title": "Basic pulse and projectile timing",
+    "url": "wiki/articles/pulse-weapon.html",
+    "summary": "Hold LMB in Adventure mode for repeatable ranged fire. Keep a clear line to your target.",
+    "text": "Each pulse travels at 24 metres per second, up to 24 metres. The base interval is 0.20 seconds; haste can shorten it. A slow frame does not bank extra shots for a later burst.  A shot checks the first living target along its path. Both the contact point and torso must be visible. An enemy hidden by terrain stops the shot; it will not skip that enemy to hit someone farther away.  A launched shot keeps its original damage and firing interval. New gear or a new level affects later shots. Entering Build or dying clears your flights; menus pause them. "
+  },
+  {
+    "title": "Dash, guard and avoiding damage",
+    "url": "wiki/articles/dash-and-guard.html",
+    "summary": "Use dash to reposition and guard to meet an incoming attack. Neither replaces watching the terrain.",
+    "text": "Dash follows your movement direction, or camera-forward on the horizontal plane when stationary. It travels up to 8 metres with a 4-second base cooldown. Your whole body must fit. Partial movement spends the cooldown; a completely blocked dash does not.  Dash preserves vertical motion and grants no invulnerability, damage or mana cost. Landing damage happens first: dash cannot rescue a fatal landing.  Hold RMB to guard against incoming direction, not every direction at once. Guard stops new pulses and bash attacks. Stay alert after killing a ranged enemy: its already-launched bolt can still hit. "
+  },
+  {
+    "title": "Melee and ranged hostile behavior",
+    "url": "wiki/articles/hostile-behavior.html",
+    "summary": "Starter encounters use melee attackers. Some roaming enemies fire a delayed bolt that you can dodge after they lock their aim.",
+    "text": "A ranged enemy locks aim during a 0.8-second windup. Move away from that line before its bolt arrives. The bolt travels at 10 metres per second for up to 24 metres, deals base damage 8, and is followed by 2 seconds of recovery.  Obstruction can cancel a windup. Killing or unloading the shooter before launch prevents its pending bolt, but a launched bolt remains dangerous. Reloading preserves enemy health and deaths, not its previous movement or airborne shots.  Enemies use a limited direct approach rather than elaborate routes or tactical cover. Not every roaming encounter has a ranged attacker; the wider species and boss roster is still separate. "
+  },
+  {
+    "title": "Radial pulse and support choices",
+    "url": "wiki/articles/radial-pulse.html",
+    "summary": "Press X to strike nearby visible enemies. Wait until targets are in position: even a cast that hits nothing spends its cooldown.",
+    "text": "The base radius is 7 metres and the cooldown is 7 seconds. Damage is 1.8 times projected physical attack damage, rounded once. The attack selects at most the nearest 12 living enemies, then checks visibility; blocked targets are not replaced with more distant ones.  In the bag, N cycles None, Swift and Cascade. Swift multiplies damage by 0.85 and cooldown by 0.75. Cascade multiplies damage by 0.85 and radius by 1.45, reaching 10.15 metres. Choose one, not both. Haste then shortens the cooldown.  The brief ring marks the accepted cast position and radius. It is not a shield or expanding damage wave. Changing support does not change a cooldown or ring already in progress.  At physical damage 12, None gives 22 damage, 7 metres and 7 seconds. Swift gives 18 damage, 7 metres and 5.25 seconds. Cascade gives 18 damage, 10.15 metres and 7 seconds. These times are before haste. "
+  },
+  {
+    "title": "Pierce: trading damage for targets",
+    "url": "wiki/articles/piercing-support.html",
+    "summary": "Choose Pierce for lined-up enemies, or None when you want full damage against one target.",
+    "text": "In the bag, Shift+N changes pulse support. Pierce deals 85% damage before rounding and allows up to three distinct target opportunities per shot. None keeps a single-target pulse.  Aim through a group with clear terrain between you and the targets. The shot encounters enemies in flight order and cannot attempt the same enemy twice. A wall or obscured target ends the remaining flight.  Pulse support is saved independently of radial support. Pierce helps against a line of enemies, but its lower damage can make an isolated enemy slower to defeat. "
+  },
+  {
+    "title": "Experience and level-based power",
+    "url": "wiki/articles/experience-and-levels.html",
+    "summary": "Eligible hostile kills earn XP and raise the power of your next attacks.",
+    "text": "A regular eligible hostile kill awards 35 XP. Reloading a saved death does not award it again. Mining and other peaceful activities do not automatically share this combat reward rule.  Projected physical damage is rounded once from (12 + 3 × (level − 1) + equipped power) × (1 + damage bonus + attack-damage bonus). Level-one base power is 12. Level gains affect new attacks, not projectiles already in flight.  In this version, an extreme gear-and-level combination can exceed the supported attack range. Change equipment to bring damage back into range; equipment management remains usable. This is not a build soft cap.  Attributes, passive allocations, profession XP, origins and callings belong to the wider progression design. They are not extra choices hidden in the current level-up system.  A planned correction would let otherwise valid attacks resolve at the safe maximum instead of becoming unavailable. Until that change is verified for your build, use the equipment workaround above. "
+  },
+  {
+    "title": "Loot rolls, pending rewards and inventory space",
+    "url": "wiki/articles/loot-rolls.html",
+    "summary": "Press P to resolve one pending reward. If your pack is full, make space and try again: the reward will not reroll.",
+    "text": "Regular eligible kills have a 30% drop roll. A pending item keeps its original rolls. Press P to resolve one pending reward. If the pack is full, make space without expecting a different roll. Press P again to claim the same pending item. Regular rewards are rare items with three distinct affixes: Oathblade weapons, Warden mantle armor and Astral conduit charms. Family follows the saved kill sequence. Epic four-affix boss rewards are not available through the current regular-kill route.  Pending rewards are not shared physical corpse inventories. Unique gear cannot stack, trade or go into machines. "
+  },
+  {
+    "title": "Affixes: active effects and stored rolls",
+    "url": "wiki/articles/gear-affix-guide.html",
+    "summary": "Read which effects are active before choosing gear. Some rolled affixes are stored for future systems and give no current benefit.",
+    "text": "Equipped power, general damage and attack damage improve physical attacks. Armor reduces supported physical hits, haste shortens action intervals, and life increases maximum health.  Spell damage, elemental damage, resistance, elemental penetration, critical chance, mana, recovery and penetration remain inactive. A large value in one of these fields does not make it useful in the present combat kit.  Distinct affixes have starting ranges scaled by 1 + 0.035 × (item level − 1), rounded to thousandths. Scaling a stored affix does not activate its effect.  The wider design calls for more rarity grades, contextual enemy drops and luck. The current rare rewards are not a complete common-to-SSR loot ladder. "
+  },
+  {
+    "title": "Armor, haste and maximum health",
+    "url": "wiki/articles/armor-haste-life.html",
+    "summary": "Choose armor to soften physical hits, haste to act sooner, and life for a larger health buffer.",
+    "text": "For incoming physical damage d, armor gives d × (1 − armor / (armor + 8d + 1)); directional guard is applied through its own rules afterward. Armor does not provide elemental immunity or an airtight suit.  Supported cooldowns use base interval / (1 + haste), including pulse, bash, dash and radial. An action keeps the interval it started with, so swapping gear does not shorten a running timer.  Maximum health is 100 plus equipped unique-gear life. Adding life leaves current health unchanged. Removing life can lower current health to the new maximum. Neither action revives you.  At extremely large totals, small damage or healing may be too small for the game to represent. Do not rely on this as an immunity perk. Avoid opening such saves in older builds with lower health limits. "
+  },
+  {
+    "title": "Building around the current combat kit",
+    "url": "wiki/articles/build-archetypes.html",
+    "summary": "Try these combinations as starting points, then adjust for the enemies and terrain. They are not locked classes.",
+    "text": "Use None pulse support for full single-target damage. Favor active power and physical damage bonuses; haste lets you attack more often. Ignore inactive spell or critical rolls when comparing immediate benefits.  Use Pierce when enemies line up, Cascade for wider radial reach, or Swift for shorter radial downtime. All trade some damage for coverage or frequency. Draw enemies out of cover before attacking.  Combine life and armor with movement and directional guard. Carry an intact sealed suit and air for environmental survival: combat armor and life do not supply oxygen. Dash away from danger rather than through it as an immunity move.  Passive trees, elements, runes and ascension are design previews, not secret unlocks behind these supports. "
+  },
+  {
+    "title": "Planets, biomes and material identity",
+    "url": "wiki/articles/planetary-worlds.html",
+    "summary": "Explore for useful materials and safe places to build. Appearance alone does not tell you what a world feature does.",
+    "text": "The Sixth Edition describes planet classes, temperate biomes, bounded fluid and gas behavior, and different hazards and building conditions.  The current terrain is deterministic and locally editable. This does not provide a complete seamless route across every face or between planets.  Original plant meshes, decorative groundcover and procedural trees are distinct. A visible plant does not automatically provide harvests, growth or collision. "
+  },
+  {
+    "title": "Flora, fauna and contextual resources",
+    "url": "wiki/articles/ecology-and-harvest.html",
+    "summary": "Check interaction feedback before planning food or resource supplies around a plant or animal.",
+    "text": "Terrain material, harvestable matter and decorative plants do not behave alike. A rooted model alone does not supply crop growth, renewable harvests or predator-prey behavior.  The design includes crops, livestock, kitchens and fertilizer loops, with meaningful identity for named or owned animals.  Do not depend on decorative plants for supplies. Trees are not guaranteed to regrow, fall physically, seal rooms or feed industrial extractors; use only the supported interactions in your build. "
+  },
+  {
+    "title": "Travel, outposts and returning to a world",
+    "url": "wiki/articles/travel-and-outposts.html",
+    "summary": "Use home guidance and camp recovery to explore locally. Ship travel and lasting interplanetary routes are a separate design track.",
+    "text": "The Sixth Edition connects ship modules, cargo and a travel sequence. The goal is to retain cargo and identities while returning to the consequences of earlier visits.  Home guides you back; camp can choose a recovery position after death. Neither provides ship flight, interplanetary teleportation or a shared multiplayer recovery service.  Do not assume industry or citizens continue indefinitely when the application closes or a distant base unloads. Persistent saves do not by themselves provide offline progression. "
+  },
+  {
+    "title": "Saving, version compatibility and safe recovery",
+    "url": "wiki/articles/save-compatibility.html",
+    "summary": "Keep a backup before changing builds, and distinguish a completed action from a completed world save.",
+    "text": "New item, recipe, health and work-history features can make a save incompatible with older builds. A newer build accepting an old save does not make the reverse safe.  Some actions, such as unique-gear equipment changes and setting camp, save as part of the action. Ordinary factory production and resource transfers can run before the next world save.  When the game cannot tell whether a save completed, it stops further changes and saving. Reload the world to recover the recorded result instead of repeatedly trying the reward or overwriting it.  Restoring an older backup removes changes recorded after it. The game cannot reconstruct that lost history, and local save protections are not online anti-cheat. "
+  },
+  {
+    "title": "Multiplayer and network expectations",
+    "url": "wiki/articles/multiplayer-status.html",
+    "summary": "This guide describes local mechanics. It does not establish separate-network co-op availability.",
+    "text": "Network Storage connects inventories within a base network. It does not connect another player over the internet or grant access to someone else’s pack.  Building permissions, trade ownership, shared claims, offline bases and synchronized travel need multiplayer rules of their own.  Check the release information for the build you will use. Local saves and a working menu are not proof of internet multiplayer or physical-controller compatibility. "
+  },
+  {
+    "title": "Life skills, professions and practice",
+    "url": "wiki/articles/life-skills.html",
+    "summary": "Design preview: practical professions would develop through everyday work and connect your character to settlement life.",
+    "text": "The Sixth Edition groups skills around extraction and construction, metallurgy and fabrication, utilities and maintenance, agriculture and food, medicine, knowledge, administration and social work, combat, and art and culture.  Practice would improve skills with diminishing returns, supported by mentorship, guilds, libraries and drills. Injury, stress and poor tools could reduce performance without erasing learned rank. A profession would not forbid all other work.  Mining, crafting and crew work are available foundations. Full profession XP, institutions and their progression feedback are not available through every activity yet. "
+  },
+  {
+    "title": "Sockets, reforging and ascension",
+    "url": "wiki/articles/sockets-reforging-ascension.html",
+    "summary": "Design preview: customize an existing item through sockets, reforging and ascension rather than replacing it with an unrelated item.",
+    "text": "The reference separates inventory crafting, fabrication, powered processing and item-preserving workstations. Sockets, reforging and ascension belong to that last category.  The Sixth Edition describes sockets based on tier, a 1.75× bonus when rune and item elements align, and no duplicate rune ID on one item. These are reference rules, not instructions for a currently usable station.  The current unique-gear loop offers claim, equip and discard, not a complete socket, reforge or ascension workflow. Discard gives no salvage; do not destroy an item expecting materials for one of these future systems. "
   },
   {
     "title": "Profession catalogue: reference names",
     "url": "wiki/articles/donor-profession-catalog.html",
-    "summary": "The archived progression catalogue gives concrete names to eleven practical disciplines. It is a reference catalogue, not a list of fully active native skill bars.",
-    "text": "Crystallography, Mineral extraction, Xenoforestry, Xenobotany, Aquaculture and Planetary survey cover the catalogue’s resource and exploration identities. Their names do not establish current native fishing, plant growth or scanning progression. Metallurgy, Biochemistry, Field nutrition, Systems salvage and Systems fabrication connect the catalogue to production and expedition preparation. Current native station recipes do not by themselves prove that profession XP is awarded or that every profession bonus is applied. This catalogue is explicitly derived from an archived browser progression version. Its tuning and activity rules should be version-labeled when compared with the native game, rather than merged into one apparently complete progression system."
+    "summary": "Earlier-version reference: eleven named disciplines give a preview of the profession system’s vocabulary.",
+    "text": "Crystallography, Mineral extraction, Xenoforestry, Xenobotany, Aquaculture and Planetary survey cover resources and environmental knowledge.  Metallurgy, Biochemistry, Field nutrition, Systems salvage and Systems fabrication cover making supplies and maintaining an expedition.  These names come from the archived browser progression catalogue. They are not eleven active skill bars in the current native game; fishing, plant growth, scanning XP and profession bonuses are not implied by their names. "
   },
   {
     "title": "Passive trees and named ability reference",
     "url": "wiki/articles/passive-build-reference.html",
-    "summary": "The archived browser catalogue contains a broader build vocabulary than the current native attack kit.",
-    "text": "Crescent cut, Astral lance, Halo rupture, Rift step and Seraphic eclipse are named actions in the archived catalogue. Native radial and dash use selected ideas and parameters from that source, but the basic cost-free pulse is not automatically the complete Astral lance. The donor catalogue includes blade, arcane, ward, precision, vitality and artisan foundations, plus named keystones such as Crimson covenant, Archmage, Iron resolve, Perfect fracture, Living wellspring and Master artisan. These are historical catalogue entries, not a claim that each node can currently be allocated in the native interface. The inspected donor reset rule permits reclaiming allocated passive points without inventing additional earned budget. That source rule is not evidence of a current native reset button or a completed attribute allocation system."
+    "summary": "Earlier-version reference: the browser catalogue offers a preview of broader ability and passive-tree ideas.",
+    "text": "Crescent cut, Astral lance, Halo rupture, Rift step and Seraphic eclipse appear in that catalogue. The current radial and dash borrow selected ideas, but the free basic pulse is not the full Astral lance ability.  Blade, arcane, ward, precision, vitality and artisan foundations lead into named ideas such as Crimson covenant, Archmage, Iron resolve, Perfect fracture, Living wellspring and Master artisan. These are not currently allocatable native nodes.  The earlier reset rule returns allocated passive points without granting extra earned points. It is not a current native reset button or attribute-allocation menu. "
+  },
+  {
+    "title": "From work crews to a settlement society",
+    "url": "wiki/articles/colony-institutions.html",
+    "summary": "Design preview: grow a settlement with institutions, supplies and social responsibilities beyond individual work orders.",
+    "text": "Public halls, shrines, guildhalls, libraries, hospitals, memorials, assemblies and barracks would need people, rooms, supplies and obligations to function.  Hospitals would provide diagnosis, treatment, recovery supplies and reservable beds. Memorials and archives would preserve ownership, authorship, cultural associations and important events.  Crew mining, construction and work history are available. Full relationships, daily schedules, staffing, justice and medical treatment are not yet part of that work-order loop. "
+  },
+  {
+    "title": "Economy, trade routes and social consequences",
+    "url": "wiki/articles/economy-and-trade.html",
+    "summary": "Design preview: production would feed markets, contracts and trade routes with local consequences.",
+    "text": "Markets would react to goods available; caravans would carry manifests along routes; contracts would track objectives and deadlines. Trade would change ownership and relationships.  Weather, threats and political suspicion would influence trade. Diplomacy would matter alongside cargo capacity and price.  Storage, belts and Cargo Loaders move local industrial goods. They are not player markets, auctions, shop management or interplanetary trade. Unique gear cannot currently be traded or deposited in machines. "
+  },
+  {
+    "title": "Early vehicles: amphibious rover and starter spacecraft",
+    "url": "wiki/articles/early-vehicle-direction.html",
+    "summary": "Planned first vehicles: one fixed-design amphibious rover and one fixed-design starter spacecraft.",
+    "text": "The rover is intended to use oversized tires and pontoon-like flotation. It is one amphibious ground vehicle, not a separate rover and boat.  The other first vehicle is a basic pilotable spacecraft. Later versions are intended to become fully modular and player-buildable.  You can’t drive either in this version. Acquisition recipes and a release date are not yet established. "
+  },
+  {
+    "title": "Ground vehicles: rovers, crawlers and mining rigs",
+    "url": "wiki/articles/vehicles.html",
+    "summary": "Design preview: scout rovers, cargo crawlers and mobile mining rigs would serve different surface journeys.",
+    "text": "A fast survey vehicle with light cargo. Terrain vulnerability is part of the tradeoff: speed would not remove every slope or obstacle.  A slow bulk hauler intended to benefit from roads and bridges, linking extraction sites to bases or landing pads.  A power-hungry mobile drill or extractor whose activity could attract political suspicion. It is distinct from the stationary Extractor kit.  This snapshot has no established driving controls or acquisition recipes. The early fixed-design rover and spacecraft are planned first steps; the wider vehicle roster remains a preview. "
+  },
+  {
+    "title": "Modular ships and expedition preparation",
+    "url": "wiki/articles/modular-ships.html",
+    "summary": "Design preview: prepare an expedition by balancing range, cargo, protection and utility modules.",
+    "text": "Warp Drive I–IV, Pulse Engine, Atmospheric Thrusters and Vector Jets are reference modules. Fuel, cargo and handling would constrain routes and discrete jump ranges.  Fuel Tanks, Cargo Racks, Survey Scanners, Deep Scanners and Atmosphere Samplers support exploration. Hull Plating, Thermal Shields, Radiation Baffles, Autopilot, a Navigation Core and Emergency Beacon support travel safety. Autopilot would assist rather than remove hazards.  Docking Collars, Drone Bays, Habitation Pods, a Small Refinery and Smuggler Hold are proposed modules. Field processing would be less efficient; reduced inspection exposure would trade away cargo efficiency.  Continuous travel without a loading screen is a design goal, not a route currently available through home guidance or camp recovery. "
   },
   {
     "title": "A universe beyond the next ridge",
     "url": "wiki/articles/setting-frontier.html",
-    "summary": "A setting introduction adapted from the Sleeping Empire archive. These histories frame Elysium; they do not promise playable factions or destinations.",
-    "text": "An ancient interstellar empire spans worlds shaped by long periods without its ruler’s direct oversight. Separate powers and identities grew in those silences. Its return brings questions of cooperation, independence and rebuilding to a galaxy that has never had just one culture. Elysium brings that wide setting down to an explorer’s scale: a route through unfamiliar terrain, material worth carrying home, and a shelter that makes the next journey possible. The frontier’s communities have purposes beyond the passing explorer. Independent institutions, places of work and relationships between settlements give an inhabited world its history and its reasons to endure."
+    "summary": "Explore a frontier of ancient institutions, independent communities and worlds shaped by long silences.",
+    "text": "An ancient interstellar empire spans worlds shaped by long periods without its ruler’s direct oversight. Separate powers and identities grew in those silences. Its return brings questions of cooperation, independence and rebuilding to a galaxy that has never had just one culture.  Elysium brings that wide setting down to an explorer’s scale: a route through unfamiliar terrain, material worth carrying home, and a shelter that makes the next journey possible.  The frontier’s communities have purposes beyond the passing explorer. Independent institutions, places of work and relationships between settlements give an inhabited world its history and its reasons to endure. "
   },
   {
     "title": "Worlds and places",
     "url": "wiki/articles/setting-worlds.html",
-    "summary": "A small geographic reading guide to the inherited setting, not a destination list or travel menu.",
-    "text": "Epsilon-7 is the Imperial capital, home to the Citadel and major institutions. It establishes the setting’s contrast between immense, durable civic infrastructure and the smaller outposts from which an expedition begins. The geographic register associates Greenhaven on Bellwynn with a harvest and innovation festival, and Caldris II with industrial and agricultural development. They offer grounded examples of everyday cultivation, engineering and community life rather than only battles and imperial monuments. A base is more than a container for possessions. Paths connect useful rooms, machinery serves a task, and living space has a purpose. The distinction between a temporary camp and a place worth returning to lies in how those parts work together."
+    "summary": "Get to know Epsilon-7, Bellwynn and Caldris II: places of civic life, cultivation and industry.",
+    "text": "Epsilon-7 is the Imperial capital, home to the Citadel and major institutions. It establishes the setting’s contrast between immense, durable civic infrastructure and the smaller outposts from which an expedition begins.  The geographic register associates Greenhaven on Bellwynn with a harvest and innovation festival, and Caldris II with industrial and agricultural development. They offer grounded examples of everyday cultivation, engineering and community life rather than only battles and imperial monuments.  A base is more than a container for possessions. Paths connect useful rooms, machinery serves a task, and living space has a purpose. The distinction between a temporary camp and a place worth returning to lies in how those parts work together. "
   },
   {
     "title": "Work, trade and industry",
     "url": "wiki/articles/setting-industry.html",
-    "summary": "The archive’s commercial institutions give production a social context without turning every workshop into an imperial possession.",
-    "text": "Somnus is a private commercial group overseen by Lethe. Wheatley Storage & Shipping handles logistics; SMITE expands to Space Mining and Industrial Technology Expeditions; Apophatic Technologies develops advanced industrial processes. Their names describe distinct roles, not interchangeable labels for all industry. Bellweather is an independent cooperative with a nonexclusive relationship to WSS, not a subsidiary. Imperial public institutions and private Somnus holdings remain separate: ownership, contracts and cooperation are different kinds of relationship. Mining, crafting, storage and automation form a chain of practical work. A component matters because it helps make, carry or maintain something; a workshop turns raw material into a reason to undertake the next journey."
+    "summary": "Meet the organizations behind the setting’s mining, shipping and advanced manufacturing.",
+    "text": "Somnus is a private commercial group overseen by Lethe. Wheatley Storage & Shipping handles logistics; SMITE expands to Space Mining and Industrial Technology Expeditions; Apophatic Technologies develops advanced industrial processes. Their names describe distinct roles, not interchangeable labels for all industry.  Bellweather is an independent cooperative with a nonexclusive relationship to WSS, not a subsidiary. Imperial public institutions and private Somnus holdings remain separate: ownership, contracts and cooperation are different kinds of relationship.  Mining, crafting, storage and automation form a chain of practical work. A component matters because it helps make, carry or maintain something; a workshop turns raw material into a reason to undertake the next journey. "
   },
   {
     "title": "Technology with a living purpose",
     "url": "wiki/articles/setting-technology.html",
-    "summary": "Elegant engineering and enduring infrastructure supply the setting foundation; Elysium gives that foundation its solarpunk visual treatment.",
-    "text": "Utility and beauty belong together in the setting’s technology. Distributed systems, automated maintenance and self-repairing infrastructure describe an engineering culture concerned with endurance as well as invention. Visible connections, useful light, clear controls and accessible machinery make the built world legible. Vegetation and living space coexist with engineering rather than being pushed outside it. Warm gold emphasizes craft; cyan and teal make technical information clear. Pale ceramic surfaces suggest precision equipment, while living green connects that equipment to the world around it. Together they form Elysium’s solarpunk visual vocabulary."
+    "summary": "Read the frontier’s engineering through enduring structures, living greenery and carefully made machines.",
+    "text": "Utility and beauty belong together in the setting’s technology. Distributed systems, automated maintenance and self-repairing infrastructure describe an engineering culture concerned with endurance as well as invention.  Visible connections, useful light, clear controls and accessible machinery make the built world legible. Vegetation and living space coexist with engineering rather than being pushed outside it.  Warm gold emphasizes craft; cyan and teal make technical information clear. Pale ceramic surfaces suggest precision equipment, while living green connects that equipment to the world around it. Together they form Elysium’s solarpunk visual vocabulary. "
   },
   {
     "title": "Equipment with identity",
     "url": "wiki/articles/setting-armory.html",
-    "summary": "The source armory treats equipment as named, persistent objects. Elysium adapts that idea without turning every lore capability into a working mechanic.",
-    "text": "Ordinary equipment, grades, forging and exceptional named relics occupy different places in the armory. A useful item can carry a story through its design and role, long before it becomes famous. Aletheia is an exceptional named weapon, not a generic starter spear. Its distinctive identity provides a reference for signature equipment: an object recognizable by more than its statistics. In play, the current item’s displayed values and supported effects determine its function. Appearance communicates identity; equipment statistics describe what it can actually do."
+    "summary": "Discover why an item’s name, craftsmanship and history can matter as much as its appearance.",
+    "text": "Ordinary equipment, grades, forging and exceptional named relics occupy different places in the armory. A useful item can carry a story through its design and role, long before it becomes famous.  Aletheia is an exceptional named weapon, not a generic starter spear. Its distinctive identity provides a reference for signature equipment: an object recognizable by more than its statistics.  In play, the current item’s displayed values and supported effects determine its function. Appearance communicates identity; equipment statistics describe what it can actually do. "
   },
   {
     "title": "Setting glossary",
     "url": "wiki/articles/setting-glossary.html",
-    "summary": "A compact vocabulary for reading Elysium’s narrative references alongside the mechanics wiki.",
-    "text": "Epsilon-7: the Imperial capital. Citadel: a central institution and landmark there. ICE: Imperial Concord Era, the source setting’s calendar designation. Somnus: a private commercial group. WSS: Wheatley Storage & Shipping. SMITE: Space Mining and Industrial Technology Expeditions. Apophatic: advanced industrial research. Bellweather: an independent cooperative, not a Somnus holding. Setting labels identify material grounded in the archived fiction. Design reference labels identify its proposed use in Elysium. Neither label means that a feature is playable. Use the mechanics articles and their implementation labels for controls, rules and current limitations."
+    "summary": "A quick reference to the places, organizations and calendar of Elysium’s world.",
+    "text": "Epsilon-7: the Imperial capital. Citadel: a central institution and landmark there. ICE: Imperial Concord Era, the source setting’s calendar designation.  Somnus: a private commercial group. WSS: Wheatley Storage & Shipping. SMITE: Space Mining and Industrial Technology Expeditions. Apophatic: advanced industrial research. Bellweather: an independent cooperative, not a Somnus holding.  Follow the frontier guide for the wider history, the industry guide for commercial relationships, or the armory guide for the identity of equipment. For controls and usable effects, turn to the linked player guides. "
   },
   {
     "title": "Sources and versions",
     "url": "wiki/sources.html",
     "summary": "Curated provenance and implementation status for this mechanics edition.",
-    "text": "The mechanics summaries were reviewed on 18 November 2026 against native development documentation. These are editorial summaries, not a published source-code audit, verified Windows release manifest or promise of availability in an installed build. Internal development notes are not republished here. The public Sleeping Empire repository is the existing website source. Its browser adaptation has a public port audit, linked below. That audit describes browser rules and their lineage, not proof of native feature parity. Public reference links do not independently substantiate every native detail in this edition. Native snapshot means reviewed native development behavior. Native adaptation means provisional or narrowed behavior. Planned means intent, not delivered functionality. Isolated prototypes and test-only setup must not be presented as player-accessible features. Reconcile each summary against the current implementation before changing its status. Keep controls, compatibility limits and provisional balancing explicit. Publish only curated mechanics material, not raw internal engineering records."
+    "text": "The mechanics summaries were reviewed on 18 November 2026 against native development documentation. These are editorial summaries, not a published source-code audit, verified Windows release manifest or promise of availability in an installed build. Internal development notes are not republished here. The public Sleeping Empire repository is the existing website source. Its browser adaptation has a public port audit, linked below. That audit describes browser rules and their lineage, not proof of native feature parity. Public reference links do not independently substantiate every native detail in this edition. How to play covers the documented native version, not a guarantee for every installed build. Reference explains a design or rule set. Planned previews unavailable features. Setting describes the world and its narrative. Sections with a different status carry their own label. Reconcile each summary against the current implementation before changing its status. Keep controls, compatibility limits and provisional balancing explicit. Publish only curated mechanics material, not raw internal engineering records."
   }
 ]

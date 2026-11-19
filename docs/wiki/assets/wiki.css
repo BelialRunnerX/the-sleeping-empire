@@ -33,3 +33,7 @@ footer{border-color:var(--line);max-width:94rem;background:var(--side);margin-to
 /* Keep the real illustration and opening summary together on laptop screens. */
 .wiki-hero img{height:clamp(170px,18vw,220px)}
 @media(max-width:720px){.wiki-hero img{height:170px}}
+
+/* Guide editorial hierarchy; retained Codex palette and panels. */
+.guide-scope{font-size:.85rem;color:var(--muted);margin:.5rem 0 1rem}.guide-provenance{margin-top:2rem;padding:1rem;border:1px solid var(--line)}.guide-provenance summary{cursor:pointer;font-weight:700}.guide-steps li{margin:.75rem 0;line-height:1.7}.start-paths{margin-top:1rem}.overview .wiki-hero img{height:170px;min-height:0}.overview .article-meta{display:none}
+.overview .article-toc{display:none}.overview .wiki-hero img{height:120px}.overview h1{margin-bottom:1rem}.overview .start-paths h2{margin-top:1rem}
