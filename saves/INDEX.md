@@ -602,3 +602,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000367](turns/000367.md) | The Genosis Arc | Played voice scene, exact | Crow arrives at Senate; harbourmaster says notice came after the shot; chair asks its purpose | [000361](checkpoints/000361.md) |
 | [000368](turns/000368.md) | The Genosis Arc | Played voice scene, exact | Crow says neither; advance-notice motion proposed, no vote; chair directs fact-only district dispatch | [000361](checkpoints/000361.md) |
 | [000369](turns/000369.md) | The Genosis Arc | Played voice scene, exact | Full armor and Aletheia shown; district map ordered; recorded roll call begins | [000361](checkpoints/000361.md) |
+| [000370](turns/000370.md) | The Genosis Arc | Played voice scene, exact | Recorded roll call pauses without result; a block of granite is set at the gallery stairs | [000361](checkpoints/000361.md) |
