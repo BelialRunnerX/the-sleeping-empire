@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000378](turns/000378.md), “You May Sit.”
+**Latest archive:** [000379](turns/000379.md), “Write Her Name First.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow spares Ordel’s senator after the confrontation; the clerk enters river gauges approved, with cost estimates still to be submitted before grant votes. Sera next proposes League-clerk intake for petitions and written answers from responsible Imperial offices using existing staff. Her proposal has not been accepted, enacted or rejected; no new grant, tally or replacement.
+**Latest played beat:** Crow strikes Sera Dain with Aletheia and says “Wrong answer.” Sera falls and does not answer; Ordel calls for a physician, but the usher stops at the sealed doors. The chair asks the clerk to write her name first. No medical confirmation, replacement, enactment of her proposal or further Crow action.
 
 ## Authority by level
 

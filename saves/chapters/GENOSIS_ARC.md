@@ -48,3 +48,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000377](../turns/000377.md): Asked how to fund the proposed gauges, Ordel suggests existing local landing dues, separate posts and shared sounding costs on contested crossings, and Senate grants for shortfalls after cost estimates. No reliable whole-world cost, new toll, use of the disputed dredging dues, grant, enacted rule, or Crow verdict.
 
 [000378](../turns/000378.md): Crow spares Ordel’s senator after the confrontation; the clerk enters river gauges approved, with cost estimates still to be submitted before grant votes. Sera next proposes League-clerk intake for petitions and written answers from responsible Imperial offices using existing staff. Her proposal has not been accepted, enacted or rejected; no new grant, tally or replacement.
+
+[000379](../turns/000379.md): Crow strikes Sera Dain with Aletheia and says “Wrong answer.” Sera falls and does not answer; Ordel calls for a physician, but the usher stops at the sealed doors. The chair asks the clerk to write her name first. No medical confirmation, replacement, enactment of her proposal or further Crow action.
