@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000389",
+      "last_verified_turn": "000390",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "League Senate chamber on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000389",
+        "current_turn": "000390",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "In the sealed chamber; officer left, courtyard unseen and no outcome established.",
+        "current_status": "In the sealed chamber after the officer reports Miren’s death; Crow waits.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
@@ -6079,6 +6079,50 @@
           "before": "Unnamed senator",
           "after": "Named Edren Vale by his aide; fell after a shot; medical condition unconfirmed",
           "source": "Exact voice scene"
+        }
+      ]
+    },
+    "char-genosis-miren-vale": {
+      "character_id": "char-genosis-miren-vale",
+      "canonical_name": "Miren Vale",
+      "aliases": [],
+      "role": "Edren Vale’s daughter",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "conditions": "Reported dead by the officer; not shown or independently confirmed.",
+      "change_log": [
+        {
+          "turn": "000390",
+          "field": "identity and condition",
+          "before": "Unnamed daughter; fate unknown",
+          "after": "Named Miren Vale by the aide, officer reports her dead offscreen",
+          "source": "Exact voice scene; report distinguished from direct depiction"
         }
       ]
     }
