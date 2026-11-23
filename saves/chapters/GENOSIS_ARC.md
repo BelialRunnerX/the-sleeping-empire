@@ -50,3 +50,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000378](../turns/000378.md): Crow spares Ordel’s senator after the confrontation; the clerk enters river gauges approved, with cost estimates still to be submitted before grant votes. Sera next proposes League-clerk intake for petitions and written answers from responsible Imperial offices using existing staff. Her proposal has not been accepted, enacted or rejected; no new grant, tally or replacement.
 
 [000379](../turns/000379.md): Crow strikes Sera Dain with Aletheia and says “Wrong answer.” Sera falls and does not answer; Ordel calls for a physician, but the usher stops at the sealed doors. The chair asks the clerk to write her name first. No medical confirmation, replacement, enactment of her proposal or further Crow action.
+
+[000380](../turns/000380.md): Crow orders the others back to their seats and calls the next person. Tessan proposes naming recipients of unpaid wages at crew sign-on and holding disputed wages in harbour court, with names put on existing fee-funded crew forms. No verdict, enactment, medical confirmation for Sera, or reopening.

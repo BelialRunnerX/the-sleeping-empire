@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000379",
+      "last_verified_turn": "000380",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "League Senate chamber on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000379",
+        "current_turn": "000380",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "At the center of sealed Senate chamber after striking Sera; her medical condition is not confirmed.",
+        "current_status": "At the center of the sealed chamber; Tessan’s proposed wages policy is recorded, no verdict.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
@@ -5992,7 +5992,9 @@
           "after": "Drafted possible joint dredger ownership and schedule; asked for consultation at ferry landings before filing",
           "source": "Exact played scene; no final settlement"
         }
-      ]
+      ],
+      "genosis_current_condition": "Fell after the strike in 000379; remains medically unconfirmed.",
+      "last_verified_turn": "000380"
     },
     "char-genosis-elin-rusk": {
       "character_id": "char-genosis-elin-rusk",
