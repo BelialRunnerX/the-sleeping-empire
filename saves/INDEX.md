@@ -614,3 +614,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000379](turns/000379.md) | The Genosis Arc | Played voice scene, exact | Sera falls, does not answer; Ordel calls for a physician; no confirmation of condition | [000361](checkpoints/000361.md) |
 | [000380](turns/000380.md) | The Genosis Arc | Played voice scene, exact | Ordel sits; Tessan proposes beneficiary registration for unpaid wages; verdict pending | [000380](checkpoints/000380.md) |
 | [000381](turns/000381.md) | The Genosis Arc | Played voice scene, exact | Tessan’s wage rule approved; Tessa proposes Dun Quay signal post and keeper | [000380](checkpoints/000380.md) |
+| [000382](turns/000382.md) | The Genosis Arc | Played voice scene, exact | Dun Quay approved; Halden proposes public tax and requisition notices with due dates | [000380](checkpoints/000380.md) |
