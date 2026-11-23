@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000370",
+      "last_verified_turn": "000371",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "League Senate observation gallery on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000370",
+        "current_turn": "000371",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Still in the gallery; block of granite at the foot of the stairs; recorded roll call held without result.",
+        "current_status": "In the gallery in visible armor, after crushing a hand-sized stone; the chair asks whether to poll the room and the earlier recorded vote remains paused.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
