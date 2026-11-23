@@ -626,3 +626,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000391](turns/000391.md) | The Genosis Arc | Played voice scene, exact | Inland senator proposes independently filed apprenticeships and certificates; no approval | [000380](checkpoints/000380.md) |
 | [000392](turns/000392.md) | The Genosis Arc | Accepted excerpt; next scene held | Apprenticeship record approved; pause for count before the next turn | [000380](checkpoints/000380.md) |
 | [000393](turns/000393.md) | The Genosis Arc | Played voice scene, exact | Montage ends at final of 35; 17 senators dead, chair alive and gravely injured; healer proposal awaits ruling | [000380](checkpoints/000380.md) |
+| [000394](turns/000394.md) | The Genosis Arc | Played voice scene, exact | Clerk’s notice proposal awaits a verdict | [000380](checkpoints/000380.md) |

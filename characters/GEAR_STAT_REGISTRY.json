@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000393",
+      "last_verified_turn": "000394",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1037,9 +1037,9 @@
         "hometown_name": "Hazel Alderford",
         "honorary_title": "Crow the Mischievous",
         "witness_signature": "Elys Somnion",
-        "current_location": "League Senate chamber on Genosis",
+        "current_location": "Sealed League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000393",
+        "current_turn": "000394",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "At the center of the sealed Senate while the last senator’s healer training proposal awaits a verdict.",
+        "current_status": "The chamber remains sealed. Crow has extended the suggestion requirement to everyone present, including non-senators. The clerk’s notice proposal and the mountain senator’s healer proposal remain pending; no change to the Senate tally.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
