@@ -628,4 +628,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000393](turns/000393.md) | The Genosis Arc | Played voice scene, exact | Montage ends at final of 35; 17 senators dead, chair alive and gravely injured; healer proposal awaits ruling | [000380](checkpoints/000380.md) |
 | [000394](turns/000394.md) | The Genosis Arc | Played voice scene, exact | Clerk’s notice proposal awaits a verdict | [000380](checkpoints/000380.md) |
 | [000395](turns/000395.md) | The Genosis Arc | Played voice scene, exact | Clerk explains how to prove delivery; no verdict | [000380](checkpoints/000380.md) |
-| [000396](turns/000396.md) | The Genosis Arc | Played voice scene, exact | All casualties restored; seventeen seats to be refilled | [000380](checkpoints/000380.md) |
+| [000396](turns/000396.md) | The Genosis Arc | Played voice scene, exact | Healer pilot approval confirmed by player; all casualties restored; seventeen seats to be refilled | [000380](checkpoints/000380.md) |
