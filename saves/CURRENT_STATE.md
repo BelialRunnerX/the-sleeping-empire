@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000392](turns/000392.md), “The Apprentice Rule Approved.”
+**Latest archive:** [000393](turns/000393.md), “The Last Suggestion.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow said “That’s fine. Next.” and the inland senator’s apprenticeship proposal was marked approved. This is the eighth verdict. The player asks for the count before the next turn; no next proposal, verdict, or additional action is enacted. Earlier Senate closure and unresolved medical conditions have not changed.
+**Latest played beat:** Player-authorized skip, not a record of individual intervening proposals or names. All 35 seats participated for this trial; 34 verdicts precede the pending last one. There are 17 senator deaths and the chair is alive and gravely injured. Miren Vale’s separately reported death is not counted among senators; other named medical outcomes are not inferred from totals. The last senator, from an unnamed mountain nation, proposes a pilot for three valleys’ healers; final verdict, further authorities, and lockdown unchanged.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
