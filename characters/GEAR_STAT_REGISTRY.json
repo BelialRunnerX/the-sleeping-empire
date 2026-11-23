@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000397",
+      "last_verified_turn": "000398",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1037,9 +1037,9 @@
         "hometown_name": "Hazel Alderford",
         "honorary_title": "Crow the Mischievous",
         "witness_signature": "Elys Somnion",
-        "current_location": "Sealed League Senate chamber, Greyhaven, Genosis",
+        "current_location": "League Senate gallery, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000397",
+        "current_turn": "000398",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow has not released the chamber or authorized dispatch. The chair has requested release and preparation of notices for the seventeen nations with vacant seats. The clerk’s notice procedure and mountain healer pilot are approved, but implementation is not shown.",
+        "current_status": "Crow observes the next actual sitting from the gallery. The seventeen vacancies have been filled and all 35 League seats have credentials. The chair opens consideration of the Ordel river gauge estimates; no vote has occurred.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
