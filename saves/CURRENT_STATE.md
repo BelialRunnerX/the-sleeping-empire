@@ -1,39 +1,27 @@
 # Current Story State
 
-**Save sequence:** 000306  
-**Type:** autonomous played six-chapter Festival of Seven Blades opening round  
-**Recorded:** 2026-11-09  
-**Latest record:** [000306](turns/000306.md)  
-**Checkpoint:** [000306](checkpoints/000306.md)  
-**Aletheia form errata:** [One wholly transforming sentient spear](errata/000299_ALETHEIA_FORM_IDENTITY.md)  
-**Veronica canon:** [Anti-divine purple-haired femme fatale](canon/VERONICA_ANTI_DIVINE_FEMME_FATALE_2026-11-08.md)  
-**Story endpoint:** Chapter CCLXVIII, "The Crimson Gauntlet", evening **19 Deepfall, 13,627 ICE**, Sevenfold Arena at Lumenfall, party of Elys/Veronica/Aletheia present in competitors' gallery. The festival has STARTED, opening rounds underway, **NO championship finalized and NO prizes awarded**.
+**Active arc:** The Genosis Arc, on the planet **Genosis**.  
+**Latest archive:** [000360](turns/000360.md), “Air That Isn’t Ours.”  
+**Checkpoint:** [000360](checkpoints/000360.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
+**Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
-## Newly played tournament facts
+## Resume aboard the flagship
 
-**17 Deepfall preliminary brackets:** Elys registered Unarmed Combat U-07 against A-rank Darric Vale, Open Championship Block C O-12 (opponent awaiting qualifier). Aletheia Armed Duel A-04 versus SS Lady Seris Vaunt, Open Block B O-09 not played. Veronica Tactical Trial T-03 versus SS Commander Elian Marr, Team Exhibition roster not set, Open Block D O-16 not played. Captain Vaedra Halden's placement within Open Block C makes a possible matchup with Elys if both advance.
+Elys is aboard his **unnamed Imperial flagship** off Greyhaven Orbital. All **eleven** people recovered from the long-decommissioned survey cutter are aboard with medics. A maintenance unit attacked for the black recorder and Elys disabled it; the captain isolated the recorder. It maps six seabed installations; the farthest is live. The first drone showed a marked road and waste heat in three residential blocks six kilometers down. A woman answering the rescue hail said they sent twelve. One unit destroyed the drone; a second dragged an orange-suited person whom the voice identified as the chief engineer. Her warning: **“Because there’s air in here now. And it isn’t ours.”** That explanation, the source of the habitat's power, and any link to Tessan's fishing-paper discrepancy remain unverified.
 
-**Opening 19 Deepfall at Sevenfold Arena:** Grand Marshal **Ysoria Thane**, presiding adjudicator in white/gold armor; seven floating rings for Unarmed, Armed, Arcane, Artifice, Team, Tactical, Open. Nonlethal competition with declaration of unusual capacities, yielding and referee stoppage; Elys intrinsic powers cannot be stripped or suppressed.
+No descent, departure, assault on the habitat or patrol redeployment has been ordered. The flagship captain is unnamed and acts under Elys’s standing orders. No unsolicited magical doors or changes to personal ships; an external beacon was a hypothetical idea, not a played event. No in-world date, gear reward, new injury, or secret identity disclosure is inferred from the current scene.
 
-**Confirmed match results:**
-- **ELYS WINS Unarmed U-07** against A-rank martial artist Darric Vale by **safe ring-out**, after allowing talented opponent to demonstrate techniques; not category champion. No injuries.
-- **ALETHEIA WINS Armed A-04** vs SS silver-haired swordmaster Lady Seris Vaunt using whole-body transform **Materia humanoid → sentient Philosopher's Edge spear → Materia humanoid**, no duplicate person or extra weapon, blade point stopped safely before throat; decisive control under referee.
-- **VERONICA WINS Tactical T-03** vs SS Commander Elian Marr in simulated courier recovery objective, intelligence manipulation with no coercive touch, **no simulated casualties, 18 minutes remaining**. Not tactical category champion.
-- **VAEDRA HALDEN WINS Open Block C qualifier** vs SS Arden Sol with refined legal controlled gauntlet strikes; advanced. **Elys has not yet fought Open qualifier.** Only if Elys qualifies will he match Vaedra in next round, not currently a finished duel.
+## Authority by level
 
-**Next scene:** Elys's Block C Open Championship qualifier and whether he advances to meet Vaedra; subsequent rounds of Aletheia/Veronica and optional team exhibition. Sealed grand prize still UNKNOWN; no award or equipment/payout.
+| Level | Confirmed | Still open |
+|---|---|---|
+| Local | The civilian harbourmaster runs berths, rescue and ordinary port operations. Twenty-four local guard personnel are under Crow, with *Kestrel* on station, *Tern* relief, and *Lantern* rescue on call. *Bastion* stays out. | Habitat situation, missing twelfth person’s independent confirmation, inspection and rescue decisions. |
+| National | Crow reigns over sovereign Xiphos. Greyhaven Orbital is the port in space; the surface area is a transit and landing zone. Crow's Crown honor is **Crow the Mischievous**, not a change to his one-word legal name. | No reclassification of Xiphos civil holdings as League assets. |
+| Planetary | The League Senate legislates; Crow executes within its authority. Xiphos is also the administrative capital; Greyhaven is the offworld port of entry. Safe harbour, not legal refuge: immediate safety first; verified hold request and separate transfer authority. The former Elara marshal was released and registered as deputy. | Senate review of Crow’s executive conduct concerning Vask is not disposed of by the Merrowick immunity ruling. Istren's remaining harbour revenue is unquantified. |
+| Interstellar | The notice of concern was submitted to Meridian Civil Registry and Vey Transit Authority with Elys Somnion as a witness, supporting witnesses sealed. Aurelia’s issued decree classifies Genosis as a semi-autonomous Imperial subregion; League and member offices continue and transition remains disputed. The First Fleet is under the Emperor on defensive station; Lilith commands the Second and is not present. | Company review, transition objections, unsettled mine permit and royalty proposal, and next-season Tessan fishing renewals. Port knowledge remains limited to recorded disclosures. |
 
-## Current companions and permanent canon
+Iona remains offstage for this phase; no restoration to deputy, wedding or engagement is implied. Crow’s family knows him as Hazel Alderford; the public identity and Imperial identity are not universally linked. Travel, military deployment, legal refuge and final implementation of annexation are not established by a proposal. The decree is recorded as issued; that is not the same as a completed arc.
 
-Elys ancient Emperor on sabbatical, **unconditional intrinsic INVULNERABILITY TO ALL attacks/harm including identity/concept/ontological erasure, limitless innate NEGATION and FULL REFLECTION, no bypass/cooldown/item dependence**, **NOT omniscient**, quietly compassionate, ironic. Standing narrator authorization to write Elys routine dialogue/choices, player can errata.
+## Archive and narration
 
-Veronica Elys's PRIMARY traveling companion/reciprocated romantic partner (not excluding Aletheia), immortal Head of Intelligence, adult early-twenties-looking curvy woman with **VIVID PURPLE HAIR and FIFTEEN prehensile appendages**, anti-divine Cthulhu-like eldritch femme fatale, softly wicked flirting as threat to others and intimate suggestive warmth toward Elys. No erotic coercion. Clarissa fiancée/Celeste preexisting divine spouse undisclosed to Clarissa; previous relationships continue.
-
-Aletheia ONE sentient physical weapon `ITM-000001` transforming mutually exclusively into Materia humanoid / Philosopher's Edge spear / Genesis Loom staff. NEVER separate human carrying spear. Current form **Materia humanoid** in Sevenfold spectator gallery, joyous at hostile competition but respects referee safety, independent agency.
-
-**Guild contracts:** SSS-004 ₡14M, VEIL-09-R ₡9M, S-118 ₡75k each settled ONCE before festival; no active Guild contracts and Festival independently administered. Total personal balance unknown. **No tournament payout or entry cost, no equipment acquisition, next item ID8**. Aegis/Forge Core 100%, Last Witness uniquely equipped in relic core, Sixfold Resonator, Horizon Needle and Foldglass Wayfinder uniquely stored unequipped.
-
-**Older arcs:** Asterion closed (15 historic Light-Born alive protected, eight dead), fixed stabilizer monitoring, director Rook alive in lawful custody; Madrigal three survivors/six dead. Vaedra remains S-rank scarred left eyebrow with crimson armor and articulated actuator gauntlets; prior arm wrestling Elys 2–0, no proper Elys-versus-Vaedra duel yet.
-
-## Location/time next
-Sevenfold Arena, Lumenfall, evening 19 Deepfall 13,627 ICE. The afternoon opening bouts concluded, crowd cheering. Elys may fight upcoming Open qualifier; Vaedra is already advanced waiting on bracket. No automatic win/qualification without narrated result.
+The archive records consecutive **save numbers**, not a claim that every voice sentence survived. Exact visible scene excerpts and supported reconstruction summaries are labeled. Continue the latest accepted action and let the world respond; no automatic choices or voluntary speech unless the player delegates it for that run. Use concrete setting, character judgment and institutional consequences, and preserve independent authority. Back up actual story-changing turns with the index, state and any affected registry/errata; link a remote save only after its commit is verified.

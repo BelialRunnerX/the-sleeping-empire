@@ -532,3 +532,64 @@ Create a new file under `saves/chapters/` at each chapter close or every 20 turn
 | [000304](turns/000304.md) | CCLVI–CCLX | Autonomous played local adventure (detailed synopsis) | Glass Orchard restored; six rogue gardening constructs defeated; S-118 ₡75k verified and paid; private Festival of Seven Blades invitation seen | [000304](checkpoints/000304.md) |
 | [000305](turns/000305.md) | CCLXI–CCLXII | User-corrected played match and event registration | Elys beats Captain Vaedra Halden 2–0 at arm-wrestling; Elys, Aletheia, Veronica registered for Festival of Seven Blades | [000305](checkpoints/000305.md) |
 | [000306](turns/000306.md) | CCLXIII–CCLXVIII | Autonomous Festival opening, detailed synopsis | Elys Unarmed win, Aletheia Armed win, Veronica Tactical win; Vaedra Open win; Elys Open qualifier still pending | [000306](checkpoints/000306.md) |
+
+## The Genosis Arc
+
+Recovered story sequence following the last archived festival record. Save numbering is an archive sequence, not a transcript count or proof of a direct in-world bridge. See [coverage notes](chapters/GENOSIS_ARC.md).
+
+| Save | Chapter | Kind | Endpoint | Checkpoint |
+|---|---|---|---|---|
+| [000307](turns/000307.md) | The Genosis Arc | Backfill synopsis | Alderford Landing | [000360](checkpoints/000360.md) |
+| [000308](turns/000308.md) | The Genosis Arc | Backfill synopsis | Brackenfold Summer Pastures | [000360](checkpoints/000360.md) |
+| [000309](turns/000309.md) | The Genosis Arc | Backfill synopsis | Private storeroom (governing retcon) | [000360](checkpoints/000360.md) |
+| [000310](turns/000310.md) | The Genosis Arc | Backfill synopsis | Veycross / Meridian House | [000360](checkpoints/000360.md) |
+| [000311](turns/000311.md) | The Genosis Arc | Backfill synopsis | Public Baths | [000360](checkpoints/000360.md) |
+| [000312](turns/000312.md) | The Genosis Arc | Backfill synopsis | Stonegate / Iona | [000360](checkpoints/000360.md) |
+| [000313](turns/000313.md) | The Genosis Arc | Backfill synopsis | Liora / Wrenford transition | [000360](checkpoints/000360.md) |
+| [000314](turns/000314.md) | The Genosis Arc | Backfill synopsis | Wrenford rescue and Veycross coup | [000360](checkpoints/000360.md) |
+| [000315](turns/000315.md) | The Genosis Arc | Backfill synopsis | Alderford Again | [000360](checkpoints/000360.md) |
+| [000316](turns/000316.md) | The Genosis Arc | Backfill synopsis | Recognition of Xiphos | [000360](checkpoints/000360.md) |
+| [000317](turns/000317.md) | The Genosis Arc | Backfill synopsis | Charter and First Accessions | [000360](checkpoints/000360.md) |
+| [000318](turns/000318.md) | The Genosis Arc | Backfill synopsis | River Treaties and Three Crews | [000360](checkpoints/000360.md) |
+| [000319](turns/000319.md) | The Genosis Arc | Backfill synopsis | The House Above the Cove | [000360](checkpoints/000360.md) |
+| [000320](turns/000320.md) | The Genosis Arc | Backfill synopsis | Day Ninety and the First Senate | [000360](checkpoints/000360.md) |
+| [000321](turns/000321.md) | The Genosis Arc | Backfill synopsis | The Visitors and the Yard | [000360](checkpoints/000360.md) |
+| [000322](turns/000322.md) | The Genosis Arc | Backfill synopsis | Separate Contacts and Imperial Relations | [000360](checkpoints/000360.md) |
+| [000323](turns/000323.md) | The Genosis Arc | Backfill synopsis | Reparations and a Deputy | [000360](checkpoints/000360.md) |
+| [000324](turns/000324.md) | The Genosis Arc | Backfill synopsis | Vask and the Merrowick Ruling | [000360](checkpoints/000360.md) |
+| [000325](turns/000325.md) | The Genosis Arc | Backfill synopsis | Theren’s Flight | [000360](checkpoints/000360.md) |
+| [000326](turns/000326.md) | The Genosis Arc | Backfill synopsis | Restoration and Its Witnesses | [000360](checkpoints/000360.md) |
+| [000327](turns/000327.md) | The Genosis Arc | Backfill synopsis | The Seaside House and Alderford Breakfast | [000360](checkpoints/000360.md) |
+| [000328](turns/000328.md) | The Genosis Arc | Backfill synopsis | Berth Is Not Escort | [000360](checkpoints/000360.md) |
+| [000329](turns/000329.md) | The Genosis Arc | Played turn excerpt | Passengers ask to disembark from their own vessel; tug requests berth number | [000360](checkpoints/000360.md) |
+| [000330](turns/000330.md) | The Genosis Arc | Played turn excerpt | Tug says it has a blue satchel and requests a berth-linked handoff | [000360](checkpoints/000360.md) |
+| [000331](turns/000331.md) | The Genosis Arc | Played turn excerpt | Separate berths; passengers disembark; medication satchel returned; tug stays aboard | [000360](checkpoints/000360.md) |
+| [000332](turns/000332.md) | The Genosis Arc | Played turn excerpt | Crow comes down to the harbour after berthing | [000360](checkpoints/000360.md) |
+| [000333](turns/000333.md) | The Genosis Arc | Played turn excerpt | Crow introduces himself as Xiphos sovereign, distinct from the Senate | [000360](checkpoints/000360.md) |
+| [000334](turns/000334.md) | The Genosis Arc | Played turn excerpt | Port checks the sequence of company dispatches | [000360](checkpoints/000360.md) |
+| [000335](turns/000335.md) | The Genosis Arc | Played turn excerpt | Tug pilot gives his account of the assignment and dispatch instructions | [000360](checkpoints/000360.md) |
+| [000336](turns/000336.md) | The Genosis Arc | Played turn excerpt | Crow affirms passengers may refuse company transport | [000360](checkpoints/000360.md) |
+| [000337](turns/000337.md) | The Genosis Arc | Played turn excerpt | Statements and provisions; tug permitted berth, not entry visas | [000360](checkpoints/000360.md) |
+| [000338](turns/000338.md) | The Genosis Arc | Played turn excerpt | Company visit supervised, no compelled statements | [000360](checkpoints/000360.md) |
+| [000339](turns/000339.md) | The Genosis Arc | Played turn excerpt | Port preserves the record after the company courier leaves | [000360](checkpoints/000360.md) |
+| [000340](turns/000340.md) | The Genosis Arc | Played turn excerpt | Senate advised to protect civilians, avoid company dispute | [000360](checkpoints/000360.md) |
+| [000341](turns/000341.md) | The Genosis Arc | Played turn excerpt | Crow closes the night; statements sealed | [000360](checkpoints/000360.md) |
+| [000342](turns/000342.md) | The Genosis Arc | Played turn excerpt | Senate summons the envoy and asks how to file a formal notice | [000360](checkpoints/000360.md) |
+| [000343](turns/000343.md) | The Genosis Arc | Played turn excerpt | Meridian Civil Registry and Vey Transit Authority selected | [000360](checkpoints/000360.md) |
+| [000344](turns/000344.md) | The Genosis Arc | Played turn excerpt | Elys Somnion added as official witness without revealing the Crown link | [000360](checkpoints/000360.md) |
+| [000345](turns/000345.md) | The Genosis Arc | Played turn excerpt | Notice filed and acknowledged by both registries; reviews not decided | [000360](checkpoints/000360.md) |
+| [000346](turns/000346.md) | The Genosis Arc | Played turn excerpt | Senate adopts safe harbour, not legal refuge; evacuation first | [000360](checkpoints/000360.md) |
+| [000347](turns/000347.md) | The Genosis Arc | Played turn excerpt | Senate authorizes station guard in orbit; local enforcement remit | [000360](checkpoints/000360.md) |
+| [000348](turns/000348.md) | The Genosis Arc | Played turn excerpt | Crow commands guard; civilian harbourmaster keeps dock and rescue authority | [000360](checkpoints/000360.md) |
+| [000349](turns/000349.md) | The Genosis Arc | Played turn excerpt | 24-person watch and available ships identified; assignments pending | [000360](checkpoints/000360.md) |
+| [000350](turns/000350.md) | The Genosis Arc | Played turn excerpt | Kestrel on station; Tern relief and Lantern rescue on call; Bastion stays out | [000360](checkpoints/000360.md) |
+| [000351](turns/000351.md) | The Genosis Arc | Played outcome with errata | Aurelia sends First Fleet under Emperor; flagship takes station; later command correction retained | [000360](checkpoints/000360.md) |
+| [000352](turns/000352.md) | The Genosis Arc | Backfill synopsis | A Defensive Notice | [000360](checkpoints/000360.md) |
+| [000353](turns/000353.md) | The Genosis Arc | Backfill synopsis | The Rival Claims and the Ridge | [000360](checkpoints/000360.md) |
+| [000354](turns/000354.md) | The Genosis Arc | Backfill synopsis | The Classification Decree | [000360](checkpoints/000360.md) |
+| [000355](turns/000355.md) | The Genosis Arc | Backfill synopsis | Aurelia at Berth Six | [000360](checkpoints/000360.md) |
+| [000356](turns/000356.md) | The Genosis Arc | Backfill synopsis | Tessan’s Fishing Season | [000360](checkpoints/000360.md) |
+| [000357](turns/000357.md) | The Genosis Arc | Backfill synopsis | The Mining Hearing and the Royalty Offer | [000360](checkpoints/000360.md) |
+| [000358](turns/000358.md) | The Genosis Arc | Backfill synopsis | Bread for the Early Train | [000360](checkpoints/000360.md) |
+| [000359](turns/000359.md) | The Genosis Arc | Backfill synopsis | Eleven rescued; recorder maps a live seabed installation | [000360](checkpoints/000360.md) |
+| [000360](turns/000360.md) | The Genosis Arc | Played turn excerpt | Drone feed cut at six kilometers; warning about habitat air | [000360](checkpoints/000360.md) |

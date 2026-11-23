@@ -8,7 +8,11 @@
     "char-elys": {
       "character_id": "char-elys",
       "canonical_name": "Elys Somion",
-      "aliases": [],
+      "aliases": [
+        "Crow",
+        "Hazel Alderford",
+        "Elys Somnion"
+      ],
       "role": "Emperor",
       "certification": {
         "rank": "SSS",
@@ -73,7 +77,10 @@
         "ITM-000004",
         "ITM-000005",
         "ITM-000006",
-        "ITM-000007"
+        "ITM-000007",
+        "ITM-000008",
+        "ITM-000009",
+        "ITM-000010"
       ],
       "loadout_id": null,
       "gem_circuits": null,
@@ -410,9 +417,16 @@
           "before": "No on-page result for this match",
           "after": "{\"status\":\"OPENING_WIN\",\"opponent\":\"Darric Vale\",\"method\":\"legal safe ring-out\",\"turn\":\"000306\"}",
           "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
+        },
+        {
+          "turn": "000360",
+          "field": "genosis_active_context",
+          "before": "Latest Imperial festival state indexed by 000306",
+          "after": "Active Genosis story state aboard unnamed Imperial flagship; earlier festival registry is preserved",
+          "source": "Genosis archive and recovered played turns"
         }
       ],
-      "last_verified_turn": "000306",
+      "last_verified_turn": "000360",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1016,6 +1030,25 @@
           "method": "legal safe ring-out",
           "turn": "000306"
         }
+      },
+      "genosis_active_context": {
+        "canon": "saves/canon/GENOSIS_ARC.md",
+        "registered_name": "Crow",
+        "hometown_name": "Hazel Alderford",
+        "honorary_title": "Crow the Mischievous",
+        "witness_signature": "Elys Somnion",
+        "current_location": "Unnamed Imperial flagship off Greyhaven Orbital",
+        "arc_start_turn": "000307",
+        "current_turn": "000360",
+        "imperial_identity_public": false,
+        "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
+        "verified_recovered_preowned_items": [
+          "ITM-000008",
+          "ITM-000009",
+          "ITM-000010"
+        ],
+        "current_numeric_stats": null,
+        "current_slot_assignment": null
       }
     },
     "char-clarissa": {
@@ -1378,7 +1411,13 @@
       "banner_pity": null,
       "appearance": null,
       "change_log": [],
-      "last_verified_turn": null
+      "last_verified_turn": null,
+      "genosis_current_assignment": {
+        "command": "Second Fleet",
+        "present_at_genosis": false,
+        "verified_turn": "000351",
+        "source": "Later explicit player correction; historical First Fleet command retained in older entries"
+      }
     },
     "char-veronica": {
       "character_id": "char-veronica",
@@ -5372,6 +5411,522 @@
       "last_verified_turn": "000305",
       "current_location": "Lumenfall Guild upper-room Festival desk",
       "provisional": false
+    },
+    "char-genosis-iona": {
+      "character_id": "char-genosis-iona",
+      "canonical_name": "Iona",
+      "aliases": [],
+      "role": "Princess of Alderreach; former League deputy",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000312",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Princess of Alderreach; former League deputy",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-liora": {
+      "character_id": "char-genosis-liora",
+      "canonical_name": "Liora",
+      "aliases": [],
+      "role": "Iona’s sister",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000312",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Iona’s sister",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-sera-vale": {
+      "character_id": "char-genosis-sera-vale",
+      "canonical_name": "Sera Vale",
+      "aliases": [],
+      "role": "Magistrate",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000312",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Magistrate",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-anwen": {
+      "character_id": "char-genosis-anwen",
+      "canonical_name": "Anwen",
+      "aliases": [],
+      "role": "Witness to the birth record",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000312",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Witness to the birth record",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-nessa": {
+      "character_id": "char-genosis-nessa",
+      "canonical_name": "Nessa",
+      "aliases": [],
+      "role": "Tracker",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000307",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Tracker",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-berran": {
+      "character_id": "char-genosis-berran",
+      "canonical_name": "Berran",
+      "aliases": [],
+      "role": "Lower Landing suspect taken into custody",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000307",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Lower Landing suspect taken into custody",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-surveyor-dain": {
+      "character_id": "char-genosis-surveyor-dain",
+      "canonical_name": "Dain",
+      "aliases": [],
+      "role": "Alderford surveyor",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000307",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Alderford surveyor",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-elara": {
+      "character_id": "char-genosis-elara",
+      "canonical_name": "Elara",
+      "aliases": [],
+      "role": "Queen of Alderreach",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000314",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Queen of Alderreach",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-tavin-edrick": {
+      "character_id": "char-genosis-tavin-edrick",
+      "canonical_name": "Tavin Edrick",
+      "aliases": [],
+      "role": "Veycross chamberlain",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000314",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Veycross chamberlain",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-councillor-merrow": {
+      "character_id": "char-genosis-councillor-merrow",
+      "canonical_name": "Merrow",
+      "aliases": [],
+      "role": "Veycross councillor",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000314",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Veycross councillor",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-tessa-vey": {
+      "character_id": "char-genosis-tessa-vey",
+      "canonical_name": "Tessa Vey",
+      "aliases": [],
+      "role": "Senator for Vask",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000317",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Senator for Vask",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-theren": {
+      "character_id": "char-genosis-theren",
+      "canonical_name": "Theren",
+      "aliases": [],
+      "role": "Survey ship captain",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000325",
+          "field": "continuity",
+          "before": "Not indexed in Genosis",
+          "after": "Survey ship captain",
+          "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
     }
   },
   "items": {
@@ -5972,6 +6527,48 @@
       ],
       "documentation": "armory/instruments/ITM-000007_FOLDGLASS_WAYFINDER.md",
       "last_modified_turn": "000303"
+    },
+    "ITM-000008": {
+      "item_id": "ITM-000008",
+      "canonical_name": "Crow’s writing pen",
+      "owner_character_id": "char-elys",
+      "rarity": null,
+      "type": "Non-sentient pen with spear and staff forms",
+      "sentient": false,
+      "source_turn": "000309",
+      "ownership_verified": true,
+      "equipped": null,
+      "raw_numeric_stats": null,
+      "provenance": "Pre-owned item reclaimed from Crow’s private storeroom; no creation, award or purchase implied",
+      "documentation": "saves/canon/GENOSIS_ARC.md"
+    },
+    "ITM-000009": {
+      "item_id": "ITM-000009",
+      "canonical_name": "Crow’s everyday armor",
+      "owner_character_id": "char-elys",
+      "rarity": null,
+      "type": "Non-sentient armor disguised as ordinary clothes",
+      "sentient": false,
+      "source_turn": "000309",
+      "ownership_verified": true,
+      "equipped": null,
+      "raw_numeric_stats": null,
+      "provenance": "Pre-owned item reclaimed from Crow’s private storeroom; no creation, award or purchase implied",
+      "documentation": "saves/canon/GENOSIS_ARC.md"
+    },
+    "ITM-000010": {
+      "item_id": "ITM-000010",
+      "canonical_name": "Crow’s resource pouch",
+      "owner_character_id": "char-elys",
+      "rarity": null,
+      "type": "Owner-keyed infinite resource storage",
+      "sentient": false,
+      "source_turn": "000309",
+      "ownership_verified": true,
+      "equipped": null,
+      "raw_numeric_stats": null,
+      "provenance": "Pre-owned item reclaimed from Crow’s private storeroom; no creation, award or purchase implied",
+      "documentation": "saves/canon/GENOSIS_ARC.md"
     }
   },
   "transactions": [
@@ -6155,5 +6752,5 @@
       "source": "saves/turns/000304.md; guild/S-118_THE_GLASS_ORCHARD.md"
     }
   ],
-  "next_item_sequence": 8
+  "next_item_sequence": 11
 }
