@@ -16,3 +16,5 @@ Gaps and limits: the earliest Lower Landing investigation and some royal transit
 Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship developments. In the League chamber, Aurelia accepts the forty-seven Tessan applications as filed, keeps existing licences in effect while review continues, and allows one joint Nareth–Ordel filing under the League’s seal.
 
 [000362](../turns/000362.md), two days after the first Tessan receipt: Nareth–Ordel reach an interim arrangement, not a final ruling; no new Elys action.
+
+[000363](../turns/000363.md): Sera Dain and Ordel’s senator draft a possible deal on the train. Ordel would retain dredge crews; Nareth would share replacement cost and scheduling authority. Late-season allocation is left open for consultation. Sera wires the draft to the clerk and asks for it to go to the ferry landings first, not directly to Imperial registration. The regency has asked which path they intend to use; no submission choice, final agreement, or dues ruling has been made. Crow remains quietly aboard and does not act.
