@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000368](turns/000368.md), “Leave It Blank.”
+**Latest archive:** [000369](turns/000369.md), “A Recorded Vote.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow says only “Neither” from the gallery. Tessa moves to demand advance notice from Aurelia under the League’s seal before an Imperial ship fires on Genosis. There is no vote. Sera asks for actionable notice details and points out the uninhabited land has seasonal goat grazing. The chair directs the clerk to leave the purpose blank and send the district the facts; dispatch completion is not shown.
+**Latest played beat:** Crow reveals his full armor, taps the floor twice with Aletheia in spear form, and says exactly: “No, you don’t get notice. I get to do what I want.” The chair has it entered verbatim. Tessan objects to an unenforceable rule; Sera wants the local council notified first. The chair directs the map be sent and the clerk begins a recorded vote on Tessa’s original motion. No vote result or completed dispatch has been established.
 
 ## Authority by level
 
