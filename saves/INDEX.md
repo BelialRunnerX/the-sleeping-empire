@@ -607,3 +607,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000372](turns/000372.md) | The Genosis Arc | Played voice scene, exact | Ordel offers unverified millstone story; apprentice confirms granite; no identified counterpart | [000361](checkpoints/000361.md) |
 | [000373](turns/000373.md) | The Genosis Arc | Played voice scene, exact | Messenger identifies Elin Rusk; account concerns a cracked millstone; conditional test offer | [000361](checkpoints/000361.md) |
 | [000374](turns/000374.md) | The Genosis Arc | Played voice scene, exact | Ordel responds; thanks requested; recorded roll resumes at Ordel without result | [000361](checkpoints/000361.md) |
+| [000375](turns/000375.md) | The Genosis Arc | Played voice scene, exact | Imperial soldiers seal Senate; roll interrupted before Ordel votes; questions unanswered | [000361](checkpoints/000361.md) |
