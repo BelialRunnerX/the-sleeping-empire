@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000394](turns/000394.md), “When It Arrives.”
+**Latest archive:** [000395](turns/000395.md), “Ask for the Receipt.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow requires everyone present, including non-senators, to offer a suggestion and calls on the clerk. The clerk proposes effective dates, sealed district copies, and delivery acknowledgments before enforcement. No verdict is given on that suggestion or the mountain senator’s healer proposal. The 35-seat tally is unchanged.
+**Latest played beat:** The clerk proposes a dated receipt bearing the district seal, judicial comparison of dispatch books and a messenger’s testimony when needed, and resending when only dispatch can be proved. Neither the notice proposal nor the mountain healing proposal receives a verdict. The 35-seat tally remains unchanged.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
