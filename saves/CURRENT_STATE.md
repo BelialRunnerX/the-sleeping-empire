@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000392](turns/000392.md), “The Market Weights.”
+**Latest archive:** [000392](turns/000392.md), “The Apprentice Rule Approved.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,9 +16,9 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow approves the apprentice registry/certificates rule. The clerk records it and retains the potter’s letter. A senator proposes one market-weight standard, available at district halls, checks paid by existing market fees. No new verdict, final rule, or change to the lockdown.
+**Latest played beat:** Crow said “That’s fine. Next.” and the inland senator’s apprenticeship proposal was marked approved. This is the eighth verdict. The player asks for the count before the next turn; no next proposal, verdict, or additional action is enacted. Earlier Senate closure and unresolved medical conditions have not changed.
 
-**Senate composition:** Genosis has 36 nations. The League Senate has 36 seats, one per nation. Attendance, quorum, vacancies, and votes at the current sitting are not established by the seat count. No names or memberships have been inferred for previously unnamed seats.
+**Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
 ## Authority by level
 

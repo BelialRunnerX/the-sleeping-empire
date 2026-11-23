@@ -75,4 +75,4 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 
 [000391](../turns/000391.md): Crow calls for the next suggestion. An inland senator proposes apprentice and district-clerk copies of each indenture, plus an end-of-term certificate obtainable without the master. The master would pay a filing fee; no law, verdict, or confirmed guild reaction yet.
 
-[000392](../turns/000392.md): Crow approves the apprentice registry/certificates rule. The clerk records it and retains the potter’s letter. A senator proposes one market-weight standard, available at district halls, checks paid by existing market fees. No new verdict, final rule, or change to the lockdown.
+[000392](../turns/000392.md): Crow said “That’s fine. Next.” and the inland senator’s apprenticeship proposal was marked approved. This is the eighth verdict. The player asks for the count before the next turn; no next proposal, verdict, or additional action is enacted. Earlier Senate closure and unresolved medical conditions have not changed.

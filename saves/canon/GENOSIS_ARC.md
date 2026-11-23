@@ -21,4 +21,4 @@ The player explicitly rewound all events aboard the flagship after Crow took up 
 
 **Native baseline:** Ordinary Genosis technology is roughly comparable to the 1300s–1400s. No sci-fi underwater cities. Offworld capability does not imply native origin; apparent exceptions remain provenance questions, not license to invent or retroactively delete. [Governing correction](../errata/GENOSIS_TECHNOLOGY_BASELINE.md).
 
-**League Senate composition:** Genosis has 36 nations. The League Senate has 36 seats, one per nation. Attendance, quorum, vacancies, and votes at the current sitting are not established by the seat count. No names or memberships have been inferred for previously unnamed seats. This is a setting clarification, not a new played turn.
+**League Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats. This is a setting clarification, not a new played turn.
