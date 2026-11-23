@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000363](turns/000363.md), “From a Train.”
+**Latest archive:** [000364](turns/000364.md), “Both Banks.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -13,7 +13,8 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
-**Latest played beat:** Sera Dain and Ordel’s senator draft a possible deal on the train. Ordel would retain dredge crews; Nareth would share replacement cost and scheduling authority. Late-season allocation is left open for consultation. Sera wires the draft to the clerk and asks for it to go to the ferry landings first, not directly to Imperial registration. The regency has asked which path they intend to use; no submission choice, final agreement, or dues ruling has been made. Crow remains quietly aboard and does not act.
+
+**Latest played beat:** Ferry landings publicly test the draft. The same narrow reach affects grain barges, ferries and nighttime care, with different stakes for small shippers. The two delegations agree to fresh joint soundings and published depths before dividing the season; crew retention and cost sharing will be requested from their respective assemblies. Treasury permits the disputed dues to remain segregated. Sera returns an Imperial form calling the governments municipal administrations unsigned. Survey, replacement dredger, final allocation and status language remain open. Crow takes no action.
 
 ## Authority by level
 
