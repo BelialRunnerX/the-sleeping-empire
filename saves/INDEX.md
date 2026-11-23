@@ -605,3 +605,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000370](turns/000370.md) | The Genosis Arc | Played voice scene, exact | Recorded roll call pauses without result; a block of granite is set at the gallery stairs | [000361](checkpoints/000361.md) |
 | [000371](turns/000371.md) | The Genosis Arc | Played voice scene, exact | Crow crushes hand-sized granite; chair asks whether to poll room; roll stays paused | [000361](checkpoints/000361.md) |
 | [000372](turns/000372.md) | The Genosis Arc | Played voice scene, exact | Ordel offers unverified millstone story; apprentice confirms granite; no identified counterpart | [000361](checkpoints/000361.md) |
+| [000373](turns/000373.md) | The Genosis Arc | Played voice scene, exact | Messenger identifies Elin Rusk; account concerns a cracked millstone; conditional test offer | [000361](checkpoints/000361.md) |

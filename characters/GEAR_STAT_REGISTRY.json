@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000372",
+      "last_verified_turn": "000373",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "League Senate observation gallery on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000372",
+        "current_turn": "000373",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Observing from the gallery after an unverified Ordel story; recorded roll remains paused.",
+        "current_status": "In the Senate gallery after the messenger’s return; Elin’s conditional offer awaits a reply.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
@@ -5991,6 +5991,49 @@
           "before": "Dredging dues review open",
           "after": "Drafted possible joint dredger ownership and schedule; asked for consultation at ferry landings before filing",
           "source": "Exact played scene; no final settlement"
+        }
+      ]
+    },
+    "char-genosis-elin-rusk": {
+      "character_id": "char-genosis-elin-rusk",
+      "canonical_name": "Elin Rusk",
+      "aliases": [],
+      "role": "Lived in Ordel mill village; potential witness",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000373",
+          "field": "potential ability",
+          "before": "No identified person",
+          "after": "Age 79 by her report; says she pulled apart a cracked millstone; no equivalent ability verified. Willing to try under stated conditions.",
+          "source": "Voice story; no inferred strength rating"
         }
       ]
     }
