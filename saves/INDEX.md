@@ -600,3 +600,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000365](turns/000365.md) | The Genosis Arc | Played voice scene, exact | Joint survey funded; ferry hours and grain slots sent to the landings; registration pending | [000361](checkpoints/000361.md) |
 | [000366](turns/000366.md) | The Genosis Arc | Played voice scene, exact | Captain reports five-metre crater; whether to mark coordinates open | [000361](checkpoints/000361.md) |
 | [000367](turns/000367.md) | The Genosis Arc | Played voice scene, exact | Crow arrives at Senate; harbourmaster says notice came after the shot; chair asks its purpose | [000361](checkpoints/000361.md) |
+| [000368](turns/000368.md) | The Genosis Arc | Played voice scene, exact | Crow says neither; advance-notice motion proposed, no vote; chair directs fact-only district dispatch | [000361](checkpoints/000361.md) |

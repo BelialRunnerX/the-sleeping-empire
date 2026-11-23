@@ -1,13 +1,13 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000367](turns/000367.md), “Whose Land?.”
+**Latest archive:** [000368](turns/000368.md), “Leave It Blank.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
 **Native technology:** Roughly 1300s–1400s; no science-fiction underwater cities. Separate offworld/exceptional systems from native capability. See [technology baseline](errata/GENOSIS_TECHNOLOGY_BASELINE.md).
 
-## Resume: the Senate witness table
+## Resume: the Senate observation gallery
 
 Elys previously resided quietly aboard his **unnamed Imperial super-dreadnought** off Greyhaven Orbital. After the five-metre crater test he went to the League Senate to observe its response. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow goes to the Senate to see the response. The harbourmaster brings the before-and-after images. Sera requests notice to the district council, Tessan requests both images, and Tessa asks that the minutes distinguish whether Genosis gets advance notice. The harbourmaster says it came after the shot. The chair asks whether it was a test for the captain or a demonstration for the chamber; Crow has not answered. No sending of images or new policy is confirmed.
+**Latest played beat:** Crow says only “Neither” from the gallery. Tessa moves to demand advance notice from Aurelia under the League’s seal before an Imperial ship fires on Genosis. There is no vote. Sera asks for actionable notice details and points out the uninhabited land has seasonal goat grazing. The chair directs the clerk to leave the purpose blank and send the district the facts; dispatch completion is not shown.
 
 ## Authority by level
 
