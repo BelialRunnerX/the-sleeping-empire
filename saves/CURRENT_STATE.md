@@ -1,22 +1,22 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000366](turns/000366.md), “Five Metres.”
+**Latest archive:** [000367](turns/000367.md), “Whose Land?.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
 **Native technology:** Roughly 1300s–1400s; no science-fiction underwater cities. Separate offworld/exceptional systems from native capability. See [technology baseline](errata/GENOSIS_TECHNOLOGY_BASELINE.md).
 
-## Resume: aboard the flagship
+## Resume: the Senate witness table
 
-Elys has settled into his quarters aboard his **unnamed Imperial super-dreadnought** off Greyhaven Orbital, away from the Senate and taking a private, uneventful hiatus. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
+Elys previously resided quietly aboard his **unnamed Imperial super-dreadnought** off Greyhaven Orbital. After the five-metre crater test he went to the League Senate to observe its response. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
 
 On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on paper. Aurelia appears by holo from Epsilon-7 with an Imperial registrar. The treaty crosses a maritime boundary; the Empire can protect the boats from its own inspectors, but foreign unloading arrangements remain under the other country's authority and existing agreement. Aurelia orders all forty-seven applications recorded as filed and receipts sent. Existing licences carry into next season while the review is open. One receipt has arrived; that is not evidence that all receipts have arrived or final renewals are granted. Nareth and Ordel may submit their agreements and a list of people who depend on them together under the League seal; no equivalent interim protection is granted in this scene.
 
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow ends the uneventful part of his stay by directing the captain to make a five-metre crater in an uninhabited area. On the survey feed the dreadnought fires once on bare rock far from the surveyed roads, farms or settlements, and the captain reports a five-metre crater. She asks whether to mark the coordinates; Elys has given no answer or additional order. He remains aboard. The discarded coastal rescue was never played.
+**Latest played beat:** Crow goes to the Senate to see the response. The harbourmaster brings the before-and-after images. Sera requests notice to the district council, Tessan requests both images, and Tessa asks that the minutes distinguish whether Genosis gets advance notice. The harbourmaster says it came after the shot. The chair asks whether it was a test for the captain or a demonstration for the chamber; Crow has not answered. No sending of images or new policy is confirmed.
 
 ## Authority by level
 

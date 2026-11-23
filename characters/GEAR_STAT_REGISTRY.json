@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000366",
+      "last_verified_turn": "000367",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1037,9 +1037,9 @@
         "hometown_name": "Hazel Alderford",
         "honorary_title": "Crow the Mischievous",
         "witness_signature": "Elys Somnion",
-        "current_location": "Unnamed Imperial flagship off Greyhaven Orbital",
+        "current_location": "League Senate chamber on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000366",
+        "current_turn": "000367",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Still aboard his unnamed super-dreadnought after the directed five-metre crater test; captain’s coordinates question open."
+        "current_status": "At the League Senate witness table, chair asking whether the shot was a test or demonstration; no answer yet."
       }
     },
     "char-clarissa": {
