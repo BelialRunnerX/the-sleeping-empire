@@ -74,3 +74,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000390](../turns/000390.md): Crow waits. An officer returns alone and reports the order carried out and Edren’s daughter dead offscreen. The aide names her Miren Vale, and the clerk writes her name. No independent account or direct depiction, new speech, senator rising, medical status for others, or opening of the doors.
 
 [000391](../turns/000391.md): Crow calls for the next suggestion. An inland senator proposes apprentice and district-clerk copies of each indenture, plus an end-of-term certificate obtainable without the master. The master would pay a filing fee; no law, verdict, or confirmed guild reaction yet.
+
+[000392](../turns/000392.md): Crow approves the apprentice registry/certificates rule. The clerk records it and retains the potter’s letter. A senator proposes one market-weight standard, available at district halls, checks paid by existing market fees. No new verdict, final rule, or change to the lockdown.
