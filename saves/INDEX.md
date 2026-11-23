@@ -633,3 +633,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000398](turns/000398.md) | The Genosis Arc | Played voice scene, exact | All 35 seats filled; river gauge estimates before Senate; no vote yet | [000380](checkpoints/000380.md) |
 | [000399](turns/000399.md) | The Genosis Arc | Played voice scene, exact | Corrected sitting; trial laws enacted; continuity motion debated only | [000380](checkpoints/000380.md) |
 | [000400](turns/000400.md) | The Genosis Arc | Played voice scene, exact | Amended continuity motion awaits vote; ordinary recess | [000380](checkpoints/000400.md) |
+| [000401](turns/000401.md) | The Genosis Arc | Played voice scene, exact | Contacts motion 26–6–3; circulation of accounts pending | [000380](checkpoints/000400.md) |
