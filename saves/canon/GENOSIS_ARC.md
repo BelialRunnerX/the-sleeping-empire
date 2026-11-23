@@ -18,3 +18,5 @@ The privately recovered pen, everyday-clothes armor and resource pouch are pre-o
 - The prior magical-door alternatives aboard the personal ship are excluded. No magical door or unsolicited modification belongs on Elys’s personal ships. A strange external beacon was discussed as a possible prompt only.
 
 The player explicitly rewound all events aboard the flagship after Crow took up residence. Only its standing watch and his quiet hiatus remain. Current Senate business proceeds with Aurelia; no events from the rejected alternatives inform canon.
+
+**Native baseline:** Ordinary Genosis technology is roughly comparable to the 1300s–1400s. No sci-fi underwater cities. Offworld capability does not imply native origin; apparent exceptions remain provenance questions, not license to invent or retroactively delete. [Governing correction](../errata/GENOSIS_TECHNOLOGY_BASELINE.md).
