@@ -72,3 +72,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000389](../turns/000389.md): Crow speaks the order. An officer leaves the chamber and the door shuts. The aide reiterates that Edren’s daughter came to walk him home, and Tessa has that purpose entered in the minutes. No one inside sees the courtyard. No name, outcome, admission of medics or further Crow action.
 
 [000390](../turns/000390.md): Crow waits. An officer returns alone and reports the order carried out and Edren’s daughter dead offscreen. The aide names her Miren Vale, and the clerk writes her name. No independent account or direct depiction, new speech, senator rising, medical status for others, or opening of the doors.
+
+[000391](../turns/000391.md): Crow calls for the next suggestion. An inland senator proposes apprentice and district-clerk copies of each indenture, plus an end-of-term certificate obtainable without the master. The master would pay a filing fee; no law, verdict, or confirmed guild reaction yet.

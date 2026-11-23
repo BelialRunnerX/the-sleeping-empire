@@ -623,3 +623,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000388](turns/000388.md) | The Genosis Arc | Played voice scene, exact | Edren Vale falls; aide says his daughter waits outside; Tessa asks daughter’s name | [000380](checkpoints/000380.md) |
 | [000389](turns/000389.md) | The Genosis Arc | Played voice scene, exact | Order spoken; officer leaves; daughter’s fate and name unconfirmed | [000380](checkpoints/000380.md) |
 | [000390](turns/000390.md) | The Genosis Arc | Played voice scene, exact | Officer reports daughter dead; aide names Miren Vale; no senator rises | [000380](checkpoints/000380.md) |
+| [000391](turns/000391.md) | The Genosis Arc | Played voice scene, exact | Inland senator proposes independently filed apprenticeships and certificates; no approval | [000380](checkpoints/000380.md) |
