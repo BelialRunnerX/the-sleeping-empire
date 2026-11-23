@@ -610,3 +610,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000375](turns/000375.md) | The Genosis Arc | Played voice scene, exact | Imperial soldiers seal Senate; roll interrupted before Ordel votes; questions unanswered | [000361](checkpoints/000361.md) |
 | [000376](turns/000376.md) | The Genosis Arc | Played voice scene, exact | Ordel offers a public river gauge proposal under Crow’s trial; verdict pending | [000361](checkpoints/000361.md) |
 | [000377](turns/000377.md) | The Genosis Arc | Played voice scene, exact | Ordel proposes existing landing dues, shared sounding costs and shortfall grants; verdict pending | [000361](checkpoints/000361.md) |
+| [000378](turns/000378.md) | The Genosis Arc | Played voice scene, exact | Ordel lives and gauges recorded approved; Sera proposes petitions; no verdict on hers | [000361](checkpoints/000361.md) |

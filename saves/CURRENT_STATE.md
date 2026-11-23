@@ -1,13 +1,13 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000377](turns/000377.md), “Local Money First.”
+**Latest archive:** [000378](turns/000378.md), “You May Sit.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
 **Native technology:** Roughly 1300s–1400s; no science-fiction underwater cities. Separate offworld/exceptional systems from native capability. See [technology baseline](errata/GENOSIS_TECHNOLOGY_BASELINE.md).
 
-## Resume: the Senate observation gallery
+## Resume: the Senate chamber
 
 Elys previously resided quietly aboard his **unnamed Imperial super-dreadnought** off Greyhaven Orbital. After the five-metre crater test he went to the League Senate to observe its response. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Asked how to fund the proposed gauges, Ordel suggests existing local landing dues, separate posts and shared sounding costs on contested crossings, and Senate grants for shortfalls after cost estimates. No reliable whole-world cost, new toll, use of the disputed dredging dues, grant, enacted rule, or Crow verdict.
+**Latest played beat:** Crow spares Ordel’s senator after the confrontation; the clerk enters river gauges approved, with cost estimates still to be submitted before grant votes. Sera next proposes League-clerk intake for petitions and written answers from responsible Imperial offices using existing staff. Her proposal has not been accepted, enacted or rejected; no new grant, tally or replacement.
 
 ## Authority by level
 
