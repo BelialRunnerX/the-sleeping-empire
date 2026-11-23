@@ -608,3 +608,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000373](turns/000373.md) | The Genosis Arc | Played voice scene, exact | Messenger identifies Elin Rusk; account concerns a cracked millstone; conditional test offer | [000361](checkpoints/000361.md) |
 | [000374](turns/000374.md) | The Genosis Arc | Played voice scene, exact | Ordel responds; thanks requested; recorded roll resumes at Ordel without result | [000361](checkpoints/000361.md) |
 | [000375](turns/000375.md) | The Genosis Arc | Played voice scene, exact | Imperial soldiers seal Senate; roll interrupted before Ordel votes; questions unanswered | [000361](checkpoints/000361.md) |
+| [000376](turns/000376.md) | The Genosis Arc | Played voice scene, exact | Ordel offers a public river gauge proposal under Crow’s trial; verdict pending | [000361](checkpoints/000361.md) |

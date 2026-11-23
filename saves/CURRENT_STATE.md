@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000375](turns/000375.md), “The Doors Are Closed.”
+**Latest archive:** [000376](turns/000376.md), “The First Suggestion.”
 **Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** At Crow’s order Imperial soldiers seal the Senate building and no one enters or leaves. Ordel has not cast his vote. The chair records interruption, rather than a vote. Tessa asks if the senators are detained; the chair asks what has to happen before doors reopen. Crow has not answered either; no release condition, vote result or further action is established.
+**Latest played beat:** Crow declares his trial and threatened terms. Ordel volunteers first and proposes publicly visible river-depth gauges with jointly agreed marks for shared crossings. He recalls a boat lost after inconsistent depth notices; Sera knows gauges had been cut from Ordel’s budget. No verdict, death, replacement, enactment, reopened doors or roll-call result.
 
 ## Authority by level
 
