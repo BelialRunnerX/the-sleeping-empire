@@ -612,4 +612,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000377](turns/000377.md) | The Genosis Arc | Played voice scene, exact | Ordel proposes existing landing dues, shared sounding costs and shortfall grants; verdict pending | [000361](checkpoints/000361.md) |
 | [000378](turns/000378.md) | The Genosis Arc | Played voice scene, exact | Ordel lives and gauges recorded approved; Sera proposes petitions; no verdict on hers | [000361](checkpoints/000361.md) |
 | [000379](turns/000379.md) | The Genosis Arc | Played voice scene, exact | Sera falls, does not answer; Ordel calls for a physician; no confirmation of condition | [000361](checkpoints/000361.md) |
-| [000380](turns/000380.md) | The Genosis Arc | Played voice scene, exact | Ordel sits; Tessan proposes beneficiary registration for unpaid wages; verdict pending | [000361](checkpoints/000361.md) |
+| [000380](turns/000380.md) | The Genosis Arc | Played voice scene, exact | Ordel sits; Tessan proposes beneficiary registration for unpaid wages; verdict pending | [000380](checkpoints/000380.md) |

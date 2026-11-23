@@ -2,7 +2,7 @@
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
 **Latest archive:** [000380](turns/000380.md), “The Same Sheet.”
-**Checkpoint:** [000361](checkpoints/000361.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
+**Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
 **Native technology:** Roughly 1300s–1400s; no science-fiction underwater cities. Separate offworld/exceptional systems from native capability. See [technology baseline](errata/GENOSIS_TECHNOLOGY_BASELINE.md).
