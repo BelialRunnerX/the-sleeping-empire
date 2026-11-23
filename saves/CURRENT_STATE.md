@@ -18,6 +18,8 @@ Two days after the first Tessan receipt, Nareth and Ordel jointly submit their r
 
 **Latest played beat:** Crow approves the apprentice registry/certificates rule. The clerk records it and retains the potter’s letter. A senator proposes one market-weight standard, available at district halls, checks paid by existing market fees. No new verdict, final rule, or change to the lockdown.
 
+**Senate composition:** Genosis has 36 nations. The League Senate has 36 seats, one per nation. Attendance, quorum, vacancies, and votes at the current sitting are not established by the seat count. No names or memberships have been inferred for previously unnamed seats.
+
 ## Authority by level
 
 | Level | Confirmed | Still open |

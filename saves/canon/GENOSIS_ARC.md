@@ -20,3 +20,5 @@ The privately recovered pen, everyday-clothes armor and resource pouch are pre-o
 The player explicitly rewound all events aboard the flagship after Crow took up residence. Only its standing watch and his quiet hiatus remain. Current Senate business proceeds with Aurelia; no events from the rejected alternatives inform canon.
 
 **Native baseline:** Ordinary Genosis technology is roughly comparable to the 1300s–1400s. No sci-fi underwater cities. Offworld capability does not imply native origin; apparent exceptions remain provenance questions, not license to invent or retroactively delete. [Governing correction](../errata/GENOSIS_TECHNOLOGY_BASELINE.md).
+
+**League Senate composition:** Genosis has 36 nations. The League Senate has 36 seats, one per nation. Attendance, quorum, vacancies, and votes at the current sitting are not established by the seat count. No names or memberships have been inferred for previously unnamed seats. This is a setting clarification, not a new played turn.
