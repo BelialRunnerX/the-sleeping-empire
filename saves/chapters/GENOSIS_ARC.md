@@ -14,3 +14,5 @@ The last archived Festival of Seven Blades turn [000306](../turns/000306.md) rem
 Gaps and limits: the earliest Lower Landing investigation and some royal transitions are not recoverable as line-by-line transcripts from the surfaced record; they are supported summaries. Some voice choices and exact wording are absent between the summarized beats. The name “Iron Coast” was not independently established from the surviving turn material and has not been assigned to another country. The intended final political settlement of annexation is not supplied. No rejected magical-door scene, hypothetical beacon, or fictional tabletop warrant incident is counted as an enacted event.
 
 Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship developments. In the League chamber, Aurelia accepts the forty-seven Tessan applications as filed, keeps existing licences in effect while review continues, and allows one joint Nareth–Ordel filing under the League’s seal.
+
+[000362](../turns/000362.md), two days after the first Tessan receipt: Nareth–Ordel reach an interim arrangement, not a final ruling; no new Elys action.

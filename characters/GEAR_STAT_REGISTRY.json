@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000361",
+      "last_verified_turn": "000362",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Unnamed Imperial flagship off Greyhaven Orbital",
         "arc_start_turn": "000307",
-        "current_turn": "000361",
+        "current_turn": "000362",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -5926,6 +5926,49 @@
           "before": "Not indexed in Genosis",
           "after": "Survey ship captain",
           "source": "Genosis played archive; unknown numerical fields not inferred"
+        }
+      ]
+    },
+    "char-genosis-sera-dain": {
+      "character_id": "char-genosis-sera-dain",
+      "canonical_name": "Sera Dain",
+      "aliases": [],
+      "role": "Delegate of Nareth",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000362",
+          "field": "role and current participation",
+          "before": "Not indexed",
+          "after": "Argues Nareth’s recognized river agreement and disputes charging replacement dredger costs to barges; continues discussion with Ordel’s senator.",
+          "source": "Exact played scene; no inferred numeric stats or gear"
         }
       ]
     }
