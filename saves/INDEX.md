@@ -621,3 +621,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000386](turns/000386.md) | The Genosis Arc | Played voice scene, exact | Seed storage mutually voluntary; remains proposal | [000380](checkpoints/000380.md) |
 | [000387](turns/000387.md) | The Genosis Arc | Played voice scene, exact | Crow rejects seed-storage proposal as district matter; no further consequence enacted | [000380](checkpoints/000380.md) |
 | [000388](turns/000388.md) | The Genosis Arc | Played voice scene, exact | Edren Vale falls; aide says his daughter waits outside; Tessa asks daughter’s name | [000380](checkpoints/000380.md) |
+| [000389](turns/000389.md) | The Genosis Arc | Played voice scene, exact | Order spoken; officer leaves; daughter’s fate and name unconfirmed | [000380](checkpoints/000380.md) |

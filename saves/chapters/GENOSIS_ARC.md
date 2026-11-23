@@ -68,3 +68,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000387](../turns/000387.md): Crow tells the senator his proposal is a fatal mistake because districts can decide themselves. The clerk strikes the space for a Senate order and notes that the districts decide. The senator stays standing. No death, injury to him, replacement, or further order is established, and the lockdown remains.
 
 [000388](../turns/000388.md): At Crow’s declared action a shot is fired and the seed-grain senator falls. His aide identifies him as Edren Vale and says his daughter is waiting in the courtyard. Tessa asks the daughter’s name. No medical confirmation, replacement, reopening or further Crow action.
+
+[000389](../turns/000389.md): Crow speaks the order. An officer leaves the chamber and the door shuts. The aide reiterates that Edren’s daughter came to walk him home, and Tessa has that purpose entered in the minutes. No one inside sees the courtyard. No name, outcome, admission of medics or further Crow action.
