@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000398](turns/000398.md), “The Full Roll.”
+**Latest archive:** [000399](turns/000399.md), “The Continuity Motion.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow attends the next actual Senate sitting from the gallery after reminding the nations that no Senate law can pass before all seats are filled. The clerk has credentials for all 35 seats. Nareth’s new senator brings Sera Dain’s account. Ordel’s river gauge estimates are put before the chamber; no vote has occurred. Release and dispatch are implied by the time skip, not shown as separate orders.
+**Latest played beat:** This corrected scene supersedes 000398’s gallery seating and river-gauge agenda. Crow sits on the Senate floor, to one side. All 35 seats answer; trial approvals were enacted under Crow’s authority without Senate votes. Nareth’s new continuity motion concerns service coordination if the Senate cannot sit. Its activation trigger remains open; no vote or further Crow action.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 

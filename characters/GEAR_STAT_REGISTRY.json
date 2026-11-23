@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000398",
+      "last_verified_turn": "000399",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1037,9 +1037,9 @@
         "hometown_name": "Hazel Alderford",
         "honorary_title": "Crow the Mischievous",
         "witness_signature": "Elys Somnion",
-        "current_location": "League Senate gallery, Greyhaven, Genosis",
+        "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000398",
+        "current_turn": "000399",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow observes the next actual sitting from the gallery. The seventeen vacancies have been filled and all 35 League seats have credentials. The chair opens consideration of the Ordel river gauge estimates; no vote has occurred.",
+        "current_status": "Crow observes from a chair to one side inside the Senate chamber, not from the gallery. All 35 senators are present. Trial approvals are laws enacted under Crow’s authority without a Senate vote. Nareth’s new continuity motion is under debate, with no vote and no activation trigger yet.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {

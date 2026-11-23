@@ -631,3 +631,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000396](turns/000396.md) | The Genosis Arc | Played voice scene, exact | Healer pilot approval confirmed by player; all casualties restored; seventeen seats to be refilled | [000380](checkpoints/000380.md) |
 | [000397](turns/000397.md) | The Genosis Arc | Played voice scene, exact | Seventeen vacancy notices ordered prepared; chair requests release | [000380](checkpoints/000380.md) |
 | [000398](turns/000398.md) | The Genosis Arc | Played voice scene, exact | All 35 seats filled; river gauge estimates before Senate; no vote yet | [000380](checkpoints/000380.md) |
+| [000399](turns/000399.md) | The Genosis Arc | Played voice scene, exact | Corrected sitting; trial laws enacted; continuity motion debated only | [000380](checkpoints/000380.md) |
