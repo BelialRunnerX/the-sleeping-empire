@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000386](turns/000386.md), “Both Have to Agree.”
+**Latest archive:** [000387](turns/000387.md), “For the Districts to Decide.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** The senator clarifies that both districts must agree before seed is moved; either can refuse. The exchange is barn space, not grain, and grain stays owned by its senders. No verdict, enacted rule, further medical status, or change to the lockdown.
+**Latest played beat:** Crow tells the senator his proposal is a fatal mistake because districts can decide themselves. The clerk strikes the space for a Senate order and notes that the districts decide. The senator stays standing. No death, injury to him, replacement, or further order is established, and the lockdown remains.
 
 ## Authority by level
 
