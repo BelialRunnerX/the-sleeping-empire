@@ -66,3 +66,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000386](../turns/000386.md): The senator clarifies that both districts must agree before seed is moved; either can refuse. The exchange is barn space, not grain, and grain stays owned by its senders. No verdict, enacted rule, further medical status, or change to the lockdown.
 
 [000387](../turns/000387.md): Crow tells the senator his proposal is a fatal mistake because districts can decide themselves. The clerk strikes the space for a Senate order and notes that the districts decide. The senator stays standing. No death, injury to him, replacement, or further order is established, and the lockdown remains.
+
+[000388](../turns/000388.md): At Crow’s declared action a shot is fired and the seed-grain senator falls. His aide identifies him as Edren Vale and says his daughter is waiting in the courtyard. Tessa asks the daughter’s name. No medical confirmation, replacement, reopening or further Crow action.

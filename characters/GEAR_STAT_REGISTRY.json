@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000387",
+      "last_verified_turn": "000388",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "League Senate chamber on Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000387",
+        "current_turn": "000388",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "In the sealed chamber; seed proposal rejected as outside the Senate’s scope; unnamed senator still standing.",
+        "current_status": "In a sealed Senate chamber after Edren Vale fell; daughter’s name, medical condition and next action unconfirmed.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
@@ -6036,6 +6036,49 @@
           "before": "No identified person",
           "after": "Age 79 by her report; says she pulled apart a cracked millstone; no equivalent ability verified. Willing to try under stated conditions.",
           "source": "Voice story; no inferred strength rating"
+        }
+      ]
+    },
+    "char-genosis-edren-vale": {
+      "character_id": "char-genosis-edren-vale",
+      "canonical_name": "Edren Vale",
+      "aliases": [],
+      "role": "Senator who proposed reciprocal seed storage; district unconfirmed",
+      "attributes": {
+        "MIG": null,
+        "AGI": null,
+        "END": null,
+        "INT": null,
+        "WIL": null,
+        "PRE": null,
+        "ARC": null,
+        "ENG": null
+      },
+      "derived": {},
+      "equipped": {
+        "main_hand": null,
+        "off_hand": null,
+        "head": null,
+        "body": null,
+        "arms": null,
+        "legs": null,
+        "feet": null,
+        "relic_core": null,
+        "ring_a": null,
+        "ring_b": null,
+        "amulet": null,
+        "charm_a": null,
+        "charm_b": null,
+        "artifact": null
+      },
+      "owned_item_ids": null,
+      "change_log": [
+        {
+          "turn": "000388",
+          "field": "identity and condition",
+          "before": "Unnamed senator",
+          "after": "Named Edren Vale by his aide; fell after a shot; medical condition unconfirmed",
+          "source": "Exact voice scene"
         }
       ]
     }
