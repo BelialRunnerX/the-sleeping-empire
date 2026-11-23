@@ -598,3 +598,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000363](turns/000363.md) | The Genosis Arc | Played voice scene, exact | Nareth and Ordel produce a draft on the train; ferry landings to see it before filing | [000361](checkpoints/000361.md) |
 | [000364](turns/000364.md) | The Genosis Arc | Played voice scene, exact | Nareth and Ordel agree to fresh river soundings; disputed dues held; registration form returned unsigned | [000361](checkpoints/000361.md) |
 | [000365](turns/000365.md) | The Genosis Arc | Played voice scene, exact | Joint survey funded; ferry hours and grain slots sent to the landings; registration pending | [000361](checkpoints/000361.md) |
+| [000366](turns/000366.md) | The Genosis Arc | Played voice scene, exact | Captain reports five-metre crater; whether to mark coordinates open | [000361](checkpoints/000361.md) |
