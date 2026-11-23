@@ -419,14 +419,14 @@
           "source": "Played Chapters CCLXV–CCLXVIII, turn 000306"
         },
         {
-          "turn": "000360",
+          "turn": "000361",
           "field": "genosis_active_context",
-          "before": "Latest Imperial festival state indexed by 000306",
-          "after": "Active Genosis story state aboard unnamed Imperial flagship; earlier festival registry is preserved",
-          "source": "Genosis archive and recovered played turns"
+          "before": "Before latest player rewind",
+          "after": "Quiet flagship hiatus, no event aboard; Senate and Aurelia conduct business",
+          "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000360",
+      "last_verified_turn": "000361",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Unnamed Imperial flagship off Greyhaven Orbital",
         "arc_start_turn": "000307",
-        "current_turn": "000360",
+        "current_turn": "000361",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1048,7 +1048,8 @@
           "ITM-000010"
         ],
         "current_numeric_stats": null,
-        "current_slot_assignment": null
+        "current_slot_assignment": null,
+        "current_status": "Private, uneventful hiatus in his quarters; the ship maintains watch, and the Senate conducts business with Aurelia."
       }
     },
     "char-clarissa": {

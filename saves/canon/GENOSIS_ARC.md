@@ -16,3 +16,5 @@ The privately recovered pen, everyday-clothes armor and resource pouch are pre-o
 - Local port watch, sovereign Xiphos, the League Senate/executive, and the Imperial First Fleet are separate authorities. No alias or role is a new person.
 - Keep written orders, verified hearings and actual votes separate from proposals, private knowledge, and jokes. The harbour emergency/warrants examples before the later vote were policy exercises.
 - The prior magical-door alternatives aboard the personal ship are excluded. No magical door or unsolicited modification belongs on Elys’s personal ships. A strange external beacon was discussed as a possible prompt only.
+
+The player explicitly rewound all events aboard the flagship after Crow took up residence. Only its standing watch and his quiet hiatus remain. Current Senate business proceeds with Aurelia; no events from the rejected alternatives inform canon.

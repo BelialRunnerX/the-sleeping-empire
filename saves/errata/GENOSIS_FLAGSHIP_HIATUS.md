@@ -1,0 +1,3 @@
+# Genosis — Flagship hiatus rewind
+
+By explicit player correction, rewind to Crow taking up residence aboard his super-dreadnought. The Senate conducts business with Aurelia while Crow stays aboard privately and uneventfully; nothing after boarding from the prior route is canon. Sequences [000359](../turns/000359.md) and [000360](../turns/000360.md) are retired. Archive history is preserved; public current story files no longer present those scenes as played. The exact replacement is [000361](../turns/000361.md). Earlier fleet deployment, Aurelia's issued decree, and pre-boarding developments are not reversed.
