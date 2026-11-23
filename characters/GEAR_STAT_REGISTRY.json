@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000395",
+      "last_verified_turn": "000396",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Sealed League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000395",
+        "current_turn": "000396",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "The chamber remains sealed. Crow requires all present to give suggestions. The clerk’s notice proposal and the mountain senator’s healer proposal remain pending; Senate tally unchanged.",
+        "current_status": "The chamber remains sealed. The clerk's suggestion is approved under the trial terms, but no implementation is shown. Every death and injury from the session is reversed, including Miren's death. The 17 restored senators have been removed and are to be replaced; the chair was healed and was not removed. The mountain healer proposal remains pending.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
