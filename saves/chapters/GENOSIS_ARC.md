@@ -62,3 +62,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000384](../turns/000384.md): Crow corrects court-copy storage to a separate building in the same district and strikes with Aletheia. The chair loses an arm and remains conscious; Tessa catches her and requests a physician for both her and Sera. The clerk records the same-district condition. The chair wants her name in the minutes. Medical access is not granted, Sera’s condition is still unconfirmed, and the lockdown has not changed.
 
 [000385](../turns/000385.md): Crow denies medics and asks for the next proposal. An unnamed senator proposes reciprocal dry seed storage between districts, one sack for one using existing barns and separate counts. The chair and Sera have no new medical status, the lockdown is unchanged, and the seed proposal has no verdict.
+
+[000386](../turns/000386.md): The senator clarifies that both districts must agree before seed is moved; either can refuse. The exchange is barn space, not grain, and grain stays owned by its senders. No verdict, enacted rule, further medical status, or change to the lockdown.
