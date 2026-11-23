@@ -52,3 +52,5 @@ Latest confirmed position: a quiet flagship hiatus for Crow, with no aboard-ship
 [000379](../turns/000379.md): Crow strikes Sera Dain with Aletheia and says “Wrong answer.” Sera falls and does not answer; Ordel calls for a physician, but the usher stops at the sealed doors. The chair asks the clerk to write her name first. No medical confirmation, replacement, enactment of her proposal or further Crow action.
 
 [000380](../turns/000380.md): Crow orders the others back to their seats and calls the next person. Tessan proposes naming recipients of unpaid wages at crew sign-on and holding disputed wages in harbour court, with names put on existing fee-funded crew forms. No verdict, enactment, medical confirmation for Sera, or reopening.
+
+[000381](../turns/000381.md): Crow approves Tessan’s wage rule with “Sufficient. Next.” and the clerk records approval; the senator writes a note to her deputy. Tessa proposes Dun Quay’s timber and labor for a signal post and League funding for a keeper through the first winter, with future local funding undecided. No verdict on Tessa, money released, reopened doors, or change to Sera’s unknown condition.
