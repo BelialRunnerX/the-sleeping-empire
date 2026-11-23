@@ -617,3 +617,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000382](turns/000382.md) | The Genosis Arc | Played voice scene, exact | Dun Quay approved; Halden proposes public tax and requisition notices with due dates | [000380](checkpoints/000380.md) |
 | [000383](turns/000383.md) | The Genosis Arc | Played voice scene, exact | Halden’s public tax notices approved; chair proposes duplicate court records | [000380](checkpoints/000380.md) |
 | [000384](turns/000384.md) | The Genosis Arc | Played voice scene, exact | Same-district duplicate rule entered; chair loses an arm; physician requested | [000380](checkpoints/000380.md) |
+| [000385](turns/000385.md) | The Genosis Arc | Played voice scene, exact | Crow denies medics; a senator proposes reciprocal seed grain storage | [000380](checkpoints/000380.md) |
