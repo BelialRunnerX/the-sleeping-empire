@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000415",
+      "last_verified_turn": "000416",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000415",
+        "current_turn": "000416",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "A week later Nareth rescinds its recall, keeps its delegate empowered to speak and vote, and reserves the right to contest the Imperial withdrawal-as-war claim. Sera’s written statement supports keeping the seat and records the delegate’s risk. Aurelia asks for a certified reply; chair directs both papers sent together, with no dispatch observed. Nareth answers roll call and asks to open the voting book. No new vote, withdrawal, war, or Crow action.",
+        "current_status": "Ordel’s formal notice makes its withdrawal effective immediately. Crow orders the chamber closed. In the live projection the Ordel bank and locations across Ordel are replaced by a smooth black surface; the river remains visible. No casualty total or status of Nareth’s bank is known. Tessa finds Nareth’s contact in the dispatch book; no outreach is shown. Chair orders the notice, closure time, and witnessed events recorded. Doors stay closed and Ordel’s former delegate sits at the witness table.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {

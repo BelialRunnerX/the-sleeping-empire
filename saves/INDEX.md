@@ -648,3 +648,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000413](turns/000413.md) | The Genosis Arc | Played voice scene, exact | Illness excluded; government given time to reconsider; exact interval still unanswered | [000380](checkpoints/000400.md) |
 | [000414](turns/000414.md) | The Genosis Arc | Played voice scene, exact | One week from sitting; substitute counsel during illness; Nareth’s delegate receives notice | [000380](checkpoints/000400.md) |
 | [000415](turns/000415.md) | The Genosis Arc | Played voice scene, exact | Nareth rescinds recall but contests Imperial claim; roll answered, voting book requested | [000380](checkpoints/000400.md) |
+| [000416](turns/000416.md) | The Genosis Arc | Played voice scene, exact | Ordel formally withdraws; Crow seals chamber; destruction seen in live projection | [000380](checkpoints/000400.md) |
