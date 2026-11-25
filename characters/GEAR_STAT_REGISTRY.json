@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000410",
+      "last_verified_turn": "000411",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000410",
+        "current_turn": "000411",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow warns that withdrawal would cripple the League and cost Genosis representation abroad; the clerk reads the warning back. Tessan emphasizes collective representation; Nareth asks how delegates can be assured of getting home. Ordel proposes asking the Emperor himself. The chair asks Crow for his personal undertaking of free departure. It is unanswered; no guarantee, new policy, consultation dispatch or officer instruction issuance occurs.",
+        "current_status": "Crow gives his word that all delegates can leave the chamber alive and mentions an additional condition he has not spoken. The clerk records alive and leaves the rest blank. Tessa waits, Nareth needs the exact words for its assembly, and the chair gives Crow the floor to state his condition. Its content and scope are unknown; no policy, acceptance or dispatch occurs.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
