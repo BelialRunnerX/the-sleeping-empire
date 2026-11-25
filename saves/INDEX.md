@@ -650,3 +650,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000415](turns/000415.md) | The Genosis Arc | Played voice scene, exact | Nareth rescinds recall but contests Imperial claim; roll answered, voting book requested | [000380](checkpoints/000400.md) |
 | [000416](turns/000416.md) | The Genosis Arc | Played voice scene, exact | Ordel formally withdraws; Crow seals chamber; destruction seen in live projection | [000380](checkpoints/000400.md) |
 | [000417](turns/000417.md) | The Genosis Arc | Played voice scene, exact | Ophelia kills the withdrawn Ordel representative; death ordered recorded | [000380](checkpoints/000400.md) |
+| [000418](turns/000418.md) | The Genosis Arc | Played voice scene, exact | Clerk attributes Crow’s claim; Nareth asks to send word; lockdown continues | [000380](checkpoints/000400.md) |
