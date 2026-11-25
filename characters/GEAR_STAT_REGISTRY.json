@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000413",
+      "last_verified_turn": "000414",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000413",
+        "current_turn": "000414",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow excludes illness, offers a government time to receive and consider notice, and says actual withdrawal is deemed a declaration of war. Tessan wants clarifications copied with the clauses. Nareth intends to send his words to its assembly and needs the interval. Ordel asks that time allow the assembly to meet after receipt. The chair asks how long Nareth has after receipt. No period, recorded dispatch, withdrawal, war or enforcement yet.",
+        "current_status": "Crow says the government should send substitute counsel until an ill delegate recovers and sets the deadline at one week from this sitting, not from receipt. The clerk records the sitting date. Aurelia takes a copy for the Regency and Nareth’s delegate receives the notice in person; its assembly has not yet been shown receiving it or replying. The Senate clerk’s office will log the reply. Credentials remain on the table. No withdrawal or war occurs.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
