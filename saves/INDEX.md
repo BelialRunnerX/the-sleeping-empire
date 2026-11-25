@@ -636,3 +636,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000401](turns/000401.md) | The Genosis Arc | Played voice scene, exact | Contacts motion 26–6–3; circulation of accounts pending | [000380](checkpoints/000400.md) |
 | [000402](turns/000402.md) | The Genosis Arc | Played voice scene, exact | Trial accounts and minutes 24–8–3; separate safe-departure question not voted | [000380](checkpoints/000400.md) |
 | [000403](turns/000403.md) | The Genosis Arc | Played voice scene, exact | Full trial minutes; incomplete casualty summary, packets not sent | [000380](checkpoints/000400.md) |
+| [000404](turns/000404.md) | The Genosis Arc | Played voice scene, exact | Casualty summary corrected before sealing; eighteen restored deaths, seventeen Senate vacancies | [000380](checkpoints/000400.md) |

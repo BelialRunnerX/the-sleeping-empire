@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000403",
+      "last_verified_turn": "000404",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000403",
+        "current_turn": "000404",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow reviews the circulation packet at the side of the Senate chamber. The trial minutes correctly record Miren Vale’s death, the chair’s injury, full restoration, and the order replacing the 17 deceased senators. The summary’s casualty heading misleads by counting only senators and omitting Miren and the injury. No amendment or dispatch has occurred; packets are on the clerk’s table ready for sealing. Tessa’s separate safe-departure question remains unvoted and unsent.",
+        "current_status": "Crow challenges Miren Vale’s omission and whether anyone remains dead or injured. The clerk corrects the master before sealing: eighteen trial deaths (seventeen senators and Miren), all restored, and the gravely injured chair healed. No one now needs burying or tending. Seventeen Senate vacancies are listed separately. Copyists are recalled; corrected packets have not yet been sealed or sent. Tessa’s separate safe-departure question remains unvoted and unsent.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
