@@ -645,3 +645,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000410](turns/000410.md) | The Genosis Arc | Played voice scene, exact | Crow warns of the cost of withdrawal; chair requests his word on free departure | [000380](checkpoints/000400.md) |
 | [000411](turns/000411.md) | The Genosis Arc | Played voice scene, exact | Crow gives his word delegates may leave alive; condition remains unstated | [000380](checkpoints/000400.md) |
 | [000412](turns/000412.md) | The Genosis Arc | Played voice scene, exact | Empty-seat condition stated; no withdrawal, war, vote or answer on replacement window | [000380](checkpoints/000400.md) |
+| [000413](turns/000413.md) | The Genosis Arc | Played voice scene, exact | Illness excluded; government given time to reconsider; exact interval still unanswered | [000380](checkpoints/000400.md) |

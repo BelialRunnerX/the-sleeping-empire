@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000412](turns/000412.md), “An Empty Seat.”
+**Latest archive:** [000413](turns/000413.md), “Time to Reply.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow states three clauses: an empty seat is treated as Senate withdrawal; Senate withdrawal as League withdrawal; League withdrawal as a declaration of war against the Empire. Tessan and Nareth question illness and recall; Ordel asks about time to replace a delegate. The chair records questions, says no withdrawal has been tendered, and asks whether an empty seat takes effect immediately or allows replacement. No answer, actual withdrawal, war, vote or enforcement occurs.
+**Latest played beat:** Crow excludes illness, offers a government time to receive and consider notice, and says actual withdrawal is deemed a declaration of war. Tessan wants clarifications copied with the clauses. Nareth intends to send his words to its assembly and needs the interval. Ordel asks that time allow the assembly to meet after receipt. The chair asks how long Nareth has after receipt. No period, recorded dispatch, withdrawal, war or enforcement yet.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
@@ -29,4 +29,4 @@ Two days after the first Tessan receipt, Nareth and Ordel jointly submit their r
 | Planetary | Member governments and League officers retain local administration under the operative classification decree. The Senate continues business with Aurelia while Crow is away. Safe harbour is distinct from legal refuge. | Mining permit, royalty terms, transition disputes, and any still-open Senate review. |
 | Interstellar | First Fleet maintains defensive station under Elys; Lilith commands the Second, not present. Aurelia applies the Imperial interim fishing handling and accepts a League-sealed submission. | Formal treaty review and the wider political implementation of the classification. |
 
-Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume at the chair’s unanswered question about an immediate trigger or a replacement window. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.
+Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume at the chair’s unanswered question about the time allowed from receipt. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.
