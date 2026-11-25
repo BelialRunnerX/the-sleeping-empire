@@ -639,3 +639,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000404](turns/000404.md) | The Genosis Arc | Played voice scene, exact | Casualty summary corrected before sealing; eighteen restored deaths, seventeen Senate vacancies | [000380](checkpoints/000400.md) |
 | [000405](turns/000405.md) | The Genosis Arc | Played voice scene, exact | Witness attribution requested; Crow invited to provide account, packets unsent | [000380](checkpoints/000400.md) |
 | [000406](turns/000406.md) | The Genosis Arc | Played voice scene, exact | Aurelia acknowledges private conditional instruction; League packet and Imperial statement not issued | [000380](checkpoints/000400.md) |
+| [000407](turns/000407.md) | The Genosis Arc | Played voice scene, exact | Crow declines; first League couriers depart, regency labels packet propaganda only | [000380](checkpoints/000400.md) |
