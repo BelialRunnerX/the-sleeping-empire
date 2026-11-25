@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000408",
+      "last_verified_turn": "000409",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000408",
+        "current_turn": "000409",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Next morning Aurelia appears in person, says the propaganda label imposes no reading restriction, and declines comment on accuracy. Asked about safe departure, she can instruct officers under her authority but cannot bind the Emperor or override his order. She promises a written instruction before the sitting ends; it has not issued on page. Tessa changes the draft heading and asks that each government receive a copy; no completed distribution or Crow action.",
+        "current_status": "Hearing continues. Aurelia says her own officer would reopen a door closed on her authority; for the Emperor’s closure she can only ask, and makes no further finding about testimony. Ordel defends his signed account. Nareth states a conditional recall instruction but is not depicted departing; Tessan is instructed to stay for 47 renewals. The chair asks Aurelia to issue the written instruction and intends to ask governments about next sitting attendance. Three votes remain on the calendar. No written issuance, verified attendance change, or Crow action.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
