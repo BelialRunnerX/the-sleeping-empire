@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000416](turns/000416.md), “The Ordel Bank.”
+**Latest archive:** [000417](turns/000417.md), “His Name Too.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Ordel’s formal notice makes its withdrawal effective immediately. Crow orders the chamber closed. In the live projection the Ordel bank and locations across Ordel are replaced by a smooth black surface; the river remains visible. No casualty total or status of Nareth’s bank is known. Tessa finds Nareth’s contact in the dispatch book; no outreach is shown. Chair orders the notice, closure time, and witnessed events recorded. Doors stay closed and Ordel’s former delegate sits at the witness table.
+**Latest played beat:** Ophelia takes human form and, in fictional shadow magic, kills Ordel’s withdrawn representative at the witness table. The clerk holds down the withdrawal notice to record the death. Nareth requests that his government instructions be recorded, and the chair says to record his name and the witnessed death despite Ordel’s withdrawal. No further Crow action, identity equivalence between Ophelia and Aletheia, named representative, or reopened doors is established.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
@@ -29,4 +29,4 @@ Two days after the first Tessan receipt, Nareth and Ordel jointly submit their r
 | Planetary | Member governments and League officers retain local administration under the operative classification decree. The Senate continues business with Aurelia while Crow is away. Safe harbour is distinct from legal refuge. | Mining permit, royalty terms, transition disputes, and any still-open Senate review. |
 | Interstellar | First Fleet maintains defensive station under Elys; Lilith commands the Second, not present. Aurelia applies the Imperial interim fishing handling and accepts a League-sealed submission. | Formal treaty review and the wider political implementation of the classification. |
 
-Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume with the doors still closed, Ordel’s former delegate at the witness table, and the adjacent bank’s status unknown. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.
+Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume with Ophelia in human form and the chair directing the clerk to record the representative’s death. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.

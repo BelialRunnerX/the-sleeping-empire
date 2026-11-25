@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000416",
+      "last_verified_turn": "000417",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000416",
+        "current_turn": "000417",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Ordel’s formal notice makes its withdrawal effective immediately. Crow orders the chamber closed. In the live projection the Ordel bank and locations across Ordel are replaced by a smooth black surface; the river remains visible. No casualty total or status of Nareth’s bank is known. Tessa finds Nareth’s contact in the dispatch book; no outreach is shown. Chair orders the notice, closure time, and witnessed events recorded. Doors stay closed and Ordel’s former delegate sits at the witness table.",
+        "current_status": "Ophelia takes human form and, in fictional shadow magic, kills Ordel’s withdrawn representative at the witness table. The clerk holds down the withdrawal notice to record the death. Nareth requests that his government instructions be recorded, and the chair says to record his name and the witnessed death despite Ordel’s withdrawal. No further Crow action, identity equivalence between Ophelia and Aletheia, named representative, or reopened doors is established.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
