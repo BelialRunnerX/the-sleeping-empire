@@ -1,7 +1,7 @@
 # Current Story State
 
 **Active arc:** The Genosis Arc, on the planet **Genosis**.  
-**Latest archive:** [000405](turns/000405.md), “Who Saw What.”
+**Latest archive:** [000406](turns/000406.md), “Ready for the Seal.”
 **Checkpoint:** [000380](checkpoints/000380.md) · [Arc navigation and coverage](chapters/GENOSIS_ARC.md) · [Arc canon](canon/GENOSIS_ARC.md).  
 **Previous archived arc:** The [Festival of Seven Blades](turns/000306.md) stays intact and is not the present scene. The transition between those arcs is not reconstructed. No precise current in-world date has been established.
 
@@ -16,7 +16,7 @@ On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on pa
 Two days after the first Tessan receipt, Nareth and Ordel jointly submit their river agreement. Ordel's dredge costs include part of the replacement of a dredger; Nareth disputes that the agreement covers a new vessel. Aurelia allows barges to run at the current rate while the accounts are reviewed, requires the disputed part of dues held separately, and asks to see any settlement the parties reach on their own. No final charge classification, refund, new rate or settlement has been made. Sera Dain and Ordel’s senator leave for the same train, still discussing the dredger. Crow takes no action and remains in his quiet hiatus aboard.
 
 
-**Latest played beat:** Crow questions whether member governments will trust the trial account. Sera recalls Crow approaching and waking on the floor, not directly witnessing her own death. The chair asks the clerk to distinguish firsthand witness attestations from the tally and certification; the original trial outcomes are unchanged. Tessan asks to separate the replacement order. The chair invites a signed Crow account; he has not supplied one. No packet has been sent; Tessa’s separate safe-departure question remains unvoted and unsent.
+**Latest played beat:** Crow privately instructs Aurelia to wait for League issuance, then call the packet propaganda in the Empire’s name without making a further claim about whether its contents are true. Aurelia acknowledges and will wait. The clerk starts reading the new cover sheet, with the seal still absent and no League or Imperial public dispatch. The chair’s invitation for Crow’s signed account has not been taken up; Tessa’s separate departure question remains unvoted and unsent.
 
 **Senate composition:** Genosis has 36 nations, including sovereign Xiphos. Xiphos has no League Senate seat. The other 35 nations each have one seat, so the League Senate has 35 seats. The approved count is eight verdicts through the apprentice proposal. That does not establish current attendance, quorum, vacancies, roll-call turnout, or names for all seats.
 
@@ -29,4 +29,4 @@ Two days after the first Tessan receipt, Nareth and Ordel jointly submit their r
 | Planetary | Member governments and League officers retain local administration under the operative classification decree. The Senate continues business with Aurelia while Crow is away. Safe harbour is distinct from legal refuge. | Mining permit, royalty terms, transition disputes, and any still-open Senate review. |
 | Interstellar | First Fleet maintains defensive station under Elys; Lilith commands the Second, not present. Aurelia applies the Imperial interim fishing handling and accepts a League-sealed submission. | Formal treaty review and the wider political implementation of the classification. |
 
-Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume at the chair’s invitation for Crow to give his own account; nothing has been sealed or dispatched. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.
+Iona and the family-estate thread are offstage; no additional visit, appointment or relationship change here. For all future scenes, separate what was proposed, said and done. Resume with the clerk reading the revised cover sheet and the publication instruction pending the League’s issue. Retain the separate Senate and Aurelia thread and invent no new Crow action. Confirm each accepted story turn remotely before saying it was saved.
