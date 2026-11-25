@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000401",
+      "last_verified_turn": "000402",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000401",
+        "current_turn": "000402",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow observes without a new order. The contacts motion passed 26–6 with 3 abstentions. A separate motion to circulate trial accounts awaits debate and decision; the clerk is collecting willing firsthand statements.",
+        "current_status": "Six signed firsthand accounts are in hand. The Senate votes 24–8 with 3 abstentions to send the trial accounts and minutes under the League’s seal; packets are still being folded. Tessa proposes asking the regency whether attendees can be guaranteed safe departure. The question is set apart on its own sheet, with no vote, transmission, answer, or guarantee yet. Crow observes without issuing a new order.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
