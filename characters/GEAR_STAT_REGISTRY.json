@@ -426,7 +426,7 @@
           "source": "Explicit player rewind and exact played continuation"
         }
       ],
-      "last_verified_turn": "000407",
+      "last_verified_turn": "000408",
       "known_creation": "Singularity Dagger invented by Elys; currently equipped/owned status unknown.",
       "pending_commissions": [
         {
@@ -1039,7 +1039,7 @@
         "witness_signature": "Elys Somnion",
         "current_location": "Inside the League Senate chamber, Greyhaven, Genosis",
         "arc_start_turn": "000307",
-        "current_turn": "000407",
+        "current_turn": "000408",
         "imperial_identity_public": false,
         "previous_slot_list_scope": "Historical record, not asserted as current Genosis equipment",
         "verified_recovered_preowned_items": [
@@ -1049,7 +1049,7 @@
         ],
         "current_numeric_stats": null,
         "current_slot_assignment": null,
-        "current_status": "Crow declines comment and the clerk records it. The League seals the approved packets and its first couriers leave Greyhaven by evening; no universal delivery is established. Aurelia issues a single public sentence under the regency seal classifying the packet as propaganda, without disputing or affirming any specific fact. Tessa brings the separate safe-departure sheet back to the chair; the question remains unvoted and unsent.",
+        "current_status": "Next morning Aurelia appears in person, says the propaganda label imposes no reading restriction, and declines comment on accuracy. Asked about safe departure, she can instruct officers under her authority but cannot bind the Emperor or override his order. She promises a written instruction before the sitting ends; it has not issued on page. Tessa changes the draft heading and asks that each government receive a copy; no completed distribution or Crow action.",
         "known_current_gear": {
           "visible_armor": "Full armor revealed; item identity not inferred",
           "aletheia": {
