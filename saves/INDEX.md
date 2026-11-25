@@ -642,3 +642,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000407](turns/000407.md) | The Genosis Arc | Played voice scene, exact | Crow declines; first League couriers depart, regency labels packet propaganda only | [000380](checkpoints/000400.md) |
 | [000408](turns/000408.md) | The Genosis Arc | Played voice scene, exact | Aurelia offers written officer instruction but cannot bind Crow; no issuance shown | [000380](checkpoints/000400.md) |
 | [000409](turns/000409.md) | The Genosis Arc | Played voice scene, exact | Nareth cites conditional recall; chair intends to consult governments; officer instruction not yet shown | [000380](checkpoints/000400.md) |
+| [000410](turns/000410.md) | The Genosis Arc | Played voice scene, exact | Crow warns of the cost of withdrawal; chair requests his word on free departure | [000380](checkpoints/000400.md) |
