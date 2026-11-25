@@ -647,3 +647,4 @@ Recovered story sequence following the last archived festival record. Save numbe
 | [000412](turns/000412.md) | The Genosis Arc | Played voice scene, exact | Empty-seat condition stated; no withdrawal, war, vote or answer on replacement window | [000380](checkpoints/000400.md) |
 | [000413](turns/000413.md) | The Genosis Arc | Played voice scene, exact | Illness excluded; government given time to reconsider; exact interval still unanswered | [000380](checkpoints/000400.md) |
 | [000414](turns/000414.md) | The Genosis Arc | Played voice scene, exact | One week from sitting; substitute counsel during illness; Nareth’s delegate receives notice | [000380](checkpoints/000400.md) |
+| [000415](turns/000415.md) | The Genosis Arc | Played voice scene, exact | Nareth rescinds recall but contests Imperial claim; roll answered, voting book requested | [000380](checkpoints/000400.md) |
