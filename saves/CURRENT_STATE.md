@@ -9,7 +9,7 @@
 
 ## Resume: the Senate chamber
 
-Elys previously resided quietly aboard his **unnamed Imperial super-dreadnought** off Greyhaven Orbital. After the five-metre crater test he went to the League Senate to observe its response. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
+Elys previously resided quietly aboard **The Indomitable**, his First Fleet super-dreadnought and Imperial flagship, off Greyhaven Orbital. [Flagship identity clarification](errata/GENOSIS_FLAGSHIP_IDENTITY.md). After the five-metre crater test he went to the League Senate to observe its response. The flagship keeps its standing watch. The prior uneventful stretch remains intact. The current crater order is later and explicit; retired alternatives did not occur.
 
 On Genosis, Tessan’s senator brings forty-seven fishing licence renewals on paper. Aurelia appears by holo from Epsilon-7 with an Imperial registrar. The treaty crosses a maritime boundary; the Empire can protect the boats from its own inspectors, but foreign unloading arrangements remain under the other country's authority and existing agreement. Aurelia orders all forty-seven applications recorded as filed and receipts sent. Existing licences carry into next season while the review is open. One receipt has arrived; that is not evidence that all receipts have arrived or final renewals are granted. Nareth and Ordel may submit their agreements and a list of people who depend on them together under the League seal; no equivalent interim protection is granted in this scene.
 

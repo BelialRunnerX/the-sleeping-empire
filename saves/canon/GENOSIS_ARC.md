@@ -12,6 +12,8 @@ The privately recovered pen, everyday-clothes armor and resource pouch are pre-o
 
 ## Continuity boundaries
 
+- **The Indomitable** is Emperor Elysomnion’s personal flagship and First Fleet super-dreadnought: the same ship the Eleventh Fleet faced in the training exercise. The [identity clarification](../errata/GENOSIS_FLAGSHIP_IDENTITY.md) supplies the name omitted in older turns; it establishes no public disclosure or new action on Genosis.
+
 - The festival arc stays intact as historical canon. The current archive supplies no missing scene bridging from the festival directly to Alderford.
 - Local port watch, sovereign Xiphos, the League Senate/executive, and the Imperial First Fleet are separate authorities. No alias or role is a new person.
 - Keep written orders, verified hearings and actual votes separate from proposals, private knowledge, and jokes. The harbour emergency/warrants examples before the later vote were policy exercises.
